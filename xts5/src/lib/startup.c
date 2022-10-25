@@ -156,23 +156,23 @@ int XInputFirstEvent;
 int baddevice;
 
 extern	Display	*Dsp;
-Window	Win;
+extern	Window	Win;
 
 static	Window	ofocus;
 static	int	revert_to;
 static	char	**odir_array;
 static	int	odirs;
 
-Window	ErrdefWindow;
-Drawable ErrdefDrawable;
-GC		ErrdefGC;
-Colormap ErrdefColormap;
+extern	Window		ErrdefWindow;
+extern	Drawable 	ErrdefDrawable;
+extern	GC		ErrdefGC;
+extern	Colormap 	ErrdefColormap;
 
 /* NOT DONE YET */
-Pixmap	ErrdefPixmap;
-Atom	ErrdefAtom;
-Cursor	ErrdefCursor;
-Font	ErrdefFont;
+extern	Pixmap	ErrdefPixmap;
+extern	Atom	ErrdefAtom;
+extern	Cursor	ErrdefCursor;
+extern	Font	ErrdefFont;
 
 void	aborttest();
 

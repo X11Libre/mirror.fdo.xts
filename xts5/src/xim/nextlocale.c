@@ -146,7 +146,7 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include "pixval.h"
 #include "ximtest.h"
 
-Display	*Dsp;
+extern	Display	*Dsp;
 
 static	int 	CurLocale = 0;
 static	int	NumLocales = 0;

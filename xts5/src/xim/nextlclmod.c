@@ -142,7 +142,7 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include	"pixval.h"
 #include 	"ximtest.h"
 
-Display	*Dsp;
+extern	Display	*Dsp;
 
 static	int 	CurLclMod = 0;
 static	int		NumLclMod = 0;

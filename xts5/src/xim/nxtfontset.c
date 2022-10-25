@@ -142,7 +142,7 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include	"pixval.h"
 #include 	"ximtest.h"
 
-Display	*Dsp;
+extern	Display	*Dsp;
 
 static	int 	CurFontSet = 0;
 static	int		NumFontSet = 0;

@@ -130,7 +130,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 #include	"tet_api.h"
 #include	"pixval.h"
 
-Display	*Dsp;
+extern	Display	*Dsp;
 
 static	int 	Visindex;
 static	int 	Nvis;

@@ -155,7 +155,7 @@ int XInputFirstError;
 int XInputFirstEvent;
 int baddevice;
 
-Display	*Dsp;
+extern	Display	*Dsp;
 Window	Win;
 
 static	Window	ofocus;

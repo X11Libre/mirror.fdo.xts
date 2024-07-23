@@ -70,8 +70,8 @@ SOFTWARE.
 #include <sys/sem.h>
 
 /*error messages formatted here*/
-char ebuf[4096];
-int s2;
+static char ebuf[4096];
+static int s2;
 
 #define	NUM_EVENTS	8
 

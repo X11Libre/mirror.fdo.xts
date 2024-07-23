@@ -78,10 +78,6 @@ void    vsw_debug_exit();
 int              got_sigalrm;
 unsigned         unused_time;
 
-
-extern char		ebuf[4096];
-extern int		s2;
-
 #ifdef OLDSIGNALS
 static void     (*osig)();
 #else
@@ -104,7 +100,7 @@ void (*handler)(int);
 #if OLDSIGNALS
 	osig = signal(sig, handler);
 #else
-        s2 = sigemptyset(&(nact.sa_mask));
+        int s2 = sigemptyset(&(nact.sa_mask));
 	if (s2 == -1) {
 		uwerrno("sigemptyset");
 		vsw_debug_exit("libXtTest/signals.c:avs_signal()",0);

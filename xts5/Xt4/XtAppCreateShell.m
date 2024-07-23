@@ -62,9 +62,9 @@ All Rights Reserved.
 #include <X11/CoreP.h>
 #include <X11/Xatom.h>
 
-XtAppContext app_ctext;
-Widget topLevel, panedw, boxw1, boxw2;
-Widget labelw, rowcolw, click_quit;
+extern XtAppContext app_ctext;
+extern Widget topLevel, panedw, boxw1, boxw2;
+extern Widget labelw, rowcolw, click_quit;
 >>TITLE XtAppCreateShell Xt4
 Widget
 XtAppCreateShell(name, application_class, widget_class, display, args, num_args)

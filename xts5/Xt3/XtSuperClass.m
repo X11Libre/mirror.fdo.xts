@@ -57,10 +57,10 @@ All Rights Reserved.
 #include <X11/Xaw/Label.h>
 
 XtAppContext app_ctext ;
-Widget topLevel, panedw, boxw1, boxw2 ;
-Widget labelw, rowcolw, click_quit ;
+extern Widget topLevel, panedw, boxw1, boxw2 ;
+extern Widget labelw, rowcolw, click_quit ;
 
-char label[80] ;
+extern char label[80] ;
 >>TITLE XtSuperClass Xt3
 WidgetClass
 XtSuperClass(w)

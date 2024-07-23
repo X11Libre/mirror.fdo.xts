@@ -75,7 +75,7 @@ SOFTWARE.
 #include <fcntl.h>
 
 /*error messages formatted here*/
-char ebuf[4096];
+static char ebuf[4096];
 
 static	int	Dup_stdout = -1;	/* Duplicate of stdout fd */
 static	int	Dup_stderr = -1;	/* Duplicate of stderr fd */

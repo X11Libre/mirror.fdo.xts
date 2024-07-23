@@ -54,9 +54,9 @@ All Rights Reserved.
 >># Prepare for GA Release
 >>#
 >>EXTERN
-XtAppContext app_ctext;
-Widget topLevel, panedw, boxw1, boxw2;
-Widget labelw, rowcolw, click_quit;
+extern XtAppContext app_ctext;
+extern Widget topLevel, panedw, boxw1, boxw2;
+extern Widget labelw, rowcolw, click_quit;
 >>TITLE XtIsOverrideShell Xt3
 Boolean
 XtIsOverrideShell(w)

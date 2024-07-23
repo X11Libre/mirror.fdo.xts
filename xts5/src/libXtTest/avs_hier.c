@@ -66,8 +66,8 @@ SOFTWARE.
 
 #include <XtTest.h>
 
-extern Widget topLevel, panedw, boxw1, boxw2, rowcolw, click_quit, labelw;
-extern XtAppContext app_ctext;
+Widget topLevel, panedw, boxw1, boxw2, rowcolw, click_quit, labelw;
+XtAppContext app_ctext;
 extern char *title() ;
 extern char ebuf[];
 char label[80] ;

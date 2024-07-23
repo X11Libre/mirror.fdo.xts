@@ -58,9 +58,9 @@ All Rights Reserved.
 #include <X11/ConstrainP.h>
 #include <X11/CoreP.h>
 
-XtAppContext app_ctext;
-Widget topLevel, panedw, boxw1, boxw2;
-Widget labelw, rowcolw, click_quit;
+extern XtAppContext app_ctext;
+extern Widget topLevel, panedw, boxw1, boxw2;
+extern Widget labelw, rowcolw, click_quit;
 
 /*used for assignments to solicit compiler failures due to type mismatches*/
 WidgetClass             myWidgetClass, *pmyWidgetClass;

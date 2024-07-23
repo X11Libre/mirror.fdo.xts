@@ -70,8 +70,8 @@ SOFTWARE.
 #include <errno.h>
 
 /*error messages formatted here*/
-char ebuf[4096];
-int s2;
+static char ebuf[4096];
+static int s2;
 
 /*signal handler*/
 static void lsah2(s)

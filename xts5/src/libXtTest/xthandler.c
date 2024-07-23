@@ -68,7 +68,7 @@ SOFTWARE.
 #include <XtTest.h>
 #define MIT_TET_WARNING 101
 /*error messages formatted here*/
-char ebuf[4096];
+static char ebuf[4096];
 
 
 /*

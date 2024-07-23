@@ -68,7 +68,7 @@ SOFTWARE.
 #include <xt/SquareCelP.h>
 
 /*error messages created here*/
-char	ebuf[4096];
+static char ebuf[4096];
 
 XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;

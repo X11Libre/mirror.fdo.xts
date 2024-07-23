@@ -88,7 +88,7 @@ extern void	tet_dtcmerror PROTOLIST((int, const char *, int, const char *,
                                          const char *));
 
 TET_EXPORT char *tet_pname = "<unknown>";
-TET_EXPORT int tet_thistest = -1;
+//TET_EXPORT int tet_thistest = -1;
 
 #ifndef TET_LITE /* -START-LITE-CUT- */
 int tet_psysid = -1;			/* parent's system id */

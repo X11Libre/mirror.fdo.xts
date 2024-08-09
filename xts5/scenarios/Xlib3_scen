@@ -68,7 +68,7 @@
 	/Xlib3/XBitmapUnit
 	"VSW5TESTSUITE CASE XCellsOfScreen 1"
 	/Xlib3/XCellsOfScreen
-	"VSW5TESTSUITE CASE XCloseDisplay 28"
+	"VSW5TESTSUITE CASE XCloseDisplay 29"
 	/Xlib3/XCloseDisplay
 	"VSW5TESTSUITE CASE XConnectionNumber 1"
 	/Xlib3/XConnectionNumber

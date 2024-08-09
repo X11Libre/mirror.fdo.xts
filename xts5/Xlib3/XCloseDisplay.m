@@ -1985,4 +1985,48 @@ int	k;
 	}
 
 	CHECKPASS(2 * 3);
+
+>>ASSERTION Good A
+Call XCloseDisplay() with synchronization enabled and verify XCloseDisplay()
+does not fail with an XIO error.
+>>STRATEGY
+  Open a display using XOpenDisplay.
+  Enable synchronization.
+  Create a colormap using XCreateColormap in a child process.
+  Close the display in the child process.
+  Check the exit status of the child process.
+Otherwise:
+  UNTESTED.
+>>EXTERN
+static int
+errorhandler(display)
+Display *display;
+{
+	exit(-1);
+}
+
+static	void
+child_proc1()
+{
+	XSetIOErrorHandler(errorhandler);
+	XSynchronize(display, True);
+	XCreateColormap(display,
+		DRW(display),
+		XDefaultVisual(display, XDefaultScreen(display)),
+		AllocNone);
+	XCloseDisplay(display);
+	exit(0);
+}
+
+>>CODE
+int	child_exit;
+
+	OPEN(display, DestroyAll);
+
+	child_exit = tet_fork(child_proc1, (void (*)()) NULL, 10, ~0);
+	if (child_exit == 0)
+	        CHECK;
+	else
+	        FAIL;
 	
+	CHECKPASS(2);

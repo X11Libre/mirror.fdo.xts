@@ -122,7 +122,7 @@
 all
 	"VSW5TESTSUITE SECTION Xproto 122 389 0 0"
 	:include:/scenarios/Xproto_scen
-	"VSW5TESTSUITE SECTION Xlib3 109 161 0 0"
+	"VSW5TESTSUITE SECTION Xlib3 109 162 0 0"
 	:include:/scenarios/Xlib3_scen
 	"VSW5TESTSUITE SECTION Xlib4 29 324 0 0"
 	:include:/scenarios/Xlib4_scen
@@ -192,7 +192,7 @@ all
 	:include:/scenarios/XIproto_scen
 
 Interface
-	"VSW5TESTSUITE SECTION Xlib3 109 161 0 0"
+	"VSW5TESTSUITE SECTION Xlib3 109 162 0 0"
 	:include:/scenarios/Xlib3_scen
 	"VSW5TESTSUITE SECTION Xlib4 29 324 0 0"
 	:include:/scenarios/Xlib4_scen
@@ -258,7 +258,7 @@ Interface
 Display
 	"VSW5TESTSUITE SECTION Xproto 122 389 0 0"
 	:include:/scenarios/Xproto_scen
-	"VSW5TESTSUITE SECTION Xlib3 109 161 0 0"
+	"VSW5TESTSUITE SECTION Xlib3 109 162 0 0"
 	:include:/scenarios/Xlib3_scen
 	"VSW5TESTSUITE SECTION Xlib4 29 324 0 0"
 	:include:/scenarios/Xlib4_scen
@@ -292,7 +292,7 @@ Display
 	:include:/scenarios/Xopen_scen
 
 Xlib
-	"VSW5TESTSUITE SECTION Xlib3 109 161 0 0"
+	"VSW5TESTSUITE SECTION Xlib3 109 162 0 0"
 	:include:/scenarios/Xlib3_scen
 	"VSW5TESTSUITE SECTION Xlib4 29 324 0 0"
 	:include:/scenarios/Xlib4_scen
@@ -356,7 +356,7 @@ Xt
 	:include:/scenarios/XtE_scen
 
 Xlib3
-	"VSW5TESTSUITE SECTION Xlib3 109 161 0 0"
+	"VSW5TESTSUITE SECTION Xlib3 109 162 0 0"
 	:include:/scenarios/Xlib3_scen
 
 Xlib4
@@ -1906,7 +1906,7 @@ XCellsOfScreen
 	/Xlib3/XCellsOfScreen
 
 XCloseDisplay
-	"VSW5TESTSUITE CASE XCloseDisplay 28"
+	"VSW5TESTSUITE CASE XCloseDisplay 29"
 	/Xlib3/XCloseDisplay
 
 XConnectionNumber

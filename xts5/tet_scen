@@ -292,7 +292,7 @@ Display
 	:include:/scenarios/Xopen_scen
 
 Xlib
-	"VSW5TESTSUITE SECTION Xlib3 108 160 0 0"
+	"VSW5TESTSUITE SECTION Xlib3 109 161 0 0"
 	:include:/scenarios/Xlib3_scen
 	"VSW5TESTSUITE SECTION Xlib4 29 324 0 0"
 	:include:/scenarios/Xlib4_scen

@@ -245,3 +245,31 @@ XIC xim_ic_init(
     char* /* plocale */
 #endif
 );
+
+int nextfontset(char **fontset);
+void resetfontset(void);
+
+Bool locale_set(char *plocale);
+
+int parse_find_key(char *id, char *keys[], int cnt);
+Bool parse_gethex(char **ppstr, int *pnum);
+Bool parse_getid(char **ppstr, char *pid, Bool upit);
+Bool parse_getnum(char **ppstr, int *pnum);
+Bool parse_skwhite(char **ppstr);
+
+Bool xim_compare(cbstk_def *pe, cbstk_def *pa);
+
+Bool xim_response_open(char *plocale, XIMStyle *style);
+Bool xim_response_compare(cbstk_def *astk);
+Bool xim_response_done(cbstk_def *pstk);
+void xim_response_close(void);
+void xim_response_clean_cb(void);
+void xim_response_push_cb(cbstk_def *pstk, int cb, char *data);
+void xim_response_pop_cb(cbstk_def *pstk);
+
+Bool xim_save_open(char *plocale, XIMStyle style);
+void xim_save_close(void);
+void xim_save_response(cbstk_def *pstk);
+
+Bool xim_stimulus_open(char *plocale, XIMStyle *style);
+void xim_stimulus_close(void);

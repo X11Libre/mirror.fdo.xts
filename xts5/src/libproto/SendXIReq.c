@@ -150,10 +150,15 @@ SOFTWARE.
 #include <X11/extensions/XIproto.h>
 #endif
 #include "DataMove.h"
+#include "tet_api.h"
 
 extern Display *Dsp;
 
 void _Send_XInput_Req();
+
+static void Send_Extension_Event (int client, int num_ev, int num_classes,
+                                  char *ptr);
+static void Send_Feedback_Control (int client, XID class, char *ptr);
 
 #ifdef INPUTEXTENSION
 void
@@ -722,7 +727,7 @@ int pollreq;
 
 }
 
-void
+static void
 Send_Feedback_Control (client, class, ptr)
     int client;
     XID class;
@@ -800,7 +805,7 @@ Send_Feedback_Control (client, class, ptr)
 	}
     }
 
-void
+static void
 Send_Extension_Event (client, num_ev, num_classes, ptr)
     int client;
     int num_ev, num_classes;

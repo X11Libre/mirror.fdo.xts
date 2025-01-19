@@ -149,6 +149,7 @@ SOFTWARE.
 
 #include "XstlibInt.h"
 #include "DataMove.h"
+#include "tet_api.h"
 
 extern Display *Dsp;
 

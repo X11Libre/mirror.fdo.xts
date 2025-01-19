@@ -127,6 +127,7 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #endif
 
 #include    <stdio.h>
+#include    <stdlib.h>
 #include    <string.h>
 
 #include    "xtest.h"

@@ -134,6 +134,8 @@ SOFTWARE.
 #include <config.h>
 #endif
 
+#include <unistd.h>
+#include "xtestlib.h"
 #include "XstlibInt.h"
 #include "DataMove.h"
 

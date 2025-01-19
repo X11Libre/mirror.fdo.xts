@@ -133,15 +133,19 @@ SOFTWARE.
 #endif
 
 #include <stdlib.h>
+#include <unistd.h>
+#include "xtestlib.h"
 #include "XstlibInt.h"
 #include <X11/Xatom.h>
 
 CL Xst_clients[MAX_CLIENTS];
 
 
-XstDisplay *XstOpenDisplay();
-static  void OutOfMemory();
-static  void ReleaseMemory();
+static XstDisplay *XstOpenDisplay (char *display, int bytesex,
+                                   int needswap, int cl);
+static void XstFreeDisplayStructure (XstDisplay *dpy);
+static void OutOfMemory(XstDisplay *dpy, char *setup);
+static void ReleaseMemory(XstDisplay *dpy, char *setup);
 
 
 /*
@@ -304,7 +308,8 @@ XModifierKeymap * XstNewModifiermap ();
  * Connects to a server, creates a XstDisplay object and returns a pointer to
  * the newly created XstDisplay back to the caller.
  */
-XstDisplay * XstOpenDisplay (display, bytesex, needswap, cl)
+static XstDisplay *
+XstOpenDisplay (display, bytesex, needswap, cl)
 register char  *display;
 int     bytesex;
 int     needswap;
@@ -789,7 +794,7 @@ static  void ReleaseMemory (dpy, setup)
  * before the first possible call on this.
  */
 
-void
+static void
 XstFreeDisplayStructure (dpy)
 register    XstDisplay * dpy;
 {

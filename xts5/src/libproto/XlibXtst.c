@@ -167,6 +167,7 @@ SOFTWARE.
 #include <stdio.h>
 #include <string.h>
 #include <sys/time.h>
+#include "xtestlib.h"
 #include "XstlibInt.h"
 #include "XstosInt.h"
 #include "DataMove.h"

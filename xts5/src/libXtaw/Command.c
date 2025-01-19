@@ -92,6 +92,7 @@ SOFTWARE.
 #endif
 
 #include <stdio.h>
+#include <X11/extensions/shape.h>
 #include <X11/IntrinsicP.h>
 #include <X11/StringDefs.h>
 #include <X11/Xmu/Misc.h>

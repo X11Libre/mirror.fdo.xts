@@ -115,6 +115,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 #include <stdio.h>
 #include <stdlib.h>
 #include <X11/Xlib.h>  		/* xlib defs */
+#include <X11/Xutil.h>  	/* ximage defs */
 #include <X11/cursorfont.h>	/* cursor info */
 #include <r5structs.h>
 #include <r5decl.h>		/* color thingys */

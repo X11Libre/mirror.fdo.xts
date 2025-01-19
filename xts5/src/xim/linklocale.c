@@ -125,6 +125,7 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 #include		<stdio.h>
 #include    <string.h>
+#include    <unistd.h>
 #include    "xtest.h"
 #include    "X11/Xlib.h"
 #include    "X11/Xutil.h"

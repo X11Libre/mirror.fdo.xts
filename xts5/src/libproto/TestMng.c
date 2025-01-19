@@ -136,6 +136,7 @@ SOFTWARE.
 #include <config.h>
 #endif
 
+#include "xtestlib.h"
 #include "XstlibInt.h"
 #include "setjmp.h"
 #include "stdlib.h"

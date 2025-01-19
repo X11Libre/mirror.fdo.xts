@@ -136,6 +136,7 @@ SOFTWARE.
 #include <config.h>
 #endif
 
+#include "xtestlib.h"
 #include "XstlibInt.h"
 #ifdef INPUTEXTENSION
 #include "X11/extensions/XIproto.h"

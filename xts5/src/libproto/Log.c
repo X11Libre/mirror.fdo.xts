@@ -130,6 +130,7 @@ SOFTWARE.
 #include <config.h>
 #endif
 
+#include "xtestlib.h"
 #include "XstlibInt.h"
 #include "stdlib.h"
 #include "tet_api.h"

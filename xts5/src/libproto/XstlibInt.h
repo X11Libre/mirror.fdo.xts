@@ -145,17 +145,21 @@ SOFTWARE.
 void Copy_Padded_String16();
 void Copy_Padded_String8();
 void SendIt(int cl, unsigned long bytesToSend, int isABigRequest);
-void Send_String16();
-void Send_TextItem16();
-void Send_TextItem8();
-void Send_Value_List();
-unsigned char unpack1();
-unsigned short unpack2();
-unsigned long unpack4();
-void pack1();
-void pack2();
-void pack4();
-void packpad();
+void Send_CHAR2B(int cl, xReq *rp, int size);
+void Send_String16(int cl, xReq *rp, int size);
+void Send_TextItem16(int cl, xReq *rp, int size);
+void Send_TextItem8(int cl, xReq *rp, int size);
+void Send_Value_List(int cl, xReq *rp, int size, int format);
+void pack1(char **bufpp, char val);
+void pack2(char **bufpp, CARD16 val, int swap);
+void pack4(char **bufpp, CARD32 val, int swap);
+void pack2_lsb(char **bufpp, CARD16 val);
+void packpad(char **bufpp, int cnt);
+unsigned char unpack1(unsigned char **bufpp);
+unsigned short unpack2(unsigned char **bufpp, int swap);
+unsigned long unpack4(unsigned char **bufpp, int swap);
+void Unpack_Shorts(CARD16 *to, unsigned char **from, int count, int swap);
+void Unpack_Longs(CARD32 *to, unsigned char **from, int count, int swap);
 void XstIOError();
 int Xst_Read();
 void squeeze_me_in(int cl, unsigned long len);
@@ -280,3 +284,54 @@ extern int Xst_override;
 #define EXPECT_TIMER_ID		1
 #define VISUAL_CHECK_TIMER	2
 #define CONNECT_TIMER_ID	3
+
+void BigRequestsSetup(int client, XstDisplay *dpy, int needswap);
+void GetConnSetupData (int client, xConnSetup *setupdp, int len, int needswap);
+void GetConnSetupPrefix (int client, xConnSetupPrefix *prefixp, int needswap);
+int XstDisconnectDisplay (int server);
+
+int _XConnectDisplay (char *display_name, char **fullnamep,
+                      int *dpynump, int *screenp,
+                      char **auth_namep, int *auth_namelenp,
+                      char **auth_datap, int *auth_datalenp);
+void _Send_Req (int client, xReq *rp, int pollreq);
+void _XstWaitForReadable (XstDisplay *dpy);
+
+xReq *Clear_Masked_Value (xReq *reqp);
+
+void Copy_String8 (char **to, char *from);
+
+void Destroy_Client (int client);
+unsigned char native_byte_sex (void);
+
+int Gen_Good_depth (int client);
+int Gen_Good_id (int client);
+int Gen_Good_srcX (int client);
+int Gen_Good_srcY (int client);
+int Gen_Good_time (int client);
+VisualID Gen_Good_Visual (int client, int scr);
+int Get_Maxsize (int client);
+
+int Rcv_Err (xError *rp, char rbuf[], int client);
+#ifdef Xpi
+int Rcv_Evt (xEvent *rp, char rbuf[], int client, int base);
+#else
+int Rcv_Evt (xEvent *rp, char rbuf[], int client);
+#endif
+int Rcv_Ext_Evt (xEvent *rp, char rbuf[], int client, int base);
+int Rcv_Ext_Err (xError *rp, char rbuf[], int client);
+int Rcv_Ext_Rep (xReply *rp, char rbuf[], int type, int client);
+int Rcv_Rep (xReply *rp, char rbuf[], int type, int client);
+
+void Show_Ext_Evt (XEvent *mp);
+void Show_Ext_Err (xError *mp);
+void Show_Ext_Rep (xReply *mp, int type, long bytes_given);
+void Show_Ext_Req (xReq *mp);
+void Show_String8 (xReq *rp, int size, int length);
+void Show_Strs(unsigned char *cp, int nstrs, int nbytes, char *label);
+void Show_Value_List_nRep (xReply *rp, int nval, int size, int format);
+void Show_Value_List_Rep (xReply *rp, int size, int format);
+void Show_Value_List_Req (xReq *rp, int size, int format);
+
+void Untested (void);
+void wbcopy (unsigned char *b1, unsigned char *b2, int length);

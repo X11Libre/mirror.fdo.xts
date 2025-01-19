@@ -120,6 +120,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 #include <config.h>
 #endif
 
+#include	<ctype.h>
 #include	<stdio.h>
 #include	<string.h>
 #include	"mc.h"

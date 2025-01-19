@@ -163,6 +163,9 @@ static int this_client;
 
 void Get_Me_That ();
 
+static void Poll_Server (int client);
+static int Rcv_Poll (xReply *rep, char rbuf[], int client);
+
 static  void
 Timeout_Func () {
     Log_Msg ("Expect: wanted %s, got TIMEOUT! (server may be dead)\n", wanted);
@@ -586,7 +589,7 @@ unsigned long   size;
     return;
 }
 
-void
+static void
 Poll_Server (client)
 int     client;
 {
@@ -647,7 +650,8 @@ int     type;
     return (prtbuf);
 }
 
-int     Rcv_Poll (rep, rbuf, client)
+static int
+Rcv_Poll (rep, rbuf, client)
         xReply * rep;
 	char rbuf[];
 	int client;

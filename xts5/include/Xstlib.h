@@ -427,7 +427,8 @@ void	Map_Window();
 void	Send_Req();	/* send the request pointed to */
 void	Server_Close();	/* close connection to X server */
 int	Server_Open();	/* establish connection to X server */
-int	Set_Timer();
+int	Set_Init_Timer(void);
+int	Set_Timer(int timer, int time, void (*routine)());
 void	Set_Value1();
 void	Set_Value2();
 void	Set_Value4();

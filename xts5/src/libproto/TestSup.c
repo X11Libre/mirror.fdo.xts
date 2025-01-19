@@ -131,6 +131,7 @@ SOFTWARE.
 
 #include <stdio.h>
 #include "Xstlib.h"
+#include "XstlibInt.h"
 
 void
 Map_Window(client,win)	/* use this routine only when exposure events are */

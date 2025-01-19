@@ -276,6 +276,7 @@ SOFTWARE.
 #include <stdlib.h>
 #include <string.h>
 #include "X11/Xlib.h"  		/* xlib defs */
+#include <X11/Xutil.h>		/* ximage defs */
 #include "X11/cursorfont.h"		/* cursor info */
 /* #include "drawutil.h"		// color thingys */
 

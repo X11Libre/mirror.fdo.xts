@@ -141,6 +141,7 @@ SOFTWARE.
 
 #include "XstlibInt.h"
 #include <signal.h>
+#include <unistd.h>
 
 /*
  * Data structures and variables

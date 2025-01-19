@@ -86,6 +86,7 @@ resources are reported
 #include <X11/Xmu/CharSet.h>
 #include <X11/Xaw/XawInit.h>
 #include <X11/Xaw/FormP.h>
+#include <XtTest.h>
 
 /* Private Definitions */
 

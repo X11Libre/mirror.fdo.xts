@@ -114,6 +114,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 #include <string.h>
 #include <r5structs.h>                                   
 #include <r5decl.h>
+#include "tet_api.h"
 
 #define MAX_STR_LEN 255
 

@@ -136,14 +136,24 @@ static  int LastZoom = -1;
 static	int Colour = 0;
 static	char *font_name = NULL;
 
-int	readimage();
+static int dispimage(Display *disp, Window win, GC gc,
+                     XImage *images[2], int nim);
+static int proc(Display	*disp, Window win, GC gc, FILE *fp);
+static int processfile(Display *disp, Window win, GC gc, char *file);
+static int readimage(FILE *fp, XImage *images[2], Display *disp);
+static void setzoom(Display *disp, Window win, GC gc);
+extern int VBlowup(Display *display, Window window, GC egc,
+                   int init_x, int init_y, int w, int h, int size,
+                   int granularity, Colormap cmap, XImage *pbi, XImage *kgi,
+                   int ix, int iy, unsigned long background,
+                   int warp_pointer_x, int warp_pointer_y, int show_banner,
+                   int compare_color, void (*expose_handler)(),
+                   int *winzoomp, char *font_name);
 
 /* Is this an error or dat file */
 int 	FileType;
 #define	TYPE_ERROR	1
 #define	TYPE_DATA	2
-
-void setzoom();
 
 int
 main(argc, argv)
@@ -233,7 +243,7 @@ int	errs = 0;
 	} while (--argc > 0);
 }
 
-int
+static int
 processfile(disp, win, gc, file)
 Display	*disp;
 Window	win;
@@ -267,7 +277,7 @@ int	ret;
 	return ret;
 }
 
-int
+static int
 proc(disp, win, gc, fp)
 Display	*disp;
 Window	win;
@@ -302,7 +312,7 @@ int	ret;
 	return ret;
 }
 
-int
+static int
 dispimage(disp, win, gc, images, nim)
 Display *disp;
 Window win;
@@ -417,7 +427,7 @@ printf("repaint: Done\n");
 #endif /* DEBUG */
 }
 
-int
+static int
 readimage(fp, images, disp)
 FILE	*fp;
 XImage	*images[2];
@@ -544,7 +554,8 @@ int 	x, y;
 	return 0;
 }
 
-void setzoom(disp, win, gc)
+static void
+setzoom(disp, win, gc)
 Display	*disp;
 Window	win;
 GC	gc;

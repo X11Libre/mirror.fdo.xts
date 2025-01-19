@@ -125,6 +125,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 #endif
 
 #include	<stdio.h>
+#include	<string.h>
 #include	"mc.h"
 
 int	 Outputon = 1;

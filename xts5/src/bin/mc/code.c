@@ -112,6 +112,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 #include	<stdio.h>
 #include	<string.h>
 #include	<ctype.h>
+#include	<unistd.h>
 
 #include	"mc.h"
 

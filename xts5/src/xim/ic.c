@@ -631,6 +631,7 @@ void ic_close(ic)
 		XDestroyIC(ic);
 }
 
+void
 ic_get_cb(pe_cb,status_cb,geom_cb)
 	XIMCallback pe_cb[];
 	XIMCallback status_cb[];

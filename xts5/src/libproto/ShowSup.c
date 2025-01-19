@@ -160,6 +160,7 @@ static char scratchbuf[PRTBUFSIZ];  /* ? */
                  
 */
 
+void
 Show_Value_List_Req (rp, size, format)
 xReq * rp;
 int     size;
@@ -321,6 +322,7 @@ int	format;
                  
 */
 
+void
 Show_Value_List_Rep (rp, size, format)
 xReply  *rp;
 int     size;
@@ -480,6 +482,7 @@ int	format;
                  it's done now, since it's a little silly.
 */
 
+void
 Show_String8 (rp, size, length)
 xReq * rp;
 int     size;
@@ -568,6 +571,7 @@ char *label;
    methods:	 Bytes per item is implicit in FORMAT type.
 */
 
+void
 Show_Value_List_nRep (rp, nval, size, format)
 xReply  *rp;
 int     nval;

@@ -161,8 +161,8 @@ static struct timer {
     struct timer   *next;	/* keeps a linked list in expiration order */
 }                   head;
 
-static  init = 0;		/* Have we set the ALRM signal handler? */
-static  inwork = 0;		/* Are we fussing with the queue? */
+static int  init = 0;		/* Have we set the ALRM signal handler? */
+static int  inwork = 0;		/* Are we fussing with the queue? */
 
 /*ARGSUSED*/
 static void

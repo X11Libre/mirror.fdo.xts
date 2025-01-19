@@ -586,6 +586,7 @@ unsigned long   size;
     return;
 }
 
+void
 Poll_Server (client)
 int     client;
 {

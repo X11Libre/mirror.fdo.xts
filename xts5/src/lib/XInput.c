@@ -119,12 +119,14 @@ int NumKeys,
 extern int XInputMajorOpcode;
 extern int unexp_err();
 
+void
 Close_Extension_Display()
     {
     XCloseDisplay(dpy2);
     dpy2 = NULL;
     }
 
+int
 Setup_Extension_DeviceInfo(dmask)
     unsigned int dmask;
     {
@@ -521,6 +523,7 @@ Setup_Extension_DeviceInfo(dmask)
 	return (False);
     }
 
+void
 SuppressExtensionEvents(dpy, win)
     Display *dpy;
     Window win;
@@ -528,6 +531,7 @@ SuppressExtensionEvents(dpy, win)
     XChangeDeviceDontPropagateList(dpy, win, pclass, propclasses, AddToList);
     }
 
+void
 SelectExtensionEvents(dpy, win)
     Display *dpy;
     Window win;
@@ -535,6 +539,7 @@ SelectExtensionEvents(dpy, win)
     XSelectExtensionEvent(dpy, win, classes, nclass);
     }
 
+void
 MinMaxKeys(dpy, dev, min, max, num)
     Display *dpy;
     XDevice *dev;
@@ -565,6 +570,7 @@ MinMaxKeys(dpy, dev, min, max, num)
 	}
     }
 
+int
 SetFeedbackInfo (mask, id)
     unsigned int mask;
     XID id;
@@ -641,6 +647,7 @@ SetFeedbackInfo (mask, id)
  *
  */
 
+int
 handle_x_errors (disp, err)
     Display     *disp;
     XErrorEvent *err;

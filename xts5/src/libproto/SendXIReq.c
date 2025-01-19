@@ -722,6 +722,7 @@ int pollreq;
 
 }
 
+void
 Send_Feedback_Control (client, class, ptr)
     int client;
     XID class;
@@ -799,6 +800,7 @@ Send_Feedback_Control (client, class, ptr)
 	}
     }
 
+void
 Send_Extension_Event (client, num_ev, num_classes, ptr)
     int client;
     int num_ev, num_classes;

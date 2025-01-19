@@ -133,30 +133,30 @@ SOFTWARE.
 
 /*ARGSUSED*/
 int
-Gen_Good_srcX (client) {
+Gen_Good_srcX (int client) {
     return (0);
 }
 /*ARGSUSED*/
 int
-Gen_Good_srcY (client) {
+Gen_Good_srcY (int client) {
     return (0);
 }
 
 int
-Gen_Good_depth (client) {
+Gen_Good_depth (int client) {
 XstDisplay	*dpy = Get_Display(client);
     return (XstDefaultDepth(dpy, XstDefaultScreen(dpy)));
 }
 
 /*ARGSUSED*/
 int
-Gen_Good_id (client) {
+Gen_Good_id (int client) {
     return (0);
 }
 
 /*ARGSUSED*/
 int
-Gen_Good_time (client) {
+Gen_Good_time (int client) {
     return (0);
 }
 

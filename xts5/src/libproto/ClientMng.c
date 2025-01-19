@@ -789,6 +789,7 @@ static  void ReleaseMemory (dpy, setup)
  * before the first possible call on this.
  */
 
+void
 XstFreeDisplayStructure (dpy)
 register    XstDisplay * dpy;
 {

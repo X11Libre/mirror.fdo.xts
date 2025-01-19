@@ -285,7 +285,7 @@ static short pixel_wrong;
 static unsigned long expected_pixel;
 static int windx,windy,wind_width,wind_height,scrn_width,scrn_height;
 static int key_win_width = 68, x_win_height = 17; /* depends on font used */
-static validate_color = 1;	/* 0 = position only */
+static int validate_color = 1;	/* 0 = position only */
 
 #define DEPTHMASK(n)	(((n) >= 32) ? 0xffffffff : ((0x1 << (n)) - 1))
 
@@ -306,7 +306,8 @@ Display *display;
 Window window;
 Window blowup_win;
 int x, y, zoom_factor;
-int pixels_across;               
+int pixels_across;
+int size;
 int format;
 GC gc;                  
 unsigned long gcback,gcfore;
@@ -463,6 +464,7 @@ XTextItem labels[] = {
 	{ " next      ", 11, 11, None}
 };
 
+void
 h_light(display, wins, nwins, gc, labs, target, kgi)
 Display	*display;
 Window	*wins;
@@ -482,6 +484,7 @@ XImage	*kgi;
 		    /* delta used as vertical, rather than horiz, here! */
 }
 
+void
 refresh(display, wins, nwins, gc, labs, kgi)
 Display	*display;
 Window	*wins;
@@ -507,7 +510,7 @@ char *whiches[] = {
  * do initialization and handle events                                                                
  */
 
-
+int
 VBlowup(display, window, egc, init_x, init_y, w, h, size, granularity, cmap,
 		pbi, kgi, ix, iy,
 		background, warp_pointer_x, warp_pointer_y,show_banner,

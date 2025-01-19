@@ -281,6 +281,7 @@ extern	int 	Cmdname;
 	}
 }
 
+int
 remfiles()
 {
 int 	i;
@@ -293,6 +294,7 @@ int 	i;
 	Filetind = 0;
 }
 
+int
 includefile(file, bp)
 char	*file;
 char	*bp;

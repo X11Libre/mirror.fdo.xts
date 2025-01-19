@@ -536,6 +536,7 @@ static	int 	oncethrough;
  * by included tests that need to reference arguments of various
  * types.
  */
+int
 defargnames()
 {
 int 	i;
@@ -704,6 +705,7 @@ char	**cpp;
 /*
  * Write out the assertion, filling lines.
  */
+int
 assertfill(fp, buf, outfp, prefix)
 FILE	*fp;
 char	*buf;
@@ -815,6 +817,7 @@ char	*tok;
  * If the arg is punctuation that should be attatched to the preceeding
  * word then return 1, else 0.
  */
+int
 joinpunct(c)
 int 	c;
 {
@@ -952,6 +955,7 @@ char	*buf;
 
 }
 
+int
 funcstart()
 {
 
@@ -960,6 +964,7 @@ funcstart()
 	Resyncline = 1;
 }
 
+int
 funcend()
 {
 	if (NeedTpcleanup && Settings.endfunc)
@@ -979,7 +984,7 @@ funcend()
 	fprintf(FpCode, "}\n\n");
 }
 
-
+int
 doxcall(fp, buf)
 FILE	*fp;
 char	*buf;

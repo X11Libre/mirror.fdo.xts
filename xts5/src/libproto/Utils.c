@@ -150,7 +150,7 @@ char *  asctime();
 void
 wbcopy (b1, b2, length)
 register unsigned char *b1, *b2;
-register length;
+register int length;
 {
     if (b1 < b2) {
 	b2 += length;

@@ -158,6 +158,7 @@ SOFTWARE.
  *     NOTE: this code has only been tested down the ClientMessage leg
  */    
 
+void
 Send_Evt(client,event_ptr,event_type)
 int client;
 xEvent *event_ptr;

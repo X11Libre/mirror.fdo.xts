@@ -146,6 +146,7 @@ static	char	errfile[32];
 static	char	*Alts[MAXALTS];
 static	int 	Nalts;
 
+int
 errtext(buf)
 char	*buf;
 {
@@ -204,6 +205,7 @@ static	char	*sep = " ,\t";
 
 static int 	wasmasktype;
 
+int
 valerror(buf)
 char	*buf;
 {
@@ -256,6 +258,7 @@ char	*tmpfile;
 	includefile(tmpfile, buf);
 }
 
+int
 valerrdefs()
 {
 char	line[MAXLINE];
@@ -285,6 +288,7 @@ char	line[MAXLINE];
  * List out all the alternatives that have been defined for this error.
  * This allows you to do things like 'a valid Pixmap or None'.
  */
+int
 erralternates(out)
 char	*out;
 {
@@ -312,6 +316,7 @@ char	*word;
  * If there has not been any user supplied code then use the default
  * error code in the file.
  */
+int
 errcode(bp)
 char	*bp;
 {

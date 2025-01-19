@@ -613,6 +613,7 @@ void	(*func)();
 static void
 devmodthing(disp, dev, mask, pressing)
 Display	*disp;
+int dev;
 unsigned int 	mask;
 int pressing;
 {

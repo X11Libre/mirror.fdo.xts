@@ -101,6 +101,7 @@ int flag;
 
 void nostr(s, flag)
 char *s;
+int flag;
 {
 	register char ***spp;
 	register int *nspp;

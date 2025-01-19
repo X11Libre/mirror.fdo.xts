@@ -274,6 +274,7 @@ int XstDisconnectDisplay (server)
     return close(server);
 }
 
+void
 _XstWaitForReadable(dpy)
   XstDisplay *dpy;
 {
@@ -440,6 +441,7 @@ Bad_Open_Timeout_Func() {
     Timeout_Func(PASS_action);
 }
 
+void
 GetConnSetupPrefix (client, prefixp, needswap)
 int client;
 xConnSetupPrefix * prefixp;
@@ -651,6 +653,7 @@ typedef struct {
 
 #define bignamelen (sizeof(XBigReqExtensionName) - 1)
 
+void
 BigRequestsSetup(client, dpy, needswap)
 int client;
 XstDisplay  *dpy;

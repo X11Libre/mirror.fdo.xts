@@ -192,6 +192,7 @@ int 	nxtbadhosts = sizeof(xtbadhosts)/sizeof(xtbadhosts[0]);
  * comparison of the address field is not the correct way to compare
  * them.
  */
+int
 samehost(h1, h2)
 XHostAddress	*h1;
 XHostAddress	*h2;

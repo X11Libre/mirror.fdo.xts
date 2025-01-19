@@ -238,6 +238,7 @@ int		mapflag;
 static void
 incxy(disp, bw, vp)
 Display	*disp;
+int bw;
 XVisualInfo *vp;
 {
 unsigned int 	dwidth, dheight;

@@ -66,6 +66,7 @@ static int rvs2 PROTOLIST((char *, char **));
 
 char *tet_remvar(s, sysid)
 register char *s;
+int sysid;
 {
 	char *var;
 	int rc;

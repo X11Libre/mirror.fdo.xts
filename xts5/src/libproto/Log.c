@@ -152,7 +152,7 @@ Log_Open () {
 
 /*VARARGS1*/
 void Log_Err (a, b, c, d, e, f, g, h, i, j, k)
-char   *a, *b, *c, *d, *e, *f, *h, *i, *j, *k;
+char   *a, *b, *c, *d, *e, *f, *g, *h, *i, *j, *k;
 {
     ++Xst_error_count;
     Log_Msg (a, b, c, d, e, f, g, h, i, j, k);
@@ -160,14 +160,14 @@ char   *a, *b, *c, *d, *e, *f, *h, *i, *j, *k;
 
 /*VARARGS1*/
 void Log_Err_Detail (a, b, c, d, e, f, g, h, i, j, k)
-char   *a, *b, *c, *d, *e, *f, *h, *i, *j, *k;
+char   *a, *b, *c, *d, *e, *f, *g, *h, *i, *j, *k;
 {
     Log_Trace (a, b, c, d, e, f, g, h, i, j, k);
 }
 
 /*VARARGS1*/
 void Log_Msg (a, b, c, d, e, f, g, h, i, j, k)
-char   *a, *b, *c, *d, *e, *f, *h, *i, *j, *k;
+char   *a, *b, *c, *d, *e, *f, *g, *h, *i, *j, *k;
 {
     /* Use the TET reporting mechanism developed in the revised test suite */
     report(a, b, c, d, e, f, g, h, i, j, k);
@@ -177,7 +177,7 @@ char   *a, *b, *c, *d, *e, *f, *h, *i, *j, *k;
 
 /*VARARGS1*/
 void Log_Trace (a, b, c, d, e, f, g, h, i, j, k)
-char   *a, *b, *c, *d, *e, *f, *h, *i, *j, *k;
+char   *a, *b, *c, *d, *e, *f, *g, *h, *i, *j, *k;
 {
     /* Use the TET reporting mechanism developed in the revised test suite */
     trace(a, b, c, d, e, f, g, h, i, j, k);
@@ -185,7 +185,7 @@ char   *a, *b, *c, *d, *e, *f, *h, *i, *j, *k;
 
 /*VARARGS1*/
 void Log_Del (a, b, c, d, e, f, g, h, i, j, k)
-char   *a, *b, *c, *d, *e, *f, *h, *i, *j, *k;
+char   *a, *b, *c, *d, *e, *f, *g, *h, *i, *j, *k;
 {
     /* Use the TET reporting mechanism developed in the revised test suite */
     /* ++Xst_delete_count; @* incremented in the xproto delete() */
@@ -194,7 +194,7 @@ char   *a, *b, *c, *d, *e, *f, *h, *i, *j, *k;
 
 /*VARARGS1*/
 void Log_Debug (a, b, c, d, e, f, g, h, i, j, k)
-char   *a, *b, *c, *d, *e, *f, *h, *i, *j, *k;
+char   *a, *b, *c, *d, *e, *f, *g, *h, *i, *j, *k;
 {
     /* Use the TET reporting mechanism developed in the revised test suite */
     debug(1, a, b, c, d, e, f, g, h, i, j, k);
@@ -202,7 +202,7 @@ char   *a, *b, *c, *d, *e, *f, *h, *i, *j, *k;
 
 /*VARARGS1*/
 void Log_Debug2 (a, b, c, d, e, f, g, h, i, j, k)
-char   *a, *b, *c, *d, *e, *f, *h, *i, *j, *k;
+char   *a, *b, *c, *d, *e, *f, *g, *h, *i, *j, *k;
 {
     /* Use the TET reporting mechanism developed in the revised test suite */
     debug(2, a, b, c, d, e, f, g, h, i, j, k);
@@ -210,7 +210,7 @@ char   *a, *b, *c, *d, *e, *f, *h, *i, *j, *k;
 
 /*VARARGS1*/
 void Log_Debug3 (a, b, c, d, e, f, g, h, i, j, k)
-char   *a, *b, *c, *d, *e, *f, *h, *i, *j, *k;
+char   *a, *b, *c, *d, *e, *f, *g, *h, *i, *j, *k;
 {
     /* Use the TET reporting mechanism developed in the revised test suite */
     debug(3, a, b, c, d, e, f, g, h, i, j, k);
@@ -232,7 +232,7 @@ Reset_Some()
 
 /*VARARGS1*/
 void Log_Some (a, b, c, d, e, f, g, h, i, j, k)
-char   *a, *b, *c, *d, *e, *f, *h, *i, *j, *k;
+char   *a, *b, *c, *d, *e, *f, *g, *h, *i, *j, *k;
 {
     /* Use the TET reporting mechanism developed in the revised test suite */
     if (++some_counter > SOME_LIMIT && getdblev() < THRESHOLD_FOR_ALL) {

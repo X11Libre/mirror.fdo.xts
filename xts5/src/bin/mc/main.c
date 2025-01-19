@@ -369,6 +369,7 @@ extern	int 	Outputon;
 /*
  * Push back a line of input.
  */
+int
 putbackline(line)
 char	*line;
 {
@@ -443,6 +444,7 @@ char	*np;
 /*
  * Print out an error message with preceeding line and file information.
  */
+int
 err(mess)
 char	*mess;
 {
@@ -452,6 +454,7 @@ char	*mess;
 /*
  * Tidy up and exit.
  */
+int
 errexit()
 {
 	remfiles();

@@ -145,6 +145,7 @@ int 	FileType;
 
 void setzoom();
 
+int
 main(argc, argv)
 int 	argc;
 char	**argv;
@@ -232,6 +233,7 @@ int	errs = 0;
 	} while (--argc > 0);
 }
 
+int
 processfile(disp, win, gc, file)
 Display	*disp;
 Window	win;
@@ -265,6 +267,7 @@ int	ret;
 	return ret;
 }
 
+int
 proc(disp, win, gc, fp)
 Display	*disp;
 Window	win;
@@ -299,7 +302,7 @@ int	ret;
 	return ret;
 }
 
-
+int
 dispimage(disp, win, gc, images, nim)
 Display *disp;
 Window win;
@@ -344,6 +347,7 @@ Window		win;
 GC		gc;
 XImage		*image1, *image2;
 int		compare_colour;
+int		evp;
 unsigned int	which;
 {
 	int	x,y;

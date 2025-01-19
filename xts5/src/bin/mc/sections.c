@@ -277,6 +277,7 @@ struct	secname {
  * Loop through all sections and branch out to the appropriate strategy
  * routines.
  */
+int
 dosections(fp, buf)
 FILE	*fp;
 char	*buf;
@@ -333,6 +334,7 @@ int 	sec;
  * and gc.  The gc type are sorted out by gccomps the others
  * branch to their own strategies.
  */
+int
 assertion(fp, buf)
 FILE	*fp;
 char	*buf;
@@ -532,6 +534,7 @@ int	i;
 /*
  * Switch out to the command specific hook command.
  */
+int
 dohook(buf, hook)
 char	*buf;
 int 	hook;

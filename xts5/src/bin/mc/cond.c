@@ -152,6 +152,7 @@ extern	struct	state	State;
 #define	False	0
 #define True	1
 
+int
 hashcmd(buf)
 char	*buf;
 {
@@ -164,6 +165,7 @@ char	*buf;
 	return True;
 }
 
+int
 doif(buf)
 char	*buf;
 {
@@ -221,6 +223,7 @@ int 	i;
 	return (known)? False: True;
 }
 
+int
 doelse()
 {
 
@@ -237,6 +240,7 @@ doelse()
 	return(True);
 }
 
+int
 doendif()
 {
 	if (uselev[level]) {

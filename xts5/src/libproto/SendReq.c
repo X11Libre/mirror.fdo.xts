@@ -152,7 +152,7 @@ SOFTWARE.
 
 extern Display *Dsp;
 
-extern int Send_Evt();
+extern void Send_Evt();
 void _Send_Req();
 
 void

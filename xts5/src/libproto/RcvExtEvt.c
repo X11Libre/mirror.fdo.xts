@@ -249,7 +249,7 @@ int client;
 			{
 			deviceValuator *rpi = (deviceValuator *) rp;
 	
-			rpi->device_state = unpack2(&rbp);
+			rpi->device_state = unpack2(&rbp,needswap);
 			rpi->num_valuators = unpack1(&rbp);
 			rpi->first_valuator = unpack1(&rbp);
 			rpi->valuator0 = unpack4(&rbp,needswap);

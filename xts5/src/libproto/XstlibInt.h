@@ -322,7 +322,7 @@ int Rcv_Evt (xEvent *rp, char rbuf[], int client, int base);
 #else
 int Rcv_Evt (xEvent *rp, char rbuf[], int client);
 #endif
-int Rcv_Ext_Evt (xEvent *rp, char rbuf[], int client, int base);
+int Rcv_Ext_Evt (xEvent *rp, char rbuf[], int client);
 int Rcv_Ext_Err (xError *rp, char rbuf[], int client);
 int Rcv_Ext_Rep (xReply *rp, char rbuf[], int type, int client);
 int Rcv_Rep (xReply *rp, char rbuf[], int type, int client);

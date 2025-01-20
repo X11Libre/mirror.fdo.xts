@@ -195,12 +195,12 @@ static Widget CreateScrollbar(w, horizontal)
     ViewportConstraints constraints =
 	(ViewportConstraints)clip->core.constraints;
     static Arg barArgs[] = {
-	{XtNorientation, NULL},
-	{XtNlength, NULL},
-	{XtNleft, NULL},
-	{XtNright, NULL},
-	{XtNtop, NULL},
-	{XtNbottom, NULL},
+	{XtNorientation, (XtArgVal) 0},
+	{XtNlength, (XtArgVal) 0},
+	{XtNleft, (XtArgVal) 0},
+	{XtNright, (XtArgVal) 0},
+	{XtNtop, (XtArgVal) 0},
+	{XtNbottom,(XtArgVal) 0},
 	{XtNmappedWhenManaged, False},
     };
     Widget bar;

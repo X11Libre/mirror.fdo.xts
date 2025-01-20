@@ -141,6 +141,9 @@ ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS
 SOFTWARE.                                                                
 */
 
+#ifndef XTS5_XSTLIB_H
+#define XTS5_XSTLIB_H
+
 /*
  *	Includes for OS dependent headers
  */
@@ -440,3 +443,5 @@ void	Show_Req();
 int	Stop_Timer();
 xReq	*Add_Masked_Value();
 xReq	*Add_Counted_Bytes();
+
+#endif /* XTS5_XSTLIB_H */

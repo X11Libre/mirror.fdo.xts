@@ -195,7 +195,7 @@ Pixmap xim_copy_pixmap(pm)
 	Pixmap pm;
 {
 	report("copying pixmap not implemented");
-	return(NULL);
+	return(None);
 }
 
 void 

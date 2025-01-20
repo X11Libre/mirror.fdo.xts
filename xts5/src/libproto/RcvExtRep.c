@@ -225,7 +225,7 @@ int client;   /* */
 		    break;
 		}
 		rbp += 23;
-		Unpack_Longs((long *) valuePtr, &rbp,
+		Unpack_Longs((CARD32 *) valuePtr, &rbp,
 		    ((xOpenDeviceReply *)rp)->length,needswap);
 		break;
 	case X_SetDeviceMode:
@@ -246,7 +246,7 @@ int client;   /* */
 		    break;
 		}
 		rbp += 20;
-		Unpack_Longs((long *) valuePtr, &rbp,
+		Unpack_Longs((CARD32 *) valuePtr, &rbp,
 		    ((xGetSelectedExtensionEventsReply *)rp)->length,needswap);
 		break;
 	case X_GetDeviceDontPropagateList:
@@ -259,7 +259,7 @@ int client;   /* */
 		    break;
 		}
 		rbp += 22;
-		Unpack_Longs((long *) valuePtr, &rbp,
+		Unpack_Longs((CARD32 *) valuePtr, &rbp,
 		    ((xGetDeviceDontPropagateListReply *)rp)->length,needswap);
 		break;
 	case X_GetDeviceMotionEvents:
@@ -275,7 +275,7 @@ int client;   /* */
 		    break;
 		}
 		rbp += 18;
-		Unpack_Longs((long *) valuePtr, &rbp,
+		Unpack_Longs((CARD32 *) valuePtr, &rbp,
 		    ((xGetDeviceMotionEventsReply *)rp)->length,needswap);
 		break;
 	case X_ChangeKeyboardDevice:
@@ -313,7 +313,7 @@ int client;   /* */
 	case X_GetFeedbackControl:
 		((xGetFeedbackControlReply *)rp)->num_feedbacks = unpack2(&rbp,needswap);
 		rbp += 22;
-		Unpack_Longs((long *) valuePtr, &rbp,
+		Unpack_Longs((CARD32 *) valuePtr, &rbp,
 		    ((xGetFeedbackControlReply *)rp)->length,needswap);
 		break;
 	case X_GetDeviceKeyMapping:
@@ -322,7 +322,7 @@ int client;   /* */
  */
 		((xGetDeviceKeyMappingReply *)rp)->keySymsPerKeyCode = unpack1(&rbp);
 		rbp += 23;
-		Unpack_Longs((long *) valuePtr, &rbp,
+		Unpack_Longs((CARD32 *) valuePtr, &rbp,
 		    ((xGetDeviceModifierMappingReply *)rp)->length,needswap);
 		break;
 	case X_GetDeviceModifierMapping:
@@ -333,7 +333,7 @@ int client;   /* */
 		    break;
 		}
 		rbp += 23;
-		Unpack_Longs((long *) valuePtr, &rbp,
+		Unpack_Longs((CARD32 *) valuePtr, &rbp,
 		    ((xGetDeviceModifierMappingReply *)rp)->length,needswap);
 		break;
 	case X_SetDeviceModifierMapping:

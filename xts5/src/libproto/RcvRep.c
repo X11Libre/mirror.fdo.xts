@@ -217,7 +217,7 @@ int client;   /* */
 		    break;
 		}
 		rbp += 14;
-		Unpack_Longs((long *) valuePtr, &rbp,
+		Unpack_Longs((CARD32 *) valuePtr, &rbp,
 		    ((xQueryTreeReply *)rp)->nChildren,needswap);
 		break;
 	case X_InternAtom:
@@ -265,7 +265,7 @@ int client;   /* */
 			Length_Error(max(bytes_there,calculated_length<<2),client,rp,type,"GetProperty",calculated_length);
 			break;
 		    }
-		    Unpack_Shorts((unsigned short *) valuePtr, &rbp,nitems,needswap);
+		    Unpack_Shorts((CARD16 *) valuePtr, &rbp,nitems,needswap);
 		    break;
 		case FORMAT32:
 		    calculated_length = nitems;
@@ -273,7 +273,7 @@ int client;   /* */
 			Length_Error(max(bytes_there,calculated_length<<2),client,rp,type,"GetProperty",calculated_length);
 			break;
 		    }
-		    Unpack_Longs((unsigned long *) valuePtr, &rbp,nitems,needswap);
+		    Unpack_Longs((CARD32 *) valuePtr, &rbp,nitems,needswap);
 		    break;
 		default:
 		    Log_Err("Rcv_Rep: bad format field in GetPropertyReply\n");
@@ -290,7 +290,7 @@ int client;   /* */
 		    break;
 		}
 		rbp += 22;
-		Unpack_Longs((unsigned long *) valuePtr, &rbp,
+		Unpack_Longs((CARD32 *) valuePtr, &rbp,
 		    ((xListPropertiesReply *)rp)->nProperties,needswap);
 		break;
 	case X_GetSelectionOwner:
@@ -379,10 +379,10 @@ int client;   /* */
 		    break;
 		}
 		valuePtr =  (unsigned char *) &(((xQueryFontReply *)rp)->minBounds);
-		Unpack_Shorts((unsigned short *) valuePtr, &rbp, 6, needswap);
+		Unpack_Shorts((CARD16 *) valuePtr, &rbp, 6, needswap);
 		rbp += 4;
 		valuePtr =  (unsigned char *) &(((xQueryFontReply *)rp)->maxBounds);
-		Unpack_Shorts((unsigned short *) valuePtr, &rbp, 6, needswap);
+		Unpack_Shorts((CARD16 *) valuePtr, &rbp, 6, needswap);
 		rbp += 4;
 		((xQueryFontReply *)rp)->minCharOrByte2 = unpack2(&rbp,needswap);
 		((xQueryFontReply *)rp)->maxCharOrByte2 = unpack2(&rbp,needswap);
@@ -403,10 +403,10 @@ int client;   /* */
 		    break;
 		}
 		valuePtr = (unsigned char *) ((unsigned char *) rp + sizeof(xQueryFontReply));
-		Unpack_Longs((unsigned long *) valuePtr, &rbp, 
+		Unpack_Longs((CARD32 *) valuePtr, &rbp, 
 		    ((xQueryFontReply *)rp)->nFontProps * 2,needswap);
 		valuePtr += (((xQueryFontReply *)rp)->nFontProps * 2 * 4);
-		Unpack_Shorts((unsigned long *) valuePtr, &rbp, 
+		Unpack_Shorts((CARD16 *) valuePtr, &rbp, 
 		    (((xQueryFontReply *)rp)->nCharInfos) * 6,needswap);
 		break;
 	case X_QueryTextExtents:
@@ -451,10 +451,10 @@ int client;   /* */
 		break;
 	case X_ListFontsWithInfo:
 		valuePtr =  (unsigned char *) &(((xListFontsWithInfoReply *)rp)->minBounds);
-		Unpack_Shorts((unsigned short *) valuePtr, &rbp, 6, needswap);
+		Unpack_Shorts((CARD16 *) valuePtr, &rbp, 6, needswap);
 		rbp += 4;
 		valuePtr =  (unsigned char *) &(((xListFontsWithInfoReply *)rp)->maxBounds);
-		Unpack_Shorts((unsigned short *) valuePtr, &rbp, 6, needswap);
+		Unpack_Shorts((CARD16 *) valuePtr, &rbp, 6, needswap);
 		rbp += 4;
 		((xListFontsWithInfoReply *)rp)->minCharOrByte2 = unpack2(&rbp,needswap);
 		((xListFontsWithInfoReply *)rp)->maxCharOrByte2 = unpack2(&rbp,needswap);
@@ -475,7 +475,7 @@ int client;   /* */
 		    break;
 		}
 		valuePtr = (unsigned char *) (((unsigned char *) rp) + sizeof(xListFontsWithInfoReply));
-		Unpack_Longs((unsigned long *) valuePtr, &rbp, 
+		Unpack_Longs((CARD32 *) valuePtr, &rbp, 
 		    (((xListFontsWithInfoReply *)rp)->nFontProps) * 2,needswap);
 		valuePtr += (((xListFontsWithInfoReply *)rp)->nFontProps * 2 * 4);
 		wbcopy(rbp,valuePtr,((xListFontsWithInfoReply *)rp)->nameLength);
@@ -545,7 +545,7 @@ int client;   /* */
 		    break;
 		}
 		rbp += 22;
-		Unpack_Longs((long *) valuePtr, &rbp,
+		Unpack_Longs((CARD32 *) valuePtr, &rbp,
 			     ((xListInstalledColormapsReply *)rp)->nColormaps,
 			     needswap);
 		break;
@@ -583,10 +583,10 @@ int client;   /* */
 		    break;
 		}
 		rbp += 20;
-		Unpack_Longs((long *) valuePtr, &rbp,
+		Unpack_Longs((CARD32 *) valuePtr, &rbp,
 			     ((xAllocColorCellsReply *)rp)->nPixels,
 			     needswap);
-		Unpack_Longs((long *) valuePtr, &rbp,
+		Unpack_Longs((CARD32 *) valuePtr, &rbp,
 			     ((xAllocColorCellsReply *)rp)->nMasks,
 			     needswap);
 		break;
@@ -602,7 +602,7 @@ int client;   /* */
 		((xAllocColorPlanesReply *)rp)->greenMask = unpack4(&rbp,needswap);
 		((xAllocColorPlanesReply *)rp)->blueMask = unpack4(&rbp,needswap);
 		rbp += 8;
-		Unpack_Longs((long *) valuePtr, &rbp,
+		Unpack_Longs((CARD32 *) valuePtr, &rbp,
 			     ((xAllocColorPlanesReply *)rp)->nPixels,
 			     needswap);
 		break;
@@ -614,7 +614,7 @@ int client;   /* */
 		    break;
 		}
 		rbp += 22;
-		Unpack_Shorts((long *) valuePtr, &rbp, ((xQueryColorsReply *)rp)->nColors * 4, needswap); 
+		Unpack_Shorts((CARD16 *) valuePtr, &rbp, ((xQueryColorsReply *)rp)->nColors * 4, needswap); 
 		break;
 	case X_LookupColor:
 		if (rp->generic.length != 0) {
@@ -672,7 +672,7 @@ int client;   /* */
  *	Can't validate length - depends on value in original request
  */
 		rbp += 24;
-		Unpack_Longs((long *) valuePtr, &rbp,
+		Unpack_Longs((CARD32 *) valuePtr, &rbp,
 		    ((xGetKeyboardMappingReply *)rp)->length,needswap);
 		break;
 	case X_GetKeyboardControl:
@@ -787,7 +787,7 @@ int client;   /* */
 		    break;
 		}
 		rbp += 24;
-		Unpack_Longs((long *) valuePtr, &rbp,
+		Unpack_Longs((CARD32 *) valuePtr, &rbp,
 		    ((xGetModifierMappingReply *)rp)->length,needswap);
 		break;
 	default:

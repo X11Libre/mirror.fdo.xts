@@ -155,11 +155,11 @@ void pack2(char **bufpp, CARD16 val, int swap);
 void pack4(char **bufpp, CARD32 val, int swap);
 void pack2_lsb(char **bufpp, CARD16 val);
 void packpad(char **bufpp, int cnt);
-unsigned char unpack1(unsigned char **bufpp);
-unsigned short unpack2(unsigned char **bufpp, int swap);
-unsigned long unpack4(unsigned char **bufpp, int swap);
-void Unpack_Shorts(CARD16 *to, unsigned char **from, int count, int swap);
-void Unpack_Longs(CARD32 *to, unsigned char **from, int count, int swap);
+unsigned char unpack1(void *bufpp);
+unsigned short unpack2(void *bufpp, int swap);
+unsigned long unpack4(void *bufpp, int swap);
+void Unpack_Shorts(CARD16 *to, void *from, int count, int swap);
+void Unpack_Longs(CARD32 *to, void *from, int count, int swap);
 void XstIOError();
 int Xst_Read();
 void squeeze_me_in(int cl, unsigned long len);
@@ -288,6 +288,10 @@ extern int Xst_override;
 void BigRequestsSetup(int client, XstDisplay *dpy, int needswap);
 void GetConnSetupData (int client, xConnSetup *setupdp, int len, int needswap);
 void GetConnSetupPrefix (int client, xConnSetupPrefix *prefixp, int needswap);
+int XstConnectDisplay (char *display_name, char **expanded_name, int *screen_num,
+		       char **auth_proto, int *auth_length,
+                       char **auth_string, int *auth_strlen,
+		       Display **xlib_dpy);
 int XstDisconnectDisplay (int server);
 
 int _XConnectDisplay (char *display_name, char **fullnamep,
@@ -323,11 +327,11 @@ int Rcv_Ext_Err (xError *rp, char rbuf[], int client);
 int Rcv_Ext_Rep (xReply *rp, char rbuf[], int type, int client);
 int Rcv_Rep (xReply *rp, char rbuf[], int type, int client);
 
-void Show_Ext_Evt (XEvent *mp);
+void Show_Ext_Evt (xEvent *mp);
 void Show_Ext_Err (xError *mp);
 void Show_Ext_Rep (xReply *mp, int type, long bytes_given);
 void Show_Ext_Req (xReq *mp);
-void Show_String8 (xReq *rp, int size, int length);
+void Show_String8 (void *rp, int size, int length);
 void Show_Strs(unsigned char *cp, int nstrs, int nbytes, char *label);
 void Show_Value_List_nRep (xReply *rp, int nval, int size, int format);
 void Show_Value_List_Rep (xReply *rp, int size, int format);

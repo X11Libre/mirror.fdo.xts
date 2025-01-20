@@ -224,9 +224,10 @@ int cnt;
 }
 
 /*ARGSUSED*/
-unsigned char unpack1(bufpp)
-unsigned char **bufpp;
+unsigned char
+unpack1(void *pp)
 {
+    unsigned char **bufpp = (unsigned char **) pp;
     unsigned char ret;
 
     ret = **bufpp;
@@ -235,10 +236,9 @@ unsigned char **bufpp;
 }
 
 unsigned short
-unpack2(bufpp,swap)
-unsigned char **bufpp;
-int swap;
+unpack2(void *pp, int swap)
 {
+    unsigned char **bufpp = (unsigned char **) pp;
     unsigned short ret;
 
     if (swap) {
@@ -251,10 +251,9 @@ int swap;
     return(ret);
 }
 unsigned long
-unpack4(bufpp,swap)
-unsigned char **bufpp;
-int swap;
+unpack4(void *pp, int swap)
 {
+    unsigned char **bufpp = (unsigned char **) pp;
     unsigned int ret;
 
     if (swap) {
@@ -344,11 +343,7 @@ CARD32 val;
 }
 
 void
-Unpack_Shorts(to,from,count,swap)
-CARD16 *to;
-unsigned char **from;
-int count;
-int swap;
+Unpack_Shorts(CARD16 *to, void *from, int count, int swap)
 {
     int i;
 
@@ -359,11 +354,7 @@ int swap;
 }
 
 void
-Unpack_Longs(to,from,count,swap)
-CARD32 *to;
-unsigned char **from;
-int count;
-int swap;
+Unpack_Longs(CARD32 *to, void *from, int count, int swap)
 {
     int i;
 

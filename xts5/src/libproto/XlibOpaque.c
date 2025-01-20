@@ -181,7 +181,7 @@ int XstConnectDisplay (display_name, expanded_name, screen_num,
 		       auth_proto, auth_length, auth_string, auth_strlen,
 		       xlib_dpy)
     char *display_name;
-    char *expanded_name;	/* return */
+    char **expanded_name;	/* return */
     int *screen_num;		/* return */
     char **auth_proto;		/* return */
     int *auth_length;		/* return */
@@ -189,7 +189,7 @@ int XstConnectDisplay (display_name, expanded_name, screen_num,
     int *auth_strlen;		/* return */
     Display **xlib_dpy;		/* return */
 {
-	*expanded_name  = '\0';
+	*expanded_name = NULL;
 	*auth_proto = "";
 	*auth_length = 0;
 	*auth_string = "";
@@ -197,7 +197,7 @@ int XstConnectDisplay (display_name, expanded_name, screen_num,
 	*xlib_dpy = XOpenDisplay(display_name);
 	if (*xlib_dpy == NULL)
 		return -1;
-	(void)strcpy(expanded_name, display_name);
+	*expanded_name = DisplayString(*xlib_dpy);
 	*screen_num = DefaultScreen(*xlib_dpy);
 	return ConnectionNumber(*xlib_dpy);
 }

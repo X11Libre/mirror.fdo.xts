@@ -223,7 +223,7 @@ Set_Event_Mask(client, win, mask)
 	xChangeWindowAttributesReq *cwar;
 
         cwar = (xChangeWindowAttributesReq *) Make_Req(client, X_ChangeWindowAttributes);
-        cwar = (xChangeWindowAttributesReq *) Clear_Masked_Value(cwar);
+        cwar = (xChangeWindowAttributesReq *) Clear_Masked_Value((xReq *)cwar);
         cwar = (xChangeWindowAttributesReq *) Add_Masked_Value(cwar, CWEventMask, mask);
         cwar->window = win;
         Send_Req(client, (xReq *) cwar);

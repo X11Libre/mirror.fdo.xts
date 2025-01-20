@@ -120,7 +120,8 @@ static XtResource resources[] = {
 static void Initialize(), ConstraintInitialize(),
     Realize(), Resize(), ChangeManaged();
 static Boolean SetValues();
-static Boolean Layout(FormWidget w, Dimension width, Dimension height, Boolean force_relayout);
+static Boolean Layout(FormWidget w, unsigned int width, unsigned int height,
+		      int force_relayout);
 static XtGeometryResult GeometryManager(), PreferredGeometry();
 
 #define superclass	(&formClassRec)
@@ -786,7 +787,8 @@ static void Resize(widget)
 }
 
 
-static Boolean Layout(FormWidget w, Dimension width, Dimension height, Boolean force_relayout)
+static Boolean Layout(FormWidget w, unsigned int width, unsigned int height,
+                      int force_relayout)
 {
     ComputeLayout( (Widget)w, /*query=*/True, /*destroy=*/True );
     w->form.preferred_width = w->core.width;

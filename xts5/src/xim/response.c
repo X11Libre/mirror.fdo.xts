@@ -382,7 +382,7 @@ Bool xim_response_open(plocale,style)
 void xim_response_push_cb(pstk,cb,data)
 	cbstk_def *pstk;
 	int cb;		/* Callback index */
-	char *data;
+	void *data;
 {
 	if(pstk == NULL)
 		return;

@@ -445,7 +445,7 @@ int     type;     /* request type */
 		match = rep;
 		break;
 	    case X_Error: 
-		if(!Rcv_Err(rep,rbuf,client)) {
+		if(!Rcv_Err((xError *) rep,rbuf,client)) {
 		    continue;
 		}
 		if (rep -> generic.sequenceNumber < (CARD16)Xst_clients[client].cl_reqout) {
@@ -473,7 +473,7 @@ int     type;     /* request type */
  *	if its not a reply or an error, its an event!
  */
 	    default: 
-		if(!Rcv_Evt(rep,rbuf,client)) {
+		if(!Rcv_Evt((xEvent *) rep,rbuf,client)) {
 		    strange++;
 		    continue;
 		}

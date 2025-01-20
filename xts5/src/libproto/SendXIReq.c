@@ -157,8 +157,8 @@ extern Display *Dsp;
 void _Send_XInput_Req();
 
 static void Send_Extension_Event (int client, int num_ev, int num_classes,
-                                  char *ptr);
-static void Send_Feedback_Control (int client, XID class, char *ptr);
+                                  void *ptr);
+static void Send_Feedback_Control (int client, XID class, void *ptr);
 
 #ifdef INPUTEXTENSION
 void
@@ -731,7 +731,7 @@ static void
 Send_Feedback_Control (client, class, ptr)
     int client;
     XID class;
-    char *ptr;
+    void *ptr;
     {
     int i;
     xFeedbackCtl *f = (xFeedbackCtl *) ptr;
@@ -809,7 +809,7 @@ static void
 Send_Extension_Event (client, num_ev, num_classes, ptr)
     int client;
     int num_ev, num_classes;
-    char *ptr;
+    void *ptr;
     {
     int i;
     int *cptr = (int *) ((xEvent *)ptr + num_ev);

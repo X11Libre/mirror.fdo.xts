@@ -484,7 +484,7 @@ int	format;
 
 void
 Show_String8 (rp, size, length)
-xReq * rp;
+void   *rp;
 int     size;
 int	length;
 {

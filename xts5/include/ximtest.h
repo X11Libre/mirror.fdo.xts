@@ -198,7 +198,7 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 typedef struct {
 	int top;
 	int stack[MAX_CB_RESPONSE];
-	char *data[MAX_CB_RESPONSE];
+	void *data[MAX_CB_RESPONSE];
 } cbstk_def;
 
 /*
@@ -264,7 +264,7 @@ Bool xim_response_compare(cbstk_def *astk);
 Bool xim_response_done(cbstk_def *pstk);
 void xim_response_close(void);
 void xim_response_clean_cb(void);
-void xim_response_push_cb(cbstk_def *pstk, int cb, char *data);
+void xim_response_push_cb(cbstk_def *pstk, int cb, void *data);
 void xim_response_pop_cb(cbstk_def *pstk);
 
 Bool xim_save_open(char *plocale, XIMStyle style);

@@ -272,7 +272,7 @@ long bytes_given;
 		BPRINTF2("\tsequenceNumber = %d\n",((xGetMotionEventsReply *)mp)->sequenceNumber);
 		BPRINTF2("\tlength = %ld\n",(long) ((xGetMotionEventsReply *)mp)->length);
 		BPRINTF2("\tnEvents = %ld\n",(long) ((xGetMotionEventsReply *)mp)->nEvents);
-		Show_Value_List_Rep((xReq *)mp,sizeof(xGetMotionEventsReply), FORMATtimecoord);
+		Show_Value_List_Rep(mp,sizeof(xGetMotionEventsReply), FORMATtimecoord);
 		break;
 	case X_TranslateCoords:
 		BPRINTF1("TranslateCoords:\n");
@@ -481,7 +481,7 @@ long bytes_given;
 		BPRINTF2("\tsequenceNumber = %d\n",((xQueryColorsReply *)mp)->sequenceNumber);
 		BPRINTF2("\tlength = %ld\n",(long) ((xQueryColorsReply *)mp)->length);
 		BPRINTF2("\tnColors = %ld\n",(long) ((xQueryColorsReply *)mp)->nColors);
-		Show_Value_List_Rep((xReq *)mp,sizeof(xQueryColorsReply),FORMATrgb);
+		Show_Value_List_Rep(mp,sizeof(xQueryColorsReply),FORMATrgb);
 		break;
 	case X_LookupColor:
 		BPRINTF1("LookupColor:\n");

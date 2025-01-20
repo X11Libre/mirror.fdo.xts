@@ -134,12 +134,11 @@ SOFTWARE.
 extern int XInputFirstEvent;
 
 void
-Show_Ext_Evt(mp)
-XEvent *mp;
+Show_Ext_Evt(xEvent *mp)
 {
 int evt;
 
-	evt = real_type(mp->type);
+	evt = real_type(mp->u.u.type);
 	if (evt>=XInputFirstEvent && evt < (XInputFirstEvent+XInputNumEvents)){
 		switch (evt) {
 		case KeyPress:

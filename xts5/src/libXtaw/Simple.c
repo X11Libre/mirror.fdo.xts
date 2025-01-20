@@ -111,7 +111,8 @@ static XtResource resources[] = {
 };
 
 static void ClassPartInitialize(), ClassInitialize(),Realize(),ConvertCursor();
-static Boolean SetValues(), ChangeSensitive();
+static Boolean SetValues(Widget, Widget, Widget, ArgList, Cardinal *);
+static int ChangeSensitive(Widget);
 
 SimpleClassRec simpleClassRec = {
   { /* core fields */
@@ -267,8 +268,9 @@ Widget w;
 
 
 /* ARGSUSED */
-static Boolean SetValues(current, request, new)
-    Widget current, request, new;
+static Boolean
+SetValues(Widget current, Widget request, Widget new,
+          ArgList args, Cardinal *num_args)
 {
     SimpleWidget s_old = (SimpleWidget) current;
     SimpleWidget s_new = (SimpleWidget) new;
@@ -300,8 +302,8 @@ static Boolean SetValues(current, request, new)
 }
 
 
-static Boolean ChangeSensitive(w)
-    register Widget w;
+static int
+ChangeSensitive(register Widget w)
 {
     if (XtIsRealized(w)) {
 	if (XtIsSensitive(w))

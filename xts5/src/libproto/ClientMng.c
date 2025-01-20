@@ -324,7 +324,7 @@ int	cl; /* client number */
     xConnSetupPrefix prefix;	/* prefix information */
     int     vendorlen;		/* length of vendor string */
     char   *setup;		/* memory allocated at startup */
-    char    displaybuf[256];	/* buffer to receive expanded name */
+    char   *expanded_name;	/* pointer to receive expanded name */
     int     screen_num;		/* screen number */
     union {
 	xConnSetup * setup;
@@ -344,7 +344,6 @@ int	cl; /* client number */
     int using_xo;
 
     extern int  XstSendClientPrefix ();
-    extern int  XstConnectDisplay ();
     extern  XID Get_Resource_Id();
 
  /* 
@@ -379,11 +378,12 @@ int	cl; /* client number */
 /*
  * Call the Connect routine to get the network socket. If 0 is returned, the
  * connection failed. The connect routine will return the expanded display
- * name in displaybuf.
+ * name in expanded name.
  */
 
     dpy -> xlib_dpy = NULL;
-    if ((dpy -> fd = XstConnectDisplay (display_name, displaybuf, &screen_num,
+    if ((dpy -> fd = XstConnectDisplay (display_name,
+                                        &expanded_name, &screen_num,
 					&auth_proto, &auth_length,
 					&auth_string, &auth_strlen,
 					&(dpy->xlib_dpy)))
@@ -543,7 +543,7 @@ int	cl; /* client number */
 	/*NOTREACHED*/
     }
     /* may be faked if using_xo is true.... */
-    GetConnSetupData (cl, (char *) u.setup, setuplength, needswap);
+    GetConnSetupData (cl, u.setup, setuplength, needswap);
 
 /*
  * We succeeded at authorization, so let us move the data into
@@ -728,11 +728,11 @@ int	cl; /* client number */
 
  /* Salt away the host:display string for later use */
     if ((dpy -> display_name = (char *) Xstmalloc (
-		    (unsigned) (strlen (displaybuf) + 1))) == NULL) {
+		    (unsigned) (strlen (expanded_name) + 1))) == NULL) {
 	OutOfMemory (dpy, setup);
 	return (NULL);
     }
-    strcpy (dpy -> display_name, displaybuf);
+    strcpy (dpy -> display_name, expanded_name);
 
 /* Set up the output buffers. */
     if ((dpy -> bufptr = dpy -> buffer = (char *) Xstmalloc (OBUFSIZE)) == NULL) {

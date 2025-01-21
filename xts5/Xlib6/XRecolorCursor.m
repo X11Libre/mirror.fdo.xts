@@ -113,7 +113,7 @@ XColor *background_color = mkcolor(0);
  *		flag indicates whether or not color is foreground
  */
 static XColor *
-mkcolor(flag)
+mkcolor(int flag)
 {
 	static	XColor	fore;
 	static	XColor	back;

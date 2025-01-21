@@ -564,6 +564,8 @@ XButtonEvent *event;
 	Redisplay(cw, &fake_event);
 	XtCallCallbacks((Widget)cw, XavsNtoggleCallback, &info);
 }
+
+static void
 CreateBigPixmap(w)
 Widget w;
 {
@@ -574,6 +576,8 @@ Widget w;
 	 cw->squareCell.pixmap_width_in_pixels + 2, 
 	 cw->squareCell.pixmap_height_in_pixels + 2, 1);
 }
+
+static void
 DrawIntoBigPixmap(w)
 Widget w;
 {

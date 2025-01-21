@@ -121,7 +121,8 @@ char	*s;
 #include	<X11/keysymdef.h>
 #undef XK_SPECIAL
 
-strtsymS()
+void
+strtsymS(void)
 {
 	int	pass = 0, fail = 0;
 

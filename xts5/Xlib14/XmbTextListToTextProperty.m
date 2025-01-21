@@ -67,6 +67,7 @@ Display	   *display_good;
 char *exec_file_name;
 int x_init, y_init, w_init, h_init;
 
+static void
 svcmbTextListToTextProperty(display, list_good, 
 	count_good, style_good, text_prop_good )
 Display     *display ;

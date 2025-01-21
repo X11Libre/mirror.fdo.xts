@@ -87,7 +87,8 @@ int x_init,
  ******/
 
 
-setup_locale()
+static void
+setup_locale(void)
 {
 
     char *string ;
@@ -108,7 +109,8 @@ setup_locale()
 /*****
  * svcmbResetIC routine 
  *****/                             
-    svcmbResetIC(display, ic)
+static void
+svcmbResetIC(display, ic)
     Display  *display ;
     XIC  ic ;
     {

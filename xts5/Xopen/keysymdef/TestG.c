@@ -117,7 +117,8 @@ char	*s;
 #include	<X11/keysymdef.h>
 #undef XK_GREEK 
 
-kysymdf7()
+void
+kysymdf7(void)
 { 
 int 	pass = 0, fail = 0;
 #ifdef XK_Greek_ALPHAaccent

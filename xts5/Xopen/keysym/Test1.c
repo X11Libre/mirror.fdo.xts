@@ -115,7 +115,8 @@ char	*s;
 
 #include 	<X11/keysym.h>
 
-kysym1()
+void
+kysym1(void)
 { 
 int	pass = 0, fail = 0;
 #ifdef XK_space

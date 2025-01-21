@@ -117,7 +117,8 @@ char	*s;
 #include	<X11/keysymdef.h>
 #undef XK_ARABIC 
 
-kysymdf5()
+void
+kysymdf5(void)
 { 
 int 	pass = 0, fail = 0;
 #ifdef XK_Arabic_comma

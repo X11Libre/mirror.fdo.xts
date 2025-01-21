@@ -113,8 +113,8 @@ Window	grab_window = defwin(display);
  * When the pointer is grabbed then pointer events are not reported to
  * none grabbing clients.
  */
-static
-pgrabbed()
+static Bool
+pgrabbed(void)
 {
 Display	*client2;
 XEvent	ev;
@@ -155,8 +155,8 @@ XEvent	ev;
  * (This activates the previously set up grab if the arg variables
  * have not been changed.)
  */
-static
-activate()
+static void
+activate(void)
 {
 	warppointer(display, grab_window, ACTPOSX, ACTPOSY);
 	if (modifiers)

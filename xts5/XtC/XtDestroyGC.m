@@ -62,6 +62,7 @@ XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
+static int
 GC_error_handler2(disp, error_event)
 Display *disp;
 XErrorEvent *error_event;
@@ -69,6 +70,8 @@ XErrorEvent *error_event;
 	avs_set_event(2,1);
 	exit(0);
 }
+
+static int
 GC_error_handler(disp, error_event)
 Display *disp;
 XErrorEvent *error_event;

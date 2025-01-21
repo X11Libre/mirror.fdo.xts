@@ -117,7 +117,8 @@ char	*s;
 #include	<X11/keysymdef.h>
 #undef XK_SPECIAL
 
-kysymdf13()
+void
+kysymdf13(void)
 { 
 int 	pass = 0, fail = 0;
 #ifdef XK_blank

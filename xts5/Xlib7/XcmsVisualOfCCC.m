@@ -90,6 +90,7 @@ int x_init,
 /*****
  * svccmsVisualOfCCC routine 
  *****/                             
+static void
 svccmsVisualOfCCC(display, ccc)
 Display              *display ;
 XcmsCCC              ccc ;

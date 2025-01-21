@@ -91,6 +91,7 @@ int x_init, y_init, h_init, w_init;
 /*****
  * svccmsFreeCCC routine 
  *****/                             
+static void
 svccmsFreeCCC(display, ccc) 
 Display              *display ;
 XcmsCCC              ccc ;

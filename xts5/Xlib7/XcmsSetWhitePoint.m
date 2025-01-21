@@ -94,6 +94,7 @@ int x_init,
 /*****
  * svccmsSetWhitePoint routine 
  *****/                             
+static void
 svccmsSetWhitePoint(display, ccc, color)
 Display              *display ;
 XcmsCCC              ccc ;

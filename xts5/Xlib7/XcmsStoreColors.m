@@ -96,6 +96,7 @@ int x_init,
 /*****
  * svccmsStoreColors routine 
  *****/                             
+static void
 svccmsStoreColors(display, colormap, colors, ncolors, flags_return)
 Display              *display ;
 Colormap             colormap ;

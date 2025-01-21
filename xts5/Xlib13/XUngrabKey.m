@@ -192,7 +192,7 @@ activate_release()
  * non-grabbing clients. The grab client gets all keyboard events with
  * event window depending on owner_events and clients event mask.
  */
-static
+static Bool
 kgrabbed_check(client2)
 Display	*client2;
 {
@@ -231,8 +231,8 @@ int	saved_keyc = keycode;
  * as for kgrabbed_check() but used where number of fd's consumed by
  * multiple calls doesn't outweigh convenience of avoiding extra arg.
  */
-static
-kgrabbed()
+static Bool
+kgrabbed(void)
 {
 Display	*client2;
 

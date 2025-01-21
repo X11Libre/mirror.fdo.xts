@@ -94,6 +94,7 @@ int x_init,
 /*****
  * svccmsQueryWhite routine 
  *****/                             
+static void
 svccmsQueryWhite(display, ccc, format, color)
 Display              *display ;
 XcmsCCC              ccc ;

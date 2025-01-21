@@ -115,7 +115,8 @@ char	*s;
 
 #include 	<X11/keysym.h>
 
-kysymG()
+void
+kysymG(void)
 { 
 int	pass = 0, fail = 0;
 #ifdef XK_Greek_ALPHAaccent

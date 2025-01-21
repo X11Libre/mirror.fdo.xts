@@ -80,6 +80,7 @@ int (*XcmsConversionFunc)() ;
 char *exec_file_name;
 int x_init, y_init, h_init, w_init;
 
+static void
 svccmsConversionProc(display, ccc, colors, num, flags)
 Display              *display ;
 XcmsCCC              ccc ;

@@ -89,7 +89,8 @@ int x_init,
 /*****
  * routine to modify saved information prior to chekstat call
  *****/
-mod_stat()
+static void
+mod_stat(void)
 {
 	/*
 	 * insert modifications to saved data here
@@ -99,6 +100,7 @@ mod_stat()
 /*****
  * svcwcTextListToTextProperty routine 
  *****/                             
+static void
 svcwcTextListToTextProperty(display, list_good, count_good,
 		   style_good, text_prop_good )
 Display     *display ;

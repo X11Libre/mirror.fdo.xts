@@ -111,6 +111,7 @@ func2()
 /*****
  * svccmsAddFunctionSet routine 
  *****/                             
+static void
 svccmsAddFunctionSet(display, function_set)
 Display              *display ;
 XcmsFunctionSet      *function_set ;

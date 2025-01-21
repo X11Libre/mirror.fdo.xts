@@ -116,6 +116,7 @@ int x_init, y_init, h_init, w_init;
 /*****
  * svccmsQueryColors routine 
  *****/                             
+static void
 svccmsQueryColors(display, colormap, colors, ncolors, format)
 Display              *display ;
 Colormap             colormap ;

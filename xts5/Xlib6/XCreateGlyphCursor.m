@@ -127,7 +127,7 @@ static unsigned int good_char6 = 504;	/* known defined glyph in xtfont6 */
  *		flag indicates whether or not color is foreground
  */
 static XColor *
-mkcolor(flag)
+mkcolor(int flag)
 {
 	static	XColor	fore;
 	static	XColor	back;

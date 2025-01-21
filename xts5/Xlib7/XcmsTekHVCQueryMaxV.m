@@ -94,6 +94,7 @@ int x_init,
 /*****
  * svccmsTekHVCQueryMaxV routine 
  *****/                             
+static void
 svccmsTekHVCQueryMaxV(display, ccc, hue_good, chroma_good, color)
 Display              *display ;
 XcmsCCC              ccc ;

@@ -77,6 +77,7 @@ int        depth_good ;
 char *exec_file_name;
 int x_init, y_init, h_init, w_init;
 
+static void
 svccmsCreateCCC(display, screen, visual, client_white_point,
          compression_proc, compression_client_data,
          white_adjust_proc, white_adjust_client_data)

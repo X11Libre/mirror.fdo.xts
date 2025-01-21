@@ -85,7 +85,8 @@ int x_init,
 /*****
  * routine to modify saved information prior to chekstat call
  *****/
-    mod_stat()
+static void
+mod_stat(void)
     {
         /*
          * insert modifications to saved data here
@@ -95,7 +96,8 @@ int x_init,
 /*****
  * svcmbTextPropertyToTextList routine 
  *****/                             
-    svcmbTextPropertyToTextList(display, text_prop_good, list_good, count_good) 
+static void
+svcmbTextPropertyToTextList(display, text_prop_good, list_good, count_good)
     Display             *display ;
     XTextProperty	*text_prop_good ;
     char	**list_good ;

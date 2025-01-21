@@ -107,6 +107,7 @@ A call to xname changes the X keyboard.
 Change the X keyboard.  Verify via XListInputDevices that the keyboard
 was changed.
 >>EXTERN
+static Bool
 verify_kbd(dpy, id)
 	Display *dpy;
 	int id;

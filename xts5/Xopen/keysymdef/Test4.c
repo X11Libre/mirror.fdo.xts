@@ -117,7 +117,8 @@ char	*s;
 #include	<X11/keysymdef.h>
 #undef XK_LATIN4 
 
-kysymdf4()
+void
+kysymdf4(void)
 { 
 int 	pass = 0, fail = 0;
 #ifdef XK_kra

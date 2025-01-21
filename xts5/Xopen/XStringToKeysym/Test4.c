@@ -121,7 +121,8 @@ char	*s;
 #include	<X11/keysymdef.h>
 #undef XK_LATIN4 
 
-strtsym4()
+void
+strtsym4(void)
 {
 	int	pass = 0, fail = 0;
 

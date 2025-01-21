@@ -94,6 +94,7 @@ int x_init,
 /*****
  * svccmsScreenNumberOfCCC routine 
  *****/                             
+static void
 svccmsScreenNumberOfCCC(display, ccc)
 Display              *display ;
 XcmsCCC               ccc ;

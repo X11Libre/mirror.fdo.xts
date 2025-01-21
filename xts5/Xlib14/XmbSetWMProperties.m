@@ -139,6 +139,7 @@ int x_init,
     w_init;
 
 
+static void
 svcmbSetWMProperties(display, window_id, window_name, 
 icon_name, argv, num_args, hints, wmh_good, classh_good) 
 Display              *display;

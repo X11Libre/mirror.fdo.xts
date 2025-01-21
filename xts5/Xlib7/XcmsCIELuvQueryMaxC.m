@@ -93,6 +93,7 @@ int x_init,
 /*****
  * svccmsCIELuvQueryMaxC routine 
  *****/                             
+static void
 svccmsCIELuvQueryMaxC(display, ccc, hue_a, L_s, color )
 Display              *display ;
 XcmsCCC              ccc ;

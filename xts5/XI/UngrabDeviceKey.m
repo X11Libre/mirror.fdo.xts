@@ -103,7 +103,7 @@ XDevice *modifier_device;
 Window	grab_window = defwin(display);
 >>EXTERN
 extern ExtDeviceInfo Devs;
-extern MinKeyCode, MaxKeyCode;
+extern int MinKeyCode, MaxKeyCode;
 >>ASSERTION Good B 3
 If NULL is specified for the modifier device on a call to xname,
 the X keyboard is used.

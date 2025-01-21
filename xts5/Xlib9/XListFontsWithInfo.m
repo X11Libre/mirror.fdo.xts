@@ -119,7 +119,8 @@ extern	char	*xtfont0cpright;
 extern	struct	fontinfo	fontinfo[];
 extern	int 	nfontinfo;
 
-static lowerstring(str)
+static void
+lowerstring(str)
 char    *str;
 {
 	for (; *str; str++) {

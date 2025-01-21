@@ -115,7 +115,8 @@ char	*s;
 
 #include 	<X11/keysym.h>
 
-kysym2()
+void
+kysym2(void)
 { 
 int	pass = 0, fail = 0;
 #ifdef XK_Aogonek

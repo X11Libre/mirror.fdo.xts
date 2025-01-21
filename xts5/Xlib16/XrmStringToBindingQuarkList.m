@@ -188,7 +188,7 @@ XrmQuark value;
 }
 
 
-static
+static void
 xstbqlname(value, ptr)
 XrmBinding value;
 char *ptr;

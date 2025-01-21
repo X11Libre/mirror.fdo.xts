@@ -109,7 +109,7 @@ XEvent	*event_send = &_event;
 extern ExtDeviceInfo Devs;
 extern	int	nclass, nevent, event_types[];
 extern XEventClass classes[];
-extern XInputFirstEvent;
+extern int XInputFirstEvent;
 /*
  * Can not use "xcall" because it empties the event queue.
  */

@@ -582,7 +582,7 @@ else
 /*
  * Returns True if the keyboard is frozen.
  */
-static
+static Bool
 iskfrozen(display)
 Display	*display;
 {

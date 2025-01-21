@@ -760,7 +760,7 @@ else
 /*
  * Returns True if the keyboard is frozen.
  */
-static
+static Bool
 iskfrozen(display)
 Display	*display;
 {
@@ -790,7 +790,8 @@ int 	key;
 /*
  * Set up for SyncAll tests grab and freeze both device and keyboard.
  */
-bothset()
+static void
+bothset(void)
 {
 
 	device = Devs.Button;

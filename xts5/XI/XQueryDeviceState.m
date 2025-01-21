@@ -101,7 +101,7 @@ XDevice *device;
 #define KEYMAPLEN 32
 #define VALMAPLEN 6
 extern ExtDeviceInfo Devs;
-static NumValuators;
+static int NumValuators;
 
 >>ASSERTION Good B 3
 A successful call to QueryDeviceState resets the DeviceMotionHint state so
@@ -219,6 +219,7 @@ Move some valuators, if the device has any.
 Call QueryDeviceState.
 Check to see if those keys, buttons, and valuators are reported as being down.
 >>EXTERN
+static void
 devtype(dpy, dev, haskeys, hasbuttons, hasvaluators)
 Display *dpy;
 XDevice *dev;
@@ -271,6 +272,7 @@ XAnyClassPtr any;
 }
 
 >>EXTERN
+static void
 pokedev(display, device)
 Display *display;
 XDevice *device;

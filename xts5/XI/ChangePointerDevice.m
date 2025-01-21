@@ -108,6 +108,7 @@ A call to xname changes the X pointer.
 >>STRATEGY
 Touch test.
 >>EXTERN
+static Bool
 verify_ptr(dpy, id)
 	Display *dpy;
 	int id;

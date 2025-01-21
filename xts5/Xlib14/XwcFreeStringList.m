@@ -80,6 +80,7 @@ XwcFreeStringList()
 int x_init, y_init, h_init, w_init;
 
 
+static void
 svcwcFreeStringList(display, list)
 Display *display;
 wchar_t **list;

@@ -90,6 +90,7 @@ int x_init, y_init, h_init, w_init;
 /*****
  * svccmsCIELuvQueryMaxLC routine 
  *****/                             
+static void
 svccmsCIELuvQueryMaxLC(display, ccc, hue_a, color)
 Display              *display ;
 XcmsCCC              ccc ;

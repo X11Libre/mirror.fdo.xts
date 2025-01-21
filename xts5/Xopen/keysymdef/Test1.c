@@ -117,7 +117,8 @@ char	*s;
 #include	<X11/keysymdef.h>
 #undef XK_LATIN1 
 
-kysymdf1()
+void
+kysymdf1(void)
 { 
 int 	pass = 0, fail = 0;
 #ifdef XK_space

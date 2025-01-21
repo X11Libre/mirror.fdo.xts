@@ -88,6 +88,7 @@ int x_init,
 /*****
  * svccmsConvertColors routine 
  *****/                             
+static void
 svccmsConvertColors(display, ccc, colors_in_out, ncolors,
 		   target_format, c_flag)
 Display   *display ;

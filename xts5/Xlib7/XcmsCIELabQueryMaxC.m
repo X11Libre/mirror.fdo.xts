@@ -72,6 +72,7 @@ int        depth_good ;
 char *exec_file_name;
 int x_init, y_init, h_init, w_init;
 
+static void
 svccmsCIELabQueryMaxC(display, ccc, hue_a, L_s, color )
 Display              *display ;
 XcmsCCC              ccc ;

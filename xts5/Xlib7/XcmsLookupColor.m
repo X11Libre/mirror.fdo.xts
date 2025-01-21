@@ -104,6 +104,7 @@ int x_init,
 /*****
  * svccmsLookupColor routine 
  *****/                             
+static void
 svccmsLookupColor(display, colormap, color_return, exact,
 	      scrn, result_format)
 Display              *display ;

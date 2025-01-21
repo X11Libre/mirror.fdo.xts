@@ -77,6 +77,7 @@ int x_init, y_init, h_init, w_init;
 /*****
  * svccmsDefaultCCC routine 
  *****/                             
+static void
 svccmsDefaultCCC(display, screen_number)
 Display              *display ;
 int                  screen_number ;

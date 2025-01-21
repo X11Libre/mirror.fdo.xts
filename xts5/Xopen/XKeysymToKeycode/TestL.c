@@ -137,7 +137,8 @@ char	*s;
 #include	<X11/keysymdef.h>
 #undef XK_APL
 
-kysymtcdL()
+void
+kysymtcdL(void)
 { 
 int 	pass = 0, fail = 0;
 

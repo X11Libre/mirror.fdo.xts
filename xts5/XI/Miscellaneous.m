@@ -105,7 +105,8 @@ Touch test to execute miscellaneous code that would not otherwise get executed.
 >>STRATEGY
 Touch test.
 >>EXTERN
-static devtype(dpy, dev, keys, buttons, valuators)
+static int
+devtype(dpy, dev, keys, buttons, valuators)
 Display *dpy;
 XDevice *dev;
 XKeyInfoPtr *keys;
@@ -166,7 +167,7 @@ return(ret);
  * Set up to get DeviceStateNotify events from the pathological input device:
  * one with 255 keys, 255 buttons, and 255 valuators.
  */
-
+static void
 getds (dpy, dev, input)
 Display *dpy;
 XDevice *dev;

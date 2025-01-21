@@ -95,6 +95,7 @@ int x_init,
 /*****
  * svccmsQueryBlack routine 
  *****/                             
+static void
 svccmsQueryBlack(display, ccc, format, color)
 Display              *display ;
 XcmsCCC              ccc ;

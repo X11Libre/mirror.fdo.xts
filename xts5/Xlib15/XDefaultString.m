@@ -70,6 +70,7 @@ int x_init,
     w_init,
     h_init;
 
+static void
 svcDefaultString(display)
 Display     *display ;
 {

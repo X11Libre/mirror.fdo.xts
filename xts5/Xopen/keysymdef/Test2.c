@@ -117,7 +117,8 @@ char	*s;
 #include	<X11/keysymdef.h>
 #undef XK_LATIN2 
 
-kysymdf2()
+void
+kysymdf2(void)
 { 
 int 	pass = 0, fail = 0;
 #ifdef XK_Aogonek

@@ -88,7 +88,8 @@ int x_init,
     h_init,
     w_init;
 
-setup_locale()
+static void
+setup_locale(void)
 {
 
     char *string ;
@@ -106,6 +107,7 @@ setup_locale()
        message("unable to setup locale setup_locale() function failed\n", NULL, 0) ;
 }
 
+static void
 svcwcResetIC(display, ic)
 Display  *display ;
 XIC  ic ;

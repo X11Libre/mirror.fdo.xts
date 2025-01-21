@@ -93,6 +93,7 @@ int x_init,
 /*****
  * svccmsQueryBlue routine 
  *****/                             
+static void
 svccmsQueryBlue(display, ccc, format, color)
 Display              *display ;
 XcmsCCC              ccc ;

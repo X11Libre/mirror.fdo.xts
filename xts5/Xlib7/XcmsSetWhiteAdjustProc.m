@@ -94,6 +94,7 @@ int x_init,
 /*****
  * svccmsSetWhiteAdjustProc routine 
  *****/                             
+static void
 svccmsSetWhiteAdjustProc(display, ccc, white_adjust_proc, client_data)
 Display              *display ;
 XcmsCCC              ccc ;

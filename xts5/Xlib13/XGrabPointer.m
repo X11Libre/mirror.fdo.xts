@@ -1188,8 +1188,8 @@ replaced by the current X server time.
  * When the pointer is grabbed then pointer events are not reported to
  * non grabbing clients.
  */
-static
-pgrabbed()
+static Bool
+pgrabbed(void)
 {
 Window	win;
 Display	*client2;

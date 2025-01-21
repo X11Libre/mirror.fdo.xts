@@ -95,6 +95,7 @@ int x_init,
 /*****
  * svccmsFormatOfPrefix routine 
  *****/                             
+static void
 svccmsFormatOfPrefix(display, prefix_good)
 Display              *display ;
 char                 *prefix_good ;

@@ -93,6 +93,7 @@ int x_init,
 /*****
  * svccmsCIELuvQueryMinL routine 
  *****/                             
+static void
 svccmsCIELuvQueryMinL(display, ccc, hue_a, chroma, color )
 Display              *display ;
 XcmsCCC              ccc ;

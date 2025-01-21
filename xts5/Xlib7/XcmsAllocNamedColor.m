@@ -98,7 +98,8 @@ int x_init,
 
 /*****
  * svccmsAllocNamedColor routine 
- *****/                             
+ *****/
+static void
 svccmsAllocNamedColor(display, colormap, color_string, scrn, exact, format)
 Display              *display ;
 Colormap             colormap ;

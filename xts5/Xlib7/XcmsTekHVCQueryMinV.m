@@ -94,6 +94,7 @@ int x_init,
 /*****
  * svccmsTekHVCQueryMinV routine 
  *****/                             
+static void
 svccmsTekHVCQueryMinV(display, ccc, hue_good, chroma_good, color)
 Display              *display ;
 XcmsCCC              ccc ;

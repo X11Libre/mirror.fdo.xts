@@ -79,6 +79,7 @@ int x_init,
     w_init;
 
 
+static void
 svcFlushGC(display, gc_id)
 Display              *display;
 GC                   gc_id;

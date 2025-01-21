@@ -119,8 +119,8 @@ Cursor	cursor = None;
  * When the pointer is grabbed then pointer events are not reported to
  * non grabbing clients.
  */
-static
-pgrabbed()
+static Bool
+pgrabbed(void)
 {
 Window	win;
 Display	*client2;
@@ -191,8 +191,8 @@ Bool 	s;
  * (This activates the previously set up grab if the arg variables
  * have not been changed.)
  */
-static
-activate()
+static void
+activate(void)
 {
 	warppointer(display, grab_window, ACTPOSX, ACTPOSY);
 	if (modifiers)
@@ -203,8 +203,8 @@ activate()
 /*
  * Returns True if the pointer is frozen.
  */
-static
-pfrozen()
+static Bool
+pfrozen(void)
 {
 XEvent	ev;
 Window	win;
@@ -230,8 +230,8 @@ Window	win;
 /*
  * Returns True if the keyboard is frozen.
  */
-static
-kfrozen()
+static Bool
+kfrozen(void)
 {
 XEvent	ev;
 Window	win;

@@ -90,7 +90,8 @@ int x_init,
 /*****
  * routine to modify saved information prior to chekstat call
  *****/
-    mod_stat()
+static void
+mod_stat(void)
     {
         /*
          * insert modifications to saved data here
@@ -100,7 +101,8 @@ int x_init,
 /*****
  * svcUnsetICFocus routine 
  *****/                             
-    svcUnsetICFocus(ic_value)
+static void
+svcUnsetICFocus(ic_value)
     XIC   ic_value ;
     {
 /*****

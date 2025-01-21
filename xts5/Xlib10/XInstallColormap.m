@@ -112,12 +112,14 @@ static	int 	nsavcm;
  * installed originally.  However it is possible that different
  * colour maps will end up on the required list than before.
  */
-savecm()
+static void
+savecm(void)
 {
 	savcm = XListInstalledColormaps(display, DRW(display), &nsavcm);
 }
 
-restorecm()
+static void
+restorecm(void)
 {
 int 	i;
 

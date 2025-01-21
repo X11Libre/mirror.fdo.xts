@@ -83,7 +83,7 @@ unsigned int shape;
  * 		(Copied from rclrcrs.m.)
  */
 static XColor *
-mkcolor(flag)
+mkcolor(int flag)
 {
 	static	XColor	fore;
 	static	XColor	back;

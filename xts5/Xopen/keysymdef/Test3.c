@@ -117,7 +117,8 @@ char	*s;
 #include	<X11/keysymdef.h>
 #undef XK_LATIN3 
 
-kysymdf3()
+void
+kysymdf3(void)
 { 
 int 	pass = 0, fail = 0;
 #ifdef XK_Hstroke

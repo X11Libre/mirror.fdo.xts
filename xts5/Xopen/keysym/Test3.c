@@ -115,7 +115,8 @@ char	*s;
 
 #include 	<X11/keysym.h>
 
-kysym3()
+void
+kysym3(void)
 { 
 int	pass = 0, fail = 0;
 #ifdef XK_Hstroke

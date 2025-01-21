@@ -137,7 +137,8 @@ char	*s;
 #include	<X11/keysymdef.h>
 #undef XK_PUBLISHING
 
-kysymtcdP()
+void
+kysymtcdP(void)
 { 
 int 	pass = 0, fail = 0;
 

@@ -97,6 +97,7 @@ int x_init,
 /*****
  * svccmsPrefixOfFormat routine 
  *****/                             
+static void
 svccmsPrefixOfFormat(display, format)
 Display              *display ;
 XcmsColorFormat      format ;

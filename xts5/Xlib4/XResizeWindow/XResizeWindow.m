@@ -332,7 +332,7 @@ int 	dy = NEW_HEIGHT-top->height;
  * Routine that does the event checking for the gravity notify
  * test.
  */
-static
+static Bool
 wingravevents(display, bt, evtype)
 Display	*display;
 struct	buildtree	*bt;

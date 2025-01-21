@@ -118,7 +118,8 @@ char	*s;
 #undef XK_LATIN2
 
 
-kysymdf0()
+void
+kysymdf0(void)
 { 
 int	pass = 0, fail = 0;
 #ifdef XK_VoidSymbol

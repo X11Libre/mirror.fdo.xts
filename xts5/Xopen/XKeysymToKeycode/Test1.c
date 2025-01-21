@@ -137,7 +137,8 @@ char	*s;
 #include	<X11/keysymdef.h>
 #undef XK_LATIN1 
 
-kysymtcd1()
+void
+kysymtcd1(void)
 { 
 int 	pass = 0, fail = 0;
 

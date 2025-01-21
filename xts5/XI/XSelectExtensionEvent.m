@@ -115,7 +115,8 @@ void xi_cleanup()
       client1 = NULL;
 }
  
-getfocusdevice()
+static void
+getfocusdevice(void)
 {
 int i, j, ndevices;
 XInputClassInfo *ip;

@@ -90,6 +90,7 @@ int x_init, y_init, h_init, w_init;
 /*****
  * svccmsCIELabQueryMinL routine 
  *****/                             
+static void
 svccmsCIELabQueryMinL(display, ccc, hue_a, chroma, color )
 Display              *display ;
 XcmsCCC              ccc ;

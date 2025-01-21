@@ -92,6 +92,7 @@ int x_init,
 /*****
  * svccmsCCCOfColormap routine 
  *****/                             
+static void
 svccmsCCCOfColormap(display, colormap)
 Display              *display ;
 Colormap             colormap ;

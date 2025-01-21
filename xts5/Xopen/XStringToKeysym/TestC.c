@@ -121,7 +121,8 @@ char	*s;
 #include	<X11/keysymdef.h>
 #undef XK_CYRILLIC 
 
-strtsymC()
+void
+strtsymC(void)
 {
 	int	pass = 0, fail = 0;
 

@@ -121,7 +121,8 @@ char	*s;
 #include	<X11/keysymdef.h>
 #undef XK_KATAKANA 
 
-strtsymK()
+void
+strtsymK(void)
 {
 	int	pass = 0, fail = 0;
 

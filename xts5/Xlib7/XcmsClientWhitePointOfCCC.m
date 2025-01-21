@@ -90,6 +90,7 @@ int x_init, y_init, h_init, w_init;
 /*****
  * svccmsClientWhitePointOfCCC routine 
  *****/                             
+static void
 svccmsClientWhitePointOfCCC(display, ccc)
 Display              *display ;
 XcmsCCC             ccc ;

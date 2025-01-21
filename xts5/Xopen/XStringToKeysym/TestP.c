@@ -121,7 +121,8 @@ char	*s;
 #include	<X11/keysymdef.h>
 #undef XK_PUBLISHING
 
-strtsymP()
+void
+strtsymP(void)
 {
 	int	pass = 0, fail = 0;
 

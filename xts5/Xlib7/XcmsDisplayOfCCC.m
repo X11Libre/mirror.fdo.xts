@@ -85,6 +85,7 @@ int x_init, y_init, h_init, w_init;
 /*****
  * svccmsDisplayOfCCC routine 
  *****/                             
+static void
 svccmsDisplayOfCCC(display, ccc)
 Display              *display ;
 XcmsCCC              ccc ;

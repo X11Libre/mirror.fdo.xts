@@ -83,7 +83,8 @@ int x_init,
     h_init,
     w_init;
 
-svcSetICFocus()
+static int
+svcSetICFocus(void)
 {
 XIC   ic_value ;
 extern int  errcnt;

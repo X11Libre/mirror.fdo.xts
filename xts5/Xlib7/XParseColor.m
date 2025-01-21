@@ -125,6 +125,7 @@ XColor		*ret_desired;
 	return((ret_desired->red == color_ret.red) && (ret_desired->green == color_ret.green) && (ret_desired->blue == color_ret.blue));
 }
 
+static void
 rgb_report(desired)
 XColor	*desired;
 {

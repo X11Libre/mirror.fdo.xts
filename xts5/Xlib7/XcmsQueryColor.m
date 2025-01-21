@@ -108,6 +108,7 @@ int x_init,
 /*****
  * svccmsQueryColor routine 
  *****/                             
+static void
 svccmsQueryColor(display, colormap, color, format)
 Display              *display ;
 Colormap             colormap ;

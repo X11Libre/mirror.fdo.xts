@@ -381,6 +381,7 @@ void	checkconfig();
 void	XstAbort();
 void	XstDelete ();
 void	Finish ();
+int	Allocatable (int client);
 Atom	Create_Atom();
 void	Create_Client ();
 int	Create_Client_Tested ();
@@ -389,6 +390,8 @@ Cursor	Create_Cursor();
 Atom	Create_Default_Atom();
 Colormap	Create_Default_Colormap();
 Cursor	Create_Default_Cursor();
+Pixmap	Create_Default_Cursor_Pixmap(int client);
+void	Create_Default_Event(int client, int event_type);
 Font	Create_Default_Font();
 GContext	Create_Default_GContext();
 Pixmap	Create_Default_Pixmap();
@@ -399,7 +402,11 @@ Pixmap	Create_Pixmap();
 Window	Create_Window();
 void	XstExit();
 void	Exit_OK();
-xReply *Expect();
+xReply *Expect(int client, int class, int type);
+void	Expect_BadAccess(int client);
+void	Expect_BadIDChoice(int client);
+void	Expect_BadLength(int client);
+void	Expect_BadValue(int client);
 int	Get_Timer();
 XID	Get_Resource_Id();
 int	Log_Close();
@@ -435,13 +442,56 @@ int	Set_Timer(int timer, int time, void (*routine)());
 void	Set_Value1();
 void	Set_Value2();
 void	Set_Value4();
-void	Set_Byte_Sex();
+void	Set_Byte_Sex(int set_to);
+void	Set_Required_Byte_Sex(int set_to);
 void	Show_Err();
 void	Show_Evt();
 void	Show_Rep();
 void	Show_Req();
 int	Stop_Timer();
+void	Visual_Check(void);
 xReq	*Add_Masked_Value();
 xReq	*Add_Counted_Bytes();
+
+void	bufrgc(GC gc_id, char *gc_name);
+void	debug(int lev, char *fmt, ...);
+int	isdeleted(void);
+void	report(char *fmt, ...);
+void	report_assertion(char* line);
+void	report_purpose(int number);
+void	report_strategy(char* line);
+void	pfcount(int pass, int fail);
+void	testfunc(void (*func)());
+void	tpcleanup(void);
+void	tpfontcleanup(void);
+void	tpfontstartup(void);
+void	tpstartup(void);
+void	unsupported(char *mess, ... );
+void	untested(char *mess, ... );
+void	wbcopy(unsigned char *b1, unsigned char *b2, int length);
+
+/* #ifdef INPUTEXTENSION */
+int check_ext_event(XEvent *good, XEvent *ev);
+void devicebuttonpress(Display *disp, XDevice *dev, unsigned int button);
+void devicebuttonrel(Display *disp, XDevice *dev, unsigned int button);
+void devicekeypress(Display *disp, XDevice *dev, int key);
+void devicekeyrel(Display *disp, XDevice *dev, int key);
+void devicerelbuttons(XDevice *dev);
+void devicerelkeys(XDevice *dev);
+int getdevkeycode(Display *display, XDevice *dev);
+unsigned int wantdevmods(Display *disp, XDevice *dev, int want);
+
+
+Status SimulateDeviceButtonPressEvent(Display *dpy, XDevice *dev,
+				      unsigned int button);
+Status SimulateDeviceButtonReleaseEvent(Display *dpy, XDevice *dev,
+					unsigned int button);
+Status SimulateDeviceKeyPressEvent(Display *dpy, XDevice *dev,
+				   KeyCode keycode);
+Status SimulateDeviceKeyReleaseEvent(Display *dpy, XDevice *dev,
+				     KeyCode keycode);
+Status SimulateDeviceMotionEvent(Display *dpy, XDevice *dev, Bool is_relative,
+				 int n_axes, int *axes, int first);
+/* #endif */
 
 #endif /* XTS5_XSTLIB_H */

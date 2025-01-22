@@ -99,6 +99,8 @@ purpose.  It is provided "as is" without express or implied warranty.
 */
 >>TITLE MapNotify Xlib11
 >>EXTERN
+#include	<unistd.h>
+
 #define	EVENT		MapNotify
 #define	MASK		StructureNotifyMask
 #define	MASKP		SubstructureNotifyMask

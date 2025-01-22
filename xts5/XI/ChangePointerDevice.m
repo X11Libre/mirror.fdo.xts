@@ -100,6 +100,8 @@ XDevice *device;
 int 	xaxis = 1;
 int 	yaxis = 0;
 >>EXTERN
+#include "Xstlib.h"
+
 extern ExtDeviceInfo Devs;
 extern int NumValuators, MinKeyCode;
 

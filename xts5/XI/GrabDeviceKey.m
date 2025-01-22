@@ -107,6 +107,8 @@ XEventClass *event_list;
 int 	this_device_mode = GrabModeAsync;
 int 	other_devices_mode = GrabModeAsync;
 >>EXTERN
+#include "Xstlib.h"
+
 extern int MinKeyCode;
 extern ExtDeviceInfo Devs;
 

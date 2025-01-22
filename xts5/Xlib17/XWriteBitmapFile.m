@@ -112,6 +112,7 @@ int y_hot = -1;
 #include <sys/types.h>
 #include <errno.h>
 #include <sys/stat.h>
+#include <unistd.h>
 
 #ifndef S_IRUSR
 #define XWBF_MODE 0x600

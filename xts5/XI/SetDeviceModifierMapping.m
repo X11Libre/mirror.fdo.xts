@@ -100,6 +100,7 @@ XDevice *device;
 XModifierKeymap	*modmap;
 >>SET return-value MappingSuccess
 >>EXTERN
+#include "Xstlib.h"
 
 extern ExtDeviceInfo Devs;
 extern int MinKeyCode, MaxKeyCode;

@@ -104,6 +104,8 @@ Window	focus = PointerRoot;
 int	revert_to = RevertToPointerRoot;
 int	time1 = CurrentTime;
 >>EXTERN
+#include "Xstlib.h"
+
 int baddevice;
 extern ExtDeviceInfo Devs;
 extern int MinKeyCode;

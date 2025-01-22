@@ -103,6 +103,9 @@ Window w;
 XEventClass *eclass;
 int ecount;
 >>EXTERN
+#include <unistd.h>
+#include "Xstlib.h"
+
 extern ExtDeviceInfo Devs;
 extern int MinKeyCode;
 extern int NumButtons;

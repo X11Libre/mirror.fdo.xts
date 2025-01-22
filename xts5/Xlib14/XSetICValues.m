@@ -116,6 +116,7 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 >>EXTERN
 #include <locale.h>
 #include <string.h>
+#include <unistd.h>
 #include <ximtest.h>
 
 typedef struct {

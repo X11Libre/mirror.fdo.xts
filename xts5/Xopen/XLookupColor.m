@@ -76,6 +76,7 @@ char *color_name = "";
 XColor *exact_def_return = &dummycol;
 XColor *screen_def_return = &dummycol;
 >>EXTERN
+#include <ctype.h>
 
 XColor dummycol;
 

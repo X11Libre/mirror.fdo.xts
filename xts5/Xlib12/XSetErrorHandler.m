@@ -106,7 +106,9 @@ XSetErrorHandler(handler)
 int (*handler)();
 >>EXTERN
 #include <signal.h>
+#include <sys/types.h>
 #include <sys/wait.h>
+#include <unistd.h>
 #include "X11/Xproto.h"
 
 #define	_xcall_(rvalue)		rvalue = XSetErrorHandler(handler)

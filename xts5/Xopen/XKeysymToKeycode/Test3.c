@@ -87,6 +87,7 @@ SOFTWARE.
 #include        "tet_api.h"
 #include        "xtestlib.h"
 #include        "pixval.h"
+#include        "tests.h"
 
 extern char	*TestName;
 extern Display	*Dsp;

@@ -27,8 +27,10 @@ tprogs = \
 	XLookupColor \
 	XStringToKeysym/XStringToKeysym
 
+keysym_keysym_CPPFLAGS = -I$(srcdir)/keysym
 keysym_keysym_SOURCES = \
 	keysym/keysym.c \
+	keysym/tests.h \
 	keysym/Test0.c \
 	keysym/Test1.c \
 	keysym/Test2.c \
@@ -37,8 +39,10 @@ keysym_keysym_SOURCES = \
 	keysym/TestG.c \
 	keysym/TestM.c
 
+keysymdef_keysymdef_CPPFLAGS = -I$(srcdir)/keysymdef
 keysymdef_keysymdef_SOURCES = \
 	keysymdef/keysymdef.c \
+	keysymdef/tests.h \
 	keysymdef/Test0.c \
 	keysymdef/Test1.c \
 	keysymdef/Test2.c \
@@ -55,7 +59,9 @@ keysymdef_keysymdef_SOURCES = \
 	keysymdef/TestS.c \
 	keysymdef/TestT.c
 
+XKeysymToKeycode_XKeysymToKeycode_CPPFLAGS = -I$(srcdir)/XKeysymToKeycode
 XKeysymToKeycode_XKeysymToKeycode_SOURCES = \
+	XKeysymToKeycode/tests.h \
 	XKeysymToKeycode/XKeysymToKeycode.c \
 	XKeysymToKeycode/Test1.c \
 	XKeysymToKeycode/Test2.c \
@@ -72,7 +78,9 @@ XKeysymToKeycode_XKeysymToKeycode_SOURCES = \
 	XKeysymToKeycode/TestS.c \
 	XKeysymToKeycode/TestT.c
 
+XStringToKeysym_XStringToKeysym_CPPFLAGS = -I$(srcdir)/XStringToKeysym
 XStringToKeysym_XStringToKeysym_SOURCES = \
+	XStringToKeysym/tests.h \
 	XStringToKeysym/XStringToKeysym.c \
 	XStringToKeysym/Test1.c \
 	XStringToKeysym/Test2.c \

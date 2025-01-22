@@ -99,6 +99,8 @@ Display	*display = Dsp;
 Window	win;
 int	*count_return = &pcount;
 >>EXTERN
+#include	"xtestlib.h"
+
 int pcount;
 >>ASSERTION Good B 3
 A successful call to xname returns the DontPropagateList for the specified

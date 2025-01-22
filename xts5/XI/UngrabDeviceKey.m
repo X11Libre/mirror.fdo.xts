@@ -102,6 +102,8 @@ unsigned int 	modifiers = 0;
 XDevice *modifier_device;
 Window	grab_window = defwin(display);
 >>EXTERN
+#include "Xstlib.h"
+
 extern ExtDeviceInfo Devs;
 extern int MinKeyCode, MaxKeyCode;
 >>ASSERTION Good B 3

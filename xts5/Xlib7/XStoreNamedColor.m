@@ -108,6 +108,8 @@ Colormap colormap = DefaultColormap(display, DefaultScreen(display));
 char *color = "";
 unsigned long pixel;
 int flags = DoRed|DoGreen|DoBlue;
+>>EXTERN
+#include <ctype.h>
 >>ASSERTION Good C
 >>#
 >># TODO 					dave - Jan 17

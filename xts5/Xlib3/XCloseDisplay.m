@@ -113,6 +113,7 @@ Display	*display = Dsp;
 >>EXTERN
 
 #include	"string.h"
+#include	<unistd.h>
 #include	"X11/Xatom.h"
 
 #define PROTECT(x)	_startcall(display);\

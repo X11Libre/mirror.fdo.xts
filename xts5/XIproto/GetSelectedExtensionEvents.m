@@ -117,6 +117,7 @@ SOFTWARE.
 >>SET cleanup protocleanup
 >>EXTERN
 #include "Xstlib.h"
+#include "xtestlib.h"
 
 #define CLIENT 0
 extern int XInputMajorOpcode;

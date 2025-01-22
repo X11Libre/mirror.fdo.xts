@@ -192,6 +192,8 @@ static XtGeometryResult QueryGeometry();
  */
 /* the following are private functions unique to SquareCell */
 static void DrawPixmaps(), DoCell(), ChangeCellSize();
+static void CreateBigPixmap(Widget w);
+static void DrawIntoBigPixmap(Widget w);
 /* the following are actions of SquareCell */
 static void DrawCell(), UndrawCell(), ToggleCell();
 /* The following are public functions of SquareCell, declared extern

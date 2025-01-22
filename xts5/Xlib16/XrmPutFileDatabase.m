@@ -111,6 +111,7 @@ const char *stored_db = outfile("xpfd_file");
 >>SET startup rmstartup
 >>INCLUDE rescommon.mc
 >>EXTERN
+#include <unistd.h>
 
 #define XPFD_T1_COUNT	4
 static char *t1_data[XPFD_T1_COUNT][3] = {

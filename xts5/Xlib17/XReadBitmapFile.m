@@ -110,6 +110,7 @@ int *x_hot_return = &x_hot;
 int *y_hot_return = &y_hot;
 >>EXTERN
 #include <stdio.h>
+#include <unistd.h>
 
 /* Function return variables. */
 static unsigned int width;

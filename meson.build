@@ -24,7 +24,7 @@ project(
   ['c'],
   version : '0.99.1',
   license : ['MIT', 'Artistic'],
-  meson_version : '>=0.49.1',  # Arbitrary
+  meson_version : '>=0.50.0',
   default_options : ['buildtype=debugoptimized', 'warning_level=0'],
 )
 

@@ -107,6 +107,7 @@ char *data;
 >>SET startup rmstartup
 >>INCLUDE rescommon.mc
 >>EXTERN
+#include "ximtest.h"
 
 #define XGSD_T1_COUNT 23
 

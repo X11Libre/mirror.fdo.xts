@@ -332,8 +332,8 @@ Status SimulateButtonPressEvent(Display  *dpy, unsigned int button);
 Status SimulateButtonReleaseEvent(Display  *dpy, unsigned int button);
 #ifdef INPUTEXTENSION
 Bool init_xinput(Display *dpy);
-Status SimulateDeviceKeyPressEvent(Display *dpy, XDevice *dev, unsigned int button);
-Status SimulateDeviceKeyReleaseEvent(Display *dpy, XDevice *dev, unsigned int button);
+Status SimulateDeviceKeyPressEvent(Display *dpy, XDevice *dev, KeyCode keycode);
+Status SimulateDeviceKeyReleaseEvent(Display *dpy, XDevice *dev, KeyCode keycode);
 Status SimulateDeviceButtonPressEvent(Display *dpy, XDevice *dev, unsigned int button);
 Status SimulateDeviceButtonReleaseEvent(Display *dpy, XDevice *dev, unsigned int button);
 #endif

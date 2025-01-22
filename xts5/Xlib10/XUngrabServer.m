@@ -112,6 +112,7 @@ Display	*display = Dsp;
 A call to xname
 resumes processing of requests and close downs on other connections.
 >>EXTERN
+#include	<unistd.h>
 
 #include	"X11/Xatom.h"
 

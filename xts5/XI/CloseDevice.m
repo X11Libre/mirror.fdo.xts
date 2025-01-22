@@ -98,6 +98,8 @@ int
 Display	*display = Dsp;
 XDevice *device;
 >>EXTERN
+#include "Xstlib.h"
+
 extern ExtDeviceInfo Devs;
 
 >>ASSERTION Good B 3

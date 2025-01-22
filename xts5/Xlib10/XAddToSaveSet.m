@@ -103,6 +103,7 @@ xname
 Display	*display = Dsp;
 Window	w;
 >>EXTERN
+#include <unistd.h>
 
 /*
  * These windows are created by client1.

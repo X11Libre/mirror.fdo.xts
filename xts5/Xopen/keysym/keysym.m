@@ -69,6 +69,8 @@ SOFTWARE.
  */
 >>TITLE keysym Xopen
 >>CFILES Test0.c Test1.c Test2.c Test3.c Test4.c TestG.c TestM.c
+>>EXTERN
+#include "tests.h"
 >>ASSERTION Good A
 When the header file <X11/keysym.h> is included, 
 then the symbols in the table which have code 1

@@ -338,4 +338,3 @@ void Show_Value_List_Rep (xReply *rp, int size, int format);
 void Show_Value_List_Req (xReq *rp, int size, int format);
 
 void Untested (void);
-void wbcopy (unsigned char *b1, unsigned char *b2, int length);

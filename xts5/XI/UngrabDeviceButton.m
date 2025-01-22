@@ -102,6 +102,8 @@ unsigned int 	modifiers = AnyModifier;
 XDevice *modifier_device;
 Window	grab_window = defwin(display);
 >>EXTERN
+#include "Xstlib.h"
+
 extern ExtDeviceInfo Devs;
 
 >>ASSERTION Good B 3

@@ -103,6 +103,8 @@ int *nevents_return = &_nevents_return;
 int *mode_return = &_mode_return;
 int *axis_count_return = &_axis_count_return;
 >>EXTERN
+#include "Xstlib.h"
+
 static	int	_nevents_return;
 static	int	_mode_return;
 static	int	_axis_count_return;

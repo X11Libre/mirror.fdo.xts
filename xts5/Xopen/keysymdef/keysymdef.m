@@ -69,6 +69,8 @@ SOFTWARE.
  */
 >>TITLE keysymdef Xopen
 >>CFILES Test0.c Test1.c Test2.c Test3.c Test4.c TestA.c TestC.c TestG.c TestH.c TestK.c TestL.c TestM.c TestP.c TestS.c TestT.c
+>>EXTERN
+#include "tests.h"
 >>ASSERTION Good A
 When the header file <X11/keysymdef.h> is included while the feature test macro 
 .S XK_LATIN1

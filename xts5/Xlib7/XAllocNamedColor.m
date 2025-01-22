@@ -109,6 +109,8 @@ char *color_name = "";
 XColor *screen_def_return = &dummycol;
 XColor *exact_def_return = &dummycol;
 >>EXTERN
+#include <ctype.h>
+
 XColor dummycol;
 >>ASSERTION Good A
 A call to xname 

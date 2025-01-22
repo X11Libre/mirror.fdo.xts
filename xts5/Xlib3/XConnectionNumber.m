@@ -104,6 +104,8 @@ int
 XConnectionNumber(display)
 Display	*display = Dsp;
 >>EXTERN
+#include	<unistd.h>
+
 static	Display	*client;
 static	int	exit_status = -1;
 static	int	path_checker = -1;

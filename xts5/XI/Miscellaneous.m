@@ -97,6 +97,8 @@ void
 
 Display	*display = Dsp;
 >>EXTERN
+#include "Xstlib.h"
+
 extern ExtDeviceInfo Devs;
 static Window w;
 

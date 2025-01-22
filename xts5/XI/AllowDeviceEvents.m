@@ -104,6 +104,8 @@ int	event_mode = AsyncThisDevice;
 Time	time1  = CurrentTime;
 >>EXTERN
 #include <stdio.h>
+#include "Xstlib.h"
+
 extern ExtDeviceInfo Devs;
 
 /*

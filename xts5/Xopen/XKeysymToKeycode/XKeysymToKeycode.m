@@ -70,6 +70,8 @@ SOFTWARE.
 
 >>TITLE XKeysymToKeycode Xopen
 >>CFILES Test1.c Test2.c Test3.c Test4.c TestA.c TestC.c TestG.c TestH.c TestK.c TestL.c TestM.c TestP.c TestS.c TestT.c
+>>EXTERN
+#include "tests.h"
 >>ASSERTION Good A
 When the
 .A keysym

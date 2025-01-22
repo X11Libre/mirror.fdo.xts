@@ -108,6 +108,7 @@ int 	this_device_mode = GrabModeAsync;
 int 	other_devices_mode = GrabModeAsync;
 Time	time1 = CurrentTime;
 >>EXTERN
+#include "Xstlib.h"
 
 extern int MinKeyCode;
 extern ExtDeviceInfo Devs;

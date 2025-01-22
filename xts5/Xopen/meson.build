@@ -105,7 +105,7 @@ foreach t : _test_progs
   executable(
     t[0],
     t[1],
-    include_directories : [inc_include, inc_tet3, inc_xts5],
+    include_directories : [inc_include, inc_tet3, inc_xts5, t[0]],
     link_with : [libxts5, libapi_s],
     dependencies : [deps_xts, idep_tcmmain],
     install_rpath : '..',

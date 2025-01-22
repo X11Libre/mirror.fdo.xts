@@ -116,6 +116,8 @@ Time	thetime = CurrentTime;
  * NOTE: This test should not be run with a window manager as some
  * window managers interfere with the test.
  */
+
+#include <unistd.h>
 >>SET startup focusstartup
 >>SET cleanup focuscleanup
 >>ASSERTION Good A

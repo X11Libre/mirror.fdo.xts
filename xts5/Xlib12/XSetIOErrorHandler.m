@@ -110,7 +110,9 @@ XSetIOErrorHandler(handler)
 int (*handler)();
 >>EXTERN
 #include <signal.h>
+#include <sys/types.h>
 #include <sys/wait.h>
+#include <unistd.h>
 
 #define	_xcall_(rvalue)		rvalue = XSetIOErrorHandler(handler)
 

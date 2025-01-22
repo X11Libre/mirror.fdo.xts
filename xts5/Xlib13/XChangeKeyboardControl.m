@@ -104,6 +104,8 @@ Display	*display = Dsp;
 unsigned long	value_mask = KBBellPercent;
 XKeyboardControl	*values = &Kcval;
 >>EXTERN
+#include <stdlib.h>
+#include <unistd.h>
 
 /* For the argument */
 static XKeyboardControl Kcval;

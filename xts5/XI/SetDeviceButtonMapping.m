@@ -101,6 +101,7 @@ XDevice *device = Devs.Button;
 unsigned char	*map = Map;
 int 	nmap = 255;
 >>EXTERN
+#include "Xstlib.h"
 
 /* Maximum button number allowed. */
 #define	MAXBUTTON	255

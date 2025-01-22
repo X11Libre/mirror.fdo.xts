@@ -62,6 +62,7 @@ All Rights Reserved.
 void
 XFlushGC()
 >>EXTERN
+#include "Xstlib.h"
 
 Pixmap pixmap1, tilemap, stipmap;
 

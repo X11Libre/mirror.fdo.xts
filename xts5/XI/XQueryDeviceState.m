@@ -98,6 +98,8 @@ XDeviceState *
 Display	*display = Dsp;
 XDevice *device;
 >>EXTERN
+#include "Xstlib.h"
+
 #define KEYMAPLEN 32
 #define VALMAPLEN 6
 extern ExtDeviceInfo Devs;

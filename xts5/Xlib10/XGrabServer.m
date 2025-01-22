@@ -109,6 +109,7 @@ void
 
 Display	*display = Dsp;
 >>EXTERN
+#include	<unistd.h>
 
 #include	"X11/Xatom.h"
 

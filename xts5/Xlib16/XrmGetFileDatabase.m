@@ -108,6 +108,9 @@ char *filename;
 >>INCLUDE rescommon.mc
 >>EXTERN
 #include <stdio.h>
+#include <unistd.h>
+#include "ximtest.h"
+
 #define XGFD_NON_EXIST "xgfd_nonfile"
 #define XGFD_TEST_FILE "xgfd_tmpfile"
 

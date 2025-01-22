@@ -103,6 +103,8 @@ XOffsetRegion(r, dx, dy)
 Region	r;
 int	dx;
 int	dy;
+>>EXTERN
+#include <unistd.h>
 >>ASSERTION Good A
 A call to xname moves the region
 .A r

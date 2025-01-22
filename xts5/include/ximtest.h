@@ -247,9 +247,29 @@ XIC xim_ic_init(
 );
 
 int nextfontset(char **fontset);
+int nfontset(void);
 void resetfontset(void);
 
+void ic_close(XIC ic);
+void ic_get_cb(XIMCallback pe_cb[], XIMCallback status_cb[],
+               XIMCallback *geom_cb);
+Bool ic_setup(Window *pwin, XFontSet *pfs);
+Bool next_ic_style(XIMStyle *which_style);
+int n_ic_styles(void);
+Bool reset_ic_style(XIM im);
+
+int nextlclmod(char **lclmod);
+int nlclmod(void);
+void resetlclmod(void);
+
+
+void cleanup_locale(XIMStyles *style, XFontSet fs, XIM im, XrmDatabase db);
+int linklocale(char *plocale);
 Bool locale_set(char *plocale);
+int nextlocale(char **locale);
+int nlocales(void);
+void resetlocale(void);
+void unlinklocales(void);
 
 int parse_find_key(char *id, char *keys[], int cnt);
 Bool parse_gethex(char **ppstr, int *pnum);
@@ -273,3 +293,5 @@ void xim_save_response(cbstk_def *pstk);
 
 Bool xim_stimulus_open(char *plocale, XIMStyle *style);
 void xim_stimulus_close(void);
+
+int xim_wsneq(wchar_t *s1, wchar_t *s2, int cnt);

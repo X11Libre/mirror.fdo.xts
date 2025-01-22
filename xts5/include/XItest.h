@@ -60,6 +60,8 @@ SOFTWARE.
 *
 */
 
+#include <X11/Xproto.h>
+
 #define	KeyMask		(1 << 0)
 #define	BtnMask		(1 << 1)
 #define	ValMask		(1 << 2)
@@ -106,3 +108,11 @@ typedef struct _ExtDeviceInfo
     XDevice *NDvCtl;
     } ExtDeviceInfo;
 
+void Close_Extension_Display(void);
+xReq *Make_XInput_Req(int client, int type);
+void MinMaxKeys(Display *dpy, XDevice *dev, int *min, int *max, int *num);
+void SelectExtensionEvents(Display *dpy, Window win);
+void SuppressExtensionEvents(Display *dpy, Window win);
+void Send_XInput_Req(int client, xReq *rp);
+int SetFeedbackInfo(unsigned int mask, XID id);
+int Setup_Extension_DeviceInfo(unsigned int dmask);

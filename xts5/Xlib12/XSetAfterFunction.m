@@ -143,7 +143,7 @@ int	oldcounter;
 	else
 		CHECK;
 /* Call XSetAfterFunction to set the after function to afterfunction. */
-	XCALL;
+	(void) XCALL;
 /* Create window. */
 	mkwin(display, (XVisualInfo *) NULL, (struct area *) NULL, False);
 /* Verify that the after function was called. */
@@ -168,7 +168,7 @@ int	(*proc)();
 
 /* Call XSetAfterFunction to set after function to afterfunction. */
 	procedure = afterfunction;
-	XCALL;
+	(void) XCALL;
 /* Call XSetAfterFunction to set after function to _afterfunction. */
 	procedure = _afterfunction;
 	proc = XCALL;

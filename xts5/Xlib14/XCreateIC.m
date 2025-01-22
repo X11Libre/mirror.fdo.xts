@@ -119,7 +119,7 @@ char *ic_preedit = XNPreeditAttributes;
 XVaNestedList preedit_list;
 char *ic_status = XNStatusAttributes;
 XVaNestedList status_list;
-int end_list = NULL;
+int end_list = 0;
 >>SET startup localestartup
 >>SET cleanup localecleanup
 >>ASSERTION Good C

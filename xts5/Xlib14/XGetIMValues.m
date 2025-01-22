@@ -115,7 +115,7 @@ char *
 XIM im = NULL;
 char *im_name = XNQueryInputStyle;
 XIMStyles **pstyle = NULL;
-int end_of_list = NULL;
+int end_of_list = 0;
 >>SET startup localestartup
 >>SET cleanup localecleanup
 >>ASSERTION Good C

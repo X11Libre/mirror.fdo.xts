@@ -118,7 +118,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 #define INIT(x) 
 #endif
 
-#ifdef ANSI_C
+#ifndef NOT_ANSI_C
 #define PARAMS(x) x
 #else
 #define PARAMS(x) ()                                                                                                     

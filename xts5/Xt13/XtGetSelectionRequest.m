@@ -250,7 +250,7 @@ int *format_return;
 	XSelectionRequestEvent *request;
 	avs_set_event(1, 1);
 	tet_infoline("TEST: XtGetSelectionRequest returns NULL");
-	request = XtGetSelectionRequest(topLevel, NULL, (XtRequestId)NULL);
+	request = XtGetSelectionRequest(topLevel, None, (XtRequestId)NULL);
 	if (request != NULL) {
 		tet_infoline("ERROR: XtGetSelectionRequest did not return NULL");
 		tet_result(TET_FAIL);

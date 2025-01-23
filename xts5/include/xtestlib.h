@@ -108,6 +108,9 @@ makes no representations about the suitability of this software for any
 purpose.  It is provided "as is" without express or implied warranty.
 */
 
+#ifndef XTS5_XTESTLIB_H
+#define XTS5_XTESTLIB_H
+
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 
@@ -475,3 +478,5 @@ struct	valname	{
  * Include the automaticaly generated prototypes.
  */
 #include	"xtlibproto.h"
+
+#endif /* XTS5_XTESTLIB_H */

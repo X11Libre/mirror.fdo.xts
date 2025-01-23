@@ -172,7 +172,7 @@ Window win;
 >>CODE
 Window win;
 Display *client2;
-int minkc, maxkc;
+static int minkc, maxkc;
 XModifierKeymap *map;
 XModifierKeymap *savemap;
 int k;

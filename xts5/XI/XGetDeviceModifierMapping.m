@@ -192,7 +192,7 @@ Display *client1;
 >>CODE
 Window win;
 Display *client2;
-int minkc, maxkc, numkeys;
+static int minkc, maxkc, numkeys;
 XModifierKeymap *map;
 XModifierKeymap *savemap;
 int k;

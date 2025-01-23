@@ -125,7 +125,7 @@ int i;
 char *p,*q;
 int fcount;
 char pressed[32];
-int minkc, maxkc;
+static int minkc, maxkc;
 
 	if (noext(0)) {
 		XCALL;

@@ -92,9 +92,9 @@ SOFTWARE.
 extern char	*TestName;
 extern Display	*Dsp;
 
-int		minkc;
-int		maxkc;
-int		keysyms_per_keycode;
+static int		minkc;
+static int		maxkc;
+static int		keysyms_per_keycode;
 
 static int
 test(symbol, str)

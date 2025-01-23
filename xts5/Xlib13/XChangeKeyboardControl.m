@@ -133,7 +133,7 @@ restorekey()
 XKeyboardControl	ctr;
 int 	led;
 int 	key;
-int 	minkc, maxkc;
+static int 	minkc, maxkc;
 
 	if(!Dsp) {
 		cleanup();
@@ -559,7 +559,7 @@ Call xname.
 Verify that auto_repeat_mode for the key has changed.
 >>CODE
 int 	i;
-int 	minkc, maxkc;
+static int 	minkc, maxkc;
 int 	onoff;
 XKeyboardState	newks;
 

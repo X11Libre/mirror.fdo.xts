@@ -235,7 +235,7 @@ kfrozen(void)
 {
 XEvent	ev;
 Window	win;
-int 	minkc, maxkc;
+static int 	minkc, maxkc;
 int 	res;
 
 	XSync(display, True); /* Flush previous events */
@@ -1527,7 +1527,7 @@ If extensions are available:
 else
   Report untested.
 >>CODE
-int 	minkc, maxkc;
+static int 	minkc, maxkc;
 XEvent	ev;
 
 	if (noext(1))

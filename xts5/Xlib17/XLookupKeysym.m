@@ -123,7 +123,7 @@ For each KeyCode and index:
    Verify that the KeySyms are identical.
 
 >>CODE
-int		minkc, maxkc;
+static int		minkc, maxkc;
 int		syms_per_kc;
 KeySym		ks, res;
 KeySym		*keysyms;
@@ -167,7 +167,7 @@ For each index:
    Obtain the KeySym for a KeyCode greater than maximum KeyCode using xname.
    Verify that the KeySym returned is NoSymbol.
 >>CODE
-int		minkc, maxkc;
+static int		minkc, maxkc;
 int		syms_per_kc;
 KeyCode		kc;
 KeySym		res;

@@ -439,7 +439,7 @@ else
 >>CODE
 unsigned int 	mods;
 int	i;
-int 	minkc, maxkc;
+static int 	minkc, maxkc;
 Display	*client2;
 int	keycount = 0;
 
@@ -586,7 +586,7 @@ If the maximum is less than 255
   Attempt to grab key greater than the maximum
   Verify a BadValue error occurs.
 >>CODE BadValue
-int 	minkc, maxkc;
+static int 	minkc, maxkc;
 
 	XDisplayKeycodes(display, &minkc, &maxkc);
 

@@ -118,7 +118,7 @@ Insert some entries into it.
 Call xname to delete entries.
 Verify by direct inspection that the entries are gone.
 >>CODE
-int 	minkc, maxkc;
+static int 	minkc, maxkc;
 int 	kc;
 int 	rm1, rm2;
 int 	set;

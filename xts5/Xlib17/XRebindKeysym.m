@@ -163,7 +163,7 @@ KeySym	keylist[6];
 XModifierKeymap	*origmap;
 XModifierKeymap	*modmap;
 KeySym	*origkeymap;
-int 	minkc, maxkc;
+static int 	minkc, maxkc;
 int 	kpk;
 
 	/*

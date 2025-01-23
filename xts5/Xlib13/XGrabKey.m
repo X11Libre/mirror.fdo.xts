@@ -1114,7 +1114,7 @@ else
   Report untested.
 >>CODE
 int 	i;
-int 	minkc, maxkc;
+static int 	minkc, maxkc;
 Display	*client2;
 
 	client2 = opendisplay();
@@ -1231,7 +1231,7 @@ Verify that a BadValue error occurs.
 Call xname with keycode greater than max_keycode if it is less than 255.
 Verify that a BadValue error occurs.
 >>CODE BadValue
-int 	minkc, maxkc;
+static int 	minkc, maxkc;
 
 	XDisplayKeycodes(display, &minkc, &maxkc);
 

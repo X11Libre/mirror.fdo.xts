@@ -74,8 +74,8 @@ table for the display
 Display *display;
 KeyCode min_keycode_return;
 KeySym *keysym_return, *keysym_good;
-int keysyms_per_keycode_return;
-int keysyms_per_keycode_good;
+static int keysyms_per_keycode_return;
+static int keysyms_per_keycode_good;
 int min_keycode, max_keycode;
 int i , key_count;
 pid_t pid2;
@@ -112,8 +112,8 @@ in
 Display *display;
 KeyCode min_keycode_return;
 KeySym *keysym_return, *keysym_good;
-int keysyms_per_keycode_return;
-int keysyms_per_keycode_good;
+static int keysyms_per_keycode_return;
+static int keysyms_per_keycode_good;
 int min_keycode, max_keycode;
 int i , key_count;
 pid_t pid2;
@@ -144,8 +144,8 @@ KeySym-to-KeyCode table for the specified display in
 Display *display;
 KeyCode min_keycode_return;
 KeySym *keysym_return, *keysym_good;
-int keysyms_per_keycode_return;
-int keysyms_per_keycode_good;
+static int keysyms_per_keycode_return;
+static int keysyms_per_keycode_good;
 int min_keycode, max_keycode;
 int i , key_count;
 pid_t pid2;
@@ -181,8 +181,8 @@ for those KeyCodes that have no associated KeySyms.
 Display *display;
 KeyCode min_keycode_return;
 KeySym *keysym_return, *keysym_good;
-int keysyms_per_keycode_return;
-int keysyms_per_keycode_good;
+static int keysyms_per_keycode_return;
+static int keysyms_per_keycode_good;
 int min_keycode, max_keycode;
 int i , key_count;
 pid_t pid2;

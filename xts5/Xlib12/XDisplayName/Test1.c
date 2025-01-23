@@ -127,7 +127,7 @@ extern	Display	*Dsp;
  */
 char	*TestName = "XDisplayName";
 char	*string = "TestString:0.0";
-int     tet_thistest;
+extern int     tet_thistest;
 struct tet_testlist tet_testlist[] = {
 	{ NULL, 0 }
 };

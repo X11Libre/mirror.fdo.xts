@@ -204,7 +204,7 @@ char	*buf;
 	FpAssertion = (FILE *)-1;
 	FpStrategy = (FILE *)-1;
 	setoutline();
-	fprintf(FpCode, "%sint 	tet_thistest;\n\n", (lflag)? "extern ": "");
+	fprintf(FpCode, "extern int 	tet_thistest;\n\n");
 }
 
 /*ARGSUSED*/

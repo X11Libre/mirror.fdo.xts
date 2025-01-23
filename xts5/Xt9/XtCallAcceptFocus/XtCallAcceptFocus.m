@@ -351,11 +351,11 @@ Cardinal *num_args;
 	else
 	 new->core.height = new->squareCell.pixmap_height_in_pixels;
 	}
-	CreateBigPixmap(new);
-	GetDrawGC(new);
-	GetUndrawGC(new);
-	GetCopyGC(new);
-	DrawIntoBigPixmap(new);
+	CreateBigPixmap((Widget)new);
+	GetDrawGC((Widget)new);
+	GetUndrawGC((Widget)new);
+	GetCopyGC((Widget)new);
+	DrawIntoBigPixmap((Widget)new);
 }
 static void
 Redisplay(w, event)
@@ -640,10 +640,10 @@ int new_cell_size;
 	
 	/* destroy old and create new pixmap of correct size */
 	XFreePixmap(XtDisplay((Widget)cw), cw->squareCell.big_picture);
-	CreateBigPixmap(cw);
+	CreateBigPixmap((Widget)cw);
 	
 	/* draw lines into new pixmap */
-	DrawIntoBigPixmap(cw);
+	DrawIntoBigPixmap((Widget)cw);
 	
 	/* draw current cell array into pixmap */
 	for (x = 0; x < cw->squareCell.pixmap_width_in_cells; x++) {

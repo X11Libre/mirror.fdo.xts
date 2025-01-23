@@ -123,7 +123,7 @@ unsigned char tchar;
 	FORK(pid2);
 	avs_xt_hier("Tcalbrcrl1", "XtCallbackReleaseCacheRefList");
 	tet_infoline("PREP: Allocate list of resources");
-	cache_ref_return = XtMalloc(3 * sizeof(*cache_ref_return));
+	cache_ref_return = (XtCacheRef *)XtMalloc(3 * sizeof(*cache_ref_return));
 	tet_infoline("PREP: Create windows for widgets and map them");
 	XtRealizeWidget(topLevel);
 	tet_infoline("PREP: Register resource converter");

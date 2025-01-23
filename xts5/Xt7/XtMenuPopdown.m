@@ -133,9 +133,9 @@ XtIntervalId *id;
 	check_dec(1, status, "events received by popup3 count");
 	tet_infoline("PREP: Send ButtonPress event over wire for translation");
 	if (test_for == 1)
-		send_event(menuw, ButtonPress, ButtonPressMask, TRUE);
+		send_event((Widget)menuw, KeyPress, KeyPressMask, TRUE);
 	else
-		send_event(menuw3, ButtonPress, ButtonPressMask, TRUE);
+		send_event((Widget)menuw3, ButtonPress, ButtonPressMask, TRUE);
 	avs_set_event(1,0);
 	avs_set_event(2,0);
 	avs_set_event(3,0);

@@ -355,11 +355,11 @@ Cardinal *num_args;
 	else
 	 new->core.height = new->squareCell.pixmap_height_in_pixels;
 	}
-	CreateBigPixmap(new);
-	GetDrawGC(new);
-	GetUndrawGC(new);
-	GetCopyGC(new);
-	DrawIntoBigPixmap(new);
+	CreateBigPixmap((Widget)new);
+	GetDrawGC((Widget)new);
+	GetUndrawGC((Widget)new);
+	GetCopyGC((Widget)new);
+	DrawIntoBigPixmap((Widget)new);
 }
 static void
 Redisplay(w, event)

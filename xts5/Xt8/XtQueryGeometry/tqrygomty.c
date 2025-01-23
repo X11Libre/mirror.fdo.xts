@@ -363,11 +363,11 @@ Cardinal *num_args;
 	else
 	 new->core.height = new->squareCell.pixmap_height_in_pixels;
 	}
-	CreateBigPixmap2(new);
-	GetDrawGC(new);
-	GetUndrawGC(new);
-	GetCopyGC(new);
-	DrawIntoBigPixmap2(new);
+	CreateBigPixmap2((Widget)new);
+	GetDrawGC((Widget)new);
+	GetUndrawGC((Widget)new);
+	GetCopyGC((Widget)new);
+	DrawIntoBigPixmap2((Widget)new);
 }
 static void
 Redisplay(w, event)

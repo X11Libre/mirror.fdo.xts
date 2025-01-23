@@ -138,7 +138,6 @@ struct args regr_args;
 char    *svc_user_arg;         /* user param to pass info...*/
 
 Window 	window_arg;                     /* default window identifier */
-Drawable drawable_id; 			/* problems in save_stat */
 Display  *display_struc;
 GC      gc_save;                        /* GC for save stat */
 GC 	gc_id;                          /* Global decls to cover */

@@ -73,7 +73,7 @@ extern void DestroyTree() ;
 extern void xt_whandler();
 extern char *title() ;
 extern char ebuf[];
-char label[80] ;
+extern char label[80] ;
 
 Widget avs_xt_hier_def(stitle, slabel)
 char *stitle, *slabel;

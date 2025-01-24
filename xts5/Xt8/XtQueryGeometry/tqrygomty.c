@@ -70,14 +70,14 @@ SOFTWARE.
 /*error messages created here*/
 extern char	ebuf[4096];
 
-XtAppContext app_ctext;
-Widget topLevel, panedw, boxw1, boxw2;
-Widget labelw, rowcolw, click_quit;
+extern XtAppContext app_ctext;
+extern Widget topLevel, panedw, boxw1, boxw2;
+extern Widget labelw, rowcolw, click_quit;
 
-Dimension	height_ret;
-Dimension	width_ret;
+extern Dimension	height_ret;
+extern Dimension	width_ret;
 
-int test_for;
+extern int test_for;
 
 /*
  * SquareCell.c - Square Widget 

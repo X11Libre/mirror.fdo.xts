@@ -60,7 +60,6 @@ XtAppContext app_ctext ;
 Widget topLevel, panedw, boxw1, boxw2 ;
 Widget labelw, rowcolw, click_quit ;
 
-char label[80] ;
 >>TITLE XtSuperClass Xt3
 WidgetClass
 XtSuperClass(w)

@@ -77,7 +77,7 @@ SOFTWARE.
 #include <X11/Xlib.h>
 
 /*error messages formatted here*/
-char ebuf[4096];
+extern char ebuf[4096];
 
 int x_handler(disp)
 Display *disp;

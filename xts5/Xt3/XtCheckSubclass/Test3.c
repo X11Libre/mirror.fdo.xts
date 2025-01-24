@@ -65,7 +65,7 @@ SOFTWARE.
 
 #include <XtTest.h>
 
-char	ebuf[4096];
+extern char	ebuf[4096];
 
 /* Toolkit definitions */
 #undef DEBUG

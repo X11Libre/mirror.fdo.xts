@@ -67,7 +67,7 @@ SOFTWARE.
 #include <XtTest.h>
 
 /*error messages formatted here*/
-char ebuf[4096];
+extern char ebuf[4096];
 
 /*
 ** Simulate event

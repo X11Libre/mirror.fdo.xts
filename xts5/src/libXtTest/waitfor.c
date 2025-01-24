@@ -70,7 +70,7 @@ SOFTWARE.
 #include <errno.h>
 
 /*error messages formatted here*/
-char ebuf[4096];
+extern char ebuf[4096];
 int s2;
 
 /*signal handler*/

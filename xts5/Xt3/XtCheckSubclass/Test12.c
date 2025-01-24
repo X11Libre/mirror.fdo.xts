@@ -77,7 +77,7 @@ in XtTest.h*/
 #include <X11/Xaw/Label.h>
 #include <X11/Xaw/Command.h>
 
-char	ebuf[4096];
+extern char	ebuf[4096];
 
 XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;

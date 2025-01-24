@@ -76,7 +76,7 @@ SOFTWARE.
 
 #include <XtTest.h>
 
-char ebuf[4096];
+extern char ebuf[4096];
 
 int check_dec(goesin, shouldbe, item_name)
 long goesin;

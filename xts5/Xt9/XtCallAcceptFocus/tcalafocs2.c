@@ -66,7 +66,7 @@ SOFTWARE.
 #include <X11/StringDefs.h>
 #include <xt/SquareCelP.h>
 /*error messages formatted here*/
-char ebuf[4096];
+extern char ebuf[4096];
 /*
  * SquareCell.c - Square Widget 
  */

@@ -71,7 +71,6 @@ SOFTWARE.
 
 /*error messages formatted here*/
 extern char ebuf[4096];
-int s2;
 
 /*signal handler*/
 static void lsah2(s)

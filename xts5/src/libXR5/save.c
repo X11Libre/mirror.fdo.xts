@@ -142,7 +142,6 @@ Drawable  drawable_id;
 	extern Pixmap pid_save;
 	extern GC gc_save;
 	extern XWindowAttributes wat_save;
-	int DummyEH();
 
 	errorflag = 0;
 	XSetErrorHandler(DummyEH);

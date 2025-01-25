@@ -105,34 +105,7 @@ makes no representations about the suitability of this software for any
 purpose.  It is provided "as is" without express or implied warranty.
 */
 
-void vmakebig();
-void VBlowup();
-void bufrdisp();
-int diff_message();
-int chek_stat();
-void dumpbuf();
-void check_dec();
-void check_flo();
-void check_dou();
-void check_oct();
-void check_hex();
-void check_uns();
-void check_cha();
-void check_adr();
-void check_str();
-void check_strn ();
-void message();
-int badstat();
-void r_wait();
-void r5_startup();
-void r5_cleanup();
-void step();
-int DummyEH();
-int save_stat();
-int signal_status();
-
-/* 
-void vmakebig(DISPLAY *vdisplay, Window window, Window blowup_win, int x, int y, 
+void vmakebig(Display *vdisplay, Window window, Window blowup_win, int x, int y,
 	int zoom_factor,int pixels_across, int size, int format, GC gc, 
 	unsigned long gcback, unsigned long gcfore, XImage *kgi, int ix, 
 	int iy, unsigned long background, int view_color, int test_color);
@@ -140,14 +113,14 @@ void VBlowup(Display *vdisplay, Window window, int init_x, int init_y, int size,
 	int granularity, Colormap cmap, XImage *kgi, int ix, int iy, 
 	unsigned long background, int warp_pointer_x, int warp_pointer_y, 
 	int show_banner,int compare_color);
-void bufrdisp(DISPLAY *display);
+void bufrdisp(Display *display);
 int diff_message(int environment, int *num_diff);
-int chek_stat(int save_mask, GC gc_id, DISPLAY *display_struc, Drawable drawable_id, int watOK);
+int chek_stat(int save_mask, GC gc_id, Display *display_struc, Drawable drawable_id, int watOK);
 void dumpbuf(void);
 void check_dec(long exp, long rec, char *item_name);
 void check_flo(float exp, float rec, char *item_name);
 void check_dou(double exp, double rec, char *item_name);
-void check_oct(double exp, double rec, char *item_name);
+void check_oct(long exp, long rec, char *item_name);
 void check_hex(long exp, long rec, char *item_name);
 void check_uns(unsigned long exp, unsigned long rec, char *item_name);
 void check_cha(char exp, char rec, char *item_name);
@@ -155,12 +128,11 @@ void check_adr(char *exp, char *rec, char *item_name);
 void check_str(char *exp, char *rec, char *item_name);
 void check_strn (char *exp, char *rec, int len, char *item_name);
 void message(char *fmtstr, union msglst f_lst[], int f_cnt);
-int badstat(DISPLAY *display, int expected, int received);
-void r_wait(DISPLAY *disp, Window wind, int seconds, Colormap cmap);
+int badstat(Display *display, int expected[], int received);
+void r_wait(Display *disp, Window wind, int seconds, Colormap cmap);
 void r5_startup(void);
 void r5_cleanup(void);
 void step(char *str);
-int DummyEH(Display *display_struc, XErrorEvent error_event);
+int DummyEH(Display *display_struc, XErrorEvent *error_event);
 int save_stat(int save_mask, GC gc_id, Display *display_struc, Drawable drawable_id);
 int signal_status(Display *disp, XErrorEvent *error_event);
-*/

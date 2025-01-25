@@ -120,7 +120,6 @@ XErrorEvent *error_event;
     extern int errflg;
     extern int first_error;
     extern int estatus[];
-    extern int badstat();
 
     char	*resource_id; 
     char	*serial;

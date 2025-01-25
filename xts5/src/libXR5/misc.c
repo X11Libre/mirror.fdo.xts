@@ -285,7 +285,7 @@ Colormap cmap;
     	                        XSelectInput(disp, b_win, 0L);
     	                        XSync(disp, 1);
                                 VBlowup(disp,wind,x_position,y_position,blowup_size,1,cmap,None,0,0,
-                                        BackgroundPixel,w_init/2,h_init/2,0);
+                                        BackgroundPixel,w_init/2,h_init/2,0,0);
 /*            			blowup(disp, wind, (XDisplayWidth(disp, XDefaultScreen(disp)) - key_win_width - 7 - blowup_size), 
 			                   (XDisplayHeight(disp, XDefaultScreen(disp)) - (x_win_height + 5) - blowup_size), 
 			                   blowup_size, 1, cmap); */

@@ -153,7 +153,7 @@ void 	(*tet_cleanup)() = linkclean;
 char	*TestName;
 int 	ntests;
 
-extern	char	*tet_pname;
+extern	const char	*tet_pname;
 
 extern	struct	linkinfo	*linktbl[];
 
@@ -173,7 +173,7 @@ linkstart()
 struct	linkinfo	*lp;
 struct	linkinfo	**lpp;
 struct	tet_testlist *tlp;
-char	*name;
+const char	*name;
 int 	i;
 
 	lp = (struct linkinfo *)0;
@@ -229,7 +229,7 @@ linkclean()
 {
 struct	linkinfo	*lp;
 struct	linkinfo	**lpp;
-char 	*name;
+const char 	*name;
 
 	lp = (struct linkinfo *)0;
 

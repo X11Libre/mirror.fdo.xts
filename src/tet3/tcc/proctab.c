@@ -196,7 +196,8 @@ register struct proctab *prp;
 **		pr_state value
 */
 
-char *prpstate(state)
+const char *
+prpstate(state)
 int state;
 {
 	static char text[] = "proctab-state ";
@@ -224,7 +225,8 @@ int state;
 **		pr_tcstate value
 */
 
-char *prtcstate(state)
+const char *
+prtcstate(state)
 int state;
 {
 	static char text[] = "testcase-state ";
@@ -266,7 +268,8 @@ int state;
 **		pr_flags value
 */
 
-char *prpflags(fval)
+const char *
+prpflags(fval)
 int fval;
 {
 	static struct flags flags[] = {
@@ -285,10 +288,11 @@ int fval;
 }
 
 /*
-**	prtoolstate() - retur a printable representation of a tool's state
+**	prtoolstate() - return a printable representation of a tool's state
 */
 
-char *prtoolstate(state)
+const char *
+prtoolstate(state)
 int state;
 {
 	static char text[] = "tool-state ";

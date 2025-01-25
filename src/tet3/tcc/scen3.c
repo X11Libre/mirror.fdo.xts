@@ -78,8 +78,8 @@ static void ynp2 PROTOLIST((struct scentab *, int));
 **	(at present - always returns 0)
 */
 
-int proc3sctree(scenario)
-char *scenario;
+int
+proc3sctree(const char *scenario)
 {
 	register struct scentab *ep;
 	struct scentab *myscen = (struct scentab *) 0;

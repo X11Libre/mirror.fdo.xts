@@ -85,9 +85,9 @@ MODIFICATIONS:
 /* extern function declarations */
 extern int tcf_exec PROTOLIST((char *, char **, char *, long, int, int *));
 extern int tcf_lockfile PROTOLIST((char *, int));
-extern char **tcf_lsdir PROTOLIST((char *));
+extern char **tcf_lsdir PROTOLIST((const char *));
 extern int tcf_mktmpdir PROTOLIST((char *, char **));
-extern int tcf_procdir PROTOLIST((char *, char *, char *[], int, int));
+extern int tcf_procdir PROTOLIST((const char *, const char *, char *[], int, int));
 extern int tcf_rmrf PROTOLIST((char *));
 extern int tcf_sharelock PROTOLIST((char *, long, int, char **));
 

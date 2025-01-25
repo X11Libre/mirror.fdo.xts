@@ -621,9 +621,8 @@ unsigned int timeout;
 	return ret;
 }
 
-char *
-tet_signame(sig)
-int sig;
+const char *
+tet_signame(int sig)
 {
 	/* look up name for given signal number */
 
@@ -634,7 +633,7 @@ int sig;
 	int	i;
 	static	struct {
 		int num;
-		char *name;
+		const char *name;
 	} sig_table[] = {
 		{ SIGABRT,	"SIGABRT" },
 		{ SIGALRM,	"SIGALRM" },

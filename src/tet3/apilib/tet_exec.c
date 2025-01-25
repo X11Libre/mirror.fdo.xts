@@ -130,7 +130,7 @@ MODIFICATIONS:
 extern char **ENVIRON;
 
 static struct envlist {
-	char *name;
+	const char *name;
 	char *curptr;
 	int ok;
 } envlist[] = {
@@ -363,8 +363,8 @@ char **envp, **newargv, **newenvp;
 **	return -1 with tet_errno set on error
 */
 
-int tet_exec(file, argv, envp)
-char *file, *argv[], *envp[];
+int
+tet_exec(const char *file, char *argv[], char *envp[])
 {
 	int rc, errsave;
 	char **newargv = (char **) 0, **newenvp = (char **) 0;

@@ -34,7 +34,7 @@ MODIFICATIONS:
 
 /* structure of an entry in the results code table */
 struct restab {
-	char *rt_name;		/* result name */
+	const char *rt_name;	/* result name */
 	int rt_code;		/* result code */
 	int rt_abrt;		/* abort flag */
 };

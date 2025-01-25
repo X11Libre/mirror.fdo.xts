@@ -47,7 +47,7 @@ MODIFICATIONS:
 #include "dtetlib.h"
 
 /* static function declarations */
-static int rvs2 PROTOLIST((char *, char **));
+static int rvs2 PROTOLIST((const char *, const char **));
 
 /*
 **	tet_remvar() - process remote config variable assignment
@@ -64,11 +64,10 @@ static int rvs2 PROTOLIST((char *, char **));
 **	tet_remvar() returns (char *) 0 if the variable name is malformed
 */
 
-char *tet_remvar(s, sysid)
-register char *s;
-int sysid;
+const char *
+tet_remvar(const char *s, int sysid)
 {
-	char *var;
+	const char *var;
 	int rc;
 
 	if ((rc = rvs2(s, &var)) < 0)
@@ -85,10 +84,10 @@ int sysid;
 **	return	-2 for a malformed TET_REMnnn_ prefix
 */
 
-int tet_remvar_sysid(s)
-char *s;
+int
+tet_remvar_sysid(const char *s)
 {
-	char *var;
+	const char *var;
 	return(rvs2(s, &var));
 }
 
@@ -103,10 +102,10 @@ char *s;
 **	return -2 for a malformed TET_REMnnn_ prefix
 */
 
-static int rvs2(s, vp)
-char *s, **vp;
+static int
+rvs2(const char *s, const char **vp)
 {
-	register char *p;
+	register const char *p;
 	register int sysid;
 	static char fmt[] = "TET_REM";
 

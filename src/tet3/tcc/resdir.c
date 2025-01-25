@@ -52,7 +52,7 @@ MODIFICATIONS:
 #include "tcc.h"
 
 /* results directory name - gets overwritten by initresdir() */
-static char *results_dir = "results";
+static const char *results_dir = "results";
 
 /* static function declarations */
 static char *ressubdir PROTOLIST((char *));
@@ -111,7 +111,7 @@ char *iopt, *cwd;
 **	resdirname() - return the name of the results directory
 */
 
-char *resdirname()
+const char *resdirname(void)
 {
 	if (results_dir) {
 		ASSERT(isabspathloc(results_dir));

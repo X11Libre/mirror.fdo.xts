@@ -31,7 +31,7 @@ DATE CREATED:	July 1996
 SYNOPSIS:
 
 	int	tet_errno;
-	char *	tet_errlist[];
+	const char *	tet_errlist[];
 	int	tet_nerr;
 
 	int *	tet_thr_errno(void);
@@ -109,7 +109,7 @@ TET_IMPORT int *tet_thr_errno()
 #endif /* !TET_THREADS */
 
 /* This list must be kept in sync with tet_api.h and dtmsg.h */
-TET_IMPORT char *tet_errlist[] = {
+TET_IMPORT const char *tet_errlist[] = {
 /* TET_ER_OK		 0 */ "no error",
 /* TET_ER_ERR		 1 */ "general error",
 /* TET_ER_MAGIC		 2 */ "bad magic number",

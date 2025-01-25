@@ -59,7 +59,8 @@ MODIFICATIONS:
 **		code
 */
 
-TET_IMPORT char *tet_ptreqcode(request)
+TET_IMPORT const char *
+tet_ptreqcode(request)
 int request;
 {
 	static char text[] = "request-code ";

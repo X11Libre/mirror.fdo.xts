@@ -52,7 +52,8 @@ MODIFICATIONS:
 **	tet_errname() - return printable representation of error number
 */
 
-char *tet_errname(errnum)
+const char *
+tet_errname(errnum)
 register int errnum;
 {
 	register struct errmap *ep, *ee;

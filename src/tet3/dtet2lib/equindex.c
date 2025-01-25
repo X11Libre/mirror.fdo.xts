@@ -38,6 +38,7 @@ MODIFICATIONS:
 ************************************************************************/
 
 #include <stdio.h>
+#include <string.h>
 #include "dtmac.h"
 #include "dtetlib.h"
 
@@ -47,15 +48,9 @@ MODIFICATIONS:
 **	return (char *) 0 if not found
 */
 
-char *tet_equindex(s)
-register char *s;
+char *
+tet_equindex(register const char *s)
 {
-	while (*s) {
-		if (*s == '=')
-			return(s);
-		s++;
-	}
-
-	return((char *) 0);
+	return(strchr(s, '='));
 }
 

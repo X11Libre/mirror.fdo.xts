@@ -72,11 +72,11 @@ static void etf2 PROTOLIST((struct scentab *));
 static int etf2_compat PROTOLIST((struct scentab *));
 static int etf3 PROTOLIST((struct scentab *));
 static void etf4 PROTOLIST((struct scentab *));
-static struct scentab *find2scen PROTOLIST((char *));
+static struct scentab *find2scen PROTOLIST((const char *));
 static int proc2scdir PROTOLIST((struct scentab *, struct scentab *,
 	struct scentab **));
 static int proc2scen PROTOLIST((struct scentab *));
-static void report_unmatched PROTOLIST((int, int, char *));
+static void report_unmatched PROTOLIST((int, int, const char *));
 static void resolv_scenptr PROTOLIST((struct scentab *, struct scentab **));
 static void rsc2 PROTOLIST((struct scentab *, struct scentab **));
 
@@ -510,9 +510,8 @@ register struct scentab *ep, *parent, **sctp;
 **	report_unmatched() - report an un-matched scenario directive
 */
 
-static void report_unmatched(directive, lineno, fname)
-int directive, lineno;
-char *fname;
+static void
+report_unmatched(int directive, int lineno, const char *fname)
 {
 	static char fmt[] = "found unmatched %.20s directive";
 	char msg[sizeof fmt + 20];
@@ -664,8 +663,8 @@ struct scentab **sctp;
 **		or (struct scentab *) 0 if the scenario is not in the tree
 */
 
-static struct scentab *find2scen(scen_name)
-char *scen_name;
+static struct scentab *
+find2scen(const char *scen_name)
 {
 	register struct scentab *ep;
 
@@ -688,7 +687,7 @@ char *scen_name;
 static void check_valid_scen_name(ep)
 struct scentab *ep;
 {
-	register char *p;
+	register const char *p;
 	register int ok;
 
 	TRACE2(tet_Tscen, 6, "check scenrio name %s", ep->sc_scenario);
@@ -1081,7 +1080,7 @@ register struct scentab *ep1;
 #ifndef NOTRACE
 	static char fmt[] = "etf4(): inserting implied sequential directive above the %.32s %.16s at";
 	char msg[sizeof fmt + 32 + 16];
-	char *s1, *s2;
+	const char *s1, *s2;
 #endif
 
 	/*

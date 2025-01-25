@@ -95,7 +95,7 @@ int tet_nrestab;
 static int lrestab;
 
 /* static function declarations */
-static void badresline PROTOLIST((char *, int, char *));
+static void badresline PROTOLIST((const char *, int, const char *));
 static struct restab *getrtbycode PROTOLIST((int));
 static struct restab *getrtbyname PROTOLIST((char *));
 static char **procline PROTOLIST((char *));
@@ -110,12 +110,13 @@ static int rtaddupdate PROTOLIST((struct restab *));
 **	on whether or not the corresponding action is to abort
 */
 
-char *tet_getresname(result, abortflag)
+const char *
+tet_getresname(result, abortflag)
 int result;
 int *abortflag;
 {
 	register struct restab *rtp;
-	register char *name;
+	register const char *name;
 	register int abrt;
 
 	if (!tet_restab && tet_initrestab() < 0) {
@@ -230,12 +231,13 @@ char *fname;
 					break;
 				}
 				rtmp.rt_name = p;
-				for (p = rtmp.rt_name; *p; p++)
-					if (*p == '"') {
+				for (const char *rp = rtmp.rt_name; *rp; rp++) {
+					if (*rp == '"') {
 						badresline("quotes unexpected",
 							line, fname);
 						break;
 					}
+                                }
 				break;
 			case 2:
 				/* result action indicator */
@@ -323,9 +325,8 @@ char *s;
 **	badresline() - complain about a bad results code line
 */
 
-static void badresline(msg, line, file)
-char *msg, *file;
-int line;
+static void
+badresline(const char *msg, int line, const char *file)
 {
 	char buf[128];
 
@@ -354,7 +355,7 @@ register struct restab *rtp1;
 		if (rtp2->rt_name != invalid_result) {
 			TRACE2(tet_Tbuf, 6, "free restab name = %s",
 				tet_i2x(rtp2->rt_name));
-			free(rtp2->rt_name);
+			free((char *) rtp2->rt_name);
 		}
 		rtp2->rt_name = rtp1->rt_name;
 		rtp2->rt_abrt = rtp1->rt_abrt;

@@ -175,7 +175,7 @@ static int tpend2 PROTOLIST((int, int, int));
 static void tpstart2 PROTOLIST((int, int, int));
 #ifdef TET_LITE	/* -LITE-CUT-LINE- */
    static char *curtime PROTOLIST((void));
-   static void lite_output PROTOLIST((int, char *, char *));
+   static void lite_output PROTOLIST((int, const char *, const char *));
 #else		/* -START-LITE-CUT- */
    static int ismaster PROTOLIST((void));
    static int mtcm_tpend2 PROTOLIST((void));
@@ -470,7 +470,7 @@ int icno, tpno, testnum;
 static int tpend2(icno, tpno, testnum)
 int icno, tpno, testnum;
 {
-	char *res;
+	const char *res;
 	int have_result, nextres, err;
 	int result = TET_NORESULT;
 	int abrt = 0;
@@ -712,9 +712,8 @@ static int mtcm_tpend2()
 **	tet_tcmstart() - send TCM Start journal line to XRESD
 */
 
-void tet_tcmstart(versn, no_ics)
-char *versn;
-int no_ics;
+void
+tet_tcmstart(const char *versn, int no_ics)
 {
 	char buf[128];
 
@@ -850,13 +849,11 @@ char *progname;
 **	lite_output() - print a line to the tet_xres file in TETware-Lite
 */
 
-static void lite_output(mtype, fields, data)
-int mtype;
-char *fields;
-char *data;
+static void
+lite_output(int mtype, const char *fields, const char *data)
 {
 	char outbuf[TET_JNL_LEN];
-	char *obp;
+	const char *obp;
 	static char fmt[] = "%d|%ld%s%.64s|";
 	char header[sizeof fmt + (LNUMSZ * 2) + 64];
 

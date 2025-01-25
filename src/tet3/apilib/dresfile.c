@@ -54,16 +54,16 @@ AUTHOR:		Geoff Clare, UniSoft Ltd.
 DATE CREATED:	25 July 1990
 SYNOPSIS:
 
-	void tet_infoline(char *data);
-	int  tet_minfoline(char **lines, int nlines);
-	int  tet_printf(char *, ...);
+	void tet_infoline(const char *data);
+	int  tet_minfoline(const char **lines, int nlines);
+	int  tet_printf(const char *, ...);
 	void tet_result(int result);
 	void tet_setcontext(void);
 	void tet_setblock(void);
-	int  tet_vprintf(char *, va_list);
+	int  tet_vprintf(const char *, va_list);
 
-	void tet_error(int errno_val, char *msg);
-	void tet_merror(int errno_val, char **msgs, int nmsgs);
+	void tet_error(int errno_val, const char *msg);
+	void tet_merror(int errno_val, const char **msgs, int nmsgs);
 	long tet_context;
 	long tet_block;
 
@@ -190,10 +190,10 @@ MODIFICATIONS:
 
 
 /* static function declarations */
-static void tet_merr_stdchan PROTOLIST((int, char **, int));
-static void tet_merr_stderr PROTOLIST((int, char **, int));
-static void tet_merr_sc2 PROTOLIST((int, char *, char *));
-static void tet_merr_sc3 PROTOLIST((int, char *, char *));
+static void tet_merr_stdchan PROTOLIST((int, const char **, int));
+static void tet_merr_stderr PROTOLIST((int, const char **, int));
+static void tet_merr_sc2 PROTOLIST((int, const char *, char *));
+static void tet_merr_sc3 PROTOLIST((int, const char *, char *));
 
 
 TET_IMPORT int	tet_combined_ok = 0; /* true if OK to write to the xres file */
@@ -349,8 +349,8 @@ int nlines;
 **		results file
 */
 
-TET_IMPORT void tet_infoline(data)
-char *data;
+TET_IMPORT void
+tet_infoline(const char *data)
 {
 	static char fmt[] = "tet_infoline(): can't send info line to XRESD: \"%.128s\"";
 	char errbuf[sizeof fmt + 128];
@@ -371,9 +371,8 @@ char *data;
 **		combined results file
 */
 
-TET_IMPORT int tet_minfoline(lines, nlines)
-char **lines;
-int nlines;
+TET_IMPORT int
+tet_minfoline(const char **lines, int nlines)
 {
 	int lnum, noutlines, bufpos, rval;
 	char header[128];
@@ -493,9 +492,8 @@ int nlines;
 **		combined results file
 */
 
-TET_IMPORT int tet_vprintf(format, ap)
-char *format;
-va_list ap;
+TET_IMPORT int
+tet_vprintf(const char *format, va_list ap)
 {
 	int lnum, noutlines, outpos, rval;
 	char defaultbuf[16*1024];
@@ -699,7 +697,8 @@ va_list ap;
 **		combined results file
 */
 
-TET_IMPORT int tet_printf(char *format, ...)
+TET_IMPORT int
+tet_printf(const char *format, ...)
 {
 	int rval;
 	va_list ap;
@@ -719,7 +718,7 @@ TET_IMPORT void tet_result(result)
 int result;
 {
 #ifdef TET_LITE
-	char *resname;
+	const char *resname;
 #endif
 	char errmsg[128];
 
@@ -877,16 +876,13 @@ TET_IMPORT void tet_setblock()
 **	be negated: tet_error(-tet_errno, msg).
 */
 
-TET_IMPORT void tet_error(errnum, msg)
-int errnum;
-char *msg;
+TET_IMPORT void
+tet_error(int errnum, const char *msg)
 {
 	tet_merror(errnum, &msg, 1);
 }
 
-void tet_merror(errnum, msgs, nmsgs)
-int errnum, nmsgs;
-char **msgs;
+void tet_merror(int errnum, const char **msgs, int nmsgs)
 {
 	API_LOCK;
 
@@ -903,9 +899,8 @@ char **msgs;
 **		the standard channel is not available
 */
 
-static void tet_merr_stderr(errnum, msgs, nmsgs)
-int errnum, nmsgs;
-char **msgs;
+static void
+tet_merr_stderr(int errnum, const char **msgs, int nmsgs)
 {
 	/* print each message in turn */
 	for (; nmsgs > 0; nmsgs--, msgs++) {
@@ -934,11 +929,11 @@ char **msgs;
 **	storage allowed here
 */
 
-static void tet_merr_stdchan(errnum, msgs, nmsgs)
-int errnum, nmsgs;
-char **msgs;
+static void
+tet_merr_stdchan(int errnum, const char **msgs, int nmsgs)
 {
-	register char **lp, **msgp;
+	register char **lp;
+	register const char **msgp;
 	register int n;
 	int errtmp, errors;
 	char errbuf[TET_JNL_LEN];
@@ -987,7 +982,7 @@ char **msgs;
 	** output the lines all at once
 	*/
 	if (lines && !errors)
-		tet_routput(lines, nmsgs);
+            tet_routput((const char **)lines, nmsgs);
 
 	/* then free all the storage allocated here */
 	if (lines) {
@@ -1025,12 +1020,11 @@ char **msgs;
 **	format a single message and output it to the standard channel
 */
 
-static void tet_merr_sc2(errnum, msg, outbuf)
-int errnum;
-char *msg, *outbuf;
+static void
+tet_merr_sc2(int errnum, const char *msg, char *outbuf)
 {
 	tet_merr_sc3(errnum, msg, outbuf);
-	tet_routput(&outbuf, 1);
+	tet_routput((const char **) &outbuf, 1);
 }
 
 /*
@@ -1040,9 +1034,8 @@ char *msg, *outbuf;
 **	format a single message line
 */
 
-static void tet_merr_sc3(errnum, msg, outbuf)
-int errnum;
-char *msg, *outbuf;
+static void
+tet_merr_sc3(int errnum, const char *msg, char *outbuf)
 {
 	register char *p;
 	char header[128];
@@ -1075,9 +1068,8 @@ char *msg, *outbuf;
 **	if this operation fails, report the error and exit
 */
 
-void tet_routput(lines, nlines)
-char **lines;
-int nlines;
+void
+tet_routput(const char **lines, int nlines)
 {
 #ifdef TET_LITE	/* -LITE-CUT-LINE- */
 
@@ -1127,11 +1119,12 @@ int nlines;
 **	on return, the formatted line is stored in outbuf
 */
 
-void tet_msgform(header, data, outbuf)
-char *header, *data, *outbuf;
+void
+tet_msgform(const char *header, const char *data, char *outbuf)
 {
-	register char *p1, *p2;
-	static char fmt[] =
+	register const char *p1;
+	register char *p2;
+	static const char fmt[] =
 		"warning: results file line truncated - prefix: %.*s";
 	char errmsg[128];
 
@@ -1174,9 +1167,8 @@ char *header, *data, *outbuf;
 **	corresponding action is to abort
 */
 
-char *tet_get_code(result, abortflag)
-int result;
-int *abortflag;
+const char *
+tet_get_code(int result, int *abortflag)
 {
 	char *fname;
 	static int read_done = 0;

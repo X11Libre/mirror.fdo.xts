@@ -76,7 +76,8 @@ char *dir, lkname[];
 	static char fmt[] = "can't acquire %s lock";
 	char msg[sizeof fmt + 9];
 	char lkpath[MAXPATH];
-	char *lktype, *lnp;
+	const char *lktype;
+        char *lnp;
 	int err, rc;
 
 	fullpath(dir, "tet_lock", lkpath, sizeof lkpath, *prp->pr_sys ? 1 : 0);
@@ -141,7 +142,7 @@ char *lkname;
 {
 	static char fmt[] = "can't remove %s lock%s";
 	char msg[sizeof fmt + 20];
-	char *lktype;
+	const char *lktype;
 	char lkdir[MAXPATH];
 	int rc = 0;
 

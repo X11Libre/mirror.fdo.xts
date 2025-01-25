@@ -57,7 +57,8 @@ MODIFICATIONS:
 **	overwritten after NFBUF calls
 */
 
-char *tet_f2a(fval, flags, nflags)
+const char *
+tet_f2a(fval, flags, nflags)
 int fval, nflags;
 struct flags flags[];
 {
@@ -69,7 +70,8 @@ struct flags flags[];
 	char **bpp;
 	int *blp;
 	register struct flags *fp;
-	register char *p1, *p2;
+	register char *p1;
+	register const char *p2;
 	register unsigned ftmp;
 	register int n, needlen;
 

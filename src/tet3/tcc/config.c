@@ -83,7 +83,7 @@ MODIFICATIONS:
 #include "dtcc.h"
 
 /* default config file names on each system */
-static char *defcfname[] = {
+static const char *defcfname[] = {
 	"tetbuild.cfg",
 	"tetexec.cfg",
 	"tetclean.cfg",
@@ -154,7 +154,7 @@ static char *ecfname, *dcfname, *ccfname;
 ** correspond to the initialisation code in initdvar()
 */
 struct dvar {
-	char *dv_name;		/* variable name */
+	const char *dv_name;	/* variable name */
 	int dv_needed;		/* variable is needed on each system */
 	int dv_pathvar;		/* variable is a path */
 	int dv_len;		/* strlen(mv_name) */
@@ -197,7 +197,7 @@ struct cfstack {
 /* static function declarations */
 static void addvopts PROTOLIST((struct cflist *));
 static int cfix2 PROTOLIST((int));
-static int cflag2bool PROTOLIST((char *, char *));
+static int cflag2bool PROTOLIST((const char *, const char *));
 static void checkbvar PROTOLIST((struct cflist *, int, int));
 static void compat_fix PROTOLIST((void));
 static void confgiveup PROTOLIST((void));
@@ -212,24 +212,25 @@ static void cve3 PROTOLIST((char **, char *, char *, int, int, int *,
 	struct cfstack *));
 static char *cve3_getvalue PROTOLIST((char *, char *, int, int,
 	struct cfstack *));
-static char *cve3_dist PROTOLIST((char *, char *, int, int, struct cfstack *));
-static char *cve3_opmode PROTOLIST((char *, char *, int, int, int,
+static char *cve3_dist PROTOLIST((char *, const char *, int, int,
+                                  struct cfstack *));
+static char *cve3_opmode PROTOLIST((char *, const char *, int, int, int,
 	struct cfstack *));
-static void cve_error PROTOLIST((char *, int, int, char *));
-static int docff2 PROTOLIST((char *, struct cflist *, char *));
-static char *docffile PROTOLIST((struct cflist *, char *));
+static void cve_error PROTOLIST((const char *, int, int, const char *));
+static int docff2 PROTOLIST((const char *, struct cflist *, const char *));
+static char *docffile PROTOLIST((struct cflist *, const char *));
 static void docfl2 PROTOLIST((struct systab *, int));
 static void docfloc PROTOLIST((struct systab *));
-static char **findcfg PROTOLIST((char *, struct cflist *));
-static char **finddcfg PROTOLIST((char *, int));
+static char **findcfg PROTOLIST((const char *, struct cflist *));
+static char **finddcfg PROTOLIST((const char *, int));
 static void fix_tet_api_compliant PROTOLIST((int));
 static void fix_tet_pass_tc_name PROTOLIST((int));
 static void initdvar PROTOLIST((void));
 static void initmdvar PROTOLIST((void));
-static int is_dist_var PROTOLIST((char *));
-static int is_mdist_var PROTOLIST((char *));
-static void proccfl2 PROTOLIST((char *, struct cflist *));
-static void proccfline PROTOLIST((char *, struct cflist *, int, char *));
+static int is_dist_var PROTOLIST((const char *));
+static int is_mdist_var PROTOLIST((const char *));
+static void proccfl2 PROTOLIST((const char *, struct cflist *));
+static void proccfline PROTOLIST((const char *, struct cflist *, int, const char *));
 static void readmconf PROTOLIST((char *, struct cflist *));
 static void reportcfg PROTOLIST((struct cflist *, int, int));
 #ifndef TET_LITE	/* -START-LITE-CUT- */
@@ -396,10 +397,8 @@ struct cflist *lp;
 **	proccfline() - process a single configuration line
 */
 
-static void proccfline(line, lp, lineno, fname)
-char *line, *fname;
-struct cflist *lp;
-int lineno;
+static void
+proccfline(const char *line, struct cflist *lp, int lineno, const char *fname)
 {
 	static char fmt[] =
 		"bad format config variable assignment at line %d in file";
@@ -421,9 +420,8 @@ int lineno;
 **	proccfl2() - common config line processing
 */
 
-static void proccfl2(line, lp)
-char *line;
-register struct cflist *lp;
+static void
+proccfl2(const char *line, register struct cflist *lp)
 {
 	register char **cp;
 
@@ -969,7 +967,6 @@ int mode;
 {
 	struct cflist *from, *to;
 	register char **cp;
-	register char *p;
 
 	TRACE2(tet_Ttcc, 3, "docfl2(): fix up the local %s configuration",
 		prcfmode(mode));
@@ -999,11 +996,14 @@ int mode;
 			proccfl2(*cp, to);
 
 	/* second pass */
-	for (cp = from->cf_conf; cp < from->cf_conf + from->cf_nconf; cp++)
+	for (cp = from->cf_conf; cp < from->cf_conf + from->cf_nconf; cp++) {
+		register const char *p;
+
 		if ((p = tet_remvar(*cp, 0)) != *cp) {
 			ASSERT(p);
 			proccfl2(p, to);
 		}
+        }
 
 	/* mark the destination list as being set up */
 	SET_CFSETUP(sp, mode);
@@ -1168,7 +1168,7 @@ int mode;
 {
 	/* list of boolean configuration variables */
 	static struct bvar {
-		char *bv_name;
+		const char *bv_name;
 		int bv_len;
 	} bvar[] = {
 		{ "TET_EXEC_IN_PLACE" },
@@ -1184,7 +1184,7 @@ int mode;
 
 	static char fmt[] = "bad value for boolean variable %s in %s configuration on system";
 	char msg[sizeof fmt + 40];
-	register char *p1, *p2;
+	register const char *p1, *p2;
 	register char **cp;
 	register struct bvar *vp;
 
@@ -1331,9 +1331,8 @@ static void reportdcfg()
 **	return (char *) 0 on error
 */
 
-static char *docffile(lp, type)
-struct cflist *lp;
-char *type;
+static char *
+docffile(struct cflist *lp, const char *type)
 {
 	char *fname;
 
@@ -1358,9 +1357,8 @@ char *type;
 **	return 0 if successful or -1 on error
 */
 
-static int docff2(fname, lp, type)
-register struct cflist *lp;
-char *fname, *type;
+static int
+docff2(const char *fname, register struct cflist *lp, const char *type)
 {
 	register char **cp;
 	FILE *fp;
@@ -1654,7 +1652,8 @@ struct cfstack *stp1;
 	static char fmt[] = "can't find a value to substitute for ${%.40s}";
 	char msg[sizeof fmt + 40];
 	struct cfstack *stp2;
-	char *p, *var;
+	char *p;
+        const char *var;
 	int mmm;
 
 	/*
@@ -1731,10 +1730,8 @@ struct cfstack *stp1;
 **		report an error
 */
 
-static char *cve3_dist(name, var, mmm, sysid, stp)
-char *name, *var;
-int mmm, sysid;
-struct cfstack *stp;
+static char *
+cve3_dist(char *name, const char *var, int mmm, int sysid, struct cfstack *stp)
 {
 	struct cfstack stack;
 	char **cp;
@@ -1803,10 +1800,9 @@ struct cfstack *stp;
 **			report an error
 */
 
-static char *cve3_opmode(name, var, mmm, sysid, mode, stp)
-char *name, *var;
-int mmm, sysid, mode;
-struct cfstack *stp;
+static char *
+cve3_opmode(char *name, const char *var, int mmm, int sysid, int mode,
+            struct cfstack *stp)
 {
 	struct systab *sp;
 	struct cfstack stack;
@@ -1876,16 +1872,15 @@ struct cfstack *stp;
 **		configuration variable expansion errors
 */
 
-static void cve_error(name, mode, sysid, text)
-char *name, *text;
-int mode, sysid;
+static void
+cve_error(const char *name, int mode, int sysid, const char *text)
 {
 	static const char fmt1[] = "%.80s in %.40s assignment in the %s";
 	static const char fmt2[] = "%.14s for system %d";
 	static const char conf[] = "configuration";
 	char msg1[sizeof fmt1 + 80 + 40 + 14 + LNUMSZ];
 	char msg2[sizeof fmt2 + 14 + LNUMSZ];
-	char *p;
+	const char *p;
 
 	if (mode == CONF_DIST) {
 		p = "Distributed";
@@ -2023,11 +2018,11 @@ char *s;
 **	name may be delimited either by '=' or '\0'
 */
 
-static int is_dist_var(name)
-char *name;
+static int
+is_dist_var(const char *name)
 {
 	struct dvar *dvp;
-	char *p, *shortname;
+	const char *p, *shortname;
 	int len;
 
 	initdvar();
@@ -2060,11 +2055,11 @@ char *name;
 **	name may be delimited either by '=' or '\0'
 */
 
-static int is_mdist_var(name)
-char *name;
+static int
+is_mdist_var(const char *name)
 {
 	struct dvar *dvp;
-	char *p, *shortname;
+	const char *p, *shortname;
 	int len;
 
 	initmdvar();
@@ -2099,9 +2094,8 @@ char *name;
 **	return (char *) 0 if no entry appears for name
 */
 
-char *getmcfg(name, mode)
-char *name;
-int mode;
+char *
+getmcfg(const char *name, int mode)
 {
 	register char **cp, *p;
 
@@ -2129,9 +2123,8 @@ int mode;
 **	return (char *) 0 if no entry appears for name
 */
 
-char *getcfg(name, sysid, mode)
-char *name;
-int sysid, mode;
+char *
+getcfg(const char *name, int sysid, int mode)
 {
 	register char **cp, *p;
 	register struct systab *sp;
@@ -2179,9 +2172,8 @@ int sysid, mode;
 **	configurations have been set up
 */
 
-char *getdcfg(name, sysid)
-char *name;
-int sysid;
+char *
+getdcfg(const char *name, int sysid)
 {
 	char *p, **cp;
 
@@ -2206,9 +2198,8 @@ int sysid;
 **	distributed configurations have been set up
 */
 
-void putdcfg(name, sysid, value)
-char *name, *value;
-int sysid;
+void
+putdcfg(const char *name, int sysid, const char *value)
 {
 	struct cflist *lp;
 	struct systab *sp;
@@ -2237,9 +2228,8 @@ int sysid;
 **	(currently this is the case)
 */
 
-int getmcflag(name, mode)
-char *name;
-int mode;
+int
+getmcflag(const char *name, int mode)
 {
 	register char *p;
 
@@ -2260,9 +2250,8 @@ int mode;
 **	(currently this is the case)
 */
 
-int getcflag(name, sysid, mode)
-char *name;
-int sysid, mode;
+int
+getcflag(const char *name, int sysid, int mode)
 {
 	register char *p;
 
@@ -2284,9 +2273,8 @@ int sysid, mode;
 **	return (char **) 0 if no match can be found
 */
 
-static char **findcfg(name, lp)
-char *name;
-register struct cflist *lp;
+static char **
+findcfg(const char *name, register struct cflist *lp)
 {
 	register int len;
 	register char **cp, *p;
@@ -2321,9 +2309,8 @@ register struct cflist *lp;
 **	configurations have been set up
 */
 
-static char **finddcfg(name, sysid)
-char *name;
-int sysid;
+static char **
+finddcfg(const char *name, int sysid)
 {
 	struct systab *sp;
 	char **cp;
@@ -2400,8 +2387,8 @@ int mode;
 **		mode
 */
 
-char *prcfmode(mode)
-int mode;
+const char *
+prcfmode(int mode)
 {
 	static char text[] = "conf-mode ";
 	static char msg[sizeof text + LNUMSZ];
@@ -2426,8 +2413,8 @@ int mode;
 **		either be "True" or "False"
 */
 
-static int cflag2bool(name, val)
-char *name, *val;
+static int
+cflag2bool(const char *name, const char *val)
 {
 	switch (*val) {
 	case 'T':

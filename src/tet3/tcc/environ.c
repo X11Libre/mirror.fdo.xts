@@ -82,7 +82,7 @@ struct systab *sp;
 	** distributed config variables that are to be passed as
 	** communication variables in the environment to each test case
 	*/
-	static char *comvar[] = {
+	static const char *comvar[] = {
 		"TET_ROOT",
 		"TET_EXECUTE",
 		"TET_SUITE_ROOT",
@@ -94,7 +94,7 @@ struct systab *sp;
 
 	char buf[MAXPATH + 40];
 	char *envstr[Ncomvar + 1];
-	register char **cvp, *val;
+	register const char **cvp;
 	register char **ep = envstr;
 
 #define Nenvstr	(sizeof envstr / sizeof envstr[0])
@@ -104,6 +104,8 @@ struct systab *sp;
 
 	/* build the list of environment strings */
 	for (cvp = comvar; cvp < comvar + Ncomvar; cvp++) {
+		const char *val;
+
 		if ((val = getdcfg(*cvp, sp->sy_sysid)) == (char *) 0)
 			val = "";
 		sprintf(buf, "%s=%.*s", *cvp,

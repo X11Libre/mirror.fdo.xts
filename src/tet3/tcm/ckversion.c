@@ -83,8 +83,8 @@ MODIFICATIONS:
 
 
 /* static function declarations */
-static int mstrcmp PROTOLIST((char **, char **));
-static void rptversion PROTOLIST((char *, char **));
+static int mstrcmp PROTOLIST((const char **, const char **));
+static void rptversion PROTOLIST((const char *, const char **));
 
 
 /*
@@ -113,8 +113,8 @@ void tet_check_apilib_version()
 **	to be less than, equal to or greater than sp2
 */
 
-static int mstrcmp(sp1, sp2)
-char **sp1, **sp2;
+static int
+mstrcmp(const char **sp1, const char **sp2)
 {
 	int rc;
 
@@ -134,8 +134,8 @@ char **sp1, **sp2;
 **	rptversion() - report a version string array to stderr
 */
 
-static void rptversion(s, sp)
-char *s, **sp;
+static void
+rptversion(const char *s, const char **sp)
 {
 	fprintf(stderr, "%s: %s version:", tet_progname, s);
 	while (*sp)

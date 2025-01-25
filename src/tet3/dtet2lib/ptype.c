@@ -50,7 +50,8 @@ MODIFICATIONS:
 **	tet_ptptype() - return a printable representation of a process type
 */
 
-TET_IMPORT char *tet_ptptype(ptype)
+TET_IMPORT const char *
+tet_ptptype(ptype)
 int ptype;
 {
 	static char text[] = "process-type ";

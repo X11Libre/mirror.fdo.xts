@@ -60,8 +60,8 @@ MODIFICATIONS:
 **	return (char *) 0 on error
 */
 
-TET_IMPORT char *tet_strstore(s)
-char *s;
+TET_IMPORT char *
+tet_strstore(const char *s)
 {
 	size_t len;
 	register char *p;

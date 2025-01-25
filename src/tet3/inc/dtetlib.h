@@ -68,8 +68,8 @@ TET_IMPORT_FUNC(int, tet_bufchk, PROTOLIST((char **, int *, int)));
 TET_IMPORT_FUNC(int, tet_buftrace,
 	PROTOLIST((char **, int *, int, const char *, int)));
 extern int tet_eaccess PROTOLIST((char *, int));
-extern char *tet_equindex PROTOLIST((char *));
-extern char *tet_errname PROTOLIST((int));
+extern char *tet_equindex PROTOLIST((const char *));
+extern const char *tet_errname PROTOLIST((int));
 extern int tet_fappend PROTOLIST((int));
 extern int tet_fcopy PROTOLIST((char *, char *));
 extern int tet_fgetargs PROTOLIST((FILE *, char **, int));
@@ -80,7 +80,7 @@ TET_NORETURN TET_IMPORT_FUNC(void, tet_genfatal,
 TET_IMPORT_FUNC(int, tet_getargs, PROTOLIST((char *, char **, int)));
 extern int tet_getdtablesize PROTOLIST((void));
 extern int tet_getrescode PROTOLIST((char *, int *));
-extern char *tet_getresname PROTOLIST((int, int *));
+extern const char *tet_getresname PROTOLIST((int, int *));
 extern void tet_hexdump PROTOLIST((char *, int, FILE *));
 extern int tet_initrestab PROTOLIST((void));
 extern int tet_maperrno PROTOLIST((int));
@@ -89,21 +89,21 @@ extern int tet_mapstatus PROTOLIST((int));
 extern int tet_mkalldirs PROTOLIST((char *));
 extern int tet_mkdir PROTOLIST((char *, int));
 extern int tet_mkoptarg PROTOLIST((char *, int, char *, int));
-extern char *tet_mktfname PROTOLIST((char *));
+extern char *tet_mktfname PROTOLIST((const char *));
 extern void tet_prerror PROTOLIST((FILE *, int, const char *, const char *, int,
                                    const char *, const char *));
 extern char *tet_ptflags PROTOLIST((int));
-TET_IMPORT_FUNC(char *, tet_ptptype, PROTOLIST((int)));
-TET_IMPORT_FUNC(char *, tet_ptrepcode, PROTOLIST((int)));
-TET_IMPORT_FUNC(char *, tet_ptreqcode, PROTOLIST((int)));
+TET_IMPORT_FUNC(const char *, tet_ptptype, PROTOLIST((int)));
+TET_IMPORT_FUNC(const char *, tet_ptrepcode, PROTOLIST((int)));
+TET_IMPORT_FUNC(const char *, tet_ptreqcode, PROTOLIST((int)));
 extern char *tet_ptstate PROTOLIST((int));
 extern char *tet_ptsvote PROTOLIST((int));
 extern int tet_putenv PROTOLIST((char *));
 extern int tet_readrescodes PROTOLIST((char *));
-extern char *tet_remvar PROTOLIST((char *, int));
-extern int tet_remvar_sysid PROTOLIST((char *));
+extern const char *tet_remvar PROTOLIST((const char *, int));
+extern int tet_remvar_sysid PROTOLIST((const char *));
 extern int tet_rmdir PROTOLIST((char *));
-TET_IMPORT_FUNC(char *, tet_strstore, PROTOLIST((char *)));
+TET_IMPORT_FUNC(char *, tet_strstore, PROTOLIST((const char *)));
 extern int tet_unmaperrno PROTOLIST((int));
 extern int tet_unmapsignal PROTOLIST((int));
 

@@ -303,10 +303,8 @@ register struct scentab *ep;
 
 #ifndef NOTRACE
 
-void tracescelem(flag, level, ep, text)
-int flag, level;
-register struct scentab *ep;
-char *text;
+void
+tracescelem(int flag, int level, register struct scentab *ep, const char *text)
 {
 	static char null[] = "NULL";
 	register int n;
@@ -394,8 +392,8 @@ char *text;
 **		scenario element sc_type value
 */
 
-char *prsctype(type)
-int type;
+const char *
+prsctype(int type)
 {
 	static char fmt[] = "<scenario type %d>";
 	static char msg[sizeof fmt + LNUMSZ];
@@ -422,7 +420,8 @@ int type;
 **		scenario element sc_flags value
 */
 
-char *prscflags(fval)
+const char *
+prscflags(fval)
 int fval;
 {
 	static struct flags flags[] = {
@@ -444,8 +443,8 @@ int fval;
 **	prscdir() - return printable representation of a directive type value
 */
 
-char *prscdir(directive)
-int directive;
+const char *
+prscdir(int directive)
 {
 	static char fmt[] = "<directive %d>";
 	static char msg[sizeof fmt + LNUMSZ];

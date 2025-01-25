@@ -57,9 +57,9 @@ MODIFICATIONS:
 #include "bstring.h"
 #include "dtetlib.h"
 
-static char *dirs[] = { (char *) 0, "/usr/tmp", "/tmp", (char *) 0 };
+static const char *dirs[] = { (char *) 0, "/usr/tmp", "/tmp", (char *) 0 };
 
-static char **tmpdirs;
+static const char **tmpdirs;
 static char salt[] = "\000AAA";
 
 /* tryone() return codes */
@@ -74,7 +74,7 @@ static char salt[] = "\000AAA";
 
 
 /* static function declarations */
-static int tryone PROTOLIST((char *, char *, char **));
+static int tryone PROTOLIST((const char *, const char *, char **));
 
 
 /*
@@ -84,10 +84,10 @@ static int tryone PROTOLIST((char *, char *, char **));
 **	return (char *) 0 on error
 */
 
-char *tet_mktfname(prefix)
-char *prefix;
+char *
+tet_mktfname(const char *prefix)
 {
-	register char **tdp;
+	register const char **tdp;
 	register char *p;
 	register int rc = TR_ERROR;
 	char *fname;
@@ -136,9 +136,8 @@ char *prefix;
 **	write some data to the file
 */
 
-static int tryone(dir, prefix, np)
-char *dir, *prefix;
-char **np;
+static int
+tryone(const char *dir, const char *prefix, char **np)
 {
 	register char *fname, *pidstr;
 	register int fd, n, rc;

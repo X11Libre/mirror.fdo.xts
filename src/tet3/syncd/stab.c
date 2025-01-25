@@ -771,7 +771,8 @@ struct ustab *up;
 */
 
 #ifndef NOTRACE
-char *stflags(fval)
+const char *
+stflags(fval)
 int fval;
 {
 	static struct flags flags[] = {
@@ -790,7 +791,8 @@ int fval;
 **	smflags() - return printable representation of synmsg flags value
 */
 
-char *smflags(fval)
+const char *
+smflags(fval)
 int fval;
 {
 	static struct flags flags[] = {

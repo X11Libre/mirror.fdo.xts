@@ -51,7 +51,8 @@ MODIFICATIONS:
 **	tet_ptrepcode() - return printable representation of message reply code
 */
 
-TET_IMPORT char *tet_ptrepcode(rc)
+TET_IMPORT const char *
+tet_ptrepcode(rc)
 int rc;
 {
 	static char text[] = "reply-code ";

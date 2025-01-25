@@ -117,7 +117,7 @@ struct lcache {
 struct ifstack {
 	struct ifstack *if_next;	/* ptr to next element in the list */
 	struct ifstack *if_last;	/* ptr to prev element in the list */
-	char *if_fname;			/* file name */
+	const char *if_fname;			/* file name */
 	FILE *if_fp;			/* stdio stream pointer */
 	int if_lcount;			/* number of lines read from file */
 	struct lcache *if_lcache;	/* line cache for this file */
@@ -143,7 +143,7 @@ static struct ifstack *ifstp;
 /* static function declarations */
 static int find1scen PROTOLIST((void));
 static char *getline_tcc PROTOLIST((void));
-static void includefile PROTOLIST((char *, char *, int));
+static void includefile PROTOLIST((char *, const char *, int));
 static struct ifstack *ifsalloc PROTOLIST((void));
 static void ifsfree PROTOLIST((struct ifstack *));
 static struct ifstack *ifspop PROTOLIST((void));
@@ -157,10 +157,10 @@ static struct lcache *lcpop2 PROTOLIST((struct ifstack *));
 static void lcpush PROTOLIST((struct lcache *));
 static int ppinclude PROTOLIST((char *));
 static int preprocess PROTOLIST((char *));
-static int proc1dgrp PROTOLIST((char *, char *, char *, int));
-static void proc1scelem PROTOLIST((char *, int, int, int, char *));
+static int proc1dgrp PROTOLIST((char *, char *, const char *, int));
+static void proc1scelem PROTOLIST((char *, int, int, int, const char *));
 static int proc1scen PROTOLIST((void));
-static int proc1scline PROTOLIST((char *, char *, int));
+static int proc1scline PROTOLIST((char *, const char *, int));
 static void ungetline_tcc PROTOLIST((char *));
 #ifndef NOTRACE
 static char *firstpart PROTOLIST((char *));
@@ -173,9 +173,8 @@ static char *firstpart PROTOLIST((char *));
 **	return 0 if successful or -1 on error
 */
 
-int proc1scfile(fp, fname)
-FILE *fp;
-char *fname;
+int
+proc1scfile(FILE *fp, const char *fname)
 {
 	struct ifstack *ifp;
 	int rc;
@@ -357,9 +356,8 @@ char *line;
 **		abandoned
 */
 
-static int proc1scline(line, fname, lineno)
-char *line, *fname;
-int lineno;
+static int
+proc1scline(char *line, const char *fname, int lineno)
 {
 	register char *p;
 	int type, flags;
@@ -447,13 +445,13 @@ int lineno;
 **	proc1scelem() - process a single (non-directive) scenario element
 */
 
-static void proc1scelem(element, type, flags, lineno, fname)
-char *element, *fname;
-int type, flags, lineno;
+static void
+proc1scelem(char *element, int type, int flags, int lineno, const char *fname)
 {
 	register struct scentab *ep;
 	register char *p;
 	char *iclist, *tcname;
+        char *sceninfo;
 	int lsceninfo;
 
 	TRACE2(tet_Tscen, 4, "proc1scelem(): element = <%s>", element);
@@ -467,10 +465,12 @@ int type, flags, lineno;
 
 	switch (type) {
 	case SC_SCENINFO:
+		sceninfo = NULL;
 		lsceninfo = 0;
-		RBUFCHK(&ep->sc_sceninfo, &lsceninfo,
+		RBUFCHK(&sceninfo, &lsceninfo,
 			(int) strlen(element) + 3);
-		sprintf(ep->sc_sceninfo, "\"%s\"", element);
+		sprintf(sceninfo, "\"%s\"", element);
+		ep->sc_sceninfo = sceninfo;
 		break;
 	case SC_TESTCASE:
 		tcname = element;
@@ -511,9 +511,8 @@ int type, flags, lineno;
 **		abandoned
 */
 
-static int proc1dgrp(dgroup, next, fname, lineno)
-char *dgroup, *next, *fname;
-int lineno;
+static int
+proc1dgrp(char *dgroup, char *next, const char *fname, int lineno)
 {
 	char buf[LBUFLEN];
 	char *dirs[MAXFLDS];
@@ -669,7 +668,7 @@ int lineno;
 		/* check for "variable" format arguments */
 		if (dp->dt_flags & SDF_VARFMT_ARGS)
 			for (ap = &args[1]; ap <= &args[nargs]; ap++) {
-				p1 = tet_remvar(*ap, -1);
+				p1 = (char *) tet_remvar(*ap, -1);
 				p2 = tet_equindex(*ap);
 				if (!p1 || !p2) {
 					scenerror(*ap,
@@ -927,9 +926,8 @@ int lineno;
 **	includefile() - interpolate the contents of an include file
 */
 
-static void includefile(nextfile, currfile, currline)
-char *nextfile, *currfile;
-int currline;
+static void
+includefile(char *nextfile, const char *currfile, int currline)
 {
 	char buf[TET_MAX(LBUFLEN, MAXPATH)];
 	FILE *fp;
@@ -1301,7 +1299,7 @@ char *line;
 {
 	/* list of keywords and their associated functions */
 	static struct ppfuncs {
-		char *pp_keyword;
+		const char *pp_keyword;
 		int (*pp_func) PROTOLIST((char *));
 	} ppfuncs[] = {
 		{ "include", ppinclude }

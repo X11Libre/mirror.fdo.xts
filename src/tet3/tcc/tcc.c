@@ -92,7 +92,7 @@ static void badusage PROTOLIST((void));
 static void prversioninfo PROTOLIST((void));
 
 /* satisfy libapi symbol resolution */
-TET_EXPORT char *tet_pname;
+TET_EXPORT const char *tet_pname;
 TET_EXPORT int tet_thistest;
 
 /* default root directories */
@@ -125,7 +125,7 @@ char **argv;
 	char *xopt = (char *) 0;
 	char *codelist = (char *) 0;
 	char *old_journal_file = (char *) 0;
-	char *scenario = "all";
+	const char *scenario = "all";
 	int errors = 0, status = EXIT_SUCCESS;
 
 	/*

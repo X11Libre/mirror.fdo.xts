@@ -75,7 +75,7 @@ static int lcmdscen;
 static int ncmdscen;
 
 /* scenario file name */
-static char *scenario_file = "tet_scen";
+static const char *scenario_file = "tet_scen";
 
 static void print_summary PROTOLIST((struct proctab *));
 
@@ -103,8 +103,8 @@ char *line;
 **	cwd is tcc's initial working directory
 */
 
-void procscen(scenario, sopt, cwd)
-char *scenario, *sopt, *cwd;
+void
+procscen(const char *scenario, const char *sopt, const char *cwd)
 {
 	char fname[MAXPATH];
 	register char **csp;

@@ -308,25 +308,25 @@ extern "C" {
 */
 
 /* functions in TETware-Lite and in Distrubuted TETware */
-TET_IMPORT_FUNC(void, tet_delete, TET_PROTOLIST((int, char *)));
+TET_IMPORT_FUNC(void, tet_delete, TET_PROTOLIST((int, const char *)));
 TET_NORETURN TET_IMPORT_FUNC(void, tet_exit, TET_PROTOLIST((int)));
 TET_IMPORT_FUNC(char *, tet_getvar, TET_PROTOLIST((const char *)));
-TET_IMPORT_FUNC(void, tet_infoline,  TET_PROTOLIST((char *)));
+TET_IMPORT_FUNC(void, tet_infoline,  TET_PROTOLIST((const char *)));
 TET_IMPORT_FUNC(int, tet_kill, TET_PROTOLIST((pid_t, int)));
 TET_IMPORT_FUNC(void, tet_logoff, TET_PROTOLIST((void)));
-TET_IMPORT_FUNC(int, tet_minfoline, TET_PROTOLIST((char **, int)));
-TET_IMPORT_FUNC(int, tet_printf, TET_PROTOLIST((char *, ...)));
-TET_IMPORT_FUNC(char *, tet_reason, TET_PROTOLIST((int)));
+TET_IMPORT_FUNC(int, tet_minfoline, TET_PROTOLIST((const char **, int)));
+TET_IMPORT_FUNC(int, tet_printf, TET_PROTOLIST((const char *, ...)));
+TET_IMPORT_FUNC(const char *, tet_reason, TET_PROTOLIST((int)));
 TET_IMPORT_FUNC(int, tet_remgetlist, TET_PROTOLIST((int **)));
 TET_IMPORT_FUNC(int, tet_remgetsys, TET_PROTOLIST((void)));
 TET_IMPORT_FUNC(void, tet_result, TET_PROTOLIST((int)));
 TET_IMPORT_FUNC(void, tet_setblock, TET_PROTOLIST((void)));
 TET_IMPORT_FUNC(void, tet_setcontext, TET_PROTOLIST((void)));
 TET_IMPORT_FUNC(pid_t, tet_spawn, TET_PROTOLIST((char *, char **, char **)));
-TET_IMPORT_FUNC(int, tet_vprintf, TET_PROTOLIST((char *, va_list)));
+TET_IMPORT_FUNC(int, tet_vprintf, TET_PROTOLIST((const char *, va_list)));
 TET_IMPORT_FUNC(int, tet_wait, TET_PROTOLIST((pid_t, int *)));
 #ifndef _WIN32
-   TET_IMPORT_FUNC(int, tet_exec, TET_PROTOLIST((char *, char *[], char *[])));
+   TET_IMPORT_FUNC(int, tet_exec, TET_PROTOLIST((const char *, char *[], char *[])));
    TET_IMPORT_FUNC(int, tet_fork,
 	TET_PROTOLIST((void (*) TET_PROTOLIST((void)),
 	void (*) TET_PROTOLIST((void)), int, int)));
@@ -398,7 +398,7 @@ TET_IMPORT_FUNC(int, tet_wait, TET_PROTOLIST((pid_t, int *)));
    TET_IMPORT_DATA(int, tet_errno);
 #endif /* !THREADS */
 
-TET_IMPORT_ARRAY(char *, tet_errlist, []);
+TET_IMPORT_ARRAY(const char *, tet_errlist, []);
 TET_IMPORT_DATA(int, tet_nerr);
 #ifndef TET_LITE /* -START-LITE-CUT- */
   TET_IMPORT_FUNC_PTR(void, tet_syncerr,
@@ -409,7 +409,7 @@ TET_IMPORT_DATA(int, tet_nerr);
 extern int tet_nosigreset;
 
 /* the following are in the TCM and must be "exported" to the API library */
-TET_EXPORT_DATA(char *, tet_pname);
+TET_EXPORT_DATA(const char *, tet_pname);
 TET_EXPORT_DATA(int, tet_thistest);
 
 

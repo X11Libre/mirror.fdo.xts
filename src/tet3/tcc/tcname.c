@@ -85,10 +85,9 @@ int namelen;
 **	on return up to namelen bytes are copied into the name array
 */
 
-void tcexecname(prp, altexecdir, name, namelen)
-struct proctab *prp;
-char *altexecdir, name[];
-int namelen;
+void
+tcexecname(struct proctab *prp, const char *altexecdir,
+           char name[], int namelen)
 {
 	register char *tcname = prp->pr_scen->sc_tcname;
 
@@ -121,10 +120,9 @@ int dirlen;
 **	on return up to dirlen bytes are copied into the dir array
 */
 
-void tcexecdir(prp, altexecdir, dir, dirlen)
-struct proctab *prp;
-char *altexecdir, dir[];
-int dirlen;
+void
+tcexecdir(struct proctab *prp, const char *altexecdir,
+          char dir[], int dirlen)
 {
 	char name[MAXPATH];
 

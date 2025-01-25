@@ -66,8 +66,8 @@ MODIFICATIONS:
 **	there is no return on error
 */
 
-char *rstrstore(s)
-char *s;
+char *
+rstrstore(const char *s)
 {
 	char *p;
 
@@ -140,9 +140,8 @@ register int maxargs, delim;
 **	scenerror() - report an error in a scenario file
 */
 
-void scenerror(s1, s2, lineno, fname)
-char *s1, *s2, *fname;
-int lineno;
+void
+scenerror(const char *s1, const char *s2, int lineno, const char *fname)
 {
 	scenermsg(s1, s2, lineno, fname);
 	if (++scenerrors >= MAXSCENERRORS)
@@ -153,9 +152,8 @@ int lineno;
 **	scenermsg() - print a scenario file error message
 */
 
-void scenermsg(s1, s2, lineno, fname)
-char *s1, *s2, *fname;
-int lineno;
+void
+scenermsg(const char *s1, const char *s2, int lineno, const char *fname)
 {
 	fprintf(stderr, "%s: %s", tet_progname, s1);
 	if (s2 && *s2)
@@ -182,9 +180,8 @@ void scengiveup()
 **	up to dirlen bytes of the return value is copied into the dir array
 */
 
-void tcc_dirname(path, dir, dirlen)
-char *path, dir[];
-int dirlen;
+void
+tcc_dirname(const char *path, char dir[], int dirlen)
 {
 	register int len;
 
@@ -269,7 +266,8 @@ void fullpath(const char *dir, const char *file, char path[], int pathlen, int r
 **	prtccmode() - return printable representation of tcc modes value
 */
 
-char *prtccmode(fval)
+const char *
+prtccmode(fval)
 int fval;
 {
 	static struct flags flags[] = {

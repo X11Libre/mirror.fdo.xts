@@ -66,7 +66,7 @@ MODIFICATIONS:
 
 struct delreason {
 	int dr_testnum;		/* absolute test number of deleted TP */
-	char *dr_reason;	/* pointer to the deletion reason text */
+	const char *dr_reason;	/* pointer to the deletion reason text */
 };
 
 /* the list of deletion reasons itself */
@@ -84,9 +84,8 @@ static void drfree PROTOLIST((struct delreason *));
 **	tet_delete() - mark a test purpose as cancelled
 */
 
-TET_IMPORT void tet_delete(testnum, reason)
-int testnum;
-char *reason;
+TET_IMPORT void
+tet_delete(int testnum, const char *reason)
 {
 	struct delreason *drp;
 
@@ -128,8 +127,8 @@ char *reason;
 **	return (char *) 0 if the test purpose is not marked as cancelled
 */
 
-TET_IMPORT char *tet_reason(testnum)
-int testnum;
+TET_IMPORT const char *
+tet_reason(int testnum)
 {
 	register struct delreason *drp;
 

@@ -107,7 +107,7 @@ static void clear_itcount PROTOLIST((struct scentab *));
 static void clear_scflags PROTOLIST((struct scentab *, int));
 static void exiclist_addupdate PROTOLIST((struct scentab *, int));
 static void exiclist_set PROTOLIST((struct scentab *, char *));
-static char *prjnlid PROTOLIST((int));
+static const char *prjnlid PROTOLIST((int));
 static void remove_unneeded_tcs PROTOLIST((struct scentab *));
 static void rrp_checkloopstart PROTOLIST((struct scentab *, struct jline *));
 static int rrp_cl2 PROTOLIST((struct scentab *, struct scentab *, int));
@@ -559,7 +559,7 @@ struct jline *jlp;
 {
 	register struct scentab *ep;
 	int sctype, scdir;
-	char *directive;
+	const char *directive;
 
 	/* find the scenario element corresponding to the scenario reference */
 	if ((ep = rrp_fs2(sctree->sc_child, jlp->jl_ref)) == (struct scentab *) 0) {
@@ -1704,8 +1704,8 @@ register struct scentab *ep;
 **	prjnlid() - return a printable representation of a journal id value
 */
 
-static char *prjnlid(id)
-int id;
+static const char *
+prjnlid(int id)
 {
 	static char text[] = "journal-id ";
 	static char msg[sizeof text + LNUMSZ];

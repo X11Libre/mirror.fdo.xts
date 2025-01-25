@@ -71,8 +71,7 @@ MODIFICATIONS:
 **	the return list excludes "." and ".."
 */
 
-char **tcf_lsdir(dir)
-char *dir;
+char **tcf_lsdir(const char *dir)
 {
 	register DIR *dirp;
 	register struct dirent *dp;

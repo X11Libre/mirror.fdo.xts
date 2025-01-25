@@ -47,7 +47,7 @@ static void error(err, rptstr)
 int err;	/* tet_errno value, or zero if N/A */
 char *rptstr;	/* failure to report */
 {
-	char *errstr, *colonstr = ": ";
+	const char *errstr, *colonstr = ": ";
 	char errbuf[20];
 
 	if (err == 0)

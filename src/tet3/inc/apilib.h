@@ -68,7 +68,7 @@ MODIFICATIONS:
 TET_IMPORT_DATA(long, tet_activity);	/* TCC activity number */
 TET_IMPORT_DATA(int, tet_combined_ok);	/* true if xres file is usable */
 TET_IMPORT_DATA(long, tet_context);	/* journal context number */
-TET_IMPORT_ARRAY(char *, tet_apilib_version, []);
+TET_IMPORT_ARRAY(const char *, tet_apilib_version, []);
 					/* the API library version strings */
 
 #ifdef TET_THREADS
@@ -103,7 +103,7 @@ TET_IMPORT_ARRAY(char *, tet_apilib_version, []);
 
 TET_IMPORT_FUNC(void, tet_config, PROTOLIST((void)));
 extern void tet_docleanup PROTOLIST((int));
-TET_IMPORT_FUNC(void, tet_error, PROTOLIST((int, char *)));
+TET_IMPORT_FUNC(void, tet_error, PROTOLIST((int, const char *)));
 extern void tet_exec_cleanup PROTOLIST((char **, char **, char **));
 extern int tet_exec_prep PROTOLIST((char *, char *[], char *[], char ***,
 	char ***));
@@ -112,16 +112,16 @@ TET_IMPORT_FUNC(int, tet_icstart, PROTOLIST((int, int)));
 #ifdef TET_PID_T_DEFINED
    TET_IMPORT_FUNC(int, tet_killw, PROTOLIST((pid_t, unsigned int)));
 #endif
-extern void tet_merror PROTOLIST((int, char **, int));
-extern void tet_msgform PROTOLIST((char *, char *, char *));
-extern void tet_routput PROTOLIST((char **, int));
-TET_IMPORT_FUNC(char *, tet_signame, PROTOLIST((int)));
-TET_IMPORT_FUNC(void, tet_tcmstart, PROTOLIST((char *, int)));
+extern void tet_merror PROTOLIST((int, const char **, int));
+extern void tet_msgform PROTOLIST((const char *, const char *, char *));
+extern void tet_routput PROTOLIST((const char **, int));
+TET_IMPORT_FUNC(const char *, tet_signame, PROTOLIST((int)));
+TET_IMPORT_FUNC(void, tet_tcmstart, PROTOLIST((const char *, int)));
 TET_IMPORT_FUNC(int, tet_tpend, PROTOLIST((int, int, int)));
 TET_IMPORT_FUNC(void, tet_tpstart, PROTOLIST((int, int, int)));
 
 #ifdef TET_LITE /* -LITE-CUT-LINE- */
-   extern char *tet_get_code PROTOLIST((int, int *));
+   extern const char *tet_get_code PROTOLIST((int, int *));
    TET_IMPORT_FUNC(void, tet_openres, PROTOLIST((char *)));
 #else		/* -START-LITE-CUT- */
    extern void tet_disconnect PROTOLIST((void));

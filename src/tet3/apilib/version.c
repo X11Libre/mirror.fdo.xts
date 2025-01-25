@@ -48,7 +48,7 @@ MODIFICATIONS:
 
 
 /* the version strings themselves */
-TET_VERSION_STORAGE_CLASS char *TET_VERSION_STRINGS[] = {
+TET_VERSION_STORAGE_CLASS const char *TET_VERSION_STRINGS[] = {
 
 
 #ifdef TET_THREADS

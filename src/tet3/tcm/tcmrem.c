@@ -75,7 +75,7 @@ MODIFICATIONS:
 extern int	tet_tcmc_main PROTOLIST((int, char **));
 extern void	tet_dtcmerror PROTOLIST((int, char *, int, char *, char *));
 
-TET_EXPORT char *tet_pname = "<unknown>";
+TET_EXPORT const char *tet_pname = "<unknown>";
 TET_EXPORT int tet_thistest = -1;
 
 int tet_psysid = -1;			/* parent's system id */
@@ -116,7 +116,8 @@ char	**argv;
 **		for use in error messages
 */
 
-char *tet_callfuncname()
+const char *
+tet_callfuncname(void)
 {
 	return("tet_remexec()");
 }

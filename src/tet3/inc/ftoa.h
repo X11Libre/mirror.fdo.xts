@@ -36,12 +36,12 @@ MODIFICATIONS:
 /* flag names structure */
 struct flags {
 	int fl_value;		/* flag value */
-	char *fl_name;		/* flag name */
+	const char *fl_name;	/* flag name */
 };
 
 #define NFBUF	2		/* no of times tet_f2a() may be called before
 				   re-using the buffers */
 
 /* extern function declarations */
-extern char *tet_f2a PROTOLIST((int, struct flags *, int));
+extern const char *tet_f2a PROTOLIST((int, struct flags *, int));
 

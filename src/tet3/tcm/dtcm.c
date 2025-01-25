@@ -239,7 +239,7 @@ char	**argv;
 	char *cp;
 	struct iclist *icp;
 	int iccount, tpcount, icnum, rc, status = TET_EXIT_SUCCESS;
-	char *tsname, *tcname;
+	const char *tsname, *tcname;
 #ifndef TET_LITE	/* -START-LITE-CUT */
 	int nsys;
 #endif			/* -END-LITE-CUT- */
@@ -584,7 +584,7 @@ sigterm()
 {
 	/*  Cleanup and exit if SIGTERM received */
 
-	char *msg = "Abandoning test case: received signal SIGTERM";
+	const char *msg = "Abandoning test case: received signal SIGTERM";
 
 	/* terminate [per-thread] child, if any */
 	if (tet_child > 0)
@@ -956,7 +956,8 @@ int icmin, icmax;
 **	process an individual IC number or number range
 */
 
-static void build_icl3(icspec, icmin, icmax)
+static void
+build_icl3(icspec, icmin, icmax)
 char *icspec;
 int icmin, icmax;
 {

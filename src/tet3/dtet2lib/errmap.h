@@ -39,7 +39,7 @@ MODIFICATIONS:
 struct errmap {
 	int em_errno;
 	int em_repcode;
-	char *em_errname;
+	const char *em_errname;
 };
 
 /* the error map itself and its size (in errmap.c) */

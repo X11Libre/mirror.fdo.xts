@@ -77,7 +77,7 @@ MODIFICATIONS:
 /* static function declarations */
 static void ocf2jnl2 PROTOLIST((struct proctab *, char *));
 static void ocfile2jnl PROTOLIST((struct proctab *, char *));
-static void tcdirfname PROTOLIST((char *, char *, char *, int));
+static void tcdirfname PROTOLIST((const char *, const char *, char *, int));
 static void tooladdargv PROTOLIST((char ***, int *, int *, char *, int));
 static int toolrun2 PROTOLIST((struct proctab *));
 static int toolrunning PROTOLIST((struct proctab *));
@@ -103,7 +103,7 @@ char *tcname;
 int tcnamelen;
 {
 	register char *p;
-	char *toolvar, *filevar, *edir;
+	const char *toolvar, *filevar, *edir;
 	int pass_tcname, pass_iclist;
 	char **argv = (char **) 0;
 	int argvlen = 0, argc = 0;
@@ -672,9 +672,8 @@ int xrfnamelen;
 **		in the directory which contains the named test case
 */
 
-static void tcdirfname(tcpath, fname, path, pathlen)
-char *tcpath, *fname, *path;
-int pathlen;
+static void
+tcdirfname(const char *tcpath, const char *fname, char *path, int pathlen)
 {
 	char tcdir[MAXPATH];
 	size_t reslen;

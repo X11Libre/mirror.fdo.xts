@@ -49,7 +49,7 @@ MODIFICATIONS:
 
 /* structure of scenario directive table */
 struct dirtab {
-	char *dt_name;		/* directive name */
+	const char *dt_name;	/* directive name */
 	int dt_directive;	/* directive token value */
 	int dt_match;		/* token value of matching directive */
 	int dt_flags;		/* directve flags - see below */

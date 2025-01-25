@@ -85,7 +85,7 @@ struct scentab {
 	long sc_magic;			/* magic number */
 	int sc_type;			/* element type - see below */
 	union {				/* element data - see below */
-		char *scd_text;			/* some text */
+		const char *scd_text;		/* some text */
 		struct {			/* a test case */
 			char *scd_tcname;	/* test case name */
 			char *scd_sciclist;	/* optional IC list from
@@ -112,7 +112,7 @@ struct scentab {
 	} sc_data;
 	int sc_flags;			/* flags - see below */
 	long sc_ref;			/* scenario reference */
-	char *sc_fname;			/* name of the source file from which
+	const char *sc_fname;		/* name of the source file from which
 					   this element is derived */
 	int sc_lineno;			/* line number in the source file */
 };
@@ -232,7 +232,7 @@ extern struct scentab *resume_scen;
 #ifdef NOTRACE
 #define TRACESCELEM(flag, level, eptr, text)
 #else
-extern void tracescelem PROTOLIST((int, int, struct scentab *, char *));
+extern void tracescelem PROTOLIST((int, int, struct scentab *, const char *));
 #define TRACESCELEM(flag, level, eptr, text) \
 	if ((flag) >= (level)) \
 		tracescelem((flag), (level), (eptr), (text)); \

@@ -70,13 +70,14 @@ MODIFICATIONS:
 #include "tcclib.h"
 
 /* static function declarations */
-static int copydir PROTOLIST((char *, char *, int));
-static int copyfile PROTOLIST((char *, char *, struct STAT_ST *, int));
-static int pmatch PROTOLIST((char *, char *));
-static int procfile PROTOLIST((char *, char *, char *, char *[], int, int));
-static int tsave PROTOLIST((char *, char *, int));
-static int tsc2 PROTOLIST((int, char *, char *));
-static int tscopy PROTOLIST((char *, char *));
+static int copydir PROTOLIST((const char *, const char *, int));
+static int copyfile PROTOLIST((const char *, const char *, struct STAT_ST *, int));
+static int pmatch PROTOLIST((const char *, const char *));
+static int procfile PROTOLIST((const char *, const char *, const char *,
+                               char *[], int, int));
+static int tsave PROTOLIST((const char *, const char *, int));
+static int tsc2 PROTOLIST((int, const char *, const char *));
+static int tscopy PROTOLIST((const char *, const char *));
 
 
 /*
@@ -86,9 +87,9 @@ static int tscopy PROTOLIST((char *, char *));
 **	return ER_OK if successful or other ER_* error code on error
 */
 
-int tcf_procdir(fromdir, todir, sfiles, nsfile, flag)
-char *fromdir, *todir, *sfiles[];
-int nsfile, flag;
+int
+tcf_procdir(const char *fromdir, const char *todir,
+            char *sfiles[], int nsfile, int flag)
 {
 	register char **fip, **fromfiles;
 	register int rc, rctmp;
@@ -121,12 +122,9 @@ int nsfile, flag;
 **	return ER_OK if successful or other ER_* error code on error
 */
 
-static int procfile(fromdir, todir, fromfile, sfiles, nsfile, flag)
-register char *fromdir, *fromfile;
-char *todir;
-register char *sfiles[];
-register int nsfile;
-int flag;
+static int
+procfile(const char *fromdir, const char *todir, const char *fromfile,
+         char *sfiles[], int nsfile, int flag)
 {
 	register int n;
 	struct STAT_ST stbuf;
@@ -182,10 +180,8 @@ int flag;
 #define FILE_TYPE	~(S_IRWXU | S_IRWXG | S_IRWXO)
 #endif
 
-static int copyfile(fromfile, todir, stp, flag)
-char *fromfile, *todir;
-struct STAT_ST *stp;
-int flag;
+static int
+copyfile(const char *fromfile, const char *todir, struct STAT_ST *stp, int flag)
 {
 	TRACE2(Ttcclib, 8, "copyfile(): fromfile = \"%s\"", fromfile);
 
@@ -207,9 +203,8 @@ int flag;
 **	return ER_OK if successful or other ER_* error code on error
 */
 
-static int copydir(fromdir, todir, flag)
-char *fromdir, *todir;
-int flag;
+static int
+copydir(const char *fromdir, const char *todir, int flag)
 {
 	register char **fip, **fromfiles;
 	register int rc, rctmp;
@@ -251,9 +246,8 @@ int flag;
 **	return ER_OK if successful or other ER_* error code on error
 */
 
-static int tsave(fromfile, todir, flag)
-char *fromfile, *todir;
-int flag;
+static int
+tsave(const char *fromfile, const char *todir, int flag)
 {
 #ifndef TET_LITE	/* -START-LITE-CUT- */
 	register char *p;
@@ -301,8 +295,8 @@ int flag;
 **	return ER_OK if successful or other ER_* error code on error
 */
 
-static int tscopy(fromfile, todir)
-char *fromfile, *todir;
+static int
+tscopy(const char *fromfile, const char *todir)
 {
 	register char *p;
 	register int ifd, rc;
@@ -356,9 +350,8 @@ char *fromfile, *todir;
 #define MODEMASK	(S_IRWXU | S_IRWXG | S_IRWXO)
 #define MODEANY		((mode_t) MODEMASK)
 
-static int tsc2(ifd, fromfile, tofile)
-int ifd;
-char *fromfile, *tofile;
+static int
+tsc2(int ifd, const char *fromfile, const char *tofile)
 {
 	register int n, ofd, rc;
 	char buf[BUFSIZ];
@@ -406,8 +399,8 @@ char *fromfile, *tofile;
 #define MASK(c) ((c) & 0177)
 #define META(c) ((c) == '?' || (c) == '*' || (c) == '[' || (c) == ']')
 
-static int pmatch(str, pattern)
-register char *str, *pattern;
+static int
+pmatch(const char *str, const char *pattern)
 {
         register int schar;
         register char c;

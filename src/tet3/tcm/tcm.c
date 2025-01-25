@@ -92,7 +92,7 @@ extern "C" {
 extern int	tet_tcm_main PROTOLIST((int, char **));
 extern void	tet_dtcmerror PROTOLIST((int, const char *, int, const char *, const char *));
 
-TET_EXPORT char *tet_pname = "<unknown>";
+TET_EXPORT const char *tet_pname = "<unknown>";
 TET_EXPORT int tet_thistest = 0;
 TET_EXPORT int tet_nosigreset = 0;	/* has no effect in WIN32 */
 

@@ -87,7 +87,7 @@ extern int	tet_tcmc_main PROTOLIST((int, char **));
 extern void	tet_dtcmerror PROTOLIST((int, const char *, int, const char *,
                                          const char *));
 
-TET_EXPORT char *tet_pname = "<unknown>";
+TET_EXPORT const char *tet_pname = "<unknown>";
 TET_EXPORT int tet_thistest = -1;
 
 #ifndef TET_LITE /* -START-LITE-CUT- */
@@ -365,7 +365,8 @@ int ptype;
 **		for use in error messages
 */
 
-char *tet_callfuncname PROTOLIST((void))
+const char *
+tet_callfuncname PROTOLIST((void))
 {
 	return("tet_exec() or tet_spawn()");
 }

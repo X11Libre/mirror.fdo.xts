@@ -455,7 +455,7 @@ static int tcs1_jnlstart(prp)
 struct proctab *prp;
 {
 	static int activity;
-	char *action, *timestr;
+	const char *action, *timestr;
 	struct scentab *ep;
 #ifndef TET_LITE	/* -START-LITE-CUT- */
 	int *ip;

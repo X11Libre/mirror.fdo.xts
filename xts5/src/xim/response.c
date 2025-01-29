@@ -153,7 +153,7 @@ static FILE *fp_response = NULL;
 /****************************************************************/
 /* duplicated in actions.c */
  
-static char *keys_style[] = {
+static const char *keys_style[] = {
     "AREA",
     "CALLBACK",
     "NOTHING",
@@ -176,7 +176,7 @@ static int status_style_val[] = {
 };
 
 /****************************************************************/
-static char *keys_response[] = {
+static const char *keys_response[] = {
 	"VERSION",
 	"X_RELEASE",
 	"PREEDIT_STYLE",
@@ -189,7 +189,7 @@ static int nkeys_response = sizeof(keys_response) / sizeof(char *);
 static char response_line[MAXLINELEN];
 static char *presponse = response_line;
 
-static char *keys_cbname[] = {
+static const char *keys_cbname[] = {
 	"PREEDIT_START",
 	"PREEDIT_DONE",
 	"PREEDIT_DRAW",
@@ -209,7 +209,7 @@ static int nkeys_cbname = sizeof(keys_cbname) / sizeof(char *);
 static cbstk_def cbstk;
 
 
-static char *keys_ximtext[] = {
+static const char *keys_ximtext[] = {
 	"LENGTH",
 	"FEEDBACK",
 	"IS_WCHAR",
@@ -218,7 +218,7 @@ static char *keys_ximtext[] = {
 static int nkeys_ximtext = sizeof(keys_ximtext) / sizeof(char *);
 
 
-static char *keys_pe_draw[] = {
+static const char *keys_pe_draw[] = {
 	"CARET",
 	"FIRST",
 	"LENGTH",
@@ -227,7 +227,7 @@ static char *keys_pe_draw[] = {
 static int nkeys_pe_draw = sizeof(keys_pe_draw) / sizeof(char *);
 
 
-static char *keys_pe_caret[] = {
+static const char *keys_pe_caret[] = {
 	"POSITION",
 	"DIRECTION",
 	"STYLE",
@@ -235,7 +235,7 @@ static char *keys_pe_caret[] = {
 static int nkeys_pe_caret = sizeof(keys_pe_caret) / sizeof(char *);
 
 
-static char *keys_st_draw[] = {
+static const char *keys_st_draw[] = {
 	"TYPE",
 	"DATA",
 };

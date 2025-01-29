@@ -148,9 +148,8 @@ char *  asctime();
  */
 
 void
-wbcopy (b1, b2, length)
-register unsigned char *b1, *b2;
-register int length;
+wbcopy (register const unsigned char *b1, register unsigned char *b2,
+        register int length)
 {
     if (b1 < b2) {
 	b2 += length;

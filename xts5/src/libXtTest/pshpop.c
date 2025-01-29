@@ -83,10 +83,7 @@ static	int	Dup_stderr = -1;	/* Duplicate of stderr fd */
 /* Internal routine to reopen the fd for stdout or stderr */
 
 static int
-reopen(pathname, omode, fp)
-char *pathname;
-int omode;
-FILE *fp;
+reopen(const char *pathname, int omode, FILE *fp)
 {
 	int newfd;
 
@@ -119,9 +116,8 @@ FILE *fp;
 **	mode	Unused
 */
 
-int push_stdout(file,mode)
-char	*file;
-char	*mode;
+int
+push_stdout(const char *file, const char *mode)
 {
 	char	pathname[4096];
 
@@ -187,9 +183,8 @@ void pop_stdout()
 **	mode	Unused
 */
 
-int push_stderr(file,mode)
-char	*file;
-char	*mode;
+int
+push_stderr(const char *file, const char *mode)
 {
 	char	pathname[4096];
 
@@ -254,9 +249,8 @@ void pop_stderr()
 /* restore_from_devnull() restores the stdout and stderr                   */
 /***************************************************************************/ 
 
-void push_to_devnull(file,mode)
-char    *file;
-char    *mode;
+void
+push_to_devnull(const char *file, const char *mode)
 {
 	if ((Dup_stdout = dup(fileno(stdout))) == -1) {
 		sprintf(ebuf, "ERROR: push_to_devnull: dup of fileno(stdout) failed");

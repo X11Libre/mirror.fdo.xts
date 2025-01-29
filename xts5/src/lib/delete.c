@@ -145,7 +145,7 @@ static int 	TestDeleted = True;
 /*VARARGS1*/
 
 void
-delete(char *mess, ... )
+delete(const char *mess, ... )
 {
 char	buf[LINELEN];
 va_list args;
@@ -202,8 +202,7 @@ resetdelete()
  * run.
  */
 void
-cancelrest(reason)
-char	*reason;
+cancelrest(const char *reason)
 {
 extern	int 	ntests;
 int 	i;

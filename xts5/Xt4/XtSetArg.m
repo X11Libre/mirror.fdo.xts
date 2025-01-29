@@ -58,7 +58,7 @@ All Rights Reserved.
 #include <X11/ConstrainP.h>
 #include <X11/CoreP.h>
 
-extern char * event_names[];
+extern const char *event_names[];
 
 XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;

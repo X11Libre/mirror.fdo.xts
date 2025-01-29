@@ -105,7 +105,7 @@ Window	w;
 int 	direction;
 >>EXTERN
 
-static char	*SimpleTemplate[] = {
+static const char *SimpleTemplate[] = {
 	".",
 	"zero . (20,10) 40x40",
 	"one . (30,20) 40x40",
@@ -114,14 +114,14 @@ static char	*SimpleTemplate[] = {
 };
 static int	NSimpleTemplate = NELEM(SimpleTemplate);
 
-static char	*Expose1Template[] = {
+static const char *Expose1Template[] = {
 	".",
 	"zero . (20,10) 40x40",
 	"other1 . (75,10) 15x70",
 };
 static int	NExpose1Template = NELEM(Expose1Template);
 
-static char	*Expose2Template[] = {
+static const char *Expose2Template[] = {
 	".",
 	"one . (30,20) 40x40",
 	"two . (10,30) 40x40",

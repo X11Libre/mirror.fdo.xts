@@ -251,7 +251,7 @@ static XFontProp props[] = {
 	{XA_UNDERLINE_POSITION, 3},
 };
 
-char	*xtfont3cpright = "These glyphs are unencumbered";
+const char *xtfont3cpright = "These glyphs are unencumbered";
 
 XFontStruct xtfont3 = {
 	(XExtData*)0,

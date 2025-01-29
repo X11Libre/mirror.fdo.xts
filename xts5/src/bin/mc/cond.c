@@ -139,7 +139,7 @@ static	int 	uselev[MAXLEV] = {
 #define	MAXDEF	64	/* Max number of defines */
 static	char	*deftbl[MAXDEF];
 static	int 	defind;
-static	char	*knownargs[] = {
+static	const char	*knownargs[] = {
 	"A_DRAWABLE",
 	"A_DRAWABLE2",
 	"A_WINDOW",
@@ -154,8 +154,7 @@ extern	struct	state	State;
 #define True	1
 
 int
-hashcmd(buf)
-char	*buf;
+hashcmd(const char *buf)
 {
 	if (strncmp(buf, "#if", 3) == 0)
 		return doif(buf);
@@ -167,8 +166,7 @@ char	*buf;
 }
 
 int
-doif(buf)
-char	*buf;
+doif(const char *buf)
 {
 char	*line;
 char	*tok;
@@ -259,9 +257,7 @@ doendif()
  * of argument, ie it uses a window or pixmap etc.
  */
 void
-defargtype(name, num)
-char	*name;
-int 	num;
+defargtype(const char *name, int num)
 {
 char	buf[64];
 

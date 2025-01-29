@@ -307,8 +307,7 @@ r5_cleanup()
 /*
  * Function to display trace messages for debugging */
 void
-step(str)
-char *str;
+step(const char *str)
 {
 	sprintf(ebuf, "DEBUG: %s", str);
 	tet_infoline(ebuf);

@@ -254,10 +254,10 @@ Bool parse_gethex(ppstr,pnum)
 }
 
 int
-parse_find_key(id,keys,cnt)
-    char *id;           /*IN:  keyword to search for */
-    char *keys[];       /*IN:  list of legal keys to search */
-    int cnt;            /*IN:  number of keys in the list */
+parse_find_key(
+    const char *id,           /*IN:  keyword to search for */
+    const char *keys[],       /*IN:  list of legal keys to search */
+    int cnt)                  /*IN:  number of keys in the list */
 {
     int i;
 

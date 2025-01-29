@@ -167,7 +167,7 @@ XtPointer client_data;
 	}
 	return(False);
 }
-extern char *event_names[];
+extern const char *event_names[];
 
 /*
 ** Registered procedure Proc

@@ -116,7 +116,7 @@ static	unsigned int	nchildren;
 /* Window structure template */
 /* A window with three child windows, one of which has */
 /* 3 overlapping children */
-static	char *QTtemplate[] = {
+static	const char *QTtemplate[] = {
 	".",
 	"one . (10,10) 80x70",
 	"onec1 one (5,5) 30x30",
@@ -127,7 +127,7 @@ static	char *QTtemplate[] = {
 };
 static	int NQTtemplate = NELEM(QTtemplate);
 
-static	char *QT2template[] = {
+static	const char *QT2template[] = {
 	".",
 	"one . (10,10) 80x70",
 	"o1 one (5,5) 40x40",

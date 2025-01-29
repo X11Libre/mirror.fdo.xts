@@ -154,7 +154,7 @@ static	FILE	*FpTop;
  * Which parts to include, this is so the makefiles can be made
  * without eg. pixgen, or the library stuff.
  */
-static	char	*incwhich = "lLmp";
+static	const char	*incwhich = "lLmp";
 
 extern	struct	settings	Settings;
 extern	int 	dflag;

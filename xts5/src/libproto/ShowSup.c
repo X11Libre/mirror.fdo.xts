@@ -533,11 +533,7 @@ int	length;
 */
 
 void
-Show_Strs(cp, nstrs, nbytes, label)
-unsigned char *cp;
-int nstrs;
-int nbytes;
-char *label;
+Show_Strs(const unsigned char *cp, int nstrs, int nbytes, const char *label)
 {
     int i;
     int len;

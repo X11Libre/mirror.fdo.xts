@@ -127,7 +127,7 @@ static XFontProp props[] = {
 	{XA_COPYRIGHT, 0},
 };
 
-char	*xtfont5cpright = "These glyphs are unencumbered";
+const char *xtfont5cpright = "These glyphs are unencumbered";
 
 XFontStruct xtfont5 = {
 	(XExtData*)0,

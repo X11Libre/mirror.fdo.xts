@@ -84,10 +84,8 @@ extern char ebuf[];
 
 /* Toolkit definitions */
 
-Widget avs_xt_init(string, argvector, argcount)
-char *string;
-char *argvector[];
-int argcount;
+Widget
+avs_xt_init(const char *string, char *argvector[], int argcount)
 {
 	char app_class[4096]; 
 	XtAppContext app_context;

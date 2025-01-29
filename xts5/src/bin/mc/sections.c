@@ -260,7 +260,7 @@ void	(*hooksw[][NHOOK])() = {
 #define	NCMDS	(sizeof(secsw)/(NSEC*sizeof(void (*)())))
 
 struct	secname {
-	char	*name;
+	const char	*name;
 	int 	sec;
 } secname[] = {
 	{D_HEADER, SEC_HEADER},
@@ -340,10 +340,10 @@ FILE	*fp;
 char	*buf;
 {
 char	*line;
-char	*str;
-char	*type;
+const char	*str;
+const char	*type;
 int 	reason;
-static char	*reasons[] = {
+static const char	*reasons[] = {
 	"Temporarily can't be implemented",
 	"There is no known portable test method for this assertion",
 	"The statement in the X11 specification is not specific enough to write a test",
@@ -427,7 +427,7 @@ char	*buf;
 int 	sec;
 {
 char	*line;
-char	*str;
+const char	*str;
 int	i;
 
 	State.sectype = sec;

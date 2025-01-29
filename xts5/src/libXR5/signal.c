@@ -121,8 +121,8 @@ XErrorEvent *error_event;
     extern int first_error;
     extern int estatus[];
 
-    char	*resource_id; 
-    char	*serial;
+    const char	*resource_id; 
+    const char	*serial;
 
     union msglst f_lst[1];
 

@@ -132,7 +132,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 /*
  * Two overlapping windows with various piles of subwindows.
  */
-char	*STreeGen[] = {
+const char	*STreeGen[] = {
 	".",
 	"A . (5,5) 50x80",
 	  "A1 A (5,10) 30x10",
@@ -158,7 +158,7 @@ int 	NSTreeGen = NELEM(STreeGen);
 /*
  * A single window with a variety of subwindows.
  */
-char	*STreeSgl[] = {
+const char	*STreeSgl[] = {
 	".",
 	"top . (8, 8) 80x70",
 	  "A top (10, 10) 15x15",
@@ -174,7 +174,7 @@ int 	NSTreeSgl = NELEM(STreeSgl);
 /*
  * Collection of overlapping sibling windows designed for expose checking.
  */
-char	*STreeOlsib[] = {
+const char	*STreeOlsib[] = {
 	". allfg",
 	"A . (10,10) 70x3",
 	"B . (15,3) 2x50",
@@ -193,8 +193,7 @@ int 	NSTreeOlsib = NELEM(STreeOlsib);
  * strdup, but because it's not commonly supported, we provide our own.
  */
 char *
-xt_strdup(str)
-char	*str;
+xt_strdup(const char *str)
 {
 char	*sp = NULL;
 
@@ -210,11 +209,7 @@ char	*sp = NULL;
  * The tree has the given parent.
  */
 struct	buildtree *
-buildtree(disp, parent, list, nlist)
-Display	*disp;
-Window	parent;
-char	**list;
-int 	nlist;
+buildtree(Display *disp, Window	parent, const char **list, int 	nlist)
 {
 struct	area	area;
 struct	buildtree	*btbase;
@@ -319,9 +314,7 @@ int 	borders = 0;
  * Return a pointer to the buildtree structure corresponding to a given name.
  */
 struct	buildtree *
-btntobtp(list, name)
-struct	buildtree	*list;
-char	*name;
+btntobtp(struct buildtree *list, const char *name)
 {
 int 	n = list[0].num;
 
@@ -356,9 +349,7 @@ int 	n = list[0].num;
  * Return the window id corresponding to the given name.
  */
 Window
-btntow(list, name)
-struct	buildtree	*list;
-char	*name;
+btntow(struct buildtree *list, const char *name)
 {
 struct	buildtree	*btp;
 

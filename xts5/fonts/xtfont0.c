@@ -195,7 +195,7 @@ static XFontProp props[] = {
 	{XA_UNDERLINE_POSITION, 2},
 };
 
-char	*xtfont0cpright = "Public domain font.  Share and enjoy.";
+const char *xtfont0cpright = "Public domain font.  Share and enjoy.";
 
 XFontStruct xtfont0 = {
 	(XExtData*)0,

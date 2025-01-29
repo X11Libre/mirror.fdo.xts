@@ -125,14 +125,14 @@ extern int over_flow_flg;
 extern char ebuf[];
 
 void
-message(char *fmtstr, union msglst f_lst[], int f_cnt)
+message(const char *fmtstr, union msglst f_lst[], int f_cnt)
 {
 	int i;
-	static char *buf_over_flow = "\nError buffer overflow. Check BUFFER_SIZE in xtestknobs.dat\n\nEnd of error\
+	static const char *buf_over_flow = "\nError buffer overflow. Check BUFFER_SIZE in xtestknobs.dat\n\nEnd of error\
  report\n*********************\n";
-	char *fmtptr;
+	const char *fmtptr;
 	char *tmpptr;                   
-	char *tmpptr1;
+	const char *tmpptr1;
 	char tmpstr[MAX_STR_LEN+1];        
 	char tmpstr1[MAX_STR_LEN+1];
 	char char_type;

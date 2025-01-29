@@ -246,7 +246,7 @@ Display *dpy; /* Yes, an Xlib display */
 int XstConnectDisplay (display_name, expanded_name, screen_num,
 		       auth_proto, auth_length, auth_string, auth_strlen,
 		       xlib_dpy)
-    char *display_name;
+    const char *display_name;
     char **expanded_name;	/* return */
     int *screen_num;		/* return */
     char **auth_proto;		/* return */
@@ -395,13 +395,13 @@ void XstSendClientPrefix (dpy, client, auth_proto, auth_string, needswap)
 #define		FAIL_action	2
 #define		DELETE_action	3
 
-static char *nothing = "No reply from server when trying to connect to %s\n";
+static const char *nothing = "No reply from server when trying to connect to %s\n";
 
 static void
 Timeout_Func(action)
 int action;
 {
-    char *server = Xst_server_node == NULL ? "Default Server" : Xst_server_node;
+    const char *server = Xst_server_node == NULL ? "Default Server" : Xst_server_node;
 
     switch(action) {
     case PASS_action:
@@ -666,7 +666,7 @@ int     needswap;
     xBigReqEnableReply bigreply;
     char pad[3];
     char buffer[BUFSIZ], *bptr;
-    char *query_name = XBigReqExtensionName;
+    const char *query_name = XBigReqExtensionName;
     int query_len;
     int bytes;
     

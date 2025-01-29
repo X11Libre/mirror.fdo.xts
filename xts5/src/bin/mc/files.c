@@ -170,8 +170,7 @@ static	int 	firsttime = 1;
  * The skeleton files have a .mc suffix.
  */
 void
-outcopy(file)
-char	*file;
+outcopy(const char *file)
 {
 register FILE	*fp;
 char 	buf[BUFSIZ];
@@ -204,9 +203,7 @@ char 	buf[BUFSIZ];
  * and return the stream pointer.
  */
 FILE *
-cretmpfile(file, crefile)
-char	*file;
-char	**crefile;
+cretmpfile(const char *file, char **crefile)
 {
 register FILE	*fp;
 char *tmpfile;
@@ -241,7 +238,7 @@ FILE	*fp;
 {
 static FILE	*fout;
 static int 	olineno = 0;
-static char	*ofilename;
+static const char	*ofilename;
 char	buf[BUFSIZ];
 register int 	n;
 extern	char	*OutFileName;
@@ -363,8 +360,7 @@ int 	i;
  * Return path name of file in the xts5 lib directory.
  */
 char *
-mcpath(file)
-char	*file;
+mcpath(const char *file)
 {
 char	*rp;
 char	*path;

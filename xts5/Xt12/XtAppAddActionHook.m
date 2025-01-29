@@ -63,7 +63,7 @@ Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
 #include <xt/SquareCelP.h>
-extern char *event_names[];
+extern const char *event_names[];
 char client_stuff[] = "These are the times that try men's souls";
 int flag;
 /*an action procedure*/

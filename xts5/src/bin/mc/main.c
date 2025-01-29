@@ -166,10 +166,10 @@ struct	state	State;
  * and -c to change the command.
  */
 struct	cmdinfo	{
-	int 	cmd;
-	char	*name;
-	char	*opts;
-	char	*usage;
+	int 		cmd;
+	const char	*name;
+	const char	*opts;
+	const char	*usage;
 } cmdinfo[] = {
 	{ CMD_MEXPAND, "mexpand", "c:a:o:d",
 		"mexpand [-a a_list] [-o <output-file>]" },
@@ -445,8 +445,7 @@ char	*np;
  * Print out an error message with preceeding line and file information.
  */
 int
-err(mess)
-char	*mess;
+err(const char *mess)
 {
 	fprintf(stderr, "%s: line %d: %s", Filename? Filename: "<stdin>", Lineno, mess);
 }
@@ -477,13 +476,12 @@ int 	sig;
  * Copy a string using malloced storage.
  */
 char *
-mcstrdup(s)
-char	*s;
+mcstrdup(const char *s)
 {
 char	*bp;
 
 	if (s == 0)
-		return(s);
+		return(NULL);
 
 	bp = malloc((size_t)(strlen(s)+1));
 	if (bp)
@@ -496,9 +494,7 @@ char	*bp;
  * Find a s2 within s1.
  */
 char *
-strinstr(s1, s2)
-char	*s1;
-char	*s2;
+strinstr(char *s1, const char *s2)
 {
 register char	*cp;
 register int 	c;

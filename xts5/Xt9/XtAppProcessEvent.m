@@ -70,7 +70,7 @@ Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 Widget labelw_msg;
 
-extern char *event_names[];
+extern const char *event_names[];
 XtInputId input_ret;
 char *msg = "Hello World";
 FILE *fid;

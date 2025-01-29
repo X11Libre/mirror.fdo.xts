@@ -138,7 +138,7 @@ struct	area	area;
 /*
  * A window with subwindows.
  */
-static	char	*Tsub[] = {
+static	const char	*Tsub[] = {
 	".",
 	"top . (5, 5) 40x40",
 	"sub1 top (1,3) 4x6",
@@ -872,7 +872,7 @@ static	int 	bords[] = {
 /*
  * Window tree for the restacking operations.
  */
-static char	*Tstack[] = {
+static const char	*Tstack[] = {
 	". borders",
 	"bottom . (30,2) 60x34",
 	"A . (10,5) 30x20",

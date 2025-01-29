@@ -271,7 +271,7 @@ int nlocales(void);
 void resetlocale(void);
 void unlinklocales(void);
 
-int parse_find_key(char *id, char *keys[], int cnt);
+int parse_find_key(const char *id, const char *keys[], int cnt);
 Bool parse_gethex(char **ppstr, int *pnum);
 Bool parse_getid(char **ppstr, char *pid, Bool upit);
 Bool parse_getnum(char **ppstr, int *pnum);

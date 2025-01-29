@@ -116,9 +116,8 @@ purpose.  It is provided "as is" without express or implied warranty.
 
 extern int errflg;
 
-void check_dec(exp, rec, item_name)
-long exp, rec;
-char *item_name;
+void
+check_dec(long exp, long rec, const char *item_name)
 {
     if (exp != rec)
     {
@@ -131,9 +130,8 @@ char *item_name;
     }
 }
 
-void check_flo(exp, rec, item_name)
-float exp, rec;
-char *item_name;
+void
+check_flo(float exp, float rec, const char *item_name)
 {
     if (exp != rec)
     {
@@ -146,9 +144,8 @@ char *item_name;
     }
 }
 
-void check_dou(exp, rec, item_name)
-double exp, rec;
-char *item_name;
+void
+check_dou(double exp, double rec, const char *item_name)
 {
     if (exp != rec)
     {
@@ -161,9 +158,8 @@ char *item_name;
     }
 }
 
-void check_oct(exp, rec, item_name)
-long exp, rec;
-char *item_name;
+void
+check_oct(long exp, long rec, const char *item_name)
 {
     if (exp != rec)
     {
@@ -176,9 +172,8 @@ char *item_name;
     }
 }
 
-void check_hex(exp, rec, item_name)
-long exp, rec;
-char *item_name;
+void
+check_hex(long exp, long rec, const char *item_name)
 {
     if (exp != rec)
     {
@@ -191,9 +186,8 @@ char *item_name;
     }
 }
 
-void check_uns(exp, rec, item_name)
-unsigned long exp, rec;
-char *item_name;
+void
+check_uns(unsigned long exp, unsigned long rec, const char *item_name)
 {
     if (exp != rec)
     {
@@ -206,9 +200,8 @@ char *item_name;
     }
 }
 
-void check_cha(exp, rec, item_name)
-char exp, rec;
-char *item_name;
+void
+check_cha(char exp, char rec, const char *item_name)
 {
     if (exp != rec)
     {
@@ -221,7 +214,8 @@ char *item_name;
     }
 }
 
-void check_adr(char *exp, char *rec, char *item_name)
+void
+check_adr(const char *exp, const char *rec, const char *item_name)
 {
     if (exp != rec)
     {
@@ -234,9 +228,8 @@ void check_adr(char *exp, char *rec, char *item_name)
     }
 }
 
-void check_str(exp, rec, item_name)
-char *exp, *rec;
-char *item_name;
+void
+check_str(const char *exp, const char *rec, const char *item_name)
 {
     union msglst f_lst[3];
     if (&exp[0] == 0) 
@@ -267,11 +260,8 @@ char *item_name;
 }
 
  
-void check_strn (exp, rec, len, item_name)
-char   *exp,
-       *rec;
-int    len;
-char   *item_name;      
+void
+check_strn(const char *exp, const char *rec, int len, const char *item_name)
 {
     union msglst f_lst[4];
     if (&exp[0] == 0) 

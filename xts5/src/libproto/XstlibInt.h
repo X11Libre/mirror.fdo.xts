@@ -142,8 +142,8 @@ SOFTWARE.
 #define NULL 0
 #endif
 
-void Copy_Padded_String16();
-void Copy_Padded_String8();
+void Copy_Padded_String16(char **to, const char *from);
+void Copy_Padded_String8(char **to, const char *from);
 void SendIt(int cl, unsigned long bytesToSend, int isABigRequest);
 void Send_CHAR2B(int cl, xReq *rp, int size);
 void Send_String16(int cl, xReq *rp, int size);
@@ -262,7 +262,7 @@ to do GetRootImage on NCD terminal) */
 /*
  *	Externs for test-wide globals
  */
-extern char *Xst_server_node;	/* the X server */
+extern const char *Xst_server_node;	/* the X server */
 extern int Xst_required_byte_sex;/* byte sex wanted */
 extern int  Xst_timeout_value;	/* seconds that Expect will wait */
 extern int  Xst_visual_check;	/* seconds to delay at Visual_Check calls */
@@ -271,8 +271,8 @@ extern int Xst_byte_sex;	/* client byte sex for this connection */
 extern int Xst_error_count;	/* number of calls to Log_Error */
 extern int Xst_delete_count;	/* number of calls to Log_Del */
 extern int Xst_untested_count;	/* indicates to Log_Close that Untested called */
-extern char *Xst_def_font8;	/* default 8-bit font to use */
-extern char *Xst_def_font16;	/* default 16-bit font to use */
+extern const char *Xst_def_font8;	/* default 8-bit font to use */
+extern const char *Xst_def_font16;	/* default 16-bit font to use */
 extern int Xst_protocol_version;
 extern int Xst_protocol_revision;
 extern int Xst_override;
@@ -288,13 +288,14 @@ extern int Xst_override;
 void BigRequestsSetup(int client, XstDisplay *dpy, int needswap);
 void GetConnSetupData (int client, xConnSetup *setupdp, int len, int needswap);
 void GetConnSetupPrefix (int client, xConnSetupPrefix *prefixp, int needswap);
-int XstConnectDisplay (char *display_name, char **expanded_name, int *screen_num,
+int XstConnectDisplay (const char *display_name,
+                       char **expanded_name, int *screen_num,
 		       char **auth_proto, int *auth_length,
                        char **auth_string, int *auth_strlen,
 		       Display **xlib_dpy);
 int XstDisconnectDisplay (int server);
 
-int _XConnectDisplay (char *display_name, char **fullnamep,
+int _XConnectDisplay (const char *display_name, char **fullnamep,
                       int *dpynump, int *screenp,
                       char **auth_namep, int *auth_namelenp,
                       char **auth_datap, int *auth_datalenp);
@@ -303,7 +304,7 @@ void _XstWaitForReadable (XstDisplay *dpy);
 
 xReq *Clear_Masked_Value (xReq *reqp);
 
-void Copy_String8 (char **to, char *from);
+void Copy_String8 (char **to, const char *from);
 
 void Destroy_Client (int client);
 unsigned char native_byte_sex (void);
@@ -332,7 +333,7 @@ void Show_Ext_Err (xError *mp);
 void Show_Ext_Rep (xReply *mp, int type, long bytes_given);
 void Show_Ext_Req (xReq *mp);
 void Show_String8 (void *rp, int size, int length);
-void Show_Strs(unsigned char *cp, int nstrs, int nbytes, char *label);
+void Show_Strs(const unsigned char *cp, int nstrs, int nbytes, const char *label);
 void Show_Value_List_nRep (xReply *rp, int nval, int size, int format);
 void Show_Value_List_Rep (xReply *rp, int size, int format);
 void Show_Value_List_Req (xReq *rp, int size, int format);

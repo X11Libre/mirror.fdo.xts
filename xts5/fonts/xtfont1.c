@@ -254,7 +254,7 @@ static XFontProp props[] = {
 	{XA_NORM_SPACE, 4},
 };
 
-char	*xtfont1cpright = "Public domain font.  Share and enjoy.";
+const char *xtfont1cpright = "Public domain font.  Share and enjoy.";
 
 XFontStruct xtfont1 = {
 	(XExtData*)0,

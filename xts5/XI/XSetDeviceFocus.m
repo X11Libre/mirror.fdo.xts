@@ -210,7 +210,7 @@ else
   report untested.
 >>EXTERN
 
-static char	*WindowTree[]= {
+static const char	*WindowTree[]= {
 	"toplevel",
 		"child1 toplevel (10,10) 30x30",
 		"child2 toplevel (50,50) 30x30",

@@ -81,7 +81,7 @@ Widget pushb_good3, rowcolw_good3;
 
 int status = 0;
 
-extern char *event_names[];
+extern const char *event_names[];
 
 /*timeout callback*/
 void XtTI2a(client_data, id)

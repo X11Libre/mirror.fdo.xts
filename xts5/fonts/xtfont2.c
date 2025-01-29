@@ -1628,7 +1628,7 @@ static XFontProp props[] = {
 	{XA_RESOLUTION, 75},
 };
 
-char	*xtfont2cpright = "Public domain font.  Share and enjoy.";
+const char *xtfont2cpright = "Public domain font.  Share and enjoy.";
 
 XFontStruct xtfont2 = {
 	(XExtData*)0,

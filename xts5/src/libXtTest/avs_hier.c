@@ -71,10 +71,10 @@ extern XtAppContext app_ctext;
 extern char *title() ;
 extern char ebuf[];
 char label[80] ;
-
 extern void xt_whandler();
-Widget avs_xt_hier(stitle, slabel)
-char *stitle, *slabel;
+
+Widget
+avs_xt_hier(const char *stitle, const char *slabel)
 {
 	tet_infoline("PREP: Initialize toolkit, Open display and Create topLevel root widget");
 	topLevel = (Widget) avs_xt_init(stitle, NULL, 0);
@@ -115,8 +115,8 @@ char *stitle, *slabel;
 	return topLevel;
 }
 
-Widget avs_xt_hier_no_warn(stitle, slabel)
-char *stitle, *slabel;
+Widget
+avs_xt_hier_no_warn(const char *stitle, const char *slabel)
 {
 	tet_infoline("PREP: Initialize toolkit, Open display and Create topLevel root widget");
 	topLevel = (Widget) avs_xt_init(stitle, NULL, 0);
@@ -156,10 +156,9 @@ char *stitle, *slabel;
 	return topLevel;
 }
 
-Widget avs_xt_hier_args(stitle, slabel, args, argcount)
-char *stitle, *slabel;
-char *args[];
-int	argcount;
+Widget
+avs_xt_hier_args(const char *stitle, const char *slabel,
+                 char *args[], int argcount)
 {
 	tet_infoline("PREP: Initialize toolkit, Open display and Create topLevel root widget");
 	topLevel = (Widget) avs_xt_init(stitle, args, argcount);

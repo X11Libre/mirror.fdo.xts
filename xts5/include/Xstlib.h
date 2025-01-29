@@ -453,22 +453,22 @@ void	Visual_Check(void);
 xReq	*Add_Masked_Value();
 xReq	*Add_Counted_Bytes();
 
-void	bufrgc(GC gc_id, char *gc_name);
-void	debug(int lev, char *fmt, ...);
+void	bufrgc(GC gc_id, const char *gc_name);
+void	debug(int lev, const char *fmt, ...);
 int	isdeleted(void);
-void	report(char *fmt, ...);
-void	report_assertion(char* line);
+void	report(const char *fmt, ...);
+void	report_assertion(const char *line);
 void	report_purpose(int number);
-void	report_strategy(char* line);
+void	report_strategy(const char *line);
 void	pfcount(int pass, int fail);
 void	testfunc(void (*func)());
 void	tpcleanup(void);
 void	tpfontcleanup(void);
 void	tpfontstartup(void);
 void	tpstartup(void);
-void	unsupported(char *mess, ... );
-void	untested(char *mess, ... );
-void	wbcopy(unsigned char *b1, unsigned char *b2, int length);
+void	unsupported(const char *mess, ... );
+void	untested(const char *mess, ... );
+void	wbcopy(const unsigned char *b1, unsigned char *b2, int length);
 
 /* #ifdef INPUTEXTENSION */
 int check_ext_event(XEvent *good, XEvent *ev);

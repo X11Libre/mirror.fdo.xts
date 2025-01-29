@@ -75,8 +75,8 @@ SOFTWARE.
 
 void XtConfigureWidget();
 
-Widget avs_xt_def(string)
-char *string;
+Widget
+avs_xt_def(const char *string)
 {
 	char app_class[4096]; 
 	Display *display;

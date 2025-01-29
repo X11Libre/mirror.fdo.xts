@@ -59,6 +59,8 @@ in this Software without prior written authorization from The Open Group.
 #include <X11/Xwindows.h>
 #endif
 
+#include "XstlibInt.h"
+
 #ifndef X_CONNECTION_RETRIES		/* number retries on ECONNREFUSED */
 #define X_CONNECTION_RETRIES 5
 #endif
@@ -131,9 +133,9 @@ static char *copystring (const char *src, int len)
  *	[protocol/] [hostname] : [:] displaynumber
  *
  */
-XtransConnInfo
+static XtransConnInfo
 _X11TransConnectDisplay (
-    char *display_name,
+    const char *display_name,
     char **fullnamep,			/* RETURN */
     int *dpynump,			/* RETURN */
     int *screenp,			/* RETURN */
@@ -145,7 +147,7 @@ _X11TransConnectDisplay (
     int family;
     int saddrlen;
     Xtransaddr *saddr;
-    char *lastp, *lastc, *p;		/* char pointers */
+    const char *lastp, *lastc, *p;	/* char pointers */
     char *pprotocol = NULL;		/* start of protocol name */
     char *phostname = NULL;		/* start of host of display */
     char *pdpynum = NULL;		/* start of dpynum of display */
@@ -501,7 +503,7 @@ _X11TransConnectDisplay (
  */
 
 int _XConnectDisplay (
-    char *display_name,
+    const char *display_name,
     char **fullnamep,			/* RETURN */
     int *dpynump,			/* RETURN */
     int *screenp,			/* RETURN */
@@ -642,7 +644,7 @@ static char *xauth_data = NULL;	 /* NULL means get default data */
  * array, allowing us to prioritize these in terms of the most secure first
  */
 
-static char *default_xauth_names[] = {
+static const char *default_xauth_names[] = {
 #ifdef K5AUTH
     "MIT-KERBEROS-5",
 #endif
@@ -670,7 +672,7 @@ static _Xconst int default_xauth_lengths[] = {
 
 #define NUM_DEFAULT_AUTH    (sizeof (default_xauth_names) / sizeof (default_xauth_names[0]))
 
-static char **xauth_names = default_xauth_names;
+static const char **xauth_names = default_xauth_names;
 static _Xconst int  *xauth_lengths = default_xauth_lengths;
 
 static int  xauth_names_length = NUM_DEFAULT_AUTH;
@@ -716,7 +718,7 @@ void XSetAuthorization (name, namelen, data, datalen)
     xauth_namelen = namelen;
     if (tmpname)
     {
-	xauth_names = &xauth_name;
+	xauth_names = (const char **) &xauth_name;
 	xauth_lengths = &xauth_namelen;
 	xauth_names_length = 1;
     }
@@ -1065,7 +1067,7 @@ GetAuthorization(
 				    (unsigned short) strlen (dpynumbuf),
 				    dpynumbuf,
 				    xauth_names_length,
-				    xauth_names,
+                                    (char **) xauth_names,
 				    xauth_lengths);
 	if (authptr) {
 	    auth_namelen = authptr->name_length;

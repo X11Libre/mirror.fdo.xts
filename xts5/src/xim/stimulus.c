@@ -148,7 +148,7 @@ static FILE *fp_stimulus = NULL;
 
 /****************************************************************/
 
-static char *keys_stimulus[] = {
+static const char *keys_stimulus[] = {
 	"VERSION",
 	"X_RELEASE",
 	"PREEDIT_STYLE",
@@ -157,7 +157,7 @@ static char *keys_stimulus[] = {
 };
 static int nkeys_stimulus = sizeof(keys_stimulus) / sizeof(char *);
 
-static char *keys_style[] = {
+static const char *keys_style[] = {
 	"AREA",
 	"CALLBACK",
 	"NOTHING",
@@ -183,7 +183,7 @@ static int status_style_val[] = {
 static char stimulus_line[MAXLINELEN];
 static char *pstimulus;
 
-static char *keys_subact[] = {
+static const char *keys_subact[] = {
 	"KEY",
 	"MB_RESET",
 	"WC_RESET",

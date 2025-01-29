@@ -637,7 +637,7 @@ static XFontProp props[] = {
 	{XA_RESOLUTION, 78},
 };
 
-char	*xtfont6cpright = "These glyphs are unencumbered";
+const char *xtfont6cpright = "These glyphs are unencumbered";
 
 XFontStruct xtfont6 = {
 	(XExtData*)0,

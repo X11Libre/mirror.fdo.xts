@@ -136,8 +136,8 @@ purpose.  It is provided "as is" without express or implied warranty.
 struct	settings	{
 	char	*startup;
 	char	*cleanup;
-	char	*tpstartup;
-	char	*tpcleanup;
+	const char	*tpstartup;
+	const char	*tpcleanup;
 	short 	needgcflush;
 	char	*display;	/* Name of the display variable if there is one */
 	short	failreturn;	/* return after a failure */
@@ -150,12 +150,12 @@ struct	settings	{
 };
 
 struct	state	{
-	char	*name;		/* test name */
-	char	*chap;		/* associated chapter or section */
+	const char	*name;	/* test name */
+	const char	*chap;	/* associated chapter or section */
 	int 	assertion;	/* assertion number */
-	char	*type;		/* type code */
+	const char	*type;	/* type code */
 	short	category;	/* category code */
-	char	*reason;	/* reason code string for categories B, D */
+	const char	*reason;/* reason code string for categories B, D */
 	short	sectype;	/* Current section we are in */
 	short	defaultreq;	/* Default strat/code is needed */
 	short	discardtest;/* We are discarding this assertion */

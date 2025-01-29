@@ -169,8 +169,8 @@ union msglst {                          /* union for fao list */
     unsigned long 	typ_hex;
     unsigned long 	typ_uns;
     char          	typ_cha;
-    char          	*typ_str;
-    char		*typ_adr;
+    const char         	*typ_str;
+    const void		*typ_adr;
 };
 
 /*** drawable info data structure ***/

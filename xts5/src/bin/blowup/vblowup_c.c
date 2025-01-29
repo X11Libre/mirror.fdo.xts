@@ -497,7 +497,7 @@ XImage	*kgi;
 	h_light(display, wins, nwins, gc, labs, None, kgi);
 }
 
-char *whiches[] = {
+const char *whiches[] = {
 	"   ERROR   ",	/* 0x0	=>	shouldn't happen */
 	"Server Data",	/* 0x1	=>	"bad" image file */
 	"Pixval Data",	/* 0x2	=>	"good" image file */

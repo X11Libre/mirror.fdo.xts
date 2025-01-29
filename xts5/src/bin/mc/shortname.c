@@ -127,9 +127,8 @@ purpose.  It is provided "as is" without express or implied warranty.
 
 #define	VOWELS	"aeiou"
 
-char	*
-name12(inname)
-char	*inname;
+char *
+name12(const char *inname)
 {
 char	*name;
 char	*cp;
@@ -137,11 +136,7 @@ char	*np;
 int 	end16 = 0;
 int 	n;
 
-#ifndef test
 	name = mcstrdup(inname);
-#else
-	name = inname;
-#endif
 
 	if (name[strlen(name)-1] == '\n')
 		name[strlen(name)-1] = '\0';
@@ -202,8 +197,7 @@ int 	n;
  * Truncate to 12 characters and lowercase everything.
  */
 char *
-name12lc(name)
-char	*name;
+name12lc(const char *name)
 {
 char	*np;
 char	*cp;
@@ -220,8 +214,7 @@ char	*cp;
  * 'X'.
  */
 char *
-name10(name)
-char	*name;
+name10(const char *name)
 {
 char	*np;
 int 	end16;
@@ -249,8 +242,7 @@ int 	end16;
  * Truncate to 10 characters and lowercase everything.
  */
 char *
-name10lc(name)
-char	*name;
+name10lc(const char *name)
 {
 char	*np;
 char	*cp;
@@ -279,9 +271,7 @@ char	**argv;
  * Find a s2 within s1.
  */
 char *
-strinstr(s1, s2)
-char	*s1;
-char	*s2;
+strinstr(char *s1, const char *s2)
 {
 char	*cp;
 int 	len;

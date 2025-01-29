@@ -104,7 +104,7 @@ Display	*display = Dsp;
 Window	w;
 >>EXTERN
 
-static char	*T1[] = {
+static const char	*T1[] = {
 	".",
 	"A . (10, 10) 70x70 unmap",
 	  "A1 A (20, 2) 20x5",

@@ -730,7 +730,7 @@ else
   Report untested.
 >>EXTERN
 
-static char	*WindowTree[]= {
+static const char *WindowTree[]= {
 	".",
 		"child1 . (10,10) 30x30",
 		"child2 . (50,50) 30x30",

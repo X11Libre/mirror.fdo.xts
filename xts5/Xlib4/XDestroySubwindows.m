@@ -120,9 +120,9 @@ Verify that all inferiors no longer exist.
 Verify by pixel checking that all traces of the windows have been removed from
 the parent.
 >>EXTERN
-extern	char	*STreeGen[];
+extern	const char	*STreeGen[];
 extern	int 	NSTreeGen;
-extern	char	*STreeOlsib[];
+extern	const char	*STreeOlsib[];
 extern	int 	NSTreeOlsib;
 >>CODE
 struct	buildtree	*btp;

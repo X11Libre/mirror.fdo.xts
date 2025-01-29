@@ -110,7 +110,7 @@ int 	y = RP_Y;
 #define	RP_X	12
 #define	RP_Y	15
 
-char	*Treedesc[] = {
+const char *Treedesc[] = {
 	"base borders",
 	"A base (1,3) 50x30",
 	  "A1 A (10,1) 4x5",

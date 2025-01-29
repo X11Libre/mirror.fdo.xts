@@ -68,15 +68,11 @@ SOFTWARE.
 
 
 extern Widget topLevel, panedw, boxw1, boxw2, rowcolw, click_quit, labelw;
-extern void xt_handler() ;
-extern void DestroyTree() ;
-extern void xt_whandler();
-extern char *title() ;
 extern char ebuf[];
 extern char label[80] ;
 
-Widget avs_xt_hier_def(stitle, slabel)
-char *stitle, *slabel;
+Widget
+avs_xt_hier_def(const char *stitle, const char *slabel)
 {
 	/*get the right display*/
 	sprintf(ebuf, "DISPLAY=%s", config.display);

@@ -126,10 +126,10 @@ int received;
 {
 	extern int chkflg;
 
-	char *ss_fail1;
-	char *ss_fail2;
-	char *ss_fail3;
-	char *ss_fail4;
+	const char *ss_fail1;
+	const char *ss_fail2;
+	const char *ss_fail3;
+	const char *ss_fail4;
 	char *message_ptr;
 	char message_string[80];
 

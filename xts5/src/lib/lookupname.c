@@ -147,7 +147,7 @@ int 	NS_bool = NELEM(S_bool);
 /*
  * Return a character representation of the given bool value.
  */
-char *
+const char *
 boolname(val)
 int 	val;
 {
@@ -194,7 +194,7 @@ int 	NS_eventmask = NELEM(S_eventmask);
 /*
  * Return a character representation of the given eventmask value.
  */
-char *
+const char *
 eventmaskname(val)
 unsigned long	val;
 {
@@ -298,7 +298,7 @@ int 	NXI_event = NELEM(XI_event);
 /*
  * Return a character representation of the given event value.
  */
-char *
+const char *
 eventname(val)
 int 	val;
 {
@@ -333,7 +333,7 @@ int 	NS_keymask = NELEM(S_keymask);
 /*
  * Return a character representation of the given keymask value.
  */
-char *
+const char *
 keymaskname(val)
 unsigned long	val;
 {
@@ -390,7 +390,7 @@ int 	NS_modifier = NELEM(S_modifier);
 /*
  * Return a character representation of the given modifier value.
  */
-char *
+const char *
 modifiername(val)
 int 	val;
 {
@@ -416,7 +416,7 @@ int 	NS_buttonmask = NELEM(S_buttonmask);
 /*
  * Return a character representation of the given buttonmask value.
  */
-char *
+const char *
 buttonmaskname(val)
 unsigned long	val;
 {
@@ -470,7 +470,7 @@ int 	NS_button = NELEM(S_button);
 /*
  * Return a character representation of the given button value.
  */
-char *
+const char *
 buttonname(val)
 int 	val;
 {
@@ -495,7 +495,7 @@ int 	NS_notifymode = NELEM(S_notifymode);
 /*
  * Return a character representation of the given notifymode value.
  */
-char *
+const char *
 notifymodename(val)
 int 	val;
 {
@@ -523,7 +523,7 @@ int 	NS_notifydetail = NELEM(S_notifydetail);
 /*
  * Return a character representation of the given notifydetail value.
  */
-char *
+const char *
 notifydetailname(val)
 int 	val;
 {
@@ -547,7 +547,7 @@ int 	NS_visibility = NELEM(S_visibility);
 /*
  * Return a character representation of the given visibility value.
  */
-char *
+const char *
 visibilityname(val)
 int 	val;
 {
@@ -573,7 +573,7 @@ int 	NS_grabreply = NELEM(S_grabreply);
 /*
  * Return a character representation of the given grabreply value.
  */
-char *
+const char *
 grabreplyname(val)
 int 	val;
 {
@@ -602,7 +602,7 @@ int 	NS_alloweventmode = NELEM(S_alloweventmode);
 /*
  * Return a character representation of the given alloweventmode value.
  */
-char *
+const char *
 alloweventmodename(val)
 int 	val;
 {
@@ -626,7 +626,7 @@ int 	NS_revertto = NELEM(S_revertto);
 /*
  * Return a character representation of the given revertto value.
  */
-char *
+const char *
 reverttoname(val)
 int 	val;
 {
@@ -676,7 +676,7 @@ int 	NS_XIerror = NELEM(S_XIerror);
 /*
  * Return a character representation of the given error value.
  */
-char *
+const char *
 errorname(val)
 int val;
 {
@@ -708,7 +708,7 @@ int 	NS_class = NELEM(S_class);
 /*
  * Return a character representation of the given class value.
  */
-char *
+const char *
 classname(val)
 int 	val;
 {
@@ -740,7 +740,7 @@ int 	NS_bitgravity = NELEM(S_bitgravity);
 /*
  * Return a character representation of the given bitgravity value.
  */
-char *
+const char *
 bitgravityname(val)
 int 	val;
 {
@@ -772,7 +772,7 @@ int 	NS_wingravity = NELEM(S_wingravity);
 /*
  * Return a character representation of the given wingravity value.
  */
-char *
+const char *
 wingravityname(val)
 int 	val;
 {
@@ -796,7 +796,7 @@ int 	NS_backingstore = NELEM(S_backingstore);
 /*
  * Return a character representation of the given backingstore value.
  */
-char *
+const char *
 backingstorename(val)
 int 	val;
 {
@@ -833,7 +833,7 @@ int 	NS_gcfunction = NELEM(S_gcfunction);
 /*
  * Return a character representation of the given gcfunction value.
  */
-char *
+const char *
 gcfunctionname(val)
 int 	val;
 {
@@ -857,7 +857,7 @@ int 	NS_linestyle = NELEM(S_linestyle);
 /*
  * Return a character representation of the given linestyle value.
  */
-char *
+const char *
 linestylename(val)
 int 	val;
 {
@@ -882,7 +882,7 @@ int 	NS_capstyle = NELEM(S_capstyle);
 /*
  * Return a character representation of the given capstyle value.
  */
-char *
+const char *
 capstylename(val)
 int 	val;
 {
@@ -906,7 +906,7 @@ int 	NS_joinstyle = NELEM(S_joinstyle);
 /*
  * Return a character representation of the given joinstyle value.
  */
-char *
+const char *
 joinstylename(val)
 int 	val;
 {
@@ -931,7 +931,7 @@ int 	NS_fillstyle = NELEM(S_fillstyle);
 /*
  * Return a character representation of the given fillstyle value.
  */
-char *
+const char *
 fillstylename(val)
 int 	val;
 {
@@ -958,7 +958,7 @@ int 	NS_displayclass = NELEM(S_displayclass);
 /*
  * Return a character representation of the given displayclass value.
  */
-char *
+const char *
 displayclassname(val)
 int 	val;
 {
@@ -1140,7 +1140,7 @@ int 	NXI_proto = NELEM(XI_proto);
 /*
  * Return a character representation of the given proto value.
  */
-char *
+const char *
 protoname(val)
 int val;
 {
@@ -1237,7 +1237,7 @@ int 	NS_atom = NELEM(S_atom);
 /*
  * Return a character representation of the given atom value.
  */
-char *
+const char *
 atomname(val)
 int 	val;
 {
@@ -1261,7 +1261,7 @@ int 	NS_mapstate = NELEM(S_mapstate);
 /*
  * Return a character representation of the given mapstate value.
  */
-char *
+const char *
 mapstatename(val)
 int 	val;
 {
@@ -1292,7 +1292,7 @@ int 	NS_visualmask = NELEM(S_visualmask);
 /*
  * Return a character representation of the given visualmask value.
  */
-char *
+const char *
 visualmaskname(val)
 unsigned long	val;
 {
@@ -1344,7 +1344,7 @@ int 	NS_contexterror = NELEM(S_contexterror);
 /*
  * Return a character representation of the given contexterror value.
  */
-char *
+const char *
 contexterrorname(val)
 int 	val;
 {

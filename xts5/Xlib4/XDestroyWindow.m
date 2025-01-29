@@ -107,7 +107,7 @@ Window	w;
 #define	ON_WINDOW	0x0001
 #define	ON_PARENT	0x0002
 
-extern	char	*STreeSgl[];
+extern	const char	*STreeSgl[];
 extern	int 	NSTreeSgl;
 
 >>ASSERTION Good A

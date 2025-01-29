@@ -83,7 +83,7 @@ int x_handler(disp)
 Display *disp;
 {
 
-    char *stars, *errormsg, *server;
+    const char *stars, *errormsg, *server;
 
 /*
  * set up the error message

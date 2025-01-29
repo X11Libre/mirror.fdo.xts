@@ -161,7 +161,7 @@ extern Display *Dsp;
 CARD32 reply_pixel;
 Atom Test_Atom1;
 Atom Test_Atom2;
-char *Test_prop = "__Test_Atom";
+const char *Test_prop = "__Test_Atom";
 static int bad_len,
 	   alloc_len; /* significantly different only in TOO_LONG tests */
 static int this_client;

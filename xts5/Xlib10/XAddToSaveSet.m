@@ -108,7 +108,7 @@ Window	w;
 /*
  * These windows are created by client1.
  */
-char	*T1[] = {
+const char *T1[] = {
 	"base borders",
 	"client1-A base (10,40) 9x4",
 	"client1-C base (50,60) 60x60",
@@ -121,7 +121,7 @@ char	*T1[] = {
  * This will lead to some windows being clipped by their (client1) parent,
  * when the client2 windows are reparented then these should reappear.
  */
-char	*T2[] = {
+const char *T2[] = {
 	". borders",
 	"client2-a-noadd-nomap . (15, 5) 12x4 unmap",
 	"client2-b-noadd . (10, 10) 12x6",

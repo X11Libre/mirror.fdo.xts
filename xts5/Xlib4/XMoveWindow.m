@@ -143,7 +143,7 @@ struct	area	area;
 /*
  * Window tree for the restacking operations.
  */
-static char	*Tstack[] = {
+static const char	*Tstack[] = {
 	". borders",
 	"bottom . (30,2) 60x34",
 	"A . (10,5) 30x20",

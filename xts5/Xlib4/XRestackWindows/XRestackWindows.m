@@ -107,7 +107,7 @@ int	nwindows;
 
 static Window	array[8];
 
-static char	*SimpleTemplate[] = {
+static const char	*SimpleTemplate[] = {
 	".",
 	"zero . (10,10) 30x30",
 	"one . (35,35) 30x30",

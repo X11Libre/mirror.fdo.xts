@@ -204,7 +204,7 @@ extern	int 	NS_wingravity;
 /*
  * Window tree.
  */
-char	*Tree[] = {
+const char	*Tree[] = {
 	". borders",
 	"spare . (30, 1) 14x2",
 	"top . (5, 5) 40x40",

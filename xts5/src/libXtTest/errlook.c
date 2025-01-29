@@ -68,8 +68,8 @@ SOFTWARE.
 #include <errno.h>
 
 struct	errz_t {
-	int	err;
-	char	*errname;
+	int		err;
+	const char	*errname;
 };
 
 static struct errz_t errz[] = {

@@ -113,7 +113,7 @@ Window	w;
 #define	WINDOW_NOTIFY	001
 #define	PARENT_NOTIFY	002
 
-char	*T1[] = {
+const char	*T1[] = {
 	".",
 	"A . (10,10) 40x40 unmap",
 	"B . (3,40) 40x40 unmap",

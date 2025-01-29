@@ -71,9 +71,7 @@ SOFTWARE.
 #include <signal.h>
 #include <errno.h>
 
-void    uwerrno();
-void    vsw_debug_enter();
-void    vsw_debug_exit();
+#include <XtTest.h>
 
 int              got_sigalrm;
 unsigned         unused_time;

@@ -80,7 +80,7 @@ SOFTWARE.
 #include <X11/Xlib.h>               /* standard x defs */
 
 
-char *event_names[] = {
+const char *event_names[] = {
       "",
       "",
       "KeyPress",

@@ -203,9 +203,8 @@ Widget w;
 	return((Widget)boxw);
 }
 
-Widget CreateLabelWidget(string, w)
-char *string;
-Widget w;
+Widget
+CreateLabelWidget(const char *string, Widget w)
 {
 	Widget labelw;
 
@@ -220,9 +219,8 @@ Widget w;
 }
 
 
-Widget CreatePushButtonGadget(string, w)
-char *string;
-Widget w;
+Widget
+CreatePushButtonGadget(const char *string, Widget w)
 {
 	Widget pushb;
 

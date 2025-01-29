@@ -77,24 +77,24 @@ int	do_debug_enter = 0;
 int	do_debug_exit = 0;
 int	do_debug_level = 0;
 
-void fwerrno(funcname)
-char *funcname;
+void
+fwerrno(const char *funcname)
 {
 	sprintf(ebuf, "ERROR: %s failed, errno = %s", funcname, err_lookup(errno));
 	tet_infoline(ebuf);
 	tet_result(TET_FAIL);
 }
 
-void uwerrno(funcname)
-char *funcname;
+void
+uwerrno(const char *funcname)
 {
 	sprintf(ebuf, "ERROR: %s failed, errno = %s", funcname, err_lookup(errno));
 	tet_infoline(ebuf);
 	tet_result(TET_UNRESOLVED);
 }
 
-void ferrno(funcname)
-char *funcname;
+void
+ferrno(const char *funcname)
 {
 	sprintf(ebuf, "ERROR: %s set errno to %s", funcname, err_lookup(errno));
 	tet_infoline(ebuf);
@@ -121,9 +121,8 @@ static void check_debug()
 			do_debug_level = atoi(str);
 }
 
-void vsw_debug_enter(s, s2)
-char *s;
-char *s2;
+void
+vsw_debug_enter(const char *s, const char *s2)
 {
 	if (!fchecked_debug)
 		check_debug();
@@ -137,9 +136,8 @@ char *s2;
 	}
 }
 
-void vsw_debug_exit(s, s2)
-char *s;
-char *s2;
+void
+vsw_debug_exit(const char *s, const char *s2)
 {
 	if (!fchecked_debug)
 		check_debug();
@@ -153,10 +151,8 @@ char *s2;
 	}
 }
 
-void vsw_debug(dlevel, s, s2)
-int dlevel;
-char *s;
-char *s2;
+void
+vsw_debug(int dlevel, const char *s, const char *s2)
 {
 	if (!fchecked_debug)
 		check_debug();

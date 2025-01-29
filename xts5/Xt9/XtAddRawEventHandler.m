@@ -63,7 +63,7 @@ Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 Widget labelw_msg;
 
-extern char *event_names[];
+extern const char *event_names[];
 char client_stuff[] = "The quality of mercy is not strained";
 /*
 ** XtEVT1_Proc event handler

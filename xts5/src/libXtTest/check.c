@@ -78,10 +78,8 @@ SOFTWARE.
 
 extern char ebuf[4096];
 
-int check_dec(goesin, shouldbe, item_name)
-long goesin;
-long shouldbe;
-char *item_name;
+int
+check_dec(long goesin, long shouldbe, const char *item_name)
 {
 	if (goesin != shouldbe) {
 		sprintf(ebuf, "ERROR: Expected %s of %ld, Received %ld", item_name, goesin, shouldbe);
@@ -92,10 +90,8 @@ char *item_name;
 	return 0;
 }
 
-int check_not_dec(goesin, shouldnotbe, item_name)
-long goesin;
-long shouldnotbe;
-char *item_name;
+int
+check_not_dec(long goesin, long shouldnotbe, const char *item_name)
 {
 	if (goesin == shouldnotbe) {
 		sprintf(ebuf, "ERROR: Expected %s not = %ld, received %ld", item_name, goesin, shouldnotbe);
@@ -106,11 +102,8 @@ char *item_name;
 	return 0;
 }
 
-/* ARGUSED */
-int check_str(str1, str2, item_name)
-char *str1 ;
-char *str2 ;
-char *item_name;
+int
+check_str(const char *str1, const char *str2, const char *item_name)
 {
 	char buf1[100] ;
 	char buf2[100] ; 
@@ -126,10 +119,8 @@ char *item_name;
 	return 0;
 }
 
-int check_char(char1, char2, item_name)
-char char1 ;
-char char2 ;
-char *item_name;
+int
+check_char(char char1, char char2, const char *item_name)
 {
 	if (char1 != char2) {
 		sprintf(ebuf, "ERROR: Expected %s of '%c', received '%c'", item_name, char1, char2);
@@ -140,11 +131,9 @@ char *item_name;
 	return 0;
 }
 
-int check_size(data_object, ref_object, data_size, ref_size)
-char	*data_object;
-char	*ref_object;
-size_t	data_size;
-size_t	ref_size;
+int
+check_size(const char *data_object, const char *ref_object,
+           size_t data_size, size_t ref_size)
 {
 	sprintf(ebuf, "TEST %s", data_object);
 	tet_infoline(ebuf);

@@ -148,7 +148,7 @@ extern	char *TestName;
 /*
  * Variables set from TET execution configuration parameters.
  */
-char   *Xst_server_node = SERVER_DEF;/* the X server */
+const char   *Xst_server_node = SERVER_DEF;/* the X server */
 int     Xst_required_byte_sex = SEX_BOTH;	/* byte sex wanted */
 int  Xst_timeout_value = 10;	/* seconds that Expect will wait */
 int  Xst_visual_check = 0;	/* seconds to delay at Visual_Check calls */
@@ -163,11 +163,11 @@ int     Xst_byte_sex = SEX_NATIVE;   /* client byte sex for this connection */
 int  Xst_error_count = 0;	/* number of calls to Log_Error */
 int  Xst_delete_count = 0;	/* number of calls to Log_Del */
 int  Xst_untested_count = 0;	/* indicates that Untested has been called */
-char *Xst_def_font8 = "xtfont0";/* default 8-bit font to use */
-char *Xst_def_font16 = "xtfont2";/* default 16-bit font to use */
+const char *Xst_def_font8 = "xtfont0";/* default 8-bit font to use */
+const char *Xst_def_font16 = "xtfont2";/* default 16-bit font to use */
 
 static struct {
-    char   *name;
+    const char   *name;
     int     code;
 }               Sexes[] = {
     { "NATIVE", SEX_NATIVE }              ,

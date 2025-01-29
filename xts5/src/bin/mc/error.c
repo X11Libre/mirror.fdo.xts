@@ -114,7 +114,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 
 extern	struct	state	State;
 
-static	char	*elist[] = {
+static	const char	*elist[] = {
 	"Access grab", "EAcc1.mc",
 	"Access colormap-free", "EAcc2.mc",
 	"Access colormap-store", "EAcc3.mc",
@@ -150,11 +150,10 @@ int
 errtext(buf)
 char	*buf;
 {
-char	**mp;
+const char	**mp;
 char	*savline;
 char	*type;
-char	*strtok();
-static	char	*sep = " ,\t";
+static	const char	*sep = " ,\t";
 
 	State.err = ER_NORM;
 

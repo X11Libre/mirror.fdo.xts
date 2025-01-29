@@ -81,8 +81,8 @@ void XtConfigureWidget();
 */
 char tit_string[80];
 
-char *title(function)
-char *function;
+char *
+title(const char *function)
 {
 	strcpy(tit_string, "Xt Function: ");
 	strcat(tit_string, function);

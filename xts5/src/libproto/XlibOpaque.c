@@ -180,7 +180,7 @@ SOFTWARE.
 int XstConnectDisplay (display_name, expanded_name, screen_num,
 		       auth_proto, auth_length, auth_string, auth_strlen,
 		       xlib_dpy)
-    char *display_name;
+    const char *display_name;
     char **expanded_name;	/* return */
     int *screen_num;		/* return */
     char **auth_proto;		/* return */

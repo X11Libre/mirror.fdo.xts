@@ -72,7 +72,7 @@ XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
-extern char *event_names[] ;
+extern const char *event_names[] ;
 
 /* procedure XtTMO1_Proc to be invoked */
 void XtTMO1_Proc(client_data, id)

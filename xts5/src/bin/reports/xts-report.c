@@ -1493,7 +1493,7 @@ fprintf(stderr, "State = %d, type = %d\n", state, mtype);
 	}
 }
 
-static void print_ecount(int errcnt, char *errstring) 
+static void print_ecount(int errcnt, const char *errstring) 
 {
 	if (errcnt == 0) ;
 	else

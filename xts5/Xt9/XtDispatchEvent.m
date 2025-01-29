@@ -58,7 +58,7 @@ All Rights Reserved.
 #include <X11/ConstrainP.h>
 #include <X11/CoreP.h>
 
-extern char *event_names[] ;
+extern const char *event_names[] ;
 
 XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
@@ -202,7 +202,7 @@ shall dispatch the event to handler procedures previously registered
 and return True.
 >>CODE
 #if XT_X_RELEASE > 4
-extern char *event_names[];
+extern const char *event_names[];
 Boolean dispatched;
 char *msg = "Test widget";
 pid_t pid2;
@@ -244,7 +244,7 @@ registered for the widget to which the event is to be dispatched
 and return True.
 >>CODE
 #if XT_X_RELEASE == 4
-extern char *event_names[];
+extern const char *event_names[];
 Boolean dispatched;
 char *msg = "Test widget";
 pid_t pid2;
@@ -317,7 +317,7 @@ shall record the timestamp from the event as the last timestamp
 value that will be returned by the next call to 
 XtLastTimestampProcessed.
 >>CODE
-extern char *event_names[];
+extern const char *event_names[];
 Boolean dispatched;
 pid_t pid2;
 int invoked = 0;

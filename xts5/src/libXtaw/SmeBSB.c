@@ -308,7 +308,7 @@ Region region;
     if (entry->sme_bsb.label != NULL) {
 	int x_loc = entry->sme_bsb.left_margin;
 	int len = strlen(entry->sme_bsb.label);
-	char * label = entry->sme_bsb.label;
+	const char * label = entry->sme_bsb.label;
 
 	switch(entry->sme_bsb.justify) {
 	    int width, t_width;

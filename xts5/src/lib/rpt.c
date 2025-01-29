@@ -140,7 +140,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 /*VARARGS1*/
 
 void
-unsupported(char *mess, ... )
+unsupported(const char *mess, ... )
 {
 char	buf[LINELEN];
 va_list args;
@@ -163,7 +163,7 @@ va_list args;
 /*VARARGS1*/
 
 void
-notinuse(char *mess, ... )
+notinuse(const char *mess, ... )
 {
 char	buf[LINELEN];
 va_list args;
@@ -186,7 +186,7 @@ va_list args;
 /*VARARGS1*/
 
 void
-untested(char *mess, ... )
+untested(const char *mess, ... )
 {
 char	buf[LINELEN];
 va_list args;

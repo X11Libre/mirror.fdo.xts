@@ -267,9 +267,7 @@ unpack4(void *pp, int swap)
 }
 
 void
-Copy_String8(to,from)
-char **to;
-char *from;
+Copy_String8(char **to, const char *from)
 {
 int len;
 
@@ -280,9 +278,7 @@ int len;
 
 
 void
-Copy_Padded_String8(to,from)
-char **to;
-char *from;
+Copy_Padded_String8(char **to, const char *from)
 {
     int len;
 
@@ -292,9 +288,7 @@ char *from;
 }
 
 void
-Copy_Padded_String16(to,from)
-char **to;
-char *from;
+Copy_Padded_String16(char **to, const char *from)
 {
     int len;
     int i;

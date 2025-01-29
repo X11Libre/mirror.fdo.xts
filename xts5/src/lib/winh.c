@@ -1240,7 +1240,7 @@ Winh	*winh;
 	char	in[512];
 	static	struct {
 		int	value;
-		char	*name;
+		const char	*name;
 	} winhmaskinfo[] = {
 		{WINH_CREATED, "WINH_CREATED"},
 		{WINH_DEL_PROPOGATE, "WINH_DEL_PROPOGATE"},

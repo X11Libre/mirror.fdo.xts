@@ -135,7 +135,7 @@ struct	area	area;
 /*
  * A window with subwindows.
  */
-static	char	*Tsub[] = {
+static	const char	*Tsub[] = {
 	".",
 	"top . (5, 5) 40x40",
 	"sub1 top (1,3) 4x6",

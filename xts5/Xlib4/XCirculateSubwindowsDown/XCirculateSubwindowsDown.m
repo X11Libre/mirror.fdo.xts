@@ -64,7 +64,7 @@ Display	*display = Dsp;
 Window	w;
 >>EXTERN
 
-static char	*SimpleTemplate[] = {
+static const char *SimpleTemplate[] = {
 	".",
 	"zero . (20,10) 40x40",
 	"one . (30,20) 40x40",
@@ -73,7 +73,7 @@ static char	*SimpleTemplate[] = {
 };
 static int	NSimpleTemplate = NELEM(SimpleTemplate);
 
-static char	*Expose1Template[] = {
+static const char *Expose1Template[] = {
 	".",
 	"zero . (20,10) 40x40",
 	"one . (30,20) 40x40",
@@ -81,7 +81,7 @@ static char	*Expose1Template[] = {
 };
 static int	NExpose1Template = NELEM(Expose1Template);
 
-static char	*Expose2Template[] = {
+static const char *Expose2Template[] = {
 	".",
 	"two . (40,30) 40x40",
 };

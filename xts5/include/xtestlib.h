@@ -159,9 +159,9 @@ struct	area {
  * the associated string.
  */
 struct	fontinfo	{
-	char	*name;		/* Font name */
+	const char	*name;		/* Font name */
 	XFontStruct	*fontstruct;	/* pointer to known good XFontStruct */
-	char	**string;	/* Copyright string */
+	const char	**string;	/* Copyright string */
 	short	flag;	/* for use by lstfnt* */
 };
 
@@ -471,7 +471,7 @@ struct	buildtree	{
  */
 struct	valname	{
 	int 	val;
-	char	*name;
+	const char	*name;
 };
 
 /*

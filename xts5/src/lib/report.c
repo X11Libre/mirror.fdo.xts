@@ -153,7 +153,7 @@ int	purpose_reported = 0;
 /*VARARGS1*/
 
 void
-report(char *fmt, ...)
+report(const char *fmt, ...)
 {
 char	buf[LINELEN];
 va_list	args;
@@ -178,12 +178,12 @@ void report_purpose(int number)
 	purpose_reported = number;
 }
 
-void report_assertion(char* line)
+void report_assertion(const char* line)
 {
 	tet_infoline(line);
 }
 
-void report_strategy(char* line)
+void report_strategy(const char* line)
 {
 	char	buf[LINELEN];
 
@@ -194,7 +194,7 @@ void report_strategy(char* line)
 /*VARARGS1*/
 
 void
-trace(char *fmt, ...)
+trace(const char *fmt, ...)
 {
 char	buf[LINELEN];
 va_list	args;
@@ -214,7 +214,7 @@ va_list	args;
 /*VARARGS1*/
 
 void
-check(char *fmt, ...)
+check(const char *fmt, ...)
 {
 char	buf[LINELEN];
 va_list	args;
@@ -234,7 +234,7 @@ va_list	args;
 /*VARARGS2*/
 
 void
-debug(int lev, char *fmt, ...)
+debug(int lev, const char *fmt, ...)
 {
 char	buf[LINELEN];
 va_list	args;
@@ -261,7 +261,7 @@ va_list	args;
 /*VARARGS1*/
 
 void
-tccabort(char *fmt, ...)
+tccabort(const char *fmt, ...)
 {
 char	buf[LINELEN];
 va_list	args;

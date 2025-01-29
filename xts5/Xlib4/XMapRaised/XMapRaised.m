@@ -104,7 +104,7 @@ Display	*display = Dsp;
 Window	w;
 >>EXTERN
 
-static char	*T1[] = {
+static const char	*T1[] = {
 	".",
 	"A . (10,10) 40x40",
 	"B . (15,15) 40x40",
@@ -115,7 +115,7 @@ static char	*T1[] = {
 /* Number of direct children of parent in T1 */
 #define	NT1CHILD	5
 
-static char	*T2[] = {
+static const char	*T2[] = {
 	".",
 	"A . (20,20) 40x40 unmap",
 	  "B A (5,5) 20x20",

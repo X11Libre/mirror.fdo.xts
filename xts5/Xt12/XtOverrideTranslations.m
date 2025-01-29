@@ -62,7 +62,7 @@ XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
-extern char *event_names[];
+extern const char *event_names[];
 
 XtActionProc XtACT1_Proc(w, event, params, num_params)
 Widget w;

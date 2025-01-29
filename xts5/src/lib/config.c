@@ -226,7 +226,7 @@ struct	ximconfig	ximconfig;
 #define	FL_EMPTYOK	0x4	/* Empty value is ok */
 
 struct	getparam {
-	char	*name;
+	const char	*name;
 	int 	type;
 	char	*addr;
 	int 	flags;

@@ -68,7 +68,7 @@ Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 Widget squarew;
 
-extern char *event_names[];
+extern const char *event_names[];
 
 void XtACT_Proc(w, event, params, num_params)
 Widget w;

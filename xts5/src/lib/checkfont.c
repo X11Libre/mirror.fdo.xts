@@ -131,13 +131,13 @@ extern	Display *Dsp;
 
 extern	XFontStruct	xtfont0, xtfont1, xtfont2, xtfont3, xtfont4;
 extern	XFontStruct xtfont5, xtfont6;
-extern	char	*xtfont0cpright;
-extern	char	*xtfont1cpright;
-extern	char	*xtfont2cpright;
-extern	char	*xtfont3cpright;
-extern	char	*xtfont4cpright;
-extern	char	*xtfont5cpright;
-extern	char	*xtfont6cpright;
+extern	const char *xtfont0cpright;
+extern	const char *xtfont1cpright;
+extern	const char *xtfont2cpright;
+extern	const char *xtfont3cpright;
+extern	const char *xtfont4cpright;
+extern	const char *xtfont5cpright;
+extern	const char *xtfont6cpright;
 
 struct	fontinfo fontinfo[] = {
 	{"xtfont0", &xtfont0, &xtfont0cpright},
@@ -150,9 +150,9 @@ struct	fontinfo fontinfo[] = {
 };
 int 	nfontinfo = NELEM(fontinfo);
 
-static int checkprops(XFontStruct *fsp, XFontStruct *good, char *str);
+static int checkprops(XFontStruct *fsp, XFontStruct *good, const char *str);
 static XCharStruct *getmetric(XFontStruct *fsp, unsigned int c);
-static int check1prop(XFontStruct *fsp, XFontProp *fp, char *str);
+static int check1prop(XFontStruct *fsp, XFontProp *fp, const char *str);
 
 /*
  * Check a XCharStruct item.  FAIL is issued on error, PASS is not.
@@ -160,10 +160,9 @@ static int check1prop(XFontStruct *fsp, XFontProp *fp, char *str);
  * Returns True if checking is OK.
  */
 static int
-checkcharstruct(csp, good, name)
-XCharStruct	*csp;
-XCharStruct	*good;
-char	*name;
+checkcharstruct(XCharStruct	*csp,
+                XCharStruct	*good,
+                const char	*name)
 {
 int 	pass = 0, fail = 0;
 
@@ -218,10 +217,9 @@ int 	pass = 0, fail = 0;
  * fonts.
  */
 int
-checkfsp(fsp, good, str)
-XFontStruct	*fsp;
-XFontStruct	*good; /* Known good XFontStruct */
-char	*str;	/* Known good copyright string */
+checkfsp(XFontStruct	*fsp,
+         XFontStruct	*good, /* Known good XFontStruct */
+         const char	*str)	/* Known good copyright string */
 {
 int 	i;
 int 	nchars;
@@ -417,10 +415,9 @@ int 	pass = 0, fail = 0;
  * other properties defined in the returned XFontStruct which are ignored.
  */
 static int
-checkprops(fsp, good, str)
-XFontStruct	*fsp;
-XFontStruct	*good;
-char	*str;
+checkprops(XFontStruct	*fsp,
+           XFontStruct	*good,
+           const char	*str)
 {
 XFontProp	*fp;
 int 	pass = 0, fail = 0;
@@ -443,10 +440,9 @@ int 	pass = 0, fail = 0;
  * Check a single property
  */
 static int
-check1prop(fsp, fp, str)
-XFontStruct	*fsp;
-XFontProp	*fp;
-char	*str;
+check1prop(XFontStruct	*fsp,
+           XFontProp	*fp,
+           const char	*str)
 {
 XFontProp	*testp;
 char	*teststr;
@@ -523,19 +519,17 @@ int 	pass = 0, fail = 0;
  * Direct calculation of extents.
  */
 void
-txtextents(fsp, str, n, dir, ascent, descent, overall)
-XFontStruct	*fsp;
-unsigned char	*str;
-int 	n;
-int 	*dir;	/*NOTUSED*/
-int 	*ascent;
-int 	*descent;
-XCharStruct	*overall;
+txtextents(XFontStruct	*fsp,
+	   const unsigned char	*str,
+	   int		n,
+	   int		*dir,	/*NOTUSED*/
+	   int		*ascent,
+	   int		*descent,
+	   XCharStruct	*overall)
 {
 int 	i;
 unsigned int 	c;
 XCharStruct	*cm;
-extern XCharStruct	*getmetric();
 short 	width;
 short 	rbearing = 0;
 short 	lbearing = 0;
@@ -595,19 +589,17 @@ int 	firstchar = 1;
  * Direct calculation of extents with 16bit strings.
  */
 void
-txtextents16(fsp, str, n, dir, ascent, descent, overall)
-XFontStruct	*fsp;
-XChar2b	*str;
-int 	n;
-int 	*dir;
-int 	*ascent;
-int 	*descent;
-XCharStruct	*overall;
+txtextents16(XFontStruct	*fsp,
+	     const XChar2b	*str,
+	     int		n,
+	     int		*dir,
+	     int		*ascent,
+	     int		*descent,
+	     XCharStruct	*overall)
 {
 int 	i;
 unsigned int 	c;
 XCharStruct	*cm;
-extern XCharStruct	*getmetric();
 short	width;
 short	rbearing = 0;
 short	lbearing = 0;
@@ -669,10 +661,9 @@ int 	firstchar = 1;
  * Direct calculation of width.
  */
 int
-txtwidth(fsp, str, n)
-XFontStruct	*fsp;
-unsigned char	*str;
-int 	n;
+txtwidth(XFontStruct		*fsp,
+	 const unsigned char	*str,
+	 int			n)
 {
 XCharStruct	cm;
 int 	dum;
@@ -685,10 +676,9 @@ int 	dum;
  * Direct calculation of width for 16 bit strings.
  */
 int
-txtwidth16(fsp, str, n)
-XFontStruct	*fsp;
-XChar2b	*str;
-int 	n;
+txtwidth16(XFontStruct		*fsp,
+	   const XChar2b	*str,
+	   int			n)
 {
 XCharStruct	cm;
 int 	dum;

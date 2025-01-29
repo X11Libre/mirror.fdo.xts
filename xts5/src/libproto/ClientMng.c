@@ -141,7 +141,7 @@ SOFTWARE.
 CL Xst_clients[MAX_CLIENTS];
 
 
-static XstDisplay *XstOpenDisplay (char *display, int bytesex,
+static XstDisplay *XstOpenDisplay (const char *display, int bytesex,
                                    int needswap, int cl);
 static void XstFreeDisplayStructure (XstDisplay *dpy);
 static void OutOfMemory(XstDisplay *dpy, char *setup);
@@ -309,17 +309,13 @@ XModifierKeymap * XstNewModifiermap ();
  * the newly created XstDisplay back to the caller.
  */
 static XstDisplay *
-XstOpenDisplay (display, bytesex, needswap, cl)
-register char  *display;
-int     bytesex;
-int     needswap;
-int	cl; /* client number */
+XstOpenDisplay (register const char *display, int bytesex, int needswap, int cl)
 {
     register    XstDisplay * dpy;	/* New XstDisplay object being created. */
     register int    i;
     int     j,
             k;			/* random iterator indexes */
-    char   *display_name;	/* pointer to display name */
+    const char   *display_name;	/* pointer to display name */
     xConnClientPrefix client;	/* client information */
     xConnSetupPrefix prefix;	/* prefix information */
     int     vendorlen;		/* length of vendor string */

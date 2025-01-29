@@ -108,7 +108,7 @@ Window	w;
  * Tree of children (which are unmapped) and other descendents (which are
  * not).  One window is already unmapped.
  */
-static	char	*T1[] = {
+static	const char	*T1[] = {
 	".",
 	"A . (5,5) 30x10",
 	  "A1 A (2,2) 12x4",

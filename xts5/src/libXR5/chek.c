@@ -125,7 +125,7 @@ int diff_message(environment,num_diff)
     int environment;
     int *num_diff;
 {
-    char *fmtstr;
+    const char *fmtstr;
     union msglst f_lst[1];    
 
     *num_diff = *num_diff + 1;

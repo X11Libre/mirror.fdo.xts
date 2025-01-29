@@ -113,8 +113,8 @@ purpose.  It is provided "as is" without express or implied warranty.
 #include	"mc.h"
 
 static	struct	gclookup {
-	char	*gccompname;
-	char	*include;
+	const char	*gccompname;
+	const char	*include;
 } gclookup[] = {
 	/*
 	 * Note:  If there are gccompname's that are initial strings of others

@@ -135,7 +135,7 @@ gettime(disp)
 	Window 	root;
 	static Atom	prop = None;
 	static int	data = 42;
-	static char	*name = XT_TIMESTAMP;
+	static const char	*name = XT_TIMESTAMP;
 	XWindowAttributes wattr;
 	XEvent	ev;
 	int	i;

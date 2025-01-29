@@ -77,6 +77,12 @@ SOFTWARE.
 #ifndef _XTTESTPROTO_H
 #define _XTTESTPROTO_H
 
+#include <X11/Xfuncproto.h>
+
+#ifndef _X_NORETURN
+# define _X_NORETURN
+#endif
+
 int     avs_alloc_sem(void);
 void    avs_free_sem(void);
 int     avs_wait_event(int, int);
@@ -91,32 +97,32 @@ int	avs_set_alarm(int);
 int	avs_clear_alarm(void);
 int	avs_expect_alarm(void);
 int	avs_ignore_alarm(void);
-int	push_stdout(char*, char*);
+int	push_stdout(const char *, const char *);
 void	pop_stdout(void);
-int	push_stderr(char*, char*);
+int	push_stderr(const char *, const char *);
 void	pop_stderr(void);
-void	push_to_devnull(char*, char*);
+void	push_to_devnull(const char *, const char *);
 int	restore_from_devnull(void);
 char	*get_token(char*, char*);
 char	*get_nth_token(char *, char *, int);
-void	uwerrno(char*);
-void	fwerrno(char*);
-void	ferrno(char*);
-void	vsw_debug(int, char *, char *);
-void	vsw_debug_enter(char *, char *);
-void	vsw_debug_exit(char *, char *);
-Widget	avs_xt_def(char *string);
-char	*title(char *);
+void	uwerrno(const char *);
+void	fwerrno(const char *);
+void	ferrno(const char *);
+void	vsw_debug(int, const char *, const char *);
+void	vsw_debug_enter(const char *, const char *);
+void	vsw_debug_exit(const char *, const char *);
+Widget	avs_xt_def(const char *string);
+char	*title(const char *);
 void	PostMenu(Widget, XtPointer, XButtonEvent*);
 void	ConfigureDimension(Widget, Widget);
 void	DestroyTree(Widget, XtPointer, XtPointer);
 size_t	mem_limit(void);
 void	alloc_handler(String, String, String, String, String*, Cardinal*);
-Widget	avs_xt_hier(char*, char*);
-Widget	avs_xt_hier_no_warn(char*, char*);
-Widget	avs_xt_hier_args(char *, char *, char **, int);
-Widget	avs_xt_hier_def(char*, char*);
-Widget	avs_xt_init(char*, char**, int);
+Widget	avs_xt_hier(const char *, const char *);
+Widget	avs_xt_hier_no_warn(const char *, const char *);
+Widget	avs_xt_hier_args(const char *, const char *, char **, int);
+Widget	avs_xt_hier_def(const char*, const char*);
+Widget	avs_xt_init(const char*, char**, int);
 Widget	avs_xt_tree(Widget);
 Widget	CreateMainWidget(Widget);
 Widget	CreateDrawWidget(Widget);
@@ -126,31 +132,32 @@ Widget	CreateRowColWidget(Widget);
 Widget	CreateFrameWidget(Widget);
 Widget	CreatePanedWidget(Widget);
 Widget	CreateBoxWidget(Widget);
-Widget	CreateLabelWidget(char *, Widget);
-Widget	CreatePushButtonGadget(char*, Widget);
+Widget	CreateLabelWidget(const char *, Widget);
+Widget	CreatePushButtonGadget(const char*, Widget);
 Widget	CreateMenuShellWidget(Widget);
 Widget	CreateDialogShellWidget(Widget);
 Window	avs_xext_init(void);
 void	avs_xext_close(void);
-int	check_dec(long, long, char*);
-int	check_not_dec(long, long, char*);
-int	check_str(char *, char *, char *);
-int	check_char(char, char, char *);
-int	check_size(char *, char *, size_t, size_t);
+int	check_dec(long, long, const char *);
+int	check_not_dec(long, long, const char*);
+int	check_str(const char *, const char *, const char *);
+int	check_char(char, char, const char *);
+int	check_size(const char *, const char *, size_t, size_t);
 void	x_event_name(int);
 void	send_event_time(Widget, int, long, Boolean, Time);
 void	send_event(Widget, int, long, Boolean);
 void	send_event_mask_time(Display *, Window, unsigned long, int, KeyCode, XEvent *, Time);
 void	send_event_mask(Display *, Window, unsigned long, int, KeyCode, XEvent *);
 int	x_handler(Display*);
-void	xt_handler(String, String, String, String, String*, Cardinal*);
+void	xt_handler(String, String, String, String, String*, Cardinal*) _X_NORETURN;
+void	xt_whandler(String, String, String, String, String*, Cardinal*);
 int	x_unexperr(Display*, XErrorEvent*);
 /*from xtest library*/
 void	initconfig(void);
-void	report(char *fmt, ...);
-void	trace(char *fmt, ...);
+void	report(const char *fmt, ...);
+void	trace(const char *fmt, ...);
 void report_purpose(int);
-void report_assertion(char *);
-void report_strategy(char *);
+void report_assertion(const char *);
+void report_strategy(const char *);
 
 #endif /* _XTTESTPROTO_H */

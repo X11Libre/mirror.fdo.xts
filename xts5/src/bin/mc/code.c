@@ -164,13 +164,13 @@ extern	struct	state	State;
 static	int 	Testnum;
 static	char	*Ictype[MAXTP];
 static	short	Icnum[MAXTP];
-static	char	*ExpectError;
+static	const char	*ExpectError;
 /* TEMP as we don't use it there is no way to set this at present */
 static	int 	gbflag = 0;	/* Use Good/bad */
 
 extern	char	*newline();
 
-static	char	*validtypes[] = {
+static	const char	*validtypes[] = {
 	"def",
 	"Good",
 	"Bad",
@@ -375,7 +375,7 @@ static	int 	oncethrough;
 
 	setoutline();
 	fprintf(FpExtern, "\n#define T_%s\t1\n", State.name);
-	fprintf(FpExtern, "%schar    *TestName = \"%s\";\n\n",
+	fprintf(FpExtern, "%sconst char    *TestName = \"%s\";\n\n",
 			(lflag)? "static ": "", State.name);
 
 	Nargs = 0;
@@ -481,7 +481,7 @@ static	int 	oncethrough;
 	}
 
 	for (i = 2; i < Nargs; i++) {
-	static char *errdeftypes[] = {
+	static const char *errdeftypes[] = {
 		"Atom",
 		"Colormap",
 		"Cursor",
@@ -492,7 +492,7 @@ static	int 	oncethrough;
 		"Window",
 		(char*)0,
 		};
-	char	**cp;
+	const char	**cp;
 
 		if (Arginit[i])
 			continue;
@@ -655,7 +655,7 @@ mcassertion(fp, buf)
 FILE	*fp;
 char	*buf;
 {
-char	**cpp;
+const char	**cpp;
 
 	if (FpAssertion != (FILE *) -1) {
 		fclose(FpAssertion);
@@ -707,11 +707,7 @@ char	**cpp;
  * Write out the assertion, filling lines.
  */
 int
-assertfill(fp, buf, outfp, prefix)
-FILE	*fp;
-char	*buf;
-FILE	*outfp;
-char	*prefix;
+assertfill(FILE *fp, char *buf, FILE *outfp, const char *prefix)
 {
 register int 	assertpos;
 register char	*tok;

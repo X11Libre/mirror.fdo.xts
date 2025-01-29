@@ -123,9 +123,7 @@ Display *display;
 }       
 
 void 
-bufrgc(gc_id,gc_name)
-GC gc_id;
-char *gc_name;
+bufrgc(GC gc_id, const char *gc_name)
 {   
 	return;
 }

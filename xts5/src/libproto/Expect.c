@@ -149,7 +149,7 @@ static  xGenericReply dummy_reply = {
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 };
 
-static char *expect_names[5] = {
+static const char *expect_names[5] = {
     "REPLY",
     "ERROR",
     "EVENT",

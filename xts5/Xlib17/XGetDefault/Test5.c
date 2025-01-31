@@ -128,7 +128,7 @@ extern	Display	*Dsp;
  * Dummy declarations which are normally inserted by mc.
  * Needed to prevent linkstart.c being included.
  */
-char	*TestName = "XGetDefault";
+const char	*TestName = "XGetDefault";
 extern int     tet_thistest;
 struct tet_testlist tet_testlist[] = {
 	{ NULL, 0 }
@@ -142,14 +142,14 @@ char *argv[];
 {
 int		pass = 0, fail = 0;
 Display		*display;
-char		*prog = "XTest";
+const char	*prog = "XTest";
 char		*opt;
 char		*tres;
 char		*res;
-char		*pval="XTest.testval51:pVAL_1\nXTest.testval52:pVAL_2\nXTest.testval53:pVAL_3\nTest.testval57:pval_7";
+const char	*pval="XTest.testval51:pVAL_1\nXTest.testval52:pVAL_2\nXTest.testval53:pVAL_3\nTest.testval57:pval_7";
 int		i;
-static	char	*testval[] = { "testval51", "testval52", "testval56" , "testval57"};
-static	char	*result[]  = { "pVAL_1",    "hVAL_5",    "hVAL_6" , "hVAL_7"};
+static	const char	*testval[] = { "testval51", "testval52", "testval56" , "testval57"};
+static	const char	*result[]  = { "pVAL_1",    "hVAL_5",    "hVAL_6" , "hVAL_7"};
 
 	exec_startup();
 	tpstartup();

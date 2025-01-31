@@ -106,11 +106,11 @@ int
 Display *display = Dsp;
 Window w = defwin(display);
 XContext context = XUniqueContext();
-caddr_t data;
+const char *data;
 >>EXTERN
 
-static char *xsc_ctxt ="set context";
-static char *xsc_ctxt2 ="set context two";
+static const char *xsc_ctxt ="set context";
+static const char *xsc_ctxt2 ="set context two";
 
 >>ASSERTION Good A
 A call to xname sets the table entry for context data
@@ -133,7 +133,7 @@ int ret;
 caddr_t b;
 
 /* Call xname to enter the context data. */
-	data = (caddr_t) xsc_ctxt;
+	data = xsc_ctxt;
 	ret = XCALL;
 
 /* Verify that zero was returned. */
@@ -189,7 +189,7 @@ int ret;
 caddr_t b;
 
 /* Call xname to set the context data. */
-	data = (caddr_t) xsc_ctxt;
+	data = xsc_ctxt;
 	ret = XCALL;
 
 /* Verify that zero was returned. */
@@ -203,7 +203,7 @@ caddr_t b;
 		CHECK;
 
 /* Call xname to reset the context data. */
-	data = (caddr_t) xsc_ctxt2;
+	data = xsc_ctxt2;
 	ret = XCALL;
 
 /* Verify that zero was returned. */

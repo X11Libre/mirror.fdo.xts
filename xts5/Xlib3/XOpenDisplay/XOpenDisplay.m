@@ -658,7 +658,7 @@ t005exec()
 {
 char	*argv[2];
 char	*str;
-char	*mstr = "DISPLAY=%s";
+const char	*mstr = "DISPLAY=%s";
 
 	if((str = (char *) malloc( strlen(config.display) + strlen(mstr) - 1)) == (char *) NULL) {
 		delete("malloc() failed.");

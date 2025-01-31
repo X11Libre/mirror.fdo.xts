@@ -108,7 +108,7 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include <ximtest.h>
 
 #define MAX_TEST_STR	4
-static char *test_str_list[MAX_TEST_STR] = {
+static const char *test_str_list[MAX_TEST_STR] = {
 	"T",
 	"Te",
 	"Tes",

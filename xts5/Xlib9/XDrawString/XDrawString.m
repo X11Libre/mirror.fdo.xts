@@ -105,7 +105,7 @@ Drawable d;
 GC		gc;
 int 	x = 2;
 int 	y = 20;
-char	*string = "AbCdEfGhIjKlMnOpQrStUv";
+const char	*string = "AbCdEfGhIjKlMnOpQrStUv";
 int 	length = strlen(string);
 >>EXTERN
 

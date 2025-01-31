@@ -172,9 +172,9 @@ Set the property WM_NAME to the returned XTextProperty using XSetTextProperty.
 Verify that no error occurred.
 >>CODE
 Status		status;
-char		*str1 = "XtestString1_._.";
-char		*str2 = "XtextString2._";
-char		*str3 = "XtestString3._..";
+char		str1[] = "XtestString1_._.";
+char		str2[] = "XtextString2._";
+char		str3[] = "XtestString3._..";
 char		*argv[3];
 char		*value, *vp;
 int		argc = 3;
@@ -307,9 +307,9 @@ Verify that the call did not return zero.
 Release the allocated memory using XFree.
 >>CODE
 Status		status;
-char		*str1 = "XtestString1_._.";
-char		*str2 = "XtextString2._";
-char		*str3 = "XtestString3._..";
+char		str1[] = "XtestString1_._.";
+char		str2[] = "XtextString2._";
+char		str3[] = "XtestString3._..";
 char		*argv[3];
 int		argc = 3;
 XTextProperty	tp;

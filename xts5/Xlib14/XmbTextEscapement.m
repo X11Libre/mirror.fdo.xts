@@ -109,7 +109,7 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include <ximtest.h>
 
 #define MAX_TEST_STR	4
-static char *test_str_list[MAX_TEST_STR] = {
+static const char *test_str_list[MAX_TEST_STR] = {
 	"T",
 	"Te",
 	"Tes",
@@ -119,7 +119,7 @@ static char *test_str_list[MAX_TEST_STR] = {
 int
 XmbTextEscapement(font_set,pteststr,nbytes)
 XFontSet font_set;
-char *pteststr;
+const char *pteststr;
 int nbytes;
 >>SET startup localestartup
 >>SET cleanup localecleanup

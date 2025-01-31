@@ -123,7 +123,7 @@ int y_hot = -1;
 #define XWBF_DIR "xwbf_dir"
 #define XWBF_FILE "xwbf_dir/xwbf_file"
 
-static char *xwbf_name = "xwbf_temp";
+static const char *xwbf_name = "xwbf_temp";
 
 static Pixmap xwbf_bm = (Pixmap)0;
 

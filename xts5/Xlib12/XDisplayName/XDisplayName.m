@@ -159,7 +159,7 @@ t001exec()
 char	*argv[2];
 char	*str;
 char	*dstr;
-char	*mstr = "DISPLAY=%s";
+const char	*mstr = "DISPLAY=%s";
 
 	if((dstr = getenv("DISPLAY")) == NULL) {
 		delete("DISPLAY configuration variable is not defined.");

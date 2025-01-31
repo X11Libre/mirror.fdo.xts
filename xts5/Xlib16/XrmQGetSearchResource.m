@@ -124,7 +124,7 @@ static	XrmClass	cl[XQGSR_ARRAY_SIZE];
 
 /* Database data */
 #define XQGSR_T1_DATA	5
-static	char	*t1_data[XQGSR_T1_DATA] = {
+static	const char	*t1_data[XQGSR_T1_DATA] = {
 	"applic.window.background:blue",
 	"Applic.window.BackGround:cyan",
 	"applic.Window.background:magenta",
@@ -133,19 +133,19 @@ static	char	*t1_data[XQGSR_T1_DATA] = {
 
 /* Searchlist data */
 #define XQGSR_T1_SEARCH	2
-static	char	*t1_search[XQGSR_T1_SEARCH][2] = {
+static	const char	*t1_search[XQGSR_T1_SEARCH][2] = {
 	{ "applic", "Applic" },
 	{ "window",	"Window" } };
 
 /* SearchResource tests */
 #define XQGSR_T1_TESTS	3
-static char *t1_tests[XQGSR_T1_TESTS][3] = {
+static const char *t1_tests[XQGSR_T1_TESTS][3] = {
 	{ "background",	"BackGround",	"blue"	},
 	{ "border",	"BackGround",	"cyan"	},
 	{ "misc",	"Unimportant",	"pink"	} };
 
 #define XQGSR_T2_TESTS  1
-static char *t2_tests[XQGSR_T2_TESTS][2] = {
+static const char *t2_tests[XQGSR_T2_TESTS][2] = {
 	{ "nomatch", "Nomatch" } };
 
 >>ASSERTION Good A

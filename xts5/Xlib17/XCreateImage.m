@@ -121,7 +121,7 @@ int		width;
 int		height;
 int		offset;
 int		format;
-char		*data;
+const char	*data;
 int		bo;
 int		bmu;
 int		bmbo;

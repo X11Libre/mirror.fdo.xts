@@ -104,9 +104,9 @@ purpose.  It is provided "as is" without express or implied warranty.
 void
 XGetErrorDatabaseText()
 Display *display = Dsp;
-char *name;
-char *message;
-char *default_string = "default_string";
+const char *name;
+const char *message;
+const char *default_string = "default_string";
 char *buffer_return = buffer;
 int length = sizeof(buffer);
 >>EXTERN

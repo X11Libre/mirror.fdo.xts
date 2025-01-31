@@ -101,7 +101,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 char **
 
 Display	*display = Dsp;
-char	*patternarg;
+const char	*patternarg;
 int 	maxnames = 9999;
 int 	*count_return = &count;
 XFontStruct	**info_return = &finfo;

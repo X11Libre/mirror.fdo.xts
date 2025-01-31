@@ -85,6 +85,7 @@ conf.set('TET_LITE', 1)
 conf.set('XT_X_RELEASE', 6)
 conf.set('XTESTEXTENSION', 1)
 conf.set('INPUTEXTENSION', 1)
+conf.set('_CONST_X_STRING', 1)
 
 dep_x11 = dependency('x11')
 dep_xext = dependency('xext')

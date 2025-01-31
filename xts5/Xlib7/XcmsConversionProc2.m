@@ -100,7 +100,8 @@ Bool                 flags[] ;
 /******
  * local storage 
  ******/
-	char fmtstr[256], *call_string;
+	char fmtstr[256];
+	const char *call_string;
 	union msglst fmt_lst[1];        
 
 	int

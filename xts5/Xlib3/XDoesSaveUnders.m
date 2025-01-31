@@ -104,13 +104,12 @@ Bool
 XDoesSaveUnders(screen)
 Screen	*screen = DefaultScreenOfDisplay(Dsp);
 >>EXTERN
-static char	*ts = "True";
-static char	*fs = "False";
-static char	es[9];
+static const char	*ts = "True";
+static const char	*fs = "False";
+static char		es[9];
 
-static char *
-tfs(tf)
-int	tf;
+static const char *
+tfs(int tf)
 {
 	switch(tf) {
 	case True:

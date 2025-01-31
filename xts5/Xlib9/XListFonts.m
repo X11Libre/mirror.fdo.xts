@@ -101,7 +101,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 char	**
 
 Display	*display = Dsp;
-char	*patternarg;
+const char	*patternarg;
 int 	maxnames = 1000;
 int 	*actual_count_return = &Count;
 >>SET startup fontstartup

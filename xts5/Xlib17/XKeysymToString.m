@@ -121,7 +121,7 @@ Obtain the string corresponding to the KeySym XK_BackSpace using xname.
 Verify that the returned string was \"BackSpace\".
 >>CODE
 KeySym	ks = XK_BackSpace;
-char	*value = "BackSpace";
+const char	*value = "BackSpace";
 char	*res;
 
 	keysym = ks;

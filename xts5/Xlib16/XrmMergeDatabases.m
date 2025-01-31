@@ -120,19 +120,19 @@ static XrmDatabase target;
 
 /* Test database data */
 #define XMD_SIZE 3
-static char	*d1_data[XMD_SIZE][5] = {
+static const char *d1_data[XMD_SIZE][5] = {
 	/* spec, type, value, fullspec, fullclass */
 	{ "one.data", "String", "one", "one.data", "One.Data" },
 	{ "one.Misc", "Nylon",  "two", "one.misc", "One.Misc" },
 	{ "one*type", "Cotton", "three", "one.type", "One.Type" } };
 
-static char	*d2_data[XMD_SIZE][5] = {
+static const char *d2_data[XMD_SIZE][5] = {
 	/* spec, type, value, fullspec, fullclass */
 	{ "two.data", "Thread", "four", "two.data", "Two.Data" },
 	{ "Two.star", "Lycra",  "five", "two.star", "Two.Star" },
 	{ "two*Halt", "Silk",   "six", "two.halt", "Two.Halt" } };
 
-static char *d3_data[XMD_SIZE][7] = {
+static const char *d3_data[XMD_SIZE][7] = {
 	/* spec, type, value, fullspec, fullclass, exptype, expvalue */
 /* These should replace test data in the target */
 	{ "one.data", "Thread", "seven", "one.data", "One.Data", "Thread", "seven" },

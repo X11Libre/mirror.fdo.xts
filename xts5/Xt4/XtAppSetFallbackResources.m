@@ -91,7 +91,7 @@ static	String fallback_res[] = {
 		    "tappstfllb1", "Tappstfllb1", 
 		    (XrmOptionDescRec *)NULL,
 		    (Cardinal) 0, &argcount,
-		    (String *)NULL );
+		    (char **)NULL );
 	tet_infoline("TEST: Get the resource database");
 	database = XtDatabase(display);
 	tet_infoline("TEST: Check the default resource values");
@@ -129,7 +129,7 @@ static	String fallback_res[] = {
 		    "tappstfllb2", "Tappstfllb2",
 		    (XrmOptionDescRec *)NULL,
 		    (Cardinal)0, &argcount,
-		    (String *)NULL );
+		    (char **)NULL );
 	tet_infoline("TEST: Specify resource list as NULL");
 	XtAppSetFallbackResources(app_ctext, (String *)NULL);
 	tet_infoline("TEST: Initialize display to add resources");
@@ -137,7 +137,7 @@ static	String fallback_res[] = {
 		    "tappstfllb2", "Tappstfllb2", 
 		    (XrmOptionDescRec *)NULL,
 		    (Cardinal) 0, &argcount,
-		    (String *)NULL );
+		    (char **)NULL );
 	tet_infoline("TEST: Get resource database");
 	database = XtDatabase(display);
 	tet_infoline("TEST: Check label resource value is deleted from list");

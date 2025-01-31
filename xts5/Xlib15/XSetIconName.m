@@ -105,7 +105,7 @@ int
 XSetIconName(display, w, icon_name)
 Display	*display = Dsp;
 Window	w = DRW(Dsp);
-char	*icon_name = "XTestUninit";
+const char	*icon_name = "XTestUninit";
 >>EXTERN
 #include	"X11/Xatom.h"
 >>ASSERTION Good A
@@ -131,7 +131,7 @@ Verify that the value was set correctly.
 >>CODE
 Window	win;
 int	count;
-char	*wname = "XTestICNName";
+const char	*wname = "XTestICNName";
 XTextProperty	tp;
 char	**wnameret = NULL;
 XVisualInfo	*vp;

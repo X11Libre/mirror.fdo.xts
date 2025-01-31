@@ -63,18 +63,18 @@ void
 XrmCombineDatabase()
 >>EXTERN
 
-char *src_specifier = "test.Quark:happy";
-char *src_specifier1 = "test1.Quark:happier";
-char *src_specifier2 = "test2.Quark:happiest";
-char *dst_specifier = "test.Quark:sad";
-char *str_name = "test.Quark";
-char *str_name1 = "test1.Quark";
-char *str_name2 = "test2.Quark";
-char *dst_value = "sad";
-char *src_value = "happy";
-char *src_value1 = "happier";
-char *src_value2 = "happiest";
-char *str_class = "";
+const char *src_specifier = "test.Quark:happy";
+const char *src_specifier1 = "test1.Quark:happier";
+const char *src_specifier2 = "test2.Quark:happiest";
+const char *dst_specifier = "test.Quark:sad";
+const char *str_name = "test.Quark";
+const char *str_name1 = "test1.Quark";
+const char *str_name2 = "test2.Quark";
+const char *dst_value = "sad";
+const char *src_value = "happy";
+const char *src_value1 = "happier";
+const char *src_value2 = "happiest";
+const char *str_class = "";
 char *str_type_return;
 XrmValue value_return;
 
@@ -97,7 +97,8 @@ extern int  unexp_err();
 extern char *svc_user_arg;
 extern char *strcpy();
 
-char fmtstr[256], *call_string;
+char fmtstr[256];
+const char *call_string;
 union msglst fmt_lst[1];	
 int skip_pixcheck;
 

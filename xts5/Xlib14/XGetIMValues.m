@@ -113,7 +113,7 @@ unsigned long all_styles = XIMPreeditArea|XIMPreeditCallbacks|XIMPreeditPosition
 char *
 
 XIM im = NULL;
-char *im_name = XNQueryInputStyle;
+const char *im_name = XNQueryInputStyle;
 XIMStyles **pstyle = NULL;
 int end_of_list = 0;
 >>SET startup localestartup

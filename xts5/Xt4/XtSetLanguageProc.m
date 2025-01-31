@@ -142,7 +142,7 @@ int 	status;
 	    "Tstlnggprc1",
 	    (XrmOptionDescRec *)NULL,
 	    (Cardinal)0, &argcount,
-	    (String *)NULL );
+	    (char **)NULL );
 	tet_infoline("TEST: Language procedure was invoked");
 	status = avs_get_event(1);
 	check_dec(1, status, "language procedure invocation count");
@@ -158,7 +158,7 @@ int 	status;
 	    "Tstlnggprc1",
 	    (XrmOptionDescRec *)NULL,
 	    (Cardinal)0, &argcount,
-	    (String *)NULL );
+	    (char **)NULL );
 	tet_infoline("TEST: Language procedure was invoked again");
 	status = avs_get_event(1);
 	check_dec(2, status, "language procedure invocation count");
@@ -201,7 +201,7 @@ int	status;
 	    "Tstlnggprc1",
 	    (XrmOptionDescRec *)NULL,
 	    (Cardinal)0, &argcount,
-	    (String *)NULL );
+	    (char **)NULL );
 	tet_infoline("TEST: Language procedure was invoked");
 	status = avs_get_event(1);
 	check_dec(1, status, "language procedure invocation count");
@@ -221,7 +221,7 @@ int	status;
 	    "Tstlnggprc1",
 	    (XrmOptionDescRec *)NULL,
 	    (Cardinal)0, &argcount,
-	    (String *)NULL );
+	    (char **)NULL );
 	tet_infoline("TEST: Language procedure was invoked again");
 	status = avs_get_event(1);
 	check_dec(2, status, "language procedure invocation count");
@@ -274,7 +274,7 @@ int	status;
 	    "Tstlnggprc1",
 	    (XrmOptionDescRec *)NULL,
 	    (Cardinal)0, &argcount,
-	    (String *)NULL );
+	    (char **)NULL );
 	tet_infoline("TEST: Test procedure was not invoked");
 	status = avs_get_event(1);
 	check_dec(0, status, "language procedure invocation count");
@@ -320,7 +320,7 @@ XtLanguageProc	oldproc, oldproc2;
 	    "Tstlnggprc4",
 	    (XrmOptionDescRec *)NULL,
 	    (Cardinal)0, &argcount,
-	    (String *)NULL );
+	    (char **)NULL );
 	tet_infoline("TEST: Test procedure was not invoked");
 	status = avs_get_event(1);
 	check_dec(0, status, "language procedure invocation count");

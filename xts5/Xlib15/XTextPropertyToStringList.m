@@ -108,10 +108,10 @@ char		***list_return;
 int		*count_return;
 >>EXTERN
 #include	"X11/Xatom.h"
-char		*nullstr = "<NULL>";
-char		*str1 = "Xtest_._.";
-char		*str2 = "test._";
-char		*str3 = "string._..";
+const char	*nullstr = "<NULL>";
+const char	*str1 = "Xtest_._.";
+const char	*str2 = "test._";
+const char	*str3 = "string._..";
 >>ASSERTION Good A
 When the
 .M encoding

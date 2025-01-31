@@ -98,7 +98,7 @@ static String fallback_res[] = {
 		    "tdtbs1", "Tdtbs1",
 		    (XrmOptionDescRec *)NULL,
 		    (Cardinal)0, &argcount,
-		    (String *)NULL );
+		    (char **)NULL );
 	tet_infoline("TEST: Get the resource database");
 	database = XtDatabase(display);
 	tet_infoline("TEST: Check resource values");

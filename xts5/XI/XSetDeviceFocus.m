@@ -229,8 +229,8 @@ Window	windows[6]; /* root + 4 + None stopper */
 Window	root;
 Window	*wp;
 struct buildtree *tree;
-char	*wname;
-char	*evwname;
+const char	*wname;
+const char	*evwname;
 
 	if (!Setup_Extension_DeviceInfo(KeyMask))
 	    {

@@ -68,7 +68,7 @@ True.
 >>CODE
 Boolean status;
 Widget labelw_msg, dialogw;
-char *msg = "Test widget";
+const char *msg = "Test widget";
 
 	avs_xt_hier("Tistrnsnts1", "XtIsTransientShell");
 	tet_infoline("PREP: Create test label widget");

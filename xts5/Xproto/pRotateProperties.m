@@ -126,9 +126,9 @@ xRotatePropertiesReq *req;
 xError *err;
 extern	Atom Test_Atom1;
 extern	Atom Test_Atom2;
-extern	char *Test_prop;
-char *Test_prop1 = "__Test1_prop";
-char *Test_prop2 = "__Test2_prop";
+extern	const char *Test_prop;
+const char *Test_prop1 = "__Test1_prop";
+const char *Test_prop2 = "__Test2_prop";
 
 static
 void

@@ -123,7 +123,7 @@ compare the return value to the current locale.
 >>CODE
 #if XT_X_RELEASE > 4
 char *plocale;
-char *prmlocale;
+const char *prmlocale;
 #endif
 
 #if XT_X_RELEASE > 4

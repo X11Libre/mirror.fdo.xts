@@ -105,7 +105,7 @@ Status
 XParseColor(display, colormap, spec, exact_def_return)
 Display		*display = Dsp;
 Colormap	colormap = DefaultColormap(Dsp, 0);
-char		*spec = config.good_colorname;
+const char	*spec = config.good_colorname;
 XColor		*exact_def_return = &color_ret;
 >>EXTERN
 

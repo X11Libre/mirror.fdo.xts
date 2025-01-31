@@ -96,7 +96,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 XExtensionVersion *
 
 Display	*display = Dsp;
-char *name = "XInputExtension";
+const char *name = "XInputExtension";
 >>EXTERN
 extern ExtDeviceInfo Devs;
 >>ASSERTION Good B 3

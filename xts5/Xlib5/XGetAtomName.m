@@ -109,7 +109,7 @@ Atom atom;
 #include "X11/Xatom.h"
 
 static struct xga_struct {
-	char *name;
+	const char *name;
 	Atom atom;
 } xga_list[] = {
 	{ "PRIMARY", XA_PRIMARY },

@@ -103,7 +103,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 >>TITLE XStringToKeysym Xlib17
 KeySym
 XStringToKeysym(string)
-char	*string;
+const char	*string;
 >>EXTERN
 #define XK_MISCELLANY
 #include "X11/keysymdef.h"
@@ -122,7 +122,7 @@ Obtain the KeySym corresponding to the string \"Escape\" using XStringToKeysym.
 Verify that the returned value is XK_Escape.
 >>CODE
 KeySym	ks;
-char	*tstr = "Escape";
+const char	*tstr = "Escape";
 
 	string = tstr;
 	ks = XCALL;
@@ -142,7 +142,7 @@ Obtain the KeySym matching the string \"XTest_No_Sym\" using XStringToKeysym.
 Verify that the returned value is NoSymbol.
 >>CODE
 KeySym	ks;
-char	*tstr = "XTest_No_Sym";
+const char	*tstr = "XTest_No_Sym";
 
 	string = tstr;
 	ks = XCALL;

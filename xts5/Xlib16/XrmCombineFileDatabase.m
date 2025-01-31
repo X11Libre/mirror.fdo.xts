@@ -68,27 +68,27 @@ XrmCombineFileDatabase()
 /******
  * User defined globals for test
  ******/
-char *src_spec1 = "test.Quark:happy";
-char *src_spec2 = "test1.Quark:happier";
-char *src_spec3 = "test2.Quark:happiest";
-char *dst_spec = "test.Quark:sad";
+const char *src_spec1 = "test.Quark:happy";
+const char *src_spec2 = "test1.Quark:happier";
+const char *src_spec3 = "test2.Quark:happiest";
+const char *dst_spec = "test.Quark:sad";
 
-char *str_name = "test.Quark";
-char *str2_name = "test1.Quark";
-char *str3_name = "test2.Quark";
-char *str_class = "";
+const char *str_name = "test.Quark";
+const char *str2_name = "test1.Quark";
+const char *str3_name = "test2.Quark";
+const char *str_class = "";
 char *str_type_return;
 XrmValue value_return;
 
-char *src_value = "happy";
-char *src2_value = "happier";
-char *src3_value = "happiest";
-char *dst_value = "sad";
+const char *src_value = "happy";
+const char *src2_value = "happier";
+const char *src3_value = "happiest";
+const char *dst_value = "sad";
 
 XrmDatabase gfd_return;
 XrmDatabase dst_database_id;
 
-char	*file_name_good = "xtestinfo.dat";
+const char *file_name_good = "xtestinfo.dat";
 
 char *exec_file_name;
 int x_init, y_init, h_init, w_init;
@@ -101,7 +101,8 @@ extern int  unexp_err();
 extern char *svc_user_arg;
 extern char *strcpy();
 
-char fmtstr[256], *call_string;
+char fmtstr[256];
+const char *call_string;
 union msglst fmt_lst[1];        
 int skip_pixcheck;
 

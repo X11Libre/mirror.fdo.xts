@@ -115,7 +115,7 @@ the
 Call XrmStringToQuark to allocate a quark for a string.
 Call xname to obtain the representation for the quark.
 >>CODE
-char *s="qts_one";
+const char *s="qts_one";
 char *ret;
 
 /* Call XrmStringToQuark to allocate a quark for a string. */

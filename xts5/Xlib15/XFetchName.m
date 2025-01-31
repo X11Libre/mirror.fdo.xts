@@ -129,7 +129,7 @@ Release the allocated name using XFree.
 Status		status;
 Window		win;
 XVisualInfo	*vp;
-char		*wname = "XtestWindowName";
+const char	*wname = "XtestWindowName";
 char		*wnameret;
 
 	resetvinf(VI_WIN);
@@ -190,7 +190,7 @@ Verify that the returned name was set to NULL.
 Status		status;
 Window		win;
 XVisualInfo	*vp;
-char		*name = "XTWindowName";
+const char	*name = "XTWindowName";
 char		*wnameret;
 
 	resetvinf(VI_WIN);
@@ -217,7 +217,7 @@ char		*wnameret;
 
 	win = makewin(display, vp);
 /* format wrong */
-	XChangeProperty(display, win, XA_WM_NAME, XA_STRING, 32, PropModeReplace, (unsigned char *) name, strlen(name));
+	XChangeProperty(display, win, XA_WM_NAME, XA_STRING, 32, PropModeReplace, (const unsigned char *) name, strlen(name));
 	w = win;
 	window_return_name = &wnameret;
 	status = XCALL;

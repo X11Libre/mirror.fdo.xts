@@ -139,13 +139,13 @@ Verify the list may be XFree'd.
 >>CODE
 int loop,loop2;
 int found;
-char *data = "a tested property";
+const char *data = "a tested property";
 Atom *ret;
 
 /* Create a window with properties. */
 	for(loop=0; loop<xlp_nlist; loop++)
 		XChangeProperty(display, w, xlp_list[loop], XA_STRING, 8,
-			PropModeReplace,(unsigned char *)data, strlen(data));
+			PropModeReplace,(const unsigned char *)data, strlen(data));
 
 /* Call xname to obtain the property list for the window. */
 	num_prop = -1;

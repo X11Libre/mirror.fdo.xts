@@ -134,8 +134,8 @@ Obtain the WM_NAME property using XGetTextProperty.
 Verify that the format, encoding and value are correct.
 >>CODE
 Window	win;
-char	*str1 = "Xtest test string1";
-char	*str2 = "Xtest test string2";
+char	str1[] = "Xtest test string1";
+char	str2[] = "Xtest test string2";
 char	*str[2];
 char	**list_return;
 int	count_return;
@@ -233,8 +233,8 @@ Set the WM_NAME property with XSetWMName
 Verify that a BadAtom error occurred.
 >>CODE BadAtom
 Window	win;
-char	*str1 = "Xtest test string1";
-char	*str2 = "Xtest test string2";
+char	str1[] = "Xtest test string1";
+char	str2[] = "Xtest test string2";
 char	*str[2];
 XTextProperty	tp;
 XVisualInfo	*vp;
@@ -287,8 +287,8 @@ Verify that a BadValue error occurs.
 static int bad_ones[] = {0, 1, 7, 15, 31};
 >>CODE BadValue
 Window	win;
-char	*str1 = "Xtest test string1";
-char	*str2 = "Xtest test string2";
+char	str1[] = "Xtest test string1";
+char	str2[] = "Xtest test string2";
 char	*str[2];
 XTextProperty	tp;
 XVisualInfo	*vp;

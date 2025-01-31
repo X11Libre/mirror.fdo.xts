@@ -107,13 +107,13 @@ int
 XDoesBackingStore(screen)
 Screen	*screen = DefaultScreenOfDisplay(Dsp);
 >>EXTERN
-static char	*wm = "WhenMapped";
-static char	*al = "Always";
-static char	*nu = "NotUseful";
-static char	er[9];
+static const char	*wm = "WhenMapped";
+static const char	*al = "Always";
+static const char	*nu = "NotUseful";
+static char		er[9];
 
-static char *bs(mybs)
-int mybs;
+static const char *
+bs(int mybs)
 {
 	switch(mybs) {
 	case WhenMapped :

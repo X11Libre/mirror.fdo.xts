@@ -145,7 +145,7 @@ int	pstatus;
 		(XrmOptionDescRec *)NULL,
 		(Cardinal)0,
 		&argcount,
-		(String *)NULL
+		(char **)NULL
 		);
 	tet_infoline("TEST: widget_good class is applicationShell");
 	status = XtIsApplicationShell(widget_good);
@@ -300,7 +300,7 @@ char    *display_name;
 		(XrmOptionDescRec *)NULL,
 		(Cardinal)0,
 		&argcount,
-		(String *)NULL
+		(char **)NULL
 		);
 	tet_infoline("TEST: Display name is correct");
 	display_good = XtDisplay(widget_good);
@@ -903,7 +903,7 @@ int	pstatus;
 		(XrmOptionDescRec *)NULL,
 		(Cardinal)0,
 		&argcount,
-		(String *)NULL
+		(char **)NULL
 		);
 	tet_infoline("TEST: widget_good class is applicationShell");
 	status = XtIsApplicationShell(widget_good);

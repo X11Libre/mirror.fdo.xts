@@ -103,7 +103,7 @@ Status
 
 Display	*display = Dsp;
 XID 	font_ID;
-char	*string;
+const char	*string;
 int 	nchars;
 int 	*direction_return = &direction;
 int 	*font_ascent_return = &font_ascent;

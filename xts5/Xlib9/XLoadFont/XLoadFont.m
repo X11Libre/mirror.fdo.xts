@@ -101,7 +101,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 Font
 
 Display	*display = Dsp;
-char	*name = "xtfont1";
+const char	*name = "xtfont1";
 >>SET startup fontstartup
 >>SET cleanup fontcleanup
 >>ASSERTION Good A
@@ -156,7 +156,7 @@ to number of required screen.
 >>CODE
 XVisualInfo	*vp;
 Font	font;
-char	*fname = "xtfont1";
+const char	*fname = "xtfont1";
 Drawable d;
 GC	gc;
 
@@ -196,7 +196,7 @@ Verify that font returned using each name draws same string.
 #define TEXTSTRING "AbyZ%~"
 >>CODE
 Font	font;
-static char	*names[] = {
+static const char *names[] = {
 	"xtfont1",
 	"Xtfont1",
 	"XTFONT1",

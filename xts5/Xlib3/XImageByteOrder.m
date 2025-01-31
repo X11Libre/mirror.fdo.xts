@@ -104,14 +104,12 @@ int
 XImageByteOrder(display)
 Display	*display = Dsp;
 >>EXTERN
-static	char	*msbstr = "MSBFirst";
-static	char	*lsbstr = "LSBFirst";
-static	char 	errstr[9];
+static	const char	*msbstr = "MSBFirst";
+static	const char	*lsbstr = "LSBFirst";
+static	char 		errstr[9];
 
-static
-char *
-sorder(order)
-int 	order;
+static const char *
+sorder(int order)
 {
 	switch (order) {
 

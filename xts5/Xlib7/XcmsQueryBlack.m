@@ -117,7 +117,8 @@ XcmsColor            color ;
 /******
  * local storage 
  ******/
-	char fmtstr[256], *call_string;
+	char fmtstr[256];
+	const char *call_string;
 	union msglst fmt_lst[1];        
 
 	int
@@ -155,7 +156,7 @@ XcmsColor            color ;
                                                                   
 	bufrdisp(display); /* buffer display struct info for error checking */
         {
-            char *fmt_string;
+            const char *fmt_string;
             union msglst f_lst[1];
 
             f_lst[0].typ_uns = format ;

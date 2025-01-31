@@ -104,8 +104,8 @@ purpose.  It is provided "as is" without express or implied warranty.
 void
 
 XrmDatabase *database = &xpr_database; 
-char *specifier;
-char *type;
+const char *specifier;
+const char *type;
 XrmValue *value = &xpr_value;
 >>SET startup rmstartup
 >>EXTERN

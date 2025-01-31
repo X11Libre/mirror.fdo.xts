@@ -103,7 +103,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 >>TITLE XrmStringToBindingQuarkList Xlib16
 void
 
-char *string;
+const char *string;
 XrmBindingList bindings_return = (XrmBindingList) xstbql_bret;
 XrmQuarkList quarks_return = (XrmQuarkList) xstbql_qret; 
 >>SET startup rmstartup
@@ -112,7 +112,7 @@ XrmQuarkList quarks_return = (XrmQuarkList) xstbql_qret;
 static XrmBinding xstbql_bret[XSTBQL_MAX_RETURN];
 static XrmQuark xstbql_qret[XSTBQL_MAX_RETURN];
 
-static char *xstbql_s1[]={
+static const char *xstbql_s1[]={
 	"xstbql_test",
 	"einse",
 	"zwei",
@@ -120,7 +120,7 @@ static char *xstbql_s1[]={
 	"vier",
 	"funf",};
 
-static char *xstbql_s1prefix[]={
+static const char *xstbql_s1prefix[]={
 	"*",
 	".",
 	"*",
@@ -130,7 +130,7 @@ static char *xstbql_s1prefix[]={
 
 static int xstbql_ns1=NELEM(xstbql_s1);
 
-static char *xstbql_s2[]={
+static const char *xstbql_s2[]={
 	"xstbql_test2",
 	"Binkleys",
 	"Dads",
@@ -138,7 +138,7 @@ static char *xstbql_s2[]={
 	"Ford",
 	"Pinto"};
 
-static char *xstbql_s2sep[]={
+static const char *xstbql_s2sep[]={
 	"*",
 	".",
 	"*",
@@ -148,14 +148,14 @@ static char *xstbql_s2sep[]={
 
 static int xstbql_ns2=NELEM(xstbql_s2);
 
-static char *xstbql_s4[]={
+static const char *xstbql_s4[]={
 	"xstbql_test2",
 	"hazel",
 	"wal",
 	"coco",
 	"pea"};
 
-static char *xstbql_s4prefix[]={
+static const char *xstbql_s4prefix[]={
 	".",
 	"*",
 	".",
@@ -165,7 +165,7 @@ static char *xstbql_s4prefix[]={
 static int xstbql_ns4=NELEM(xstbql_s4);
 
 
-static char *xstbql_s5[]={
+static const char *xstbql_s5[]={
 	"xstbql_test5.",
 	"Calvin*",
 	"Hobbes",

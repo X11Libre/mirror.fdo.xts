@@ -67,7 +67,7 @@ or is a subclass of the Shell widget class shall return True.
 >>CODE
 Boolean status;
 Widget labelw_msg, dialogw;
-char *msg = "Test widget";
+const char *msg = "Test widget";
 
 	avs_xt_hier("Tisshll1", "XtIsShell");
 	tet_infoline("PREP: Create test label widget");

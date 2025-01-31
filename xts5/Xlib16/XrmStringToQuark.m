@@ -103,7 +103,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 >>TITLE XrmStringToQuark Xlib16
 XrmQuark
 
-char *string;
+const char *string;
 >>SET startup rmstartup
 >>ASSERTION Good A
 A call to xname returns a quark allocated to represent
@@ -113,7 +113,7 @@ Call xname to allocate a quark for a string.
 Call XrmQuarkToString to obtain representation for the quark.
 Verify the quark represents the string.
 >>CODE
-char *s = "stq_one";
+const char *s = "stq_one";
 XrmQuark ret;
 char *rep;
 
@@ -153,7 +153,7 @@ Call xname to allocate a quark for a string.
 Call xname to allocate a quark for the string again.
 Verify that the quarks were the same.
 >>CODE
-char *s = "stq_two";
+const char *s = "stq_two";
 XrmQuark ret1, ret2;
 
 /* Call xname to allocate a quark for a string. */

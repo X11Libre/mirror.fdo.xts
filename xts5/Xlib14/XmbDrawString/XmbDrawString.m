@@ -121,7 +121,7 @@ XFontSet font_set;
 GC		gc;
 int 	x = 4;
 int 	y = 20;
-char	*string="AbCdEfGhIjKlMnOpQrStUv";
+const char	*string="AbCdEfGhIjKlMnOpQrStUv";
 int		length = strlen(string);
 >>SET startup localestartup
 >>SET cleanup localecleanup

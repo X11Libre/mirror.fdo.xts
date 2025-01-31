@@ -67,7 +67,7 @@ to or is a subclass of the WMShell widget class shall return True.
 >>CODE
 Boolean status;
 Widget labelw_msg, dialogw;
-char *msg = "Test widget";
+const char *msg = "Test widget";
 
 	avs_xt_hier("Tiswmshll1", "XtIsWMShell");
 	tet_infoline("PREP: Create test label widget");

@@ -140,7 +140,7 @@ Verify that the value of the text property is correct using XTextPropertyToStrin
 Release the allocated memory using XFree.
 >>CODE
 Window	win;
-char	*str1 = "Xtest Client Machine String";
+char	str1[] = "Xtest Client Machine String";
 char	*str[1];
 char	**list_return;
 int	count_return;
@@ -236,8 +236,8 @@ Set the WM_CLIENT_MACHINE property using XSetWMClientMachine.
 Verify that a BadAtom error occurred.
 >>CODE BadAtom
 Window	win;
-char	*str1 = "Xtest Client Machine string1";
-char	*str2 = "Xtest Client Machine string_2";
+char	str1[] = "Xtest Client Machine string1";
+char	str2[] = "Xtest Client Machine string_2";
 char	*str[2];
 XTextProperty	tp;
 XVisualInfo	*vp;
@@ -290,8 +290,8 @@ Verify that a BadValue error occurs.
 static int bad_ones[] = {0, 1, 7, 15, 31};
 >>CODE BadValue
 Window	win;
-char	*str1 = "Xtest test string1";
-char	*str2 = "Xtest test string2";
+char	str1[] = "Xtest test string1";
+char	str2[] = "Xtest test string2";
 char	*str[2];
 XTextProperty	tp;
 XVisualInfo	*vp;

@@ -136,8 +136,8 @@ Verify that the property values were all set correctly with XGetTextProperty
 >>CODE
 Window	win;
 char	*str[2];
-char	*str1 = "Xtest test string1";
-char	*str2 = "Xtest test string2";
+char	str1[] = "Xtest test string1";
+char	str2[] = "Xtest test string2";
 int	nitems;
 Status	status;
 char	**list_return;
@@ -241,8 +241,8 @@ Verify that a BadValue error occurs each time.
 static int bad_ones[] = {0, 1, 7, 15, 31};
 >>CODE BadValue
 Window	win;
-char	*str1 = "Xtest test string1";
-char	*str2 = "Xtest test string2";
+char	str1[] = "Xtest test string1";
+char	str2[] = "Xtest test string2";
 char	*str[2];
 XTextProperty	tp;
 XVisualInfo	*vp;

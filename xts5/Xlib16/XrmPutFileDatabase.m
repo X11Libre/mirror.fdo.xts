@@ -114,7 +114,7 @@ const char *stored_db = outfile("xpfd_file");
 #include <unistd.h>
 
 #define XPFD_T1_COUNT	4
-static char *t1_data[XPFD_T1_COUNT][3] = {
+static const char *t1_data[XPFD_T1_COUNT][3] = {
 	{ "a.b.c",	"ONE",	"a.b.c" },
 	{ "D.E.F",	"TWO",	"D.E.F"},
 	{ "*Z",	"THREE",	"A.Z"	},

@@ -145,7 +145,7 @@ typedef union ICV {
 } ic_val_def;
 
 typedef struct ICL {
-	char *name;
+	const char *name;
 	int type;
 #define ICV_WINDOW		0
 #define ICV_STYLE		1

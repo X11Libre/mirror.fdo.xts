@@ -126,7 +126,7 @@ extern	Display	*Dsp;
  * Dummy declarations which are normally inserted by mc.
  * Needed to prevent linkstart.c being included.
  */
-char	*TestName = "XDisplayString";
+const char	*TestName = "XDisplayString";
 extern int     tet_thistest;
 struct tet_testlist tet_testlist[] = {
 	{ NULL, 0 }

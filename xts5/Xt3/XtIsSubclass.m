@@ -73,7 +73,7 @@ return True.
 >>CODE
 Boolean status;
 Widget labelw_msg;
-char *msg = "Test widget";
+const char *msg = "Test widget";
 
 	avs_xt_hier("Tissbclass1", "XtIsSubclass");
 	tet_infoline("PREP: Create test label widget in box widget");
@@ -100,7 +100,7 @@ shall return a value other than True.
 >>CODE
 Boolean status;
 Widget labelw_msg;
-char *msg = "Test widget";
+const char *msg = "Test widget";
 
 	avs_xt_hier("Tissbclass2", "XtIsSubclass");
 	tet_infoline("PREP: Create test label widget");

@@ -107,7 +107,7 @@ Display *display = Dsp;
 Window w = defwin(display);
 XContext context = XUniqueContext();
 >>EXTERN
-static char *xdc_data = "a context!";
+static const char *xdc_data = "a context!";
 
 >>ASSERTION Good A
 A call to xname deletes the table entry for previously saved context data

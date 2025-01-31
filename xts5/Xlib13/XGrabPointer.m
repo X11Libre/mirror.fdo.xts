@@ -746,7 +746,7 @@ Window	windows[7]; /* root + 5 above + None stopper */
 Window	root;
 Window	*wp;
 struct buildtree *tree;
-char	*wname;
+const char	*wname;
 
 	if (!noext(1)) {
 
@@ -833,7 +833,7 @@ Window	windows[6]; /* root + 4 above + None stopper */
 Window	root;
 Window	*wp;
 struct buildtree *tree;
-char	*wname;
+const char	*wname;
 
 	if (noext(0))
 		return;

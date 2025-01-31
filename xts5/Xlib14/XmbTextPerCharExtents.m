@@ -109,7 +109,7 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 #define MAX_CHARS	32
 #define MAX_TEST_STR	5
-static char *test_str_list[MAX_TEST_STR] = {
+static const char *test_str_list[MAX_TEST_STR] = {
 	"T",
 	"Te",
 	"Tes",
@@ -121,7 +121,7 @@ static char *test_str_list[MAX_TEST_STR] = {
 Status
 XmbTextPerCharExtents(font_set,pteststr,nbytes,ink_return,logical_return,array_size,pnchars,overall_ink_return,overall_logical_return)
 XFontSet font_set;
-char *pteststr;
+const char *pteststr;
 int nbytes;
 XRectangle *ink_return;
 XRectangle *logical_return;

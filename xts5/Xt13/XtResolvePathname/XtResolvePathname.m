@@ -335,7 +335,7 @@ int PixelPerCM;			/* number of pixels in cms */
 int argcount = 1;
 char *	cfgdisplay;
 char label[128];
-String argvector[] = {"ApTest", NULL};
+char *argvector[] = {"ApTest", NULL};
 XrmDatabase database, database_custom;
 char *contents = "ApTest.customization:CUSTOM";
 

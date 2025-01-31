@@ -157,7 +157,7 @@ pid_t	pid3;
 	topLevel = (Widget) XtInitialize("Tadaction1", "Tadaction1",
 		(XrmOptionDescRec*) NULL,
 		(Cardinal) 0,
-		(int *) &argc, (String*) argv);
+		(int *) &argc, (char **) argv);
 	setPosSize(topLevel);
 	FORK(pid2);
 	tet_infoline("PREP: Set up the XtToolkitError handler");
@@ -239,7 +239,7 @@ pid_t	pid3;
 	topLevel = (Widget) XtInitialize("Tadaction1", "Tadaction1",
 		(XrmOptionDescRec*) NULL,
 		(Cardinal) 0,
-		(int *) &argc, (String*) argv);
+		(int *) &argc, (char **) argv);
 	setPosSize(topLevel);
 	FORK(pid2);
 	tet_infoline("PREP: Set up the XtToolkitError handler");
@@ -326,7 +326,7 @@ pid_t	pid3;
 	topLevel = (Widget) XtInitialize("Tadaction1", "Tadaction1",
 		(XrmOptionDescRec*) NULL,
 		(Cardinal) 0,
-		(int *) &argc, (String*) argv);
+		(int *) &argc, (char **) argv);
 	setPosSize(topLevel);
 	FORK(pid2);
 	tet_infoline("PREP: Set up the XtToolkitError handler");

@@ -81,7 +81,7 @@ Display     *display ;
 	extern int  unexp_err();
 	extern char *strcpy();
 
-        char *ret_status ;
+        const char *ret_status;
 
 	int  ss_status,			/* save stat return status */	
 		stat_status,		/* check stat return status */

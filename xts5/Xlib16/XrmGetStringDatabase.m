@@ -111,7 +111,7 @@ char *data;
 
 #define XGSD_T1_COUNT 23
 
-static char *t1_lines[XGSD_T1_COUNT][5] = {
+static const char *t1_lines[XGSD_T1_COUNT][5] = {
 /* Capital 'T' is transformed to TAB in the prefix and conjunct. */
 /* prefix, resource, conjunt, value, specifier, newvalue */
 {"",	"a.a",	":",	"one",	"a.a"	}, /* Normal Line */
@@ -235,7 +235,7 @@ Compare the return value to the current locale.
 Free test database memory.
 >>CODE
 char *plocale;
-char *prmlocale;
+const char *prmlocale;
 char *ts, *tp;
 int a,b,l;
 XrmDatabase rdb;

@@ -119,8 +119,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 >>EXTERN
 
 static XrmDatabase
-xrm_create_database(data)
-char *data;
+xrm_create_database(const char *data)
 {
 	/* Create a new database for testing with */
 	return(XrmGetStringDatabase(data));
@@ -136,12 +135,12 @@ char *data;
 }
 
 static int
-xrm_check_entry(dbase, fullspec, fullclass, type, val)
-XrmDatabase dbase;
-char *fullspec;
-char *fullclass;
-char *type;
-char *val;
+xrm_check_entry(
+XrmDatabase dbase,
+const char *fullspec,
+const char *fullclass,
+const char *type,
+const char *val)
 {
 	int ret_val;
 	char	*type_ret;
@@ -186,8 +185,7 @@ char *val;
 }
 
 static int
-xrm_tabulate(from, into)
-char *from, *into;
+xrm_tabulate(const char *from, char *into)
 {
 	int i,j;
 

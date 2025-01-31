@@ -109,7 +109,7 @@ void
 XrmDatabase *database = &xpc_db;
 XrmOptionDescList table = xpc_table;
 int table_count = XPC_TESTS;
-char *name = "xtest";
+const char *name = "xtest";
 int *argc_in_out = &xpc_argc;
 char **argv_in_out = xpc_argv;
 >>SET startup rmstartup
@@ -135,7 +135,7 @@ static int xpc_argc;
 static char *xpc_argv[XPC_MAXAVE];
 
 /* Initial database contents */
-static char *xpcdb_init[XPC_TESTS][XPC_MAXDBE][2] = {
+static const char *xpcdb_init[XPC_TESTS][XPC_MAXDBE][2] = {
 	{ {NULL,NULL},	{NULL,NULL} },
 	{ {NULL,NULL},	{NULL,NULL} },
 	{ {NULL,NULL},	{NULL,NULL} },
@@ -150,7 +150,7 @@ static char *xpcdb_init[XPC_TESTS][XPC_MAXDBE][2] = {
 	{ {"xtest.tC","iC"},	{NULL,NULL} } };
 
 /* Expected final database contents. */
-static char *xpcdb_final[XPC_TESTS][XPC_MAXDBE][2] = {
+static const char *xpcdb_final[XPC_TESTS][XPC_MAXDBE][2] = {
 	{ {"xtest.t1","v1"},	{NULL,NULL} },
 	{ {"xtest.t2","bb"},	{NULL,NULL} },
 	{ {"xtest.t3","a3"},	{NULL,NULL} },
@@ -173,7 +173,7 @@ static int xpcac_final[XPC_TESTS] = {
 	1, 1, 1, 1, 1, 3, 4, 4, 1, 1, 2, 2 };
 
 /* Initial argv vector contents */
-static char *xpcav_init[XPC_TESTS][XPC_MAXAVE] = {
+static const char *xpcav_init[XPC_TESTS][XPC_MAXAVE] = {
 	{	"PROGNAME",	"aa",	NULL,	NULL,	NULL,	NULL },
 	{	"PROGNAME",	"bb",	NULL,	NULL,	NULL,	NULL },
 	{	"PROGNAME",	"cca3",	NULL,	NULL,	NULL,	NULL },
@@ -188,7 +188,7 @@ static char *xpcav_init[XPC_TESTS][XPC_MAXAVE] = {
 	{	"PROGNAME",	"LL",	NULL,	NULL,	NULL,	NULL } };
 
 /* Expected argv vector contents */
-static char *xpcav_final[XPC_TESTS][XPC_MAXAVE] = {
+static const char *xpcav_final[XPC_TESTS][XPC_MAXAVE] = {
 	{	"PROGNAME",	NULL,	NULL,	NULL,	NULL,	NULL },
 	{	"PROGNAME",	NULL,	NULL,	NULL,	NULL,	NULL },
 	{	"PROGNAME",	NULL,	NULL,	NULL,	NULL,	NULL },

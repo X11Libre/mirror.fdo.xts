@@ -125,7 +125,7 @@ extern	Display	*Dsp;
  * Dummy declarations which are normally inserted by mc.
  * Needed to prevent linkstart.c being included.
  */
-char	*TestName = "XSetWMProperties";
+const char	*TestName = "XSetWMProperties";
 extern int     tet_thistest;
 struct tet_testlist tet_testlist[] = {
 	{ NULL, 0 }
@@ -138,7 +138,7 @@ int argc;
 char *argv[];
 {
 int		pass = 0, fail = 0;
-char		*res_name = "Test2";
+const char	*res_name = "Test2";
 Window		win;
 XVisualInfo	*vp;
 XClassHint	class_hints;

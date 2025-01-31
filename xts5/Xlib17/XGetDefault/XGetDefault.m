@@ -110,8 +110,8 @@ purpose.  It is provided "as is" without express or implied warranty.
 char *
 XGetDefault(display, program, option)
 Display	*display = Dsp;
-char	*program;
-char	*option;
+const char	*program;
+const char	*option;
 >>MAKE
 AUXFILES=.Xdefaults Test3 Test4 Test5
 AUXCLEAN=Test3 Test4 Test5 Test3.o Test4.o Test5.o .Xdefaults\
@@ -150,7 +150,7 @@ Obtain the value of the XT.OPT resource using XGetDefault.
 Verify that the returned value is \"OPT\".
 >>CODE
 unsigned char 	*pval = (unsigned char *) "VAL*VAl\nXT.LEO:CAL\nXT.OPT:VAL\nXT.Bezoomny:Cal\n";
-char		*valstr;
+const char		*valstr;
 char		*res = (char *) NULL;
 
 	valstr = "VAL";
@@ -192,7 +192,7 @@ Obtain the value of the XT.Cal resource using xname.
 Verify that the call returned NULL.
 >>CODE
 unsigned char 	*pval = (unsigned char *) "XT.LEO:CAL\nXT.OPT:VAL\nXT.Bezoomny:Cal\n";
-char		*nullstr = "<NULL>";
+const char	*nullstr = "<NULL>";
 char		*res = NULL;
 
 

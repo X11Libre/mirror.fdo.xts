@@ -105,7 +105,7 @@ void
 XStoreNamedColor(display, colormap, color, pixel, flags)
 Display *display = Dsp;
 Colormap colormap = DefaultColormap(display, DefaultScreen(display));
-char *color = "";
+const char *color = "";
 unsigned long pixel;
 int flags = DoRed|DoGreen|DoBlue;
 >>EXTERN

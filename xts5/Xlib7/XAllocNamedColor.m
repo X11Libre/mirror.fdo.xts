@@ -105,7 +105,7 @@ Status
 XAllocNamedColor(display, colormap, color_name, screen_def_return, exact_def_return)
 Display *display = Dsp;
 Colormap colormap = DefaultColormap(display, DefaultScreen(display));
-char *color_name = "";
+const char *color_name = "";
 XColor *screen_def_return = &dummycol;
 XColor *exact_def_return = &dummycol;
 >>EXTERN

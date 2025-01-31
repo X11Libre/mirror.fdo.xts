@@ -98,7 +98,7 @@ int argcount = 0;
 		(XrmOptionDescRec *)NULL,
 		(Cardinal) 0,	 /* command line options */
 		&argcount,
-		(String *)NULL	/* command line args */
+		(char **)NULL	/* command line args */
 	);
 	if (display_good == 0) {
 		tet_infoline("ERROR: Cannot open display");
@@ -140,7 +140,7 @@ unsigned long	num_elements;
 long bytes_after;
 unsigned char *property_data;
 int status;
-String argvector[] = { "tvapcrshl2", NULL };
+char *argvector[] = { "tvapcrshl2", NULL };
 Arg args[2] = {
 	{ "XtNwidth", 100 },
 	{ "XtNheight", 100 }
@@ -257,7 +257,7 @@ int argcount = 0;
 		(XrmOptionDescRec *)NULL,
 		(Cardinal) 0,	 /* command line options */
 		&argcount,
-		(String *)NULL	/* command line args */
+		(char **)NULL	/* command line args */
 	 );
 	if (display_good == 0) {
 		tet_infoline("ERROR: Cannot open display");

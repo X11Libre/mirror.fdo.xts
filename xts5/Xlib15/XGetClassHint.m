@@ -200,8 +200,8 @@ Verify that the call returned zero.
 >>CODE
 Status		status;
 XVisualInfo	*vp;
-char		*s1 = "XTestResName";
-char		*s2 = "XTestResClass";
+const char	*s1 = "XTestResName";
+const char	*s2 = "XTestResClass";
 unsigned 	lenname, lenclass;
 char		*hints, *hp;
 XClassHint	chints_ret;

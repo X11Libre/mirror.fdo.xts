@@ -104,7 +104,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 Atom
 
 Display *display = Dsp;
-char *atom_name;
+const char *atom_name;
 Bool only_if_exists;
 >>EXTERN
 /* Need to pick up the XA_RECTANGLE declaration */

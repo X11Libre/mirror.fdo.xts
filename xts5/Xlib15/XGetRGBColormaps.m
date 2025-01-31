@@ -321,7 +321,7 @@ Verify that the count_return argument was not changed.
 
 >>CODE
 Status			status;
-char			*when;
+const char		*when;
 XStandardColormap	*rscmp = (XStandardColormap *) NULL;
 int			rncmp = 0;
 XVisualInfo		*vp;

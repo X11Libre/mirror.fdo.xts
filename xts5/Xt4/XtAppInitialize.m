@@ -68,7 +68,7 @@ All Rights Reserved.
 XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
-char *msg="/tmp/outfile";
+const char *msg="/tmp/outfile";
 char *args11[] = {
 	"-background", "green",
 	"-bd", "green",
@@ -148,7 +148,7 @@ pid_t	pid2;
 		(XrmOptionDescList)NULL,
 		(Cardinal)0,
 		&argcount,
-		(String *)NULL,
+		(char **)NULL,
 		(String *)NULL,
 		(ArgList)NULL,
 		(Cardinal)0
@@ -199,7 +199,7 @@ char line[80], *retval;
 		(XrmOptionDescList)NULL,
 		(Cardinal)0,
 		&argcount,
-		(String *)NULL,
+		(char **)NULL,
 		(String *)NULL,
 		(ArgList)NULL,
 		(Cardinal)0
@@ -314,7 +314,7 @@ pid_t	pid2;
 		(XrmOptionDescList)NULL,
 		(Cardinal)0,
 		&argcount,
-		(String *)NULL,
+		(char **)NULL,
 		(String *)NULL,
 		(ArgList)NULL,
 		(Cardinal)0
@@ -419,7 +419,7 @@ int pstatus;
 		(XrmOptionDescList)NULL,
 		(Cardinal)0,
 		&argcount,
-		(String *)NULL,
+		(char **)NULL,
 		(String *)NULL,
 		(ArgList)NULL,
 		(Cardinal)0
@@ -524,7 +524,7 @@ pid_t	pid2;
 		(XrmOptionDescList)NULL,
 		(Cardinal)0,
 		&argcount,
-		(String *)NULL,
+		(char **)NULL,
 		(String *)NULL,
 		(ArgList)NULL,
 		(Cardinal)0
@@ -557,7 +557,7 @@ it shall put Xlib into synchronous mode for this display connection.
 >>CODE
 Window window;
 int scr;
-static char *property_data = "Hello World";
+static const char *property_data = "Hello World";
 XtAppContext app_ctext_return;
 Display *display;
 int queued_events, events;
@@ -602,7 +602,7 @@ Widget widget_good;
 	XSelectInput(display, window,
 	     (unsigned long)PropertyChangeMask);
 	for (events = 0; events < 3; events++)
-		XChangeProperty(display, window, XA_RESOURCE_MANAGER, XA_STRING, 8,0, (unsigned char *)property_data, 16);
+		XChangeProperty(display, window, XA_RESOURCE_MANAGER, XA_STRING, 8,0, (const unsigned char *)property_data, 16);
 	check_dec(3+queued_events, XQLength(display), "queue length");
 	KROF3(pid2, pstatus, AVSXTTIMEOUT-2);
 	if (avs_get_event(1) != 1) {
@@ -729,7 +729,7 @@ vice versa in the resource database created for the display.
 >>CODE
 Window window;
 int scr;
-static char *property_data = "Hello World";
+static const char *property_data = "Hello World";
 XtAppContext app_ctext;
 Display *display;
 int queued_events, events;

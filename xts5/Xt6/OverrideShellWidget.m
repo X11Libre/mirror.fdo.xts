@@ -620,8 +620,8 @@ OverrideShellRec testStruct;
 	pmyXtOrderProc = &testStruct.composite.insert_position;
 
 	check_size("OverrideShellRec.shell.geometry", "String", sizeof(testStruct.shell.geometry), sizeof(String));
-	myString = testStruct.shell.geometry;
-	pmyString = &testStruct.shell.geometry;
+	pmychar = testStruct.shell.geometry;
+	ppmychar = &testStruct.shell.geometry;
 
 	check_size("OverrideShellRec.shell.create_popup_child_proc", "XtCreatePopupChildProc", sizeof(testStruct.shell.create_popup_child_proc), sizeof(XtCreatePopupChildProc));
 	myXtCreatePopupChildProc = testStruct.shell.create_popup_child_proc;

@@ -133,11 +133,12 @@ Verify that the number and value of the returned strings is correct.
 >>CODE
 XVisualInfo	*vp;
 Status	status;
-char	*nullstr = "<NULL>";
-char	**strpp, *strp;
-char	*str1 = "XTest string 1____";
-char	*str2 = "XTest string 2__";
-char	*str3 = "XTest string 3___";
+const char	*nullstr = "<NULL>";
+char	**strpp;
+const char *strp;
+char	str1[] = "XTest string 1____";
+char	str2[] = "XTest string 2__";
+char	str3[] = "XTest string 3___";
 int	nstrs = 3;
 char	*prop[3];
 char	**rstrings = NULL;
@@ -216,7 +217,7 @@ Obtain the value of the WM_COMMAND property using XGetCommand.
 Verify that the call returned zero.
 >>CODE
 Status		status;
-char		*s = "XTestString1";
+const char	*s = "XTestString1";
 XVisualInfo	*vp;
 char		**rstrings = NULL;
 int		rcount = 0;
@@ -242,7 +243,7 @@ int		rcount = 0;
 	w = makewin(display, vp);
 
 /* format 16 */
-	XChangeProperty(display, w, XA_WM_COMMAND, XA_STRING, 16, PropModeReplace, (unsigned char *) s, strlen(s) );
+	XChangeProperty(display, w, XA_WM_COMMAND, XA_STRING, 16, PropModeReplace, (const unsigned char *) s, strlen(s) );
 
 	status = XCALL;
 
@@ -256,7 +257,7 @@ int		rcount = 0;
 	w = makewin(display, vp);
 
 /* type ATOM */
-	XChangeProperty(display, w, XA_WM_COMMAND, XA_ATOM, 8, PropModeReplace, (unsigned char *) s, strlen(s) );
+	XChangeProperty(display, w, XA_WM_COMMAND, XA_ATOM, 8, PropModeReplace, (const unsigned char *) s, strlen(s) );
 
 	status = XCALL;
 

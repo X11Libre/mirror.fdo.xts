@@ -94,7 +94,7 @@ static	String fallback_res[] = {
 		    "tscrndtbs1", "Tscrndtbs1",
 		    (XrmOptionDescRec *)NULL,
 		    (Cardinal)0, &argcount,
-		    (String *)NULL );
+		    (char **)NULL );
 	tet_infoline("PREP: Create labelw_good widget in boxw1 widget");
 	labelw_good = (Widget) CreateLabelWidget("hello", boxw1);
 	tet_infoline("PREP: Create windows for widgets and map them");

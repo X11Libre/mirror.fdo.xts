@@ -168,7 +168,7 @@ If the locale is valid then the database has not bee destroyed.
 >>CODE
 #if XT_X_RELEASE > 4
 char *plocale;
-char *prmlocale;
+const char *prmlocale;
 XrmDatabase org_db;
 #endif
 

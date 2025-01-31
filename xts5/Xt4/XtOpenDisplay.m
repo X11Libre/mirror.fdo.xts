@@ -144,7 +144,7 @@ int	argcount = 0;
 		(XrmOptionDescRec *)NULL,
 		(Cardinal)0,	 /* command line options */
 		&argcount,
-		(String *)NULL	/* command line args */
+		(char **)NULL	/* command line args */
 	 );
 	if (display_good == 0) {
 		tet_infoline("ERROR: Cannot open display");
@@ -230,7 +230,7 @@ int	argcount = 0;
 		(XrmOptionDescRec *)NULL,
 		(Cardinal)0,	/* command line options */
 		&argcount,
-		(String *)NULL	/* command line args */
+		(char **)NULL	/* command line args */
 	 );
 	if (display_good == 0) {
 		tet_infoline("ERROR: Cannot open display");
@@ -313,7 +313,7 @@ int	argcount = 0;
 		(XrmOptionDescRec *)NULL,
 		(Cardinal)0,	 	/* command line options */
 		&argcount,
-		(String *)NULL		/* command line args */
+		(char **)NULL		/* command line args */
 	 );
 	if (display_good == 0) {
 		tet_infoline("ERROR: Cannot open display");
@@ -354,7 +354,7 @@ int	argcount = 0;
 		(XrmOptionDescRec *)NULL,
 		(Cardinal)0,		/* command line options */
 		&argcount,
-		(String *)NULL		/* command line args */
+		(char **)NULL		/* command line args */
 	 );
 	if (display_good == 0) {
 		tet_infoline("ERROR: Cannot open display");
@@ -397,7 +397,7 @@ int	count = 1;
 		(XrmOptionDescRec *)NULL,
 		(Cardinal)0,		/* command line options */
 		&argc_count,
-		(String *)argv_string	/* command line args */
+		(char **)argv_string	/* command line args */
 	 );
 	if (display_good == 0) {
 		tet_infoline("ERROR: Cannot open display");
@@ -434,7 +434,7 @@ int	argcount = 0;
 		(XrmOptionDescRec *)NULL,
 		(Cardinal)0,		/* command line options */
 		&argcount,
-		(String *)NULL		/* command line args */
+		(char **)NULL		/* command line args */
 	 );
 	if (display_good == 0) {
 		tet_infoline("ERROR: Cannot open display");
@@ -469,7 +469,7 @@ int	argcount = 0;
 		(XrmOptionDescRec *)NULL,
 		(Cardinal)0,	/* command line options */
 		&argcount,
-		(String *)NULL	/* command line args */
+		(char **)NULL	/* command line args */
 	 );
 	tet_infoline("TEST: returns NULL with non-existant display");
 	if (display_good != NULL) {

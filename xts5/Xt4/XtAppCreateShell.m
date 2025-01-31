@@ -98,7 +98,7 @@ pid_t pid2;
 		(XrmOptionDescRec *)NULL,
 		(Cardinal) 0,	 /* command line options */
 		&argcount,
-		(String *)NULL	/* command line args */
+		(char **)NULL	/* command line args */
 	);
 	if (display_good == NULL) {
 		tet_infoline("ERROR: Cannot open display");
@@ -131,7 +131,7 @@ char name[20], class[20];
 XtAppContext app_ctext_good;
 Widget widget_good;
 Widget labelw_msg;
-char *msg = "Property widget";
+const char *msg = "Property widget";
 XTextProperty *text_prop;
 Window window_good;
 int argcount = 0;
@@ -162,7 +162,7 @@ pid_t	pid2;
 		(XrmOptionDescRec *)NULL,
 		(Cardinal)0,		/* command line options */
 		&argcount,
-		(String *)NULL	 /* command line args */
+		(char **)NULL	 /* command line args */
 	);
 	if (display_good == NULL) {
 		tet_infoline("ERROR: Cannot open display");
@@ -228,7 +228,7 @@ pid_t	pid2;
 		(XrmOptionDescRec *)NULL,
 		(Cardinal) 0,	 /* command line options */
 		&argcount,
-		(String *)NULL	/* command line args */
+		(char **)NULL	/* command line args */
 	 );
 	if (display_good == NULL) {
 		tet_infoline("ERROR: Cannot open display");

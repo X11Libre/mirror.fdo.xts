@@ -120,11 +120,11 @@ static int x_hot;
 static int y_hot;
 
 /* Temporary bitmap filename. */
-static char *xrbf_name = "xrbf_temp";
-static char *xrbf_bad_name = "xrbf_nofile";
+static const char *xrbf_name = "xrbf_temp";
+static const char *xrbf_bad_name = "xrbf_nofile";
 
 /* Valid bitmap file without hotspot definition. */
-static char *xrbf_one[] = {
+static const char *xrbf_one[] = {
 	"#define test_width 16",
 	"#define test_height 8",
 	"static char test_bits[] = {",
@@ -134,7 +134,7 @@ static char *xrbf_one[] = {
 static int xrbf_n_one = NELEM(xrbf_one);
 
 /* Valid bitmap file with hotspot definition. */
-static char *xrbf_two[] = {
+static const char *xrbf_two[] = {
 	"#define test_width 16",
 	"#define test_height 8",
 	"#define test_x_hot 5",
@@ -146,14 +146,14 @@ static char *xrbf_two[] = {
 static int xrbf_n_two = NELEM(xrbf_two);
 
 /* Invalid bitmap file. */
-static char *xrbf_three[] = {
+static const char *xrbf_three[] = {
 	"#define not bit map data",
 	"static char data_bits[]={",
 	"};",
 };
 static int xrbf_n_three = NELEM(xrbf_three);
 
-static char *xrbf_verify_array[8]={
+static const char *xrbf_verify_array[8]={
 	"0000000100000000",
 	"1111110001111111",
 	"0010000011100000",
@@ -166,10 +166,10 @@ static char *xrbf_verify_array[8]={
 
 
 static int
-xrbf_create(file, data, elements)
-char *file;
-char **data;
-int elements;
+xrbf_create(
+    const char *file,
+    const char **data,
+    int elements)
 {
 	FILE *fp;
 	int a;
@@ -203,11 +203,11 @@ xrbf_b_end()  {
 }
 
 static int
-xrbf_check(pm, array, w, h)
-Pixmap pm;
-char **array;
-int w;
-int h;
+xrbf_check(
+    Pixmap pm,
+    const char **array,
+    int w,
+    int h)
 {
 	int lh, lw, bad;
 	unsigned long exp;

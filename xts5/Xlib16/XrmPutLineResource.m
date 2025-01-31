@@ -104,14 +104,14 @@ purpose.  It is provided "as is" without express or implied warranty.
 void
 
 XrmDatabase *database = &xplr_database;
-char *line;
+const char *line;
 >>SET startup rmstartup
 >>EXTERN
 static XrmDatabase xplr_database;
 
 #define XPLR_T1_COUNT 23
 
-static char *t1_lines[XPLR_T1_COUNT][5] = {
+static const char *t1_lines[XPLR_T1_COUNT][5] = {
 /* Capital 'T' is transformed to TAB in the prefix and conjunct. */
 /* prefix, resource, conjunt, value, specifier, newvalue */
 {"",	"a.a",	":",	"one",	"a.a"	}, /* Normal Line */

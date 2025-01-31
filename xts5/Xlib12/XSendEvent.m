@@ -1879,7 +1879,7 @@ int	return_value;
 	event_mask = NoEventMask;
 	event = (XAnyEvent *) &event_return;
 	for (i = 0; i < NELEM(event_types) - 1; i++) {
-		char *en = eventname(event_types[i]);
+		const char *en = eventname(event_types[i]);
 
 /* Set type member of event to KeyPress. */
 		event_send->type = event_types[i];

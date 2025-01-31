@@ -104,8 +104,8 @@ purpose.  It is provided "as is" without express or implied warranty.
 Bool
 
 XrmDatabase database = (XrmDatabase)NULL;
-char *str_name;
-char *str_class;
+const char *str_name;
+const char *str_class;
 char **str_type_return = &str_type;
 XrmValue *value_return = &value;
 >>SET startup rmstartup

@@ -94,7 +94,8 @@ extern int  signal_status();
 extern int  unexp_err();
 extern char *strcpy();
 
-char fmtstr[256], *call_string;
+char fmtstr[256];
+const char *call_string;
 union msglst fmt_lst[1];        
 XIM   im_value ;
 XIMStyle which_style;

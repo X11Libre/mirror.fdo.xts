@@ -167,7 +167,7 @@ Obtain the contents of cut buffer 0 using xname.
 Verify that the call returned NULL.
 Verify that the nbytes_return argument was set to zero.
 >>CODE
-char	*tstr = "XTest cut buffer 0 string";
+const char	*tstr = "XTest cut buffer 0 string";
 char	*bp;
 int	br;
 

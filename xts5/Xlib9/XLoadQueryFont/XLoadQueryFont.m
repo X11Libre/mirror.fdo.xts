@@ -101,7 +101,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 XFontStruct *
 
 Display	*display = Dsp;
-char	*name = "xtfont0";
+const char	*name = "xtfont0";
 >>SET startup fontstartup
 >>SET cleanup fontcleanup
 >>ASSERTION Good A

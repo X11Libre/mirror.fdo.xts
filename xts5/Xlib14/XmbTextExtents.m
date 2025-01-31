@@ -108,7 +108,7 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include <ximtest.h>
 
 #define MAX_TEST_STR	4
-static char *test_str_list[MAX_TEST_STR] = {
+static const char *test_str_list[MAX_TEST_STR] = {
 	"T",
 	"Te",
 	"Tes",
@@ -119,7 +119,7 @@ static char *test_str_list[MAX_TEST_STR] = {
 int
 XmbTextExtents(font_set,pteststr,nbytes,overall_ink,overall_logical)
 XFontSet font_set;
-char *pteststr;
+const char *pteststr;
 int nbytes;
 XRectangle *overall_ink;
 XRectangle *overall_logical;

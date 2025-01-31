@@ -115,9 +115,9 @@ Obtain the strings from the XTextPropertyStructure using XTextPropertyToStringli
 Release the memory allocated in the call to XGetCommand.
 Release the memory allocated in the call to XTextPropertyToStringList.
 >>CODE
-char		*str1 = "TestString1";
-char		*str2 = "TestString2";
-char		*str3 = "TestString3";
+char		str1[] = "TestString1";
+char		str2[] = "TestString2";
+char		str3[] = "TestString3";
 int		argc = 3;
 char		*argv[3];
 int		rargc;

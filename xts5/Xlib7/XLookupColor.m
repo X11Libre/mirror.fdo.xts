@@ -105,7 +105,7 @@ Status
 LookupColor(display, colormap, color_name, exact_def_return, screen_def_return)
 Display *display = Dsp;
 Colormap colormap = DefaultColormap(display, DefaultScreen(display));
-char *color_name = "";
+const char *color_name = "";
 XColor *exact_def_return = &dummycol;
 XColor *screen_def_return = &dummycol;
 >>EXTERN

@@ -122,7 +122,7 @@ static unsigned long bglist[] = {
 XVisualInfo	*vp;
 #ifdef NEED_STIPPLE
 Pixmap	stip;
-char	*stipbit = "\0";
+const char	*stipbit = "\0";
 #endif
 long	bgind;
 unsigned long	bg;
@@ -218,7 +218,7 @@ XVisualInfo	*vp;
 XImage	*imp;
 #ifdef NEED_STIPPLE
 Pixmap	stip;
-char	*stipbit = "\0\0\0\0";
+const char	*stipbit = "\0\0\0\0";
 #endif
 unsigned long	pix;
 int 	found;

@@ -196,7 +196,7 @@ Window			w1;
 Window			w2;
 XEvent			ev;
 struct area		area;
-char			*unexpstr = "Unexpected event on a child window.";
+const char		*unexpstr = "Unexpected event on a child window.";
 
 	if (noext(1))
 		return;

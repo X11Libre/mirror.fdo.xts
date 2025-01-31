@@ -79,7 +79,7 @@ XcmsColorFormat format_good[] = { XcmsCIEXYZFormat, XcmsCIExyYFormat,
                                  XcmsCIELabFormat, XcmsCIELuvFormat,
                                  XcmsRGBFormat, XcmsRGBiFormat, } ;
 
-char *prefix[] = { "ciexyz", "ciexyy", "cieuvy", "tekhvc", "cielab", "cieluv", "rgb" , "rgbi", } ;
+const char *prefix[] = { "ciexyz", "ciexyy", "cieuvy", "tekhvc", "cielab", "cieluv", "rgb" , "rgbi", } ;
 
 /******
  * generated globals
@@ -117,7 +117,8 @@ XcmsColorFormat      format ;
 /******
  * local storage 
  ******/
-	char fmtstr[256], *call_string;
+	char fmtstr[256];
+	const char *call_string;
 	union msglst fmt_lst[1];        
 
 	int

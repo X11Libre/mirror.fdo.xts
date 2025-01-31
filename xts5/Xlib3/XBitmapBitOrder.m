@@ -104,14 +104,13 @@ int
 XBitmapBitOrder(display)
 Display	*display = Dsp;
 >>EXTERN
-static	char	*msbstr = "MSBFirst";
-static	char	*lsbstr = "LSBFirst";
+static	const char	*msbstr = "MSBFirst";
+static	const char	*lsbstr = "LSBFirst";
 static	char 	errstr[9];
 
 static
-char *
-sorder(order)
-int 	order;
+const char *
+sorder(int order)
 {
 	switch (order) {
 

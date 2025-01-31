@@ -149,7 +149,7 @@ int argcount = 0;
 	    "Tdsplyintl1",
 	    (XrmOptionDescRec *)NULL,
 	    (Cardinal)0, &argcount,
-	    (String *)NULL );
+	    (char **)NULL );
 	XtAppSetErrorMsgHandler(app_ctext, xt_handler);
 	tet_infoline("TEST: Get the application name and class");
 	XtGetApplicationNameAndClass(display_good, &name_good,

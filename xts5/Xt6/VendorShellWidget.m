@@ -633,8 +633,8 @@ VendorShellRec testStruct;
 	pmyXtOrderProc = &testStruct.composite.insert_position;
 
 	check_size("VendorShellRec.shell.geometry", "String", sizeof(testStruct.shell.geometry), sizeof(String));
-	myString = testStruct.shell.geometry;
-	pmyString = &testStruct.shell.geometry;
+	pmychar = testStruct.shell.geometry;
+	ppmychar = &testStruct.shell.geometry;
 
 	check_size("VendorShellRec.shell.create_popup_child_proc", "XtCreatePopupChildProc", sizeof(testStruct.shell.create_popup_child_proc), sizeof(XtCreatePopupChildProc));
 	myXtCreatePopupChildProc = testStruct.shell.create_popup_child_proc;
@@ -680,8 +680,8 @@ VendorShellRec testStruct;
 	pmyVisual = testStruct.shell.visual;
 
 	check_size("VendorShellRec.wm.title", "String", sizeof(testStruct.wm.title), sizeof(String));
-	myString = testStruct.wm.title;
-	pmyString = &testStruct.wm.title;
+	pmychar = testStruct.wm.title;
+	ppmychar = &testStruct.wm.title;
 
 	check_size("VendorShellRec.wm.wm_timeout", "int", sizeof(testStruct.wm.wm_timeout), sizeof(int));
 	myint = testStruct.wm.wm_timeout;

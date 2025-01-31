@@ -73,7 +73,7 @@ Status
 XAllocNamedColor(display, colormap, color_name, screen_def_return, exact_def_return)
 Display *display = Dsp;
 Colormap colormap = DefaultColormap(display, DefaultScreen(display));
-char *color_name = "";
+const char *color_name = "";
 XColor *screen_def_return = &dummycol;
 XColor *exact_def_return = &dummycol;
 >>EXTERN
@@ -81,12 +81,12 @@ XColor *exact_def_return = &dummycol;
 
 XColor dummycol;
 
-static char *convertname(s)
-char *s;
+static char *
+convertname(const char *s)
 {
 	char *res;
 	char *rp;
-	char *cp = s;
+	const char *cp = s;
 	int  len = strlen(s);
 
 	if(s == NULL)
@@ -158,7 +158,7 @@ Status		status;
 XColor 		exactcol, screencol;
 XColor 		exactcol2, screencol2;
 unsigned long 	vmask;
-static char	*p[5][2] = 
+static const char	*p[5][2] =
 	{{ "gray", "grey"},
 	 { "dark gray", "dark grey"},
 	 { "dark slate gray", "dark slate grey"},
@@ -325,12 +325,12 @@ For each supported visual:
     Free the allocated colourmap cell using XFreeColors.
 >>EXTERN
 static int
-compare(col1, col2, name1, name2, eflag)
-XColor	*col1;
-XColor	*col2;
-char	*name1;
-char	*name2;
-int	eflag;
+compare(
+    const XColor	*col1,
+    const XColor	*col2,
+    const char	*name1,
+    const char	*name2,
+    int	eflag)
 {
 
 	if((col2->red == col1->red) &&
@@ -354,7 +354,7 @@ Status		status;
 int		i, j;
 unsigned long	vmask;
 XVisualInfo	*vp;
-static char	*list[43] = {
+static const char	*list[43] = {
 				"gray",
 				"dark gray",
 				"dark slate gray",
@@ -398,7 +398,7 @@ static char	*list[43] = {
 				"violet",
 				"blue violet",
 				"wheat"};
-static char	*list2[5] = {
+static const char	*list2[5] = {
 				"grey",
 				"dark grey",
 				"dark slate grey",
@@ -570,7 +570,7 @@ Status		status;
 XColor 		exactcol, screencol;
 XColor 		exactcol2, screencol2;
 unsigned long 	vmask;
-static char		*list[] = {
+static const char		*list[] = {
 			"black",
 			"white",
 			"blue",
@@ -711,7 +711,7 @@ Status		status;
 XVisualInfo	*vp;
 XColor		exactcol;
 unsigned long	vmask;
-static char	*list[] = { "black", "white" };
+static const char	*list[] = { "black", "white" };
 
 	if( (vmask = visualsupported(display, 0L)) == 0L) {
 		delete("No visuals reported as valid.");
@@ -775,7 +775,7 @@ Status		status;
 XVisualInfo	*vp;
 XColor		exactcol;
 unsigned long 	vmask;
-static char	*list[] = { "gray", "grey", "dark gray", "dark grey" };
+static const char	*list[] = { "gray", "grey", "dark gray", "dark grey" };
 
 
 	if( (vmask = visualsupported(display, 1L<<GrayScale)) != 0L) {
@@ -860,7 +860,7 @@ unsigned long	vmask = (1L<<PseudoColor|1L<<StaticColor|1L<<TrueColor|1L<<DirectC
 Status		status;
 XVisualInfo	*vp;
 XColor		exactcol;
-static char	*list[] = { "blue", "cyan", "green", "magenta", "red", "yellow" };
+static const char	*list[] = { "blue", "cyan", "green", "magenta", "red", "yellow" };
 
 
 
@@ -953,12 +953,12 @@ int		supported = 0;
 int		unsupported = 0;
 Status		status;
 XColor		exactcol;
-static char *MVX[] = {	"gray", "grey", "dark gray","dark grey","dark blue","brown","dark cyan","dark green","dark magenta",
+static const char *MVX[] = {	"gray", "grey", "dark gray","dark grey","dark blue","brown","dark cyan","dark green","dark magenta",
 			"dark red","medium blue","midnight blue","navy blue","sky blue","coral","gold","dark slate gray",
 			"dark slate grey","dim gray","dim grey","light gray","light grey", "light green", "forest green",
 			"lime green","pale green","spring green","maroon","orange","pink","indian red","orange red",
 			"violet red","salmon","sienna","tan","turquoise","violet","blue violet","wheat" };
-static char *CMV[] = {	"blue","cyan","green","magenta","red","yellow","gray","grey","dark gray","dark grey",
+static const char *CMV[] = {	"blue","cyan","green","magenta","red","yellow","gray","grey","dark gray","dark grey",
 			"dark blue","brown","dark cyan","dark green","dark magenta","dark red"};
 
 	if( (vmask = visualsupported(display, 0L)) == 0L) {

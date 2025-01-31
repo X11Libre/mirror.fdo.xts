@@ -215,11 +215,11 @@ Verify that the returned information was correct.
 >>CODE
 int ret;
 unsigned char cbuf[5];
-char *data = "a tested property";
+const char *data = "a tested property";
 
 /* Create a window with a property. */
 	XChangeProperty(display, w, property, XA_STRING, 8,
-		PropModeReplace,(unsigned char *)data, strlen(data));
+		PropModeReplace,(const unsigned char *)data, strlen(data));
 
 /* Call xname to obtain the property information. */
 	set_vars();
@@ -371,12 +371,12 @@ For delete_prop of True and False:
 >>CODE
 int mode;
 int ret;
-char *data = "a tested property";
+const char *data = "a tested property";
 XEvent ev;
 
 /* Create a window with a property and PropertyChangeMask events selected. */
 	XChangeProperty(display, w, property, XA_STRING, 8,
-		PropModeReplace,(unsigned char *)data, strlen(data));
+		PropModeReplace,(const unsigned char *)data, strlen(data));
 	XSync(display,True);
 	XSelectInput(display, w, PropertyChangeMask);
 
@@ -485,14 +485,14 @@ For req_type is the required type and AnyPropertyType:
 >>CODE
 int ret;
 int mode;
-char *cdata = "a tested property";
+const char *cdata = "a tested property";
 >># Note that this _must_ be an array of longs, even if longs are 64 bit
 unsigned long idata[4];
 XEvent ev;
 
 /* Create a window with testable properties. */
 	XChangeProperty(display, w, XA_COPYRIGHT, XA_STRING, 8,
-		PropModeReplace, (unsigned char *)cdata, strlen(cdata));
+		PropModeReplace, (const unsigned char *)cdata, strlen(cdata));
 
 	for( ret=0; ret<4; ret++ )
 		idata[ret] = ret;
@@ -675,14 +675,14 @@ For req_type is the required type and AnyPropertyType:
 >>CODE
 int ret;
 int mode;
-char *cdata = "a tested property";
+const char *cdata = "a tested property";
 >># Note that this _must_ be an array of longs, even if longs are 64 bit
 unsigned long idata[4];
 XEvent ev;
 
 /* Create a window with testable properties. */
 	XChangeProperty(display, w, XA_COPYRIGHT, XA_STRING, 8,
-		PropModeReplace, (unsigned char *)cdata, strlen(cdata));
+		PropModeReplace, (const unsigned char *)cdata, strlen(cdata));
 
 	for( ret=0; ret<4; ret++ )
 		idata[ret] = ret;
@@ -840,7 +840,7 @@ For req_type is the required type and AnyPropertyType:
 >>CODE
 int mode;
 int ret;
-char *data="a tested property";
+const char *data="a tested property";
 XEvent ev;
 
 /* Create a window with PropertyChangeMask events selected. */
@@ -851,7 +851,7 @@ XEvent ev;
 
 /* 	Create a property on the window. */
 		XChangeProperty(display, w, XA_COPYRIGHT, XA_STRING, 8,
-			PropModeReplace, (unsigned char *)data, strlen(data));
+			PropModeReplace, (const unsigned char *)data, strlen(data));
 		XSync(display,True);
 
 /* 	Call xname to obtain the property information, */
@@ -938,11 +938,11 @@ Call xname to obtain property information.
 Verify that prop_return contained an ASCII NULL.
 >>CODE
 int ret;
-char *data = "a tested property";
+const char *data = "a tested property";
 
 /* Create a window with a property. */
 	XChangeProperty(display, w, property, XA_STRING, 8, PropModeReplace,
-			(unsigned char *)data, strlen(data));
+			(const unsigned char *)data, strlen(data));
 
 /* Call xname to obtain property information. */
 	set_vars();
@@ -998,11 +998,11 @@ Create a window with a property and PropertyChangeMask events selected.
 Call xname with a long_offset beyond the property end.
 Verify that a BadValue error occurred.
 >>CODE BadValue
-char *data = "a tested property";
+const char *data = "a tested property";
 
 /* Create a window with a property and PropertyChangeMask events selected. */
 	XChangeProperty(display, w, property, XA_STRING, 8,
-		PropModeReplace,(unsigned char *)data, strlen(data));
+		PropModeReplace,(const unsigned char *)data, strlen(data));
 
 	seterrdef();
 

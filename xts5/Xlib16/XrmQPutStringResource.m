@@ -103,7 +103,7 @@ void
 XrmDatabase *database = &xqpsr_database;
 XrmBindingList bindings = xqpsr_bindings;
 XrmQuarkList quarks = xqpsr_quarks;
-char *value;
+const char *value;
 >>SET startup rmstartup
 >>EXTERN
 static XrmDatabase xqpsr_database;

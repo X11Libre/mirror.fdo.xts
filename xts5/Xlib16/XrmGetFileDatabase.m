@@ -103,7 +103,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 >>TITLE XrmGetFileDatabase Xlib16
 XrmDatabase
 
-char *filename;
+const char *filename;
 >>SET startup rmstartup
 >>INCLUDE rescommon.mc
 >>EXTERN
@@ -116,7 +116,7 @@ char *filename;
 
 #define XGFD_T1_COUNT 23
 
-static char *t1_lines[XGFD_T1_COUNT][5] = {
+static const char *t1_lines[XGFD_T1_COUNT][5] = {
 /* Capital 'T' is transformed to TAB in the prefix and conjunct. */
 /* prefix, resource, conjunt, value, specifier */
 {"",	"a.a",	":",	"one",	"a.a"	}, /* Normal Line */
@@ -255,7 +255,7 @@ Compare the return value to the current locale.
 Free test database memory.
 >>CODE
 char *plocale;
-char *prmlocale;
+const char *prmlocale;
 FILE *f;
 int	a,b;
 char tbuf[256], *tptr;

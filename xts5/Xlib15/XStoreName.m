@@ -105,7 +105,7 @@ void
 XStoreName(display, w, window_name)
 Display	*display = Dsp;
 Window	w = DRW(Dsp);
-char	*window_name = "XTestDummyName";
+const char	*window_name = "XTestDummyName";
 >>EXTERN
 #include	"X11/Xatom.h"
 >>ASSERTION Good A
@@ -129,7 +129,7 @@ Verify that the two names are identical.
 >>CODE
 Window	win;
 int	count;
-char	*wname = "XTestWMName";
+const char	*wname = "XTestWMName";
 XTextProperty	tp;
 char	**wnameret = NULL;
 XVisualInfo	*vp;

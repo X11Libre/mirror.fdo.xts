@@ -186,7 +186,7 @@ Display	*display = Dsp;
 	} else \
 		CHECK;
 
-char	*cmode[2] = { 	" for a client with a closedown mode of RetainPermanent",
+const char *cmode[2] = { 	" for a client with a closedown mode of RetainPermanent",
 			" for a client with a closedown mode of RetainTemporary" };
 
 int	closemodes[2] = { RetainPermanent, RetainTemporary };
@@ -409,7 +409,7 @@ int	waittime = -1;
 Atom	at;
 Window	win;
 Display	*client2;
-char	*atname = "XT_TEST_Atom";
+const char	*atname = "XT_TEST_Atom";
 static int t006p_pass = 0;
 static void
 t006p()
@@ -1017,7 +1017,7 @@ Pixmap		pm;
 Colormap	cmap;
 Cursor		curse;
 GC		gc;
-char		*fontname = "xtfont1";
+const char	*fontname = "xtfont1";
 
 	/* 
 	 * Only really need to set up test font path if a later test purpose
@@ -1117,7 +1117,7 @@ Colormap	cm[2];
 Cursor		curse[2];
 GC		gc[2];
 int		i;
-char		*fontname = "xtfont1";
+const char	*fontname = "xtfont1";
 
 	/* 
 	 * Only really need to set up test font path if a later test purpose
@@ -1610,7 +1610,7 @@ Window	parent;
 Window	dummy;
 Window	*children;
 Window	base;
-char	*modestr[2];
+const char	*modestr[2];
 unsigned int 	nchild;
 int 	i, j, k;
 struct	buildtree *cli1btp;
@@ -1783,7 +1783,7 @@ Pixmap		pm;
 Colormap	cmap;
 Cursor		curse;
 GC		gc;
-char		*fontname = "xtfont1";
+const char	*fontname = "xtfont1";
 
 	/* 
 	 * Need to set up test font path - when test purposes are all

@@ -110,7 +110,7 @@ caddr_t *data_return = &xfc_data;
 >>EXTERN
 static caddr_t xfc_data;
 
-static char *xfc_ctxt = "another context";
+static const char *xfc_ctxt = "another context";
 >>ASSERTION Good A
 A call to xname returns the context data
 for display 

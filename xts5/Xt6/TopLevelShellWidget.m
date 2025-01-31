@@ -507,8 +507,8 @@ fields listed in section 6.1.2 of the Specification.
 TopLevelShellPart testStruct;
 
 	check_size("TopLevelShellClassPart.icon_name", "String", sizeof(testStruct.icon_name), sizeof(String));
-	myString = testStruct.icon_name;
-	pmyString = &testStruct.icon_name;
+	pmychar = testStruct.icon_name;
+	ppmychar = &testStruct.icon_name;
 
 	check_size("TopLevelShellClassPart.iconic", "Boolean", sizeof(testStruct.iconic), sizeof(Boolean));
 	myBoolean = testStruct.iconic;
@@ -650,8 +650,8 @@ TopLevelShellRec testStruct;
 	pmyXtOrderProc = &testStruct.composite.insert_position;
 
 	check_size("TopLevelShellRec.shell.geometry", "String", sizeof(testStruct.shell.geometry), sizeof(String));
-	myString = testStruct.shell.geometry;
-	pmyString = &testStruct.shell.geometry;
+	pmychar = testStruct.shell.geometry;
+	ppmychar = &testStruct.shell.geometry;
 
 	check_size("TopLevelShellRec.shell.create_popup_child_proc", "XtCreatePopupChildProc", sizeof(testStruct.shell.create_popup_child_proc), sizeof(XtCreatePopupChildProc));
 	myXtCreatePopupChildProc = testStruct.shell.create_popup_child_proc;
@@ -697,8 +697,8 @@ TopLevelShellRec testStruct;
 	pmyVisual = testStruct.shell.visual;
 
 	check_size("TopLevelShellRec.wm.title", "String", sizeof(testStruct.wm.title), sizeof(String));
-	myString = testStruct.wm.title;
-	pmyString = &testStruct.wm.title;
+	pmychar = testStruct.wm.title;
+	ppmychar = &testStruct.wm.title;
 
 	check_size("TopLevelShellRec.wm.wm_timeout", "int", sizeof(testStruct.wm.wm_timeout), sizeof(int));
 	myint = testStruct.wm.wm_timeout;
@@ -807,8 +807,8 @@ TopLevelShellRec testStruct;
 	pmyint = &testStruct.vendor.vendor_specific;
 
 	check_size("TopLevelShellRec.topLevel.icon_name", "String", sizeof(testStruct.topLevel.icon_name), sizeof(String));
-	myString = testStruct.topLevel.icon_name;
-	pmyString = &testStruct.topLevel.icon_name;
+	pmychar = testStruct.topLevel.icon_name;
+	ppmychar = &testStruct.topLevel.icon_name;
 
 	check_size("TopLevelShellRec.topLevel.iconic", "Boolean", sizeof(testStruct.topLevel.iconic), sizeof(Boolean));
 	myBoolean = testStruct.topLevel.iconic;

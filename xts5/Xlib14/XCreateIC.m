@@ -111,13 +111,13 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 XIC
 
 XIM im;
-char *ic_win = XNClientWindow;
+const char *ic_win = XNClientWindow;
 Window win;
-char *ic_style = XNInputStyle;
+const char *ic_style = XNInputStyle;
 XIMStyle which_style;
-char *ic_preedit = XNPreeditAttributes;
+const char *ic_preedit = XNPreeditAttributes;
 XVaNestedList preedit_list;
-char *ic_status = XNStatusAttributes;
+const char *ic_status = XNStatusAttributes;
 XVaNestedList status_list;
 int end_list = 0;
 >>SET startup localestartup
@@ -132,7 +132,7 @@ to the input method server
 >>STRATEGY
 
 >>EXTERN
-static char *style_name[] = {
+static const char *style_name[] = {
 	"Preedit Area",
 	"Preedit Callbacks",
 	"Preedit Position",

@@ -66,7 +66,7 @@ XrmPermStringToQuark()
  * User defined globals for test
  ******/
 
-char *repr_name_good = "testQuark";
+const char *repr_name_good = "testQuark";
                                 
 char *exec_file_name;
 int x_init,

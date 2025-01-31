@@ -86,11 +86,11 @@ static XWMHints wmhints = {
 
 XWMHints *wm_hints = &wmhints ;
               
-char *window_name_good = "window" ;
+const char *window_name_good = "window" ;
 
-char *icon_name_good = "icon" ;
+const char *icon_name_good = "icon" ;
  
-static char *argv_good[]={
+static const char *argv_good[]={
 			"CommandName",
 			"This",
 			"is", 

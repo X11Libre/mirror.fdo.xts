@@ -1965,7 +1965,7 @@ XEventClass noextensioneventclass, cdnc, dmnc, dsnc;
 	event_list = &noextensioneventclass;
 	event = (XAnyEvent *) &event_return;
 	for (i = 0; i < nevent; i++) {
-		char *en = eventname(event_types[i]);
+		const char *en = eventname(event_types[i]);
 
 /* Set type member of event to KeyPress. */
 		event_send->type = event_types[i];

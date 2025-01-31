@@ -137,8 +137,8 @@ Verify that the encoding, format, value and nitems fields of the returned struct
 Release the allocated memory using XFree.
 >>CODE
 Window	win;
-char	*str1 = "Xtest test string1";
-char	*str2 = "Xtest test string2";
+char	str1[] = "Xtest test string1";
+char	str2[] = "Xtest test string2";
 char	*str[2];
 Status	status;
 char	**list_return;

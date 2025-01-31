@@ -69,11 +69,11 @@ void
 XrmEnumerateDatabase()
 >>EXTERN
 
-char	*file_name_good = "xtestinfo.dat";
+const char	*file_name_good = "xtestinfo.dat";
 XrmDatabase	database_id_good = NULL;
 XrmDatabase gfd_return, gfd_return2;
 
-char		*contents_name_good = "test.Quark:happy\n";
+const char	*contents_name_good = "test.Quark:happy\n";
 XrmNameList 	quark_name;
 
 char *exec_file_name;

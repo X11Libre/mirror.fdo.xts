@@ -154,8 +154,8 @@ Obtain the binding for the keycode with modifiers using XLookupString.
 Verify that the keysym is correctly bound to the string modstring.
 >>CODE
 XKeyEvent	ev;
-char	*astring = "Bound String";
-char	*modstring = "String to bind to modified key";
+const char	*astring = "Bound String";
+const char	*modstring = "String to bind to modified key";
 static char	rstring[MAXRES] = "UninitializedBoundString."; 
 KeySym	ksr;
 KeySym	modlist[5];

@@ -212,7 +212,7 @@ For each cut buffer 0..7:
    Verify that the nbytes_return argument was set to zero.
 >>CODE
 char	*rbp;
-char	*tstr = "XTest Multi buffer string";
+const char	*tstr = "XTest Multi buffer string";
 int	len = 1 + strlen(tstr);
 int	nr;
 int 	i;

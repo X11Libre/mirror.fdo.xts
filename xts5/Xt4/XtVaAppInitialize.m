@@ -154,7 +154,7 @@ pid_t	pid2;
 		(XrmOptionDescList)NULL,
 		(Cardinal)0,
 		&argcount,
-		(String *)NULL,
+		(char **)NULL,
 		(String *)NULL,
 		(char *)NULL
 	);
@@ -205,7 +205,7 @@ char line[80], *retval;
 		(XrmOptionDescList)NULL,
 		(Cardinal)0,
 		&argcount,
-		(String *)NULL,
+		(char **)NULL,
 		(String *)NULL,
 		(char *)NULL
 	);
@@ -318,7 +318,7 @@ pid_t	pid2;
 		(XrmOptionDescList)NULL,
 		(Cardinal)0,
 		&argcount,
-		(String *)NULL,
+		(char **)NULL,
 		(String *)NULL,
 		(char *)NULL
 	);
@@ -421,7 +421,7 @@ int pstatus;
 		(XrmOptionDescList)NULL,
 		(Cardinal)0,
 		&argcount,
-		(String *)NULL,
+		(char **)NULL,
 		(String *)NULL,
 		(char *)NULL
 	);

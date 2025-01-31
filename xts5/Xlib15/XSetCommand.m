@@ -146,8 +146,8 @@ Verify that the number and value of the returned strings is correct.
 Release the allocated memory using XFreeStringList.
 >>CODE
 XVisualInfo	*vp;
-char	*str1 = "XTest string 1";
-char	*str2 = "XTest string 2";
+char	str1[] = "XTest string 1";
+char	str2[] = "XTest string 2";
 char	*prop[2];
 XTextProperty	rtp;
 char	**list_return;

@@ -107,13 +107,13 @@ XrmQuarkList quarks_return = (XrmQuarkList)xstql_ret;
 #define XSTQL_MAX_RETURN 10
 static XrmQuark xstql_ret[XSTQL_MAX_RETURN];
 
-static char *xstql_s1[]={
+static const char *xstql_s1[]={
 	"xstql_test",
 	"ena",
 	"deo",
 	"tria"};
 
-static char *xstql_s1sep[]={
+static const char *xstql_s1sep[]={
 	".",
 	".",
 	".",
@@ -121,14 +121,14 @@ static char *xstql_s1sep[]={
 
 static int xstql_ns1=NELEM(xstql_s1);
 
-static char *xstql_s2[]={
+static const char *xstql_s2[]={
 	"XStql_test",
 	"une",
 	"deux",
 	"trois",
 	"erm",
 	"five"};
-static char *xstql_s2sep[]={
+static const char *xstql_s2sep[]={
 	"*",
 	".",
 	"*",
@@ -137,7 +137,7 @@ static char *xstql_s2sep[]={
 	""};
 static int xstql_ns2=NELEM(xstql_s2);
 
-static char *xstql_s3[]={
+static const char *xstql_s3[]={
 	"XStqL_test.",
 	"jack.",
 	"and.",

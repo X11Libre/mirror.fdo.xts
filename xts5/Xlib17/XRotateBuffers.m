@@ -190,7 +190,7 @@ Delete the property CUT_BUFFER4 from screen 0 of the display using XDeleteProper
 Rotate the buffers by 1 using xname.
 Verify that a BadMatch error occurred.
 >>CODE BadMatch
-char	*tstr = "XTest Multi buffer string";
+const char *tstr = "XTest Multi buffer string";
 int	len = 1 + strlen(tstr);
 int 	i;
 

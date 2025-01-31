@@ -129,7 +129,7 @@ Verify that the returned name is that which was set.
 Realease the allocated memory using XFree.
 >>CODE
 Window	win;
-char	*iconname = "Xtest Icon Name";
+const char	*iconname = "Xtest Icon Name";
 char	*iconnameret;
 Status	status;
 XVisualInfo	*vp;
@@ -192,7 +192,7 @@ Verify that the returned name was set to NULL.
 
 >>CODE
 char	*iconnameret = "XTestUninit";
-char	*name = "XTestIconName";
+const char	*name = "XTestIconName";
 Status	status;
 XVisualInfo	*vp;
 

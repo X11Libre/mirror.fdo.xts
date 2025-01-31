@@ -175,8 +175,8 @@ Obtain the WM_NAME property using XGetTextProperty.
 Verify that the format, encoding and value are correct.
 >>CODE
 Window	win;
-char	*str1 = "Xtest test string1";
-char	*str2 = "Xtest test string2";
+char	str1[] = "Xtest test string1";
+char	str2[] = "Xtest test string2";
 char	*str[2];
 char	**list_return;
 int	count_return;
@@ -281,8 +281,8 @@ Verify that the propery value was correct.
 Free allocated property with XFree.
 >>CODE
 Window	win;
-char	*str1 = "Xtest test string1";
-char	*str2 = "Xtest test string2";
+char	str1[] = "Xtest test string1";
+char	str2[] = "Xtest test string2";
 char	*str[2];
 char	**list_return;
 int	count_return;
@@ -379,8 +379,8 @@ Verify that the number and value of the returned strings is correct.
 Release the allocated memory using XFreeStringList.
 >>CODE
 XVisualInfo	*vp;
-char	*str1 = "XTest string 1";
-char	*str2 = "XTest string 2";
+char	str1[] = "XTest string 1";
+char	str2[] = "XTest string 2";
 char	*prop[2];
 XTextProperty	rtp;
 char	**list_return;

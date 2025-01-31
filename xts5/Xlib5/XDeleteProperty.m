@@ -126,13 +126,13 @@ Call xname to delete the property.
 Verify that a good PropertyNotify event occurred.
 Verify that the window property was deleted.
 >>CODE
-char *data="a tested property";
+const char *data="a tested property";
 int num = 0;
 XEvent ev;
 
 /* Create a window with a property and  PropertyChangeMask events selected.  */
 	XChangeProperty(display, w, property, XA_STRING, 8,
-		PropModeReplace,(unsigned char *)data, strlen(data));
+		PropModeReplace,(const unsigned char *)data, strlen(data));
 	XSync(display, True);
         XSelectInput(display, w, PropertyChangeMask);
 
@@ -196,13 +196,13 @@ Call xname to delete a non-existant property.
 Verify that no PropertyNotify events occurred.
 Verify that the window property was not deleted.
 >>CODE
-char *data="a tested property";
+const char *data="a tested property";
 int num = 0;
 XEvent ev;
 
 /* Create a window with a property and PropertyChangeMask events selected.  */
 	XChangeProperty(display, w, XA_NOTICE, XA_STRING, 8,
-		PropModeReplace,(unsigned char *)data, strlen(data));
+		PropModeReplace,(const unsigned char *)data, strlen(data));
 	XSync(display, True);
         XSelectInput(display, w, PropertyChangeMask);
 

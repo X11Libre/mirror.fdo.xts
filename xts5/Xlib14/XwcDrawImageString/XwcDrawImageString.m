@@ -124,7 +124,7 @@ int 	y = 20;
 wchar_t *wstring = wstr;
 int		length;
 >>EXTERN
-static char *str = "A bCdElMnO";
+static const char *str = "A bCdElMnO";
 static wchar_t wstr[128];
 >>SET startup localestartup
 >>SET cleanup localecleanup

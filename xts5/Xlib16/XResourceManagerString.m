@@ -116,17 +116,17 @@ property on the root window of screen zero at the time
 was opened.
 >>STRATEGY
 >>CODE
-char	*pval1 = "XTest.test.resource:value";
-char	*pval2 = "XTest.changed.resource:value";
+const char	*pval1 = "XTest.test.resource:value";
+const char	*pval2 = "XTest.changed.resource:value";
 char	*res;
 
 	tet_infoline("PREP: Set the value of the RESOURCE_MANAGER property to \"XTest.test.resource:value\" using XChangeProperty.");
-	XChangeProperty (Dsp, RootWindow(Dsp, 0), XA_RESOURCE_MANAGER, XA_STRING, 8, PropModeReplace, (unsigned char *)pval1, 1+strlen(pval1));
+	XChangeProperty (Dsp, RootWindow(Dsp, 0), XA_RESOURCE_MANAGER, XA_STRING, 8, PropModeReplace, (const unsigned char *)pval1, 1+strlen(pval1));
 	XSync(Dsp, False);
 	tet_infoline("PREP: Open display using XOpenDisplay.");
 	display = opendisplay();
 	tet_infoline("PREP: Set the value of the RESOURCE_MANAGER property to \"XTest.changed.resource:value\" using XChangeProperty.");
-	XChangeProperty (display, RootWindow(display, 0), XA_RESOURCE_MANAGER, XA_STRING, 8, PropModeReplace, (unsigned char *)pval2, 1+strlen(pval2));
+	XChangeProperty (display, RootWindow(display, 0), XA_RESOURCE_MANAGER, XA_STRING, 8, PropModeReplace, (const unsigned char *)pval2, 1+strlen(pval2));
 
 	tet_infoline("PREP: Obtain the value of the RESOURCE_MANAGER property at the time display was opened using xname.");
 	res = XCALL;

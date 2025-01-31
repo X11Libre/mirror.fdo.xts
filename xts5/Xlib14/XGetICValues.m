@@ -133,7 +133,7 @@ typedef union ICV {
 } ic_val_def;
 
 typedef struct ICL {
-	char *name;
+	const char *name;
 	int type;
 #define ICV_WINDOW		0
 #define ICV_STYLE		1
@@ -161,7 +161,7 @@ ic_val_def *ic_val;
 int endlist = 0;
 >>EXTERN
 
-static char *pe_names[] = {
+static const char *pe_names[] = {
     "N/A",
     "Area",
     "Callbacks",
@@ -196,7 +196,7 @@ static char *pe_names[] = {
     "None/Nothing/Position/Callbacks/Area",
 };
 
-static char *st_names[] = {
+static const char *st_names[] = {
     "N/A",
     "Area",
     "Callbacks",

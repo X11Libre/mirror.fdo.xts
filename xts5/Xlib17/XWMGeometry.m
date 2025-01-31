@@ -105,8 +105,8 @@ int
 XWMGeometry(display, screen, user_geom, def_geom, bwidth, hints, x_return, y_return, width_return, height_return, gravity_return);
 Display		*display = Dsp;
 int		screen = DefaultScreen(Dsp);
-char		*user_geom = NULL;
-char		*def_geom = NULL;
+const char	*user_geom = NULL;
+const char	*def_geom = NULL;
 unsigned int	bwidth = 1;
 XSizeHints	*hints = &size_hints;
 int		*x_return = &dint;

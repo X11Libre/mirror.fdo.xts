@@ -105,7 +105,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 >>EXTERN
 
 #define	XGR_T1_DATA	13
-static char *t1_data[XGR_T1_DATA][3] = {
+static const char *t1_data[XGR_T1_DATA][3] = {
 /* Specifier, type, value */
 	{	"a.b.c",	"String",	"one"	},
 	{	"a.z",	"String",	"two"	},
@@ -122,7 +122,7 @@ static char *t1_data[XGR_T1_DATA][3] = {
 	{	"*g*z",	"String",	"thriteen"	} };
 
 #define	XGR_T1_TEST	8
-static char *t1_test[XGR_T1_TEST][5] = {
+static const char *t1_test[XGR_T1_TEST][5] = {
 /* Full Name, Full Class, Expected Type, Expected Value, Failure message */
 	{	"a.b.c",	"I.J.K",	"String",	"one", "Simple match failed" },
 	{	"a.z",	"I.K",	"String",	"two", "period not more specific than asterisk" },
@@ -134,7 +134,7 @@ static char *t1_test[XGR_T1_TEST][5] = {
 	{	"d.z",	"I.J",	"String",	"nine",	"absent prefix not identical to a period"} };
 
 #define XGR_T2_TEST 3
-static char *t2_test[XGR_T2_TEST][3] = {
+static const char *t2_test[XGR_T2_TEST][3] = {
 	{ "a.b", "A.B", "Name and class didn't match an entry" },
 	{ "A.B", "a,b", "Name and class didn't match an entry" },
 	{ "q",	"Q",	"Non-existant database entry matched." } };

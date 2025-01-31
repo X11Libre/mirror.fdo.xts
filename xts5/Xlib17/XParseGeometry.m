@@ -100,7 +100,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 >>TITLE XParseGeometry Xlib17
 int
 XParseGeometry(parsestring, x_return, y_return, width_return, height_return)
-char	*parsestring;
+const char	*parsestring;
 int	*x_return;
 int	*y_return;
 >># Documentation says 'int' for the width and height.  Changed to unsigned
@@ -141,7 +141,7 @@ For geometry strings covering each case of interest
 >>CODE
 #define	DEFV	123
 static struct	list {
-	char	*pstr;	/* Parse string */
+	const char	*pstr;	/* Parse string */
 	int 	flags;	/* returned flags */
 	int 	x;
 	int 	y;

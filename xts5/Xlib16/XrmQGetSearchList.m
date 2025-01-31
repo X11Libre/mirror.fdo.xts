@@ -117,12 +117,12 @@ static	XrmName	nl[XQGSL_N_QUARK];
 static	XrmClass	cl[XQGSL_N_QUARK];
 
 #define XQGSL_T3_ENTRIES 2
-static char *t3_data[XQGSL_T3_ENTRIES] = {
+static const char *t3_data[XQGSL_T3_ENTRIES] = {
 	"a:one",
 	"b:two" };
 
 #define XQGSL_T4_ENTRIES 10
-static char *t4_data[XQGSL_T4_ENTRIES] = {
+static const char *t4_data[XQGSL_T4_ENTRIES] = {
 	"a*z:one",
 	"a.b*z:two",
 	"a.b.c*z:three",

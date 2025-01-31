@@ -508,8 +508,8 @@ section 6.1.2 of the Specification.
 ShellPart testStruct;
 
 	check_size("ShellPart.geometry", "String", sizeof(testStruct.geometry), sizeof(String));
-	myString = testStruct.geometry;
-	pmyString = &testStruct.geometry;
+	pmychar = testStruct.geometry;
+	ppmychar = &testStruct.geometry;
 
 	check_size("ShellPart.create_popup_child_proc", "XtCreatePopupChildProc", sizeof(testStruct.create_popup_child_proc), sizeof(XtCreatePopupChildProc));
 	myXtCreatePopupChildProc = testStruct.create_popup_child_proc;
@@ -682,8 +682,8 @@ ShellRec testStruct;
 	pmyXtOrderProc = &testStruct.composite.insert_position;
 
 	check_size("ShellRec.shell.geometry", "String", sizeof(testStruct.shell.geometry), sizeof(String));
-	myString = testStruct.shell.geometry;
-	pmyString = &testStruct.shell.geometry;
+	pmychar = testStruct.shell.geometry;
+	ppmychar = &testStruct.shell.geometry;
 
 	check_size("ShellRec.shell.create_popup_child_proc", "XtCreatePopupChildProc", sizeof(testStruct.shell.create_popup_child_proc), sizeof(XtCreatePopupChildProc));
 	myXtCreatePopupChildProc = testStruct.shell.create_popup_child_proc;

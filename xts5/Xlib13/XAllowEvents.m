@@ -1178,7 +1178,7 @@ int bothset()
 
 	if (!ispfrozen(display)) {
 		delete("Could not freeze pointer");
-		return;
+		return -1;
 	}
 	/*
 	 * Can't check for the keyboard being frozen here since that requires

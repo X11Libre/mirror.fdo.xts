@@ -522,8 +522,10 @@ Bool set_one_col(refp, s, flags, mask)
 			return False;
 		}
 		color = cp1;
-		/* The following may generate a warning about the return; */
+/* The following avoids an error about return without a value in generated code */
+#define return return False
 		XCALL;
+#undef return
 	}
 	color = save_col;
 	XQueryColors(display, colormap, color, ncolors);

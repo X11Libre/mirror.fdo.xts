@@ -203,12 +203,12 @@ static Bool dgrabbed(dev, win)
 /* Create client1, without causing resource registration. */
 	if (config.display == NULL) {
 		delete("config.display not set");
-		return;
+		return -1;
 	}
 	client1 = XOpenDisplay(config.display);
 	if (client1 == NULL) {
 		delete("Couldn't create client1.");
-		return;
+		return -1;
 	}
 
 	ret = XGrabDevice (client1, dev, win, False, 0, NULL, GrabModeAsync, GrabModeAsync, CurrentTime);

@@ -704,8 +704,10 @@ Bool set_one_col(refp, s, flags, mask)
 			return False;
 		}
 	}
-	/* The following may give a warning about the return; */
+/* The following avoids an error about return without a value in generated code */
+#define return return False
 	XCALL;
+#undef return
 	XQueryColors(display, colormap, color, ncolors);
 	for(i=0,cp1=color,lrefp=refp; i < ncolors; i++, lrefp++, cp1++) {
 		*lrefp = (flags==DoRed) ? cp1->red :

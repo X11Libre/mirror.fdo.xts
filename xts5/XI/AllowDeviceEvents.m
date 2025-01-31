@@ -125,7 +125,7 @@ grabstartup()
 {
 
 	if (Dsp==NULL)
-		return;
+		return(0);
 
 	if (!Setup_Extension_DeviceInfo(BtnMask))
 	    {

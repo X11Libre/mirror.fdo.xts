@@ -254,7 +254,10 @@ int mode;
 	}
 
 /* Call xname to parse the argc,argv pair. */
+/* The following avoids an error about return without a value in generated code */
+#define return return 0
 	XCALL;
+#undef return
 
 /* Verify that argc was updated as expected. */
 	if (xpc_argc != xpcac_final[n]) {

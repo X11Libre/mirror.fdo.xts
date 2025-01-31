@@ -195,7 +195,7 @@ static Bool dgrabbed(dev, win)
 
 	if ((client1 = opendisplay()) == 0) {
 		delete("Could not open display");
-		return;
+		return -1;
 	}
 
 	ret = XGrabDevice (client1, dev, win, False, 0, NULL, GrabModeAsync, GrabModeAsync, CurrentTime);

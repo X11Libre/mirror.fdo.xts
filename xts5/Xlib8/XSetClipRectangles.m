@@ -151,7 +151,7 @@ int		pass = 0, fail = 0;
 	startcall(Dsp);
 
 	if (isdeleted()) {
-		return;
+		return 0;
 	}
 	XSetClipRectangles(display, gc, clip_x_origin, clip_y_origin, rectangles, n, ordering);
 
@@ -209,7 +209,7 @@ int		pass = 0, fail = 0;
 	startcall(Dsp);
 
 	if (isdeleted()) {
-		return;
+		return 0;
 	}
 	XSetClipRectangles(display, gc, clip_x_origin, clip_y_origin, rectangles, n, ordering);
 
@@ -267,7 +267,7 @@ int		pass = 0, fail = 0;
 	startcall(Dsp);
 
 	if (isdeleted()) {
-		return;
+		return 0;
 	}
 	XSetClipRectangles(display, gc, clip_x_origin, clip_y_origin, rectangles, n, ordering);
 

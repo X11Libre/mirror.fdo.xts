@@ -110,6 +110,7 @@ SOFTWARE.
 */
 
 
+#ifndef _XawForm_h
 
 #define XtNdefaultDistance "defaultDistance"
 #ifndef XtNtop
@@ -162,6 +163,9 @@ typedef enum {
 #define XtChainLeft XawChainLeft
 #define XtChainRight XawChainRight
 #define XtRubber XawRubber
+
+#endif /* _XawForm_h */
+
 
 typedef struct _avsForm2ClassRec	*avsForm2WidgetClass;
 typedef struct _avsForm2Rec		*avsForm2Widget;

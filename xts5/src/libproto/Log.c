@@ -1,5 +1,6 @@
 /*
 Copyright (c) 2005 X.Org Foundation L.L.C.
+Copyright (c) 2025, Oracle and/or its affiliates.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -130,9 +131,11 @@ SOFTWARE.
 #include <config.h>
 #endif
 
+#include <stdarg.h>
+#include <stdio.h>
+
 #include "xtestlib.h"
 #include "XstlibInt.h"
-#include "stdlib.h"
 #include "tet_api.h"
 
 extern char *TestName;
@@ -144,78 +147,115 @@ extern char *TestName;
  */
 
 void
-Log_Open () {
+Log_Open (void) {
     /*
      * In the T7 test suite, this function really opened a log file.
      */
 }
 
-
-/*VARARGS1*/
-void Log_Err (a, b, c, d, e, f, g, h, i, j, k)
-char   *a, *b, *c, *d, *e, *f, *g, *h, *i, *j, *k;
+static void _X_ATTRIBUTE_PRINTF(2, 0)
+Log_To_Tet(void (*tet_call)(const char *fmt, ...), const char *fmt, va_list args)
 {
+    char buf[1024];
+
+    vsnprintf(buf, sizeof(buf), fmt, args);
+    tet_call("%s", buf);
+}
+
+void Log_Err (const char *fmt, ...)
+{
+    va_list args;
+
     ++Xst_error_count;
-    Log_Msg (a, b, c, d, e, f, g, h, i, j, k);
-}
 
-/*VARARGS1*/
-void Log_Err_Detail (a, b, c, d, e, f, g, h, i, j, k)
-char   *a, *b, *c, *d, *e, *f, *g, *h, *i, *j, *k;
-{
-    Log_Trace (a, b, c, d, e, f, g, h, i, j, k);
-}
-
-/*VARARGS1*/
-void Log_Msg (a, b, c, d, e, f, g, h, i, j, k)
-char   *a, *b, *c, *d, *e, *f, *g, *h, *i, *j, *k;
-{
+    va_start(args, fmt);
     /* Use the TET reporting mechanism developed in the revised test suite */
-    report(a, b, c, d, e, f, g, h, i, j, k);
+    Log_To_Tet(report, fmt, args);
+    va_end(args);
+
+}
+
+void Log_Err_Detail (const char *fmt, ...)
+{
+    va_list args;
+
+    va_start(args, fmt);
+    /* Use the TET reporting mechanism developed in the revised test suite */
+    Log_To_Tet(trace, fmt, args);
+    va_end(args);
+}
+
+void Log_Msg (const char *fmt, ...)
+{
+    va_list args;
+
+    va_start(args, fmt);
+    /* Use the TET reporting mechanism developed in the revised test suite */
+    Log_To_Tet(report, fmt, args);
+    va_end(args);
 }
 
 
-
-/*VARARGS1*/
-void Log_Trace (a, b, c, d, e, f, g, h, i, j, k)
-char   *a, *b, *c, *d, *e, *f, *g, *h, *i, *j, *k;
+void Log_Trace (const char *fmt, ...)
 {
+    va_list args;
+
+    va_start(args, fmt);
     /* Use the TET reporting mechanism developed in the revised test suite */
-    trace(a, b, c, d, e, f, g, h, i, j, k);
+    Log_To_Tet(trace, fmt, args);
+    va_end(args);
 }
 
-/*VARARGS1*/
-void Log_Del (a, b, c, d, e, f, g, h, i, j, k)
-char   *a, *b, *c, *d, *e, *f, *g, *h, *i, *j, *k;
+void Log_Del (const char *fmt, ...)
 {
-    /* Use the TET reporting mechanism developed in the revised test suite */
+    va_list args;
+
     /* ++Xst_delete_count; @* incremented in the xproto delete() */
-    delete(a, b, c, d, e, f, g, h, i, j, k);
+    va_start(args, fmt);
+    /* Use the TET reporting mechanism developed in the revised test suite */
+    Log_To_Tet(delete, fmt, args);
+    va_end(args);
 }
 
-/*VARARGS1*/
-void Log_Debug (a, b, c, d, e, f, g, h, i, j, k)
-char   *a, *b, *c, *d, *e, *f, *g, *h, *i, *j, *k;
+static void _X_ATTRIBUTE_PRINTF(2, 0)
+Debug_To_Tet(int level, const char *fmt, va_list args)
 {
-    /* Use the TET reporting mechanism developed in the revised test suite */
-    debug(1, a, b, c, d, e, f, g, h, i, j, k);
+    char buf[1024];
+
+    vsnprintf(buf, sizeof(buf), fmt, args);
+    debug(level, "%s", buf);
 }
 
-/*VARARGS1*/
-void Log_Debug2 (a, b, c, d, e, f, g, h, i, j, k)
-char   *a, *b, *c, *d, *e, *f, *g, *h, *i, *j, *k;
+void Log_Debug (const char *fmt, ...)
 {
+    va_list args;
+
+    va_start(args, fmt);
     /* Use the TET reporting mechanism developed in the revised test suite */
-    debug(2, a, b, c, d, e, f, g, h, i, j, k);
+    Debug_To_Tet(1, fmt, args);
+    va_end(args);
 }
 
-/*VARARGS1*/
-void Log_Debug3 (a, b, c, d, e, f, g, h, i, j, k)
-char   *a, *b, *c, *d, *e, *f, *g, *h, *i, *j, *k;
+void Log_Debug2 (const char *fmt, ...)
 {
+    va_list args;
+
+    va_start(args, fmt);
     /* Use the TET reporting mechanism developed in the revised test suite */
-    debug(3, a, b, c, d, e, f, g, h, i, j, k);
+    Debug_To_Tet(2, fmt, args);
+    va_end(args);
 }
+
+void Log_Debug3 (const char *fmt, ...)
+{
+    va_list args;
+
+    va_start(args, fmt);
+    /* Use the TET reporting mechanism developed in the revised test suite */
+    Debug_To_Tet(3, fmt, args);
+    va_end(args);
+}
+
 
 /* support for trimming debug output if debuglevel is less than 3 */
 
@@ -226,14 +266,12 @@ static int some_counter = 0;
 #define THRESHOLD_FOR_ALL 4
 
 void
-Reset_Some()
+Reset_Some(void)
 {
     some_counter = 0;
 }
 
-/*VARARGS1*/
-void Log_Some (a, b, c, d, e, f, g, h, i, j, k)
-char   *a, *b, *c, *d, *e, *f, *g, *h, *i, *j, *k;
+void Log_Some (const char *fmt, ...)
 {
     /* Use the TET reporting mechanism developed in the revised test suite */
     if (++some_counter > SOME_LIMIT && getdblev() < THRESHOLD_FOR_ALL) {
@@ -243,12 +281,18 @@ char   *a, *b, *c, *d, *e, *f, *g, *h, *i, *j, *k;
 	} else {
 	    return;
 	}
-    } else
-	debug(2, a, b, c, d, e, f, g, h, i, j, k);
+    } else {
+	va_list args;
+
+	va_start(args, fmt);
+	/* Use the TET reporting mechanism developed in the revised test suite */
+	Debug_To_Tet(2, fmt, args);
+	va_end(args);
+    }
 }
 
 int
-Log_Close () 
+Log_Close (void)
 {
 
     /* 

@@ -332,7 +332,7 @@ XstOpenDisplay (register const char *display, int bytesex, int needswap, int cl)
 	xVisualType * vp;
     } u;
     long    setuplength;	/* number of bytes in setup message */
-    void    (*complain)();
+    void    (*complain)(const char *, ...) _X_ATTRIBUTE_PRINTF(1, 2);
     char *auth_proto;
     int auth_length;
     char *auth_string;

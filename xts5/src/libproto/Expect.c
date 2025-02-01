@@ -306,7 +306,7 @@ int     type;     /* request type */
     unsigned long   extra;
     long so_far;
     int needswap = Xst_clients[client].cl_swap;
-    void (*Log_Rtn)();
+    void (*Log_Rtn)(const char *, ...) _X_ATTRIBUTE_PRINTF(1, 2);
 
     /* use if-else rather than ?: to init. Log_Rtn to avoid Sequent cc bug */
     if (Get_Test_Type(client)==SETUP)

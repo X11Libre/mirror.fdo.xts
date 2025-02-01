@@ -162,6 +162,7 @@ SOFTWARE.
 #include <X11/extensions/XInput.h>
 #endif
 #include <X11/X.h>
+#include <X11/Xfuncproto.h>
 
 /*
  *	The client structure (Xst_clients) is visible to
@@ -409,27 +410,18 @@ void	Expect_BadLength(int client);
 void	Expect_BadValue(int client);
 int	Get_Timer();
 XID	Get_Resource_Id();
-int	Log_Close();
-void	Reset_Some();
-/*VARARGS1*/
-void	Log_Debug();
-/*VARARGS1*/
-void	Log_Debug2();
-/*VARARGS1*/
-void	Log_Debug3();
-/*VARARGS1*/
-void	Log_Some();
-/*VARARGS1*/
-void	Log_Err();
-/*VARARGS1*/
-void	Log_Del();
-/*VARARGS1*/
-void	Log_Err_Detail();
-/*VARARGS1*/
-void	Log_Msg();
-void	Log_Open();
-/*VARARGS1*/
-void	Log_Trace();
+int	Log_Close(void);
+void	Reset_Some(void);
+void	Log_Debug(const char *fmt, ...) _X_ATTRIBUTE_PRINTF(1, 2);
+void	Log_Debug2(const char *fmt, ...) _X_ATTRIBUTE_PRINTF(1, 2);
+void	Log_Debug3(const char *fmt, ...) _X_ATTRIBUTE_PRINTF(1, 2);
+void	Log_Some(const char *fmt, ...) _X_ATTRIBUTE_PRINTF(1, 2);
+void	Log_Err(const char *fmt, ...) _X_ATTRIBUTE_PRINTF(1, 2);
+void	Log_Del(const char *fmt, ...) _X_ATTRIBUTE_PRINTF(1, 2);
+void	Log_Err_Detail(const char *fmt, ...) _X_ATTRIBUTE_PRINTF(1, 2);
+void	Log_Msg(const char *fmt, ...) _X_ATTRIBUTE_PRINTF(1, 2);
+void	Log_Open(void);
+void	Log_Trace(const char *fmt, ...) _X_ATTRIBUTE_PRINTF(1, 2);
 xReq	*Make_Req();
 xReq	*Clear_Counted_Value();
 xReq	*Add_Counted_Value();

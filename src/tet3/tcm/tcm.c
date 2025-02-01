@@ -90,7 +90,6 @@ extern "C" {
 #include "sigsafe.h"
 
 extern int	tet_tcm_main PROTOLIST((int, char **));
-extern void	tet_dtcmerror PROTOLIST((int, const char *, int, const char *, const char *));
 
 TET_EXPORT const char *tet_pname = "<unknown>";
 TET_EXPORT int tet_thistest = 0;

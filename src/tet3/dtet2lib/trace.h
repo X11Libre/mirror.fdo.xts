@@ -51,5 +51,6 @@ struct stype {
 };
 
 
-extern void tet_tfopen(), tet_tftrace();
+extern void tet_tfopen(void);
+extern void tet_tftrace(void);
 

@@ -308,7 +308,7 @@ int value;
 **	tet_tftrace() - print trace flag information
 */
 
-void tet_tftrace()
+void tet_tftrace(void)
 {
 	register struct tflags *tp;
 	char name[2];
@@ -368,7 +368,7 @@ TET_IMPORT void tet_trace(const char *s1, const char *s2, const char *s3,
 **	tet_tfopen() - open the trace file
 */
 
-void tet_tfopen()
+void tet_tfopen(void)
 {
 	register char *p;
 	register int fd;

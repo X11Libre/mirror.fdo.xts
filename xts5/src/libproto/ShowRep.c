@@ -184,7 +184,7 @@ long bytes_given;
 		BPRINTF2("\tcolormap = %ld\n",((xGetWindowAttributesReply *)mp)->colormap);
 		BPRINTF2("\tallEventMasks = 0x%08x\n",((xGetWindowAttributesReply *)mp)->allEventMasks);
 		BPRINTF2("\tyourEventMask = 0x%08x\n",((xGetWindowAttributesReply *)mp)->yourEventMask);
-		BPRINTF2("\tdoNotPropagateMask = 0x08x\n",((xGetWindowAttributesReply *)mp)->doNotPropagateMask);
+		BPRINTF2("\tdoNotPropagateMask = 0x%08x\n",((xGetWindowAttributesReply *)mp)->doNotPropagateMask);
 		break;
 	case X_GetGeometry:
 		BPRINTF1("GetGeometry:\n");

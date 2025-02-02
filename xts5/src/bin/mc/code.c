@@ -535,8 +535,8 @@ static	int 	oncethrough;
  * by included tests that need to reference arguments of various
  * types.
  */
-int
-defargnames()
+void
+defargnames(void)
 {
 int 	i;
 int 	atom = 0;
@@ -951,8 +951,8 @@ char	*buf;
 
 }
 
-int
-funcstart()
+void
+funcstart(void)
 {
 
 	fprintf(FpCode, "%svoid t%03d(void){\n\n", (dflag)?"" : "static ",  State.assertion);
@@ -960,8 +960,8 @@ funcstart()
 	Resyncline = 1;
 }
 
-int
-funcend()
+void
+funcend(void)
 {
 	if (NeedTpcleanup && Settings.endfunc)
 		fprintf(FpCode, "\t%s();\n", Settings.endfunc);
@@ -980,10 +980,10 @@ funcend()
 	fprintf(FpCode, "}\n\n");
 }
 
-int
-doxcall(fp, buf)
-FILE	*fp;
-char	*buf;
+void
+doxcall(
+    FILE	*fp,
+    char	*buf)
 {
 char	prefix[PRELEN];
 register char	*pp;

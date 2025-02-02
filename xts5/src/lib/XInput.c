@@ -652,8 +652,8 @@ static int
 handle_x_errors (
     Display     *disp,
     XErrorEvent *err)
-    {
-    if (err->request_code == XInputMajorOpcode)
+{
+    if (err->request_code == XInputMajorOpcode) {
 	if (err->minor_code == X_GetFeedbackControl &&
 	    err->error_code == BadMatch)
 	    {
@@ -680,4 +680,6 @@ handle_x_errors (
 	    baddev = testdev;
 	    }
     }
+    return(0);
+}
 #endif

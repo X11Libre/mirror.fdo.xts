@@ -369,7 +369,7 @@ extern	int 	Outputon;
 /*
  * Push back a line of input.
  */
-int
+void
 putbackline(line)
 char	*line;
 {
@@ -444,7 +444,7 @@ char	*np;
 /*
  * Print out an error message with preceeding line and file information.
  */
-int
+void
 err(const char *mess)
 {
 	fprintf(stderr, "%s: line %d: %s", Filename? Filename: "<stdin>", Lineno, mess);

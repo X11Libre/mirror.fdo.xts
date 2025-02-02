@@ -278,8 +278,8 @@ extern	int 	Cmdname;
 	}
 }
 
-int
-remfiles()
+void
+remfiles(void)
 {
 int 	i;
 
@@ -291,10 +291,10 @@ int 	i;
 	Filetind = 0;
 }
 
-int
-includefile(file, bp)
-char	*file;
-char	*bp;
+void
+includefile(
+    char	*file,
+    char	*bp)
 {
 char	*name;
 char	*savline;

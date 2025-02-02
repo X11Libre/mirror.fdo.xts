@@ -112,9 +112,9 @@ purpose.  It is provided "as is" without express or implied warranty.
 
 struct	settings Settings;
 
-int
-setcmd(bp)
-char	*bp;
+void
+setcmd(
+    char	*bp)
 {
 char	*tok;
 char	*arg1;

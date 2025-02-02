@@ -146,9 +146,9 @@ static	char	errfile[32];
 static	char	*Alts[MAXALTS];
 static	int 	Nalts;
 
-int
-errtext(buf)
-char	*buf;
+void
+errtext(
+    char	*buf)
 {
 const char	**mp;
 char	*savline;
@@ -204,9 +204,9 @@ static	const char	*sep = " ,\t";
 
 static int 	wasmasktype;
 
-int
-valerror(buf)
-char	*buf;
+void
+valerror(
+    char	*buf)
 {
 int 	i;
 FILE	*fp;
@@ -257,8 +257,8 @@ char	*tmpfile;
 	includefile(tmpfile, buf);
 }
 
-int
-valerrdefs()
+void
+valerrdefs(void)
 {
 char	line[MAXLINE];
 
@@ -315,9 +315,9 @@ char	*word;
  * If there has not been any user supplied code then use the default
  * error code in the file.
  */
-int
-errcode(bp)
-char	*bp;
+void
+errcode(
+    char	*bp)
 {
 	if (State.err != ER_VALUE)
 		State.skipsec = 2;

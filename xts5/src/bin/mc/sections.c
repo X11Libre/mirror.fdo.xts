@@ -277,10 +277,10 @@ struct	secname {
  * Loop through all sections and branch out to the appropriate strategy
  * routines.
  */
-int
-dosections(fp, buf)
-FILE	*fp;
-char	*buf;
+void
+dosections(
+    FILE	*fp,
+    char	*buf)
 {
 struct	secname	*sp;
 int 	sec;
@@ -334,10 +334,10 @@ int 	sec;
  * and gc.  The gc type are sorted out by gccomps the others
  * branch to their own strategies.
  */
-int
-assertion(fp, buf)
-FILE	*fp;
-char	*buf;
+void
+assertion(
+    FILE	*fp,
+    char	*buf)
 {
 char	*line;
 const char	*str;
@@ -534,10 +534,10 @@ int	i;
 /*
  * Switch out to the command specific hook command.
  */
-int
-dohook(buf, hook)
-char	*buf;
-int 	hook;
+void
+dohook(
+    char	*buf,
+    int 	hook)
 {
 	if (hook >= NHOOK) {
 		fprintf(stderr, "Internal error: invalid hook\n");

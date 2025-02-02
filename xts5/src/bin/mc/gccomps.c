@@ -150,10 +150,10 @@ static	struct	gclookup {
 
 #define	NGCCOMP	(sizeof(gclookup)/sizeof(struct gclookup))
 
-int
-gccomps(fp, buf)
-FILE	*fp;
-char	*buf;
+void
+gccomps(
+    FILE	*fp,
+    char	*buf)
 {
 struct	gclookup	*lp;
 char	*cp;

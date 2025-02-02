@@ -113,6 +113,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 #include <r5structs.h>
 #include <r5decl.h>
 
+#if 0
 /****** 
  *
  *  The diff_message function is used by chekstat to report 
@@ -121,7 +122,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  *  num_diff is the total number of differences discovered
  *
  ******/
-int diff_message(environment,num_diff)	
+void diff_message(environment,num_diff)
     int environment;
     int *num_diff;
 {
@@ -153,7 +154,7 @@ int diff_message(environment,num_diff)
 		break;
         }                   
 }  /** end of message function **/
-
+#endif
 
 int 
 chek_stat(save_mask, gc_id, display_struc, drawable_id, watOK)

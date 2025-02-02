@@ -114,7 +114,6 @@ void VBlowup(Display *vdisplay, Window window, int init_x, int init_y, int size,
 	unsigned long background, int warp_pointer_x, int warp_pointer_y, 
 	int show_banner,int compare_color);
 void bufrdisp(Display *display);
-int diff_message(int environment, int *num_diff);
 int chek_stat(int save_mask, GC gc_id, Display *display_struc, Drawable drawable_id, int watOK);
 void dumpbuf(void);
 void check_dec(long exp, long rec, const char *item_name);

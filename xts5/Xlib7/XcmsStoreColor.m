@@ -214,7 +214,7 @@ XcmsColor            color ;
                 color_return.format = XcmsRGBiFormat ;
                 color_return.pixel = 1 ;
                 XcmsQueryColor(display, colormap, &color_return, format_good) ;
-                if ( svc_ret_value = XcmsSuccess ) {
+                if ( svc_ret_value == XcmsSuccess ) {
                      check_dou(one, color_return.spec.RGBi.red, "red" ) ;
                      check_dou(one, color_return.spec.RGBi.green, "green" ) ;
                      check_dou(one, color_return.spec.RGBi.blue, "blue" ) ;

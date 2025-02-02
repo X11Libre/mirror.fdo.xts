@@ -420,8 +420,8 @@ TET_EXPORT_DATA(int, tet_thistest);
 */
 
 /* the test case startup and cleanup functions */
-extern void (*tet_startup)();
-extern void (*tet_cleanup)();
+extern void (*tet_startup)(void);
+extern void (*tet_cleanup)(void);
 
 /* and EITHER this data structure */
 struct tet_testlist {

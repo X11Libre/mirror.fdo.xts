@@ -263,28 +263,28 @@ char	*buf;
 	 * is a linked binary or not.
 	 */
 	if (lflag) {
-		fprintf(FpCode, "extern void	(*tet_startup)();\n");
-		fprintf(FpCode, "extern void	(*tet_cleanup)();\n");
+		fprintf(FpCode, "extern void	(*tet_startup)(void);\n");
+		fprintf(FpCode, "extern void	(*tet_cleanup)(void);\n");
 	} else {
 		if (State.xtoolkit != 0)
 		{
-			fprintf(FpCode, "void	(*tet_startup)() = %s;\n"
+			fprintf(FpCode, "void	(*tet_startup)(void) = %s;\n"
 				, Settings.startup? Settings.startup: "NULL" );
-			fprintf(FpCode, "void	(*tet_cleanup)() = %s;\n"
+			fprintf(FpCode, "void	(*tet_cleanup)(void) = %s;\n"
 				, Settings.cleanup? Settings.cleanup: "NULL");
 		} 
 		else if (State.xcms != 0)
 		{
-			fprintf(FpCode, "void	(*tet_startup)() = %s;\n"
+			fprintf(FpCode, "void	(*tet_startup)(void) = %s;\n"
 				, Settings.startup? Settings.startup: "r5_startup" );
-			fprintf(FpCode, "void	(*tet_cleanup)() = %s;\n"
+			fprintf(FpCode, "void	(*tet_cleanup)(void) = %s;\n"
 				, Settings.cleanup? Settings.cleanup: "r5_cleanup");
 		} 
 		else 
 		{
-			fprintf(FpCode, "void	(*tet_startup)() = %s;\n"
+			fprintf(FpCode, "void	(*tet_startup)(void) = %s;\n"
 			 	, Settings.startup? Settings.startup: "startup");
-			fprintf(FpCode, "void	(*tet_cleanup)() = %s;\n"
+			fprintf(FpCode, "void	(*tet_cleanup)(void) = %s;\n"
 				, Settings.cleanup? Settings.cleanup: "cleanup");
 		}
 	}
@@ -458,7 +458,7 @@ static	int 	oncethrough;
 
 	if (Nargs > 2) {
 		fprintf(FpCode, "/*\n * Called at the beginning of each test purpose to reset the\n * arguments to their initial values\n */\n");
-		fprintf(FpCode, "static void\nsetargs()\n{\n");
+		fprintf(FpCode, "static void\nsetargs(void)\n{\n");
 
 		for (i = 2; i < Nargs; i++) {
 			if (Arginit[i])
@@ -475,7 +475,7 @@ static	int 	oncethrough;
 	 */
 	if (Nargs) {
 		fprintf(FpCode, "/*\n * Set the arguments to default values for error tests\n */\n");
-		fprintf(FpCode, "static void\nseterrdef()\n{\n");
+		fprintf(FpCode, "static void\nseterrdef(void)\n{\n");
 	}
 
 	for (i = 2; i < Nargs; i++) {
@@ -954,7 +954,7 @@ int
 funcstart()
 {
 
-	fprintf(FpCode, "%svoid t%03d(){\n\n", (dflag)?"" : "static ",  State.assertion);
+	fprintf(FpCode, "%svoid t%03d(void){\n\n", (dflag)?"" : "static ",  State.assertion);
 	NeedTpcleanup = 0;
 	Resyncline = 1;
 }

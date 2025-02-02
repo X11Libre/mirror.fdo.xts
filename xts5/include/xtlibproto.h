@@ -310,7 +310,7 @@ void serialset(Display *display, XEvent *event);
 Bool serialtest(XEvent *good, XEvent *ev);
 Time gettime( Display *disp);
 int maxsize( XVisualInfo *vp);
-char *xt_strdup(const char *str);
+#define xt_strdup(s) ( (s) != NULL ? strdup(s) : NULL )
 struct	buildtree *buildtree(Display *disp, Window parent, const char **list, int nlist);
 struct	buildtree *btntobtp(struct buildtree *list, const char *name);
 struct	buildtree *btwtobtp(struct buildtree *list, Window w);

@@ -189,22 +189,6 @@ const char	*STreeOlsib[] = {
 int 	NSTreeOlsib = NELEM(STreeOlsib);
 
 /*
- * Duplicate a string. This is the functionallity sometimes provided by
- * strdup, but because it's not commonly supported, we provide our own.
- */
-char *
-xt_strdup(const char *str)
-{
-char	*sp = NULL;
-
-	if (str)
-		sp = (char*)malloc(strlen(str)+1);
-	if (sp)
-		strcpy(sp, str);
-	return(sp);
-}
-
-/*
  * Build a tree of windows given a description in list.
  * The tree has the given parent.
  */

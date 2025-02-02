@@ -482,7 +482,7 @@ XWindowAttributes	before,after;
 
 	XGetWindowAttributes(display, w, &after);
 
-	if( (before.x != after.x) || (before.y != before.y) )
+	if( (before.x != after.x) || (before.y != after.y) )
 	{
 		report("Changing win_gravity changed window positon");
 		report("Before: x=%d y=%d", before.x, before.y);

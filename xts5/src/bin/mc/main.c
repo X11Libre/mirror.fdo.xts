@@ -473,24 +473,6 @@ int 	sig;
 }
 
 /*
- * Copy a string using malloced storage.
- */
-char *
-mcstrdup(const char *s)
-{
-char	*bp;
-
-	if (s == 0)
-		return(NULL);
-
-	bp = malloc((size_t)(strlen(s)+1));
-	if (bp)
-		strcpy(bp, s);
-
-	return(bp);
-}
-
-/*
  * Find a s2 within s1.
  */
 char *

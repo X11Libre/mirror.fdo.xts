@@ -851,7 +851,8 @@ int 	indecs = 1;
 	 * Get the expected error type.
 	 */
 	(void)strtok(buf, SEPS);
-	ExpectError = mcstrdup(strtok((char*)0, SEPS));
+	ExpectError = strtok((char*)0, SEPS);
+	ExpectError = mcstrdup(ExpectError);
 	/* This (the event bit) may go away since it is not used */
 	if (ExpectError == NULL || strcmp(ExpectError, "event") == 0)
 		ExpectError = "Success";

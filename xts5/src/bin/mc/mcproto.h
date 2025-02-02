@@ -123,7 +123,7 @@ int putbackline(char *line);
 void expandxname(char *line);
 int err(const char *mess);
 int errexit(void);
-char *mcstrdup(const char *s);
+#define mcstrdup(s) ( (s) != NULL ? strdup(s) : NULL )
 char *strinstr(char *s1, const char *s2);
 int isassertwanted(int  a);
 void mmstart(char *buf);

@@ -52,7 +52,6 @@ files_libxst = files(
   'XstIO.c',
   'DataMove.c',
   'TestMng.c',
-  'Utils.c',
   'SendSup.c',
   'ShowSup.c',
   'TestSup.c',

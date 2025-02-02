@@ -70,7 +70,6 @@ libXst_la_SOURCES =\
 	XstIO.c\
 	DataMove.c\
 	TestMng.c\
-	Utils.c\
 	SendSup.c\
 	ShowSup.c\
 	TestSup.c\

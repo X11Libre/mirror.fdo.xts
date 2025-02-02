@@ -457,7 +457,8 @@ void	tpfontstartup(void);
 void	tpstartup(void);
 void	unsupported(const char *mess, ... );
 void	untested(const char *mess, ... );
-void	wbcopy(const unsigned char *b1, unsigned char *b2, int length);
+
+#define wbcopy(src, dst, len) memmove(dst, src, len)
 
 /* #ifdef INPUTEXTENSION */
 int check_ext_event(XEvent *good, XEvent *ev);

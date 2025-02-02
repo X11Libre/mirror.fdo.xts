@@ -117,6 +117,9 @@ endforeach
 conf.set('LOCAL_TRANSPORT_LIST', ','.join(_trans))
 conf.set('UNIXCONN', 1)
 conf.set('TCPCONN', 1)
+conf.set('IPv6', 1)
+# HAVE_SOCKLEN_T is used by xtrans when IPv6 is disabled
+conf.set('HAVE_SOCKLEN_T', cc.has_type('socklen_t', prefix: '#include <sys/socket.h>') ? '1' : false)
 
 # Needed for generating fonts
 prog_bdftopcf = find_program('bdftopcf')

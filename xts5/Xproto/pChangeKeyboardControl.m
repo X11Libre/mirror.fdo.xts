@@ -146,7 +146,7 @@ tester()
 
 	Set_Test_Type(CLIENT, test_type);
 	req = (xChangeKeyboardControlReq *) Make_Req(CLIENT, X_ChangeKeyboardControl);
-	req = (xChangeKeyboardControlReq *) Add_Masked_Value(req, KBKeyClickPercent, gkcrep->keyClickPercent);
+	req = (xChangeKeyboardControlReq *) Add_Masked_Value((xReq *)req, KBKeyClickPercent, gkcrep->keyClickPercent);
 	if(test_type == BAD_VALUE) {
 		req->mask |= 1<<28;	/* an unused mask bit */
 		req->length += 1;

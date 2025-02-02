@@ -142,8 +142,8 @@ static	int 	Ndepths;
 
 int 	CurVinf;
 
-static	void	iddebug();
-static	void	uniquify();
+static	void	iddebug(void);
+static	void	uniquify(void);
 
 /*
  * Start again at the beginning of the list of visual classes.
@@ -350,7 +350,7 @@ XVisualInfo	*vp;
  * is called to filter out all the irrelevent ones.
  */
 static void
-iddebug()
+iddebug(void)
 {
 XVisualInfo	*viptmp;
 char	*idlist;

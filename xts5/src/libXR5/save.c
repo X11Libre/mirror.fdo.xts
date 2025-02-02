@@ -117,6 +117,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 #include <X11/Xutil.h>
 #include <r5structs.h>
 #include <r5decl.h>
+#include "xtestlib.h"
 
 int errorflag;	/**return value of function**/
 
@@ -137,7 +138,6 @@ GC      gc_id;
 Display *display_struc;
 Drawable  drawable_id;
 {
-	extern int unexp_err();
 	extern Window wid_save;
 	extern Pixmap pid_save;
 	extern GC gc_save;

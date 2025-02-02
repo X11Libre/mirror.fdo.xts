@@ -111,6 +111,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 #include <stdio.h>		/* standard i/o functions */
 #include <X11/Xlib.h>		/* standard x defs */
 #include <X11/Xatom.h>		/* standard x atom values */
+#include "XtTest.h"
  
 void send_event_mask (dsply, wndw, msk, typ, key, sevent)
 Display * dsply;

@@ -113,9 +113,13 @@ static XtResource resources[] = {
  * Semi Public function definitions. 
  */
 
-static void Unhighlight(), Highlight(), Notify(), ClassPartInitialize();
-static void Initialize();
-static XtGeometryResult QueryGeometry();
+static void Unhighlight(Widget);
+static void Highlight(Widget);
+static void Notify(Widget);
+static void ClassPartInitialize(WidgetClass);
+static void Initialize(Widget, Widget, ArgList, Cardinal *);
+static XtGeometryResult QueryGeometry(Widget, XtWidgetGeometry *,
+                                      XtWidgetGeometry *);
 
 #define SUPERCLASS (&rectObjClassRec)
 
@@ -213,8 +217,7 @@ WidgetClass class;
 
 /* ARGSUSED */
 static void
-Initialize(request, new)
-Widget request, new;
+Initialize(Widget request, Widget new, ArgList args, Cardinal *num_args)
 {
     SmeObject entry = (SmeObject) new;
 

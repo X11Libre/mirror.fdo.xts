@@ -76,6 +76,7 @@ SOFTWARE.
 #include "XItest.h"
 #include "tet_api.h"
 
+#include "Xstlib.h"
 #include "xtestlib.h"
 
 static XEventClass propclasses[32];
@@ -117,7 +118,8 @@ int NumKeys,
     FeedbackMask;
 
 extern int XInputMajorOpcode;
-extern int unexp_err();
+
+static int handle_x_errors (Display *, XErrorEvent *);
 
 void
 Close_Extension_Display()
@@ -131,7 +133,6 @@ Setup_Extension_DeviceInfo(dmask)
     unsigned int dmask;
     {
     char *disp;
-    int handle_x_errors();
     int i, j, k, num_feedbacks,ndevices,numvaluators;
     XModifierKeymap *mmap;
     XDevice *dev;
@@ -647,10 +648,10 @@ SetFeedbackInfo (mask, id)
  *
  */
 
-int
-handle_x_errors (disp, err)
-    Display     *disp;
-    XErrorEvent *err;
+static int
+handle_x_errors (
+    Display     *disp,
+    XErrorEvent *err)
     {
     if (err->request_code == XInputMajorOpcode)
 	if (err->minor_code == X_GetFeedbackControl &&

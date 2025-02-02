@@ -119,6 +119,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 #include	<X11/extensions/XInput.h>
 #endif
 #include	"xtestlib.h"
+#include	"Xstlib.h"
 
 #define	MAX_DEVICES	9
 #define	MAXBUT	256
@@ -443,7 +444,7 @@ static	XModifierKeymap	*devcurmap;
  * you want.  You should insure that the test will still work in this
  * case.
  */
-unsigned int
+static unsigned int
 _wantmods(disp, dev, want)
 Display	*disp;
 #ifdef INPUTEXTENSION
@@ -526,8 +527,10 @@ int 	want;
 	return (_wantmods(disp, NULL, want));
 }
 
-static void modthing(/* disp, mask */);
-static void devmodthing(/* disp, dev, mask */);
+static void modthing(Display *, unsigned int, int);
+#if 0
+static void devmodthing(Display *, int, unsigned int, int);
+#endif
 
 /*
  * Simulate pressing a bunch of modifier keys.  The mask passed to this
@@ -541,7 +544,7 @@ unsigned int 	mask;
 	modthing(disp, mask, True);
 }
 
-#ifdef INPUTEXTENSION
+#if 0 /* def INPUTEXTENSION */
 void devmodpress(disp, dev, mask)
 Display	*disp;
 XDevice *dev;
@@ -563,7 +566,7 @@ unsigned int 	mask;
 	modthing(disp, mask, False);
 }
 
-#ifdef INPUTEXTENSION
+#if 0 /* def INPUTEXTENSION */
 void devmodrel(disp, dev, mask)
 Display	*disp;
 XDevice *dev;
@@ -574,10 +577,10 @@ unsigned int 	mask;
 #endif
 
 static void
-modthing(disp, mask, pressing)
-Display	*disp;
-unsigned int 	mask;
-int pressing;
+modthing(
+    Display	*disp,
+    unsigned int 	mask,
+    int 	pressing)
 {
 int 	mod;
 int 	ent;
@@ -609,13 +612,13 @@ void	(*func)();
 	}
 }
 
-#ifdef INPUTEXTENSION
+#if 0 /* def INPUTEXTENSION */
 static void
-devmodthing(disp, dev, mask, pressing)
-Display	*disp;
-int dev;
-unsigned int 	mask;
-int pressing;
+devmodthing(
+    Display	*disp,
+    int 	dev,
+    unsigned int 	mask,
+    int 	pressing)
 {
 int 	mod;
 void	(*func)();

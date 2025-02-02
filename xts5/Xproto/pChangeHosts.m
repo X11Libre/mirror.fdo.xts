@@ -192,10 +192,10 @@ debug(3,"length of req = %d, req at 0x%lx\n",req->length,(unsigned long)req);
 	if ((req->mode = mode) == HostDelete) {
 	    hp = (unsigned char *) ((unsigned char *) hosts_rep + sizeof (xListHostsReply));
 	    req = (xChangeHostsReq *)
-		Add_Counted_Bytes (req, hp + 4, * (unsigned short *) (hp + 2));
+		Add_Counted_Bytes ((xReq *)req, hp + 4, * (unsigned short *) (hp + 2));
 	} else {
 	    req = (xChangeHostsReq *)
-		Add_Counted_Bytes (req, host->address, host->length);
+		Add_Counted_Bytes ((xReq *)req, host->address, host->length);
 	    req->hostFamily = host->family;
 	}
 debug(3,"pre-send length of req = %d, req at 0x%lx\n",req->length,(unsigned long)req);

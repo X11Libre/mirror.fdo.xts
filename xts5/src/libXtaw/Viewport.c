@@ -95,10 +95,12 @@ SOFTWARE.
 #include <X11/Xaw/Scrollbar.h>
 #include <X11/Xaw/ViewportP.h>
 
-static void ScrollUpDownProc(), ThumbProc();
-static Boolean GetGeometry();
+static void ScrollUpDownProc(Widget, XtPointer, XtPointer);
+static void ThumbProc(Widget, XtPointer, XtPointer);
+static Boolean GetGeometry(Widget, Dimension, Dimension);
 
-static void ComputeWithForceBars();
+static void ComputeWithForceBars(Widget, Boolean, XtWidgetGeometry *,
+                                 int *, int *);
 
 #define offset(field) XtOffsetOf(ViewportRec, viewport.field)
 static XtResource resources[] = {
@@ -117,12 +119,18 @@ static XtResource resources[] = {
 };
 #undef offset
 
-static void Initialize(), ConstraintInitialize(),
-    Realize(), Resize(), ChangeManaged();
-static Boolean SetValues();
+static void Initialize(Widget, Widget, ArgList, Cardinal *);
+static void ConstraintInitialize(Widget, Widget, ArgList, Cardinal *);
+static void Realize(Widget, XtValueMask *, XSetWindowAttributes *);
+static void Resize(Widget);
+static void ChangeManaged(Widget);
+static Boolean SetValues(Widget, Widget, Widget, ArgList, Cardinal *);
 static Boolean Layout(FormWidget w, unsigned int width, unsigned int height,
 		      int force_relayout);
-static XtGeometryResult GeometryManager(), PreferredGeometry();
+static XtGeometryResult GeometryManager(Widget, XtWidgetGeometry *,
+                                        XtWidgetGeometry *);
+static XtGeometryResult PreferredGeometry(Widget, XtWidgetGeometry *,
+                                          XtWidgetGeometry *);
 
 #define superclass	(&formClassRec)
 ViewportClassRec viewportClassRec = {
@@ -239,8 +247,8 @@ static Widget CreateScrollbar(w, horizontal)
 }
 
 /* ARGSUSED */
-static void Initialize(request, new)
-    Widget request, new;
+static void
+Initialize(Widget request, Widget new, ArgList arglist, Cardinal *num_arglist)
 {
     ViewportWidget w = (ViewportWidget)new;
     static Arg clip_args[8];
@@ -310,8 +318,9 @@ static void Initialize(request, new)
 }
 
 /* ARGSUSED */
-static void ConstraintInitialize(request, new)
-    Widget request, new;
+static void
+ConstraintInitialize(Widget request, Widget new,
+                     ArgList args, Cardinal *num_args)
 {
     ((ViewportConstraints)new->core.constraints)->viewport.reparented = False;
 }
@@ -342,8 +351,9 @@ static void Realize(widget, value_mask, attributes)
 }
 
 /* ARGSUSED */
-static Boolean SetValues(current, request, new)
-    Widget current, request, new;
+static Boolean
+SetValues(Widget current, Widget request, Widget new,
+          ArgList args, Cardinal *num_args)
 {
     ViewportWidget w = (ViewportWidget)new;
     ViewportWidget cw = (ViewportWidget)current;
@@ -815,13 +825,11 @@ static void ScrollUpDownProc(widget, closure, call_data)
 }
 
 
-/* ARGSUSED */
-static void ThumbProc(widget, closure, percent)
-    Widget widget;
-    XtPointer closure;
-    float *percent;
+static void
+ThumbProc(Widget widget, XtPointer closure, XtPointer call_data)
 {
     ViewportWidget w = (ViewportWidget)closure;
+    float *percent = (float *)call_data;
     register Widget child = w->viewport.child;
     Position x, y;
 

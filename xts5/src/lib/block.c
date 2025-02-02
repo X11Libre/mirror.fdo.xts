@@ -161,9 +161,9 @@ static	Block_Info	*ginfo;
  */
 static	int	parent_status;
 
-static	void	block_child_proc();
-static	void	block_parent_proc();
-static	int 	blocker();
+static	void	block_child_proc(void);
+static	void	block_parent_proc(void);
+static	int 	blocker(Display *, Block_Info *);
 
 /*
  * Used to test whether or not a procedure blocks.  If event is NULL,
@@ -264,7 +264,7 @@ int 	sig;
  * block_child_proc
  */
 static void
-block_child_proc()
+block_child_proc(void)
 {
 	Display	*display;
 	XAnyEvent *event = (XAnyEvent *) gevent;
@@ -290,7 +290,7 @@ block_child_proc()
 }
 
 static void
-block_parent_proc()
+block_parent_proc(void)
 {
 	signal(SIGALRM, block_alarm);
 	alarm(TIMEOUT_TIME);
@@ -322,9 +322,9 @@ block_parent_proc()
  * returns -1 on unexpected error
  */
 static int
-blocker(display, info)
-Display	*display;
-Block_Info	*info;
+blocker(
+    Display	*display,
+    Block_Info	*info)
 {
 	_startcall(display);
 	if (isdeleted())

@@ -116,6 +116,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 #include "X11/Xlib.h"
 #include "X11/Xutil.h"
 #include "pixval.h"
+#include "xtestlib.h"
 
 /*
  * Return a bad font ID by loading a font and then unloading it.

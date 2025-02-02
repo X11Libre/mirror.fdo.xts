@@ -111,9 +111,10 @@ static XtResource resources[] = {
     };
 #endif
 
-static void AvsObjInitialize();
-static void AvsObjClassPartInitialize();
-static void AvsObjSetValuesAlmost();
+static void AvsObjInitialize(Widget, Widget, ArgList, Cardinal *);
+static void AvsObjClassPartInitialize(WidgetClass);
+static void AvsObjSetValuesAlmost(Widget, Widget,
+                                  XtWidgetGeometry *, XtWidgetGeometry *);
 
 AvsObjClassRec avsObjClassRec = {
   {
@@ -176,9 +177,9 @@ static void AvsObjClassPartInitialize(wc)
 }
 
 /* ARGSUSED */
-static void AvsObjInitialize(requested_widget, new_widget)
-    Widget   requested_widget;
-    register Widget new_widget;
+static void
+AvsObjInitialize(Widget requested_widget, Widget new_widget,
+                 ArgList args, Cardinal *num_args)
 {
 }
 

@@ -151,13 +151,14 @@ static XtResource resources[] = {
 };
 #undef offset
 
-static void Initialize();
-static void Resize();
-static void Redisplay();
-static Boolean SetValues();
-static void ClassInitialize();
-static void Destroy();
-static XtGeometryResult QueryGeometry();
+static void Initialize(Widget, Widget, ArgList, Cardinal *);
+static void Resize(Widget);
+static void Redisplay(Widget, XEvent *, Region);
+static Boolean SetValues(Widget, Widget, Widget, ArgList, Cardinal *);
+static void ClassInitialize(void);
+static void Destroy(Widget);
+static XtGeometryResult QueryGeometry(Widget, XtWidgetGeometry *,
+                                      XtWidgetGeometry *);
 
 LabelClassRec labelClassRec = {
   {
@@ -208,7 +209,7 @@ WidgetClass labelWidgetClass = (WidgetClass)&labelClassRec;
  *
  ****************************************************************/
 
-static void ClassInitialize()
+static void ClassInitialize(void)
 {
     XawInitializeWidgetSet();
     XtAddConverter( XtRString, XtRJustify, XmuCvtStringToJustify, NULL, 0 );
@@ -413,8 +414,8 @@ static void set_bitmap_info (lw)
 
 
 /* ARGSUSED */
-static void Initialize(request, new)
- Widget request, new;
+static void
+Initialize(Widget request, Widget new, ArgList args, Cardinal *num_args)
 {
     LabelWidget lw = (LabelWidget) new;
 

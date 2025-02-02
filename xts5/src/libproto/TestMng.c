@@ -137,6 +137,7 @@ SOFTWARE.
 #endif
 
 #include "xtestlib.h"
+#include "Xstlib.h"
 #include "XstlibInt.h"
 #include "setjmp.h"
 #include "stdlib.h"
@@ -181,7 +182,7 @@ static struct {
     { NULL, 0 }
 };
 
-int
+static int
 Required_Byte_Sex()
 {
 	return(Xst_required_byte_sex);

@@ -221,24 +221,31 @@ static XtResource subresources[] = {
 
 #undef offset
 
-static void ClassInitialize(), Initialize();
-static void Realize(), Resize();
-static void Redisplay();
-static void GetGCs(), ReleaseGCs();
-static void RefigureLocationsAndCommit();
-static Boolean SetValues();
-static XtGeometryResult GeometryManager();
-static void ChangeManaged();
-static void InsertChild();
-static void DeleteChild();
-static Boolean PaneSetValues();
-static Dimension PaneSize(), GetRequestInfo();
-static Boolean SatisfiesRule1(), SatisfiesRule2(), SatisfiesRule3();
+static void ClassInitialize(void);
+static void Initialize(Widget, Widget, ArgList, Cardinal *);
+static void Realize(Widget, Mask *, XSetWindowAttributes *);
+static void Resize(Widget);
+static void Redisplay(Widget, XEvent *, Region);
+static void GetGCs(Widget);
+static void ReleaseGCs(Widget);
+static void RefigureLocationsAndCommit(Widget);
+static Boolean SetValues(Widget, Widget, Widget, ArgList, Cardinal *);
+static XtGeometryResult GeometryManager(Widget, XtWidgetGeometry *,
+                                        XtWidgetGeometry *);
+static void ChangeManaged(Widget);
+static void InsertChild(Widget);
+static void DeleteChild(Widget);
+static Boolean PaneSetValues(Widget, Widget, Widget, ArgList, Cardinal *);
+static Dimension PaneSize(Widget, Boolean);
+static Dimension GetRequestInfo(XtWidgetGeometry *, Boolean);
+static Boolean SatisfiesRule1(Pane, Boolean);
+static Boolean SatisfiesRule2(Pane);
+static Boolean SatisfiesRule3(Pane, Boolean);
 
-static void PushPaneStack();
-static void GetPaneStack();
-static Boolean PopPaneStack();
-static void ClearPaneStack();
+static void PushPaneStack(PanedWidget, Pane);
+static void GetPaneStack(PanedWidget, Boolean, Pane *, int *);
+static Boolean PopPaneStack(PanedWidget);
+static void ClearPaneStack(PanedWidget);
 
 #define SuperClass ((ConstraintWidgetClass)&constraintClassRec)
 
@@ -1456,7 +1463,7 @@ PanedWidget pw;
  */
 
 static void 
-ClassInitialize()
+ClassInitialize(void)
 {
     XawInitializeWidgetSet();
     XtAddConverter( XtRString, XtROrientation, XmuCvtStringToOrientation,
@@ -1579,8 +1586,8 @@ XtWidgetGeometry *request, *reply;
 }
 
 /* ARGSUSED */
-static void Initialize(request, new)
-Widget request, new;
+static void
+Initialize(Widget request, Widget new, ArgList args, Cardinal *num_args)
 {
     PanedWidget pw = (PanedWidget)new;
 
@@ -1752,9 +1759,9 @@ Region region;			/* unused. */
 }
 
 /* ARGSUSED */
-static Boolean 
-SetValues(old, request, new)
-Widget old, request, new;
+static Boolean
+SetValues(Widget old, Widget request, Widget new,
+          ArgList args, Cardinal *num_args)
 {
     PanedWidget old_pw = (PanedWidget) old;
     PanedWidget new_pw = (PanedWidget) new;
@@ -1813,8 +1820,8 @@ Widget old, request, new;
 
 /* ARGSUSED */
 static Boolean 
-PaneSetValues(old, request, new)
-Widget old, request, new;
+PaneSetValues(Widget old, Widget request, Widget new,
+          ArgList args, Cardinal *num_args)
 {
     Pane old_pane = PaneInfo(old);
     Pane new_pane = PaneInfo(new);

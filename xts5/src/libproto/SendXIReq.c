@@ -148,13 +148,14 @@ SOFTWARE.
 #ifdef INPUTEXTENSION
 #include <X11/extensions/XI.h>
 #include <X11/extensions/XIproto.h>
+#include "XItest.h"
 #endif
 #include "DataMove.h"
 #include "tet_api.h"
 
 extern Display *Dsp;
 
-void _Send_XInput_Req();
+static void _Send_XInput_Req(int client, xReq *rp, int pollreq);
 
 static void Send_Extension_Event (int client, int num_ev, int num_classes,
                                   void *ptr);
@@ -169,11 +170,11 @@ int client;
     _Send_XInput_Req(client,rp,0);	/* not polling thru this entry point */
 }
 
-void
-_Send_XInput_Req(client,rp,pollreq)
-int client;
-xReq *rp;
-int pollreq;
+static void
+_Send_XInput_Req(
+    int client,
+    xReq *rp,
+    int pollreq)
 {
 	XstDisplay *dpy = Get_Display(client);
 	unsigned long bytesToSend = rp->length << 2;

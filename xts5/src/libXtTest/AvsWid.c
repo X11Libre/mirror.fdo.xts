@@ -82,10 +82,13 @@ static XtResource resources[] = {
 };
 #endif
 
-static void ClassPartInitialize(), Realize(), Initialize();
-static Boolean SetValues();
-static XtGeometryResult QueryGeometry();
-static Boolean sv_almost();
+static void ClassPartInitialize(WidgetClass);
+static void Realize(Widget, Mask *, XSetWindowAttributes *);
+static void Initialize(Widget, Widget, ArgList, Cardinal *);
+static Boolean SetValues(Widget, Widget, Widget, ArgList, Cardinal *);
+static XtGeometryResult QueryGeometry(Widget, XtWidgetGeometry *,
+                                      XtWidgetGeometry *);
+static Boolean sv_almost(Widget, Widget, Widget);
 
 AvsWidClassRec avsWidClassRec = {
   { /* core fields */
@@ -154,8 +157,8 @@ static void Realize(w, valueMask, attributes)
 		    *valueMask, attributes );
 }
 
-static void Initialize (grequest, gnew)
-    Widget grequest, gnew;
+static void Initialize (Widget grequest, Widget gnew,
+                        ArgList args, Cardinal *num_args)
 {
 	AvsWidget request = (AvsWidget) grequest, new = (AvsWidget) gnew;
 
@@ -180,8 +183,8 @@ static Boolean sv_almost(current, request, new)
 }
 
 /* ARGSUSED */
-static Boolean SetValues(current, request, new)
-    Widget current, request, new;
+static Boolean SetValues(Widget current, Widget request, Widget new,
+                         ArgList args, Cardinal *num_args)
 {
 /*
     AvsWidget s_old = (AvsWidget) current;

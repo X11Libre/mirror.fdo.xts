@@ -155,19 +155,19 @@ static XtResource resources[] = {
 };
 #undef Offset
 
-static void ClassInitialize();
-static void Initialize();
-static void Destroy();
-static void Realize();
-static void Resize();
-static void Redisplay();
-static Boolean SetValues();
+static void ClassInitialize(void);
+static void Initialize(Widget, Widget, ArgList, Cardinal *);
+static void Destroy(Widget);
+static void Realize(Widget, Mask *, XSetWindowAttributes *);
+static void Resize(Widget);
+static void Redisplay(Widget, XEvent *, Region);
+static Boolean SetValues(Widget, Widget, Widget, ArgList, Cardinal *);
 
-static void StartScroll();
-static void MoveThumb();
-static void NotifyThumb();
-static void NotifyScroll();
-static void EndScroll();
+static void StartScroll(Widget, XEvent *, String *, Cardinal *);
+static void MoveThumb(Widget, XEvent *, String *, Cardinal *);
+static void NotifyThumb(Widget, XEvent *, String *, Cardinal *);
+static void NotifyScroll(Widget, XEvent *, String *, Cardinal *);
+static void EndScroll(Widget, XEvent *, String *, Cardinal *);
 
 static XtActionsRec actions[] = {
 	{"StartScroll",		StartScroll},
@@ -230,7 +230,7 @@ WidgetClass scrollbarWidgetClass = (WidgetClass)&scrollbarClassRec;
 #define MIN(x,y)	((x) < (y) ? (x) : (y))
 #define MAX(x,y)	((x) > (y) ? (x) : (y))
 
-static void ClassInitialize()
+static void ClassInitialize(void)
 {
     XawInitializeWidgetSet();
     XtAddConverter( XtRString, XtROrientation, XmuCvtStringToOrientation,
@@ -412,9 +412,12 @@ Widget w;
 }
 
 /* ARGSUSED */
-static void Initialize( request, new )
-   Widget request;		/* what the client asked for */
-   Widget new;			/* what we're going to give him */
+static void
+Initialize(
+    Widget request,		/* what the client asked for */
+    Widget new,			/* what we're going to give him */
+    ArgList args,
+    Cardinal *num_args)
 {
     ScrollbarWidget w = (ScrollbarWidget) new;
 
@@ -458,10 +461,12 @@ static void Realize( gw, valueMask, attributes )
 
 /* ARGSUSED */
 static Boolean 
-SetValues( current, request, desired )
-Widget current,		/* what I am */
-       request,		/* what he wants me to be */
-       desired;		/* what I will become */
+SetValues(
+    Widget current,		/* what I am */
+    Widget request,		/* what he wants me to be */
+    Widget desired,		/* what I will become */
+    ArgList args,
+    Cardinal *num_args)
 {
     ScrollbarWidget w = (ScrollbarWidget) current;
     ScrollbarWidget dw = (ScrollbarWidget) desired;

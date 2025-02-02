@@ -159,7 +159,7 @@ static XVaNestedList status_list = NULL;
 
 
 /* some callbacks procedures */
-void
+static void
 iccb_preedit_start(ic,client,call_data)
 	XIC ic;
 	XPointer client;
@@ -178,7 +178,7 @@ iccb_preedit_start(ic,client,call_data)
 	}
 }
 
-void
+static void
 iccb_preedit_draw(ic,client,call_data)
 	XIC ic;
 	XPointer client;
@@ -197,7 +197,7 @@ iccb_preedit_draw(ic,client,call_data)
 	}
 }
 
-void
+static void
 iccb_preedit_done(ic,client,call_data)
 	XIC ic;
 	XPointer client;
@@ -216,7 +216,7 @@ iccb_preedit_done(ic,client,call_data)
 	}
 }
 
-void
+static void
 iccb_preedit_caret(ic,client,call_data)
 	XIC ic;
 	XPointer client;
@@ -236,7 +236,7 @@ iccb_preedit_caret(ic,client,call_data)
 }
 
 /* some status callback procedures */
-void
+static void
 iccb_status_start(ic,client,call_data)
 	XIC ic;
 	XPointer client;
@@ -255,7 +255,7 @@ iccb_status_start(ic,client,call_data)
 	}
 }
 
-void
+static void
 iccb_status_draw(ic,client,call_data)
 	XIC ic;
 	XPointer client;
@@ -274,7 +274,7 @@ iccb_status_draw(ic,client,call_data)
 	}
 }
 
-void
+static void
 iccb_status_done(ic,client,call_data)
 	XIC ic;
 	XPointer client;
@@ -293,7 +293,7 @@ iccb_status_done(ic,client,call_data)
 	}
 }
 
-void
+static void
 iccb_geom(ic,client,call_data)
 	XIC ic;
 	XPointer client;

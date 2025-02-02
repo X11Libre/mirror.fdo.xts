@@ -119,6 +119,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 #endif
 
 #include "xtest.h"
+#include "xtestlib.h"
 
 #include "string.h"
 #include "stdlib.h"

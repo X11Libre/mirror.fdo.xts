@@ -141,19 +141,16 @@ extern Display *Dsp;
 /***********************************************************/
 /* save routines for response routines */
 
-int xim_comp_pixmap(pxe,pxa)
-	Pixmap pxe;
-	Pixmap pxa;
+static int
+xim_comp_pixmap(Pixmap pxe, Pixmap pxa)
 {
 	int errcnt = 0;
 
 	return(errcnt);
 }
 
-int xim_comp_wcstr(cnt,pwce,pwca)
-	int cnt;
-	wchar_t *pwce;
-	wchar_t *pwca;
+static int
+xim_comp_wcstr(int cnt,	wchar_t *pwce, wchar_t *pwca)
 {
 	int i;
 	int errcnt = 0;
@@ -172,10 +169,8 @@ int xim_comp_wcstr(cnt,pwce,pwca)
 	return(errcnt);
 }
 
-int xim_comp_mbstr(cnt,pmbe,pmba)
-	int cnt;
-	unsigned char *pmbe;
-	unsigned char *pmba;
+static int
+xim_comp_mbstr(int cnt, unsigned char *pmbe, unsigned char *pmba)
 {
 	int i;
 	int errcnt = 0;
@@ -194,10 +189,8 @@ int xim_comp_mbstr(cnt,pmbe,pmba)
 	return(errcnt);
 }
 
-int xim_comp_feedback(cnt,pfe,pfa)
-	int cnt;
-	XIMFeedback *pfe;
-	XIMFeedback *pfa;
+static int
+xim_comp_feedback(int cnt, XIMFeedback *pfe, XIMFeedback *pfa)
 {
 	int i;
 	int errcnt = 0;
@@ -216,9 +209,8 @@ int xim_comp_feedback(cnt,pfe,pfa)
 	return(errcnt);
 }
 
-int xim_comp_ximtext(pte,pta)
-	XIMText *pte;
-	XIMText *pta;
+static int
+xim_comp_ximtext(XIMText *pte, XIMText *pta)
 {
 	int errcnt = 0;
 	int num;
@@ -262,9 +254,9 @@ int xim_comp_ximtext(pte,pta)
 	return(errcnt);
 }
 
-int xim_comp_pe_draw(pde,pda)
-	XIMPreeditDrawCallbackStruct *pde;
-	XIMPreeditDrawCallbackStruct *pda;
+static int
+xim_comp_pe_draw(XIMPreeditDrawCallbackStruct *pde,
+                 XIMPreeditDrawCallbackStruct *pda)
 {
 	int errcnt = 0;
 
@@ -299,9 +291,9 @@ int xim_comp_pe_draw(pde,pda)
 	return(errcnt);
 }
 
-int xim_comp_pe_caret(pde,pda)
-	XIMPreeditCaretCallbackStruct *pde;
-	XIMPreeditCaretCallbackStruct *pda;
+static int
+xim_comp_pe_caret(XIMPreeditCaretCallbackStruct *pde,
+                  XIMPreeditCaretCallbackStruct *pda)
 {
 	int errcnt = 0;
 
@@ -335,9 +327,9 @@ int xim_comp_pe_caret(pde,pda)
 }
 
 
-int xim_comp_st_draw(pde,pda)
-	XIMStatusDrawCallbackStruct *pde;
-	XIMStatusDrawCallbackStruct *pda;
+static int
+xim_comp_st_draw(XIMStatusDrawCallbackStruct *pde,
+                 XIMStatusDrawCallbackStruct *pda)
 {
 	int errcnt = 0;
 

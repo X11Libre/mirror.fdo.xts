@@ -137,7 +137,7 @@ tester()
 	Set_Test_Type(CLIENT, test_type);
 	req = (xPolyText8Req *) Make_Req(CLIENT, X_PolyText8);
 	Log_Err_Detail("Request was:");
-	Show_Req(req);
+	Show_Req((xReq *) req);
 	Send_Req(CLIENT, (xReq *) req);
 	Set_Test_Type(CLIENT, GOOD);
 	switch(test_type) {

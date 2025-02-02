@@ -133,14 +133,21 @@ static XtResource formConstraintResources[] = {
 };
 #undef Offset
 
-static void ClassInitialize(), ClassPartInitialize(), Initialize(), Resize();
-static void ConstraintInitialize();
-static Boolean SetValues(), ConstraintSetValues();
-static XtGeometryResult GeometryManager(), PreferredGeometry();
-static void ChangeManaged();
-static Boolean Layout();
-
-static void LayoutChild(), ResizeChildren();
+static void ClassInitialize(void);
+static void ClassPartInitialize(WidgetClass);
+static void Initialize(Widget, Widget, ArgList, Cardinal *);
+static void Resize(Widget);
+static void ConstraintInitialize(Widget, Widget, ArgList, Cardinal *);
+static Boolean SetValues(Widget, Widget, Widget, ArgList, Cardinal *);
+static Boolean ConstraintSetValues(Widget, Widget, Widget, ArgList, Cardinal *);
+static XtGeometryResult GeometryManager(Widget, XtWidgetGeometry *,
+                                        XtWidgetGeometry *);
+static XtGeometryResult PreferredGeometry(Widget, XtWidgetGeometry *,
+                                          XtWidgetGeometry *);
+static void ChangeManaged(Widget);
+static Boolean Layout(FormWidget, unsigned int, unsigned int, Bool);
+static void LayoutChild(Widget);
+static void ResizeChildren(Widget);
 
 FormClassRec formClassRec = {
   { /* core_class fields */
@@ -254,7 +261,7 @@ static void _CvtStringToEdgeType(args, num_args, fromVal, toVal)
     toVal->size = 0;
 }
 
-static void ClassInitialize()
+static void ClassInitialize(void)
 {
     static XtConvertArgRec parentCvtArgs[] = {
 	{XtBaseOffset, (XtPointer)XtOffsetOf(WidgetRec, core.parent),
@@ -285,8 +292,8 @@ static void ClassPartInitialize(class)
 }
 
 /* ARGSUSED */
-static void Initialize(request, new)
-    Widget request, new;
+static void Initialize(Widget request, Widget new,
+                       ArgList args, Cardinal *num_args)
 {
     FormWidget fw = (FormWidget)new;
 
@@ -371,10 +378,10 @@ Dimension *ret_width, *ret_height;
  */
 
 /* ARGSUSED */
-static Boolean Layout(fw, width, height, force_relayout)
-    FormWidget fw;
-    Dimension width, height;
-    Boolean force_relayout;
+static Boolean Layout(
+    FormWidget fw,
+    unsigned int width, unsigned int height,
+    Bool force_relayout)
 {
     int num_children = fw->composite.num_children;
     WidgetList children = fw->composite.children;
@@ -716,16 +723,16 @@ static XtGeometryResult GeometryManager(w, request, reply)
 
 
 /* ARGSUSED */
-static Boolean SetValues(current, request, new)
-    Widget current, request, new;
+static Boolean SetValues(Widget current, Widget request, Widget new,
+                         ArgList args, Cardinal *num_args)
 {
     return( FALSE );
 }
 
 
 /* ARGSUSED */
-static void ConstraintInitialize(request, new)
-    Widget request, new;
+static void ConstraintInitialize(Widget request, Widget new,
+                                 ArgList args, Cardinal *num_args)
 {
     FormConstraints form = (FormConstraints)new->core.constraints;
     FormWidget fw = (FormWidget)new->core.parent;

@@ -141,14 +141,14 @@ tester()
 	/* open the xtfont2 font to get its resource id for GContext */
 
 	font_req = (xOpenFontReq *) Make_Req(CLIENT, X_OpenFont);
-	font_req = (xOpenFontReq *) Clear_Counted_Value (font_req);
-	font_req = (xOpenFontReq *) Add_Counted_Value (font_req, 'x');
-	font_req = (xOpenFontReq *) Add_Counted_Value (font_req, 't');
-	font_req = (xOpenFontReq *) Add_Counted_Value (font_req, 'f');
-	font_req = (xOpenFontReq *) Add_Counted_Value (font_req, 'o');
-	font_req = (xOpenFontReq *) Add_Counted_Value (font_req, 'n');
-	font_req = (xOpenFontReq *) Add_Counted_Value (font_req, 't');
-	font_req = (xOpenFontReq *) Add_Counted_Value (font_req, '2');
+	font_req = (xOpenFontReq *) Clear_Counted_Value ((xReq *)font_req);
+	font_req = (xOpenFontReq *) Add_Counted_Value ((xReq *)font_req, 'x');
+	font_req = (xOpenFontReq *) Add_Counted_Value ((xReq *)font_req, 't');
+	font_req = (xOpenFontReq *) Add_Counted_Value ((xReq *)font_req, 'f');
+	font_req = (xOpenFontReq *) Add_Counted_Value ((xReq *)font_req, 'o');
+	font_req = (xOpenFontReq *) Add_Counted_Value ((xReq *)font_req, 'n');
+	font_req = (xOpenFontReq *) Add_Counted_Value ((xReq *)font_req, 't');
+	font_req = (xOpenFontReq *) Add_Counted_Value ((xReq *)font_req, '2');
 	Send_Req(CLIENT, (xReq *) font_req);
 	Log_Trace("client %d sent default OpenFont request\n", CLIENT);
 	Expect_Nothing(CLIENT);
@@ -156,7 +156,7 @@ tester()
 	/* create a default GContext with xtfont2 as the font */
 
 	gc_req = (xCreateGCReq *) Make_Req (CLIENT, X_CreateGC);
-	gc_req = (xCreateGCReq *) Add_Masked_Value (gc_req, GCFont, font_req->fid);
+	gc_req = (xCreateGCReq *) Add_Masked_Value ((xReq *)gc_req, GCFont, font_req->fid);
 	Send_Req (CLIENT, (xReq *) gc_req);
 	Log_Trace ("client %d sent CreateGC request\n", CLIENT);
 	Expect_Nothing (CLIENT);

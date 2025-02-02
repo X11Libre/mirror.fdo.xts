@@ -122,7 +122,8 @@ purpose.  It is provided "as is" without express or implied warranty.
 #include	"xtestlib.h"
 #include	"pixval.h"
 
-static	void	doerr();
+static	void	doerr(XImage *im, struct area *ap, unsigned long inpix,
+                      unsigned long outpix, int flags);
 static	void	dorgnerr(XImage *im, Region rgn, unsigned long inpix, unsigned long outpix, int flags);
 
 #define	inarea(ap, x, y)	\
@@ -335,12 +336,12 @@ int 	inloopflag = 0;
  * Make up an error file by faking a known good image.
  */
 static void
-doerr(im, ap, inpix, outpix, flags)
-XImage	*im;
-struct	area	*ap;
-unsigned long	inpix;
-unsigned long	outpix;
-int 	flags;
+doerr(
+    XImage		*im,
+    struct area		*ap,
+    unsigned long	inpix,
+    unsigned long	outpix,
+    int			flags)
 {
 XImage	*good;
 XImage	*bad;

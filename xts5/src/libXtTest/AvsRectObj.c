@@ -79,7 +79,7 @@ SOFTWARE.
  *
  ******************************************************************/
 
-static void XtCopyAncestorSensitive();
+static void XtCopyAncestorSensitive(Widget, int, XrmValue *);
 
 static XtResource resources[] = {
 
@@ -102,9 +102,10 @@ static XtResource resources[] = {
 	 (XtPointer)True}
     };
 
-static void RectObjInitialize();
-static void RectClassPartInitialize();
-static void RectSetValuesAlmost();
+static void RectObjInitialize(Widget, Widget, ArgList, Cardinal *);
+static void RectClassPartInitialize(WidgetClass);
+static void RectSetValuesAlmost(Widget, Widget,
+                                XtWidgetGeometry *, XtWidgetGeometry *);
 
 static void actproc11(a1, a2, a3, a4)
 Widget a1;

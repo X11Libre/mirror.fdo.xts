@@ -1244,6 +1244,7 @@ static char *read_st_draw()
 	return((char *)pd);
 }
 
+#if 0
 /*
  * Read response file and get consequences (or suffer the ...)
  */
@@ -1382,6 +1383,7 @@ Bool xim_response_read()
 	else
 		return(True);
 }
+#endif
 
 /*
  * Close an xim response file 
@@ -1451,10 +1453,11 @@ Bool xim_response_compare(astk)
 		return(True);
 }
 
-
+#if 0
 /*******************************************************************/
 /* test saving of response files */
 void xim_response_save_test()
 {
 	xim_save_response(&cbstk);
 }
+#endif

@@ -535,20 +535,18 @@ int _XConnectDisplay (
  *                                                                           *
  *****************************************************************************/
 
+#if 0
 /*
  * Disconnect from server.
  */
 
-int _XDisconnectDisplay (trans_conn)
-
-XtransConnInfo	trans_conn;
+int _XDisconnectDisplay (XtransConnInfo	trans_conn)
 
 {
     _X11TransDisconnect(trans_conn);
     _X11TransClose(trans_conn);
     return 0;
 }
-
 
 
 Bool
@@ -607,6 +605,7 @@ _XSendClientPrefix (dpy, client, auth_proto, auth_string, prefix)
 #endif
     return 0;
 }
+#endif
 
 
 #ifdef STREAMSCONN

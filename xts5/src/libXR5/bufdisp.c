@@ -114,6 +114,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 #include <r5structs.h>
 #include <r5decl.h>
 #include <r5draw.h>
+#include "Xstlib.h"
 
 void 
 bufrdisp(display)

@@ -112,7 +112,7 @@ static XtResource resources[] = {
       XtOffsetOf(GripRec, grip.grip_action), XtRCallback, NULL},
 };
 
-static void GripAction( /* Widget, XEvent*, String*, Cardinal */ );
+static void GripAction(Widget, XEvent*, String*, Cardinal *);
 
 static XtActionsRec actionsList[] =
 {

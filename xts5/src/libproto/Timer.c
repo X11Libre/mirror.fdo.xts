@@ -158,7 +158,7 @@ SOFTWARE.
 static struct timer {
     int     timer;		/* timer id */
     int     time;		/* time until expiration */
-    void   (*routine) ();	/* routine to call at expiration */
+    void   (*routine) (void);	/* routine to call at expiration */
     struct timer   *next;	/* keeps a linked list in expiration order */
 }                   head;
 
@@ -215,10 +215,10 @@ Set_Init_Timer()
 }
 
 int
-Set_Timer (timer, time, routine)
-    int     timer;       /* unique non-zero timer id */
-    int     time;        /* number of seconds until expiration */
-    void (*routine) ();  /* routine to call when the timer expires */
+Set_Timer (
+    int	    timer,		/* unique non-zero timer id */
+    int	    time,		/* number of seconds until expiration */
+    void (*routine) (void))	/* routine to call when the timer expires */
 {
     struct timer   *prev = NULL; /* pointer to previous timer on list */
     struct timer   *next = NULL; /* pointer to next timer on list */

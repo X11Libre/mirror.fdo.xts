@@ -123,14 +123,16 @@ static XtResource resources[] = {
  *
  ****************************************************************/
 
-static void ClassInitialize();
-static void Initialize();
-static void Realize();
-static void Resize();
-static Boolean SetValues();
-static XtGeometryResult GeometryManager();
-static void ChangeManaged();
-static XtGeometryResult PreferredSize();
+static void ClassInitialize(void);
+static void Initialize(Widget, Widget, ArgList, Cardinal *);
+static void Realize(Widget, Mask *, XSetWindowAttributes *);
+static void Resize(Widget);
+static Boolean SetValues(Widget, Widget, Widget, ArgList, Cardinal *);
+static XtGeometryResult GeometryManager(Widget, XtWidgetGeometry *,
+                                        XtWidgetGeometry *);
+static void ChangeManaged(Widget);
+static XtGeometryResult PreferredSize(Widget, XtWidgetGeometry *,
+                                      XtWidgetGeometry *);
 
 BoxClassRec boxClassRec = {
   {
@@ -593,7 +595,7 @@ static void ChangeManaged(w)
     Resize(w);
 }
 
-static void ClassInitialize()
+static void ClassInitialize(void)
 {
     XawInitializeWidgetSet();
     XtAddConverter( XtRString, XtROrientation, XmuCvtStringToOrientation,
@@ -601,8 +603,11 @@ static void ClassInitialize()
 }
 
 /* ARGSUSED */
-static void Initialize(request, new)
-    Widget request, new;
+static void Initialize(
+    Widget request,
+    Widget new,
+    ArgList args,
+    Cardinal *num_args)
 {
     BoxWidget newbbw = (BoxWidget)new;
 
@@ -632,8 +637,8 @@ static void Realize(w, valueMask, attributes)
 } /* Realize */
 
 /* ARGSUSED */
-static Boolean SetValues(current, request, new)
-    Widget current, request, new;
+static Boolean SetValues(Widget current, Widget request, Widget new,
+                         ArgList args, Cardinal *num_args)
 {
    /* need to relayout if h_space or v_space change */
 

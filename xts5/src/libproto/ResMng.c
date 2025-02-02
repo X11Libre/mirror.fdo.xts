@@ -367,6 +367,7 @@ int     client;
     return (wid);
 }
 
+#if 0
 Window
 Create_Child_Window (client, parent)
 int     client;
@@ -384,7 +385,7 @@ Window	parent;
     Free_Req (req);
     return (wid);
 }
-
+#endif
 
 /* 
    intent:	 set up the client data structure to have a default window
@@ -406,7 +407,7 @@ int     client;
     return (rid);
 }
 
-xEvent
+static xEvent
 Create_Event (client, event_type)
 int     client;
 int event_type;

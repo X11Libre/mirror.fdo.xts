@@ -161,8 +161,8 @@ static cbstk_def cbstk_actual;
 
 /****************************************************************/
 /* some callbacks procedures */
-XIMText *xim_copy_ximtext(pt)
-	XIMText *pt;
+static XIMText *
+xim_copy_ximtext(XIMText *pt)
 {
 	int cnt;
 	XIMText *nt;
@@ -191,18 +191,18 @@ XIMText *xim_copy_ximtext(pt)
 	return(nt);
 }
 
-Pixmap xim_copy_pixmap(pm)
-	Pixmap pm;
+static Pixmap
+xim_copy_pixmap(Pixmap pm)
 {
 	report("copying pixmap not implemented");
 	return(None);
 }
 
-void 
-xim_cb_preedit_start(ic,client,call_data)
-	XIC ic;
-	int client;
-	XPointer call_data;
+static void
+xim_cb_preedit_start(
+    XIC ic,
+    int client,
+    XPointer call_data)
 {
 	int which_cb;
 
@@ -221,11 +221,11 @@ xim_cb_preedit_start(ic,client,call_data)
 	xim_response_push_cb(&cbstk_actual,which_cb,NULL);
 }
 
-void
-xim_cb_preedit_draw(ic,client,call_data)
-	XIC ic;
-	int client;
-	XIMPreeditDrawCallbackStruct *call_data;
+static void
+xim_cb_preedit_draw(
+    XIC ic,
+    int client,
+    XIMPreeditDrawCallbackStruct *call_data)
 {
 	int which_cb;
 	XIMPreeditDrawCallbackStruct *data;
@@ -252,11 +252,11 @@ xim_cb_preedit_draw(ic,client,call_data)
 		report("Null call data in preedit_draw callback");
 }
 
-void
-xim_cb_preedit_done(ic,client,call_data)
-	XIC ic;
-	int client;
-	XPointer call_data;
+static void
+xim_cb_preedit_done(
+    XIC ic,
+    int client,
+    XPointer call_data)
 {
 	int which_cb;
 
@@ -275,11 +275,11 @@ xim_cb_preedit_done(ic,client,call_data)
 	xim_response_push_cb(&cbstk_actual,which_cb,NULL);
 }
 
-void
-xim_cb_preedit_caret(ic,client,call_data)
-	XIC ic;
-	int client;
-	XPointer call_data;
+static void
+xim_cb_preedit_caret(
+    XIC ic,
+    int client,
+    XPointer call_data)
 {
 	int which_cb;
 	XIMPreeditCaretCallbackStruct *data;
@@ -303,11 +303,11 @@ xim_cb_preedit_caret(ic,client,call_data)
 }
 
 /* some status callback procedures */
-void
-xim_cb_status_start(ic,client,call_data)
-	XIC ic;
-	int client;
-	XPointer call_data;
+static void
+xim_cb_status_start(
+    XIC ic,
+    int client,
+    XPointer call_data)
 {
 	int which_cb;
 
@@ -326,11 +326,11 @@ xim_cb_status_start(ic,client,call_data)
 	xim_response_push_cb(&cbstk_actual,which_cb,NULL);
 }
 
-void
-xim_cb_status_draw(ic,client,call_data)
-	XIC ic;
-	int client;
-	XIMStatusDrawCallbackStruct *call_data;
+static void
+xim_cb_status_draw(
+    XIC ic,
+    int client,
+    XIMStatusDrawCallbackStruct *call_data)
 {
 	int which_cb;
 	XIMStatusDrawCallbackStruct *data;
@@ -358,11 +358,11 @@ xim_cb_status_draw(ic,client,call_data)
 		report("Null call data in status_draw callback");
 }
 
-void
-xim_cb_status_done(ic,client,call_data)
-	XIC ic;
-	int client;
-	XPointer call_data;
+static void
+xim_cb_status_done(
+    XIC ic,
+    int client,
+    XPointer call_data)
 {
 	int which_cb;
 
@@ -381,11 +381,11 @@ xim_cb_status_done(ic,client,call_data)
 	xim_response_push_cb(&cbstk_actual,which_cb,NULL);
 }
 
-void
-xim_cb_geom(ic,client,call_data)
-	XIC ic;
-	int client;
-	XPointer call_data;
+static void
+xim_cb_geom(
+    XIC ic,
+    int client,
+    XPointer call_data)
 {
 	int which_cb;
 
@@ -404,8 +404,8 @@ xim_cb_geom(ic,client,call_data)
 	xim_response_push_cb(&cbstk_actual,which_cb,NULL);
 }
 
-void
-xim_cb_clean()
+static void
+xim_cb_clean(void)
 {
     int i;
     cbstk_def *pstk; 
@@ -419,7 +419,8 @@ xim_cb_clean()
 	xim_response_clean_cb();
 }
 
-Bool xim_cb_compare()
+static Bool
+xim_cb_compare(void)
 {
 	return(xim_response_compare(&cbstk_actual));
 }
@@ -463,9 +464,8 @@ Bool xim_cb_compare()
 /**************************************************************/
 /* open routines */
 
-Bool xim_ic_setup(pwin,pfs)
-	Window *pwin;
-	XFontSet *pfs;
+static Bool
+xim_ic_setup(Window *pwin, XFontSet *pfs)
 {
 	int i;
 	XVisualInfo *vp;
@@ -518,10 +518,11 @@ Bool xim_ic_setup(pwin,pfs)
 	return(True);
 }
 
-XIC xim_ic_open(im,win,which_style)
-	XIM im;
-	Window win;
-	XIMStyle which_style;
+static XIC
+xim_ic_open(
+    XIM im,
+    Window win,
+    XIMStyle which_style)
 {
 	XIMStyle pe_mask,st_mask;
 	int dummy;
@@ -618,9 +619,9 @@ XIC xim_ic_open(im,win,which_style)
 }
 
 static Bool
-xim_open_files(locale,pstyle)
-	char *locale;
-	XIMStyle *pstyle;
+xim_open_files(
+    char *locale,
+    XIMStyle *pstyle)
 {
 	XIMStyle style,resp_style;
 
@@ -655,8 +656,8 @@ xim_open_files(locale,pstyle)
 	return(True);
 }
 
-void
-xim_ic_term()
+static void
+xim_ic_term(void)
 {
 	if(preedit_list != NULL)
 		XFree(preedit_list);
@@ -722,11 +723,12 @@ XIC xim_ic_init(locale)
 	return(xim_ic);
 }
 
-
+#if 0
 /**************************************************************/
 /* check the actual callback stack to see if the all the responses */
 /* expected have been fulfilled */
-Bool xim_done()
+Bool xim_done(void)
 {
 	return(xim_response_done(&cbstk_actual));
 }
+#endif

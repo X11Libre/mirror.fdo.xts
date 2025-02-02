@@ -158,7 +158,7 @@ Map_Window(client,win)	/* use this routine only when exposure events are */
 	Free_Req(mwr);
 }
 
-
+#if 0
 void
 Map_a_Window(client, win)	/* use when no expose events are expected */
 	int client;
@@ -224,7 +224,7 @@ Set_Event_Mask(client, win, mask)
 
         cwar = (xChangeWindowAttributesReq *) Make_Req(client, X_ChangeWindowAttributes);
         cwar = (xChangeWindowAttributesReq *) Clear_Masked_Value((xReq *)cwar);
-        cwar = (xChangeWindowAttributesReq *) Add_Masked_Value(cwar, CWEventMask, mask);
+        cwar = (xChangeWindowAttributesReq *) Add_Masked_Value((xReq *)cwar, CWEventMask, mask);
         cwar->window = win;
         Send_Req(client, (xReq *) cwar);
         Log_Trace("client %d sent ChangeWindowAttributes setting event mask for\n", client);
@@ -248,3 +248,4 @@ Destroy_Window(client, win)
 	Expect_Nothing(client);
         Free_Req(req);
 }
+#endif

@@ -130,9 +130,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 static	int 	xpos = 10;
 static	int 	ypos = 5;
 
-Drawable	mkwinpos();
-Drawable	mkunmapwinpos();
-static void incxy();
+static void 	incxy(Display *, int, XVisualInfo *);
 
 #define	GAP	10
 
@@ -236,10 +234,10 @@ int		mapflag;
 
 
 static void
-incxy(disp, bw, vp)
-Display	*disp;
-int bw;
-XVisualInfo *vp;
+incxy(
+    Display	*disp,
+    int 	bw,
+    XVisualInfo *vp)
 {
 unsigned int 	dwidth, dheight;
 

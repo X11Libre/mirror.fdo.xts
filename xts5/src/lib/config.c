@@ -324,7 +324,7 @@ struct	getparam parm[] = {
  * Initialise the config structure by getting all the execution
  * parameters.
  */
-void
+static void
 _initconfig(char* (*getvar)(const char *))
 {
 char	*var;

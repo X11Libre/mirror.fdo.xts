@@ -123,6 +123,8 @@ purpose.  It is provided "as is" without express or implied warranty.
 #define NULL	0
 #include	"X11/Xlib.h"
 #include	"X11/Xlibint.h"
+#include	"Xstlib.h"
+#include	"xtestlib.h"
 
 #ifdef INPUTEXTENSION
 #include	<X11/extensions/XInput.h>

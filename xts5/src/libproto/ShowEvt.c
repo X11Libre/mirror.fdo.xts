@@ -133,8 +133,8 @@ SOFTWARE.
 #include "XstlibInt.h"
 
 void
-Show_Evt(mmp)
-xEvent *mmp;
+Show_Evt(
+    xEvent *mmp)
 {
 	xEvent *mp = (xEvent *)Xstmalloc((unsigned)sizeof(xEvent));
 

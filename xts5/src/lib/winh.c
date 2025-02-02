@@ -258,23 +258,25 @@ static	long	_winhmask_;
 static	int	_event_type_;
 static	int	_eindex_;		/* index into event arrays */
 
-static	char	*winhmalloc();
-static	void	add_child(), add_sibling();
-static	Winh	*getguardian(), *initguardian();
-static	Winhe	*addto();
-static	int 	free_eventlist();
-static	int 	winh_print();
+static	char	*winhmalloc(unsigned int, const char *);
+static	void	add_child(Winh *, Winh *);
+static	void	add_sibling(Winh *, Winh *);
+static	Winh	*getguardian(Display *);
+static	Winh	*initguardian(Display *);
+static	Winhe	*addto(Winhe *, XEvent *);
+static	int 	free_eventlist(void);
+static	int 	winh_print(Winh *);
 
-static	int	_winh_create();
-static	int	_winh_find();
-static	int	_winh_free();
-static	int	_winh_ignore_event();
-static	int	_winh_plant();
-static	int	_winh_selectinput();
-static	int	_winh_weed();
-static	int	_winh_walk_depth();
-static	int	_winh_walk();
-static	int	_winh();
+static	int	_winh_create(Winh *);
+static	int	_winh_find(Winh *);
+static	int	_winh_free(Winh *);
+static	int	_winh_ignore_event(Winh *);
+static	int	_winh_plant(Winh *);
+static	int	_winh_selectinput(Winh *);
+static	int	_winh_weed(Winh *);
+static	int	_winh_walk_depth(Winh *, int (*)(Winh *), int depth);
+static	int	_winh_walk(Winh *, int (*)(Winh *), int depth);
+static	int	_winh(Display *, Winh *, int, long);
 
 /*
  * winh_adopt -	add to window hierarchy
@@ -966,9 +968,9 @@ Winh	*parent, *child;
  * winhmalloc - memory allocation occurs here
  */
 static	char *
-winhmalloc(bytes, msg)
-unsigned int bytes;
-char	*msg;
+winhmalloc(
+    unsigned int bytes,
+    const char	*msg)
 {
 	char	*new;
 
@@ -1045,7 +1047,7 @@ Winh	*winh;
  * free all Winhe-type event lists
  */
 static	int
-free_eventlist()
+free_eventlist(void)
 {
 	int	i;
 
@@ -1093,7 +1095,6 @@ int	depthfirst;
 int	(*procedure)();
 {
 	int	depth;
-	extern	int	winh_print();
 
 	if (winh == (Winh *) NULL) {
 		winh = guardian;
@@ -1120,10 +1121,10 @@ int	(*procedure)();
  *		the current node.
  */
 static int
-_winh_walk_depth(winh, procedure, depth)
-Winh	*winh;
-int	(*procedure)();
-int	depth;
+_winh_walk_depth(
+    Winh	*winh,
+    int		(*procedure)(Winh *),
+    int		depth)
 {
 	int	i;
 	int	firstborn;
@@ -1154,10 +1155,10 @@ int	depth;
 }
 
 static int
-_winh_walk(winh, procedure, depth)
-Winh	*winh;
-int	(*procedure)();
-int	depth;
+_winh_walk(
+    Winh	*winh,
+    int		(*procedure)(Winh *),
+    int		depth)
 {
 	int	i;
 
@@ -1421,11 +1422,11 @@ long	winhmask;
 }
 
 static	int
-_winh(display, parent, depth, winhmask)
-Display	*display;
-Winh	*parent;
-int	depth;
-long	winhmask;
+_winh(
+    Display	*display,
+    Winh	*parent,
+    int		depth,
+    long	winhmask)
 {
 	int	i;
 

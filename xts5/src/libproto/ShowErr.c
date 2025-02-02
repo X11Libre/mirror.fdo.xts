@@ -132,8 +132,8 @@ SOFTWARE.
 #include "XstlibInt.h"
 
 void
-Show_Err(mp)
-xError *mp;
+Show_Err(
+    xError *mp)
 {
 	if (mp->errorCode > FirstExtensionError) {
 	    Show_Ext_Err(mp);

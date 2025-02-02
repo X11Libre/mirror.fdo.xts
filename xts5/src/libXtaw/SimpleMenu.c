@@ -173,27 +173,42 @@ static char defaultTranslations[] =
  * Semi Public function definitions. 
  */
 
-static void Redisplay(), Realize(), Resize(), ChangeManaged();
-static void Initialize(), ClassInitialize(), ClassPartInitialize();
-static Boolean SetValues(), SetValuesHook();
-static XtGeometryResult GeometryManager();
+static void Redisplay(Widget, XEvent *, Region);
+static void Realize(Widget, Mask *, XSetWindowAttributes *);
+static void Resize(Widget);
+static void ChangeManaged(Widget);
+static void Initialize(Widget, Widget, ArgList, Cardinal *);
+static void ClassInitialize(void);
+static void ClassPartInitialize(WidgetClass);
+static Boolean SetValues(Widget, Widget, Widget, ArgList, Cardinal *);
+static Boolean SetValuesHook(Widget, ArgList, Cardinal *);
+static XtGeometryResult GeometryManager(Widget, XtWidgetGeometry *,
+                                        XtWidgetGeometry *);
 
 /*
  * Action Routine Definitions
  */
 
-static void Highlight(), Unhighlight(), Notify(), PositionMenuAction();
+static void Highlight(Widget, XEvent *, String *, Cardinal *);
+static void Unhighlight(Widget, XEvent *, String *, Cardinal *);
+static void Notify(Widget, XEvent *, String *, Cardinal *);
+static void PositionMenuAction(Widget, XEvent *, String *, Cardinal *);
 
 /* 
  * Private Function Definitions.
  */
 
-static void MakeSetValuesRequest(), CreateLabel(), Layout();
-static void AddPositionAction(), PositionMenu(), ChangeCursorOnGrab();
-static Dimension GetMenuWidth(), GetMenuHeight();
-static Widget FindMenu();
-static SmeObject GetEventEntry();
-static void MoveMenu();
+static void MakeSetValuesRequest(Widget, Dimension, Dimension);
+static void CreateLabel(Widget);
+static void Layout(Widget, Dimension *, Dimension *);
+static void AddPositionAction(XtAppContext, caddr_t);
+static void PositionMenu(Widget, XPoint *);
+static void ChangeCursorOnGrab(Widget, XtPointer, XtPointer);
+static Dimension GetMenuWidth(Widget, Widget);
+static Dimension GetMenuHeight(Widget);
+static Widget FindMenu(Widget, String);
+static SmeObject GetEventEntry(Widget, XEvent *);
+static void MoveMenu(Widget, Position, Position);
 
 static XtActionsRec actionsList[] =
 {
@@ -276,7 +291,7 @@ WidgetClass simpleMenuWidgetClass = (WidgetClass)&simpleMenuClassRec;
  */
 
 static void
-ClassInitialize()
+ClassInitialize(void)
 {
   XawInitializeWidgetSet();
   XtAddConverter( XtRString, XtRBackingStore, XmuCvtStringToBackingStore,
@@ -316,8 +331,7 @@ WidgetClass wc;
 
 /* ARGSUSED */
 static void
-Initialize(request, new)
-Widget request, new;
+Initialize(Widget request, Widget new, ArgList args, Cardinal *num_args)
 {
   SimpleMenuWidget smw = (SimpleMenuWidget) new;
 
@@ -463,8 +477,8 @@ Widget w;
 
 /* ARGSUSED */
 static Boolean
-SetValues(current, request, new)
-Widget current, request, new;
+SetValues(Widget current, Widget request, Widget new,
+          ArgList args, Cardinal *num_args)
 {
     SimpleMenuWidget smw_old = (SimpleMenuWidget) current;
     SimpleMenuWidget smw_new = (SimpleMenuWidget) new;

@@ -128,6 +128,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 #include <pixval.h>
 #include <r5structs.h>                                   
 #include <r5.h>
+#include <avsr5_proto.h>
 
 /*
  * Generic startup routine for tests.  All tests in general call
@@ -156,8 +157,6 @@ extern Atom	ErrdefAtom;
 extern Cursor	ErrdefCursor;
 extern Font	ErrdefFont;
 
-extern void	aborttest();
-
 void
 r5_startup()
 {
@@ -166,8 +165,6 @@ char	*disp;
 char	*cp;
 /* extern	char	*TestName; */
 extern	struct	tet_testlist	tet_testlist[];
-extern	int 	unexp_err();
-extern	int 	io_err();
 
 	/*
 	 * Set the debug level first (it is used in initconfig).

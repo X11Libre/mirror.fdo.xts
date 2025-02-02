@@ -137,17 +137,24 @@ static XtResource resources[] = {
  * Semi Public function definitions. 
  */
 
-static void Redisplay(), Destroy(), Initialize(), FlipColors();
-static void ClassInitialize();
-static Boolean SetValues();
-static XtGeometryResult QueryGeometry();
+static void Redisplay(Widget, XEvent *, Region);
+static void Destroy(Widget);
+static void Initialize(Widget, Widget, ArgList, Cardinal *);
+static void FlipColors(Widget);
+static void ClassInitialize(void);
+static Boolean SetValues(Widget, Widget, Widget, ArgList, Cardinal *);
+static XtGeometryResult QueryGeometry(Widget, XtWidgetGeometry *,
+                                      XtWidgetGeometry *);
 
 /* 
  * Private Function Definitions.
  */
 
-static void GetDefaultSize(), DrawBitmaps(), GetBitmapInfo();
-static void CreateGCs(), DestroyGCs();
+static void GetDefaultSize(Widget, Dimension *, Dimension *);
+static void DrawBitmaps(Widget, GC);
+static void GetBitmapInfo(Widget, Boolean);
+static void CreateGCs(Widget);
+static void DestroyGCs(Widget);
     
 #define superclass (&smeClassRec)
 SmeBSBClassRec smeBSBClassRec = {
@@ -213,7 +220,7 @@ WidgetClass smeBSBObjectClass = (WidgetClass) &smeBSBClassRec;
  */
 
 static void 
-ClassInitialize()
+ClassInitialize(void)
 {
     XawInitializeWidgetSet();
     XtAddConverter( XtRString, XtRJustify, XmuCvtStringToJustify, NULL, 0 );
@@ -229,8 +236,7 @@ ClassInitialize()
 
 /* ARGSUSED */
 static void
-Initialize(request, new)
-Widget request, new;
+Initialize(Widget request, Widget new, ArgList args, Cardinal *num_args)
 {
     SmeBSBObject entry = (SmeBSBObject) new;
 

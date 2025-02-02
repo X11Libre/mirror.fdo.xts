@@ -140,7 +140,11 @@ static int dispimage(Display *disp, Window win, GC gc,
                      XImage *images[2], int nim);
 static int proc(Display	*disp, Window win, GC gc, FILE *fp);
 static int processfile(Display *disp, Window win, GC gc, char *file);
+static int r1im(FILE *fp, XImage *image, int val);
 static int readimage(FILE *fp, XImage *images[2], Display *disp);
+static void repaint(Display *disp, Window win, GC gc,
+                    XImage *image1,  XImage *image2,
+                    int compare_colour, int evp, unsigned int which);
 static void setzoom(Display *disp, Window win, GC gc);
 extern int VBlowup(Display *display, Window window, GC egc,
                    int init_x, int init_y, int w, int h, int size,
@@ -323,7 +327,6 @@ int	nim;
 int 	w, h, size;
 static	XImage	*lastim1, *lastim2;
 XImage		*image;
-void	repaint();
 
 	/*
 	 * Use the last image(s) if this one is NULL XXX
@@ -351,14 +354,9 @@ void	repaint();
 		0, 0, W_BG, w/2, h/2, 1, Colour, repaint, &Zoom, font_name);
 }
 
-void repaint(disp, win, gc, image1, image2, compare_colour, evp, which)
-Display		*disp;
-Window		win;
-GC		gc;
-XImage		*image1, *image2;
-int		compare_colour;
-int		evp;
-unsigned int	which;
+static void
+repaint(Display *disp, Window win, GC gc, XImage *image1, XImage *image2,
+        int compare_colour, int evp, unsigned int which)
 {
 	int	x,y;
 	unsigned long pix1, pix2, mask, bg = W_BG;
@@ -435,7 +433,6 @@ Display *disp;
 {
 char	buf[512];
 unsigned long	*ip;
-int	r1im();
 XImage	*ximage;
 int	i = 0;
 int	scrn;
@@ -516,11 +513,10 @@ unsigned int bitmap_pad; /* debugging only */
 	return i;
 }
 
-int
-r1im(fp, image, val)
-FILE	*fp;
-XImage	*image;
-int 	val;
+static int
+r1im(FILE	*fp,
+     XImage	*image,
+     int 	val)
 {
 char	buf[512];
 int 	count;

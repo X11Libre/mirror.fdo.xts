@@ -149,8 +149,8 @@ int 	sflag;
 char	*sopt;
 int 	mflag;
 
-static	void	sigclean();
-static	void	setupaslist();
+static	void	sigclean(int sig);
+static	void	setupaslist(char *list);
 
 struct	mclist *Sources;
 int 	Cmdname;

@@ -301,7 +301,7 @@ TestType test_type;
 }
 
 static
-XModifierKeymap * XstNewModifiermap ();
+XModifierKeymap * XstNewModifiermap (int keyspermodifier);
 
 
 /* 
@@ -338,9 +338,6 @@ XstOpenDisplay (register const char *display, int bytesex, int needswap, int cl)
     char *auth_string;
     int auth_strlen;
     int using_xo;
-
-    extern int  XstSendClientPrefix ();
-    extern  XID Get_Resource_Id();
 
  /* 
   * If the display specifier string supplied as an argument to this 
@@ -847,8 +844,7 @@ register    XstDisplay * dpy;
 
 static
 XModifierKeymap *
-XstNewModifiermap (keyspermodifier)
-int     keyspermodifier;
+XstNewModifiermap (int keyspermodifier)
 {
     XModifierKeymap * res = (XModifierKeymap *) Xstmalloc ((sizeof (XModifierKeymap
     )));

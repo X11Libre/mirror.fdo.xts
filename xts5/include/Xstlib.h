@@ -360,13 +360,9 @@ extern CL Xst_clients[MAX_CLIENTS];
 /*
  *	Routine definitions for TET startup and cleanup.
  */
-void	protostartup();
-void	protocleanup();
-void	openprotostartup();
-void	openprotocleanup();
-void	fontprotostartup();
-void	fontprotocleanup();
-void	checkconfig();
+void	protostartup(void);
+void	protocleanup(void);
+void	checkconfig(void);
 
 /*
  *	The following names clash with other functions on systems with
@@ -379,37 +375,38 @@ void	checkconfig();
 /*
  *	Xstlib routine definitions
  */
-void	XstAbort();
-void	XstDelete ();
-void	Finish ();
-int	Allocatable (int client);
-Atom	Create_Atom();
-void	Create_Client ();
-int	Create_Client_Tested ();
-Colormap	Create_Colormap();
-Cursor	Create_Cursor();
-Atom	Create_Default_Atom();
-Colormap	Create_Default_Colormap();
-Cursor	Create_Default_Cursor();
-Pixmap	Create_Default_Cursor_Pixmap(int client);
-void	Create_Default_Event(int client, int event_type);
-Font	Create_Default_Font();
-GContext	Create_Default_GContext();
-Pixmap	Create_Default_Pixmap();
-Window	Create_Default_Window();
-Font	Create_Font();
-GContext	Create_GContext();
-Pixmap	Create_Pixmap();
-Window	Create_Window();
-void	XstExit();
-void	Exit_OK();
+void	XstAbort(void);
+void	XstDelete(void);
+void	XstExit(void);
+void	Finish(int client);
+int	Allocatable(int client);
+Atom		Create_Atom(int client);
+void		Create_Client(int client);
+int		Create_Client_Tested(int client, TestType test_type);
+Colormap	Create_Colormap(int client);
+Cursor		Create_Cursor(int client);
+Pixmap		Create_Cursor_Pixmap(int client);
+Atom		Create_Default_Atom(int client);
+Colormap	Create_Default_Colormap(int client);
+Cursor		Create_Default_Cursor(int client);
+Pixmap		Create_Default_Cursor_Pixmap(int client);
+void		Create_Default_Event(int client, int event_type);
+Font		Create_Default_Font(int client);
+GContext	Create_Default_GContext(int client);
+Pixmap		Create_Default_Pixmap(int client);
+Window		Create_Default_Window(int client);
+Font		Create_Font(int client);
+GContext	Create_GContext(int client);
+Pixmap		Create_Pixmap(int client);
+Window		Create_Window(int client);
+void	Exit_OK(void);
 xReply *Expect(int client, int class, int type);
 void	Expect_BadAccess(int client);
 void	Expect_BadIDChoice(int client);
 void	Expect_BadLength(int client);
 void	Expect_BadValue(int client);
-int	Get_Timer();
-XID	Get_Resource_Id();
+int	Get_Timer(int timer);
+XID	Get_Resource_Id(int client);
 int	Log_Close(void);
 void	Reset_Some(void);
 void	Log_Debug(const char *fmt, ...) _X_ATTRIBUTE_PRINTF(1, 2);
@@ -422,28 +419,28 @@ void	Log_Err_Detail(const char *fmt, ...) _X_ATTRIBUTE_PRINTF(1, 2);
 void	Log_Msg(const char *fmt, ...) _X_ATTRIBUTE_PRINTF(1, 2);
 void	Log_Open(void);
 void	Log_Trace(const char *fmt, ...) _X_ATTRIBUTE_PRINTF(1, 2);
-xReq	*Make_Req();
-xReq	*Clear_Counted_Value();
-xReq	*Add_Counted_Value();
-void	Map_Window();
-void	Send_Req();	/* send the request pointed to */
-void	Server_Close();	/* close connection to X server */
-int	Server_Open();	/* establish connection to X server */
+xReq	*Make_Req(int client, int type);
+void	Map_Window(int client, Window win);
+void	Send_Req(int client, xReq *rp);	/* send the request pointed to */
 int	Set_Init_Timer(void);
-int	Set_Timer(int timer, int time, void (*routine)());
-void	Set_Value1();
-void	Set_Value2();
-void	Set_Value4();
+int	Set_Timer(int timer, int time, void (*routine)(void));
+void	Set_Value1(char **to, char val);
+void	Set_Value2(char **to, CARD16 val);
+void	Set_Value4(char **to, CARD32 val);
 void	Set_Byte_Sex(int set_to);
 void	Set_Required_Byte_Sex(int set_to);
-void	Show_Err();
-void	Show_Evt();
-void	Show_Rep();
-void	Show_Req();
-int	Stop_Timer();
+void	Show_Err(xError *mp);
+void	Show_Evt(xEvent *mmp);
+void	Show_Rep(xReply *mmp, int type, long bytes_given);
+void	Show_Req(xReq *);
+int	Stop_Timer(int timer);
 void	Visual_Check(void);
-xReq	*Add_Masked_Value();
-xReq	*Add_Counted_Bytes();
+
+xReq *	Add_Counted_Bytes(xReq *reqp, unsigned char *bytep, int nbytes);
+xReq *	Add_Counted_Value(xReq *reqp, unsigned long value);
+xReq *	Add_Masked_Value(xReq *reqp, unsigned long mask, unsigned long value);
+xReq *	Clear_Counted_Value(xReq *reqp);
+xReq *	Del_Masked_Value (xReq *reqp, unsigned long mask);
 
 void	bufrgc(GC gc_id, const char *gc_name);
 void	debug(int lev, const char *fmt, ...);

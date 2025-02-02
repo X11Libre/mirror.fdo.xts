@@ -137,7 +137,8 @@ SOFTWARE.
 
 #define REPLY_HEADER	8	/* number of bytes */
 
-static void Length_Error();
+static void Length_Error(unsigned long bytes_needed, int client, xReply *rp,
+                         int type, const char *label, int calc);
 
 int
 Rcv_Rep(rp,rbuf,type,client)
@@ -802,13 +803,13 @@ int client;   /* */
 }
 
 static void
-Length_Error(bytes_needed,client,rp,type,label,calc)
-unsigned long bytes_needed;
-int client;
-xReply *rp;
-int type;
-char *label;
-int calc;
+Length_Error(
+    unsigned long bytes_needed,
+    int client,
+    xReply *rp,
+    int type,
+    const char *label,
+    int calc)
 {
     Log_Msg("Rcv_Rep: BAD LENGTH ERROR!!!\n");
     Log_Msg("\treply = %s\n",label);

@@ -160,8 +160,8 @@ unsigned short unpack2(void *bufpp, int swap);
 unsigned long unpack4(void *bufpp, int swap);
 void Unpack_Shorts(CARD16 *to, void *from, int count, int swap);
 void Unpack_Longs(CARD32 *to, void *from, int count, int swap);
-void XstIOError();
-int Xst_Read();
+void XstIOError(XstDisplay *dpy, const char *str, int incperror);
+int Xst_Read(XstDisplay *dpy, char *data, long size);
 void squeeze_me_in(int cl, unsigned long len);
 
 /* 128 bytes per reply plus 32736 longwords for reply data (just big enough
@@ -299,6 +299,8 @@ int _XConnectDisplay (const char *display_name, char **fullnamep,
                       int *dpynump, int *screenp,
                       char **auth_namep, int *auth_namelenp,
                       char **auth_datap, int *auth_datalenp);
+void XstSendClientPrefix (XstDisplay *dpy, xConnClientPrefix *client,
+                          char* auth_proto, char *auth_string, int needswap);
 void _Send_Req (int client, xReq *rp, int pollreq);
 void _XstWaitForReadable (XstDisplay *dpy);
 
@@ -327,6 +329,8 @@ int Rcv_Ext_Evt (xEvent *rp, char rbuf[], int client);
 int Rcv_Ext_Err (xError *rp, char rbuf[], int client);
 int Rcv_Ext_Rep (xReply *rp, char rbuf[], int type, int client);
 int Rcv_Rep (xReply *rp, char rbuf[], int type, int client);
+
+void Send_Evt(int client, xEvent *event_ptr, int event_type);
 
 void Show_Ext_Evt (xEvent *mp);
 void Show_Ext_Err (xError *mp);

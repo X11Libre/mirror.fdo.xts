@@ -68,10 +68,8 @@ SOFTWARE.
 
 extern Widget topLevel, panedw, boxw1, boxw2, rowcolw, click_quit, labelw;
 extern XtAppContext app_ctext;
-extern char *title() ;
 extern char ebuf[];
 char label[80] ;
-extern void xt_whandler();
 
 Widget
 avs_xt_hier(const char *stitle, const char *slabel)

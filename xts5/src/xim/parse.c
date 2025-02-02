@@ -127,7 +127,8 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include <stdio.h>
 #include <string.h>
 
-#include	"X11/Xlib.h"
+#include <X11/Xlib.h>
+#include "ximtest.h"
 
 #define MAXIDLEN 32
 

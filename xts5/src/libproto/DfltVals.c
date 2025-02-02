@@ -191,20 +191,10 @@ Gen_Good_Visual (client,scr)
 }
 
 XID
-Get_Resource_Id(client)
-int client;
+Get_Resource_Id(int client)
 {
     XstDisplay *dpy = Get_Display(client);
     return(dpy->resource_base + (dpy->resource_id++ << dpy->resource_shift));
-}
-
-/*ARGSUSED*/
-int
-Gen_Good_Event(client,rp)
-int client;
-xReq *rp;
-{
-    return (0);
 }
 
 /* func. to give min of 3 vars */

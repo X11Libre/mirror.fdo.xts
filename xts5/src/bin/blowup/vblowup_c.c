@@ -300,23 +300,22 @@ static int validate_color = 1;	/* 0 = position only */
 	as long as we don't eat (all of) these we are safe.	- kieron
 *******/
 
-void vmakebig(display, window, blowup_win, x, y, zoom_factor,pixels_across,
-		size, format, gc, gcback, gcfore, kgi, ximage, ix, iy, 
-		background, view_color, test_color)
-Display *display;
-Window window;
-Window blowup_win;
-int x, y, zoom_factor;
-int pixels_across;
-int size;
-int format;
-GC gc;                  
-unsigned long gcback,gcfore;
-XImage *kgi;			/* known good image */
-XImage *ximage;			/* possibly bad image */
-int ix, iy;		  	/* origin of known good image relative to the screen */
-unsigned long background;       /* background color */
-int view_color,test_color;
+static void
+vmakebig(
+    Display *display,
+    Window window,
+    Window blowup_win,
+    int x, int y, int zoom_factor,
+    int pixels_across,
+    int size,
+    int format,
+    GC gc,
+    unsigned long gcback, unsigned long gcfore,
+    XImage *kgi,		/* known good image */
+    XImage *ximage,		/* possibly bad image */
+    int ix, int iy,  	/* origin of known good image relative to the screen */
+    unsigned long background,	/* background color */
+    int view_color, int test_color)
 {
 	int across,down,e,f, azf;    
 	unsigned long pixel, old_pixel, testpixel, goodpixel, mask;               
@@ -465,15 +464,15 @@ XTextItem labels[] = {
 	{ " next      ", 11, 11, None}
 };
 
-void
-h_light(display, wins, nwins, gc, labs, target, kgi)
-Display	*display;
-Window	*wins;
-int	nwins;
-GC	gc;
-XTextItem	*labs;
-Window	target;
-XImage	*kgi;
+static void
+h_light(
+    Display	*display,
+    Window	*wins,
+    int		nwins,
+    GC		gc,
+    XTextItem	*labs,
+    Window	target,
+    XImage	*kgi)
 {
 	int i;
 
@@ -485,14 +484,14 @@ XImage	*kgi;
 		    /* delta used as vertical, rather than horiz, here! */
 }
 
-void
-refresh(display, wins, nwins, gc, labs, kgi)
-Display	*display;
-Window	*wins;
-int	nwins;
-GC	gc;
-XTextItem	*labs;
-XImage	*kgi;
+static void
+refresh(
+    Display	*display,
+    Window	*wins,
+    int		nwins,
+    GC		gc,
+    XTextItem	*labs,
+    XImage	*kgi)
 {
 	h_light(display, wins, nwins, gc, labs, None, kgi);
 }

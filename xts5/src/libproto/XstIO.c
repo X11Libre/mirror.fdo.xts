@@ -169,10 +169,10 @@ long Xst_size;
  * we rely on the timer to rescue us.
  */
 int
-Xst_Read (dpy, data, size)
-register    XstDisplay * dpy;
-register char  *data;
-register long   size;
+Xst_Read (
+    register    XstDisplay * dpy,
+    register char  *data,
+    register long   size)
 {
     long   bytes_read = 0;
     long   this_read;
@@ -241,10 +241,10 @@ register long   size;
 }
 
 /*ARGSUSED*/
-void XstIOError (dpy,str,incperror)
-XstDisplay * dpy;
-char *str;
-int incperror;	/* include system error info */
+void XstIOError (
+    XstDisplay *dpy,
+    const char *str,
+    int incperror)	/* include system error info */
 {
     char emsg[132];
 

@@ -132,12 +132,21 @@ static XtResource resources[] = {
 };
 #undef offset
 
-static Boolean SetValues();
-static void Initialize(), Redisplay(), Set(), Reset(), Notify(), Unset();
-static void Highlight(), Unhighlight(), Destroy(), PaintCommandWidget();
-static void ClassInitialize();
-static Boolean ShapeButton();
-static void Realize(), Resize();
+static Boolean SetValues(Widget, Widget, Widget, ArgList, Cardinal *);
+static void Initialize(Widget, Widget, ArgList, Cardinal *);
+static void Redisplay(Widget, XEvent *, Region);
+static void Set(Widget, XEvent *, String *, Cardinal *);
+static void Reset(Widget, XEvent *, String *, Cardinal *);
+static void Notify(Widget, XEvent *, String *, Cardinal *);
+static void Unset(Widget, XEvent *, String *, Cardinal *);
+static void Highlight(Widget, XEvent *, String *, Cardinal *);
+static void Unhighlight(Widget, XEvent *, String *, Cardinal *);
+static void Destroy(Widget);
+static void PaintCommandWidget(Widget, Region, Boolean);
+static void ClassInitialize(void);
+static Boolean ShapeButton(CommandWidget, Boolean);
+static void Realize(Widget, Mask *, XSetWindowAttributes *);
+static void Resize(Widget);
 
 static XtActionsRec actionsList[] = {
   {"set",		Set},
@@ -523,8 +532,8 @@ Widget w;
 
 /* ARGSUSED */
 static Boolean 
-SetValues (current, request, new)
-Widget current, request, new;
+SetValues (Widget current, Widget request, Widget new,
+           ArgList args, Cardinal *num_args)
 {
   CommandWidget oldcbw = (CommandWidget) current;
   CommandWidget cbw = (CommandWidget) new;
@@ -571,7 +580,7 @@ Widget current, request, new;
   return (redisplay);
 }
 
-static void ClassInitialize()
+static void ClassInitialize(void)
 {
     XawInitializeWidgetSet();
     XtSetTypeConverter( XtRString, XtRShapeStyle, XmuCvtStringToShapeStyle,

@@ -110,7 +110,10 @@ static XtResource resources[] = {
 #undef offset
 };
 
-static void ClassPartInitialize(), ClassInitialize(),Realize(),ConvertCursor();
+static void ClassPartInitialize(WidgetClass);
+static void ClassInitialize(void);
+static void Realize(Widget, Mask *, XSetWindowAttributes *);
+static void ConvertCursor(Widget);
 static Boolean SetValues(Widget, Widget, Widget, ArgList, Cardinal *);
 static int ChangeSensitive(Widget);
 
@@ -156,7 +159,7 @@ SimpleClassRec simpleClassRec = {
 
 WidgetClass simpleWidgetClass = (WidgetClass)&simpleClassRec;
 
-static void ClassInitialize()
+static void ClassInitialize(void)
 {
     static XtConvertArgRec convertArg[] = {
         {XtWidgetBaseOffset, (XtPointer) XtOffsetOf(WidgetRec, core.screen),

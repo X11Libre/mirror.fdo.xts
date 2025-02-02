@@ -107,22 +107,26 @@ SOFTWARE.
 
 
 					/* widget class method */
-static void             ClassInitialize();
-static void             Initialize();
-static void             ConstraintInitialize();
-static void             ConstraintDestroy();
-static Boolean          ConstraintSetValues();
-static void             Destroy();
-static Boolean          SetValues();
-static XtGeometryResult GeometryManager();
-static void             ChangeManaged();
-static void             Redisplay();
-static XtGeometryResult	QueryGeometry();
+static void             ClassInitialize(void);
+static void             Initialize(Widget, Widget, ArgList, Cardinal *);
+static void             ConstraintInitialize(Widget, Widget,
+                                             ArgList, Cardinal *);
+static void             ConstraintDestroy(Widget);
+static Boolean          ConstraintSetValues(Widget, Widget, Widget,
+                                            ArgList, Cardinal *);
+static void             Destroy(Widget);
+static Boolean          SetValues(Widget, Widget, Widget, ArgList, Cardinal *);
+static XtGeometryResult GeometryManager(Widget, XtWidgetGeometry *,
+                                        XtWidgetGeometry *);
+static void             ChangeManaged(Widget);
+static void             Redisplay(Widget, XEvent *, Region);
+static XtGeometryResult	QueryGeometry(Widget, XtWidgetGeometry *,
+                                      XtWidgetGeometry *);
 
 					/* utility routines */
-static void             insert_node();
-static void             delete_node();
-static void             layout_tree();
+static void             insert_node(Widget, Widget);
+static void             delete_node(Widget, Widget);
+static void             layout_tree(TreeWidget, Boolean);
 
 
 /*
@@ -360,7 +364,7 @@ static void check_gravity (tw, grav)
  *                                                                           *
  *****************************************************************************/
 
-static void ClassInitialize ()
+static void ClassInitialize (void)
 {
     XawInitializeWidgetSet();
     XtAddConverter (XtRString, XtRGravity, XmuCvtStringToGravity,
@@ -368,8 +372,8 @@ static void ClassInitialize ()
 }
 
 
-static void Initialize (grequest, gnew)
-    Widget grequest, gnew;
+static void
+Initialize (Widget grequest, Widget gnew, ArgList arglist, Cardinal *num_args)
 {
     TreeWidget request = (TreeWidget) grequest, new = (TreeWidget) gnew;
     Arg args[2];
@@ -423,8 +427,8 @@ static void Initialize (grequest, gnew)
 
 
 /* ARGSUSED */
-static void ConstraintInitialize (request, new)
-     Widget request, new;
+static void ConstraintInitialize (Widget request, Widget new,
+                                  ArgList args, Cardinal *num_args)
 {
     TreeConstraints tc = TREE_CONSTRAINT(new);
     TreeWidget tw = (TreeWidget) new->core.parent;
@@ -453,8 +457,8 @@ static void ConstraintInitialize (request, new)
 
 
 /* ARGSUSED */
-static Boolean SetValues (gcurrent, grequest, gnew)
-    Widget gcurrent, grequest, gnew;
+static Boolean SetValues (Widget gcurrent, Widget grequest, Widget gnew,
+                          ArgList args, Cardinal *num_args)
 {
     TreeWidget current = (TreeWidget) gcurrent, new = (TreeWidget) gnew;
     Boolean redraw = FALSE;
@@ -605,11 +609,13 @@ static void Destroy (gw)
 
 
 /* ARGSUSED */
-static void Redisplay (tw, event, region)
-     TreeWidget tw;
-     XEvent *event;
-     Region region;
+static void Redisplay (
+    Widget w,
+    XEvent *event,
+    Region region)
 {
+    TreeWidget tw = (TreeWidget) w;
+
     /*
      * If the Tree widget is visible, visit each managed child.
      */

@@ -71,6 +71,7 @@ typedef struct _AvsObjClassRec *AvsObjClass;
 
 extern WidgetClass avsObjClass;
 
-extern void AvsObjCallCallbackList(); /* pass event number for avs_set_event */
+extern void AvsObjCallCallbackList  /* pass event number for avs_set_event */
+(Widget w, XtPointer call_data, int event_num);
 
 #endif /* AvsObj_h */

@@ -344,9 +344,9 @@ static int this_client;
   methods:
 */
 xReq
-*Make_Req(client,type)
-int client;
-int type;
+*Make_Req(
+    int client,
+    int type)
 {
 	xReq *rp;
 	char *valuePtr = NULL;	/* set NULL to trap errors */

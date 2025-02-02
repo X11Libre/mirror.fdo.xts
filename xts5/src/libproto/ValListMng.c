@@ -132,9 +132,13 @@ SOFTWARE.
 #include "XstlibInt.h"
 #include "DataMove.h"
 
-static int Ones();
-static xReq * _Add_Masked_Value();
-static xReq * _Del_Masked_Value();
+static int Ones(Mask mask);
+static xReq * _Add_Masked_Value(xReq *reqp, unsigned long nominal_size,
+                                CARD32 *rmaskp32, CARD16 *rmaskp16,
+                                unsigned long mask, unsigned long value);
+static xReq * _Del_Masked_Value(xReq *reqp, unsigned long nominal_size,
+                                CARD32 *rmaskp32, CARD16 *rmaskp16,
+                                unsigned long mask);
 
 /*
  *	Routine: Clear_Masked_Value - clears mask and deallocates value list
@@ -310,13 +314,13 @@ unsigned long value;
  */
 
 static xReq *
-_Add_Masked_Value(reqp,nominal_size,rmaskp32,rmaskp16,mask,value)
-xReq *reqp;
-unsigned long nominal_size;
-CARD32 *rmaskp32;
-CARD16 *rmaskp16;
-unsigned long mask;
-unsigned long value;
+_Add_Masked_Value(
+    xReq *reqp,
+    unsigned long nominal_size,
+    CARD32 *rmaskp32,
+    CARD16 *rmaskp16,
+    unsigned long mask,
+    unsigned long value)
 {
     unsigned long rmask;
     CARD32 *valuePtr;
@@ -370,9 +374,9 @@ unsigned long value;
  */
 
 xReq *
-Del_Masked_Value (reqp, mask)
-xReq * reqp;
-unsigned long mask;
+Del_Masked_Value (
+    xReq * reqp,
+    unsigned long mask)
 {
     unsigned long   nominal_size;
 
@@ -442,12 +446,12 @@ unsigned long mask;
  */
 
 static xReq *
-_Del_Masked_Value(reqp,nominal_size,rmaskp32,rmaskp16,mask)
-xReq *reqp;
-unsigned long nominal_size;
-CARD32 *rmaskp32;
-CARD16 *rmaskp16;
-unsigned long mask;
+_Del_Masked_Value(
+    xReq *reqp,
+    unsigned long nominal_size,
+    CARD32 *rmaskp32,
+    CARD16 *rmaskp16,
+    unsigned long mask)
 {
     unsigned long rmask;
     CARD32 *valuePtr;
@@ -796,13 +800,13 @@ unsigned long value;
 	    valuePtr += (valueLen - (((xChangePropertyReq *)reqp)->format/8));
 	    switch(((xChangePropertyReq *)reqp)->format) {
 	    case 8:
-		Set_Value1(&valuePtr,value);
+		Set_Value1((char **)&valuePtr, value);
 		break;
 	    case 16:
-		Set_Value2(&valuePtr,value);
+		Set_Value2((char **)&valuePtr, value);
 		break;
 	    case 32:
-		Set_Value4(&valuePtr,value);
+		Set_Value4((char **)&valuePtr, value);
 		break;
 	    }
 	    break;
@@ -819,7 +823,7 @@ unsigned long value;
 
 	    valuePtr = (unsigned char *) (((char *) reqp) + nominal_size);
 	    valuePtr += (valueLen - 1);
-	    Set_Value1(&valuePtr,value);
+	    Set_Value1((char **)&valuePtr, value);
 	    break;
 	case X_QueryTextExtents: 
 	    nominal_size = sizeof (xQueryTextExtentsReq);
@@ -836,7 +840,7 @@ unsigned long value;
 
 	    valuePtr = (unsigned char *) (((char *) reqp) + nominal_size);
 	    valuePtr += (valueLen - 2);
-	    Set_Value2(&valuePtr,value);
+	    Set_Value2((char **)&valuePtr, value);
 	    if ((valueLen % 4) == 2) {
 		((xQueryTextExtentsReq *) reqp)->oddLength = 1;
 	    }
@@ -858,7 +862,7 @@ unsigned long value;
 
 	    valuePtr = (unsigned char *) (((char *) reqp) + nominal_size);
 	    valuePtr += (valueLen - 1);
-	    Set_Value1(&valuePtr,value);
+	    Set_Value1((char **)&valuePtr, value);
 	    break;
 	case X_ListFontsWithInfo: 
 	    nominal_size = sizeof (xListFontsWithInfoReq);
@@ -874,7 +878,7 @@ unsigned long value;
 
 	    valuePtr = (unsigned char *) (((char *) reqp) + nominal_size);
 	    valuePtr += (valueLen - 1);
-	    Set_Value1(&valuePtr,value);
+	    Set_Value1((char **)&valuePtr, value);
 	    break;
 	case X_SetFontPath: 
 	    /* BEWARE --- this leaves nFonts as a count of the CARD8's
@@ -894,7 +898,7 @@ unsigned long value;
 
 	    valuePtr = (unsigned char *) (((char *) reqp) + nominal_size);
 	    valuePtr += (valueLen - 1);
-	    Set_Value1(&valuePtr,value);
+	    Set_Value1((char **)&valuePtr, value);
 	    break;
 	case X_SetDashes: 
 	    nominal_size = sizeof (xSetDashesReq);
@@ -910,7 +914,7 @@ unsigned long value;
 
 	    valuePtr = (unsigned char *) (((char *) reqp) + nominal_size);
 	    valuePtr += (valueLen - 1);
-	    Set_Value1(&valuePtr,value);
+	    Set_Value1((char **)&valuePtr, value);
 	    break;
 	case X_SetClipRectangles: 
 	    nominal_size = sizeof (xSetClipRectanglesReq);
@@ -1107,8 +1111,7 @@ unsigned long value;
  */
 
 static int
-Ones(mask)                /* HACKMEM 169 */
-Mask mask;
+Ones(Mask mask)                /* HACKMEM 169 */
 {
     register int y;
 

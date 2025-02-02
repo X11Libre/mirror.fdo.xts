@@ -133,6 +133,7 @@ SOFTWARE.
 #endif
 
 #include "XstlibInt.h"
+#include "xtestlib.h"
 
 #define Dont_Log_Twice(cl)	do {\
 	int *countp = (Get_Test_Type(cl)==SETUP)?(&Xst_delete_count):(&Xst_error_count);\
@@ -141,7 +142,7 @@ SOFTWARE.
 static int  max_extra = IBUFSIZE - sizeof (xReply);
 static char rbuf[IBUFSIZE];
 static char *rbp;
-static char *enames ();
+static char *enames (int class, int type);
 static char wanted[132];
 static char *got;
 
@@ -161,7 +162,7 @@ static char emsg[132];
 
 static int this_client;
 
-void Get_Me_That ();
+static void Get_Me_That (int client, char *rbuf, unsigned long size);
 
 static void Poll_Server (int client);
 static int Rcv_Poll (xReply *rep, char rbuf[], int client);
@@ -464,7 +465,7 @@ int     type;     /* request type */
  *	this is an error for the outstanding message
  */
 		Log_Debug("Received error:");
-		Show_Err(rep);
+		Show_Err((xError *) rep);
 		done = 1;
 		done_reason = EXPECT_ERROR;
 		match = rep;
@@ -492,7 +493,7 @@ int     type;     /* request type */
 		    }
 		}
 		Log_Debug("Received event:");
-		Show_Evt(rep);
+		Show_Evt((xEvent *) rep);
 		if ((class == EXPECT_EVENT || class == EXPECT_01EVENT) &&
 			(real_type(rep -> event.u.u.type) == type)) {
 		    done = 1;
@@ -559,10 +560,11 @@ int     type;     /* request type */
 }
 
 
-void Get_Me_That (client, rbuf, size)
-int     client;
-char * rbuf;
-unsigned long   size;
+static void
+Get_Me_That (
+    int     client,
+    char * rbuf,
+    unsigned long   size)
 {
     XstDisplay * dpy = Get_Display (client);
     int     this_read;
@@ -611,16 +613,13 @@ int     client;
     Set_Test_Type(client, tt);
 }
 
-static char
-           *enames (class, type)
-int     class;
-int     type;
+static char *
+enames (
+    int     class,
+    int     type)
 {
     static char prtbuf[132];
-    char *(*namefunc)();
-    extern char *errorname();
-    extern char *eventname();
-    extern char *protoname();
+    const char *(*namefunc)(int);
 
     switch (class) {
     case EXPECT_REPLY:

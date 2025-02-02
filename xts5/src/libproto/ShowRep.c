@@ -133,10 +133,10 @@ SOFTWARE.
 #include "DataMove.h"
 
 void
-Show_Rep(mmp,type,bytes_given)
-xReply *mmp;
-int type;
-long bytes_given;
+Show_Rep(
+    xReply *mmp,
+    int type,
+    long bytes_given)
 {
 	unsigned long rep_says = (long)(mmp->generic.length<<2) + sizeof(xReply);
 	unsigned long bytes_needed = (unsigned long)bytes_given;

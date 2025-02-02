@@ -159,10 +159,10 @@ SOFTWARE.
  */    
 
 void
-Send_Evt(client,event_ptr,event_type)
-int client;
-xEvent *event_ptr;
-int event_type;
+Send_Evt(
+    int client,
+    xEvent *event_ptr,
+    int event_type)
 {
 	switch (event_type) {
 	case KeyPress:

@@ -76,13 +76,15 @@ SOFTWARE.
 #include "AvsCompP.h"
 
 					/* widget class method */
-static void             ClassInitialize();
-static void             Initialize();
-static void             Destroy();
-static Boolean          SetValues();
-static XtGeometryResult GeometryManager();
-static XtGeometryResult	QueryGeometry();
-static void             ChangeManagedTest();
+static void             ClassInitialize(void);
+static void             Initialize(Widget, Widget, ArgList, Cardinal *);
+static void             Destroy(Widget);
+static Boolean          SetValues(Widget, Widget, Widget, ArgList, Cardinal *);
+static XtGeometryResult GeometryManager(Widget, XtWidgetGeometry *,
+                                        XtWidgetGeometry *);
+static XtGeometryResult	QueryGeometry(Widget, XtWidgetGeometry *,
+                                      XtWidgetGeometry *);
+static void             ChangeManagedTest(Widget);
 
 
 #ifdef ADD_RESOURCES
@@ -177,7 +179,7 @@ Widget w;
 {
 	avs_set_event(5,1);
 }
-static void ClassInitialize ()
+static void ClassInitialize (void)
 {
     XawInitializeWidgetSet();
 }

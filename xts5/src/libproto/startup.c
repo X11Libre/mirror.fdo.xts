@@ -165,9 +165,6 @@ char	*cp;
 /* extern	char	*TestName; */
 extern	struct	tet_testlist	tet_testlist[];
 
-/* error handlers from libxtest */
-extern	int	io_err(),	unexp_err();
-
 	/*
 	 * Set the debug level first (it is used in initconfig).
 	 */

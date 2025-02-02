@@ -140,8 +140,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 static	int 	xpos = 10;
 static	int 	ypos = 5;
 
-Window	makewinpos();
-static void incxy();
+static void incxy(Display *, XVisualInfo *);
 
 
 /*
@@ -267,9 +266,9 @@ char	*dboride;
 }
 
 static void
-incxy(disp, vp)
-Display	*disp;
-XVisualInfo	*vp;
+incxy(
+    Display	*disp,
+    XVisualInfo	*vp)
 {
 unsigned int 	dwidth, dheight;
 

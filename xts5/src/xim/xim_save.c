@@ -246,18 +246,15 @@ static int indent_level = MAX_INDENT-1-INDENT_STEP;
 
 static FILE *xim_save_fp = NULL;
 
-void xim_save_pixmap(fp,px)
-	FILE *fp;
-	Pixmap px;
+static void
+xim_save_pixmap(FILE *fp, Pixmap px)
 {
 	fprintf(fp,"%s # Pixmap saving not ready yet\n",
 		&spaces[indent_level]);
 }
 
-void xim_save_wcstr(fp,pwc,cnt)
-	FILE *fp;
-	wchar_t *pwc;
-	int cnt;
+static void
+xim_save_wcstr(FILE *fp, wchar_t *pwc, int cnt)
 {
 	int i;
 
@@ -272,10 +269,8 @@ void xim_save_wcstr(fp,pwc,cnt)
 	}
 }
 
-void xim_save_mbstr(fp,pmb,cnt)
-	FILE *fp;
-	unsigned char *pmb;
-	int cnt;
+static void
+xim_save_mbstr(FILE *fp, unsigned char *pmb, int cnt)
 {
 	int i;
 
@@ -290,10 +285,8 @@ void xim_save_mbstr(fp,pmb,cnt)
 	}
 }
 
-void xim_save_feedback(fp,pfb,cnt)
-	FILE *fp;
-	XIMFeedback *pfb;
-	int cnt;
+static void
+xim_save_feedback(FILE *fp, XIMFeedback *pfb, int cnt)
 {
 	int i;
 
@@ -308,9 +301,8 @@ void xim_save_feedback(fp,pfb,cnt)
 	}
 }
 
-void xim_save_ximtext(fp,pt)
-	FILE *fp;
-	XIMText *pt;
+static void
+xim_save_ximtext(FILE *fp, XIMText *pt)
 {
 	int num;
 
@@ -352,9 +344,8 @@ void xim_save_ximtext(fp,pt)
 	fprintf(fp,"\n");
 }
 
-void xim_save_pe_draw(fp,pd)
-	FILE *fp;
-	XIMPreeditDrawCallbackStruct *pd;
+static void
+xim_save_pe_draw(FILE *fp, XIMPreeditDrawCallbackStruct *pd)
 {
 	fprintf(fp,"%s%s %d\n", &spaces[indent_level],
 		keys_pe_draw[PE_DRAW_CARET], pd->caret);
@@ -378,9 +369,8 @@ void xim_save_pe_draw(fp,pd)
 }
 
 
-void xim_save_pe_caret(fp,pd)
-	FILE *fp;
-	XIMPreeditCaretCallbackStruct *pd;
+static void
+xim_save_pe_caret(FILE *fp, XIMPreeditCaretCallbackStruct *pd)
 {
 	fprintf(fp,"%s%s %d\n", &spaces[indent_level],
 		keys_pe_caret[PE_CARET_POSITION], pd->position);
@@ -393,9 +383,8 @@ void xim_save_pe_caret(fp,pd)
 }
 
 
-void xim_save_st_draw(fp,pd)
-	FILE *fp;
-	XIMStatusDrawCallbackStruct *pd;
+static void
+xim_save_st_draw(FILE *fp, XIMStatusDrawCallbackStruct *pd)
 {
 	fprintf(fp,"%s%s %d\n", &spaces[indent_level],
 		keys_st_draw[ST_DRAW_TYPE], pd->type);
@@ -413,9 +402,8 @@ void xim_save_st_draw(fp,pd)
 	fprintf(fp,"%s}\n",&spaces[indent_level]);
 }
 
-void xim_save_cb(fp,pstk)
-	FILE *fp;	
-	cbstk_def *pstk;
+static void
+xim_save_cb(FILE *fp, cbstk_def *pstk)
 {
 	int i;
 
@@ -469,8 +457,8 @@ void xim_save_cb(fp,pstk)
 	}
 }
 
-void xim_save_response(pstk)
-	cbstk_def *pstk;
+void
+xim_save_response(cbstk_def *pstk)
 {
 	FILE *fp;
 
@@ -491,10 +479,8 @@ void xim_save_response(pstk)
 	fprintf(fp,"\n");
 }
 
-Bool xim_save_get_style(style,pe,st)
-	XIMStyle style;
-	int *pe;
-	int *st;
+static Bool
+xim_save_get_style(XIMStyle style, int *pe, int *st)
 {
 	int i;
 
@@ -514,9 +500,8 @@ Bool xim_save_get_style(style,pe,st)
 	return(True);
 }
 
-void xim_save_header(fp,style)
-	FILE *fp;
-	XIMStyle style;
+static void
+xim_save_header(FILE *fp, XIMStyle style)
 {
 	int pe,st;
 
@@ -552,9 +537,8 @@ void xim_save_header(fp,style)
 	indent_level = MAX_INDENT - 1 - INDENT_STEP ;
 }
 
-Bool xim_save_open(plocale,style)
-	char *plocale;
-	XIMStyle style;
+Bool
+xim_save_open(char *plocale, XIMStyle style)
 {
 	int testnum;
 	char fname[MAXFNAME];
@@ -592,7 +576,8 @@ Bool xim_save_open(plocale,style)
 	return(True);
 }
 
-void xim_save_close()
+void
+xim_save_close(void)
 {
 	if(xim_save_fp != NULL)
 		fclose(xim_save_fp);

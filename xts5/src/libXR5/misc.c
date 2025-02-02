@@ -208,7 +208,6 @@ Window wind;
 int seconds;
 Colormap cmap;
 {                
-	extern void blowup();                                          
         extern int blowup_size,region_mode,PixPerCM;
         extern struct args regr_args;
 	extern XWindowAttributes wat_save;

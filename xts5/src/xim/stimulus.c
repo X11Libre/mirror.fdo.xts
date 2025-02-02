@@ -322,6 +322,7 @@ Bool xim_stimulus_open(plocale,style)
 	return(True);
 }
 
+#if 0
 /*
  * Read a stimulus file and emit stimuli
  */
@@ -467,6 +468,7 @@ Bool xim_stimulus_read(ic)
 	else
 		return(True);
 }
+#endif
 
 /*
  * Close the xim stimuli file 

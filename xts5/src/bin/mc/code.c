@@ -168,8 +168,6 @@ static	const char	*ExpectError;
 /* TEMP as we don't use it there is no way to set this at present */
 static	int 	gbflag = 0;	/* Use Good/bad */
 
-extern	char	*newline();
-
 static	const char	*validtypes[] = {
 	"def",
 	"Good",
@@ -186,9 +184,9 @@ static int 	NeedValue;
 static int 	NeedTpcleanup;
 static int 	Resyncline;
 
-static void	setline();
-static void	setoutline();
-static void roffstrip();
+static void	setline(FILE *);
+static void	setoutline(void);
+static void 	roffstrip(char *, int);
 
 /*ARGSUSED*/
 void
@@ -1173,7 +1171,7 @@ static	int 	lastline;
 }
 
 static void
-setoutline()
+setoutline(void)
 {
 	if (pflag) {
 		fprintf(FpCode, ">>G\n");

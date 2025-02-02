@@ -142,6 +142,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 #endif
 
 #include	"xtest.h"
+#include	"xtestlib.h"
 #include	"X11/Xlib.h"
 
 #define	Internet

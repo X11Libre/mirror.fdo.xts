@@ -129,7 +129,6 @@ void
 _startcall(disp)
 Display	*disp;
 {
-extern	int	error_status();
 	/* Reset the error status */
 	reseterr();
 
@@ -163,8 +162,6 @@ void
 _endcall(disp)
 Display	*disp;
 {
-extern	int 	unexp_err();
-
 	/*
 	 * Go back to the unexpected error handler.
 	 */

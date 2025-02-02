@@ -74,12 +74,14 @@ SOFTWARE.
 #include "AvsCompP.h"
 
 					/* widget class method */
-static void             ClassInitialize();
-static void             Initialize();
-static void             Destroy();
-static Boolean          SetValues();
-static XtGeometryResult GeometryManager();
-static XtGeometryResult	QueryGeometry();
+static void             ClassInitialize(void);
+static void             Initialize(Widget, Widget, ArgList, Cardinal *);
+static void             Destroy(Widget);
+static Boolean          SetValues(Widget, Widget, Widget, ArgList, Cardinal *);
+static XtGeometryResult GeometryManager(Widget, XtWidgetGeometry *,
+                                        XtWidgetGeometry *);
+static XtGeometryResult	QueryGeometry(Widget, XtWidgetGeometry *,
+                                      XtWidgetGeometry *);
 
 
 #ifdef ADD_RESOURCES
@@ -173,14 +175,14 @@ WidgetClass avsCompWidgetClass = (WidgetClass) &avsCompClassRec;
  *                                                                           *
  *****************************************************************************/
 
-static void ClassInitialize ()
+static void ClassInitialize (void)
 {
     XawInitializeWidgetSet();
 }
 
 
-static void Initialize (grequest, gnew)
-    Widget grequest, gnew;
+static void
+Initialize (Widget grequest, Widget gnew, ArgList args, Cardinal *num_args)
 {
     AvsCompWidget request = (AvsCompWidget) grequest, new = (AvsCompWidget) gnew;
 
@@ -194,8 +196,9 @@ static void Initialize (grequest, gnew)
 
 
 /* ARGSUSED */
-static Boolean SetValues (gcurrent, grequest, gnew)
-    Widget gcurrent, grequest, gnew;
+static Boolean
+SetValues (Widget gcurrent, Widget grequest, Widget gnew,
+           ArgList args, Cardinal *num_args)
 {
 /*
     AvsCompWidget current = (AvsCompWidget) gcurrent, new = (AvsCompWidget) gnew;

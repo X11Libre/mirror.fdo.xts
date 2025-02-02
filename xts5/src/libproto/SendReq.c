@@ -153,13 +153,10 @@ SOFTWARE.
 
 extern Display *Dsp;
 
-extern void Send_Evt();
-void _Send_Req();
-
 void
-Send_Req(client,rp)
-xReq *rp;
-int client;
+Send_Req(
+    int client,
+    xReq *rp)
 {
     _Send_Req(client,rp,0);		/* not polling thru this entry point */
 }

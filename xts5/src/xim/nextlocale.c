@@ -263,7 +263,7 @@ Bool locale_set(plocale)
 
  
 /* save the original locale */
-void localesave()
+static void localesave(void)
 {
 char *old_locale;
  

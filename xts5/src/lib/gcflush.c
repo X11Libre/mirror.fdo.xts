@@ -116,6 +116,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 #include "X11/Xlibint.h"
 #include "xtest.h"
 #include	"pixval.h"
+#include	"xtestlib.h"
 
 /*
  * Flush the gc cache.

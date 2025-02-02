@@ -114,6 +114,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 #endif
 
 #include "X11/Xlib.h"
+#include "xtestlib.h"
 
 #ifdef GENERATE_PIXMAPS
 /* in this case we never want to do anything like real buffer stuffing or

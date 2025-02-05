@@ -455,14 +455,14 @@ XstOpenDisplay (register const char *display, int bytesex, int needswap, int cl)
 	 */
     	if (prefix.success != xTrue) {
 	    static char reason_buf[132];
-	    char *pref_res = ((char *)&prefix) + sizeof(prefix);
 
 	    if (prefix.lengthReason <= 0)
 		strcpy(reason_buf, "<None Given>");
 	    else {
 		int n = min(sizeof(reason_buf)-10, prefix.lengthReason);
 
-		strncpy(reason_buf, pref_res, n);
+		Xst_Read(dpy, reason_buf, n);
+		reason_buf[n] = '\0';
 		if (n < (int)prefix.lengthReason)
 			strcat(reason_buf, "... etc."); /* the 10 above is to leave room for this */
 	    }
@@ -477,14 +477,14 @@ XstOpenDisplay (register const char *display, int bytesex, int needswap, int cl)
 
 	if (prefix.success != expectation) {
 	    static char reason_buf[132];
-	    char *pref_res = ((char *)&prefix) + sizeof(prefix);
 
 	    if (prefix.lengthReason <= 0)
 		strcpy(reason_buf, "<None Given>");
 	    else {
 		int n = min(sizeof(reason_buf)-10, prefix.lengthReason);
 
-		strncpy(reason_buf, pref_res, n);
+		Xst_Read(dpy, reason_buf, n);
+		reason_buf[n] = '\0';
 		if (n < (int)prefix.lengthReason)
 			strcat(reason_buf, "... etc."); /* the 10 above is to leave room for this */
 	    }

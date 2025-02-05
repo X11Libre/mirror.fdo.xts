@@ -230,6 +230,7 @@ void dumpimage(XImage *imp, char *name, struct area *ap);
 int verifyimage(Display  *disp, Drawable d, struct area *ap, int vwarn);
 void dclear(Display *disp, Drawable d);
 void dset(Display *disp, Drawable d, unsigned long pix);
+#define delete xts_delete /* Avoid conflict with dbm delete if it's in libc */
 void delete(const char *mess, ... );
 int isdeleted(void);
 void resetdelete(void);

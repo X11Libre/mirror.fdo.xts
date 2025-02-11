@@ -356,8 +356,8 @@ Region region;
 
 /* ARGSUSED */
 static Boolean
-SetValues(current, request, new)
-Widget current, request, new;
+SetValues(Widget current, Widget request, Widget new,
+          ArgList args, Cardinal *num_args)
 {
     SmeBSBObject entry = (SmeBSBObject) new;
     SmeBSBObject old_entry = (SmeBSBObject) current;

@@ -435,10 +435,10 @@ Widget w;
  */
 
 /* ARGSUSED */
-static Boolean Layout(fw, width, height, force_relayout)
-    FormWidget fw;
-    Dimension width, height;
-    Boolean force_relayout;
+static Boolean Layout(
+    FormWidget fw,
+    unsigned int width, unsigned int height,
+    Bool force_relayout)
 {
     int num_children = fw->composite.num_children;
     WidgetList children = fw->composite.children;
@@ -680,8 +680,8 @@ static Boolean SetValues(Widget current, Widget request, Widget new,
 
 
 /* ARGSUSED */
-static void ConstraintInitialize(request, new)
-    Widget request, new;
+static void ConstraintInitialize(Widget request, Widget new,
+                                 ArgList args, Cardinal *num_args)
 {
     FormConstraints form = (FormConstraints)new->core.constraints;
     FormWidget fw = (FormWidget)new->core.parent;
@@ -697,8 +697,8 @@ static void ConstraintInitialize(request, new)
 }
 
 /* ARGSUSED */
-static Boolean ConstraintSetValues(current, request, new)
-    Widget current, request, new;
+static Boolean ConstraintSetValues(Widget current, Widget request, Widget new,
+                                   ArgList args, Cardinal *num_args)
 {
 /*avsform's procedure does event 4, allows order checking*/
 	avs_set_event(3, avs_get_event(4)+1);

@@ -185,8 +185,8 @@ static void ClassInitialize (void)
 }
 
 
-static void Initialize (grequest, gnew)
-    Widget grequest, gnew;
+static void Initialize (Widget grequest, Widget gnew,
+                        ArgList args, Cardinal *num_args)
 {
     AvsComp2Widget request = (AvsComp2Widget) grequest, new = (AvsComp2Widget) gnew;
 
@@ -200,8 +200,8 @@ static void Initialize (grequest, gnew)
 
 
 /* ARGSUSED */
-static Boolean SetValues (gcurrent, grequest, gnew)
-    Widget gcurrent, grequest, gnew;
+static Boolean SetValues (Widget grequest, Widget gnew, Widget gcurrent,
+                          ArgList args, Cardinal *num_args)
 {
 /*
     AvsComp2Widget current = (AvsComp2Widget) gcurrent, new = (AvsComp2Widget) gnew;

@@ -465,10 +465,10 @@ Widget w;
  */
 
 /* ARGSUSED */
-static Boolean Layout(fw, width, height, force_relayout)
-    FormWidget fw;
-    Dimension width, height;
-    Boolean force_relayout;
+static Boolean Layout(
+    FormWidget fw,
+    unsigned int width, unsigned int height,
+    Bool force_relayout)
 {
     int num_children = fw->composite.num_children;
     WidgetList children = fw->composite.children;

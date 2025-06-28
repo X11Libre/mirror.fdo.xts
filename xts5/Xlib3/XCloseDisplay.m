@@ -1402,7 +1402,6 @@ char	*var;
 {
 char	*fpathtmp;
 char	*ndir_array[MAX_DIRS];
-char	*strtok();
 int 	ndirs;
 int 	i;
 

@@ -45,3 +45,4 @@ XTS.txt: README
 CLEANFILES = $(miscman_DATA) $(xtsman_xml) $(xtsman_pre) $(xtsman_txt)
 endif
 
+EXTRA_DIST = meson.build meson_options.txt piglit-profile.py

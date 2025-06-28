@@ -31,3 +31,5 @@ tprogs = \
 	XtPopup \
 	XtPopupSpringLoaded \
 	XtVaCreatePopupShell
+
+EXTRA_DIST += meson.build

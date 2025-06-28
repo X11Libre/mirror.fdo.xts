@@ -57,3 +57,5 @@ tprogs = \
 	XrmUniqueQuark \
 	XResourceManagerString \
 	XScreenResourceString
+
+EXTRA_DIST += meson.build

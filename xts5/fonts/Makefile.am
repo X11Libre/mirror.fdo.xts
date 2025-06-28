@@ -19,3 +19,5 @@ dist_xts5fonts_DATA = $(FONTPCFS) fonts.dir
 	$(BDFTOPCF) -t -o $@ $<
 fonts.dir: $(FONTPCFS)
 	$(MKFONTDIR) -x .bdf
+
+EXTRA_DIST = meson.build mkfontdir.sh $(FONTBDFS)

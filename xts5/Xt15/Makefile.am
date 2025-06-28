@@ -21,3 +21,5 @@ DISTCLEANFILES = $(BUILT_SOURCES)
 
 tprogs = \
 	XtSpecificationRelease
+
+EXTRA_DIST += meson.build

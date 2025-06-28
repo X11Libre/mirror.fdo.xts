@@ -45,3 +45,5 @@ tprogs = \
 XtCheckSubclass_XtCheckSubclass_SOURCES = XtCheckSubclass/XtCheckSubclass.c \
 					  XtCheckSubclass/Test12.c \
 					  XtCheckSubclass/Test3.c
+
+EXTRA_DIST += meson.build XtCheckSubclass/meson.build

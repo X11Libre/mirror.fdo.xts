@@ -29,3 +29,5 @@ tprogs = XShapeCombineMask \
 	XShapeQueryExtents \
 	XShapeQueryVersion \
 	XShapeSelectInput
+
+EXTRA_DIST += meson.build

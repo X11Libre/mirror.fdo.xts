@@ -18,3 +18,5 @@ libximtest_la_SOURCES = \
 	response.c \
 	xim_save.c \
 	stimulus.c
+
+EXTRA_DIST = meson.build

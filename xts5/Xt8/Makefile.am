@@ -30,3 +30,5 @@ tprogs = \
 
 XtQueryGeometry_XtQueryGeometry_SOURCES = XtQueryGeometry/XtQueryGeometry.c \
 					  XtQueryGeometry/tqrygomty.c
+
+EXTRA_DIST += meson.build

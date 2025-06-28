@@ -53,3 +53,5 @@ tcc_SOURCES = cleanup.c \
 #		tcc_bs.c 
 #		tcc_in.c
 #		tcc_xt.c 
+
+EXTRA_DIST = meson.build

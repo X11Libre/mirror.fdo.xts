@@ -67,3 +67,5 @@ tprogs = \
 
 # Data files for test programs
 nobase_dist_testprog_DATA = $(srcdir)/*/*.dat
+
+EXTRA_DIST += meson.build

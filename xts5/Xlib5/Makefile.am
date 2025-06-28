@@ -33,3 +33,5 @@ tprogs = \
 	XRotateWindowProperties \
 	XSetSelectionOwner \
 	XTranslateCoordinates
+
+EXTRA_DIST += meson.build

@@ -55,3 +55,5 @@ XDisplayName_Test1_LDADD = $(top_builddir)/src/tet3/tcm/libtcmchild.la \
 	$(top_builddir)/src/tet3/apilib/libapi.la \
 	$(top_builddir)/src/tet3/apilib/libapi_s.la \
 	$(XTS_LIBS)
+
+EXTRA_DIST += meson.build XDisplayName/meson.build

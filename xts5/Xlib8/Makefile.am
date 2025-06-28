@@ -49,3 +49,5 @@ tprogs = \
 	XSetState \
 	XSetTile \
 	XSetTSOrigin
+
+EXTRA_DIST += meson.build

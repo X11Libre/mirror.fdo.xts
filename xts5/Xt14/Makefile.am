@@ -22,3 +22,5 @@ DISTCLEANFILES = $(BUILT_SOURCES)
 tprogs = \
 	ObjectObject \
 	RectangleObject
+
+EXTRA_DIST += meson.build

@@ -79,3 +79,5 @@ nobase_testprog_PROGRAMS += \
 	XSetWMProperties/Test2
 XSetWMProperties_Test1_LDADD = $(CHILD_LDADD)
 XSetWMProperties_Test2_LDADD = $(CHILD_LDADD)
+
+EXTRA_DIST += meson.build XSetWMProperties/meson.build

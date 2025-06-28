@@ -10,3 +10,5 @@ libtcc_la_SOURCES = \
 		sharlock.c \
 		tcfexec.c \
 		w32wait.c
+
+EXTRA_DIST = meson.build

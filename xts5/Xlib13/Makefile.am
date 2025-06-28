@@ -50,3 +50,5 @@ tprogs = \
 	XUngrabKeyboard \
 	XUngrabPointer \
 	XWarpPointer
+
+EXTRA_DIST += meson.build

@@ -21,3 +21,5 @@ DISTCLEANFILES = $(BUILT_SOURCES)
 
 tprogs = \
 	StringDefs
+
+EXTRA_DIST += meson.build

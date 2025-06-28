@@ -42,3 +42,5 @@ tprogs = \
 	XtSetMultiClickTime \
 	XtTranslateKeycode \
 	XtUninstallTranslations
+
+EXTRA_DIST += meson.build

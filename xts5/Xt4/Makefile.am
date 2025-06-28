@@ -53,3 +53,5 @@ tprogs = \
 	XtWidgetToApplicationContext \
 	XtWindow \
 	XtWindowOfObject
+
+EXTRA_DIST += meson.build

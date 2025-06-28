@@ -96,3 +96,5 @@ XStringToKeysym_XStringToKeysym_SOURCES = \
 	XStringToKeysym/TestP.c \
 	XStringToKeysym/TestS.c \
 	XStringToKeysym/TestT.c
+
+EXTRA_DIST += meson.build

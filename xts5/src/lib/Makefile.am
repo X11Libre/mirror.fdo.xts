@@ -76,3 +76,5 @@ libxtest_la_SOURCES = badcmap.c \
 			XInput.c\
 			XTestExt.c\
 			xthost.c
+
+EXTRA_DIST = meson.build

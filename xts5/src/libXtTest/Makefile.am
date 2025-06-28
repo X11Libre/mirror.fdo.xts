@@ -35,3 +35,5 @@ libXtTest_la_SOURCES = avs_def.c \
 		pshpop.c \
 		signals.c \
 		waitfor.c 
+
+EXTRA_DIST = meson.build

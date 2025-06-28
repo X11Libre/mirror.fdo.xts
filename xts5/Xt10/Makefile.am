@@ -28,3 +28,5 @@ tprogs = \
 	XtRemoveAllCallbacks \
 	XtRemoveCallback \
 	XtRemoveCallbacks
+
+EXTRA_DIST += meson.build

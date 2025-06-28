@@ -51,3 +51,5 @@ tprogs = \
 	SelectionRequest \
 	UnmapNotify \
 	VisibilityNotify
+
+EXTRA_DIST += meson.build

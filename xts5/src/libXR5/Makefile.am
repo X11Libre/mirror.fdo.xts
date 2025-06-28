@@ -18,3 +18,5 @@ libXR5_la_SOURCES = \
 	bufdisp.c \
 	chek.c \
 	event.c
+
+EXTRA_DIST = meson.build

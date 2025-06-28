@@ -80,3 +80,5 @@ libdtet2_la_SOURCES = \
 		errmap.h \
 		sigmap.h \
 		trace.h
+
+EXTRA_DIST = meson.build

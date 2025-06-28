@@ -23,3 +23,5 @@ libtcmchild_la_SOURCES = tcmchild.c
 #			tcm_in.c 
 #			tcmrem.c 
 #			tcm_xt.c
+
+EXTRA_DIST = meson.build

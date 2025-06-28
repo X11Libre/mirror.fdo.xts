@@ -77,3 +77,5 @@ tprogs = \
 	XStoreColor \
 	XStoreColors \
 	XStoreNamedColor
+
+EXTRA_DIST += meson.build

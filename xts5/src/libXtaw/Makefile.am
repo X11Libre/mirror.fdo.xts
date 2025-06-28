@@ -18,3 +18,5 @@ libXtaw_la_SOURCES = AllWidgets.c \
 		SmeBSB.c \
 		SimpleMenu.c \
 		XawInit.c
+
+EXTRA_DIST = meson.build

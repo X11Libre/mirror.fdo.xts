@@ -26,3 +26,5 @@ tprogs = \
 	XFreePixmap \
 	XQueryBestCursor \
 	XRecolorCursor
+
+EXTRA_DIST += meson.build

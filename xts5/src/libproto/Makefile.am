@@ -77,3 +77,5 @@ libXst_la_SOURCES =\
 	tpstartup.c\
 	startup.c\
 	delete.c
+
+EXTRA_DIST = meson.build

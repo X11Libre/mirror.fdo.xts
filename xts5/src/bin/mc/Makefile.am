@@ -17,3 +17,5 @@ noinst_HEADERS = mc.h mcproto.h
 # Build mc for the 'dist' rule, because it's used to generate .c files that are
 # distributed.
 dist-hook: mc
+
+EXTRA_DIST = meson.build

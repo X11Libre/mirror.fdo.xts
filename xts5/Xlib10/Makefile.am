@@ -41,3 +41,5 @@ tprogs = \
 	XSetScreenSaver \
 	XUngrabServer \
 	XUninstallColormap
+
+EXTRA_DIST += meson.build

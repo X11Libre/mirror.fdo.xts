@@ -55,3 +55,5 @@ tprogs = \
 	UngrabDevice \
 	UngrabDeviceButton \
 	UngrabDeviceKey
+
+EXTRA_DIST += meson.build

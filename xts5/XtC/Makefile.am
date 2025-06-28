@@ -49,3 +49,5 @@ tprogs = \
 	XtStringConversionWarning \
 	XtWarning \
 	XtWarningMsg
+
+EXTRA_DIST += meson.build

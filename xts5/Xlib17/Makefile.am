@@ -92,3 +92,5 @@ XGetDefault_Test5_LDADD = $(CHILD_LDADD)
 
 # Data files for test programs
 nobase_dist_testprog_DATA = $(srcdir)/XGetDefault/EnvXdefaults
+
+EXTRA_DIST += meson.build XGetDefault/meson.build

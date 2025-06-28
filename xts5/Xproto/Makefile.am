@@ -141,3 +141,5 @@ tprogs = \
 	pUnmapWindow \
 	pUninstallColormap \
 	pWarpPointer
+
+EXTRA_DIST += meson.build

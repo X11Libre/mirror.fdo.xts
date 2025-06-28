@@ -30,3 +30,5 @@ tprogs = \
 	XtUnmanageChildren \
 	XtUnmapWidget \
 	XtVaCreateManagedWidget
+
+EXTRA_DIST += meson.build

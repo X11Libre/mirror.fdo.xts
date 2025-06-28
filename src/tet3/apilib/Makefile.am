@@ -36,3 +36,5 @@ libapi_la_SOURCES = \
 
 EXTRA_DIST = \
 		version.c
+
+EXTRA_DIST += meson.build

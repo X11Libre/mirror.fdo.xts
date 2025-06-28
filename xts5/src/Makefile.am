@@ -16,3 +16,5 @@ libxts5proto_la_LDFLAGS = -avoid-version
 libxts5proto_la_LIBADD = \
 	libproto/libXst.la \
 	libxts5.la
+
+EXTRA_DIST = meson.build

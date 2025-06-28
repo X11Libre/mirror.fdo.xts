@@ -27,3 +27,5 @@ tprogs = \
 	TransientShellWidget \
 	VendorShellWidget \
 	WMShellWidget
+
+EXTRA_DIST += meson.build

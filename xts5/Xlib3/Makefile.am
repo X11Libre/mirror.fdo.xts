@@ -91,3 +91,5 @@ nobase_testprog_PROGRAMS += \
 	XOpenDisplay/Test1
 XDisplayString_Test1_LDADD = $(CHILD_LDADD)
 XOpenDisplay_Test1_LDADD = $(CHILD_LDADD)
+
+EXTRA_DIST += meson.build XDisplayString/meson.build XOpenDisplay/meson.build

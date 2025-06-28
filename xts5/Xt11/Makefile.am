@@ -78,3 +78,5 @@ tprogs = \
 	XtVaGetValues \
 	XtVaSetSubvalues \
 	XtVaSetValues
+
+EXTRA_DIST += meson.build

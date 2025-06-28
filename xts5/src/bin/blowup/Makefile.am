@@ -5,3 +5,5 @@ AM_LDFLAGS = $(XTS_LIBS)
 
 bin_PROGRAMS = xts-blowup
 xts_blowup_SOURCES = ajax.c vblowup_c.c
+
+EXTRA_DIST = meson.build

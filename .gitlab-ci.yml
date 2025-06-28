@@ -176,3 +176,14 @@ check versions are in sync:
       meson introspect --projectinfo | jq -r '.version' > ../meson.version
       popd
     - diff -u autotools.version meson.version || (echo "ERROR - autotools and meson versions not in sync" && false)
+
+#
+# Workflow rules needed due to:
+# https://gitlab.freedesktop.org/freedesktop/freedesktop/-/issues/438
+#
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+    - if: $CI_OPEN_MERGE_REQUESTS
+      when: never
+    - if: $CI_PIPELINE_SOURCE == 'push'

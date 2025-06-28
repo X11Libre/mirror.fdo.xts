@@ -144,14 +144,15 @@ static int r1im(FILE *fp, XImage *image, int val);
 static int readimage(FILE *fp, XImage *images[2], Display *disp);
 static void repaint(Display *disp, Window win, GC gc,
                     XImage *image1,  XImage *image2,
-                    int compare_colour, int evp, unsigned int which);
+                    int compare_colour, XEvent *evp, unsigned int which);
 static void setzoom(Display *disp, Window win, GC gc);
 extern int VBlowup(Display *display, Window window, GC egc,
                    int init_x, int init_y, int w, int h, int size,
                    int granularity, Colormap cmap, XImage *pbi, XImage *kgi,
                    int ix, int iy, unsigned long background,
                    int warp_pointer_x, int warp_pointer_y, int show_banner,
-                   int compare_color, void (*expose_handler)(),
+                   int compare_color, void (*expose_handler)(Display*, Window,
+                       GC, XImage*, XImage*, int, XEvent*, unsigned int),
                    int *winzoomp, char *font_name);
 
 /* Is this an error or dat file */
@@ -356,7 +357,7 @@ XImage		*image;
 
 static void
 repaint(Display *disp, Window win, GC gc, XImage *image1, XImage *image2,
-        int compare_colour, int evp, unsigned int which)
+        int compare_colour, XEvent *evp, unsigned int which)
 {
 	int	x,y;
 	unsigned long pix1, pix2, mask, bg = W_BG;

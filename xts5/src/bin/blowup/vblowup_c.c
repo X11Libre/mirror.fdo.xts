@@ -528,7 +528,8 @@ unsigned long background;
 int warp_pointer_x, warp_pointer_y;
 int show_banner;
 int compare_color;
-void (*expose_handler)();
+void (*expose_handler)(Display*, Window, GC, XImage*, XImage*, int, XEvent*,
+	unsigned int);
 int	*winzoomp;
 char	*font_name;
 {                                                      

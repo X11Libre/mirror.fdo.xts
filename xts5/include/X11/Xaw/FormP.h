@@ -100,7 +100,7 @@ typedef enum {LayoutPending, LayoutInProgress, LayoutDone} LayoutState;
 #define XtInheritLayout ((Boolean (*)())_XtInherit)
 
 typedef struct {
-    Boolean	(*layout)(/* FormWidget, Dimension, Dimension */);
+    Boolean	(*layout)(FormWidget, unsigned int, unsigned int, Bool);
 } FormClassPart;
 
 /*

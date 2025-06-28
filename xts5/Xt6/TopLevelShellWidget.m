@@ -117,7 +117,6 @@ XtGrabKind		myXtGrabKind, *pmyXtGrabKind;
 XtOrderProc		myXtOrderProc, *pmyXtOrderProc;
 XtCreatePopupChildProc	myXtCreatePopupChildProc, *pmyXtCreatePopupChildProc;
 Visual			*pmyVisual;
-extern void xt_whandler();
 >>TITLE TopLevelShellWidget Xt6
 >>ASSERTION Good A
 The class structure for shell widgets

@@ -101,7 +101,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 int ((*)())()
 XSetAfterFunction(display, procedure)
 Display *display = Dsp;
-int (*procedure)() = afterfunction;
+int (*procedure)(Display*) = afterfunction;
 >>EXTERN
 static	int	counter = 0;
 
@@ -164,7 +164,7 @@ Verify that XSetAfterFunction returned afterfunction.
 Call XSetAfterFunction to set after function to afterfunction.
 Verify that XSetAfterFunction returned _afterfunction.
 >>CODE
-int	(*proc)();
+int	(*proc)(Display*);
 
 /* Call XSetAfterFunction to set after function to afterfunction. */
 	procedure = afterfunction;

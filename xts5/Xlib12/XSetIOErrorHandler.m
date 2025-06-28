@@ -107,7 +107,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 >>TITLE XSetIOErrorHandler Xlib12
 int ((*)())()
 XSetIOErrorHandler(handler)
-int (*handler)();
+XIOErrorHandler handler;
 >>EXTERN
 #include <signal.h>
 #include <sys/types.h>
@@ -191,7 +191,7 @@ Handler exits with exit status of exit_status.
 Verify that child's exit status was exit_status.
 Repeat for various other exit_status values.
 >>CODE
-int	(*proc)();
+int	(*proc)(Display*);
 int	child_exit;
 int	i;
 
@@ -247,7 +247,7 @@ Verify that errorhandler was returned.
 Call XSetIOErrorHandler to set error handler to errorhandler.
 Verify that _errorhandler was returned.
 >>CODE
-int	(*proc)();
+int	(*proc)(Display*);
 
 /* Call XSetIOErrorHandler to set error handler to errorhandler. */
 	handler = errorhandler;
@@ -295,7 +295,7 @@ Parent verifies that child no longer exists.
 #define	MESSBUF	55
 
 >>CODE
-int	(*proc)();
+int	(*proc)(Display*);
 pid_t	child;
 int	stat_loc;
 int	waitstatus;
@@ -306,7 +306,7 @@ FILE    *fp;
 
 	client = Dsp;
 /* Get default error handler. */
-	handler = (int (*)()) NULL;
+	handler = NULL;
 	_xcall_(proc);
 	/* requires two calls! */
 	_xcall_(proc);
@@ -386,7 +386,7 @@ Set handler to errorhandler.
 Call XSetIOErrorHandler 1000 times.
 Report untested.
 >>CODE
-int	(*proc)();
+int	(*proc)(Display*);
 int	i;
 
 /* Set handler to errorhandler. */
@@ -422,7 +422,7 @@ causing handler to be invoked.
 Handler returns first time called.
 Verify that handler exited in the child proc.
 >>CODE
-int	(*proc)();
+int	(*proc)(Display*);
 int	child_exit;
 char	*server;
 

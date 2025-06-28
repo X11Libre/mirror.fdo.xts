@@ -137,7 +137,7 @@ Call XSynchronize with onoff set to True.
 Call XSetAfterFunction to get value of old after function.
 Verify that XSetAfterFunction returned non-NULL.
 >>CODE
-int	(*proc)();
+int	(*proc)(Display*);
 
 /* Call XSynchronize with onoff set to True. */
 	onoff = True;
@@ -164,7 +164,7 @@ Call XSynchronize with onoff set to False.
 Call XSetAfterFunction to get value of old after function.
 Verify that XSetAfterFunction returned NULL.
 >>CODE
-int	(*proc)();
+int	(*proc)(Display*);
 
 /* Call XSynchronize with onoff set to False. */
 	onoff = False;
@@ -190,7 +190,7 @@ Call XSetAfterFunction to set after function to afterfunction.
 Call XSynchronize with onoff set to True.
 Verify that XSynchronize returned afterfunction.
 >>CODE
-int	(*proc)();
+int	(*proc)(Display*);
 
 /* Call XSetAfterFunction to set after function to afterfunction. */
 	XSetAfterFunction(display, afterfunction);

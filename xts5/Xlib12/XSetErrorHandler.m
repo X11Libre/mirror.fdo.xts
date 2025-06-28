@@ -103,7 +103,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 >>TITLE XSetErrorHandler Xlib12
 int ((*)())()
 XSetErrorHandler(handler)
-int (*handler)();
+XErrorHandler handler;
 >>EXTERN
 #include <signal.h>
 #include <sys/types.h>
@@ -146,7 +146,7 @@ Verify that errorhandler was called.
 >>CODE
 int	oldcounter;
 Window	w;
-int	(*proc)();
+int	(*proc)(Display*, XErrorEvent*);
 Display	*display = Dsp;
 
 /* Call XSetErrorHandler to set error handler to errorhandler. */
@@ -176,7 +176,7 @@ Verify that errorhandler was returned.
 Call XSetErrorHandler to set error handler to errorhandler.
 Verify that _errorhandler was returned.
 >>CODE
-int	(*proc)();
+int	(*proc)(Display*, XErrorEvent*);
 
 /* Call XSetErrorHandler to set error handler to errorhandler. */
 	handler = errorhandler;
@@ -226,7 +226,7 @@ Parent verifies that child no longer exists.
 #define	MESSBUF	55
 
 >>CODE
-int	(*proc)();
+int	(*proc)(Display*, XErrorEvent*);
 pid_t	child;
 int	stat_loc;
 int	waitstatus;
@@ -237,7 +237,7 @@ char	buf[MESSBUF];
 FILE	*fp;
 
 /* Get default error handler. */
-	handler = (int (*)()) NULL;
+	handler = NULL;
 	_xcall_(proc);
 	/* requires two calls! */
 	_xcall_(proc);
@@ -323,7 +323,7 @@ Set handler to errorhandler.
 Call XSetErrorHandler 1000 times.
 Report untested.
 >>CODE
-int	(*proc)();
+int	(*proc)(Display*, XErrorEvent*);
 int	i;
 
 /* Set handler to errorhandler. */
@@ -359,7 +359,7 @@ Generate a BadName error through a call to XAllocNamedColor.
 Verify that XAllocNamedColor returned 0.
 Verify that errorhandler was not called.
 >>CODE
-int	(*proc)();
+int	(*proc)(Display*, XErrorEvent*);
 Display	*display = Dsp;
 int	oldcounter;
 int	status;
@@ -444,7 +444,7 @@ Call XQueryFont to generate a BadFont error.
 Verify that XQueryFont returned NULL.
 Verify that errorhandler was not called.
 >>CODE
-int	(*proc)();
+int	(*proc)(Display*, XErrorEvent*);
 Display	*display = Dsp;
 int	oldcounter;
 Font	font;
@@ -495,7 +495,7 @@ Verify that errorhandler was called.
 Verify that the serial member in the XErrorEvent structure
 was set correctly.
 >>CODE
-int	(*proc)();
+int	(*proc)(Display*, XErrorEvent*);
 Display	*display = Dsp;
 int	oldcounter;
 Window	w;
@@ -548,7 +548,7 @@ Verify that errorhandler was called.
 Verify that the request_code member in the XErrorEvent structure
 was set correctly.
 >>CODE
-int	(*proc)();
+int	(*proc)(Display*, XErrorEvent*);
 Display	*display = Dsp;
 int	oldcounter;
 Window	w;

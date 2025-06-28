@@ -74,7 +74,7 @@ SOFTWARE.
 
 #include <XtTest.h>
 
-void XtConfigureWidget();
+void XtConfigureWidget(Widget, Position, Position, Dimension, Dimension, Dimension);
 
 /*
 ** Form the title string with function name

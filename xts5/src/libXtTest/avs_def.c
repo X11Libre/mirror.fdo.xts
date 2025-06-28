@@ -73,7 +73,7 @@ SOFTWARE.
 
 #include <XtTest.h>
 
-void XtConfigureWidget();
+void XtConfigureWidget(Widget, Position, Position, Dimension, Dimension, Dimension);
 
 Widget
 avs_xt_def(const char *string)

@@ -88,9 +88,6 @@ wchar_t **list;
 extern int  errcnt;
 extern int  errflg;
 extern int  chkflg;
-extern int  signal_status();
-extern int  unexp_err();
-extern char *strcpy();
 
 char fmtstr[256];
 const char *call_string;

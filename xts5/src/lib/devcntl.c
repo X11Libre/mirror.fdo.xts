@@ -584,7 +584,7 @@ modthing(
 {
 int 	mod;
 int 	ent;
-void	(*func)();
+void	(*func)(Display*, int);
 
 	if (curmap == NULL) {
 		delete("Programming error: wantmods() not called");

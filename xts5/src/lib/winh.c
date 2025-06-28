@@ -1092,7 +1092,7 @@ int
 winh_walk(winh, depthfirst, procedure)
 Winh	*winh;
 int	depthfirst;
-int	(*procedure)();
+int	(*procedure)(Winh*);
 {
 	int	depth;
 
@@ -1104,7 +1104,7 @@ int	(*procedure)();
 		depth = 0;
 	if (winh == (Winh *) NULL)
 		return(-1);
-	if (procedure == (int (*)()) NULL)
+	if (procedure == NULL)
 		procedure = winh_print;
 	_winh_walk_first_time_ = 1;
 	if (depthfirst)
@@ -1197,7 +1197,7 @@ int
 winh_climb(start, stop, procedure)
 Winh	*start;
 Winh	*stop;
-int	(*procedure)();
+int	(*procedure)(Winh*, Winh*, Winh*, Winh*);
 {
 	Winh	*current, *previous;
 

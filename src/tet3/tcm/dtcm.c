@@ -701,7 +701,7 @@ sig_init(const char *var, sigset_t *set)
 
 static	void
 setsigs(func)
-void	(*func)();
+void	(*func)(int);
 {
 	/*
 	 * Sets all signals except SIGKILL, SIGSTOP and SIGCHLD

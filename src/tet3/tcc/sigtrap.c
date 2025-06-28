@@ -366,7 +366,7 @@ struct proctab *prp;
 **	install_handler() - install a signal handler
 */
 
-static void (*install_handler(sig, func))()
+static void (*install_handler(sig, func))(int)
 int sig;
 void (*func) PROTOLIST((int));
 {

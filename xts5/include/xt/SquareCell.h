@@ -98,8 +98,7 @@ typedef struct {
 #define XavsCCellArray "CellArray"
 #define XavsCShowEntireBitmap "ShowEntireBitmap"
 
-extern char *SquareCellGetArray(); /* w */
-    /* Widget w; */
+extern char *SquareCellGetArray(Widget w, int *width_in_cells, int *height_in_cells);
 
 /* Class record constants */
 

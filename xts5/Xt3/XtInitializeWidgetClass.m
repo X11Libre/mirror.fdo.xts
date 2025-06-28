@@ -190,7 +190,7 @@ static void UndrawCell(Widget, XEvent*, String*, Cardinal*);
 static void ToggleCell(Widget, XEvent*, String*, Cardinal*);
 /* The following are public functions of SquareCell, declared extern
  * in the public include file: */
-char *SquareCellGetArray(); 
+char *SquareCellGetArray(Widget, int*, int*); 
 static char defaultTranslations[] =
     "<Btn1Down>:    DrawCell()	    \n\
     <Btn2Down>:    UndrawCell()	  \n\

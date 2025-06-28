@@ -204,7 +204,7 @@ static void CreateBigPixmap(Widget w);
 static void DrawIntoBigPixmap(Widget w);
 /* The following are public functions of SquareCell, declared extern
  * in the public include file: */
-char *SquareCellGetArray(); 
+char *SquareCellGetArray(Widget, int*, int*); 
 static char defaultTranslations[] =
 	"<Btn1Down>:	DrawCell()		\n\
 	<Btn2Down>:	UndrawCell()	 \n\

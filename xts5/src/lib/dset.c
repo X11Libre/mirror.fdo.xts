@@ -127,8 +127,6 @@ dclear(disp, d)
 Display	*disp;
 Drawable d;
 {
-void dset();
-
 	dset(disp, d, W_BG);
 }
 

@@ -142,7 +142,6 @@ Setup_Extension_DeviceInfo(dmask)
     XAnyClassPtr	any;
     XInputClassInfo *ip;
     XFeedbackState *state;
-    Bool init_xinput();
     int devicekeypress=0,
 	   devicekeyrelease,
 	   devicebuttonpress=0,

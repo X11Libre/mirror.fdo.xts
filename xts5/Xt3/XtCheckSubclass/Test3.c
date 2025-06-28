@@ -85,7 +85,7 @@ extern XtAppContext app_ctext;
 extern Widget topLevel, panedw, boxw1, boxw2;
 extern Widget labelw, rowcolw, click_quit;
 
-void XtEM_Proc2();
+void XtEM_Proc2(String, String, String, String, String*, Cardinal*);
 
 void test3sub(){
 

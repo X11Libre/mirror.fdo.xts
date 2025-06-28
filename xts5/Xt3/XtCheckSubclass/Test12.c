@@ -84,9 +84,9 @@ extern Widget topLevel, panedw, boxw1, boxw2;
 extern Widget labelw, rowcolw, click_quit;
 
 
-void XtEM_Proc();
+void XtEM_Proc(String, String, String, String, String *, Cardinal*);
 
-void XtEM_Proc2();
+void XtEM_Proc2(String, String, String, String, String*, Cardinal*);
 
 void test1sub();
 void test2sub();

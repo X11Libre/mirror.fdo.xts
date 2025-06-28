@@ -179,23 +179,27 @@ static XtResource resources[] = {
      },
 };
 /* Declaration of methods */
-static void Initialize();
-static void Redisplay();
-static void Destroy();
-static void Resize();
-static Boolean SetValues();
-static XtGeometryResult QueryGeometry();
+static void Initialize(Widget, Widget, ArgList, Cardinal*);
+static void Redisplay(Widget, XEvent*, Region);
+static void Destroy(Widget);
+static void Resize(Widget);
+static Boolean SetValues(Widget, Widget, Widget, ArgList, Cardinal*);
+static XtGeometryResult QueryGeometry(Widget, XtWidgetGeometry*, XtWidgetGeometry*);
 /* these Core methods not needed by SquareCell:
  *
  * static void ClassInitialize();
  * static void Realize();
  */
 /* the following are private functions unique to SquareCell */
-static void DrawPixmaps(), DoCell(), ChangeCellSize();
+static void DrawPixmaps(GC, int, Widget, XButtonEvent*);
+static void DoCell(Widget, int, int, GC);
+static void ChangeCellSize(Widget, int);
 static void CreateBigPixmap(Widget w);
 static void DrawIntoBigPixmap(Widget w);
 /* the following are actions of SquareCell */
-static void DrawCell(), UndrawCell(), ToggleCell();
+static void DrawCell(Widget, XEvent*, String*, Cardinal*);
+static void UndrawCell(Widget, XEvent*, String*, Cardinal*);
+static void ToggleCell(Widget, XEvent*, String*, Cardinal*);
 /* The following are public functions of SquareCell, declared extern
  * in the public include file: */
 char *SquareCellGetArray(Widget, int*, int*); 
@@ -369,9 +373,10 @@ Cardinal *num_args;
     DrawIntoBigPixmap((Widget)new);
 }
 static void
-Redisplay(w, event)
+Redisplay(w, event, region)
 Widget w;
 XExposeEvent *event;
+Region *region; 
 {
     SquareCellWidget cw = (SquareCellWidget) w;
     register int x, y;
@@ -465,7 +470,7 @@ Widget w;
 XEvent *event;
 {
     SquareCellWidget cw = (SquareCellWidget) w;
-    DrawPixmaps(cw->squareCell.draw_gc, DRAW, cw, event);
+    DrawPixmaps(cw->squareCell.draw_gc, DRAW, (Widget)cw, (XButtonEvent *)event);
 }
 static void
 UndrawCell(w, event)
@@ -473,7 +478,7 @@ Widget w;
 XEvent *event;
 {
     SquareCellWidget cw = (SquareCellWidget) w;
-    DrawPixmaps(cw->squareCell.undraw_gc, UNDRAW, cw, event);
+    DrawPixmaps(cw->squareCell.undraw_gc, UNDRAW, (Widget)cw, (XButtonEvent *)event);
 }
 static void
 ToggleCell(w, event)
@@ -510,7 +515,7 @@ XEvent *event;
     if (oldx != newx || oldy != newy) {
         oldx = newx;
         oldy = newy;
-        DrawPixmaps(gc, mode, cw, event);
+        DrawPixmaps(gc, mode, (Widget)cw, (XButtonEvent *)event);
     } 
 }
 static void
@@ -543,7 +548,7 @@ XButtonEvent *event;
     fake_event.y = cw->squareCell.cell_size_in_pixels * newy - cw->squareCell.cur_y;
     fake_event.width = cw->squareCell.cell_size_in_pixels;
     fake_event.height = cw->squareCell.cell_size_in_pixels;
-    Redisplay(cw, &fake_event);
+    Redisplay((Widget)cw, (XEvent *)&fake_event, NULL);
     XtCallCallbacks((Widget)cw, XavsNtoggleCallback, &info);
 }
 
@@ -591,9 +596,9 @@ Widget w;
     for (x = 0; x < cw->squareCell.pixmap_width_in_cells; x++) {
         for (y = 0; y < cw->squareCell.pixmap_height_in_cells; y++) {
 	  if (cw->squareCell.cell[x + (y * cw->squareCell.pixmap_width_in_cells)] == DRAWN)
-	DoCell(cw, x, y, cw->squareCell.draw_gc);
+	DoCell((Widget)cw, x, y, cw->squareCell.draw_gc);
 	  else
-	DoCell(cw, x, y, cw->squareCell.undraw_gc);
+	DoCell((Widget)cw, x, y, cw->squareCell.undraw_gc);
         }
     }
 }
@@ -633,7 +638,7 @@ Widget w;
     
         /* if size change mandates a new pixmap, make one */
         if (new_cell_size_in_pixels != cw->squareCell.cell_size_in_pixels)
-	  ChangeCellSize(cw, new_cell_size_in_pixels);
+	  ChangeCellSize((Widget)cw, new_cell_size_in_pixels);
     }
 }
 static void
@@ -663,9 +668,9 @@ int new_cell_size;
     for (x = 0; x < cw->squareCell.pixmap_width_in_cells; x++) {
         for (y = 0; y < cw->squareCell.pixmap_height_in_cells; y++) {
 	  if (cw->squareCell.cell[x + (y * cw->squareCell.pixmap_width_in_cells)] == DRAWN)
-	DoCell(cw, x, y, cw->squareCell.draw_gc);
+	DoCell((Widget)cw, x, y, cw->squareCell.draw_gc);
 	  else
-	DoCell(cw, x, y, cw->squareCell.undraw_gc);
+	DoCell((Widget)cw, x, y, cw->squareCell.undraw_gc);
         }
     }
 }

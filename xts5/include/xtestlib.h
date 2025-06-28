@@ -192,22 +192,22 @@ typedef union {
 		 * The arguments have been commented out at present, because
 		 * some compilers have problems with this.
 		 */
-		/* Display *d, int	a */
+		Display *d, int a
 	);
 	int	(*a1)(
-		/* Display *d, XEvent *e, Predicate p, char *cp */
+		Display *d, XEvent *e, Predicate p, char *cp
 	);
 	int	(*a2)(
-		/* Display *d, long l, XEvent *ep */
+		Display *d, long l, XEvent *ep
 	);
 	int	(*a3)(
-		/* Display *d, XEvent *e */
+		Display *d, XEvent *e
 	);
 	int	(*a4)(
-		/* Display *d, Window w, long l, XEvent *ep */
+		Display *d, Window w, long l, XEvent *ep
 	);
 	int	(*a5)(
-		/* Display *d */
+		Display *d
 	);
 } Block_Proc;
 

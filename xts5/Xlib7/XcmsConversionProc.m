@@ -75,7 +75,7 @@ unsigned int   ncolors ;
 Bool     compression_flags_return[] ;
 */
 
-int (*XcmsConversionFunc)() ;
+int (*XcmsConversionFunc)(XcmsCCC, XcmsColor*, XcmsColor*, unsigned int) ;
 
 char *exec_file_name;
 int x_init, y_init, h_init, w_init;

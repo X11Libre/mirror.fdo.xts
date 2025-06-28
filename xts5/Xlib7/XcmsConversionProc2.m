@@ -75,7 +75,7 @@ int        depth_good ;
 unsigned int   ncolors ;
 Bool     compression_flags_return[2] ;
 
-int (*XcmsConversionFunc)() ;
+int (*XcmsConversionFunc)(XcmsCCC, XcmsColor*, unsigned int, Bool*) ;
 
 char *exec_file_name;
 int x_init, y_init, h_init, w_init;

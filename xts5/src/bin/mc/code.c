@@ -409,6 +409,14 @@ static	int 	oncethrough;
 			}
 
 			/*
+			 * Cut off any params of the function pointer declaration.
+			 */
+			cp = strchr(arg, ')');
+			if (cp) {
+				*cp = '\0';
+			}
+
+			/*
 			 * This gets the last word in the declaration.  This is often
 			 * the name of the parameter being declared.
 			 */

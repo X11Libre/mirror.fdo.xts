@@ -70,7 +70,6 @@ Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
 extern int alloc_handler_called;
-extern void alloc_handler();
 >>TITLE XtCalloc Xt13
 char *
 XtCalloc(num,size)

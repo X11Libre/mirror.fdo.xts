@@ -79,7 +79,6 @@ Widget labelw, rowcolw, click_quit;
 
 #define PAT_SKIP	10240
 
-extern void alloc_handler();
 extern int alloc_handler_called;
 >>TITLE XtRealloc Xt13
 char *

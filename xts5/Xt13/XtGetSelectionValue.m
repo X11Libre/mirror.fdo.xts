@@ -71,10 +71,10 @@ Widget labelw, rowcolw, click_quit;
 /*
 ** local functions
 */
-static Boolean convert_proc();
+static Boolean convert_proc(Widget, Atom*, Atom*, Atom*, XtPointer*, unsigned long*, int*);
 static void lose_proc();
-static void done_proc();
-static void requestor_callback();
+static void done_proc(Widget, Atom*, Atom*);
+static void requestor_callback(Widget, XtPointer, Atom*, Atom*, XtPointer, unsigned long*, int*);
 
 /* procedure XtTMO_Proc to be invoked */
 void XtTMO_Proc(client_data, id)

@@ -70,9 +70,12 @@ Widget labelw, rowcolw, click_quit;
 /*
 ** local functions
 */
-static Boolean convert_proc();
-static void requestor_callback();
-static void requestor_callback2();
+static Boolean convert_proc(Widget, Atom*, Atom*, Atom*, XtPointer*,
+	unsigned long*, int*);
+static void requestor_callback(Widget, XtPointer, Atom*, Atom*, XtPointer,
+	unsigned long*, int*);
+static void requestor_callback2(Widget, XtPointer, Atom*, Atom*, XtPointer,
+	unsigned long*, int*);
 
 static void XtEVT_handler1(sender_widget, client_data, event, continue_to_dispatch)
 Widget sender_widget;

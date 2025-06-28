@@ -72,12 +72,15 @@ Widget labelw, rowcolw, click_quit;
 /*
 ** local functions
 */
-static Boolean convert_proc();
-static Boolean convert_proc3();
-static void lose_proc();
-static void done_proc();
+static Boolean convert_proc(Widget, Atom*, Atom*, Atom*, XtPointer*,
+	unsigned long*, int*, unsigned long*, XtPointer, XtRequestId*);
+static Boolean convert_proc3(Widget, Atom*, Atom*, Atom*, XtPointer*,
+	unsigned long*, int*, unsigned long*, XtPointer, XtRequestId*);
+static void lose_proc(Widget, Atom*, XtPointer);
+static void done_proc(Widget, Atom*, Atom*, XtRequestId*, XtPointer);
 static void cancel_proc();
-static void requestor_callback();
+static void requestor_callback(Widget, XtPointer, Atom*, Atom*, XtPointer,
+	unsigned long*, int*);
 int incr_string = 1; 
 int incr_int = 1;
 

@@ -72,11 +72,13 @@ Widget labelw, rowcolw, click_quit;
 /*
 ** local functions
 */
-static Boolean convert_proc1();
-static void lose_proc1();
-static void done_proc1();
+static Boolean convert_proc1(Widget, Atom*, Atom*, Atom*, XtPointer*,
+	unsigned long*, int*, unsigned long*, XtPointer, XtRequestId*);
+static void lose_proc1(Widget, Atom*, XtPointer);
+static void done_proc1(Widget, Atom*, Atom*, XtRequestId*, XtPointer);
 static void cancel_proc1();
-static void requestor_callback1();
+static void requestor_callback1(Widget, XtPointer, Atom*, Atom*, XtPointer,
+	unsigned long*, int*);
 
 int increment = 1; 
 
@@ -228,11 +230,13 @@ int *format;
 	increment += 1;
 }
 /* local functions */
-static Boolean convert_proc2();
-static void lose_proc2();
-static void done_proc2();
+static Boolean convert_proc2(Widget, Atom*, Atom*, Atom*, XtPointer*,
+	unsigned long*, int*, unsigned long*, XtPointer, XtRequestId*);
+static void lose_proc2(Widget, Atom*, XtPointer);
+static void done_proc2(Widget, Atom*, Atom*, XtRequestId*, XtPointer);
 static void cancel_proc2();
-static void requestor_callback2();
+static void requestor_callback2(Widget, XtPointer, Atom*, Atom*, XtPointer,
+	unsigned long*, int*);
 
 /* procedure XtTMO2_Proc to be invoked */
 void XtTMO2_Proc(client_data, id)
@@ -381,11 +385,13 @@ int *format;
 	increment += 1;
 }
 /* local functions */
-static Boolean convert_proc3();
-static void lose_proc3();
-static void done_proc3();
+static Boolean convert_proc3(Widget, Atom*, Atom*, Atom*, XtPointer*,
+	unsigned long*, int*, unsigned long*, XtPointer, XtRequestId*);
+static void lose_proc3(Widget, Atom*, XtPointer);
+static void done_proc3(Widget, Atom*, Atom*, XtRequestId*, XtPointer);
 static void cancel_proc3();
-static void requestor_callback3();
+static void requestor_callback3(Widget, XtPointer, Atom*, Atom*, XtPointer,
+	unsigned long*, int*);
 
 /* procedure XtTMO3_Proc to be invoked */
 void XtTMO3_Proc(client_data, id)
@@ -534,11 +540,13 @@ int *format;
 	increment += 1;
 }
 /* local functions */
-static Boolean convert4_proc();
-static void lose4_proc();
-static void done4_proc();
+static Boolean convert4_proc(Widget, Atom*, Atom*, Atom*, XtPointer*,
+	unsigned long*, int*, unsigned long*, XtPointer, XtRequestId*);
+static void lose4_proc(Widget, Atom*, XtPointer);
+static void done4_proc(Widget, Atom*, Atom*, XtRequestId*, XtPointer);
 static void cancel4_proc();
-static void requestor_callback();
+static void requestor_callback(Widget, XtPointer, Atom*, Atom*, XtPointer,
+	unsigned long*, int*);
 
 /* procedure XtTMO4_Proc to be invoked */
 void XtTMO4_Proc(client_data, id)
@@ -686,11 +694,13 @@ int *format;
 	increment += 1;
 }
 /* local functions */
-static Boolean convert_proc5();
-static void lose_proc5();
-static void done_proc5();
+static Boolean convert_proc5(Widget, Atom*, Atom*, Atom*, XtPointer*,
+	unsigned long*, int*, unsigned long*, XtPointer, XtRequestId*);
+static void lose_proc5(Widget, Atom*, XtPointer);
+static void done_proc5(Widget, Atom*, Atom*, XtRequestId*, XtPointer);
 static void cancel_proc5();
-static void requestor_callback5();
+static void requestor_callback5(Widget, XtPointer, Atom*, Atom*, XtPointer,
+	unsigned long*, int*);
 
 /* procedure XtTMO5_Proc to be invoked */
 void XtTMO5_Proc(client_data, id)

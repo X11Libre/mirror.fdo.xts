@@ -67,7 +67,6 @@ XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
-extern void alloc_handler();
 extern int alloc_handler_called;
 >>TITLE XtMalloc Xt13
 char *

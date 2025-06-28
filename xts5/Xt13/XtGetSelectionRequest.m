@@ -69,10 +69,12 @@ Widget labelw, rowcolw, click_quit;
 #define	FORMAT	8
 
 /* local functions */
-static Boolean convert_proc1();
+static Boolean convert_proc1(Widget, Atom*, Atom*, Atom*, XtPointer*,
+	unsigned long*, int*);
 static void lose_proc1();
-static void done_proc1();
-static void requestor_callback1();
+static void done_proc1(Widget, Atom*, Atom*);
+static void requestor_callback1(Widget, XtPointer, Atom*, Atom*, XtPointer,
+	unsigned long*, int*);
 
 static void XtEVT1_handler1(sender_widget, client_data, event, continue_to_dispatch)
 Widget sender_widget;
@@ -183,10 +185,12 @@ int *format;
 }
 
 /* local functions */
-static Boolean convert_proc2();
+static Boolean convert_proc2(Widget, Atom*, Atom*, Atom*, XtPointer*,
+	unsigned long*, int*);
 static void lose_proc2();
-static void done_proc2();
-static void requestor_callback2();
+static void done_proc2(Widget, Atom*, Atom*);
+static void requestor_callback2(Widget, XtPointer, Atom*, Atom*, XtPointer,
+	unsigned long*, int*);
 
 void XtWMH_Proc(str1, str2, str3, str4, str5, car)
 String str1, str2, str3, str4, *str5;

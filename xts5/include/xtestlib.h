@@ -188,10 +188,6 @@ typedef	Bool (*Predicate) (
  */
 typedef union {
 	int	(*a0)(
-		/*
-		 * The arguments have been commented out at present, because
-		 * some compilers have problems with this.
-		 */
 		Display *d, int a
 	);
 	int	(*a1)(

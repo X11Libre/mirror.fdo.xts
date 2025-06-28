@@ -151,7 +151,7 @@ extern	int 	mflag;
 	,		/* comment hook */
 #endif
 
-void	(*secsw[][NSEC])() = {
+void	(*secsw[][NSEC])(FILE*, char*) = {
 	{	/* mexpand */
 	mepcopyright,		/* copyright */
 	mepecho,		/* header */
@@ -214,7 +214,7 @@ void	(*secsw[][NSEC])() = {
 	},
 };
 
-void	(*hooksw[][NHOOK])() = {
+void	(*hooksw[][NHOOK])(char*) = {
 	{
 	mepstart,	/* start */
 	mepend,		/* end */

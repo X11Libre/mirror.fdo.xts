@@ -110,9 +110,6 @@ XcmsColorFormat      format ;
         extern int  errcnt;
         extern int  errflg;
         extern int  chkflg;
-	extern int  signal_status();
-	extern int  unexp_err();
-	extern char *strcpy();
 
 /******
  * local storage 

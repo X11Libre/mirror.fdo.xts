@@ -238,7 +238,7 @@ typedef struct _XstDisplay {
 	long resource_mask;	/* resource ID mask bits */
 	long resource_id;	/* allocator current ID */
 	int resource_shift;	/* allocator shift to correct bits */
-	XID (*resource_alloc)(); /* allocator function */
+	XID (*resource_alloc)(int); /* allocator function */
 	int byte_order;		/* screen byte order, LSBFirst, MSBFirst */
 	int bitmap_unit;	/* padding and data requirements */
 	int bitmap_pad;		/* padding requirements on bitmaps */

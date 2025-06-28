@@ -172,7 +172,6 @@ char	*line;
 char	*tok;
 int 	known;
 int 	foundtrue;
-char	*strtok();
 int 	i;
 
 	level++;

@@ -109,8 +109,6 @@ purpose.  It is provided "as is" without express or implied warranty.
 #include	"stdio.h"
 #include	"string.h"
 
-char	*strtok();
-
 #include	"mc.h"
 
 extern	struct	state	State;

@@ -300,7 +300,6 @@ char	*name;
 char	*savline;
 char	*savfilename;
 char	*path;
-char	*strtok();
 FILE	*fp;
 int 	savlineno;
 

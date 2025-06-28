@@ -282,7 +282,7 @@ int 	i;
 #define	PAR_CONFIG	004
 #define	PAR_GRAVITY	010
 
-static	void	calcxy();
+static	void	calcxy(struct buildtree *top, int evtype, int *x, int *y);
 
 /*
  * Routine that does the event checking for the gravity notify

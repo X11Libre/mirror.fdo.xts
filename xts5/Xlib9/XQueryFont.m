@@ -105,7 +105,6 @@ XID 	font_ID;
 >>SET startup fontstartup
 >>SET cleanup fontcleanup
 >>EXTERN
-extern	int 	checkfsp();
 extern	struct	fontinfo fontinfo[];
 extern	int 	nfontinfo;
 >>ASSERTION Good A

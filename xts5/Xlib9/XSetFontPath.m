@@ -152,7 +152,6 @@ Do simple check with XGetFontPath.
 char	*fpathlist;
 char	*fpathtmp;
 char	*dirlist[MAX_DIRS];
-char	*strtok();
 char	**checkpath;
 int 	nret;
 int 	i;
@@ -217,7 +216,6 @@ Display	*client2;
 char	*fpathlist;
 char	*fpathtmp;
 char	*dirlist[MAX_DIRS];
-char	*strtok();
 char	**checkpath;
 int 	nret;
 int 	i;
@@ -297,7 +295,6 @@ Verify that BadValue error is generated.
 >>CODE BadValue
 char	*fpathlist;
 char	*dirlist[MAX_DIRS];
-char	*strtok();
 int 	i;
 
 	fpathlist = tet_getvar("XT_FONTPATH_BAD");

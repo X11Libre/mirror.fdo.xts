@@ -118,7 +118,6 @@ For each VSW5 font:
   Load and query font.
   Compare returned XFontStruct with known good structures.
 >>EXTERN
-extern	int 	checkfsp();
 extern	struct	fontinfo fontinfo[];
 extern	int 	nfontinfo;
 >>CODE

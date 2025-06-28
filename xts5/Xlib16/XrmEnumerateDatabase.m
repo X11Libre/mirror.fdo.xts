@@ -131,9 +131,6 @@ for each resource in the database that would match given name/class resource
 prefix and return True.
 >>CODE
 #if XT_X_RELEASE > 4
-	extern int  signal_status();
-	extern int  unexp_err();
-	extern char *strcpy();
         Bool      svc_ret_value;
 	char buf[9];
 	XrmValue resval;
@@ -202,9 +199,6 @@ A call to
 when the called procedure returns True shall return True.
 >>CODE
 #if XT_X_RELEASE > 4
-	extern int  signal_status();
-	extern int  unexp_err();
-	extern char *strcpy();
         Bool      svc_ret_value;
 	char buf[9];
 	XrmValue resval;
@@ -270,9 +264,6 @@ when the called procedure returns False shall terminate the enumeration
 and return False.
 >>CODE
 #if XT_X_RELEASE > 4
-	extern int  signal_status();
-	extern int  unexp_err();
-	extern char *strcpy();
         Bool      svc_ret_value;
 	char buf[9];
 	XrmValue resval;

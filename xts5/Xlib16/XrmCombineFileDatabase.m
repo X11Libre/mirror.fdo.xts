@@ -96,10 +96,7 @@ int x_init, y_init, h_init, w_init;
 extern int  errcnt;
 extern int  errflg;
 extern int  chkflg;
-extern int  signal_status();
-extern int  unexp_err();
 extern char *svc_user_arg;
-extern char *strcpy();
 
 char fmtstr[256];
 const char *call_string;

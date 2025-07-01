@@ -461,7 +461,7 @@ Boolean shrink;
     }
     childP = pw->composite.children + _index;
     while(TRUE) {
-        register Pane pane = PaneInfo(*childP);
+        Pane pane = PaneInfo(*childP);
         
         if ( (rules < 3 || SatisfiesRule3(pane, shrink)) &&
 	     (rules < 2 || SatisfiesRule2(pane))         &&
@@ -648,7 +648,7 @@ Direction dir;
  */
 
     ForAllPanes(pw, childP) {
-        register Pane pane = PaneInfo(*childP);
+        Pane pane = PaneInfo(*childP);
 	AssignMax(pane->size, (int) pane->min);
 	AssignMin(pane->size, (int) pane->max);
 	sizeused += (int) pane->size + (int) pw->paned.internal_bw;
@@ -703,7 +703,7 @@ PanedWidget pw;
     changes.stack_mode = Above;
 
     ForAllPanes(pw, childP) {
-	register Pane pane = PaneInfo(*childP);
+	Pane pane = PaneInfo(*childP);
 	register Widget grip = pane->grip; /* may be NULL. */
 
 	if (IsVert(pw)) {

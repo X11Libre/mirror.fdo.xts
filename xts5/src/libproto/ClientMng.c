@@ -689,7 +689,7 @@ XstOpenDisplay (const char *display, int bytesex, int needswap, int cl)
 		return (NULL);
 	    }
 	    for (k = 0; k < dp -> nvisuals; k++) {
-		register    XstVisual * vp = &dp -> visuals[k];
+		XstVisual * vp = &dp -> visuals[k];
 		if ((vp -> visualid = u.vp -> visualID) == root_visualID)
 		    sp -> root_visual = vp;
 		vp -> class = u.vp -> class;

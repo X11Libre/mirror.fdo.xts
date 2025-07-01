@@ -180,8 +180,8 @@ static void ClassInitialize(void)
 static void ClassPartInitialize(class)
     WidgetClass class;
 {
-    register SimpleWidgetClass c = (SimpleWidgetClass)class;
-    register SimpleWidgetClass super = (SimpleWidgetClass) 
+    SimpleWidgetClass c = (SimpleWidgetClass)class;
+    SimpleWidgetClass super = (SimpleWidgetClass) 
 	c->core_class.superclass;
 
     if (c->simple_class.change_sensitive == NULL) {

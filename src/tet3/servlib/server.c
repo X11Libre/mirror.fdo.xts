@@ -127,8 +127,8 @@ void tet_si_servwait(pp, timeout)
 struct ptab *pp;
 int timeout;
 {
-	register time_t now = time((time_t *) 0);
-	register time_t tsave;
+	time_t now = time((time_t *) 0);
+	time_t tsave;
 	int inptab;
 	extern struct ptab *tet_ptab;
 

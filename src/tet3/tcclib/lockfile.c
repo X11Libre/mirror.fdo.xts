@@ -75,7 +75,7 @@ char *fname;
 int timeout;
 {
 	int fd, errsave, rc;
-	register time_t start;
+	time_t start;
 
 	ASSERT(fname && *fname);
 

@@ -85,7 +85,7 @@ char *dir, **lnp;
 long pid;
 int timeout;
 {
-	register time_t start;
+	time_t start;
 	int fd, rc, errsave;
 	char salt1, salt2;
 	char pidstr[LNUMSZ];

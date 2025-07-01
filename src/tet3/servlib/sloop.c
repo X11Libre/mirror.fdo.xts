@@ -97,7 +97,7 @@ static int si_timeouts PROTOLIST((void));
 void tet_si_serverloop()
 {
 	struct ptab *pp;
-	register time_t timeout;
+	time_t timeout;
 	int delay, rc;
 	extern struct ptab *tet_ptab;
 
@@ -189,7 +189,7 @@ static int si_timeouts()
 {
 	extern struct ptab *tet_ptab;
 	struct ptab *pp;
-	register time_t now = time((time_t *) 0);
+	time_t now = time((time_t *) 0);
 	int found = 0;
 
 	for (pp = tet_ptab; pp; pp = pp->pt_next) {

@@ -460,7 +460,7 @@ struct valmsg *mp;
 {
 	struct sptab *stp = (struct sptab *) pp->pt_sdata;
 	struct ustab *up, *myup;
-	register time_t now = time((time_t *) 0);
+	time_t now = time((time_t *) 0);
 	struct ptab *upp;
 	struct sptab *ustp;
 

@@ -129,7 +129,7 @@ static int _CloseDisplay (q, e)
 }
 
 static void _InitializeCvtCache (c)
-    register XmuCvtCache *c;
+    XmuCvtCache *c;
 {
     extern void _XmuStringToBitmapInitCache();
 

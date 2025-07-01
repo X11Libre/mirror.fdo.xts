@@ -309,13 +309,13 @@ static char **split_path_string (src)
 
 
 void _XmuStringToBitmapInitCache (c)
-    register XmuCvtCache *c;
+    XmuCvtCache *c;
 {
     c->string_to_bitmap.bitmapFilePath = NULL;
 }
 
 void _XmuStringToBitmapFreeCache (c)
-    register XmuCvtCache *c;
+    XmuCvtCache *c;
 {
     if (c->string_to_bitmap.bitmapFilePath) {
 	if (c->string_to_bitmap.bitmapFilePath[0]) 

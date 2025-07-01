@@ -170,8 +170,8 @@ static void AvsObjClassPartInitialize(wc)
     register WidgetClass wc;
 {
 /*
-    register AvsObjClass roc = (AvsObjClass)wc;
-    register AvsObjClass super = ((AvsObjClass)roc->avsobj_class.superclass);
+    AvsObjClass roc = (AvsObjClass)wc;
+    AvsObjClass super = ((AvsObjClass)roc->avsobj_class.superclass);
 */
 
 }

@@ -141,7 +141,7 @@ static void ClassPartInitialize(class)
     WidgetClass class;
 {
 /*
-    register AvsWidgetClass c = (AvsWidgetClass)class;
+    AvsWidgetClass c = (AvsWidgetClass)class;
 */
 
 	/* Nothing to check or change */

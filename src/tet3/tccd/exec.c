@@ -503,7 +503,7 @@ int timeout;
 {
 	int rc;
 	register SIG_T (*sig_save)();
-	register unsigned alarm_save;
+	unsigned alarm_save;
 	register time_t interval, start;
 
 	/* remember current time */

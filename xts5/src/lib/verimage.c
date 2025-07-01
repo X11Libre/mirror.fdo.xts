@@ -144,7 +144,7 @@ static FILE	*fp;
 long	initfpos;
 XImage	*imp;
 int 	x, y;
-register unsigned long	ipix;
+unsigned long	ipix;
 unsigned long	pix;
 unsigned long 	count;
 int 	good, bad;

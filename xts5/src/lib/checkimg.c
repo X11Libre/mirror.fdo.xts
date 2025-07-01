@@ -141,7 +141,7 @@ int xorig;
 int yorig;
 unsigned int fullwidth;
 unsigned int fullheight;
-register unsigned long pix;
+unsigned long pix;
 struct area area;
 int inloopflag = 0;
 

@@ -55,7 +55,7 @@ long n;
 	static int count;
 	char *p;
 	char c;
-	register unsigned long u;
+	unsigned long u;
 
 	if (++count >= NLBUF)
 		count = 0;

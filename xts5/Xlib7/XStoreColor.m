@@ -468,7 +468,7 @@ If visual class DirectColor is supported:
 
 static int
 maskshift(mask)
-register unsigned long mask;
+unsigned long mask;
 {
 int i;
 

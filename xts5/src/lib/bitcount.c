@@ -158,7 +158,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  */
 unsigned int
 bitcount(n)
-	register unsigned long n;
+	unsigned long n;
 {
 
 	n = (n & 0x55555555) + ((n >> 1) & 0x55555555);

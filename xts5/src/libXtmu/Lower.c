@@ -93,7 +93,7 @@ void XmuCopyISOLatin1Lowered(dst, src)
     char *dst, *src;
 #endif
 {
-    register unsigned char *dest, *source;
+    unsigned char *dest, *source;
 
     for (dest = (unsigned char *)dst, source = (unsigned char *)src;
 	 *source;
@@ -118,7 +118,7 @@ void XmuCopyISOLatin1Uppered(dst, src)
     char *dst, *src;
 #endif
 {
-    register unsigned char *dest, *source;
+    unsigned char *dest, *source;
 
     for (dest = (unsigned char *)dst, source = (unsigned char *)src;
 	 *source;
@@ -143,11 +143,11 @@ int XmuCompareISOLatin1 (first, second)
     char *first, *second;
 #endif
 {
-    register unsigned char *ap, *bp;
+    unsigned char *ap, *bp;
 
     for (ap = (unsigned char *) first, bp = (unsigned char *) second;
 	 *ap && *bp; ap++, bp++) {
-	register unsigned char a, b;
+	unsigned char a, b;
 
 	if ((a = *ap) != (b = *bp)) {
 	    /* try lowercasing and try again */

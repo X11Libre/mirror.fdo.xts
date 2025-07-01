@@ -54,7 +54,7 @@ long n;
 	static char buf[NLBUF][LONUMSZ];
 	static int count;
 	char *p;
-	register unsigned long u;
+	unsigned long u;
 
 	if (++count >= NLBUF)
 		count = 0;

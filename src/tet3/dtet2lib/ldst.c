@@ -183,7 +183,7 @@ int n;
 
 static int bs2ushort(from, to, n)
 char *from;
-register unsigned short *to;
+unsigned short *to;
 int n;
 {
 	int count = n * SHORTSIZE;

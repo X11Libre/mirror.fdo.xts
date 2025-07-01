@@ -279,7 +279,7 @@ void patternimg(XImage *ximage, unsigned long pixel);
 Status checkimg(XImage *im, struct area *ap, long inpix, long outpix, int flags);
 Status checkimgstruct(XImage *im, unsigned int depth, unsigned int width, unsigned int height, int format);
 Display *opendisplay(void);
-unsigned int bitcount( register unsigned long n);
+unsigned int bitcount( unsigned long n);
 unsigned long getpix(unsigned long m, unsigned long p);
 int atov(char *str);
 void initconfig(void);

@@ -372,7 +372,7 @@ int ss_tslogon()
 	char fname[MAXPATH + 1];
 	char *argv[1];
 	int argc, rc;
-	register unsigned long raddr;
+	unsigned long raddr;
 	FILE *fp;
 
 	ASSERT(tet_root[0]);

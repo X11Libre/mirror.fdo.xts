@@ -72,7 +72,7 @@ struct flags flags[];
 	struct flags *fp;
 	char *p1;
 	const char *p2;
-	register unsigned ftmp;
+	unsigned ftmp;
 	int n, needlen;
 
 	if (++count >= NFBUF)

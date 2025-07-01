@@ -870,7 +870,7 @@ Boolean doit;
 #endif
 {
     register Widget *childP;
-    register FormWidget fw = (FormWidget)w;
+    FormWidget fw = (FormWidget)w;
     int num_children = fw->composite.num_children;
     register WidgetList children = fw->composite.children;
 

@@ -219,7 +219,7 @@ Bool XmuRemoveCloseDisplayHook (dpy, handle, func, arg)
     caddr_t arg;			/* arg to pass */
 {
     DisplayEntry *de = _FindDisplayEntry (dpy, NULL);
-    register CallbackRec *h, *prev;
+    CallbackRec *h, *prev;
 
     if (!de) return False;
 
@@ -259,7 +259,7 @@ Bool XmuLookupCloseDisplayHook (dpy, handle, func, arg)
     caddr_t arg;			/* arg to pass */
 {
     DisplayEntry *de = _FindDisplayEntry (dpy, NULL);
-    register CallbackRec *h;
+    CallbackRec *h;
 
     if (!de) return False;
 
@@ -313,7 +313,7 @@ static int _DoCallbacks (dpy, codes)
     Display *dpy;
     XExtCodes *codes;
 {
-    register CallbackRec *h;
+    CallbackRec *h;
     DisplayEntry *prev;
     DisplayEntry *de = _FindDisplayEntry (dpy, &prev);
 
@@ -321,7 +321,7 @@ static int _DoCallbacks (dpy, codes)
 
     /* walk the list doing the callbacks and freeing callback record */
     for (h = de->start; h;) {
-	register CallbackRec *nexth = h->next;
+	CallbackRec *nexth = h->next;
 	de->calling = h;		/* let remove know we'll free it */
 	(*(h->func)) (dpy, h->arg);
 	de->calling = NULL;

@@ -484,7 +484,7 @@ static Boolean Layout(
     maxx = maxy = 1;
     for (childP = children; childP - children < num_children; childP++) {
 	if (XtIsManaged(*childP)) {
-	    register FormConstraints form;
+	    FormConstraints form;
 	    register Position x, y;
 
 	    form = (FormConstraints)(*childP)->core.constraints;

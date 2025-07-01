@@ -397,7 +397,7 @@ static Boolean Layout(
     maxx = maxy = 1;
     for (childP = children; childP - children < num_children; childP++) {
 	if (XtIsManaged(*childP)) {
-	    register FormConstraints form;
+	    FormConstraints form;
 	    register Position x, y;
 
 	    form = (FormConstraints)(*childP)->core.constraints;
@@ -755,8 +755,8 @@ static Boolean ConstraintSetValues(current, request, new, args, num_args)
     ArgList args;
     Cardinal *num_args;
 {
-  register FormConstraints cfc = (FormConstraints) current->core.constraints;
-  register FormConstraints nfc = (FormConstraints) new->core.constraints;
+  FormConstraints cfc = (FormConstraints) current->core.constraints;
+  FormConstraints nfc = (FormConstraints) new->core.constraints;
   
   if (cfc->form.top          != nfc->form.top         ||
       cfc->form.bottom       != nfc->form.bottom      ||

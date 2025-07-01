@@ -502,7 +502,7 @@ int pid;
 int timeout;
 {
 	int rc;
-	register SIG_T (*sig_save)();
+	SIG_T (*sig_save)();
 	unsigned alarm_save;
 	time_t interval, start;
 

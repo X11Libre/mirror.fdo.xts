@@ -642,7 +642,7 @@ XstOpenDisplay (const char *display, int bytesex, int needswap, int cl)
  * Now go deal with each screen structure.
  */
     for (i = 0; i < dpy -> nscreens; i++) {
-	register    XstScreen * sp = &dpy -> screens[i];
+	XstScreen * sp = &dpy -> screens[i];
 	VisualID root_visualID = u.rp -> rootVisualID;
 	sp -> display = dpy;
 	sp -> root = u.rp -> windowId;

@@ -70,7 +70,7 @@ char *ifile, *ofile;
 {
 	int rc;
 	int xfid;
-	register FILE *ifp;
+	FILE *ifp;
 	struct STAT_ST stbuf;
 
 	/* make sure that file names are non-null */

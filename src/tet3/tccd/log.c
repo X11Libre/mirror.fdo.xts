@@ -120,7 +120,7 @@ void loginit()
 void logent(s1, s2)
 char *s1, *s2;
 {
-	register FILE *fp;
+	FILE *fp;
 
 	fp = getlogfp();
 

@@ -172,7 +172,7 @@ static	int 	firsttime = 1;
 void
 outcopy(const char *file)
 {
-register FILE	*fp;
+FILE	*fp;
 char 	buf[BUFSIZ];
 
 	/*
@@ -205,7 +205,7 @@ char 	buf[BUFSIZ];
 FILE *
 cretmpfile(const char *file, char **crefile)
 {
-register FILE	*fp;
+FILE	*fp;
 char *tmpfile;
 
 	tmpfile = malloc(PATH_MAX);

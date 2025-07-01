@@ -73,7 +73,7 @@ MODIFICATIONS:
 
 char **tcf_lsdir(const char *dir)
 {
-	register DIR *dirp;
+	DIR *dirp;
 	struct dirent *dp;
 	int n, nfiles;
 	char **fip;

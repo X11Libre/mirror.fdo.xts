@@ -872,7 +872,7 @@ Boolean doit;
     Widget *childP;
     FormWidget fw = (FormWidget)w;
     int num_children = fw->composite.num_children;
-    register WidgetList children = fw->composite.children;
+    WidgetList children = fw->composite.children;
 
     if ( ((fw->form.no_refigure = !doit) == TRUE) || !XtIsRealized(w) )
 	return;

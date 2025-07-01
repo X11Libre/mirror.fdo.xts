@@ -290,7 +290,7 @@ static DisplayEntry *_FindDisplayEntry (dpy, prevp)
     Display *dpy;
     DisplayEntry **prevp;
 {
-    register DisplayEntry *d, *prev;
+    DisplayEntry *d, *prev;
 
     for (d = elist, prev = NULL; d; d = d->next) {
 	if (d->dpy == dpy) {

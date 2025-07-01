@@ -188,8 +188,8 @@ static void XtCopyAncestorSensitive(widget, offset, value)
 static void RectClassPartInitialize(wc)
     register WidgetClass wc;
 {
-    register RectObjClass roc = (RectObjClass)wc;
-    register RectObjClass super = ((RectObjClass)roc->rect_class.superclass);
+    RectObjClass roc = (RectObjClass)wc;
+    RectObjClass super = ((RectObjClass)roc->rect_class.superclass);
 
     /* We don't need to check for null super since we'll get to object
        eventually, and it had better define them!  */

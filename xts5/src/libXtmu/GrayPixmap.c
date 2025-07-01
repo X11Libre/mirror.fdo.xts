@@ -112,7 +112,7 @@ Pixmap XmuCreateStippledPixmap(screen, fore, back, depth)
  *	caches these so that multiple requests share the pixmap
  */
 {
-    register Display *display = DisplayOfScreen(screen);
+    Display *display = DisplayOfScreen(screen);
     CacheEntry *cachePtr;
     Pixmap stippled_pixmap;
     static unsigned char pixmap_bits[] = {
@@ -156,7 +156,7 @@ void XmuReleaseStippledPixmap(screen, pixmap)
     Screen *screen;
     Pixmap pixmap;
 {
-    register Display *display = DisplayOfScreen(screen);
+    Display *display = DisplayOfScreen(screen);
     CacheEntry *cachePtr, **prevP;
     for (prevP = &pixmapCache, cachePtr = pixmapCache; cachePtr;) {
 	if (cachePtr->screen == screen && cachePtr->pixmap == pixmap) {

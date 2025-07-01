@@ -287,7 +287,7 @@ Bool XmuLookupCloseDisplayHook (dpy, handle, func, arg)
  * back pointers.
  */
 static DisplayEntry *_FindDisplayEntry (dpy, prevp)
-    register Display *dpy;
+    Display *dpy;
     DisplayEntry **prevp;
 {
     register DisplayEntry *d, *prev;

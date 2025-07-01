@@ -181,7 +181,7 @@ int XmuCursorNameToIndex (name)
 			{"watch",		XC_watch},
 			{"xterm",		XC_xterm},
     };
-    register Const struct _CursorName *table;
+    Const struct _CursorName *table;
     register int i;
     char tmp[40];
     

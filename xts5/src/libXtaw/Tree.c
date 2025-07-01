@@ -237,7 +237,7 @@ static void initialize_dimensions (listp, sizep, n)
     int n;
 {
     int i;
-    register Dimension *l;
+    Dimension *l;
 
     if (!*listp) {
 	*listp = (Dimension *) XtCalloc ((unsigned int) n,

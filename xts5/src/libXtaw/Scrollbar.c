@@ -765,7 +765,7 @@ static void NotifyThumb( gw, event, params, num_params )
    String *params;		/* unused */
    Cardinal *num_params;	/* unused */
 {
-    register ScrollbarWidget w = (ScrollbarWidget) gw;
+    ScrollbarWidget w = (ScrollbarWidget) gw;
 
     if (w->scrollbar.direction == 0) return; /* if no StartScroll */
 

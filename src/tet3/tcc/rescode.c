@@ -109,7 +109,7 @@ static void irc2()
 {
 	char fname[MAXPATH];
 	register struct restab *rtp;
-	register const char *p;
+	const char *p;
 	FILE *fp;
 	static char tet_rescodes_file[] = "TET_RESCODES_FILE";
 

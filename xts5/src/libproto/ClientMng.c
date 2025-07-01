@@ -309,7 +309,7 @@ XModifierKeymap * XstNewModifiermap (int keyspermodifier);
  * the newly created XstDisplay back to the caller.
  */
 static XstDisplay *
-XstOpenDisplay (register const char *display, int bytesex, int needswap, int cl)
+XstOpenDisplay (const char *display, int bytesex, int needswap, int cl)
 {
     register    XstDisplay * dpy;	/* New XstDisplay object being created. */
     register int    i;

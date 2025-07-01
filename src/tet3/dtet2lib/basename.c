@@ -58,8 +58,8 @@ MODIFICATIONS:
 
 TET_IMPORT const char *tet_basename(const char *path)
 {
-	register const char *p;
-	register const char *retval = path;
+	const char *p;
+	const char *retval = path;
 
 	if (path)
 		for (p = path; *p; p++)

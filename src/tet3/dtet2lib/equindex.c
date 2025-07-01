@@ -49,7 +49,7 @@ MODIFICATIONS:
 */
 
 char *
-tet_equindex(register const char *s)
+tet_equindex(const char *s)
 {
 	return(strchr(s, '='));
 }

@@ -997,7 +997,7 @@ int mode;
 
 	/* second pass */
 	for (cp = from->cf_conf; cp < from->cf_conf + from->cf_nconf; cp++) {
-		register const char *p;
+		const char *p;
 
 		if ((p = tet_remvar(*cp, 0)) != *cp) {
 			ASSERT(p);
@@ -1184,7 +1184,7 @@ int mode;
 
 	static char fmt[] = "bad value for boolean variable %s in %s configuration on system";
 	char msg[sizeof fmt + 40];
-	register const char *p1, *p2;
+	const char *p1, *p2;
 	char **cp;
 	register struct bvar *vp;
 

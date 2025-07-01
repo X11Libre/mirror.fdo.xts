@@ -362,8 +362,8 @@ char **argv;
 */
 
 void tet_dtcmerror(int errnum, const char *file, int line,
-                   register const char *s1,
-                   register const char *s2)
+                   const char *s1,
+                   const char *s2)
 {
 	char msg[MAXPATH + 128];
 	char *p = msg;

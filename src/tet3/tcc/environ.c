@@ -94,7 +94,7 @@ struct systab *sp;
 
 	char buf[MAXPATH + 40];
 	char *envstr[Ncomvar + 1];
-	register const char **cvp;
+	const char **cvp;
 	char **ep = envstr;
 
 #define Nenvstr	(sizeof envstr / sizeof envstr[0])

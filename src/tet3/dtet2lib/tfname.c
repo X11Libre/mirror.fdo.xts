@@ -87,7 +87,7 @@ static int tryone PROTOLIST((const char *, const char *, char **));
 char *
 tet_mktfname(const char *prefix)
 {
-	register const char **tdp;
+	const char **tdp;
 	char *p;
 	register int rc = TR_ERROR;
 	char *fname;

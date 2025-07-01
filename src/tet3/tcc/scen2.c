@@ -687,7 +687,7 @@ find2scen(const char *scen_name)
 static void check_valid_scen_name(ep)
 struct scentab *ep;
 {
-	register const char *p;
+	const char *p;
 	register int ok;
 
 	TRACE2(tet_Tscen, 6, "check scenrio name %s", ep->sc_scenario);

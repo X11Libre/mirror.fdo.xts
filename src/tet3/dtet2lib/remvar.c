@@ -105,7 +105,7 @@ tet_remvar_sysid(const char *s)
 static int
 rvs2(const char *s, const char **vp)
 {
-	register const char *p;
+	const char *p;
 	register int sysid;
 	static char fmt[] = "TET_REM";
 

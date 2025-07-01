@@ -116,7 +116,7 @@ int result;
 int *abortflag;
 {
 	register struct restab *rtp;
-	register const char *name;
+	const char *name;
 	register int abrt;
 
 	if (!tet_restab && tet_initrestab() < 0) {

@@ -989,7 +989,7 @@ jnl_mwrite(int id, const char *s1, const char *s2, FILE *fp, const char *fname)
 {
 	int len1, space;
 	char msg[TET_JNL_LEN];
-	register const char *p;
+	const char *p;
 	register int n;
 
 	/* see if the line is too long -

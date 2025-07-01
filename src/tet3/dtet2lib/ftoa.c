@@ -71,7 +71,7 @@ struct flags flags[];
 	int *blp;
 	register struct flags *fp;
 	char *p1;
-	register const char *p2;
+	const char *p2;
 	register unsigned ftmp;
 	register int n, needlen;
 

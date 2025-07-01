@@ -170,7 +170,7 @@ long Xst_size;
  */
 int
 Xst_Read (
-    register    XstDisplay * dpy,
+    XstDisplay * dpy,
     char  *data,
     long   size)
 {

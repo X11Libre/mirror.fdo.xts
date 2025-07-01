@@ -311,7 +311,7 @@ XModifierKeymap * XstNewModifiermap (int keyspermodifier);
 static XstDisplay *
 XstOpenDisplay (const char *display, int bytesex, int needswap, int cl)
 {
-    register    XstDisplay * dpy;	/* New XstDisplay object being created. */
+    XstDisplay * dpy;	/* New XstDisplay object being created. */
     int    i;
     int     j,
             k;			/* random iterator indexes */
@@ -789,7 +789,7 @@ static  void ReleaseMemory (dpy, setup)
 
 static void
 XstFreeDisplayStructure (dpy)
-register    XstDisplay * dpy;
+XstDisplay * dpy;
 {
     /* if we have used XOpenDisplay to get the fd then free the xlib things */
     if (dpy -> xlib_dpy != (Display *)NULL) {

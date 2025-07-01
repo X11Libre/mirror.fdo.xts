@@ -152,7 +152,7 @@ void ss_tsinitb4fork()
 
 	struct ptab *pp;
 	struct tptab *tp;
-	register SOCKET sd;
+	SOCKET sd;
 	int len;
 
 

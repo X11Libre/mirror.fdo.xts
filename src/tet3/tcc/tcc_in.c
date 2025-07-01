@@ -124,7 +124,7 @@ struct ptab *pp;
 char **argv;
 {
 	int rc;
-	register SOCKET sd;
+	SOCKET sd;
 
 	/* get a socket for the server */
 	if ((sd = socket(AF_INET, SOCK_STREAM, 0)) == INVALID_SOCKET) {

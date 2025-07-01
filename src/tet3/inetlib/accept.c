@@ -64,7 +64,7 @@ SOCKET lsd;
 	struct sockaddr_in sin;
 	struct ptab *pp;
 	struct tptab *tp;
-	register SOCKET nsd;
+	SOCKET nsd;
 	int len, err;
 
 	TRACE2(tet_Tio, 4, "accept connection on sd %s", tet_i2a(lsd));

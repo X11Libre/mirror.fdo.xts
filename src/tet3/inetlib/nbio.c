@@ -65,7 +65,7 @@ MODIFICATIONS:
 int tet_ts_nbio(pp)
 struct ptab *pp;
 {
-	register SOCKET sd = ((struct tptab *) pp->pt_tdata)->tp_sd;
+	SOCKET sd = ((struct tptab *) pp->pt_tdata)->tp_sd;
 	int arg;
 
 	arg = 1;

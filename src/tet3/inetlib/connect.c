@@ -86,7 +86,7 @@ struct ptab *pp;
 {
 	struct tptab *tp = (struct tptab *) pp->pt_tdata;
 	int rc;
-	register SOCKET sd;
+	SOCKET sd;
 	int nsd;
 	struct sockaddr_in sin;
 	int err;

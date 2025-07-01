@@ -78,8 +78,8 @@ TET_IMPORT int tet_gettccdaddr(pp)
 struct ptab *pp;
 {
 	struct in_addr addr, *ap;
-	register struct sysent *sp;
-	register struct tptab *tp = (struct tptab *) pp->pt_tdata;
+	struct sysent *sp;
+	struct tptab *tp = (struct tptab *) pp->pt_tdata;
 	int port;
 
 	/* look up the host name in the systems file */

@@ -108,7 +108,7 @@ void initrescode()
 static void irc2()
 {
 	char fname[MAXPATH];
-	register struct restab *rtp;
+	struct restab *rtp;
 	const char *p;
 	FILE *fp;
 	static char tet_rescodes_file[] = "TET_RESCODES_FILE";
@@ -172,7 +172,7 @@ static void rescode_distribute()
 	char **lines = (char **) 0;
 	int llines = 0, nlines = 0;
 	char *p, **lp;
-	register struct systab *sp;
+	struct systab *sp;
 	int rc = 0;
 
 	TRACE1(tet_Ttcc, 4, "rescode_distribute()");
@@ -278,7 +278,7 @@ void rescode_cleanup()
 {
 #ifndef TET_LITE	/* -START-LITE-CUT- */
 	int sysid, sysmax;
-	register struct systab *sp;
+	struct systab *sp;
 #endif /* !TET_LITE */	/* -END-LITE-CUT- */
 
 	/* remove the local tmp result code file */

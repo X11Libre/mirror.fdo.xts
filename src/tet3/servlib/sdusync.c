@@ -68,8 +68,8 @@ int vote, timeout, nsys;
 struct synreq *synreq;
 struct synmsg *smp;
 {
-	register struct valmsg *mp;
-	register struct synreq *sp;
+	struct valmsg *mp;
+	struct synreq *sp;
 	int n;
 	struct synmsg smtmp;
 	extern char tet_sderrmsg[];

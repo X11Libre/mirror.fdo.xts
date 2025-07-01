@@ -168,7 +168,7 @@ char *file, *argv[], *envp[], ***nargvp, ***nenvpp;
 {
 	char *cp;
 	char **ep;
-	register struct envlist *elp;
+	struct envlist *elp;
 	int cnt, addcnt, n;
 
 	/* allocate new argv array, with room for four extra args plus

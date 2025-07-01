@@ -67,7 +67,7 @@ static void stinit PROTOLIST((void));
 
 static void stinit()
 {
-	register struct valmsg *sp = (struct valmsg *) 0;
+	struct valmsg *sp = (struct valmsg *) 0;
 	int n = 0;
 
 	VALMSG_INIT(st, sp, n, nst, fixed);
@@ -80,7 +80,7 @@ static void stinit()
 */
 
 int tet_valmsg2bs(from, to)
-register struct valmsg *from;
+struct valmsg *from;
 char *to;
 {
 	int count;
@@ -123,7 +123,7 @@ int *tolen;
 static int bs2vsmsg(from, fromlen, to, tolen, smproc)
 char *from;
 int fromlen;
-register struct valmsg **to;
+struct valmsg **to;
 int *tolen;
 int smproc;
 {
@@ -169,7 +169,7 @@ int smproc;
 */
 
 int tet_synmsg2bs(from, to)
-register struct valmsg *from;
+struct valmsg *from;
 char *to;
 {
 	int count;
@@ -199,7 +199,7 @@ char *to;
 TET_IMPORT int tet_bs2synmsg(from, fromlen, to, tolen)
 char *from;
 int fromlen;
-register struct valmsg **to;
+struct valmsg **to;
 int *tolen;
 {
 	int count;

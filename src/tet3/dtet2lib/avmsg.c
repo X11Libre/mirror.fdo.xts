@@ -71,7 +71,7 @@ static void stinit PROTOLIST((void));
 
 static void stinit()
 {
-	register struct avmsg *ap = (struct avmsg *) 0;
+	struct avmsg *ap = (struct avmsg *) 0;
 	int n = 0;
 
 	AVMSG_INIT(st, ap, n, fixed);
@@ -83,7 +83,7 @@ static void stinit()
 */
 
 TET_IMPORT int tet_avmsg2bs(from, to)
-register struct avmsg *from;
+struct avmsg *from;
 char *to;
 {
 	int n;
@@ -131,7 +131,7 @@ char *to;
 TET_IMPORT int tet_bs2avmsg(from, fromlen, to, tolen)
 char *from;
 int fromlen;
-register struct avmsg **to;
+struct avmsg **to;
 int *tolen;
 {
 	if (fixed < 0)
@@ -196,7 +196,7 @@ int nargv, len;
 */
 
 TET_IMPORT int tet_avmsgbslen(mp)
-register struct avmsg *mp;
+struct avmsg *mp;
 {
 	int len, n;
 

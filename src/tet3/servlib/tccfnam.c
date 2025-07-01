@@ -55,7 +55,7 @@ int tet_tccfname(sysid, cfname)
 int sysid;
 char *cfname;
 {
-	register struct avmsg *mp;
+	struct avmsg *mp;
 	extern char tet_tcerrmsg[];
 
 	/* make sure that cfname is non-null */

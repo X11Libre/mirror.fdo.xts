@@ -145,7 +145,7 @@ Status
 checkarea(disp, d, ap, inpix, outpix, flags)
 Display	*disp;
 Drawable d;
-register struct	area	*ap;
+struct	area	*ap;
 unsigned long 	inpix;
 unsigned long 	outpix;
 int 	flags;

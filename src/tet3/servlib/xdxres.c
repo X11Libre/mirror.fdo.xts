@@ -80,7 +80,7 @@ long xrid;
 char **lines;
 int nlines;
 {
-	register struct avmsg *mp;
+	struct avmsg *mp;
 	int n;
 	extern char tet_xderrmsg[];
 

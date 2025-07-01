@@ -421,7 +421,7 @@ proccfline(const char *line, struct cflist *lp, int lineno, const char *fname)
 */
 
 static void
-proccfl2(const char *line, register struct cflist *lp)
+proccfl2(const char *line, struct cflist *lp)
 {
 	char **cp;
 
@@ -775,7 +775,7 @@ char *line;
 
 void doconfig()
 {
-	register struct systab *sp;
+	struct systab *sp;
 	struct cflist *blp, *elp, *clp;
 #ifndef TET_LITE	/* -START-LITE-CUT- */
 	int sysid, sysmax;
@@ -1186,7 +1186,7 @@ int mode;
 	char msg[sizeof fmt + 40];
 	const char *p1, *p2;
 	char **cp;
-	register struct bvar *vp;
+	struct bvar *vp;
 
 	TRACE3(tet_Ttcc, 2, "checkbvar(): check the boolean variables in the %s configuration for system %s",
 		prcfmode(mode), tet_i2a(sysid));
@@ -1358,7 +1358,7 @@ docffile(struct cflist *lp, const char *type)
 */
 
 static int
-docff2(const char *fname, register struct cflist *lp, const char *type)
+docff2(const char *fname, struct cflist *lp, const char *type)
 {
 	char **cp;
 	FILE *fp;
@@ -2127,7 +2127,7 @@ char *
 getcfg(const char *name, int sysid, int mode)
 {
 	char **cp, *p;
-	register struct systab *sp;
+	struct systab *sp;
 
 	ASSERT_LITE(sysid == 0);
 
@@ -2274,7 +2274,7 @@ getcflag(const char *name, int sysid, int mode)
 */
 
 static char **
-findcfg(const char *name, register struct cflist *lp)
+findcfg(const char *name, struct cflist *lp)
 {
 	int len;
 	char **cp, *p;
@@ -2564,7 +2564,7 @@ int sysid;
 
 static void initdvar()
 {
-	register struct dvar *dvp = dvar;
+	struct dvar *dvp = dvar;
 	static int been_here;
 
 	if (been_here)
@@ -2595,7 +2595,7 @@ static void initdvar()
 
 static void initmdvar()
 {
-	register struct dvar *dvp = mdvar;
+	struct dvar *dvp = mdvar;
 	static int been_here;
 
 	if (been_here)

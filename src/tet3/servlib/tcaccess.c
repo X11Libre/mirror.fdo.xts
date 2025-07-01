@@ -52,7 +52,7 @@ int tet_tcaccess(sysid, path, mode)
 int sysid, mode;
 char *path;
 {
-	register struct avmsg *mp;
+	struct avmsg *mp;
 
 	/* make sure that path is non-null */
 	if (!path || !*path) {

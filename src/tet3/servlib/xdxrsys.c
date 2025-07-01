@@ -56,7 +56,7 @@ int tet_xdxrsys(xrid, snames, nsname)
 long xrid;
 int *snames, nsname;
 {
-	register struct valmsg *mp;
+	struct valmsg *mp;
 	int n;
 	extern char tet_xderrmsg[];
 

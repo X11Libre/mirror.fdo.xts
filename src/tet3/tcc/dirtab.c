@@ -199,7 +199,7 @@ static struct dirtab dirtab[] = {
 struct dirtab *getdirbyname(name)
 char *name;
 {
-	register struct dirtab *dp;
+	struct dirtab *dp;
 
 	for (dp = dirtab; dp < &dirtab[NUMENTRIES(dirtab)]; dp++)
 		if (dp->dt_name && !strcmp(name, dp->dt_name))
@@ -212,7 +212,7 @@ char *name;
 struct dirtab *getdirbyvalue(directive)
 int directive;
 {
-	register struct dirtab *dp;
+	struct dirtab *dp;
 
 	for (dp = dirtab; dp < &dirtab[NUMENTRIES(dirtab)]; dp++)
 		if (directive == dp->dt_directive)

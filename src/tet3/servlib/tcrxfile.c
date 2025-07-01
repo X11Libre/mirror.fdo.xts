@@ -56,7 +56,7 @@ int tet_tcrxfile(sysid, from, to)
 int sysid;
 char *from, *to;
 {
-	register struct avmsg *mp;
+	struct avmsg *mp;
 	extern char tet_tcerrmsg[];
 
 	/* make sure that file names are non-null */

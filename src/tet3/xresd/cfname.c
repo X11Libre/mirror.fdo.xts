@@ -59,9 +59,9 @@ static char *cfname[XD_NCFNAME];	/* the stored config file names */
 */
 
 void op_cfname(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
+	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	int n;
 
 	/* all reply messages have no data */
@@ -109,9 +109,9 @@ register struct ptab *pp;
 */
 
 void op_rcfname(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct avmsg *rp;
+	struct avmsg *rp;
 	int n;
 
 	/* make sure that we have some cfnames to return */

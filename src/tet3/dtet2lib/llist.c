@@ -47,7 +47,7 @@ MODIFICATIONS:
 */
 
 void tet_listinsert(head, elem)
-register struct llist **head, *elem;
+struct llist **head, *elem;
 {
 	ASSERT(head);
 	ASSERT(elem);
@@ -66,7 +66,7 @@ register struct llist **head, *elem;
 */
 
 void tet_listremove(head, elem)
-register struct llist **head, *elem;
+struct llist **head, *elem;
 {
 	ASSERT(head);
 	ASSERT(elem);

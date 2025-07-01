@@ -56,7 +56,7 @@ struct ptab *tet_getnextptbyptype(ptype, start)
 int ptype;
 struct ptab *start;
 {
-	register struct ptab *pp;
+	struct ptab *pp;
 
 	for (pp = start; pp; pp = pp->pt_next) {
 		ASSERT(pp->pt_magic == PT_MAGIC);

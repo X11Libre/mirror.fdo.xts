@@ -179,9 +179,9 @@ long syncptno;
 int *syncnames, nsys, waittime, vote, report_errs;
 struct tet_synmsg *msgp;
 {
-	register struct synreq *sp;
+	struct synreq *sp;
 	int *ip;
-	register struct tet_syncstat *tsp;
+	struct tet_syncstat *tsp;
 	struct synmsg synmsg, *synmsgp;
 	static struct synreq *synreq;
 	static int reqlen;

@@ -76,7 +76,7 @@ static void wakeup PROTOLIST((struct proctab *));
 
 int tcc_sloop()
 {
-	register struct proctab *prp, *rqforw;
+	struct proctab *prp, *rqforw;
 	int done;
 	int status = TET_EXIT_SUCCESS;
 
@@ -115,7 +115,7 @@ int tcc_timeouts(now)
 time_t now;
 {
 	int count = 0;
-	register struct proctab *prp;
+	struct proctab *prp;
 
 	TRACE1(tet_Texec, 2, "tcc_timeouts() START");
 
@@ -181,7 +181,7 @@ struct proctab *prp;
 static void proc_process(prp)
 struct proctab *prp;
 {
-	register struct scentab *ep = prp->pr_scen;
+	struct scentab *ep = prp->pr_scen;
 
 	TRACE5(tet_Texec, 4,
 		"proc_process(%s): state = %s, flags = %s, currmode = %s",
@@ -217,9 +217,9 @@ struct proctab *prp;
 */
 
 static void proc_directive(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
-	register struct scentab *ep = prp->pr_scen;
+	struct scentab *ep = prp->pr_scen;
 
 	TRACE3(tet_Texec, 4, "proc_directive(%s): directive = %s",
 		tet_i2x(prp), prscdir(ep->sc_directive));
@@ -312,7 +312,7 @@ register struct proctab *prp;
 */
 
 static void proc_sceninfo(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	TRACE2(tet_Texec, 4, "proc_sceninfo(%s)", tet_i2x(prp));
 
@@ -334,7 +334,7 @@ register struct proctab *prp;
 static void proc_wait(prp)
 struct proctab *prp;
 {
-	register struct scentab *ep = prp->pr_scen;
+	struct scentab *ep = prp->pr_scen;
 
 	TRACE5(tet_Texec, 4,
 		"proc_wait(%s): state = %s, flags = %s, currmode = %s",
@@ -366,7 +366,7 @@ static void proc_next(prp)
 struct proctab *prp;
 {
 #ifndef NOTRACE
-	register struct scentab *ep = prp->pr_scen;
+	struct scentab *ep = prp->pr_scen;
 
 	TRACE5(tet_Texec, 4,
 		"proc_next(%s): prflags = %s, scentype = %s, currmode = %s",
@@ -410,9 +410,9 @@ struct proctab *prp;
 */
 
 static void proc_n2(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
-	register struct scentab *ep = prp->pr_scen;
+	struct scentab *ep = prp->pr_scen;
 
 	/*
 	** determine whether we must re-visit the current element
@@ -493,7 +493,7 @@ register struct proctab *prp;
 
 	/* free the per-proctab alternate scenario tree if there is one */
 	if (prp->pr_altscen) {
-		register struct scentab *ep2, *child;
+		struct scentab *ep2, *child;
 		TRACE1(tet_Texec, 8,
 			"proc_n2(): freeing the alternate scenario tree");
 		for (ep2 = prp->pr_altscen; ep2; ep2 = child) {
@@ -547,7 +547,7 @@ register struct proctab *prp;
 static void wakeup(prp)
 struct proctab *prp;
 {
-	register struct proctab *child;
+	struct proctab *child;
 
 	TRACE5(tet_Texec, 4, "wakeup(%s): child = %s, state = %s, flags = %s",
 		tet_i2x(prp), tet_i2x(prp ? prp->pr_child : 0),

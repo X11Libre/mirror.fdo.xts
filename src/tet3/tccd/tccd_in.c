@@ -150,8 +150,8 @@ void ss_tsinitb4fork()
 {
 #ifdef INETD
 
-	register struct ptab *pp;
-	register struct tptab *tp;
+	struct ptab *pp;
+	struct tptab *tp;
 	register SOCKET sd;
 	int len;
 
@@ -314,8 +314,8 @@ void tet_ss_tsaccept()
 int tet_ss_tsafteraccept(pp)
 struct ptab *pp;
 {
-	register struct tptab *tp = (struct tptab *) pp->pt_tdata;
-	register struct hostent *hp;
+	struct tptab *tp = (struct tptab *) pp->pt_tdata;
+	struct hostent *hp;
 	char *p;
 
 #ifndef INETD
@@ -460,10 +460,10 @@ int *tolen;
 */
 
 void op_tsinfo(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct tsinfo *mp = (struct tsinfo *) pp->ptm_data;
-	register struct sockaddr_in *ap;
+	struct tsinfo *mp = (struct tsinfo *) pp->ptm_data;
+	struct sockaddr_in *ap;
 
 	/* all reply messages have no data */
 	pp->ptm_mtype = MT_NODATA;

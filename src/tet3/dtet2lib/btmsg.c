@@ -62,14 +62,14 @@ static void stinit PROTOLIST((void));
 
 static void stinit()
 {
-	register struct btmsg *sp = (struct btmsg *) 0;
+	struct btmsg *sp = (struct btmsg *) 0;
 	int n = 0;
 
 	BTMSG_INIT(st, sp, n, nst);
 }
 
 int tet_btmsg2bs(from, to)
-register struct btmsg *from;
+struct btmsg *from;
 char *to;
 {
 	if (nst < 0)
@@ -85,7 +85,7 @@ char *to;
 int tet_bs2btmsg(from, fromlen, to, tolen)
 char *from;
 int fromlen;
-register struct btmsg **to;
+struct btmsg **to;
 int *tolen;
 {
 	if (nst < 0)

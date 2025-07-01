@@ -52,7 +52,7 @@ int tet_tcunlink(sysid, file)
 int sysid;
 char *file;
 {
-	register struct avmsg *mp;
+	struct avmsg *mp;
 
 	/* make sure that file is non-null */
 	if (!file || !*file) {

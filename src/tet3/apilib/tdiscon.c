@@ -62,7 +62,7 @@ MODIFICATIONS:
 
 void tet_disconnect()
 {
-	register struct ptab *pp;
+	struct ptab *pp;
 	extern struct ptab *tet_ptab;
 
 	/* disconnect from TCCDs */

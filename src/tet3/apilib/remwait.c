@@ -73,7 +73,7 @@ MODIFICATIONS:
 int tet_remwait(remoteid, waittime, statloc)
 int remoteid, waittime, *statloc;
 {
-	register struct rtab *rp;
+	struct rtab *rp;
 	int rc;
 	TET_SIGSAFE_DEF
 

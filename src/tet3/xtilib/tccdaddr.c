@@ -67,9 +67,9 @@ MODIFICATIONS:
 TET_IMPORT int tet_gettccdaddr(pp)
 struct ptab *pp;
 {
-	register struct sysent *sp;
-	register struct netbuf *np;
-	register struct tptab *tp = (struct tptab *) pp->pt_tdata;
+	struct sysent *sp;
+	struct netbuf *np;
+	struct tptab *tp = (struct tptab *) pp->pt_tdata;
 
 	/* look up the host name in the systems file */
 	errno = 0;

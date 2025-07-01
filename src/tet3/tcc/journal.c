@@ -402,7 +402,7 @@ void jnl_uname()
 }
 
 void jnl_tc_start(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	char s1[LNUMSZ + MAXPATH + TIMESZ + 3];
 	static char *s2;
@@ -781,7 +781,7 @@ char *s2;
 	int len, needlen;
 	int *ip;
 	char *p;
-	register struct scentab *ep = prp->pr_scen;
+	struct scentab *ep = prp->pr_scen;
 
 	needlen = 1;
 	for (ip = ep->sc_sys; ip < ep->sc_sys + ep->sc_nsys; ip++) {
@@ -812,7 +812,7 @@ struct proctab *prp;
 {
 	static char fmt[] = "Variable Start, %s";
 	char s2[sizeof fmt + REFSZ];
-	register struct scentab *ep = prp->pr_scen;
+	struct scentab *ep = prp->pr_scen;
 	char **vp;
 
 	sprintf(s2, fmt, jnl_scenref(prp));
@@ -1103,9 +1103,9 @@ jnl_mode(int mode)
 */
 
 void jnl_consolidate(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
-	register struct proctab *child;
+	struct proctab *child;
 	char buf[TET_JNL_LEN + 2];
 	static char werrmsg[] = "write error on";
 

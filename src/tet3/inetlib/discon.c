@@ -65,7 +65,7 @@ MODIFICATIONS:
 void tet_ts_disconnect(pp)
 struct ptab *pp;
 {
-        register struct tptab *tp = (struct tptab *) pp->pt_tdata;
+        struct tptab *tp = (struct tptab *) pp->pt_tdata;
 
 	TRACE2(tet_Tio, 4, "tet_ts_disconnect: close sd %s",
 		tet_i2a(tp->tp_sd));

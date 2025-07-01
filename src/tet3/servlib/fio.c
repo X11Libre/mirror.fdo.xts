@@ -102,8 +102,8 @@ static int op_fo2 PROTOLIST((struct ptab *, struct ftab *));
 void tet_op_fopen(pp)
 struct ptab *pp;
 {
-	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
-	register struct ftab *ftp;
+	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
+	struct ftab *ftp;
 	char *p;
 
 	/* do some sanity checks on the request */
@@ -147,7 +147,7 @@ struct ptab *pp;
 
 static int op_fo2(pp, ftp)
 struct ptab *pp;
-register struct ftab *ftp;
+struct ftab *ftp;
 {
 	char *dp = pp->ptm_data;
 
@@ -186,10 +186,10 @@ register struct ftab *ftp;
 */
 
 void tet_op_fclose(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct valmsg *mp = (struct valmsg *) pp->ptm_data;
-	register struct ftab *ftp;
+	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
+	struct ftab *ftp;
 
 	/* all reply messages have no data */
 	pp->ptm_mtype = MT_NODATA;
@@ -214,7 +214,7 @@ void tet_op_gets(pp)
 struct ptab *pp;
 {
 	char *dp = pp->ptm_data;
-	register struct ftab *ftp;
+	struct ftab *ftp;
 	char *p;
 	int n, nlines;
 	char buf[BUFSIZ];
@@ -302,11 +302,11 @@ struct ptab *pp;
 */
 
 void tet_op_puts(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
+	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	int n;
-	register struct ftab *ftp;
+	struct ftab *ftp;
 	static char errmsg[] = "write error on";
 
 	/* all reply messages have no data */
@@ -342,9 +342,9 @@ register struct ptab *pp;
 */
 
 void tet_fiodead(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct ftab *ftp;
+	struct ftab *ftp;
 	int done;
 
 	do {
@@ -365,7 +365,7 @@ register struct ptab *pp;
 */
 
 static int dofclose(ftp)
-register struct ftab *ftp;
+struct ftab *ftp;
 {
 	int rc;
 
@@ -391,7 +391,7 @@ register struct ftab *ftp;
 
 static struct ftab *ftalloc()
 {
-	register struct ftab *ftp;
+	struct ftab *ftp;
 	static long fid;
 
 	if ((ftp = (struct ftab *) malloc(sizeof *ftp)) == (struct ftab *) 0) {
@@ -410,7 +410,7 @@ static struct ftab *ftalloc()
 */
 
 static void ftfree(ftp)
-register struct ftab *ftp;
+struct ftab *ftp;
 {
 	TRACE2(tet_Tbuf, 6, "free ftab = %s", tet_i2x(ftp));
 
@@ -432,7 +432,7 @@ register struct ftab *ftp;
 */
 
 static void ftlfree(ftp)
-register struct ftab *ftp;
+struct ftab *ftp;
 {
 	int n;
 	char *p;
@@ -476,7 +476,7 @@ struct ftab *ftp;
 static struct ftab *ftfind(fid)
 long fid;
 {
-	register struct ftab *ftp;
+	struct ftab *ftp;
 
 	for (ftp = ftab; ftp; ftp = ftp->ft_next) {
 		if (ftp->ft_id == fid)

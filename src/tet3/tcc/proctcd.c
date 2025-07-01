@@ -68,7 +68,7 @@ static void rm_snid PROTOLIST((struct proctab *));
 */
 
 int get_snid_xrid(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	char *fname;
 
@@ -123,7 +123,7 @@ register struct proctab *prp;
 */
 
 void rm_snid_xrid(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	/* remove the sync ID */
 	rm_snid(prp);
@@ -140,7 +140,7 @@ register struct proctab *prp;
 */
 
 static void rm_snid(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	if (prp->pr_snid > 0L && tet_sdsnrm(prp->pr_snid) < 0)
 		prperror(prp, -1, tet_sderrno,
@@ -158,9 +158,9 @@ register struct proctab *prp;
 */
 
 void setup_child_proctabs(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
-	register struct proctab *child;
+	struct proctab *child;
 	int *ip;
 	struct proctab *lback = (struct proctab *) 0;
 
@@ -191,10 +191,10 @@ register struct proctab *prp;
 */
 
 int run_child_proctabs(prp, func)
-register struct proctab *prp;
+struct proctab *prp;
 int (*func) PROTOLIST((struct proctab *));
 {
-	register struct proctab *child;
+	struct proctab *child;
 	int rc = 0;
 
 	ASSERT(prp->pr_magic == PR_MAGIC);
@@ -220,7 +220,7 @@ int child_proctabs_tstate(prp, state)
 struct proctab *prp;
 int state;
 {
-	register struct proctab *child;
+	struct proctab *child;
 	int count = 0;
 
 	for (child = prp->pr_child; child; child = child->pr_lforw) {
@@ -256,7 +256,7 @@ struct proctab *prp;
 */
 
 int configure_tccd(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	int *ip;
 
@@ -278,7 +278,7 @@ static int conf1tccd(prp, sysid, opmode)
 struct proctab *prp;
 int sysid, opmode;
 {
-	register struct systab *sp;
+	struct systab *sp;
 	int cfmode, tc_cfmode;
 	struct cflist *lp;
 

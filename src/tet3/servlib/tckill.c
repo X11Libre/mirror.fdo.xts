@@ -56,7 +56,7 @@ int tet_tckill(sysid, pid, signum)
 int sysid, signum;
 long pid;
 {
-	register struct valmsg *mp;
+	struct valmsg *mp;
 	int remsig;
 	extern char tet_tcerrmsg[];
 

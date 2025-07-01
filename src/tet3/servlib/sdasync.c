@@ -76,8 +76,8 @@ long snid, xrid, spno;
 int vote, timeout, *nsys;
 struct synreq *synreq;
 {
-	register struct valmsg *mp;
-	register struct synreq *sp;
+	struct valmsg *mp;
+	struct synreq *sp;
 	int n;
 	extern char tet_sderrmsg[];
 

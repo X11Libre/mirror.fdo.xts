@@ -98,7 +98,7 @@ static void xresfilename PROTOLIST((char *, char *, int));
 */
 
 char **toolprep(prp, tcname, tcnamelen)
-register struct proctab *prp;
+struct proctab *prp;
 char *tcname;
 int tcnamelen;
 {
@@ -431,7 +431,7 @@ char *tcname, **argv, *ocfname;
 */
 
 int toolwait(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	int rc;
 
@@ -477,7 +477,7 @@ register struct proctab *prp;
 */
 
 static int toolw2(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	int status;
 
@@ -539,7 +539,7 @@ register struct proctab *prp;
 */
 
 static int toolrunning(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	int rc;
 
@@ -563,7 +563,7 @@ register struct proctab *prp;
 */
 
 static int toolrun2(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	time_t now = time((time_t *) 0);
 	time_t next;

@@ -57,7 +57,7 @@ char *tet_tcmksdir(sysid, dir, suffix)
 int sysid;
 char *dir, *suffix;
 {
-	register struct avmsg *mp;
+	struct avmsg *mp;
 	extern char tet_tcerrmsg[];
 
 	/* make sure that dir and suffix are non-null */

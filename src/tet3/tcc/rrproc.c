@@ -557,7 +557,7 @@ int c;
 static struct scentab *rrp_findscen(jlp)
 struct jline *jlp;
 {
-	register struct scentab *ep;
+	struct scentab *ep;
 	int sctype, scdir;
 	const char *directive;
 
@@ -666,10 +666,10 @@ struct jline *jlp;
 */
 
 static struct scentab *rrp_fs2(ep, ref)
-register struct scentab *ep;
+struct scentab *ep;
 long ref;
 {
-	register struct scentab *ep2;
+	struct scentab *ep2;
 
 	for (; ep; ep = ep->sc_forw) {
 		ASSERT(ep->sc_magic == SC_MAGIC);
@@ -737,9 +737,9 @@ struct scentab *ep;
 char *buf;
 int startid;
 {
-	register struct jline *jlp;
+	struct jline *jlp;
 	int done, sel;
-	register struct scentab *ep2;
+	struct scentab *ep2;
 	int mode, endid;
 
 	ASSERT(ep->sc_type == SC_TESTCASE);
@@ -934,7 +934,7 @@ int icno;
 char *buf;
 int mode;
 {
-	register struct jline *jlp;
+	struct jline *jlp;
 	int done, sel;
 	int len, needlen, tmplen;
 	char *p;
@@ -1343,10 +1343,10 @@ char *buf;
 */
 
 static void rrp_checkloopstart(ep, jlp)
-register struct scentab *ep;
+struct scentab *ep;
 struct jline *jlp;
 {
-	register struct scentab *parent;
+	struct scentab *parent;
 
 	/* return now if this is not an EXEC start */
 	if (jlp->jl_id != TET_JNL_INVOKE_TC)
@@ -1416,7 +1416,7 @@ struct jline *jlp;
 */
 
 static int rrp_cl2(ep, tc, random)
-register struct scentab *ep, *tc;
+struct scentab *ep, *tc;
 int random;
 {
 	for (; ep && ep != tc; ep = ep->sc_forw) {
@@ -1457,7 +1457,7 @@ int icno;
 		int ic_end;
 	} *ics = (struct ics *) 0;
 	int lics = 0;
-	register struct ics *icp;
+	struct ics *icp;
 	char **fldp;
 	char *p;
 	char *iclist;
@@ -1545,7 +1545,7 @@ int icno;
 */
 
 static void exiclist_set(ep, iclist)
-register struct scentab *ep;
+struct scentab *ep;
 char *iclist;
 {
 	if (iclist != ep->sc_exiclist) {
@@ -1565,9 +1565,9 @@ char *iclist;
 */
 
 static void remove_unneeded_tcs(ep)
-register struct scentab *ep;
+struct scentab *ep;
 {
-	register struct scentab *forw;
+	struct scentab *forw;
 
 	/* remove each test case which does not have the NEEDED flag set */
 	for (; ep; ep = forw) {
@@ -1596,7 +1596,7 @@ register struct scentab *ep;
 */
 
 static void set_scflags(ep, flags)
-register struct scentab *ep;
+struct scentab *ep;
 int flags;
 {
 	/*
@@ -1621,7 +1621,7 @@ int flags;
 */
 
 static void clear_scflags(ep, flags)
-register struct scentab *ep;
+struct scentab *ep;
 int flags;
 {
 	/*
@@ -1649,7 +1649,7 @@ int flags;
 */
 
 static void clear_exiclists(ep)
-register struct scentab *ep;
+struct scentab *ep;
 {
 	/*
 	** traverse the tree at this level, clearing the EXEC IC lists
@@ -1676,7 +1676,7 @@ register struct scentab *ep;
 */
 
 static void clear_itcount(ep)
-register struct scentab *ep;
+struct scentab *ep;
 {
 	/*
 	** traverse the tree at this level, clearing the loop directive

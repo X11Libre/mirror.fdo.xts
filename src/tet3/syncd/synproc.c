@@ -87,8 +87,8 @@ static void procmsdata PROTOLIST((struct stab *, struct ustab *,
 void op_snget(pp)
 struct ptab *pp;
 {
-	register struct valmsg *rp;
-	register struct stab *sp;
+	struct valmsg *rp;
+	struct stab *sp;
 
 	/* get a new stab element */
 	if ((sp = stalloc()) == (struct stab *) 0) {
@@ -131,11 +131,11 @@ struct ptab *pp;
 */
 
 void op_snsys(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct valmsg *mp = (struct valmsg *) pp->ptm_data;
-	register struct stab *sp;
-	register struct ustab *up;
+	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
+	struct stab *sp;
+	struct ustab *up;
 	int i, j, nsys;
 
 	/* all reply messages have no data */
@@ -211,9 +211,9 @@ register struct ptab *pp;
 void op_snrm(pp)
 struct ptab *pp;
 {
-	register struct valmsg *mp = (struct valmsg *) pp->ptm_data;
-	register struct stab *sp;
-	register struct ustab *up;
+	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
+	struct stab *sp;
+	struct ustab *up;
 
 	/* all reply messages have no data */
 	pp->ptm_mtype = MT_NODATA;
@@ -272,8 +272,8 @@ struct ptab *pp;
 void op_async(pp)
 struct ptab *pp;
 {
-	register struct valmsg *mp = (struct valmsg *) pp->ptm_data;
-	register struct stab *sp;
+	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
+	struct stab *sp;
 
 	/* all error reply messages (from here) have no data -
 		a successful request does not send a reply message yet */
@@ -329,9 +329,9 @@ struct ptab *pp;
 void op_usync(pp)
 struct ptab *pp;
 {
-	register struct valmsg *mp = (struct valmsg *) pp->ptm_data;
-	register struct stab *sp;
-	register struct ustab *up;
+	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
+	struct stab *sp;
+	struct ustab *up;
 	int i, j, nsys;
 	struct stab tmp;
 
@@ -454,12 +454,12 @@ struct ptab *pp;
 */
 
 static void op_s2(pp, sp, mp)
-register struct ptab *pp;
-register struct stab *sp;
+struct ptab *pp;
+struct stab *sp;
 struct valmsg *mp;
 {
-	register struct sptab *stp = (struct sptab *) pp->pt_sdata;
-	register struct ustab *up, *myup;
+	struct sptab *stp = (struct sptab *) pp->pt_sdata;
+	struct ustab *up, *myup;
 	register time_t now = time((time_t *) 0);
 	struct ptab *upp;
 	struct sptab *ustp;
@@ -528,9 +528,9 @@ struct valmsg *mp;
 */
 
 static void procmsdata(sp, up, mp)
-register struct stab *sp;
-register struct ustab *up;
-register struct valmsg *mp;
+struct stab *sp;
+struct ustab *up;
+struct valmsg *mp;
 {
 	/* see if another system has already claimed to send us message data;
 		if it has:

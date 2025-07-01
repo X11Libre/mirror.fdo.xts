@@ -821,7 +821,7 @@ static void XSync_report(nsys, functype)
 int nsys;
 char *functype;
 {
-	register struct synreq *sp;
+	struct synreq *sp;
 	char errmsg[128];
 
 	for (sp = tet_synreq; sp < tet_synreq + nsys; sp++)
@@ -1064,7 +1064,7 @@ int icmin, icmax;
 
 static struct iclist *iclalloc()
 {
-	register struct iclist *icp;
+	struct iclist *icp;
 
 	if (BUFCHK((char **) &iclist, &liclist, (niclist + 1) * sizeof *iclist) < 0)
 		tet_exit(EXIT_FAILURE);

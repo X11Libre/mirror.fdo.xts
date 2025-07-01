@@ -62,7 +62,7 @@ TET_IMPORT int tet_xdicstart(xrid, icno, activity, tpcount)
 long xrid, activity;
 int icno, tpcount;
 {
-	register struct valmsg *mp;
+	struct valmsg *mp;
 	extern char tet_xderrmsg[];
 
 	/* get the XRESD message buffer */
@@ -112,7 +112,7 @@ int icno, tpcount;
 TET_IMPORT int tet_xdicend(xrid)
 long xrid;
 {
-	register struct valmsg *mp;
+	struct valmsg *mp;
 	extern char tet_xderrmsg[];
 
 	/* get the XRESD message buffer */
@@ -161,7 +161,7 @@ TET_IMPORT int tet_xdtpstart(xrid, tpno)
 long xrid;
 int tpno;
 {
-	register struct valmsg *mp;
+	struct valmsg *mp;
 	extern char tet_xderrmsg[];
 
 	/* get the XRESD message buffer */
@@ -209,7 +209,7 @@ int tpno;
 TET_IMPORT int tet_xdtpend(xrid)
 long xrid;
 {
-	register struct valmsg *mp;
+	struct valmsg *mp;
 	extern char tet_xderrmsg[];
 
 	/* get the XRESD message buffer */

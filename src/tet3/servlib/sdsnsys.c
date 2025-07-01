@@ -55,7 +55,7 @@ int tet_sdsnsys(snid, snames, nsname)
 long snid;
 int *snames, nsname;
 {
-	register struct valmsg *mp;
+	struct valmsg *mp;
 	int n;
 	extern char tet_sderrmsg[];
 

@@ -99,7 +99,7 @@ int sysid, flag;
 char **files, *subdir, *savedir;
 int nfile;
 {
-	register struct avmsg *mp;
+	struct avmsg *mp;
 	int n;
 	extern char tet_tcerrmsg[];
 

@@ -104,10 +104,10 @@ static void tfrm PROTOLIST((struct tftab *));
 */
 
 void op_tfopen(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
-	register struct tftab *tp;
+	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
+	struct tftab *tp;
 	char *tfname;
 
 	/* do some sanity checks on the request message */
@@ -155,10 +155,10 @@ register struct ptab *pp;
 
 static int op_tfo2(pp, tp, tfname)
 struct ptab *pp;
-register struct tftab *tp;
+struct tftab *tp;
 char *tfname;
 {
-	register struct valmsg *rp;
+	struct valmsg *rp;
 	char *p;
 	int len;
 	char tfpath[MAXPATH + 1];
@@ -214,10 +214,10 @@ char *tfname;
 */
 
 void op_tfclose(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct valmsg *mp = (struct valmsg *) pp->ptm_data;
-	register struct tftab *tp;
+	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
+	struct tftab *tp;
 
 	/* all reply messages have no data */
 	pp->ptm_mtype = MT_NODATA;
@@ -239,10 +239,10 @@ register struct ptab *pp;
 */
 
 void op_tfwrite(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct btmsg *mp = (struct btmsg *) pp->ptm_data;
-	register struct tftab *tp;
+	struct btmsg *mp = (struct btmsg *) pp->ptm_data;
+	struct tftab *tp;
 
 	/* all reply messages have no data */
 	pp->ptm_mtype = MT_NODATA;
@@ -279,9 +279,9 @@ register struct ptab *pp;
 */
 
 void tfdead(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct tftab *tp;
+	struct tftab *tp;
 	int done;
 
 	do {
@@ -302,7 +302,7 @@ register struct ptab *pp;
 */
 
 static int dotfclose(tp)
-register struct tftab *tp;
+struct tftab *tp;
 {
 	int rc;
 
@@ -334,7 +334,7 @@ register struct tftab *tp;
 
 static struct tftab *tfalloc()
 {
-	register struct tftab *tp;
+	struct tftab *tp;
 	static int tfid = 0;
 
 	if ((tp = (struct tftab *) malloc(sizeof *tp)) == (struct tftab *) 0) {
@@ -398,7 +398,7 @@ struct tftab *tp;
 static struct tftab *tffind(id)
 int id;
 {
-	register struct tftab *tp;
+	struct tftab *tp;
 
 	for (tp = tftab; tp; tp = tp->tf_next)
 		if (tp->tf_id == id)

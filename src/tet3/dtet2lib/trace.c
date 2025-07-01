@@ -152,7 +152,7 @@ TET_IMPORT void tet_traceinit(argc, argv)
 int argc;
 char **argv;
 {
-	register struct tflags *tp;
+	struct tflags *tp;
 	int value;
 	long sys;
 
@@ -211,7 +211,7 @@ char **argv;
 
 TET_IMPORT void tet_tfclear()
 {
-	register struct tflags *tp;
+	struct tflags *tp;
 
 	TRACE1(tet_Ttrace, 10, "tet_tfclear(): clear trace flags");
 
@@ -235,8 +235,8 @@ static int tflagset(arg, value)
 char *arg;
 int value;
 {
-	register struct tflags *tp;
-	register struct stype *sp;
+	struct tflags *tp;
+	struct stype *sp;
 	char *p;
 	int all, rc;
 	long sys;
@@ -310,7 +310,7 @@ int value;
 
 void tet_tftrace(void)
 {
-	register struct tflags *tp;
+	struct tflags *tp;
 	char name[2];
 
 	TRACE1(tet_Ttrace, 10, "trace flags:");
@@ -333,7 +333,7 @@ TET_IMPORT void tet_trace(const char *s1, const char *s2, const char *s3,
 {
 	int save_errno;
 	time_t now;
-	register struct tm *tp;
+	struct tm *tp;
 
 	save_errno = errno;
 

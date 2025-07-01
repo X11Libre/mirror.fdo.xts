@@ -81,7 +81,7 @@ static void ynp2 PROTOLIST((struct scentab *, int));
 int
 proc3sctree(const char *scenario)
 {
-	register struct scentab *ep;
+	struct scentab *ep;
 	struct scentab *myscen = (struct scentab *) 0;
 
 	/* set the SCF_NEEDED flag in the chosen scenario */
@@ -151,7 +151,7 @@ proc3sctree(const char *scenario)
 */
 
 static void mark_needed_scenarios(ep)
-register struct scentab *ep;
+struct scentab *ep;
 {
 	/*
 	** traverse the tree at this level, descending referenced scenario
@@ -185,7 +185,7 @@ register struct scentab *ep;
 
 static void remove_unneeded_scenarios()
 {
-	register struct scentab *ep;
+	struct scentab *ep;
 	int done;
 
 	/*
@@ -226,9 +226,9 @@ static void remove_unneeded_scenarios()
 */
 
 static void rus2(ep)
-register struct scentab *ep;
+struct scentab *ep;
 {
-	register struct scentab *forw;
+	struct scentab *forw;
 
 	/* remove this level of the tree */
 	while (ep) {
@@ -254,7 +254,7 @@ register struct scentab *ep;
 static void proc3refscen(parent)
 struct scentab *parent;
 {
-	register struct scentab *ep;
+	struct scentab *ep;
 	int done;
 
 	/*
@@ -295,7 +295,7 @@ struct scentab *parent;
 void copy_refscen(ep, parent)
 struct scentab *ep, *parent;
 {
-	register struct scentab *scenptr, *forw;
+	struct scentab *scenptr, *forw;
 	struct scentab *back;
 
 	/* remember essential information from this node, then free it */
@@ -334,10 +334,10 @@ struct scentab *ep, *parent;
 */
 
 static void copy_r2(from, parent, sctp)
-register struct scentab *from;
+struct scentab *from;
 struct scentab *parent, **sctp;
 {
-	register struct scentab *ep;
+	struct scentab *ep;
 	struct scentab *sctmp;
 
 	TRACE3(tet_Tscen, 6, "copy_r2(): from = %s, parent = %s",
@@ -381,10 +381,10 @@ int flag;
 */
 
 static void ynp2(ep, flag)
-register struct scentab *ep;
+struct scentab *ep;
 int flag;
 {
-	register struct scentab *forw;
+	struct scentab *forw;
 
 	for (; ep; ep = forw) {
 		ASSERT(ep->sc_magic == SC_MAGIC);
@@ -411,7 +411,7 @@ int flag;
 */
 
 static void add_scenrefs(ep)
-register struct scentab *ep;
+struct scentab *ep;
 {
 	static long ref;
 

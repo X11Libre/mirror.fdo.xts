@@ -77,8 +77,8 @@ static struct hcache hcache[NHCACHE];	/* the cache itself */
 TET_IMPORT struct in_addr *tet_gethostaddr(host)
 char *host;
 {
-	register struct hcache *cp1, *cp2;
-	register struct hostent *hp;
+	struct hcache *cp1, *cp2;
+	struct hostent *hp;
 	int max;
 	int err;
 

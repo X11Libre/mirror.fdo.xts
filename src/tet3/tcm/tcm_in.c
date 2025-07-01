@@ -146,8 +146,8 @@ char *arg;
 struct ptab **paddr;
 int ptype;
 {
-	register struct ptab *pp;
-	register struct tptab *tp;
+	struct ptab *pp;
+	struct tptab *tp;
 	char *addr, *port;
 
 	/* make addr point to the INET address string
@@ -220,8 +220,8 @@ int tet_tcm_tsinfo(pp, ptype)
 struct ptab *pp;
 int ptype;
 {
-	register struct tptab *tp;
-	register struct tsinfo *mp;
+	struct tptab *tp;
+	struct tsinfo *mp;
 
 	struct in_addr *ap;
         char hostname[SNAMELEN];

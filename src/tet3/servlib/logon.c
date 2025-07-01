@@ -65,7 +65,7 @@ static int ti_lo2 PROTOLIST((struct ptab *));
 */
 
 int tet_ti_logon(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
 	int wantptype = pp->ptr_ptype;
 
@@ -182,7 +182,7 @@ int stayopen;
 */
 
 static int ti_lo2(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
 	char *errmsg;
 

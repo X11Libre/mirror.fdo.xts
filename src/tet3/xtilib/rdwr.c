@@ -85,9 +85,9 @@ static int md2bs PROTOLIST((struct ptab *));
 */
 
 int tet_ts_rcvmsg(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct tptab *tp = (struct tptab *) pp->pt_tdata;
+	struct tptab *tp = (struct tptab *) pp->pt_tdata;
 	int rc;
 
 	int 	flags;
@@ -160,9 +160,9 @@ register struct ptab *pp;
 */
 
 static int doread(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct tptab *tp = (struct tptab *) pp->pt_tdata;
+	struct tptab *tp = (struct tptab *) pp->pt_tdata;
 	int cnt, rc = -1;
 	int flags, save_errno;
 
@@ -235,9 +235,9 @@ register struct ptab *pp;
 */
 
 int tet_ts_sndmsg(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct tptab *tp = (struct tptab *) pp->pt_tdata;
+	struct tptab *tp = (struct tptab *) pp->pt_tdata;
 	int rc, err;
 	int save_errno;
 	SIG_T (*pipe_save)();
@@ -387,9 +387,9 @@ struct ptab *pp;
 */
 
 static int md2bs(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct tptab *tp = (struct tptab *) pp->pt_tdata;
+	struct tptab *tp = (struct tptab *) pp->pt_tdata;
 	int len = 0;
 
 	/* work out the required buffer size */
@@ -422,9 +422,9 @@ register struct ptab *pp;
 */
 
 void tet_ts_dead(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct tptab *tp = (struct tptab *) pp->pt_tdata;
+	struct tptab *tp = (struct tptab *) pp->pt_tdata;
 
 	TRACE2(tet_Tio, 4, "tet_ts_dead: close fd %s", tet_i2a(tp->tp_fd));
 

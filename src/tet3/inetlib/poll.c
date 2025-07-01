@@ -103,12 +103,12 @@ int tet_ts_poll(pp, timeout)
 struct ptab *pp;
 int timeout;
 {
-	register struct ptab *q;
-	register struct tptab *tp;
+	struct ptab *q;
+	struct tptab *tp;
 	fd_set rfds, wfds, rd, wd;
 	int nfds, nfound, err;
 	struct timeval tv;
-	register struct timeval *tvp;
+	struct timeval *tvp;
 	extern SOCKET tet_listen_sd;
 
 	TRACE2(tet_Tio, 4, "tet_ts_poll: timeout = %s", tet_i2a(timeout));

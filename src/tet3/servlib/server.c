@@ -84,7 +84,7 @@ static void ti_sndmsg PROTOLIST((struct ptab *));
 */
 
 void tet_si_service(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
 	TRACE4(tet_Tserv, 4, "%s tet_si_service: state = %s, flags = %s",
 		tet_r2a(&pp->pt_rid), tet_ptstate(pp->pt_state),
@@ -124,7 +124,7 @@ register struct ptab *pp;
 */
 
 void tet_si_servwait(pp, timeout)
-register struct ptab *pp;
+struct ptab *pp;
 int timeout;
 {
 	register time_t now = time((time_t *) 0);
@@ -196,7 +196,7 @@ int timeout;
 */
 
 static void ti_rcvmsg(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
 	/* receive the message */
 	ti_rcv2(pp);
@@ -225,7 +225,7 @@ register struct ptab *pp;
 */
 
 static void ti_rcv2(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
 	int rc;
 
@@ -315,7 +315,7 @@ register struct ptab *pp;
 */
 
 static void ti_sndmsg(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
 	int rc;
 	static long seqno;

@@ -70,7 +70,7 @@ static struct xtab *xtab;		/* ptr to head of xres table */
 
 struct xtab *xtalloc()
 {
-	register struct xtab *xp;
+	struct xtab *xp;
 	static long xrid;
 
 	/* allocate a new XRES ID */
@@ -181,7 +181,7 @@ struct xtab *xp;
 struct xtab *xtfind(xrid)
 long xrid;
 {
-	register struct xtab *xp;
+	struct xtab *xp;
 
 	for (xp = xtab; xp; xp = xp->xt_next)
 		if (xp->xt_xrid == xrid)
@@ -195,10 +195,10 @@ long xrid;
 */
 
 void xtdead(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct xtab *xp;
-	register struct uxtab *up;
+	struct xtab *xp;
+	struct uxtab *up;
 	int count, done;
 
 	/* find related xres table entries and update them

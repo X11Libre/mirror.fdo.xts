@@ -114,9 +114,9 @@ static void proc_par_rdjnl PROTOLIST((struct proctab *, struct scentab *,
 */
 
 void proc_parallel(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
-	register struct scentab *ep;
+	struct scentab *ep;
 	int count;
 	struct proctab *lback;
 
@@ -229,8 +229,8 @@ struct proctab *prp, **lbp;
 struct scentab *ep1;
 int count;
 {
-	register struct scentab *ep2;
-	register struct proctab *child;
+	struct scentab *ep2;
+	struct proctab *child;
 	int n;
 	void (*jnlstart) PROTOLIST((struct proctab *));
 	void (*jnlend) PROTOLIST((struct proctab *));
@@ -287,7 +287,7 @@ struct proctab *prp, **lbp;
 struct scentab *ep;
 void (*jnlfunc) PROTOLIST((struct proctab *));
 {
-	register struct proctab *child;
+	struct proctab *child;
 
 	child = pralloc();
 	child->pr_parent = prp;
@@ -322,7 +322,7 @@ struct proctab *prp, **lbp;
 struct scentab *ep;
 int count;
 {
-	register struct proctab *child;
+	struct proctab *child;
 
 	while (--count >= 0) {
 		child = proc_par_s1(prp, ep);
@@ -342,7 +342,7 @@ static struct proctab *proc_par_s1(prp, ep)
 struct proctab *prp;
 struct scentab *ep;
 {
-	register struct proctab *child;
+	struct proctab *child;
 
 	child = pralloc();
 	child->pr_parent = prp;
@@ -409,9 +409,9 @@ struct proctab *prp, *child, **lbp;
 */
 
 void proc_sequential(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
-	register struct proctab *child;
+	struct proctab *child;
 
 	TRACE3(tet_Texec, 6, "proc_sequential(%s): currmode = %s",
 		tet_i2x(prp), prtccmode(prp->pr_currmode));
@@ -445,7 +445,7 @@ register struct proctab *prp;
 */
 
 void proc_variable(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	TRACE3(tet_Texec, 6, "proc_variable(%s): currmode = %s",
 		tet_i2x(prp), prtccmode(prp->pr_currmode));
@@ -469,10 +469,10 @@ register struct proctab *prp;
 */
 
 void proc_random(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
-	register struct proctab *child;
-	register struct scentab *ep1, *ep2;
+	struct proctab *child;
+	struct scentab *ep1, *ep2;
 	int choose, flags, skip, skip_tmp;
 
 	TRACE3(tet_Texec, 6, "proc_random(%s): currmode = %s",
@@ -601,7 +601,7 @@ register struct proctab *prp;
 */
 
 static int count_tc(ep, flagmask)
-register struct scentab *ep;
+struct scentab *ep;
 int flagmask;
 {
 	int count = 0;
@@ -641,10 +641,10 @@ int flagmask;
 */
 
 static struct scentab *get_tc(ep1, skp)
-register struct scentab *ep1;
+struct scentab *ep1;
 int *skp;
 {
-	register struct scentab *ep2;
+	struct scentab *ep2;
 
 	/*
 	** traverse the tree until either:
@@ -703,7 +703,7 @@ int *skp;
 */
 
 void proc_rtloop(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	TRACE4(tet_Texec, 6, "proc_rtloop(%s): currmode = %s, starttime = %s",
 		tet_i2x(prp), prtccmode(prp->pr_currmode),
@@ -781,9 +781,9 @@ register struct proctab *prp;
 */
 
 static int proc_rtl2(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
-	register struct proctab *child;
+	struct proctab *child;
 
 	/* end the loop unconditionally if abort has been called */
 	if (prp->pr_modes & TCC_ABORT)
@@ -847,7 +847,7 @@ register struct proctab *prp;
 */
 
 static int loop_test(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	time_t now, maxtime;
 
@@ -911,10 +911,10 @@ register struct proctab *prp;
 */
 
 void proc_rdist(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
-	register struct proctab *child;
-	register struct scentab *ep = prp->pr_scen;
+	struct proctab *child;
+	struct scentab *ep = prp->pr_scen;
 
 	TRACE3(tet_Texec, 6, "proc_rdist(%s): currmode = %s",
 		tet_i2x(prp), prtccmode(prp->pr_currmode));
@@ -943,7 +943,7 @@ register struct proctab *prp;
 */
 
 static int is_tcdist(ep)
-register struct scentab *ep;
+struct scentab *ep;
 {
 	int *ip;
 

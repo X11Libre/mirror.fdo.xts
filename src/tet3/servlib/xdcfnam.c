@@ -54,7 +54,7 @@ MODIFICATIONS:
 int tet_xdcfname(ecfname, dcfname, ccfname)
 char *ecfname, *dcfname, *ccfname;
 {
-	register struct avmsg *mp;
+	struct avmsg *mp;
 	extern char tet_xderrmsg[];
 
 	/* make sure that the cfnames are non-null */

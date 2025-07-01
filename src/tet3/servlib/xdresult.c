@@ -57,7 +57,7 @@ int tet_xdresult(xrid, result)
 long xrid;
 int result;
 {
-	register struct valmsg *mp;
+	struct valmsg *mp;
 	extern char tet_xderrmsg[];
 
 	/* get the XRESD message buffer */

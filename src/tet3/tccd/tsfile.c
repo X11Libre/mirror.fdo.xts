@@ -89,11 +89,11 @@ static char *sfdir;			/* saved files directory */
 */
 
 void op_mksdir(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
+	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	int n, nmax, rc;
-	register struct dirent *dp;
+	struct dirent *dp;
 	DIR *dirp;
 	char savdir[MAXPATH + 1], lokdir[sizeof savdir];
 	char dir[sizeof savdir - 8]; /* the 8 is strlen("/NNNNbec") */
@@ -197,7 +197,7 @@ register struct ptab *pp;
 void op_tsfiles(pp)
 struct ptab *pp;
 {
-	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
+	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	char *todir;
 	int flag;
 	int len;

@@ -667,7 +667,7 @@ struct thrtab *newttp;
 	/* add or update a thread in the thread table */
 	/* return 1 if entry added, 0 if existing entry updated */
 
-	register struct thrtab *ttp;
+	struct thrtab *ttp;
 	int added = 0;
 
 	MTX_LOCK(&tet_thrtab_mtx);

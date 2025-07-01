@@ -74,7 +74,7 @@ static void op_trace PROTOLIST((struct ptab *));
 */
 
 void tet_si_serverproc(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
 	TRACE3(tet_Tserv, 4, "%s serverproc: request = %s",
 		tet_r2a(&pp->pt_rid), tet_ptreqcode(pp->ptm_req));
@@ -125,9 +125,9 @@ register struct ptab *pp;
 */
 
 static void op_logon(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct ptab *q;
+	struct ptab *q;
 	int errflag, rc;
 	struct remid rid;
 
@@ -188,7 +188,7 @@ register struct ptab *pp;
 */
 
 static void logonfail(pp, rc)
-register struct ptab *pp;
+struct ptab *pp;
 int rc;
 {
 	pp->ptm_rc = rc;
@@ -205,7 +205,7 @@ int rc;
 */
 
 static void op_logoff(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
 	/* call the server-specific logoff routine */
 	tet_ss_logoff(pp);
@@ -222,12 +222,12 @@ register struct ptab *pp;
 */
 
 static void op_trace(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
 #ifdef NOTRACE
 	pp->ptm_rc = ER_TRACE;
 #else
-	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
+	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 
 	tet_traceinit((int) mp->av_argc + 1, mp->av_argv - 1);
 	pp->ptm_rc = ER_OK;
@@ -244,7 +244,7 @@ register struct ptab *pp;
 */
 
 static void op_null(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
 	/* do nothing successfully */
 	pp->ptm_rc = ER_OK;
@@ -263,10 +263,10 @@ register struct ptab *pp;
 #if TESTING
 
 static void op_print(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
 
-	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
+	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	int n;
 
 	printf("%s: call to op_print(): argc = %d\n",

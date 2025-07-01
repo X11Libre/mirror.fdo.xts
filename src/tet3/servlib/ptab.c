@@ -67,7 +67,7 @@ struct ptab *tet_ptab;			/* ptr to start of process table */
 
 TET_IMPORT struct ptab *tet_ptalloc()
 {
-	register struct ptab *pp;
+	struct ptab *pp;
 
 	/* allocate transport-independent data area */
 	errno = 0;
@@ -106,7 +106,7 @@ TET_IMPORT struct ptab *tet_ptalloc()
 */
 
 void tet_ptfree(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
 	TRACE2(tet_Tbuf, 6, "free ptab = %s", tet_i2x(pp));
 

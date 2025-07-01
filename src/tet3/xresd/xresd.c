@@ -182,7 +182,7 @@ int tet_ss_serverloop()
 */
 
 void tet_ss_dead(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
 	static char fmt[] = "%s connection closed";
 	static char cl[] = "client";
@@ -229,7 +229,7 @@ struct ptab *pp;
 */
 
 void tet_ss_serverproc(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
 	switch (pp->ptm_req) {
 	case OP_XROPEN:
@@ -317,7 +317,7 @@ register struct ptab *pp;
 int tet_ss_logon(pp)
 /* register */ struct ptab *pp;
 {
-	register struct ptab *pp1, *pp2;
+	struct ptab *pp1, *pp2;
 	int count;
 	extern struct ptab *tet_ptab;
 
@@ -380,7 +380,7 @@ void tet_ss_cleanup()
 int tet_ss_ptalloc(pp)
 struct ptab *pp;
 {
-	register struct sptab *sp;
+	struct sptab *sp;
 
 	errno = 0;
 	if ((sp = (struct sptab *) malloc(sizeof *sp)) == (struct sptab *) 0) {
@@ -405,7 +405,7 @@ struct ptab *pp;
 void tet_ss_ptfree(pp)
 struct ptab *pp;
 {
-	register struct sptab *sp = (struct sptab *) pp->pt_sdata;
+	struct sptab *sp = (struct sptab *) pp->pt_sdata;
 
 	TRACE2(tet_Tbuf, 6, "free sptab = %s", tet_i2x(sp));
 

@@ -114,10 +114,10 @@ static int xrwrite PROTOLIST((struct xtab *, struct avmsg *));
 */
 
 void op_xropen(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
-	register struct xtab *xp;
+	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
+	struct xtab *xp;
 
 	/* do some sanity checks on the request message */
 	if ((int) mp->av_argc != OP_XROPEN_ARGC || !AV_XFNAME(mp) || !*AV_XFNAME(mp)) {
@@ -157,8 +157,8 @@ register struct ptab *pp;
 */
 
 static int op_xr2(pp, xp)
-register struct ptab *pp;
-register struct xtab *xp;
+struct ptab *pp;
+struct xtab *xp;
 {
 	char *dp = pp->ptm_data;
 	static char msg[] = "can't open";
@@ -203,10 +203,10 @@ register struct xtab *xp;
 */
 
 void op_xrclose(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct valmsg *mp = (struct valmsg *) pp->ptm_data;
-	register struct xtab *xp;
+	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
+	struct xtab *xp;
 
 	/* all reply messages have no data */
 	pp->ptm_mtype = MT_NODATA;
@@ -250,11 +250,11 @@ register struct ptab *pp;
 */
 
 void op_xrsys(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct valmsg *mp = (struct valmsg *) pp->ptm_data;
-	register struct xtab *xp;
-	register struct uxtab *up;
+	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
+	struct xtab *xp;
+	struct uxtab *up;
 	int i, j, nsys;
 
 	/* all reply messages have no data */
@@ -327,10 +327,10 @@ register struct ptab *pp;
 */
 
 void op_xrsend(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct valmsg *mp = (struct valmsg *) pp->ptm_data;
-	register struct sptab *sp = (struct sptab *) pp->pt_sdata;
+	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
+	struct sptab *sp = (struct sptab *) pp->pt_sdata;
 
 	/* all reply messages have no data */
 	pp->ptm_mtype = MT_NODATA;
@@ -369,10 +369,10 @@ register struct ptab *pp;
 void op_icstart(pp)
 struct ptab *pp;
 {
-	register struct valmsg *mp = (struct valmsg *) pp->ptm_data;
-	register struct uxtab *up;
-	register struct ptab *q;
-	register struct xtab *xp;
+	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
+	struct uxtab *up;
+	struct ptab *q;
+	struct xtab *xp;
 	int rc, count;
 	struct ptab *pte;
 	extern struct ptab *tet_ptab;
@@ -465,10 +465,10 @@ struct ptab *pp;
 */
 
 void op_icend(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct valmsg *mp = (struct valmsg *) pp->ptm_data;
-	register struct xtab *xp;
+	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
+	struct xtab *xp;
 
 	/* all reply messages have no data */
 	pp->ptm_mtype = MT_NODATA;
@@ -514,11 +514,11 @@ register struct ptab *pp;
 */
 
 void op_tpstart(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct valmsg *mp = (struct valmsg *) pp->ptm_data;
-	register struct xtab *xp;
-	register struct uxtab *up;
+	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
+	struct xtab *xp;
+	struct uxtab *up;
 
 	/* all reply messages have no data */
 	pp->ptm_mtype = MT_NODATA;
@@ -575,10 +575,10 @@ register struct ptab *pp;
 */
 
 void op_tpend(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct valmsg *mp = (struct valmsg *) pp->ptm_data;
-	register struct xtab *xp;
+	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
+	struct xtab *xp;
 
 	/* all reply messages have no data */
 	pp->ptm_mtype = MT_NODATA;
@@ -621,10 +621,10 @@ register struct ptab *pp;
 */
 
 void op_xres(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
-	register struct xtab *xp;
+	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
+	struct xtab *xp;
 
 	/* all reply messages have no data */
 	pp->ptm_mtype = MT_NODATA;
@@ -648,11 +648,11 @@ register struct ptab *pp;
 */
 
 void op_result(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct valmsg *mp = (struct valmsg *) pp->ptm_data;
-	register struct xtab *xp;
-	register struct uxtab *up;
+	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
+	struct xtab *xp;
+	struct uxtab *up;
 	int result;
 	int abflag;
 	static char fmt[] = "ABORT on result code %d:";
@@ -740,7 +740,7 @@ register struct ptab *pp;
 */
 
 int icend(xp)
-register struct xtab *xp;
+struct xtab *xp;
 {
 	/* make sure the event was expected */
 	if (xp->xt_flags & XF_ICINPROGRESS) {
@@ -763,9 +763,9 @@ register struct xtab *xp;
 */
 
 int tpend(xp)
-register struct xtab *xp;
+struct xtab *xp;
 {
-	register struct uxtab *up;
+	struct uxtab *up;
 	int result, rc;
 
 	/* make sure that the event was expected */
@@ -819,11 +819,11 @@ register struct xtab *xp;
 static char wrfail[] = "write failed on";
 
 static int xrmsg(xp, code)
-register struct xtab *xp;
+struct xtab *xp;
 int code;
 {
 	time_t now;
-	register struct tm *tp;
+	struct tm *tp;
 	char *text;
 	char buf[64];
 
@@ -893,8 +893,8 @@ char *s1, *s2;
 */
 
 static int xrwrite(xp, mp)
-register struct xtab *xp;
-register struct avmsg *mp;
+struct xtab *xp;
+struct avmsg *mp;
 {
 	char *s;
 	int n;

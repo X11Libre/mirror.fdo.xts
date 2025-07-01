@@ -67,7 +67,7 @@ MODIFICATIONS:
 int tet_remkill(remoteid)
 int remoteid;
 {
-	register struct rtab *rp;
+	struct rtab *rp;
 
 	/* see if the process was started by tet_remexec(),
 		and has not aready been waited for */

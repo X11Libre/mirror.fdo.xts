@@ -58,7 +58,7 @@ MODIFICATIONS:
 int tet_maperrno(errnum)
 int errnum;
 {
-	register struct errmap *ep, *ee;
+	struct errmap *ep, *ee;
 
 	for (ep = tet_errmap, ee = &tet_errmap[tet_Nerrmap]; ep < ee; ep++) {
 		if (errnum == ep->em_errno) {

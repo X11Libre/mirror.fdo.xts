@@ -57,7 +57,7 @@ int tet_tcrcopy(sysid, from, to)
 int sysid;
 char *from, *to;
 {
-	register struct avmsg *mp;
+	struct avmsg *mp;
 
 	/* make sure that from and to are non-null */
 	if (!from || !*from || !to || !*to) {

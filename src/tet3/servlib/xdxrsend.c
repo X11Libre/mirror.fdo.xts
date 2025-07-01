@@ -57,7 +57,7 @@ MODIFICATIONS:
 TET_IMPORT int tet_xdxrsend(xrid)
 long xrid;
 {
-	register struct valmsg *mp;
+	struct valmsg *mp;
 	extern char tet_xderrmsg[];
 
 	/* make sure that the xrid is valid */

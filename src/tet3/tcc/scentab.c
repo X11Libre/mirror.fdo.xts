@@ -79,7 +79,7 @@ static void scfreedata PROTOLIST((struct scentab *));
 
 struct scentab *scalloc()
 {
-	register struct scentab *ep;
+	struct scentab *ep;
 
 	errno = 0;
 	if ((ep = (struct scentab *) malloc(sizeof *ep)) == (struct scentab *) 0)
@@ -208,7 +208,7 @@ struct scentab *ep;
 */
 
 void scstore(ep, parent, sctp)
-register struct scentab *ep, *parent, **sctp;
+struct scentab *ep, *parent, **sctp;
 {
 	TRACESCELEM(tet_Tscen, 4, ep, "scstore(): store an element");
 	TRACESCELEM(tet_Tscen, 6, parent, "... below the element at");
@@ -260,7 +260,7 @@ struct scentab *ep, **sp;
 struct scentab *scpop(sp)
 struct scentab **sp;
 {
-	register struct scentab *ep;
+	struct scentab *ep;
 
 	if ((ep = *sp) != (struct scentab *) 0) {
 		ASSERT(ep->sc_magic == SC_MAGIC);
@@ -282,7 +282,7 @@ struct scentab **sp;
 */
 
 void scrm_lnode(ep)
-register struct scentab *ep;
+struct scentab *ep;
 {
 	ASSERT(ep->sc_parent != (struct scentab *) 0);
 	ASSERT(ep->sc_child == (struct scentab *) 0);
@@ -304,7 +304,7 @@ register struct scentab *ep;
 #ifndef NOTRACE
 
 void
-tracescelem(int flag, int level, register struct scentab *ep, const char *text)
+tracescelem(int flag, int level, struct scentab *ep, const char *text)
 {
 	static char null[] = "NULL";
 	int n;
@@ -448,7 +448,7 @@ prscdir(int directive)
 {
 	static char fmt[] = "<directive %d>";
 	static char msg[sizeof fmt + LNUMSZ];
-	register struct dirtab *dp;
+	struct dirtab *dp;
 
 	switch (directive) {
 	case SD_SEQUENTIAL:

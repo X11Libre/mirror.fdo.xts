@@ -59,14 +59,14 @@ static void stinit PROTOLIST((void));
 
 static void stinit()
 {
-	register struct tsinfo *sp = (struct tsinfo *) 0;
+	struct tsinfo *sp = (struct tsinfo *) 0;
 	int n = 0;
 
 	TSINFO_INIT(st, sp, n, nst);
 }
 
 TET_IMPORT int tet_tsinfo2bs(from, to)
-register struct tsinfo *from;
+struct tsinfo *from;
 char *to;
 {
 	if (nst < 0)
@@ -82,7 +82,7 @@ char *to;
 int tet_bs2tsinfo(from, fromlen, to, tolen)
 char *from;
 int fromlen;
-register struct tsinfo **to;
+struct tsinfo **to;
 int *tolen;
 {
 	if (nst < 0)

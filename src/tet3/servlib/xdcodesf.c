@@ -54,7 +54,7 @@ MODIFICATIONS:
 int tet_xdcodesfile(codesfile)
 char *codesfile;
 {
-	register struct avmsg *mp;
+	struct avmsg *mp;
 	extern char tet_xderrmsg[];
 
 	/* make sure that the codesfile vaiable is non-null */

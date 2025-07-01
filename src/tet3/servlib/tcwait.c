@@ -60,7 +60,7 @@ int sysid, timeout;
 long pid;
 int *statp;
 {
-	register struct valmsg *mp;
+	struct valmsg *mp;
 	int delay;
 	extern char tet_tcerrmsg[];
 

@@ -222,7 +222,7 @@ int icno, tpcount;
 static int icstart2(icno, tpcount)
 int icno, tpcount;
 {
-	register struct synreq *sp;
+	struct synreq *sp;
 	int nsys = tet_Nsname;
 	int errflag;
 	char errmsg[128];
@@ -384,7 +384,7 @@ int icno, tpno, testnum;
 static void tpstart2(icno, tpno, testnum)
 int icno, tpno, testnum;
 {
-	register struct synreq *sp;
+	struct synreq *sp;
 	int vote;
 	int nsys = tet_Nsname;
 	int errflag;
@@ -572,7 +572,7 @@ int icno, tpno, testnum;
 static int tpend2(icno, tpno, testnum)
 int icno, tpno, testnum;
 {
-	register struct synreq *sp;
+	struct synreq *sp;
 	int err;
 	int nsys = tet_Nsname;
 	char errmsg[128];
@@ -638,7 +638,7 @@ static int mtcm_tpend2()
 	char errmsg[128];
 	struct synreq *synreq;
 	int nsys, errflag;
-	register struct synreq *sp;
+	struct synreq *sp;
 
 	/* signal TP end to XRESD */
 	tet_xdtpend(tet_xrid);

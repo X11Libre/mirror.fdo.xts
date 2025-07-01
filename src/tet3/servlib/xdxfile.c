@@ -168,7 +168,7 @@ int mode;
 static int xd_tfclose(xfid)
 int xfid;
 {
-	register struct valmsg *mp;
+	struct valmsg *mp;
 	extern char tet_xderrmsg[];
 
 	/* get the xresd message buffer */
@@ -233,7 +233,7 @@ FILE *ifp;
 int xfid;
 char *ifile;
 {
-	register struct btmsg *mp;
+	struct btmsg *mp;
 	int n;
 	extern char tet_xderrmsg[];
 

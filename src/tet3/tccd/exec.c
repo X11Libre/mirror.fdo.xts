@@ -92,7 +92,7 @@ static int waitforchild PROTOLIST((int, int));
 */
 
 void op_exec(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
 	if ((pp->ptm_rc = op_e2(pp)) == ER_OK) {
 		((struct valmsg *) pp->ptm_data)->vm_nvalue = OP_EXEC_NVALUE;
@@ -112,11 +112,11 @@ register struct ptab *pp;
 */
 
 static int op_e2(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
-	register struct sptab *sp = (struct sptab *) pp->pt_sdata;
-	register struct etab *ep;
+	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
+	struct sptab *sp = (struct sptab *) pp->pt_sdata;
+	struct etab *ep;
 	int rc;
 
 	/* do a sanity check on the request message */
@@ -289,7 +289,7 @@ void tcc_exec_signals()
 */
 
 void op_wait(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
 	if ((pp->ptm_rc = op_w2(pp)) == ER_OK) {
 		((struct valmsg *) pp->ptm_data)->vm_nvalue = OP_WAIT_NVALUE;
@@ -309,10 +309,10 @@ register struct ptab *pp;
 */
 
 static int op_w2(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct valmsg *mp = (struct valmsg *) pp->ptm_data;
-	register struct etab *ep;
+	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
+	struct etab *ep;
 	int rc;
 
 	TRACE3(tet_Ttccd, 4, "op_wait: pid = %s, timeout = %s",
@@ -372,10 +372,10 @@ register struct ptab *pp;
 */
 
 void op_kill(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct valmsg *mp = (struct valmsg *) pp->ptm_data;
-	register struct etab *ep;
+	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
+	struct etab *ep;
 	int signum, rc;
 
 	TRACE3(tet_Ttccd, 4, "op_kill: pid = %s, signum = %s",
@@ -445,7 +445,7 @@ register struct ptab *pp;
 int tet_ss_ptalloc(pp)
 struct ptab *pp;
 {
-	register struct sptab *sp;
+	struct sptab *sp;
 
 	errno = 0;
 	if ((sp = (struct sptab *) malloc(sizeof *sp)) == (struct sptab *) 0) {
@@ -471,7 +471,7 @@ struct ptab *pp;
 void tet_ss_ptfree(pp)
 struct ptab *pp;
 {
-	register struct sptab *sp = (struct sptab *) pp->pt_sdata;
+	struct sptab *sp = (struct sptab *) pp->pt_sdata;
 
 	TRACE2(tet_Tbuf, 6, "free sptab = %s", tet_i2x(sp));
 
@@ -548,7 +548,7 @@ int pid;
 int timeout;
 time_t start;
 {
-	register struct etab *ep;
+	struct etab *ep;
 	int rc, tleft, save_errno;
 	int status;
 

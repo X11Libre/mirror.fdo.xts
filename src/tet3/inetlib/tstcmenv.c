@@ -69,7 +69,7 @@ int tet_ts_tcmputenv()
 {
 	char *p1, *p2;
 	int first;
-	register struct sockaddr_in *ap;
+	struct sockaddr_in *ap;
 	char envstring[1024];
 	static char envname[] = "TET_TSARGS=";
 	static char *laststring;

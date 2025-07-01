@@ -126,7 +126,7 @@ static int tc_dir(sysid, dir, request)
 int sysid, request;
 char *dir;
 {
-	register struct avmsg *mp;
+	struct avmsg *mp;
 
 	/* make sure that dir is non-null */
 	if (!dir || !*dir) {

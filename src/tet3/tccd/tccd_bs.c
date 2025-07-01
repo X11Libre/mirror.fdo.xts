@@ -90,7 +90,7 @@ struct ptab *pp;
 
 static int rep_bs2md(from, pp)
 char *from;
-register struct ptab *pp;
+struct ptab *pp;
 {
 	int rc;
 	int request = pp->pt_savreq;
@@ -122,7 +122,7 @@ register struct ptab *pp;
 
 static int req_bs2md(from, pp)
 char *from;
-register struct ptab *pp;
+struct ptab *pp;
 {
 	int rc;
 	int request = pp->ptm_req;

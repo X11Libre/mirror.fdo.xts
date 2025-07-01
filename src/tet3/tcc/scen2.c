@@ -100,7 +100,7 @@ static void cts2 PROTOLIST((struct scentab *));
 int proc2sclist()
 {
 	struct scentab *sctmp;
-	register struct scentab *ep;
+	struct scentab *ep;
 	struct scentab *q;
 	int skip;
 
@@ -307,7 +307,7 @@ static int proc2scen(parent)
 struct scentab *parent;
 {
 	struct scentab *sctmp;
-	register struct scentab *ep;
+	struct scentab *ep;
 	int done, rc;
 
 #ifndef NOTRACE
@@ -405,9 +405,9 @@ struct scentab *parent;
 #endif /* NOTRACE */
 
 static int proc2scdir(ep, parent, sctp)
-register struct scentab *ep, *parent, **sctp;
+struct scentab *ep, *parent, **sctp;
 {
-	register struct dirtab *dp;
+	struct dirtab *dp;
 	struct scentab *q;
 	int directive, rc;
 
@@ -594,10 +594,10 @@ struct scentab *ep, **sctp;
 */
 
 static void rsc2(ep, sctp)
-register struct scentab *ep;
+struct scentab *ep;
 struct scentab **sctp;
 {
-	register struct scentab *q;
+	struct scentab *q;
 
 	/*
 	** see if we can resolve the referenced scenario name if
@@ -666,7 +666,7 @@ struct scentab **sctp;
 static struct scentab *
 find2scen(const char *scen_name)
 {
-	register struct scentab *ep;
+	struct scentab *ep;
 
 	for (ep = sctree; ep; ep = ep->sc_forw) {
 		ASSERT(ep->sc_magic == SC_MAGIC);
@@ -740,7 +740,7 @@ struct scentab *ep;
 #endif /* NOTRACE */
 
 static void check_tc_sys(ep)
-register struct scentab *ep;
+struct scentab *ep;
 {
 
 #ifndef NOTRACE
@@ -794,7 +794,7 @@ register struct scentab *ep;
 */
 
 static void cts2(ep)
-register struct scentab *ep;
+struct scentab *ep;
 {
 	int *ip1, *ip2;
 	int dups;
@@ -846,7 +846,7 @@ register struct scentab *ep;
 #endif /* NOTRACE */
 
 static void etet_fix(ep)
-register struct scentab *ep;
+struct scentab *ep;
 {
 #ifndef NOTRACE
 	static int level;
@@ -891,7 +891,7 @@ register struct scentab *ep;
 static void etf2(ep)
 struct scentab *ep;
 {
-	register struct scentab *child;
+	struct scentab *child;
 	int done;
 
 	TRACE2(tet_Tscen, 6,
@@ -963,11 +963,11 @@ struct scentab *ep;
 */
 
 static int etf3(ep1)
-register struct scentab *ep1;
+struct scentab *ep1;
 {
 	struct scentab *parent = ep1->sc_parent;
 	struct scentab *forw, *back;
-	register struct scentab *ep2;
+	struct scentab *ep2;
 	int found, done;
 
 	TRACE4(tet_Tscen, 6, "etf3(): examine the top level of referenced scenario node %s which points to %s (%s)",
@@ -1074,9 +1074,9 @@ register struct scentab *ep1;
 */
 
 static void etf4(ep1)
-register struct scentab *ep1;
+struct scentab *ep1;
 {
-	register struct scentab *ep2;
+	struct scentab *ep2;
 #ifndef NOTRACE
 	static char fmt[] = "etf4(): inserting implied sequential directive above the %.32s %.16s at";
 	char msg[sizeof fmt + 32 + 16];
@@ -1190,7 +1190,7 @@ struct scentab *ep;
 #endif /* NOTRACE */
 
 static void check_nesting(ep, sctp)
-register struct scentab *ep;
+struct scentab *ep;
 struct scentab **sctp;
 {
 	struct scentab *q;
@@ -1240,8 +1240,8 @@ static void chn2(ep, sctp)
 struct scentab *ep;
 struct scentab **sctp;
 {
-	register struct scentab *q;
-	register struct dirtab *dp;
+	struct scentab *q;
+	struct dirtab *dp;
 	int *edp;
 	struct scentab *seq;
 	static char fmt[] = "\tmay not enclose %.32s";
@@ -1337,7 +1337,7 @@ void check_empty_timed_loops()
 #endif /* NOTRACE */
 
 static int check_timed_loops(ep)
-register struct scentab *ep;
+struct scentab *ep;
 {
 	int n, count = 0;
 

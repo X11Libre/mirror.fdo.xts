@@ -55,7 +55,7 @@ int tet_tcsysname(sysid, snames, nsname)
 int sysid;
 int *snames, nsname;
 {
-	register struct valmsg *mp;
+	struct valmsg *mp;
 	int n;
 	extern char tet_tcerrmsg[];
 

@@ -180,7 +180,7 @@ procscen(const char *scenario, const char *sopt, const char *cwd)
 
 int execscen()
 {
-	register struct proctab *prp, *q;
+	struct proctab *prp, *q;
 	static int sys0 = 0;
 	int delay, ndelay, status = TET_EXIT_SUCCESS;
 	time_t now, next;
@@ -261,7 +261,7 @@ int execscen()
 */
 
 int is_resume_point(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	TRACE5(tet_Texec, 8, "is_resume_point(): scen = %s, resume_scen = %s, currmode = %s, resume_mode = %s",
 		tet_i2x(prp->pr_scen), tet_i2x(resume_scen),

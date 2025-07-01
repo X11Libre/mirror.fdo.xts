@@ -117,7 +117,7 @@ static void synmsg2 PROTOLIST((struct stab *, struct ustab *, struct ptab *));
 
 struct stab *stalloc()
 {
-	register struct stab *sp;
+	struct stab *sp;
 	static long snid;
 
 	/* allocate a new SYNC ID */
@@ -223,7 +223,7 @@ struct stab *sp;
 struct stab *stafind(snid)
 long snid;
 {
-	register struct stab *sp;
+	struct stab *sp;
 
 	for (sp = stab; sp; sp = sp->st_next)
 		if ((sp->st_flags & SF_USYNC) == 0 && sp->st_snid == snid)
@@ -240,11 +240,11 @@ long snid;
 
 struct stab *stufind(xrid, udp, nud)
 long xrid;
-register struct ustab *udp;
+struct ustab *udp;
 int nud;
 {
-	register struct stab *sp;
-	register struct ustab *up1, *up2;
+	struct stab *sp;
+	struct ustab *up1, *up2;
 	int count;
 
 	for (sp = stab; sp; sp = sp->st_next) {
@@ -271,9 +271,9 @@ int nud;
 */
 
 void stcheck(sp)
-register struct stab *sp;
+struct stab *sp;
 {
-	register struct ustab *up;
+	struct ustab *up;
 	int count, vote;
 
 	if (sp->st_flags & SF_ATTENTION)
@@ -318,7 +318,7 @@ register struct stab *sp;
 
 void stloop()
 {
-	register struct stab *sp;
+	struct stab *sp;
 	int done;
 
 	TRACE2(tet_Tsyncd, 7, "stloop TOP: stab = %s", tet_i2x(stab));
@@ -344,9 +344,9 @@ void stloop()
 */
 
 static void stservice(sp)
-register struct stab *sp;
+struct stab *sp;
 {
-	register struct ustab *up;
+	struct ustab *up;
 	long spno = SPMAX;
 	int count;
 
@@ -424,10 +424,10 @@ register struct stab *sp;
 */
 
 static int sts2(sp, spno)
-register struct stab *sp;
+struct stab *sp;
 long spno;
 {
-	register struct ustab *up;
+	struct ustab *up;
 	int count;
 
 	/* reset the event flags and user states after the event has happened;
@@ -465,10 +465,10 @@ long spno;
 */
 
 static void stpok(sp, spno)
-register struct stab *sp;
+struct stab *sp;
 long spno;
 {
-	register struct ustab *up;
+	struct ustab *up;
 
 	/* wake up processes waiting on the event */
 	for (up = sp->st_ud; up < sp->st_ud + sp->st_nud; up++)
@@ -481,10 +481,10 @@ long spno;
 */
 
 static void stperr(sp, spno)
-register struct stab *sp;
+struct stab *sp;
 long spno;
 {
-	register struct ustab *up;
+	struct ustab *up;
 
 	/* see if there are any dead processes in the list -
 		if there are, set spno to SPMAX so as to end all future events
@@ -523,10 +523,10 @@ long spno;
 
 static void syncmsg(sp, up)
 struct stab *sp;
-register struct ustab *up;
+struct ustab *up;
 {
-	register struct ptab *pp;
-	register struct sptab *stp;
+	struct ptab *pp;
+	struct sptab *stp;
 
 	ASSERT(up->us_ptab);
 	pp = up->us_ptab;
@@ -552,12 +552,12 @@ register struct ustab *up;
 */
 
 static void synmsg2(sp, up, pp)
-register struct stab *sp;
+struct stab *sp;
 struct ustab *up;
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct valmsg *rp;
-	register struct ustab *up2;
+	struct valmsg *rp;
+	struct ustab *up2;
 	int len, n, rc;
 	int msflags, mssysid, msdlen;
 	char *msdata;
@@ -683,8 +683,8 @@ void stuend(snid, sysid)
 long snid;
 int sysid;
 {
-	register struct stab *sp;
-	register struct ustab *up;
+	struct stab *sp;
+	struct ustab *up;
 
 	TRACE3(tet_Tsyncd, 7, "stuend() called, snid = %s, sysid = %s",
 		tet_l2a(snid), tet_i2a(sysid));
@@ -706,8 +706,8 @@ int sysid;
 void stdead(pp)
 struct ptab *pp;
 {
-	register struct stab *sp;
-	register struct ustab *up;
+	struct stab *sp;
+	struct ustab *up;
 	int check;
 
 	TRACE2(tet_Tsyncd, 7, "stdead() called: %s", tet_r2a(&pp->pt_rid));
@@ -731,11 +731,11 @@ struct ptab *pp;
 */
 
 static void std2(pp, sp, up)
-register struct ptab *pp;
+struct ptab *pp;
 struct stab *sp;
 struct ustab *up;
 {
-	register struct ptab *q;
+	struct ptab *q;
 	extern struct ptab *tet_ptab;
 
 	/* for a user sync where the terminating process was not due to

@@ -55,7 +55,7 @@ MODIFICATIONS:
 struct ptab *tet_getptbysysptype(sysid, ptype)
 int sysid, ptype;
 {
-	register struct ptab *pp;
+	struct ptab *pp;
 	extern struct ptab *tet_ptab;
 
 	for (pp = tet_ptab; pp; pp = pp->pt_next) {

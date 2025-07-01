@@ -94,7 +94,7 @@ static int tc_traceargs PROTOLIST((struct ptab *));
 int tet_tclogon(sysid)
 int sysid;
 {
-	register struct ptab *pp;
+	struct ptab *pp;
 	int rc;
 	TET_SIGSAFE_DEF
 
@@ -165,7 +165,7 @@ int sysid;
 static int tc_l3(pp)
 struct ptab *pp;
 {
-	register struct valmsg *mp;
+	struct valmsg *mp;
 
 #ifndef NOTRACE
 	/* send trace args to TCCD */
@@ -233,7 +233,7 @@ int ptype;
 int tet_tclogoff(sysid)
 int sysid;
 {
-	register struct ptab *pp;
+	struct ptab *pp;
 	int rc;
 	TET_SIGSAFE_DEF
 
@@ -261,7 +261,7 @@ int sysid;
 char *tet_tcmsgbuf(sysid, len)
 int sysid, len;
 {
-	register struct ptab *pp;
+	struct ptab *pp;
 
 	/* get the ptab entry for this TCCD */
 	if ((pp = tc_getptab(sysid)) == (struct ptab *) 0)
@@ -281,7 +281,7 @@ char *tet_tctalk(sysid, req, delay)
 int sysid, req;
 int delay;
 {
-	register struct ptab *pp;
+	struct ptab *pp;
 	int mtype, len, rc;
 	TET_SIGSAFE_DEF
 
@@ -415,7 +415,7 @@ int delay;
 static struct ptab *tc_getptab(sysid)
 int sysid;
 {
-	register struct ptab *pp;
+	struct ptab *pp;
 
 	/* get the ptab entry for this TCCD */
 	if ((pp = tet_getptbysysptype(sysid, PT_STCC)) == (struct ptab *) 0 || (pp->pt_flags & PF_LOGGEDON) == 0)
@@ -437,7 +437,7 @@ struct ptab *pp;
 {
 	char **avp, **argv;
 	int argc;
-	register struct avmsg *ap;
+	struct avmsg *ap;
 
 	/* get a set of trace flags */
 	if ((argv = tet_traceargs(PT_STCC, (char **) 0)) == (char **) 0)

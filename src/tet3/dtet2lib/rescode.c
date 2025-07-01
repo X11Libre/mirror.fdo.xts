@@ -115,7 +115,7 @@ tet_getresname(result, abortflag)
 int result;
 int *abortflag;
 {
-	register struct restab *rtp;
+	struct restab *rtp;
 	const char *name;
 	int abrt;
 
@@ -151,7 +151,7 @@ int tet_getrescode(name, abortflag)
 char *name;
 int *abortflag;
 {
-	register struct restab *rtp;
+	struct restab *rtp;
 	int code, abrt;
 
 	if (
@@ -341,9 +341,9 @@ badresline(const char *msg, int line, const char *file)
 */
 
 static int rtaddupdate(rtp1)
-register struct restab *rtp1;
+struct restab *rtp1;
 {
-	register struct restab *rtp2;
+	struct restab *rtp2;
 
 	if ((rtp2 = getrtbycode(rtp1->rt_code)) == (struct restab *) 0) {
 		if (BUFCHK((char **) &tet_restab, &lrestab, (int) ((tet_nrestab + 1) * sizeof *tet_restab)) < 0)
@@ -374,7 +374,7 @@ register struct restab *rtp1;
 static struct restab *getrtbycode(code)
 int code;
 {
-	register struct restab *rtp;
+	struct restab *rtp;
 
 	for (rtp = tet_restab; rtp < tet_restab + tet_nrestab; rtp++)
 		if (rtp->rt_code == code)
@@ -393,7 +393,7 @@ int code;
 static struct restab *getrtbyname(name)
 char *name;
 {
-	register struct restab *rtp;
+	struct restab *rtp;
 
 	for (rtp = tet_restab; rtp < tet_restab + tet_nrestab; rtp++)
 		if (!strcmp(rtp->rt_name, name))
@@ -411,7 +411,7 @@ char *name;
 
 int tet_initrestab()
 {
-	register struct restab *rtp;
+	struct restab *rtp;
 	struct restab rtmp;
 
 	for (rtp = restab_dflt; rtp < restab_dflt + Nrestab_dflt; rtp++) {

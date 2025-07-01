@@ -58,7 +58,7 @@ char *tet_tcsharelock(sysid, lockdir, timeout)
 int sysid, timeout;
 char *lockdir;
 {
-	register struct avmsg *mp;
+	struct avmsg *mp;
 	int delay;
 	extern char tet_tcerrmsg[];
 

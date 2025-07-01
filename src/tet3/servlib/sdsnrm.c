@@ -56,7 +56,7 @@ MODIFICATIONS:
 int tet_sdsnrm(snid)
 long snid;
 {
-	register struct valmsg *mp;
+	struct valmsg *mp;
 	extern char tet_sderrmsg[];
 
 	/* get the SYNCD message buffer */

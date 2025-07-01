@@ -111,7 +111,7 @@ TET_IMPORT TET_NORETURN void tet_exit(int status)
 TET_IMPORT void tet_logoff()
 {
 #ifndef TET_LITE /* -START-LITE-CUT- */
-	register struct ptab *pp;
+	struct ptab *pp;
 	extern struct ptab *tet_ptab;
 	TET_SIGSAFE_DEF
 

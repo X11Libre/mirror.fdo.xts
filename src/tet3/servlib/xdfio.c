@@ -103,7 +103,7 @@ char *file;
 int tet_xdfclose(fid)
 int fid;
 {
-	register struct valmsg *mp;
+	struct valmsg *mp;
 
 	/* get the XRESD message buffer */
 	if ((mp = (struct valmsg *) tet_xdmsgbuf(valmsgsz(OP_FCLOSE_NVALUE))) == (struct valmsg *) 0) {

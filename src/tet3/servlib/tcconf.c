@@ -78,7 +78,7 @@ char **lines;
 int tet_tcsetconf(sysid, mode)
 int sysid, mode;
 {
-	register struct valmsg *mp;
+	struct valmsg *mp;
 
 	/* ensure that mode is valid */
 	switch (mode) {
@@ -168,7 +168,7 @@ int sysid, request, mode, done;
 int nline;
 char **lines;
 {
-	register struct avmsg *mp;
+	struct avmsg *mp;
 	int n;
 
 	/* get the TCCD message buffer */
@@ -206,7 +206,7 @@ char **lines;
 char **tet_tcrcvconfv(sysid, nlines, done)
 int sysid, *nlines, *done;
 {
-	register struct avmsg *rp;
+	struct avmsg *rp;
 
 	/* make sure that nlines and done are non-zero */
 	if (!nlines || !done) {

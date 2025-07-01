@@ -104,7 +104,7 @@ static void tcs_unlock PROTOLIST((struct proctab *));
 */
 
 void proc_testcase(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	TRACE5(tet_Texec, 4,
 		"proc_testcase(%s): tcname = %s, ref = %s, currmode = %s",
@@ -240,10 +240,10 @@ register struct proctab *prp;
 */
 
 void proc_tcwait(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 #ifndef TET_LITE	/* -START-LITE-CUT- */
-	register struct proctab *child;
+	struct proctab *child;
 #endif /* !TET_LITE */	/* -END-LITE-CUT- */
 	int rc;
 
@@ -331,7 +331,7 @@ register struct proctab *prp;
 */
 
 static void tcs_start(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	int rc;
 
@@ -379,10 +379,10 @@ register struct proctab *prp;
 */
 
 static int tcs_startproc(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 #ifndef TET_LITE	/* -START-LITE-CUT- */
-	register struct proctab *child;
+	struct proctab *child;
 #endif /* !TET_LITE */	/* -END-LITE-CUT- */
 	int rc;
 
@@ -533,7 +533,7 @@ struct proctab *prp;
 */
 
 static void tcs_lock(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	int rc;
 
@@ -562,7 +562,7 @@ register struct proctab *prp;
 */
 
 static int tcs1_lock(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	int rc;
 
@@ -585,7 +585,7 @@ register struct proctab *prp;
 */
 
 static int tcs1_lk2(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	char lkdir[MAXPATH], lkname[MAXPATH];
 	char *altexecdir;
@@ -656,7 +656,7 @@ register struct proctab *prp;
 */
 
 static void tcs_unlock(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	int rc;
 
@@ -679,7 +679,7 @@ register struct proctab *prp;
 */
 
 static int tcs1_unlock(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	TRACE4(tet_Texec, 6, "tcs1_unlock(%s), sysid = %s, flags = %s",
 		tet_i2x(prp), tet_i2a(*prp->pr_sys), prpflags(prp->pr_flags));
@@ -717,7 +717,7 @@ register struct proctab *prp;
 */
 
 static void tcs_copy(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	int rc = 0;
 
@@ -739,7 +739,7 @@ register struct proctab *prp;
 */
 
 static int tcs1_copy(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	int rc;
 
@@ -762,7 +762,7 @@ register struct proctab *prp;
 */
 
 static int tcs1_cp2(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	char fromdir[MAXPATH], todir[MAXPATH]; 
 	char *altexecdir, *tmproot, *tmpdir;
@@ -802,7 +802,7 @@ register struct proctab *prp;
 */
 
 static void tcs_prebuild(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	struct proctab *q;
 	char tcname[MAXPATH];
@@ -872,7 +872,7 @@ register struct proctab *prp;
 */
 
 static void tcs_buildfail(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	int rc;
 
@@ -917,7 +917,7 @@ register struct proctab *prp;
 */
 
 static int tcs1_buildfail(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	char tcname[MAXPATH];
 	char ocfname[MAXPATH];
@@ -957,7 +957,7 @@ register struct proctab *prp;
 */
 
 static void tcs_bec(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	int rc = 0;
 
@@ -1025,7 +1025,7 @@ register struct proctab *prp;
 */
 
 static int tcs1_bec(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	char tcname[MAXPATH];
 	char buf[MAXPATH];
@@ -1102,7 +1102,7 @@ register struct proctab *prp;
 */
 
 static void tcs_journal(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	int rc = 0;
 	int (*func) PROTOLIST((struct proctab *));
@@ -1169,7 +1169,7 @@ register struct proctab *prp;
 */
 
 static void tcs_save(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	int rc;
 
@@ -1233,7 +1233,7 @@ struct proctab *prp;
 */
 
 static void tcs_end(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	TRACE3(tet_Texec, 6, "tcs_end(%s), skipflags = %s", tet_i2x(prp),
 		prscflags(prp->pr_scen->sc_flags & SCF_SKIP_ALL));
@@ -1275,7 +1275,7 @@ register struct proctab *prp;
 */
 
 static void tcs_endproc(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	TRACE2(tet_Texec, 6, "tcs_endproc(%s)", tet_i2x(prp));
 
@@ -1441,7 +1441,7 @@ struct proctab *prp;
 */
 
 static int nexttcstate(prp, status)
-register struct proctab *prp;
+struct proctab *prp;
 int status;
 {
 	static char s[] = "TET_EXEC_IN_PLACE";

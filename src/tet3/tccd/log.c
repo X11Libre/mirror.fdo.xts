@@ -150,7 +150,7 @@ static char *loghdr()
 	static char *month[] = { "Jan", "Feb", "Mar", "Apr", "May", "Jun",
 		"Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
 	time_t t;
-	register struct tm *tp;
+	struct tm *tp;
 	static char header[50];
 
 	t = time((time_t *) 0);

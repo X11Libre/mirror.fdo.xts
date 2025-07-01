@@ -65,7 +65,7 @@ MODIFICATIONS:
 int tet_gettccdport()
 {
 	static int port;
-	register struct servent *sp;
+	struct servent *sp;
 	int err;
 
 	if (port)

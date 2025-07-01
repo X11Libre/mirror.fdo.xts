@@ -58,7 +58,7 @@ static void stinit PROTOLIST((void));
 
 static void stinit()
 {
-	register struct dtmhdr *hp = (struct dtmhdr *) 0;
+	struct dtmhdr *hp = (struct dtmhdr *) 0;
 	int n = 0;
 
 	DTMHDR_INIT(st, hp, n, nst, stlen);

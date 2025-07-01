@@ -169,7 +169,7 @@ char *rtdir;
 void inittmpdir()
 {
 	int sysid, sysmax;
-	register struct systab *sp;
+	struct systab *sp;
 
 	for (sysid = 0, sysmax = symax(); sysid <= sysmax; sysid++)
 		if ((sp = syfind(sysid)) != (struct systab *) 0)
@@ -418,7 +418,7 @@ char *from, *to;
 void initsfdir()
 {
 	int sysid, sysmax;
-	register struct systab *sp;
+	struct systab *sp;
 	int rc = 0;
 
 	for (sysid = 1, sysmax = symax(); sysid <= sysmax; sysid++)
@@ -490,7 +490,7 @@ struct systab *sp;
 */
 
 int sfproc(prp, sfiles, nsfiles)
-register struct proctab *prp;
+struct proctab *prp;
 char **sfiles;
 int nsfiles;
 {

@@ -54,7 +54,7 @@ MODIFICATIONS:
 int tet_mapsignal(sig)
 int sig;
 {
-	register struct sigmap *sp, *se;
+	struct sigmap *sp, *se;
 	extern struct sigmap tet_sigmap[];
 	extern int tet_Nsigmap;
 

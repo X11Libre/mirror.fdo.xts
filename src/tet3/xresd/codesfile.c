@@ -62,9 +62,9 @@ static char *codesfile;			/* the stored config file name */
 */
 
 void op_codesf(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
+	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 
 	/* all reply messages have no data */
 	pp->ptm_mtype = MT_NODATA;

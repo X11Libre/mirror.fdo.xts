@@ -75,8 +75,8 @@ MODIFICATIONS:
 void tet_ts_accept(lfd)
 int lfd;
 {
-	register struct ptab *pp;
-	register struct tptab *tp;
+	struct ptab *pp;
+	struct tptab *tp;
 	int nfd;
 	int	i,len, c_event;
 	char	*p;

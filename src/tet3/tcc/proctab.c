@@ -64,7 +64,7 @@ struct proctab *runq;
 
 struct proctab *pralloc()
 {
-	register struct proctab *prp;
+	struct proctab *prp;
 
 	errno = 0;
 	if ((prp = (struct proctab *) malloc(sizeof *prp)) == (struct proctab *) 0)
@@ -112,7 +112,7 @@ struct proctab *prp;
 void prcfree(prp)
 struct proctab *prp;
 {
-	register struct proctab *child, *lforw;
+	struct proctab *child, *lforw;
 
 	for (child = prp->pr_child; child; child = lforw) {
 		ASSERT(child->pr_magic == PR_MAGIC);
@@ -128,9 +128,9 @@ struct proctab *prp;
 */
 
 void runqadd(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
-	register struct proctab *q;
+	struct proctab *q;
 
 	TRACE4(tet_Texec, 10,
 		"runqadd(): add proctab %s to runq (%s), flags = %s",
@@ -161,7 +161,7 @@ register struct proctab *prp;
 */
 
 void runqrm(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	TRACE3(tet_Texec, 10, "runqrm(): remove proctab %s from runq (%s)",
 		tet_i2x(prp), tet_i2x(runq));

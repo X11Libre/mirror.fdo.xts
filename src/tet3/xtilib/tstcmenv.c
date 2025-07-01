@@ -65,7 +65,7 @@ int tet_ts_tcmputenv()
 {
 	char *p1, *p2;
 	int first;
-	register struct netbuf *ap;
+	struct netbuf *ap;
 	char envstring[1024];
 	char addrbuff[1024];
 	static char envname[] = "TET_TSARGS=";

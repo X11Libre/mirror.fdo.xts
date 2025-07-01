@@ -104,7 +104,7 @@ char *file;
 int tet_tcfclose(sysid, fid)
 int sysid, fid;
 {
-	register struct valmsg *mp;
+	struct valmsg *mp;
 
 	/* get the TCCD message buffer */
 	if ((mp = (struct valmsg *) tet_tcmsgbuf(sysid, valmsgsz(OP_FCLOSE_NVALUE))) == (struct valmsg *) 0) {
@@ -146,7 +146,7 @@ int nline;
 char **lines;
 {
 
-	register struct avmsg *mp;
+	struct avmsg *mp;
 	int n;
 
 	/* make sure that lines is non-zero and that nline is +ve */

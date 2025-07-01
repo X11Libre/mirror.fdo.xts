@@ -67,7 +67,7 @@ MODIFICATIONS:
 int tet_ts_ptalloc(pp)
 struct ptab *pp;
 {
-	register struct tptab *tp;
+	struct tptab *tp;
 
 	errno = 0;
 	if ((tp = (struct tptab *) malloc(sizeof *tp)) == (struct tptab *) 0) {
@@ -97,7 +97,7 @@ struct ptab *pp;
 void tet_ts_ptfree(pp)
 struct ptab *pp;
 {
-	register struct tptab *tp = (struct tptab *) pp->pt_tdata;
+	struct tptab *tp = (struct tptab *) pp->pt_tdata;
 
 	TRACE2(tet_Tbuf, 6, "free tptab = %s", tet_i2x(tp));
 

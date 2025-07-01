@@ -188,7 +188,7 @@ int sig;
 static void engine_abort(sig)
 int sig;
 {
-	register struct proctab *prp;
+	struct proctab *prp;
 
 
 	fprintf(stderr, "TCC: user abort called\n");
@@ -235,7 +235,7 @@ int sig;
 static int engine_tcinterrupt(sig)
 int sig;
 {
-	register struct proctab *prp;
+	struct proctab *prp;
 	int count = 0;
 
 	TRACE2(TET_MAX(tet_Ttcc, tet_Texec), 4,
@@ -263,7 +263,7 @@ int sig;
 */
 
 static int eng1_tcinterrupt(prp)
-register struct proctab *prp;
+struct proctab *prp;
 {
 	TRACE3(TET_MAX(tet_Ttcc, tet_Texec), 6,
 		"eng1_tcinterrupt(%s): toolstate = %s",
@@ -297,7 +297,7 @@ register struct proctab *prp;
 
 void engine_shutdown()
 {
-	register struct proctab *prp;
+	struct proctab *prp;
 	int count = 0;
 	static int been_here = 0;
 

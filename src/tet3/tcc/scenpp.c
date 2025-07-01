@@ -100,7 +100,7 @@ char **argv;
 	int c;
 	FILE *ifp;
 	int rc;
-	register struct scentab *ep;
+	struct scentab *ep;
 	char *scenario = "all";
 	char cwd[MAXPATH];
 	extern int optind;
@@ -331,7 +331,7 @@ int indent;
 }
 
 static void printscdir(ep, indent)
-register struct scentab *ep;
+struct scentab *ep;
 int indent;
 {
 	int *argv = (int *) 0;

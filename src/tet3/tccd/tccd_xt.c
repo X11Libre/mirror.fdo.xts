@@ -106,7 +106,7 @@ char *firstarg, *nextarg;
 	int rc = 0;
 	char *mode;
 	static struct netbuf np;	/* XTI TCCD address */
-	register struct netbuf *p;
+	struct netbuf *p;
 
 	switch (*(firstarg + 1)) {
 	case 'M':
@@ -306,7 +306,7 @@ void tet_ss_tsaccept()
 int tet_ss_tsafteraccept(pp)
 struct ptab *pp;
 {
-	register struct tptab *tp = (struct tptab *) pp->pt_tdata;
+	struct tptab *tp = (struct tptab *) pp->pt_tdata;
 	char *p;
 	int pid;
 
@@ -397,10 +397,10 @@ int *tolen;
 */
 
 void op_tsinfo(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct tsinfo *mp = (struct tsinfo *) pp->ptm_data;
-	register struct netbuf *ap;
+	struct tsinfo *mp = (struct tsinfo *) pp->ptm_data;
+	struct netbuf *ap;
 
 	/* all reply messages have no data */
 	pp->ptm_mtype = MT_NODATA;

@@ -223,7 +223,7 @@ void tet_ss_initdaemon()
 	static char defpath[] = "/bin:/usr/bin";
 	static char null[] = "/dev/null";
 	static char msg[] = "can't find passwd entry for";
-	register struct passwd *pw;
+	struct passwd *pw;
 	uid_t euid;
 	gid_t egid;
 	char *p;
@@ -341,7 +341,7 @@ int tet_ss_serverloop()
 */
 
 void tet_ss_dead(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
 	static char fmt[] = "%s connection closed";
 	static char cl[] = "client";
@@ -406,7 +406,7 @@ struct ptab *pp;
 */
 
 void tet_ss_serverproc(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
 	switch (pp->ptm_req) {
 	case OP_SYSID:
@@ -516,9 +516,9 @@ register struct ptab *pp;
 */
 
 static void op_sysid(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct valmsg *mp = (struct valmsg *) pp->ptm_data;
+	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
 
 	/* all reply messages have no data */
 	pp->ptm_mtype = MT_NODATA;
@@ -551,10 +551,10 @@ register struct ptab *pp;
 */
 
 static void op_sysname(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct valmsg *mp = (struct valmsg *) pp->ptm_data;
-	register struct sptab *sp = (struct sptab *) pp->pt_sdata;
+	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
+	struct sptab *sp = (struct sptab *) pp->pt_sdata;
 	int *snp;
 	int i, j, needlen;
 

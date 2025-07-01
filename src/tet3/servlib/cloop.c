@@ -55,7 +55,7 @@ MODIFICATIONS:
 */
 
 void tet_si_clientloop(pp, delay)
-register struct ptab *pp;
+struct ptab *pp;
 int delay;
 {
 	int done;

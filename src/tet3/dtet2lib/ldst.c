@@ -70,7 +70,7 @@ static int short2bs PROTOLIST((short *, char *, int));
 
 int tet_bs2st(from, to, st, nst, len)
 char *from, *to;
-register struct stdesc *st;
+struct stdesc *st;
 int nst, len;
 {
 	char *fp, *tp;
@@ -116,7 +116,7 @@ int nst, len;
 
 int tet_st2bs(from, to, st, nst)
 char *from, *to;
-register struct stdesc *st;
+struct stdesc *st;
 int nst;
 {
 	char *fp, *tp;

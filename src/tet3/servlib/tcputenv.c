@@ -72,7 +72,7 @@ int sysid;
 char **envp;
 int nenv;
 {
-	register struct avmsg *mp;
+	struct avmsg *mp;
 	int n;
 	extern char tet_tcerrmsg[];
 

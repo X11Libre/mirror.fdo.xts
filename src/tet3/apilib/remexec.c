@@ -140,7 +140,7 @@ int sysname;
 char *file;
 char **argv;
 {
-	register struct rtab *rp;
+	struct rtab *rp;
 	char **ap;
 	long pid;
 	int needlen, rc;

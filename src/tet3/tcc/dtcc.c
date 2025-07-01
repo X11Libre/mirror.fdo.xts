@@ -163,7 +163,7 @@ static struct ptab *ti_stserver(ptype, argv)
 int ptype;
 char **argv;
 {
-	register struct ptab *pp;
+	struct ptab *pp;
 
 	/* allocate a new ptab for the server and initialise it */
 	if ((pp = tet_ptalloc()) == (struct ptab *) 0)

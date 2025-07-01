@@ -64,7 +64,7 @@ static struct rtab *rtab;	/* ptr to head of remote execution table */
 
 struct rtab *tet_rtalloc()
 {
-	register struct rtab *rp;
+	struct rtab *rp;
 	static int remoteid;
 
 	errno = 0;
@@ -126,7 +126,7 @@ struct rtab *rp;
 struct rtab *tet_rtfind(remoteid)
 int remoteid;
 {
-	register struct rtab *rp;
+	struct rtab *rp;
 
 	TRACE3(tet_Ttcm, 6, "tet_rtfind(%s): rtab = %s",
 		tet_i2a(remoteid), tet_i2x(rtab));

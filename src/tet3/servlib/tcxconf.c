@@ -140,7 +140,7 @@ struct cflist *mlp, *vlp, *rlp;
 
 static int mconfig(sysid, mlp, vlp)
 int sysid;
-register struct cflist *mlp, *vlp;
+struct cflist *mlp, *vlp;
 {
 	static char fmt[] = "TET_REM%03d_%.*s";
 	char buf[MAXPATH * 2];

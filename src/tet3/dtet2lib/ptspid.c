@@ -56,7 +56,7 @@ struct ptab *tet_getptbysyspid(sysid, pid)
 int sysid;
 long pid;
 {
-	register struct ptab *pp;
+	struct ptab *pp;
 	extern struct ptab *tet_ptab;
 
 	for (pp = tet_ptab; pp; pp = pp->pt_next) {

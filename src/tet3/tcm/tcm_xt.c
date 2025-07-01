@@ -144,10 +144,10 @@ char *arg;
 struct ptab **paddr;
 int ptype;
 {
-	register struct ptab	*pp;
-	register struct tptab	*tp;
+	struct ptab	*pp;
+	struct tptab	*tp;
 	char	*addr;
-	register struct netbuf	*np;
+	struct netbuf	*np;
 
 	/* make addr point to the XTI address string */
 	addr = arg + 2;
@@ -218,8 +218,8 @@ int tet_tcm_tsinfo(pp, ptype)
 struct ptab *pp;
 int ptype;
 {
-	register struct tptab *tp;
-	register struct tsinfo *mp;
+	struct tptab *tp;
+	struct tsinfo *mp;
 	extern int tet_tpi_mode;
 
 	if ((mp = (struct tsinfo *) tet_ti_msgbuf(pp, sizeof *mp)) == (struct tsinfo *) 0)

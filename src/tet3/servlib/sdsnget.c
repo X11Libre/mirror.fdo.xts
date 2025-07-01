@@ -53,7 +53,7 @@ MODIFICATIONS:
 
 long tet_sdsnget()
 {
-	register struct valmsg *mp;
+	struct valmsg *mp;
 	extern char tet_sderrmsg[];
 
 	/* perform the conversation and handle the reply codes */

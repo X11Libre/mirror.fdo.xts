@@ -96,7 +96,7 @@ static int si_timeouts PROTOLIST((void));
 
 void tet_si_serverloop()
 {
-	register struct ptab *pp;
+	struct ptab *pp;
 	register time_t timeout;
 	int delay, rc;
 	extern struct ptab *tet_ptab;
@@ -149,7 +149,7 @@ void tet_si_serverloop()
 static void si_procrun()
 {
 	extern struct ptab *tet_ptab;
-	register struct ptab *pp;
+	struct ptab *pp;
 	int done;
 
 	TRACE2(tet_Tloop, 8, "si_procrun START: tet_ptab = %s",
@@ -188,7 +188,7 @@ static void si_procrun()
 static int si_timeouts()
 {
 	extern struct ptab *tet_ptab;
-	register struct ptab *pp;
+	struct ptab *pp;
 	register time_t now = time((time_t *) 0);
 	int found = 0;
 

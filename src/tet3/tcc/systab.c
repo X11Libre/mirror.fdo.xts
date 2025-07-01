@@ -82,7 +82,7 @@ static void ist2 PROTOLIST((struct scentab *, int *, int));
 void initsystab()
 {
 #ifdef TET_LITE	/* -LITE-CUT-LINE- */
-	register struct systab *sp;
+	struct systab *sp;
 
 	sp = syalloc();
 	sp->sy_sysid = 0;
@@ -105,11 +105,11 @@ void initsystab()
 */
 
 static void ist2(ep, sys, nsys)
-register struct scentab *ep;
+struct scentab *ep;
 int *sys, nsys;
 {
 	int *ip;
-	register struct systab *sp;
+	struct systab *sp;
 	static int *oldsys;
 
 	/*
@@ -156,7 +156,7 @@ int *sys, nsys;
 
 static struct systab *syalloc()
 {
-	register struct systab *sp;
+	struct systab *sp;
 
 	errno = 0;
 	if ((sp = (struct systab *) malloc(sizeof *sp)) == (struct systab *) 0)
@@ -222,7 +222,7 @@ struct systab *sp;
 struct systab *syfind(sysid)
 int sysid;
 {
-	register struct systab *sp;
+	struct systab *sp;
 
 	for (sp = systab; sp; sp = sp->sy_next) {
 		ASSERT(sp->sy_magic == SY_MAGIC);
@@ -239,7 +239,7 @@ int sysid;
 
 int symax()
 {
-	register struct systab *sp;
+	struct systab *sp;
 	int max = -1;
 
 	for (sp = systab; sp; sp = sp->sy_next) {

@@ -62,8 +62,8 @@ void tet_ts_accept(lsd)
 SOCKET lsd;
 {
 	struct sockaddr_in sin;
-	register struct ptab *pp;
-	register struct tptab *tp;
+	struct ptab *pp;
+	struct tptab *tp;
 	register SOCKET nsd;
 	int len, err;
 

@@ -54,7 +54,7 @@ MODIFICATIONS:
 
 char **tet_xdrcfname()
 {
-	register struct avmsg *rp;
+	struct avmsg *rp;
 	extern char tet_xderrmsg[];
 
 	/* send the request and receive the reply */

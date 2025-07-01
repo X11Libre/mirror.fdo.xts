@@ -57,7 +57,7 @@ int tet_tclockfile(sysid, file, timeout)
 int sysid, timeout;
 char *file;
 {
-	register struct avmsg *mp;
+	struct avmsg *mp;
 	int delay;
 	extern char tet_tcerrmsg[];
 

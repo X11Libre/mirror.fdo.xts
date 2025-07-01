@@ -276,7 +276,7 @@ static int proc1scen()
 {
 	char *line, *next;
 	char *p;
-	register struct scentab *ep;
+	struct scentab *ep;
 
 	/* read the scenario name - starts in column 1 */
 	line = getline_tcc();
@@ -448,7 +448,7 @@ proc1scline(char *line, const char *fname, int lineno)
 static void
 proc1scelem(char *element, int type, int flags, int lineno, const char *fname)
 {
-	register struct scentab *ep;
+	struct scentab *ep;
 	char *p;
 	char *iclist, *tcname;
         char *sceninfo;
@@ -521,8 +521,8 @@ proc1dgrp(char *dgroup, char *next, const char *fname, int lineno)
 	char *args[MAXARGS];
 	int nargs;
 	char **ap;
-	register struct scentab *ep;
-	register struct dirtab *dp;
+	struct scentab *ep;
+	struct dirtab *dp;
 	char **vp;
 	char *line;
 	int istart, iend, ok, rc;
@@ -1145,7 +1145,7 @@ struct ifstack *ifp;
 
 static struct ifstack *ifspop()
 {
-	register struct ifstack *ifp;
+	struct ifstack *ifp;
 
 	ASSERT(ifstp == ifstack);
 
@@ -1402,7 +1402,7 @@ char *line;
 
 static struct lcache *lcalloc()
 {
-	register struct lcache *lcp;
+	struct lcache *lcp;
 
 	errno = 0;
 	if ((lcp = (struct lcache *) malloc(sizeof *lcp)) == (struct lcache *) 0)
@@ -1489,7 +1489,7 @@ static struct lcache *lcpop()
 static struct lcache *lcpop2(ifp)
 struct ifstack *ifp;
 {
-	register struct lcache *lcp;
+	struct lcache *lcp;
 
 	if ((lcp = ifp->if_lcache) != (struct lcache *) 0) {
 		tet_listremove((struct llist **) &ifp->if_lcache,

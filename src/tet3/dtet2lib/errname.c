@@ -56,7 +56,7 @@ const char *
 tet_errname(errnum)
 int errnum;
 {
-	register struct errmap *ep, *ee;
+	struct errmap *ep, *ee;
 	static char fmt[] = "Error %d";
 	static char text[sizeof fmt + LNUMSZ];
 

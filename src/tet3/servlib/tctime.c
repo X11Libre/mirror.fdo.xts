@@ -57,7 +57,7 @@ int tet_tctime(sysid, tp)
 int sysid;
 long *tp;
 {
-	register struct valmsg *mp;
+	struct valmsg *mp;
 	extern char tet_tcerrmsg[];
 
 	/* make sure that tp is non-null */

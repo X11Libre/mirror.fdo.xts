@@ -92,7 +92,7 @@ MODIFICATIONS:
 void op_putenv(pp)
 struct ptab *pp;
 {
-	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
+	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	char *p1, *p2;
 	int n;
 	char buf[128];
@@ -148,7 +148,7 @@ struct ptab *pp;
 void op_access(pp)
 struct ptab *pp;
 {
-	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
+	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 
 	/* all reply messages have no data */
 	pp->ptm_mtype = MT_NODATA;
@@ -178,7 +178,7 @@ struct ptab *pp;
 void op_mkdir(pp)
 struct ptab *pp;
 {
-	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
+	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 
 	/* all reply messages have no data */
 	pp->ptm_mtype = MT_NODATA;
@@ -208,7 +208,7 @@ struct ptab *pp;
 void op_mkalldirs(pp)
 struct ptab *pp;
 {
-	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
+	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 
 	/* all reply messages have no data */
 	pp->ptm_mtype = MT_NODATA;
@@ -238,7 +238,7 @@ struct ptab *pp;
 void op_rmdir(pp)
 struct ptab *pp;
 {
-	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
+	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 
 	/* all reply messages have no data */
 	pp->ptm_mtype = MT_NODATA;
@@ -268,7 +268,7 @@ struct ptab *pp;
 void op_rmalldirs(pp)
 struct ptab *pp;
 {
-	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
+	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 
 	/* all reply messages have no data */
 	pp->ptm_mtype = MT_NODATA;
@@ -298,7 +298,7 @@ struct ptab *pp;
 void op_rcopy(pp)
 struct ptab *pp;
 {
-	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
+	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 
 	/* all reply messages have no data */
 	pp->ptm_mtype = MT_NODATA;
@@ -329,7 +329,7 @@ struct ptab *pp;
 void op_chdir(pp)
 struct ptab *pp;
 {
-	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
+	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	int errsave;
 
 	/* all reply messages have no data */
@@ -361,7 +361,7 @@ struct ptab *pp;
 void op_unlink(pp)
 struct ptab *pp;
 {
-	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
+	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	int errsave;
 
 	/* all reply messages have no data */
@@ -394,7 +394,7 @@ struct ptab *pp;
 void op_time(pp)
 struct ptab *pp;
 {
-	register struct valmsg *mp;
+	struct valmsg *mp;
 
 	TRACE1(tet_Ttccd, 4, "OP_TIME");
 
@@ -425,7 +425,7 @@ struct ptab *pp;
 void op_lockfile(pp)
 struct ptab *pp;
 {
-	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
+	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 
 	/* all reply messages have no data */
 	pp->ptm_mtype = MT_NODATA;
@@ -455,7 +455,7 @@ struct ptab *pp;
 void op_sharelock(pp)
 struct ptab *pp;
 {
-	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
+	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	char *fname;
 
 	/* do a sanity check on the request message */
@@ -490,7 +490,7 @@ struct ptab *pp;
 void op_mktmpdir(pp)
 struct ptab *pp;
 {
-	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
+	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	char *dir;
 
 	/* do a sanity check on the request message */
@@ -523,7 +523,7 @@ struct ptab *pp;
 void op_rxfile(pp)
 struct ptab *pp;
 {
-	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
+	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 
 	/* all reply messages have no data */
 	pp->ptm_mtype = MT_NODATA;

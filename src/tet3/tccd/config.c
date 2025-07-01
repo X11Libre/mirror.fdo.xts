@@ -127,9 +127,9 @@ static int procline PROTOLIST((char *));
 */
 
 void op_cfname(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
+	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	int n;
 
 	/* all reply messages have no data */
@@ -181,11 +181,11 @@ register struct ptab *pp;
 */
 
 void op_sndconf(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
 	char *p;
 	int rc;
-	register struct ctab *cp;
+	struct ctab *cp;
 	FILE *fp;
 	char buf[BUFSIZ];
 
@@ -278,8 +278,8 @@ register struct ptab *pp;
 void op_rcvconf(pp)
 struct ptab *pp;
 {
-	register struct avmsg *rp;
-	register struct ctab *cp;
+	struct avmsg *rp;
+	struct ctab *cp;
 	int n;
 
 	/* error replies contain no data */
@@ -341,10 +341,10 @@ struct ptab *pp;
 */
 
 void op_config(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
-	register struct ctab *cp;
+	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
+	struct ctab *cp;
 	int mode;
 
 	/* remove old entries from the config table */
@@ -472,7 +472,7 @@ static int op_c4(fp, fname)
 FILE *fp;
 char *fname;
 {
-	register struct ctab *cp;
+	struct ctab *cp;
 
 	/* write out the config lines in the order they were received
 		to the tmp config file */
@@ -501,7 +501,7 @@ char *fname;
 static int op_sc2(pp)
 struct ptab *pp;
 {
-	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
+	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	int n, rc;
 	char *s;
 
@@ -536,7 +536,7 @@ struct ptab *pp;
 static int procline(s)
 char *s;
 {
-	register struct ctab *cp;
+	struct ctab *cp;
 	char *p1, *p2;
 	static char errmsg[] = "received bad format config variable:";
 
@@ -579,7 +579,7 @@ char *s;
 
 static struct ctab *ctalloc()
 {
-	register struct ctab *cp;
+	struct ctab *cp;
 
 	if ((cp = (struct ctab *) malloc(sizeof *cp)) == (struct ctab *) 0) {
 		error(errno, "can't allocate ctab element", (char *) 0);
@@ -643,7 +643,7 @@ static struct ctab *ctfind(s)
 char *s;
 {
 	char *p1, *p2;
-	register struct ctab *cp;
+	struct ctab *cp;
 
 	for (cp = ctab; cp; cp = cp->ct_next) {
 		if (cp->ct_flags & CF_PURGE)
@@ -669,7 +669,7 @@ char *s;
 static struct ctab *ctaddupdate(s)
 char *s;
 {
-	register struct ctab *cp;
+	struct ctab *cp;
 
 	/* find or allocate a config table entry */
 	if ((cp = ctfind(s)) == (struct ctab *) 0) {
@@ -725,7 +725,7 @@ char *s;
 
 static void ctpurge()
 {
-	register struct ctab *cp;
+	struct ctab *cp;
 	int done;
 
 	do {
@@ -745,9 +745,9 @@ static void ctpurge()
 */
 
 void op_setconf(pp)
-register struct ptab *pp;
+struct ptab *pp;
 {
-	register struct valmsg *mp = (struct valmsg *) pp->ptm_data;
+	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
 	int mode;
 	static char envname[] = "TET_CONFIG";
 	static char *var;

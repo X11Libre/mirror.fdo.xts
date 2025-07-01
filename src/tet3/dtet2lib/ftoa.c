@@ -69,7 +69,7 @@ struct flags flags[];
 	static int count;
 	char **bpp;
 	int *blp;
-	register struct flags *fp;
+	struct flags *fp;
 	char *p1;
 	const char *p2;
 	register unsigned ftmp;

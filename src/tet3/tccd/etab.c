@@ -66,7 +66,7 @@ static struct etab *etab;		/* ptr to head of exec table */
 
 struct etab *etalloc()
 {
-	register struct etab *ep;
+	struct etab *ep;
 
 	errno = 0;
 
@@ -123,7 +123,7 @@ struct etab *ep;
 struct etab *etfind(pid)
 int pid;
 {
-	register struct etab *ep;
+	struct etab *ep;
 
 	for (ep = etab; ep; ep = ep->et_next)
 		if (ep->et_pid == pid)
@@ -139,7 +139,7 @@ int pid;
 void etdead(pp)
 struct ptab *pp;
 {
-	register struct etab *ep;
+	struct etab *ep;
 	int done;
 
 	do {

@@ -130,7 +130,7 @@ tet_delete(int testnum, const char *reason)
 TET_IMPORT const char *
 tet_reason(int testnum)
 {
-	register struct delreason *drp;
+	struct delreason *drp;
 
 	if (testnum < 0 || (drp = drfind(testnum)) == (struct delreason *) 0)
 		return((char *) 0);
@@ -148,7 +148,7 @@ tet_reason(int testnum)
 static struct delreason *drfind(testnum)
 int testnum;
 {
-	register struct delreason *drp;
+	struct delreason *drp;
 
 	if (delreason)
 		for (drp = delreason; drp < delreason + ndelreason; drp++)
@@ -165,7 +165,7 @@ int testnum;
 
 static struct delreason *dralloc()
 {
-	register struct delreason *drp;
+	struct delreason *drp;
 
 	/* see if there is a free delreason structure that we can use */
 	if ((drp = drfind(-1)) != (struct delreason *) 0)

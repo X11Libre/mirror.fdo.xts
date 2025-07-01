@@ -79,7 +79,7 @@ static char reqerr[] = "unknown request code";
 
 int tet_ss_bs2md(from, pp)
 char *from;
-register struct ptab *pp;
+struct ptab *pp;
 {
 	int rc;
 	int request = pp->pt_savreq;

@@ -149,7 +149,7 @@ struct ptab *pp;
 char **argv;
 SOCKET sd;
 {
-	register struct tptab *tp = (struct tptab *) pp->pt_tdata;
+	struct tptab *tp = (struct tptab *) pp->pt_tdata;
 	int fd, pid, rc;
 	struct sockaddr_in sin;
 	int len, status;
@@ -295,8 +295,8 @@ int tet_ss_tsinfo(pp, ptype)
 struct ptab *pp;
 int ptype;
 {
-	register struct tptab *tp;
-	register struct tsinfo *mp;
+	struct tptab *tp;
+	struct tsinfo *mp;
 	struct in_addr addr, *ap;
 	struct sysent *sp;
 	char hostname[SNAMELEN];

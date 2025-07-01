@@ -211,7 +211,7 @@ struct ptab *pp;
 char **argv;
 int fd;
 {
-	register struct tptab *tp = (struct tptab *) pp->pt_tdata;
+	struct tptab *tp = (struct tptab *) pp->pt_tdata;
 	register pid, rc;
 
 	struct t_bind  req;
@@ -390,8 +390,8 @@ int tet_ss_tsinfo(pp, ptype)
 struct ptab *pp;
 int ptype;
 {
-	register struct tptab 	*tp;
-	register struct tsinfo 	*mp;
+	struct tptab 	*tp;
+	struct tsinfo 	*mp;
 
 	if ((mp = (struct tsinfo *)tet_ti_msgbuf(pp, sizeof *mp)) == (struct tsinfo *) 0)
 		return(-1);

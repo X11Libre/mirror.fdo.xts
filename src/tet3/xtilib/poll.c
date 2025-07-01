@@ -119,8 +119,8 @@ int timeout;
 	}
 	return (rc);
 #else
-	register struct ptab *q;
-	register struct tptab *tp;
+	struct ptab *q;
+	struct tptab *tp;
 	int i, rc, nfound, rfds=0, wfds=0, nfds=0, wait;
 	size_t pdtsize;
 
@@ -382,8 +382,8 @@ static int doaccept()
 static int ts_poll2(pp)
 struct ptab *pp;
 {
-	register struct ptab *q;
-	register struct tptab *tp;
+	struct ptab *q;
+	struct tptab *tp;
 	int i, nfds, err, nfound = 0, rc;
 	int c_event;
 

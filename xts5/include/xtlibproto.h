@@ -207,7 +207,7 @@ unsigned long visualsupported(Display *disp, unsigned long mask);
 void resetsupvis(unsigned long vismask);
 int nextsupvis(XVisualInfo **vi);
 int nsupvis(void);
-Status checkarea(Display *disp, Drawable d, register struct area *ap, unsigned long  inpix, unsigned long  outpix, int  flags);
+Status checkarea(Display *disp, Drawable d, struct area *ap, unsigned long  inpix, unsigned long  outpix, int  flags);
 Status checkclear(Display *disp, Drawable d);
 Status checkregion(Display *disp, Drawable d, Region rgn, unsigned long inpix, unsigned long outpix, int flags);
 void getsize(Display *disp, Drawable d, unsigned int  *widthp, unsigned int  *heightp);

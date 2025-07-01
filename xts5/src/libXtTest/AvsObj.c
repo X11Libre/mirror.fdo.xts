@@ -167,7 +167,7 @@ WidgetClass avsObjClass = (WidgetClass)&avsObjClassRec;
 
 
 static void AvsObjClassPartInitialize(wc)
-    register WidgetClass wc;
+    WidgetClass wc;
 {
 /*
     AvsObjClass roc = (AvsObjClass)wc;

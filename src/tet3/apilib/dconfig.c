@@ -135,7 +135,7 @@ TET_IMPORT void tet_config()
 	const char *file;
 	int err;
 	char buf[1024];
-	register char *p;
+	char *p;
 	char **vp;
 	int lcount;
 	static char fmt[] = "ignored bad format configuration variable assignment at line %d in file %.*s";

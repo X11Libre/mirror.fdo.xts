@@ -81,7 +81,7 @@ static void stinit()
 
 int tet_valmsg2bs(from, to)
 register struct valmsg *from;
-register char *to;
+char *to;
 {
 	register int count;
 	struct stdesc tmp;
@@ -121,7 +121,7 @@ int *tolen;
 */
 
 static int bs2vsmsg(from, fromlen, to, tolen, smproc)
-register char *from;
+char *from;
 register int fromlen;
 register struct valmsg **to;
 register int *tolen;
@@ -170,7 +170,7 @@ int smproc;
 
 int tet_synmsg2bs(from, to)
 register struct valmsg *from;
-register char *to;
+char *to;
 {
 	register int count;
 	register int dlen;
@@ -197,7 +197,7 @@ register char *to;
 */
 
 TET_IMPORT int tet_bs2synmsg(from, fromlen, to, tolen)
-register char *from;
+char *from;
 register int fromlen;
 register struct valmsg **to;
 register int *tolen;

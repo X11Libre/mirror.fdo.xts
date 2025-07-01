@@ -159,7 +159,7 @@ register struct tftab *tp;
 char *tfname;
 {
 	register struct valmsg *rp;
-	register char *p;
+	char *p;
 	int len;
 	char tfpath[MAXPATH + 1];
 	extern char *Tet_savedir;

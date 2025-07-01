@@ -360,7 +360,7 @@ struct cflist *lp;
 {
 	FILE *fp;
 	char buf[MAXPATH * 2];
-	register char *p;
+	char *p;
 	int lcount = 0;
 
 	/* open the config file */
@@ -423,7 +423,7 @@ proccfline(const char *line, struct cflist *lp, int lineno, const char *fname)
 static void
 proccfl2(const char *line, register struct cflist *lp)
 {
-	register char **cp;
+	char **cp;
 
 	/* add a new value or update an existing one */
 	if ((cp = findcfg(line, lp)) == (char **) 0) {
@@ -453,7 +453,7 @@ proccfl2(const char *line, register struct cflist *lp)
 static void addvopts(lp)
 struct cflist *lp;
 {
-	register char **cp;
+	char **cp;
 
 	TRACE1(tet_Ttcc, 6, "addvopts()");
 
@@ -575,7 +575,7 @@ static int cfix2(mode)
 int mode;
 {
 	static char compatname[] = "TET_COMPAT";
-	register char *p;
+	char *p;
 
 	if ((p = getmcfg(compatname, mode)) != (char *) 0)
 		switch (*p) {
@@ -966,7 +966,7 @@ struct systab *sp;
 int mode;
 {
 	struct cflist *from, *to;
-	register char **cp;
+	char **cp;
 
 	TRACE2(tet_Ttcc, 3, "docfl2(): fix up the local %s configuration",
 		prcfmode(mode));
@@ -1067,7 +1067,7 @@ int mode;
 {
 	char fname[MAXPATH];
 	char *texec, *tsroot;
-	register char **cp;
+	char **cp;
 	struct cflist *from, *to;
 	static char fmt1[] = "can't access %s mode configuration file %.*s on system";
 	static char fmt2[] = "tet_tcxconfig() failed when performing %s mode configuration variable exchange with system";
@@ -1185,7 +1185,7 @@ int mode;
 	static char fmt[] = "bad value for boolean variable %s in %s configuration on system";
 	char msg[sizeof fmt + 40];
 	register const char *p1, *p2;
-	register char **cp;
+	char **cp;
 	register struct bvar *vp;
 
 	TRACE3(tet_Ttcc, 2, "checkbvar(): check the boolean variables in the %s configuration for system %s",
@@ -1360,7 +1360,7 @@ docffile(struct cflist *lp, const char *type)
 static int
 docff2(const char *fname, register struct cflist *lp, const char *type)
 {
-	register char **cp;
+	char **cp;
 	FILE *fp;
 
 	/* open the file */
@@ -2097,7 +2097,7 @@ is_mdist_var(const char *name)
 char *
 getmcfg(const char *name, int mode)
 {
-	register char **cp, *p;
+	char **cp, *p;
 
 	mode = tcc2cfmode(mode);
 	ASSERT(CONF_MODE_OK(mode, mcflist));
@@ -2126,7 +2126,7 @@ getmcfg(const char *name, int mode)
 char *
 getcfg(const char *name, int sysid, int mode)
 {
-	register char **cp, *p;
+	char **cp, *p;
 	register struct systab *sp;
 
 	ASSERT_LITE(sysid == 0);
@@ -2231,7 +2231,7 @@ putdcfg(const char *name, int sysid, const char *value)
 int
 getmcflag(const char *name, int mode)
 {
-	register char *p;
+	char *p;
 
 	if ((p = getmcfg(name, mode)) == (char *) 0)
 		return(0);
@@ -2253,7 +2253,7 @@ getmcflag(const char *name, int mode)
 int
 getcflag(const char *name, int sysid, int mode)
 {
-	register char *p;
+	char *p;
 
 	ASSERT_LITE(sysid == 0);
 
@@ -2277,7 +2277,7 @@ static char **
 findcfg(const char *name, register struct cflist *lp)
 {
 	register int len;
-	register char **cp, *p;
+	char **cp, *p;
 
 	/* make len equal to the number of bytes in the name */
 	if ((p = tet_equindex(name)) == (char *) 0)

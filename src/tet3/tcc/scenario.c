@@ -107,7 +107,7 @@ void
 procscen(const char *scenario, const char *sopt, const char *cwd)
 {
 	char fname[MAXPATH];
-	register char **csp;
+	char **csp;
 	FILE *fp;
 
 	/* fix up the scenario file name */

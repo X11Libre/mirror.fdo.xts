@@ -431,7 +431,7 @@ const void *ep1, *ep2;
 static void jp_trim(line)
 char *line;
 {
-	register char *p;
+	char *p;
 
 	for (p = line; *p; p++)
 		if (*p == '\r' || *p == '\n') {
@@ -574,7 +574,7 @@ struct proctab *prp;
 int jnlproc_split(line, fldp, buf)
 char *line, **fldp, buf[];
 {
-	register char *p1, *p2;
+	char *p1, *p2;
 	register int nflds = 0, new = 1;
 
 	for (p1 = line, p2 = buf; *p1 && p2 < &buf[LBUFLEN - 1]; p1++, p2++) {

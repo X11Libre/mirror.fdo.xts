@@ -53,7 +53,7 @@ MODIFICATIONS:
 */
 
 TET_IMPORT int tet_getargs(s, argv, maxargs)
-register char *s, **argv;
+char *s, **argv;
 register int maxargs;
 {
 	register int argc, new;

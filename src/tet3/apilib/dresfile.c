@@ -932,7 +932,7 @@ tet_merr_stderr(int errnum, const char **msgs, int nmsgs)
 static void
 tet_merr_stdchan(int errnum, const char **msgs, int nmsgs)
 {
-	register char **lp;
+	char **lp;
 	register const char **msgp;
 	register int n;
 	int errtmp, errors;
@@ -1037,7 +1037,7 @@ tet_merr_sc2(int errnum, const char *msg, char *outbuf)
 static void
 tet_merr_sc3(int errnum, const char *msg, char *outbuf)
 {
-	register char *p;
+	char *p;
 	char header[128];
 
 	/*
@@ -1123,7 +1123,7 @@ void
 tet_msgform(const char *header, const char *data, char *outbuf)
 {
 	register const char *p1;
-	register char *p2;
+	char *p2;
 	static const char fmt[] =
 		"warning: results file line truncated - prefix: %.*s";
 	char errmsg[128];

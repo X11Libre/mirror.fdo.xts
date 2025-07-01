@@ -71,7 +71,7 @@ char **tet_traceargs(ptype, argv)
 int ptype;
 char **argv;
 {
-	register char *p, **ap;
+	char *p, **ap;
 	register int argc, needlen, tfcount;
 	register long sys;
 	register struct tflags *tp;

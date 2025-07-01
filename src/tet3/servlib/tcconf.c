@@ -123,7 +123,7 @@ char **lines;
 
 static int tc_cs(sysid, request, lines, nline, mode)
 int sysid, request, mode;
-register char **lines;
+char **lines;
 register int nline;
 {
 	/* make sure that lines is non-zero and that nline is +ve */
@@ -166,7 +166,7 @@ register int nline;
 static int tc_cs2(sysid, request, lines, nline, mode, done)
 int sysid, request, mode, done;
 register int nline;
-register char **lines;
+char **lines;
 {
 	register struct avmsg *mp;
 	register int n;
@@ -234,7 +234,7 @@ int sysid, *nlines, *done;
 static char *tc_csr(sysid, request)
 int sysid, request;
 {
-	register char *dp;
+	char *dp;
 	extern char tet_tcerrmsg[];
 
 	/* send the request and receive the reply */

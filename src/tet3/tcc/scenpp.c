@@ -272,7 +272,7 @@ static void badusage()
 	int len, pos, n;
 	char *sep;
 	char msg[1024];
-	register char *p = msg;
+	char *p = msg;
 
 	sprintf(p, "\t%s", tet_progname);
 	len = strlen(p);

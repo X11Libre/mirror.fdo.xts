@@ -91,7 +91,7 @@ int
 tcf_procdir(const char *fromdir, const char *todir,
             char *sfiles[], int nsfile, int flag)
 {
-	register char **fip, **fromfiles;
+	char **fip, **fromfiles;
 	register int rc, rctmp;
 
 	TRACE3(Ttcclib, 8, "procdir(): fromdir = \"%s\", todir = \"%s\"",
@@ -206,7 +206,7 @@ copyfile(const char *fromfile, const char *todir, struct STAT_ST *stp, int flag)
 static int
 copydir(const char *fromdir, const char *todir, int flag)
 {
-	register char **fip, **fromfiles;
+	char **fip, **fromfiles;
 	register int rc, rctmp;
 	struct STAT_ST stbuf;
 	int len;
@@ -250,7 +250,7 @@ static int
 tsave(const char *fromfile, const char *todir, int flag)
 {
 #ifndef TET_LITE	/* -START-LITE-CUT- */
-	register char *p;
+	char *p;
 	char tofile[MAXPATH + 1];
 #endif /* !TET_LITE */	/* -END-LITE-CUT- */
 
@@ -298,7 +298,7 @@ tsave(const char *fromfile, const char *todir, int flag)
 static int
 tscopy(const char *fromfile, const char *todir)
 {
-	register char *p;
+	char *p;
 	register int ifd, rc;
 	int len;
 	char tofile[MAXPATH + 1];
@@ -403,7 +403,7 @@ static int
 pmatch(const char *str, const char *pattern)
 {
         register int schar;
-        register char c;
+        char c;
         int unresolved, lchar, notflag;
 
         schar = MASK(*str);

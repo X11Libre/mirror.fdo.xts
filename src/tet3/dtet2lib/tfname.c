@@ -88,7 +88,7 @@ char *
 tet_mktfname(const char *prefix)
 {
 	register const char **tdp;
-	register char *p;
+	char *p;
 	register int rc = TR_ERROR;
 	char *fname;
 
@@ -139,7 +139,7 @@ tet_mktfname(const char *prefix)
 static int
 tryone(const char *dir, const char *prefix, char **np)
 {
-	register char *fname, *pidstr;
+	char *fname, *pidstr;
 	register int fd, n, rc;
 	size_t needlen;
 	char buf[1024];

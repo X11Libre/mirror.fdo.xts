@@ -307,7 +307,7 @@ int tet_ss_tsafteraccept(pp)
 struct ptab *pp;
 {
 	register struct tptab *tp = (struct tptab *) pp->pt_tdata;
-	register char *p;
+	char *p;
 	register int pid;
 
 	/* log the connection */

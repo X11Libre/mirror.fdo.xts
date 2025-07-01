@@ -185,7 +185,7 @@ char *fname;
 	char **argv;
 	char buf[BUFSIZ];
 	struct restab rtmp;
-	register char *p, **ap;
+	char *p, **ap;
 	register int line;
 	int rc = 0;
 
@@ -284,7 +284,7 @@ static char **procline(s)
 char *s;
 {
 	static char *argv[NFLDS + 1];
-	register char *p, **ap;
+	char *p, **ap;
 	register int argc, new, quote;
 
 	/* strip comments and a trailing newline */
@@ -391,7 +391,7 @@ register int code;
 */
 
 static struct restab *getrtbyname(name)
-register char *name;
+char *name;
 {
 	register struct restab *rtp;
 

@@ -138,10 +138,10 @@ static int xconfig PROTOLIST((int));
 int tet_remexec(sysname, file, argv)
 int sysname;
 char *file;
-register char **argv;
+char **argv;
 {
 	register struct rtab *rp;
-	register char **ap;
+	char **ap;
 	register long pid;
 	register int needlen, rc;
 	TET_SIGSAFE_DEF
@@ -341,7 +341,7 @@ int sysid;
 static int getconf()
 {
 	register int n;
-	register char **ap;
+	char **ap;
 	static char *cfname[XD_NCFNAME];
 
 	/* get the config file names from XRESD */
@@ -418,7 +418,7 @@ int fid;
 char ***confp;
 int *lconfp, *nconfp;
 {
-	register char **p1, **p2;
+	char **p1, **p2;
 	register int n;
 	int nlines, eof;
 	char *cp[AV_NLINE];
@@ -469,11 +469,11 @@ int sysid;
 	char **tconf = (char **) 0;
 	int ltconf = 0, ntconf = 0;
 #endif
-	register char **p1, **p2;
+	char **p1, **p2;
 #if 0
 	char **p3;
 #endif
-	register char *s1, *s2 = "";
+	char *s1, *s2 = "";
 	register int n, rc;
 	char buf[MAXPATH + 48];
 	char *envs[2];
@@ -697,7 +697,7 @@ char **sconf;
 	int lrconf = 0, nrconf = 0;
 	int nlines, done;
 	register int n, err;
-	register char **p1, **p2;
+	char **p1, **p2;
 
 	/* send the config lines */
 	if (tet_tcsndconfv(sysid, sconf, nsconf) < 0) {

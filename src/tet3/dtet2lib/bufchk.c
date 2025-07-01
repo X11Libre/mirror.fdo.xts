@@ -57,10 +57,10 @@ MODIFICATIONS:
 */
 
 TET_IMPORT int tet_bufchk(bpp, lp, newlen)
-register char **bpp;
+char **bpp;
 register int *lp, newlen;
 {
-	register char *bp;
+	char *bp;
 
 #ifndef NOTRACE
 	/* the assert was done in buftrace.c */

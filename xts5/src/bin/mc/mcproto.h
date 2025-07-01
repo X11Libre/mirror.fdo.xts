@@ -77,7 +77,7 @@ void mcassertion(FILE *fp, char *buf);
 int assertfill(FILE *fp, char *buf, FILE *outfp, const char *prefix);
 int joinpunct(int  c);
 void mcstrategy(FILE *fp, char *buf);
-void mccode(FILE *fp, register char *buf);
+void mccode(FILE *fp, char *buf);
 void mcexterncode(FILE *fp, char *buf);
 void funcstart(void);
 void funcend(void);

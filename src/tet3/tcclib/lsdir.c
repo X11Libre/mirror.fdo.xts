@@ -76,7 +76,7 @@ char **tcf_lsdir(const char *dir)
 	register DIR *dirp;
 	register struct dirent *dp;
 	register int n, nfiles;
-	register char **fip;
+	char **fip;
 	char **files = (char **) 0;
 	int flen = 0;
 

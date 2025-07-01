@@ -52,10 +52,10 @@ MODIFICATIONS:
 int tet_mkoptarg(s, intopt, arg, first)
 char *s;
 int intopt;
-register char *arg;
+char *arg;
 int first;
 {
-	register char *p = s;
+	char *p = s;
 	char opt = (char) (intopt & 0377);
 
 	if (!first)

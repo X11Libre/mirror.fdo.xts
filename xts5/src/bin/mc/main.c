@@ -478,7 +478,7 @@ int 	sig;
 char *
 strinstr(char *s1, const char *s2)
 {
-register char	*cp;
+char	*cp;
 register int 	c;
 int 	len;
 

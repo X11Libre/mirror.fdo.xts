@@ -83,8 +83,8 @@ static void storetsinfo PROTOLIST((char *, struct ptab **, int));
 
 void tet_ts_tcminit()
 {
-	register char **ap;
-	register char *envstring, *p;
+	char **ap;
+	char *envstring, *p;
 	char **args;
 	register int nargs;
 	static char envname[] = "TET_TSARGS";
@@ -146,7 +146,7 @@ int ptype;
 {
 	register struct ptab	*pp;
 	register struct tptab	*tp;
-	register char	*addr;
+	char	*addr;
 	register struct netbuf	*np;
 
 	/* make addr point to the XTI address string */

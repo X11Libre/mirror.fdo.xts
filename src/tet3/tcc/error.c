@@ -133,7 +133,7 @@ void tcc_prperror(struct proctab *prp, int sysid, int errnum, const char *file,
 static void errfmt(int errnum, const char *file, int line, const char *s1,
                    const char *s2, const char *s3, char msg[])
 {
-	register char *p = msg;
+	char *p = msg;
 
 	/* generate the source file and line number */
 	sprintf(p, "(%s, %d): ", file, line);

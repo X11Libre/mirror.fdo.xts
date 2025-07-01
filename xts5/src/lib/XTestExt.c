@@ -329,7 +329,7 @@ XTestDiscard(dpy)
     Display *dpy;
 {
     Bool something;
-    register char *ptr;
+    char *ptr;
 
     LockDisplay(dpy);
     if (something = (dpy->bufptr != dpy->buffer)) {

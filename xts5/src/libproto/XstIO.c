@@ -171,7 +171,7 @@ long Xst_size;
 int
 Xst_Read (
     register    XstDisplay * dpy,
-    register char  *data,
+    char  *data,
     register long   size)
 {
     long   bytes_read = 0;

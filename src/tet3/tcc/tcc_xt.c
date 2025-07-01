@@ -106,7 +106,7 @@ static int ts_ss3 PROTOLIST((struct ptab *, char **, int));
 
 int	ts_tccinit()
 {
-	register char *p;
+	char *p;
 
 	/*
 	 * Initialise the transport provider name from the TET_XTI_TPI
@@ -153,7 +153,7 @@ struct ptab *pp;
 char **argv;
 {
 	register int rc;
-	register char **newargv;
+	char **newargv;
 	static char *tsargv[] = { "-P", (char *) 0, (char *) 0 };
 
 	/* make sure that we have a transport provider name */

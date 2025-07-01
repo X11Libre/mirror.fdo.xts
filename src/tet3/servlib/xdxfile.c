@@ -117,7 +117,7 @@ static long xd_tfopen(ofile, mode)
 char *ofile;
 int mode;
 {
-	register char *dp;
+	char *dp;
 	extern char tet_xderrmsg[];
 
 	/* get the xresd message buffer */

@@ -170,7 +170,7 @@ char *resroot;
 char *resdirsuffix()
 {
 	static char suffix[4];
-	register char *p;
+	char *p;
 
 	if (!suffix[0]) {
 		p = suffix;

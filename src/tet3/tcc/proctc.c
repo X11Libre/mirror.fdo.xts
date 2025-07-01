@@ -1191,7 +1191,7 @@ register struct proctab *prp;
 static int tcs1_save(prp)
 struct proctab *prp;
 {
-	register char *p;
+	char *p;
 	char *buf;
 	char **sfiles = (char **) 0;
 	int lsfiles = 0, nsfiles;

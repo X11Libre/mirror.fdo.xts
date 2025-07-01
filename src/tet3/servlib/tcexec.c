@@ -63,8 +63,8 @@ int sysid, flag;
 char *path, **argv, *outfile;
 long snid, xrid;
 {
-	register char *dp;
-	register char **ap;
+	char *dp;
+	char **ap;
 	register int n, nargs;
 	extern char tet_tcerrmsg[];
 

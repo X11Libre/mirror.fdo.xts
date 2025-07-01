@@ -69,7 +69,7 @@ char *env;
 
 int tet_tcputenvv(sysid, envp, nenv)
 int sysid;
-register char **envp;
+char **envp;
 register int nenv;
 {
 	register struct avmsg *mp;

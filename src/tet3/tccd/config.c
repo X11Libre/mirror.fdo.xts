@@ -183,7 +183,7 @@ register struct ptab *pp;
 void op_sndconf(pp)
 register struct ptab *pp;
 {
-	register char *p;
+	char *p;
 	register int rc;
 	register struct ctab *cp;
 	FILE *fp;
@@ -404,7 +404,7 @@ register struct ptab *pp;
 static int op_c2(mode)
 int mode;
 {
-	register char *fname;
+	char *fname;
 	register int rc;
 
 	/* get a tmp name for the config file */
@@ -503,7 +503,7 @@ struct ptab *pp;
 {
 	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	register int n, rc;
-	register char *s;
+	char *s;
 
 	/* see if there are any more messages to come */
 	switch ((int) AV_FLAG(mp)) {
@@ -537,7 +537,7 @@ static int procline(s)
 char *s;
 {
 	register struct ctab *cp;
-	register char *p1, *p2;
+	char *p1, *p2;
 	static char errmsg[] = "received bad format config variable:";
 
 	/* see if this is a REMnnn config name for this system; if it is,
@@ -642,7 +642,7 @@ struct ctab *cp;
 static struct ctab *ctfind(s)
 char *s;
 {
-	register char *p1, *p2;
+	char *p1, *p2;
 	register struct ctab *cp;
 
 	for (cp = ctab; cp; cp = cp->ct_next) {
@@ -699,7 +699,7 @@ static int ctupdate(cp, s)
 struct ctab *cp;
 char *s;
 {
-	register char *oldstring;
+	char *oldstring;
 
 	oldstring = cp->ct_string;
 

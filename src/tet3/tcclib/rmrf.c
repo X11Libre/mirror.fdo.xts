@@ -75,10 +75,10 @@ MODIFICATIONS:
 int tcf_rmrf(path)
 char *path;
 {
-	register char **files, **fip;
+	char **files, **fip;
 	char file[MAXPATH + 1];
 	struct STAT_ST stbuf;
-	register char *p;
+	char *p;
 	register int rc = 0;
 	int errsave;
 

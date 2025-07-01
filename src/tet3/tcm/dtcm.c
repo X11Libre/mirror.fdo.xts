@@ -931,7 +931,7 @@ char *icspec;
 int icmin, icmax;
 {
 	char buf[(LNUMSZ * 2) + 2];
-	register char *p;
+	char *p;
 
 	TRACE2(tet_Ttcm, 8, "build_icl2(): icspec = \"%s\"", icspec);
 
@@ -1082,10 +1082,10 @@ static struct iclist *iclalloc()
 */
 
 static int split(s, argv, maxargs, delim)
-register char *s, **argv;
+char *s, **argv;
 register int maxargs, delim;
 {
-	register char **ap = argv;
+	char **ap = argv;
 
 	if (!*s || maxargs <= 0)
 		return(0);

@@ -160,7 +160,7 @@ static int op_xr2(pp, xp)
 register struct ptab *pp;
 register struct xtab *xp;
 {
-	register char *dp = pp->ptm_data;
+	char *dp = pp->ptm_data;
 	static char msg[] = "can't open";
 
 #define mp	((struct avmsg *) dp)
@@ -824,7 +824,7 @@ register int code;
 {
 	time_t now;
 	register struct tm *tp;
-	register char *text;
+	char *text;
 	char buf[64];
 
 	/* format the variable part of the message */
@@ -896,7 +896,7 @@ static int xrwrite(xp, mp)
 register struct xtab *xp;
 register struct avmsg *mp;
 {
-	register char *s;
+	char *s;
 	register int n;
 
 	/* write out the lines to the tmp file */

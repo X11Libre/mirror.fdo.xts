@@ -56,7 +56,7 @@ MODIFICATIONS:
 long tet_xdxropen(xfname)
 char *xfname;
 {
-	register char *dp;
+	char *dp;
 	extern char tet_xderrmsg[];
 
 	/* make sure that xfname is non-null */

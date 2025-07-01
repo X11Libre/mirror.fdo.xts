@@ -208,8 +208,8 @@ int XstConnectDisplay (display_name, expanded_name, screen_num,
     Display **xlib_dpy;		/* return */
 {
 	char displaybuf[256];		/* Display string buffer */	
-	register char *display_ptr;	/* Display string buffer pointer */
-	register char *numbuf_ptr;	/* Server number buffer pointer */
+	char *display_ptr;	/* Display string buffer pointer */
+	char *numbuf_ptr;	/* Server number buffer pointer */
 	char *screen_ptr;		/* Pointer for locating screen num */
 	int display_num;		/* Display number */
 	struct sockaddr_in inaddr;	/* INET socket address. */

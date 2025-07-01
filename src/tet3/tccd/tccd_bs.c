@@ -208,7 +208,7 @@ struct ptab *pp;
 char **bp;
 int *lp, offs;
 {
-	register char *mp = pp->ptm_data;
+	char *mp = pp->ptm_data;
 	register int request = pp->ptm_req;
 	register int len, rc;
 
@@ -272,7 +272,7 @@ struct ptab *pp;
 char **bp;
 int *lp, offs;
 {
-	register char *mp = pp->ptm_data;
+	char *mp = pp->ptm_data;
 	register int request = pp->ptm_req;
 	register int len, rc;
 

@@ -275,10 +275,10 @@ Pixmap XmuLocatePixmapFile (screen, name, fore, back, depth,
  * parts; to release, free list[0] and list.
  */
 static char **split_path_string (src)
-    register char *src;
+    char *src;
 {
     int nelems = 1;
-    register char *dst;
+    char *dst;
     char **elemlist, **elem;
 
     /* count the number of elements */

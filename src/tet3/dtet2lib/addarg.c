@@ -51,9 +51,9 @@ MODIFICATIONS:
 */
 
 char **tet_addargv(argv1, argv2)
-register char **argv1, **argv2;
+char **argv1, **argv2;
 {
-	register char **ap;
+	char **ap;
 	register int newargc;
 	char **newargv;
 	int nalen;

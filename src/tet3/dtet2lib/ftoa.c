@@ -70,7 +70,7 @@ struct flags flags[];
 	char **bpp;
 	int *blp;
 	register struct flags *fp;
-	register char *p1;
+	char *p1;
 	register const char *p2;
 	register unsigned ftmp;
 	register int n, needlen;

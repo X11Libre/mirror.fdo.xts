@@ -154,11 +154,11 @@ static int op_e3(pp, ep)
 struct ptab *pp;
 struct etab *ep;
 {
-	register char *dp = pp->ptm_data;
+	char *dp = pp->ptm_data;
 	register int rc;
 	char *path;
 	int flag, pid;
-	register char *p;
+	char *p;
 	char *dir, *tet_execute;
 	int done;
 

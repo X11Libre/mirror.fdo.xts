@@ -108,7 +108,7 @@ int flag, *pidp;
 	register int fd, n;
 
 #ifndef NOTRACE
-	register char **ap;
+	char **ap;
 #endif /* !NOTRACE */
 
 	/* see if an exec has any chance of succeeding */
@@ -215,8 +215,8 @@ int flag, *pidp;
 static int checkexec(file)
 char *file;
 {
-	register char *p1, *p2;
-	register char *path;
+	char *p1, *p2;
+	char *path;
 	char fname[MAXPATH];
 
 	/* see if there is a / in the file name */

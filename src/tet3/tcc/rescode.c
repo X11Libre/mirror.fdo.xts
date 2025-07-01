@@ -171,7 +171,7 @@ static void rescode_distribute()
 	char line[LBUFLEN];
 	char **lines = (char **) 0;
 	int llines = 0, nlines = 0;
-	register char *p, **lp;
+	char *p, **lp;
 	register struct systab *sp;
 	int rc = 0;
 

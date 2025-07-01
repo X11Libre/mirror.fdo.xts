@@ -91,8 +91,8 @@ static void storetsinfo PROTOLIST((char *, struct ptab **, int));
 
 void tet_ts_tcminit()
 {
-	register char **ap;
-	register char *envstring, *p;
+	char **ap;
+	char *envstring, *p;
 	char **args;
 	register int nargs;
 	static char envname[] = "TET_TSARGS";
@@ -148,7 +148,7 @@ int ptype;
 {
 	register struct ptab *pp;
 	register struct tptab *tp;
-	register char *addr, *port;
+	char *addr, *port;
 
 	/* make addr point to the INET address string
 		and port to the port string */

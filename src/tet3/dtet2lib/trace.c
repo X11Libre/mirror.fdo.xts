@@ -150,7 +150,7 @@ static int tflagset PROTOLIST((char *, int));
 
 TET_IMPORT void tet_traceinit(argc, argv)
 register int argc;
-register char **argv;
+char **argv;
 {
 	register struct tflags *tp;
 	register int value;
@@ -237,7 +237,7 @@ int value;
 {
 	register struct tflags *tp;
 	register struct stype *sp;
-	register char *p;
+	char *p;
 	register int all, rc;
 	register long sys;
 	char buf[2];
@@ -370,7 +370,7 @@ TET_IMPORT void tet_trace(const char *s1, const char *s2, const char *s3,
 
 void tet_tfopen(void)
 {
-	register char *p;
+	char *p;
 	register int fd;
 
 	if (tet_tfp)

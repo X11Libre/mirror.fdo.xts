@@ -51,11 +51,11 @@ MODIFICATIONS:
 
 int tet_fgetargs(fp, argv, maxargs)
 FILE *fp;
-register char **argv;
+char **argv;
 register int maxargs;
 {
 	static char buf[BUFSIZ];
-	register char *p;
+	char *p;
 	register int argc;
 
 	do {

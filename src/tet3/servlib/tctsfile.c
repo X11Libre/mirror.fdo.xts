@@ -96,7 +96,7 @@ char **files, *subdir;
 
 static int tc_tsfiles(sysid, files, nfile, subdir, savedir, flag)
 int sysid, flag;
-register char **files, *subdir, *savedir;
+char **files, *subdir, *savedir;
 register int nfile;
 {
 	register struct avmsg *mp;

@@ -84,10 +84,10 @@ static void stinit()
 
 TET_IMPORT int tet_avmsg2bs(from, to)
 register struct avmsg *from;
-register char *to;
+char *to;
 {
 	register int n;
-	register char *p, *sp;
+	char *p, *sp;
 	unsigned short offset;
 
 	if (fixed < 0)
@@ -129,7 +129,7 @@ register char *to;
 */
 
 TET_IMPORT int tet_bs2avmsg(from, fromlen, to, tolen)
-register char *from;
+char *from;
 register int fromlen;
 register struct avmsg **to;
 register int *tolen;
@@ -170,8 +170,8 @@ register int *tolen;
 */
 
 static int bs2avmargv(from, to, nargv, len)
-register char *from;
-register char **to;
+char *from;
+char **to;
 register int nargv, len;
 {
 	register int n;

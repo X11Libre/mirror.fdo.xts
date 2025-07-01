@@ -64,7 +64,7 @@ int tet_si_main(argc, argv, needtetroot)
 int argc, needtetroot;
 char **argv;
 {
-	register char *p;
+	char *p;
 	register int rc;
 	char buf[30];
 

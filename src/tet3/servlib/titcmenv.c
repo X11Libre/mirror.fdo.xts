@@ -69,7 +69,7 @@ int psysid;
 long snid, xrid;
 register int *sname, nsname;
 {
-	register char *p1, *p2;
+	char *p1, *p2;
 	register int n, needlen;
 	char sysidstr[LNUMSZ], psysidstr[LNUMSZ];
 	char snidstr[LNUMSZ], xridstr[LNUMSZ];
@@ -77,7 +77,7 @@ register int *sname, nsname;
 	static char *argbuf, *laststring;
 	static int ablen;
 #ifndef NOTRACE
-	register char **ap, **targv;
+	char **ap, **targv;
 	int tcmptype;
 #endif
 

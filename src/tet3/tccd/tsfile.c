@@ -198,7 +198,7 @@ void op_tsfiles(pp)
 struct ptab *pp;
 {
 	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
-	register char *todir;
+	char *todir;
 	register int flag;
 	int len;
 	char dir[MAXPATH];

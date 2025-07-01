@@ -101,7 +101,7 @@ static void stinit()
 
 TET_IMPORT int tet_tsinfo2bs(from, to)
 register struct tsinfo *from;
-register char *to;
+char *to;
 {
 	if (nst < 0)
 		stinit();
@@ -114,7 +114,7 @@ register char *to;
 */
 
 int tet_bs2tsinfo(from, fromlen, to, tolen)
-register char *from;
+char *from;
 register int fromlen;
 register struct tsinfo **to;
 register int *tolen;

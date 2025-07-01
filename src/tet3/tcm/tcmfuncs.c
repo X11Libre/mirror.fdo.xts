@@ -124,12 +124,12 @@ void tet_tcminit(argc, argv)
 int argc;
 char **argv;
 {
-	register char *envstring, *p;
+	char *envstring, *p;
 	char **args;
 	int nargs;
 #ifndef TET_LITE /* -START-LITE-CUT- */
 	char errmsg[128];
-	register char **ap;
+	char **ap;
 	register int *ip;
 	struct synreq *synreq, *sp;
 	int count;
@@ -366,7 +366,7 @@ void tet_dtcmerror(int errnum, const char *file, int line,
                    register const char *s2)
 {
 	char msg[MAXPATH + 128];
-	register char *p = msg;
+	char *p = msg;
 	static int inprogress = 0;
 	int combined_save = 0;
 

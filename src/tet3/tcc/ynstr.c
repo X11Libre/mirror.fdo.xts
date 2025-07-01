@@ -73,7 +73,7 @@ void yesstr(s, flag)
 char *s;
 int flag;
 {
-	register char ***spp;
+	char ***spp;
 	register int *nspp;
 
 	/* determine which list to use */
@@ -103,7 +103,7 @@ void nostr(s, flag)
 char *s;
 int flag;
 {
-	register char ***spp;
+	char ***spp;
 	register int *nspp;
 
 	/* determine which list to use */
@@ -147,8 +147,8 @@ int okstr(s, flag)
 char *s;
 int flag;
 {
-	register char **sp;
-	register char **yeslist, **nolist;
+	char **sp;
+	char **yeslist, **nolist;
 	register int Nyeslist, Nnolist;
 
 	/* determine which lists to use */
@@ -210,7 +210,7 @@ int flag;
 static int instring(s1, s2)
 char *s1, *s2;
 {
-	register char *p1, *p2, *p3;
+	char *p1, *p2, *p3;
 
 	for (p1 = s1; *p1; p1++) {
 		for (p2 = s2, p3 = p1; *p2 && *p3; p2++, p3++)
@@ -232,7 +232,7 @@ char *s1, *s2;
 
 static char *findstr(s, sp, nsp)
 char *s;
-register char **sp;
+char **sp;
 register int nsp;
 {
 	while (--nsp >= 0)

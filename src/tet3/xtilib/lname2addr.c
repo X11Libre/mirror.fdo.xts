@@ -63,7 +63,7 @@ char *ln;
 	static struct netbuf ret;
 	static char   addr[MAX_ADDRL];
 
-	register char *p=addr;
+	char *p=addr;
 
 	char c;
 	unsigned int len;

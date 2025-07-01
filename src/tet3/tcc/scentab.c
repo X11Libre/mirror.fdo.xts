@@ -114,7 +114,7 @@ struct scentab *ep;
 static void scfreedata(ep)
 struct scentab *ep;
 {
-	register char **vp;
+	char **vp;
 
 	TRACE2(TET_MAX(tet_Tscen, tet_Tbuf), 6, "free data in scentab ref %s",
 		tet_l2a(ep->sc_ref));

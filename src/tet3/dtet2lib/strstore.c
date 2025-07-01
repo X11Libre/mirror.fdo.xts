@@ -64,7 +64,7 @@ TET_IMPORT char *
 tet_strstore(const char *s)
 {
 	size_t len;
-	register char *p;
+	char *p;
 
 	len = strlen(s) + 1;
 

@@ -65,8 +65,8 @@ struct proctab *prp;
 char name[];
 int namelen;
 {
-	register char *tcname = prp->pr_scen->sc_tcname;
-	register char *tsroot;
+	char *tcname = prp->pr_scen->sc_tcname;
+	char *tsroot;
 
 	ASSERT(prp->pr_nsys == 1);
 
@@ -89,7 +89,7 @@ void
 tcexecname(struct proctab *prp, const char *altexecdir,
            char name[], int namelen)
 {
-	register char *tcname = prp->pr_scen->sc_tcname;
+	char *tcname = prp->pr_scen->sc_tcname;
 
 	while (isdirsep(*tcname))
 		tcname++;

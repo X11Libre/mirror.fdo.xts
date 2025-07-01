@@ -191,7 +191,7 @@ struct ptab *pp;
 char **argv;
 {
 	register int rc;
-	register char **avp;
+	char **avp;
 
 #ifndef NOTRACE
 	/* add trace flags to the argv list */
@@ -264,7 +264,7 @@ static int tccdlogon()
 
 static int env2sys0()
 {
-	register char **ep;
+	char **ep;
 	int bad_environ, rc;
 	char **envp;
 	int lenv, nenv;

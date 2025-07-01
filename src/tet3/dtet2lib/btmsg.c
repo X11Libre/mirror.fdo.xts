@@ -70,7 +70,7 @@ static void stinit()
 
 int tet_btmsg2bs(from, to)
 register struct btmsg *from;
-register char *to;
+char *to;
 {
 	if (nst < 0)
 		stinit();
@@ -83,7 +83,7 @@ register char *to;
 */
 
 int tet_bs2btmsg(from, fromlen, to, tolen)
-register char *from;
+char *from;
 register int fromlen;
 register struct btmsg **to;
 register int *tolen;

@@ -51,8 +51,8 @@ char *dp;
 int n;
 FILE *fp;
 {
-	register char *start, *end;
-	register char *p1, *p2;
+	char *start, *end;
+	char *p1, *p2;
 
 	end = dp + n;	/* end is first location not to dump */
 

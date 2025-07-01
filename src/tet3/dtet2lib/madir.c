@@ -92,7 +92,7 @@ char *path;
 static int mkad2(path)
 char *path;
 {
-	register char *p;
+	char *p;
 	register int rc;
 	struct STAT_ST stbuf;
 	int errsave;

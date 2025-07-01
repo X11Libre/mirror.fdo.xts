@@ -93,7 +93,7 @@ void op_putenv(pp)
 struct ptab *pp;
 {
 	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
-	register char *p1, *p2;
+	char *p1, *p2;
 	register int n;
 	char buf[128];
 

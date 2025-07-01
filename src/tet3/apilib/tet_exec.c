@@ -167,7 +167,7 @@ int tet_exec_prep(file, argv, envp, nargvp, nenvpp)
 char *file, *argv[], *envp[], ***nargvp, ***nenvpp;
 {
 	char *cp;
-	register char **ep;
+	char **ep;
 	register struct envlist *elp;
 	int cnt, addcnt, n;
 

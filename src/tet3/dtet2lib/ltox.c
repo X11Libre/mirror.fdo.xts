@@ -53,8 +53,8 @@ long n;
 {
 	static char buf[NLBUF][LXNUMSZ];
 	static int count;
-	register char *p;
-	register char c;
+	char *p;
+	char c;
 	register unsigned long u;
 
 	if (++count >= NLBUF)

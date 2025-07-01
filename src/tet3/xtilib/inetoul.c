@@ -53,7 +53,7 @@ MODIFICATIONS:
 #define	N_PARTS	4
 
 unsigned long tet_inetoul(cp)
-register char *cp;
+char *cp;
 {
 #ifdef TCPTPI
 	unsigned long ip=0, base, part;

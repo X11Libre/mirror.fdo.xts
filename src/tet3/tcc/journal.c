@@ -258,7 +258,7 @@ char *jnl_tfname(const char *dir, const char *prefix)
 	static char fmt[] = "%.*s/%.3s%05.5d.%.3s";
 	static char salt[] = "AAA";
 	static char fname[MAXPATH];
-	register char *p;
+	char *p;
 	register int try, trymax = (sizeof salt - 1) * 26;
 	int fd;
 
@@ -300,9 +300,9 @@ char **argv;
 	struct passwd *pw;
 	uid_t uid;
 	const char *user;
-	register char *p1;
-	register char *p2 = s2;
-	register char *p3;
+	char *p1;
+	char *p2 = s2;
+	char *p3;
 	int sp;
 
 	/* generate the first part */
@@ -409,7 +409,7 @@ register struct proctab *prp;
 	static int s2len;
 	static char s2p1fmt[] = "TC Start, %s";
 	static char s2p2fmt[] = ", ICs: {%s}";
-	register char *p;
+	char *p;
 	register int needlen;
 
 	sprintf(s1, "%d %.*s %s", prp->pr_activity,
@@ -780,7 +780,7 @@ char *s2;
 	static int s1len;
 	register int len, needlen;
 	register int *ip;
-	register char *p;
+	char *p;
 	register struct scentab *ep = prp->pr_scen;
 
 	needlen = 1;
@@ -813,7 +813,7 @@ struct proctab *prp;
 	static char fmt[] = "Variable Start, %s";
 	char s2[sizeof fmt + REFSZ];
 	register struct scentab *ep = prp->pr_scen;
-	register char **vp;
+	char **vp;
 
 	sprintf(s2, fmt, jnl_scenref(prp));
 	jnl_write(TET_JNL_VAR_START, (char *) 0, s2,

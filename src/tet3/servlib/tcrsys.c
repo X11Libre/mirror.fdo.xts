@@ -60,7 +60,7 @@ MODIFICATIONS:
 int tet_tcrsys(sysid, request)
 int sysid, request;
 {
-	register char *dp;
+	char *dp;
 	extern char tet_tcerrmsg[];
 
 	/* send the request and receive the reply */

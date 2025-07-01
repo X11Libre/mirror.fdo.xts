@@ -62,7 +62,7 @@ int tet_tcfopen(sysid, file)
 int sysid;
 char *file;
 {
-	register char *dp;
+	char *dp;
 
 	/* make sure that file is non-null */
 	if (!file || !*file) {
@@ -143,7 +143,7 @@ char *line;
 int tet_tcputsv(sysid, fid, lines, nline)
 int sysid, fid;
 register int nline;
-register char **lines;
+char **lines;
 {
 
 	register struct avmsg *mp;
@@ -180,7 +180,7 @@ register char **lines;
 static char *tc_fio(sysid, request)
 int sysid, request;
 {
-	register char *dp;
+	char *dp;
 	extern char tet_tcerrmsg[];
 
 	/* send the request and receive the reply */

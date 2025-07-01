@@ -61,8 +61,8 @@ char *s;
 
 	static char **env;
 	static int envlen;
-	register char *p1, *p2;
-	register char **ep1, **ep2;
+	char *p1, *p2;
+	char **ep1, **ep2;
 	extern char **environ;
 
 	/* see if the 'name' part is already in the environment

@@ -716,7 +716,7 @@ int
 assertfill(FILE *fp, char *buf, FILE *outfp, const char *prefix)
 {
 register int 	assertpos;
-register char	*tok;
+char	*tok;
 int 	oldpos;
 int 	inmacro;	/* inmacro is set to the 'depth' of the macro */
 int 	needscrunch;
@@ -851,7 +851,7 @@ char	*buf;
 void
 mccode(fp, buf)
 FILE	*fp;
-register char	*buf;
+char	*buf;
 {
 int 	indecs = 1;
 
@@ -994,8 +994,8 @@ doxcall(
     char	*buf)
 {
 char	prefix[PRELEN];
-register char	*pp;
-register char	*cp;
+char	*pp;
+char	*cp;
 register int 	i;
 int 	insertstat = 0;
 int 	insertval = 0;

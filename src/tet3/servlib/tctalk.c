@@ -435,7 +435,7 @@ int sysid;
 static int tc_traceargs(pp)
 struct ptab *pp;
 {
-	register char **avp, **argv;
+	char **avp, **argv;
 	register int argc;
 	register struct avmsg *ap;
 

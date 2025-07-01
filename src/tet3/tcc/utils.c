@@ -113,7 +113,7 @@ void rbuftrace(char **bpp, int *lp, int newlen, const char *file, int line)
 */
 
 int split(s, argv, maxargs, delim)
-register char *s, **argv;
+char *s, **argv;
 register int maxargs, delim;
 {
 	register int argc, new;
@@ -205,7 +205,7 @@ tcc_dirname(const char *path, char dir[], int dirlen)
 
 void fullpath(const char *dir, const char *file, char path[], int pathlen, int remote)
 {
-	register char *p = path;
+	char *p = path;
 	register int len;
 
 #ifndef NOTRACE

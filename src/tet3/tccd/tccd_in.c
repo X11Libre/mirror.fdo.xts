@@ -316,7 +316,7 @@ struct ptab *pp;
 {
 	register struct tptab *tp = (struct tptab *) pp->pt_tdata;
 	register struct hostent *hp;
-	register char *p;
+	char *p;
 
 #ifndef INETD
 	register int pid;

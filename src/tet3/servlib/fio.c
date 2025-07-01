@@ -104,7 +104,7 @@ struct ptab *pp;
 {
 	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	register struct ftab *ftp;
-	register char *p;
+	char *p;
 
 	/* do some sanity checks on the request */
 	if (mp->av_argc != OP_FOPEN_ARGC ||
@@ -149,7 +149,7 @@ static int op_fo2(pp, ftp)
 struct ptab *pp;
 register struct ftab *ftp;
 {
-	register char *dp = pp->ptm_data;
+	char *dp = pp->ptm_data;
 
 #define mp	((struct avmsg *) dp)
 
@@ -213,9 +213,9 @@ register struct ptab *pp;
 void tet_op_gets(pp)
 struct ptab *pp;
 {
-	register char *dp = pp->ptm_data;
+	char *dp = pp->ptm_data;
 	register struct ftab *ftp;
-	register char *p;
+	char *p;
 	register int n, nlines;
 	char buf[BUFSIZ];
 
@@ -435,7 +435,7 @@ static void ftlfree(ftp)
 register struct ftab *ftp;
 {
 	register int n;
-	register char *p;
+	char *p;
 
 	for (n = 0; n < AV_NLINE; n++)
 		if ((p = ftp->ft_line[n]) != (char *) 0) {

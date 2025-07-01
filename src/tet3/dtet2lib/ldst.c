@@ -73,7 +73,7 @@ char *from, *to;
 register struct stdesc *st;
 register int nst, len;
 {
-	register char *fp, *tp;
+	char *fp, *tp;
 	register int n, count;
 
 	for (count = 0; nst > 0 && count < len; nst--, st++) {
@@ -119,7 +119,7 @@ char *from, *to;
 register struct stdesc *st;
 register int nst;
 {
-	register char *fp, *tp;
+	char *fp, *tp;
 	register int n, count;
 
 	for (count = 0; nst > 0; nst--, st++) {
@@ -154,8 +154,8 @@ register int nst;
 */
 
 static int bs2char(from, to, n)
-register char *from;
-register char *to;
+char *from;
+char *to;
 register int n;
 {
 	register int count = n;
@@ -167,7 +167,7 @@ register int n;
 }
 
 static int bs2short(from, to, n)
-register char *from;
+char *from;
 register short *to;
 register int n;
 {
@@ -182,7 +182,7 @@ register int n;
 }
 
 static int bs2ushort(from, to, n)
-register char *from;
+char *from;
 register unsigned short *to;
 register int n;
 {
@@ -197,7 +197,7 @@ register int n;
 }
 
 static int bs2long(from, to, n)
-register char *from;
+char *from;
 register long *to;
 register int n;
 {
@@ -219,7 +219,7 @@ register int n;
 */
 
 static int char2bs(from, to, n)
-register char *from, *to;
+char *from, *to;
 register int n;
 {
 	register int count = n;
@@ -232,7 +232,7 @@ register int n;
 
 static int short2bs(from, to, n)
 register short *from;
-register char *to;
+char *to;
 register int n;
 {
 	register int count = n * SHORTSIZE;
@@ -248,7 +248,7 @@ register int n;
 
 static int long2bs(from, to, n)
 register long *from;
-register char *to;
+char *to;
 register int n;
 {
 	register int count = n * LONGSIZE;

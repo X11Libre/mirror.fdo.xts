@@ -163,7 +163,7 @@ char *firstarg, *nextarg;
 {
 	register int rc = 0;
 	register int mask;
-	register char *p;
+	char *p;
 
 	switch (*(firstarg + 1)) {
 	case 'u':
@@ -226,7 +226,7 @@ void tet_ss_initdaemon()
 	register struct passwd *pw;
 	uid_t euid;
 	gid_t egid;
-	register char *p;
+	char *p;
 	static char home[] = "HOME";
 	static char path[] = "PATH";
 	char buf[sizeof home + MAXPATH + 1];

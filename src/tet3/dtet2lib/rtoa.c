@@ -65,7 +65,7 @@ struct remid *rp;
 	static char fmt[] = "(sysid = %d, pid = %ld: %.20s)";
 	static char buf[NLBUF][RBUFSZ];
 	static int count;
-	register char *p;
+	char *p;
 
 	if (++count >= NLBUF)
 		count = 0;

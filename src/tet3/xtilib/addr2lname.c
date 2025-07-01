@@ -58,8 +58,8 @@ char *tet_addr2lname(np)
 struct netbuf *np;
 {
 	static char buf[MAX_ADDRL*2+1];
-	register char *p=buf;
-	register char *q=np->buf;
+	char *p=buf;
+	char *q=np->buf;
 
 	unsigned int len = np->len;
 

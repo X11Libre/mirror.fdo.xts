@@ -102,7 +102,7 @@ register struct proctab *prp;
 char *tcname;
 int tcnamelen;
 {
-	register char *p;
+	char *p;
 	const char *toolvar, *filevar, *edir;
 	int pass_tcname, pass_iclist;
 	char **argv = (char **) 0;
@@ -274,12 +274,12 @@ int tcnamelen;
 */
 
 static void tooladdargv(avp, alp, anp, s, splitflds)
-register char ***avp;
+char ***avp;
 int *alp, splitflds;
 register int *anp;
 char *s;
 {
-	register char *p, **ap;
+	char *p, **ap;
 	char buf[MAXPATH * 2];
 	int nflds;
 
@@ -321,7 +321,7 @@ char *s;
 void toolpfree(argv)
 char **argv;
 {
-	register char **ap;
+	char **ap;
 
 	for (ap = argv; *ap; ap++) {
 		TRACE2(tet_Tbuf, 6, "toolpfree(): free *argv = %s",
@@ -732,7 +732,7 @@ char *ocfname;
 {
 	char buf[LBUFLEN];
 	FILE *fp;
-	register char *p;
+	char *p;
 
 	TRACE4(tet_Ttcc, 6, "ocf2jnl2(%s): transfer captured output from %s to journal file %s",
 		tet_i2x(prp), ocfname, prp->pr_jfname);

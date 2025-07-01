@@ -77,7 +77,7 @@ char *line;
 
 int tet_xdxresv(xrid, lines, nlines)
 long xrid;
-register char **lines;
+char **lines;
 int nlines;
 {
 	register struct avmsg *mp;

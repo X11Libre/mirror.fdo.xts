@@ -78,7 +78,7 @@ struct cflist *mlp, *vlp, *rlp;
 {
 	struct cflist *slp;
 	register int rc;
-	register char **cp;
+	char **cp;
 
 	/* send the config file name to TCCD */
 	if (tet_tccfname(sysid, fname) < 0) {
@@ -144,8 +144,8 @@ register struct cflist *mlp, *vlp;
 {
 	static char fmt[] = "TET_REM%03d_%.*s";
 	char buf[MAXPATH * 2];
-	register char **cp1, **cp2;
-	register char *p;
+	char **cp1, **cp2;
+	char *p;
 
 	/* allocate storage for the list of config lines to send */
 	scfg.cf_nconf = mlp->cf_nconf + vlp->cf_nconf;
@@ -209,7 +209,7 @@ struct cflist *slp, *rlp;
 {
 	int nlines, done;
 	register int n;
-	register char **cp1, **cp2;
+	char **cp1, **cp2;
 
 	/* send the config lines */
 	if (tet_tcsndconfv(sysid, slp->cf_conf, slp->cf_nconf) < 0) {

@@ -61,7 +61,7 @@ static char *xd_fio PROTOLIST((int));
 int tet_xdfopen(file)
 char *file;
 {
-	register char *dp;
+	char *dp;
 
 	/* make sure that file is non-null */
 	if (!file || !*file) {
@@ -128,7 +128,7 @@ int fid;
 char *tet_xdgets(fid)
 int fid;
 {
-	register char **rp;
+	char **rp;
 	int nline = 1;
 
 	if ((rp = tet_xdgetsv(fid, &nline, (int *) 0)) == (char **) 0 ||
@@ -160,7 +160,7 @@ char **tet_xdgetsv(fid, nlines, eof)
 int fid, *eof;
 register int *nlines;
 {
-	register char *dp;
+	char *dp;
 
 	/* make sure that nlines is non-zero and that *nlines is +ve */
 	if (!nlines || *nlines <= 0) {
@@ -207,7 +207,7 @@ register int *nlines;
 static char *xd_fio(request)
 int request;
 {
-	register char *dp;
+	char *dp;
 	extern char tet_xderrmsg[];
 
 	/* send the request and receive the reply */

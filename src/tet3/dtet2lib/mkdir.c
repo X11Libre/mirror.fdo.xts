@@ -84,7 +84,7 @@ int mode;
 
 #ifdef NOMKDIR
 
-	register char *p;
+	char *p;
 	register int n;
 	struct stat stbuf;
 	char dir[MAXPATH + 1];
@@ -143,7 +143,7 @@ char *path;
 
 #ifdef NOMKDIR
 
-	register char *p;
+	char *p;
 	register int n;
 	struct stat stbuf;
 	char dir[MAXPATH + 1];

@@ -275,7 +275,7 @@ static int find1scen()
 static int proc1scen()
 {
 	char *line, *next;
-	register char *p;
+	char *p;
 	register struct scentab *ep;
 
 	/* read the scenario name - starts in column 1 */
@@ -359,7 +359,7 @@ char *line;
 static int
 proc1scline(char *line, const char *fname, int lineno)
 {
-	register char *p;
+	char *p;
 	int type, flags;
 	char *next;
 	char delim;
@@ -449,7 +449,7 @@ static void
 proc1scelem(char *element, int type, int flags, int lineno, const char *fname)
 {
 	register struct scentab *ep;
-	register char *p;
+	char *p;
 	char *iclist, *tcname;
         char *sceninfo;
 	int lsceninfo;
@@ -520,13 +520,13 @@ proc1dgrp(char *dgroup, char *next, const char *fname, int lineno)
 	char **dirp;
 	char *args[MAXARGS];
 	int nargs;
-	register char **ap;
+	char **ap;
 	register struct scentab *ep;
 	register struct dirtab *dp;
 	char **vp;
 	char *line;
 	int istart, iend, ok, rc;
-	register char *p1, *p2;
+	char *p1, *p2;
 	struct scentab *scstack = (struct scentab *) 0;
 #ifndef TET_LITE	/* -START-LITE-CUT- */
 	int *ip, nsys, syslen;
@@ -935,7 +935,7 @@ includefile(char *nextfile, const char *currfile, int currline)
 	int lineno = 0;
 	char *args[1];
 	int nargs;
-	register char *p, *bp;
+	char *p, *bp;
 	char delim;
 
 	TRACE2(tet_Tscen, 4, "includefile(): file = <%s>", nextfile);
@@ -1044,7 +1044,7 @@ includefile(char *nextfile, const char *currfile, int currline)
 */
 
 static int iszorpnum(s)
-register char *s;
+char *s;
 {
 	if (!*s)
 		return(0);
@@ -1069,7 +1069,7 @@ static int isnumrange(s, startp, endp)
 char *s;
 int *startp, *endp;
 {
-	register char *p;
+	char *p;
 	register int rc;
 
 	for (p = s; *p; p++)
@@ -1179,7 +1179,7 @@ static char *getline_tcc()
 {
 	static char buf[LBUFLEN];
 	struct lcache *lcp;
-	register char *p;
+	char *p;
 
 	/*
 	** pop a line off the stack for the current input file

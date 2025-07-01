@@ -1492,7 +1492,7 @@ XtWidgetGeometry *request, *reply;
     XtGeometryMask mask = request->request_mode;
     Dimension old_size, old_wpsize, old_paned_size;
     Pane pane = PaneInfo(w);
-    register Boolean vert = IsVert(pw);
+    Boolean vert = IsVert(pw);
     Dimension on_size, off_size;
     XtGeometryResult result;
     Boolean almost = FALSE;

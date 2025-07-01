@@ -485,7 +485,7 @@ static Boolean Layout(
     for (childP = children; childP - children < num_children; childP++) {
 	if (XtIsManaged(*childP)) {
 	    FormConstraints form;
-	    register Position x, y;
+	    Position x, y;
 
 	    form = (FormConstraints)(*childP)->core.constraints;
 
@@ -531,7 +531,7 @@ static Boolean Layout(
 }
 
 static Position TransformCoord(loc, old, new, type)
-    register Position loc;
+    Position loc;
     Dimension old, new;
     XtEdgeType type;
 {

@@ -315,7 +315,7 @@ struct ptab *pp;
 
 /* ARGSUSED */
 int tet_ss_logon(pp)
-/* register */ struct ptab *pp;
+struct ptab *pp;
 {
 	struct ptab *pp1, *pp2;
 	int count;

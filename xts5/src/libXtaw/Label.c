@@ -279,7 +279,7 @@ _XawLabelDraw16(dpy, d, gc, x, y, str, n)
 static void SetTextWidthAndHeight(lw)
     LabelWidget lw;
 {
-    register XFontStruct	*fs = lw->label.font;
+    XFontStruct	*fs = lw->label.font;
     char *nl;
 
     if (lw->label.pixmap != None) {

@@ -212,7 +212,7 @@ char **argv;
 int fd;
 {
 	struct tptab *tp = (struct tptab *) pp->pt_tdata;
-	register pid, rc;
+	int pid, rc;
 
 	struct t_bind  req;
 	struct t_bind *ret;

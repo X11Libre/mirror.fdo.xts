@@ -386,7 +386,7 @@ char *cfname;
 char ***confp;
 int *lconfp, *nconfp;
 {
-	register fid, rc;
+	int fid, rc;
 	static char fmt[] = "tet_xdfopen(\"%.*s\") failed, rc =";
 	char msg[sizeof fmt + MAXPATH];
 

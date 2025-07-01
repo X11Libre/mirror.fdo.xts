@@ -621,7 +621,7 @@ XstOpenDisplay (const char *display, int bytesex, int needswap, int cl)
  * First decode the Z axis Screen format information.
  */
     for (i = 0; i < dpy -> nformats; i++) {
-	register    XstScreenFormat * fmt = &dpy -> pixmap_format[i];
+	XstScreenFormat * fmt = &dpy -> pixmap_format[i];
 	fmt -> depth = u.sf -> depth;
 	fmt -> bits_per_pixel = u.sf -> bitsPerPixel;
 	fmt -> scanline_pad = u.sf -> scanLinePad;

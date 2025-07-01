@@ -288,7 +288,7 @@ struct ptab *pp;
 
 #ifndef NOTRACE
 	if (tet_Tsyncd > 0) {
-		register long spno = VM_SPNO(mp);
+		long spno = VM_SPNO(mp);
 		TRACE6(tet_Tsyncd, 4, "OP_ASYNC: snid = %s, xrid = %s, spno = %s, vote = %s, timeout = %s",
 			tet_l2a(VM_SNID(mp)), tet_l2a(VM_XRID(mp)),
 			tet_l2a(spno), tet_ptsvote((int) VM_SVOTE(mp)),

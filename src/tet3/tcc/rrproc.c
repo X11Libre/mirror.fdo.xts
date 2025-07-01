@@ -667,7 +667,7 @@ struct jline *jlp;
 
 static struct scentab *rrp_fs2(ep, ref)
 register struct scentab *ep;
-register long ref;
+long ref;
 {
 	register struct scentab *ep2;
 

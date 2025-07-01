@@ -142,7 +142,7 @@ char **argv;
 {
 	register struct rtab *rp;
 	char **ap;
-	register long pid;
+	long pid;
 	int needlen, rc;
 	TET_SIGSAFE_DEF
 	char thistest[LNUMSZ], activity[LNUMSZ];
@@ -232,7 +232,7 @@ char *file, **argv;
 {
 	long pid;
 	int sysnames[2];
-	register long snid;
+	long snid;
 
 	/* check sysid is valid */
 	if (!tet_libgetsysbyid(sysid))

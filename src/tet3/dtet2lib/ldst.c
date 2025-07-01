@@ -198,7 +198,7 @@ int n;
 
 static int bs2long(from, to, n)
 char *from;
-register long *to;
+long *to;
 int n;
 {
 	int count = n * LONGSIZE;
@@ -247,7 +247,7 @@ int n;
 }
 
 static int long2bs(from, to, n)
-register long *from;
+long *from;
 char *to;
 int n;
 {

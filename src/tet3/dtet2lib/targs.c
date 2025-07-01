@@ -73,7 +73,7 @@ char **argv;
 {
 	char *p, **ap;
 	int argc, needlen, tfcount;
-	register long sys;
+	long sys;
 	register struct tflags *tp;
 	register struct stype *sp;
 	int fullargs;

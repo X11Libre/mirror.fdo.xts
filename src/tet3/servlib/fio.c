@@ -474,7 +474,7 @@ struct ftab *ftp;
 */
 
 static struct ftab *ftfind(fid)
-register long fid;
+long fid;
 {
 	register struct ftab *ftp;
 

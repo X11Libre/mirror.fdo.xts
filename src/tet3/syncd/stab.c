@@ -221,7 +221,7 @@ struct stab *sp;
 */
 
 struct stab *stafind(snid)
-register long snid;
+long snid;
 {
 	register struct stab *sp;
 
@@ -239,7 +239,7 @@ register long snid;
 */
 
 struct stab *stufind(xrid, udp, nud)
-register long xrid;
+long xrid;
 register struct ustab *udp;
 int nud;
 {
@@ -347,7 +347,7 @@ static void stservice(sp)
 register struct stab *sp;
 {
 	register struct ustab *up;
-	register long spno = SPMAX;
+	long spno = SPMAX;
 	int count;
 
 	/*
@@ -425,7 +425,7 @@ register struct stab *sp;
 
 static int sts2(sp, spno)
 register struct stab *sp;
-register long spno;
+long spno;
 {
 	register struct ustab *up;
 	int count;
@@ -466,7 +466,7 @@ register long spno;
 
 static void stpok(sp, spno)
 register struct stab *sp;
-register long spno;
+long spno;
 {
 	register struct ustab *up;
 
@@ -482,7 +482,7 @@ register long spno;
 
 static void stperr(sp, spno)
 register struct stab *sp;
-register long spno;
+long spno;
 {
 	register struct ustab *up;
 
@@ -680,7 +680,7 @@ register struct ptab *pp;
 */
 
 void stuend(snid, sysid)
-register long snid;
+long snid;
 int sysid;
 {
 	register struct stab *sp;

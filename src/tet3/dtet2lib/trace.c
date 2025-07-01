@@ -154,7 +154,7 @@ char **argv;
 {
 	register struct tflags *tp;
 	int value;
-	register long sys;
+	long sys;
 
 	while (++argv, --argc > 0)
 		if (**argv == '-' && *(*argv + 1) == 'T') {
@@ -239,7 +239,7 @@ int value;
 	register struct stype *sp;
 	char *p;
 	int all, rc;
-	register long sys;
+	long sys;
 	char buf[2];
 
 	buf[1] = '\0';

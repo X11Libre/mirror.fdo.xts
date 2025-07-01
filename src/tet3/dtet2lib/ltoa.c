@@ -51,7 +51,7 @@ MODIFICATIONS:
 */
 
 TET_IMPORT char *tet_l2a(n)
-register long n;
+long n;
 {
 	static char buf[NLBUF][LNUMSZ];
 	static int count;

@@ -179,7 +179,7 @@ struct xtab *xp;
 */
 
 struct xtab *xtfind(xrid)
-register long xrid;
+long xrid;
 {
 	register struct xtab *xp;
 

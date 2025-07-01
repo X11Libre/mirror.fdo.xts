@@ -199,7 +199,7 @@ static void ClassPartInitialize(class)
 }
 
 static void Realize(w, valueMask, attributes)
-    register Widget w;
+    Widget w;
     Mask *valueMask;
     XSetWindowAttributes *attributes;
 {
@@ -306,7 +306,7 @@ SetValues(Widget current, Widget request, Widget new,
 
 
 static int
-ChangeSensitive(register Widget w)
+ChangeSensitive(Widget w)
 {
     if (XtIsRealized(w)) {
 	if (XtIsSensitive(w))

@@ -913,7 +913,7 @@ CreateLabel(w)
 Widget w;
 {
     SimpleMenuWidget smw = (SimpleMenuWidget) w;
-    register Widget * child, * next_child;
+    Widget * child, * next_child;
     int i;
     Arg args[2];
 
@@ -1065,7 +1065,7 @@ FindMenu(widget, name)
 Widget widget;
 String name;
 {
-    register Widget w, menu;
+    Widget w, menu;
     
     for ( w = widget ; w != NULL ; w = XtParent(w) )
 	if ( (menu = XtNameToWidget(w, name)) != NULL )

@@ -210,7 +210,7 @@ static void DoLayout(bbw, width, height, reply_width, reply_height, position)
     Dimension lw, lh;	/* Width and height needed for current line 	*/
     Dimension bw, bh;	/* Width and height needed for current widget 	*/
     Dimension h_space;  /* Local copy of bbw->box.h_space 		*/
-    register Widget widget;	/* Current widget 			*/
+    Widget widget;	/* Current widget 			*/
     int num_mapped_children = 0;
  
     /* Box width and height */
@@ -294,7 +294,7 @@ static void DoLayout(bbw, width, height, reply_width, reply_height, position)
 	    XMapSubwindows( XtDisplay((Widget)bbw), XtWindow((Widget)bbw) );
 	else {
 	    int i = bbw->composite.num_children;
-	    register Widget *childP = bbw->composite.children;
+	    Widget *childP = bbw->composite.children;
 	    for (; i > 0; childP++, i--)
 		if (XtIsRealized(*childP) && XtIsManaged(*childP) &&
 		    (*childP)->core.mapped_when_managed)
@@ -625,7 +625,7 @@ static void Initialize(
 } /* Initialize */
 
 static void Realize(w, valueMask, attributes)
-    register Widget w;
+    Widget w;
     Mask *valueMask;
     XSetWindowAttributes *attributes;
 {

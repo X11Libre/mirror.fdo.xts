@@ -636,7 +636,7 @@ PanedWidget pw;
 int paneindex;
 Direction dir;
 {
-    register Widget *childP;
+    Widget *childP;
     int pane_size = (int) PaneSize( (Widget) pw, IsVert(pw) );
     int sizeused = 0;
     Position loc = 0;
@@ -697,14 +697,14 @@ static void
 CommitNewLocations(pw)
 PanedWidget pw;
 {
-    register Widget *childP;
+    Widget *childP;
     XWindowChanges changes;
 
     changes.stack_mode = Above;
 
     ForAllPanes(pw, childP) {
 	Pane pane = PaneInfo(*childP);
-	register Widget grip = pane->grip; /* may be NULL. */
+	Widget grip = pane->grip; /* may be NULL. */
 
 	if (IsVert(pw)) {
 	    XtMoveWidget(*childP, (Position) 0, pane->delta);
@@ -1640,7 +1640,7 @@ Widget w;
 } 
 
 static void InsertChild(w)
-register Widget w;
+Widget w;
 {
    Pane pane = PaneInfo(w);
 
@@ -1687,7 +1687,7 @@ static void ChangeManaged(w)
    PanedWidget pw = (PanedWidget)w;
    Boolean vert = IsVert(pw);
    Dimension size;
-   register Widget *childP;
+   Widget *childP;
 
    if (pw->paned.recursively_called++) return;
 

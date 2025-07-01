@@ -216,7 +216,7 @@ static void RectClassPartInitialize(wc)
 /* ARGSUSED */
 static void RectObjInitialize(requested_widget, new_widget, args, num_args)
     Widget   requested_widget;
-    register Widget new_widget;
+    Widget new_widget;
     ArgList args;
     Cardinal *num_args;
 {

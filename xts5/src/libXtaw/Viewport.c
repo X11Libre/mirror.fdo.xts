@@ -331,8 +331,8 @@ static void Realize(widget, value_mask, attributes)
     XSetWindowAttributes *attributes;
 {
     ViewportWidget w = (ViewportWidget)widget;
-    register Widget child = w->viewport.child;
-    register Widget clip = w->viewport.clip;
+    Widget child = w->viewport.child;
+    Widget clip = w->viewport.clip;
 
     *value_mask |= CWBitGravity;
     attributes->bit_gravity = NorthWestGravity;
@@ -376,7 +376,7 @@ static void ChangeManaged(widget)
 {
     ViewportWidget w = (ViewportWidget)widget;
     int num_children = w->composite.num_children;
-    register Widget child, *childP;
+    Widget child, *childP;
     int i;
 
     child = (Widget)NULL;
@@ -451,8 +451,8 @@ static void SetBar(w, top, length, total)
 static void RedrawThumbs(w)
   ViewportWidget w;
 {
-    register Widget child = w->viewport.child;
-    register Widget clip = w->viewport.clip;
+    Widget child = w->viewport.child;
+    Widget clip = w->viewport.clip;
 
     if (w->viewport.horiz_bar != (Widget)NULL)
 	SetBar( w->viewport.horiz_bar, -(child->core.x),
@@ -472,8 +472,8 @@ static void SendReport (w, changed)
     XawPannerReport rep;
 
     if (w->viewport.report_callbacks) {
-	register Widget child = w->viewport.child;
-	register Widget clip = w->viewport.clip;
+	Widget child = w->viewport.child;
+	Widget clip = w->viewport.clip;
 
 	rep.changed = changed;
 	rep.slider_x = -child->core.x;	/* child is canvas */
@@ -492,8 +492,8 @@ static void MoveChild(w, x, y)
     ViewportWidget w;
     Position x, y;
 {
-    register Widget child = w->viewport.child;
-    register Widget clip = w->viewport.clip;
+    Widget child = w->viewport.child;
+    Widget clip = w->viewport.clip;
 
     /* make sure we never move past right/bottom borders */
     if (-x + (int)clip->core.width > (int)child->core.width)
@@ -519,8 +519,8 @@ static void ComputeLayout(widget, query, destroy_scrollbars)
     Boolean destroy_scrollbars;	/* destroy un-needed scrollbars? */
 {
     ViewportWidget w = (ViewportWidget)widget;
-    register Widget child = w->viewport.child;
-    register Widget clip = w->viewport.clip;
+    Widget child = w->viewport.child;
+    Widget clip = w->viewport.clip;
     ViewportConstraints constraints
 	= (ViewportConstraints)clip->core.constraints;
     Boolean needshoriz, needsvert;
@@ -649,7 +649,7 @@ static void ComputeLayout(widget, query, destroy_scrollbars)
 		    (Dimension)clip_height, (Dimension)0 );
 	
     if (w->viewport.horiz_bar != (Widget)NULL) {
-	register Widget bar = w->viewport.horiz_bar;
+	Widget bar = w->viewport.horiz_bar;
 	if (!needshoriz) {
 	    constraints->form.vert_base = (Widget)NULL;
 	    if (destroy_scrollbars) {
@@ -672,7 +672,7 @@ static void ComputeLayout(widget, query, destroy_scrollbars)
     }
 
     if (w->viewport.vert_bar != (Widget)NULL) {
-	register Widget bar = w->viewport.vert_bar;
+	Widget bar = w->viewport.vert_bar;
 	if (!needsvert) {
 	    constraints->form.horiz_base = (Widget)NULL;
 	    if (destroy_scrollbars) {
@@ -724,7 +724,7 @@ XtWidgetGeometry * intended;
 int *clip_width, *clip_height;
 {
     ViewportWidget w = (ViewportWidget)widget;
-    register Widget child = w->viewport.child;
+    Widget child = w->viewport.child;
     XtWidgetGeometry preferred;
 
 /*
@@ -813,7 +813,7 @@ static void ScrollUpDownProc(widget, closure, call_data)
     XtPointer call_data;
 {
     ViewportWidget w = (ViewportWidget)closure;
-    register Widget child = w->viewport.child;
+    Widget child = w->viewport.child;
     int pix = (int)call_data;
     Position x, y;
 
@@ -830,7 +830,7 @@ ThumbProc(Widget widget, XtPointer closure, XtPointer call_data)
 {
     ViewportWidget w = (ViewportWidget)closure;
     float *percent = (float *)call_data;
-    register Widget child = w->viewport.child;
+    Widget child = w->viewport.child;
     Position x, y;
 
     if (child == NULL) return;	/* no child to scroll. */
@@ -1072,7 +1072,7 @@ XawViewportSetLocation (gw, xoff, yoff)
 #endif
 {
     ViewportWidget w = (ViewportWidget) gw;
-    register Widget child = w->viewport.child;
+    Widget child = w->viewport.child;
     Position x, y;
 
     if (xoff > 1.0)			/* scroll to right */

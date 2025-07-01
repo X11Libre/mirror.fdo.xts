@@ -148,7 +148,7 @@ static void ClassPartInitialize(class)
 }
 
 static void Realize(w, valueMask, attributes)
-	register Widget w;
+	Widget w;
     Mask *valueMask;
     XSetWindowAttributes *attributes;
 {

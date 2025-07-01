@@ -869,7 +869,7 @@ Widget w;
 Boolean doit;
 #endif
 {
-    register Widget *childP;
+    Widget *childP;
     FormWidget fw = (FormWidget)w;
     int num_children = fw->composite.num_children;
     register WidgetList children = fw->composite.children;
@@ -878,7 +878,7 @@ Boolean doit;
 	return;
 
     for (childP = children; childP - children < num_children; childP++) {
-	register Widget w = *childP;
+	Widget w = *childP;
 	if (XtIsManaged(w)) {
 	    FormConstraints form = (FormConstraints)w->core.constraints;
 

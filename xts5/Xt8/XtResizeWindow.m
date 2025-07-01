@@ -248,7 +248,7 @@ SquareCellClassRec squareCellClassRec = {
 };
 WidgetClass squareCellWidgetClass = (WidgetClass) & squareCellClassRec;
 static void Realize(w, valueMask, attributes)
-	register Widget w;
+	Widget w;
 	Mask *valueMask;
 	XSetWindowAttributes *attributes;
 {

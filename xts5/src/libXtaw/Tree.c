@@ -625,7 +625,7 @@ static void Redisplay (
 	Window w = XtWindow (tw);
 
 	for (i = 0; i < tw->composite.num_children; i++) {
-	    register Widget child = tw->composite.children[i];
+	    Widget child = tw->composite.children[i];
 	    TreeConstraints tc = TREE_CONSTRAINT(child);
 
 	    /*
@@ -652,7 +652,7 @@ static void Redisplay (
 		}
 
 		for (j = 0; j < tc->tree.n_children; j++) {
-		    register Widget k = tc->tree.children[j];
+		    Widget k = tc->tree.children[j];
 		    GC gc = (tc->tree.gc ? tc->tree.gc : tw->tree.gc);
 
 		    switch (tw->tree.gravity) {

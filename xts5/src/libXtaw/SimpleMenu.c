@@ -551,7 +551,7 @@ Widget w;
 ArgList arglist;
 Cardinal *num_args;
 {
-    register Cardinal i;
+    Cardinal i;
     Dimension width, height;
     
     width = w->core.width;

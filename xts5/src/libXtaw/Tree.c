@@ -710,7 +710,7 @@ static XtGeometryResult QueryGeometry (w, intended, preferred)
     Widget w;
     XtWidgetGeometry *intended, *preferred;
 {
-    register TreeWidget tw = (TreeWidget) w;
+    TreeWidget tw = (TreeWidget) w;
 
     preferred->request_mode = (CWWidth | CWHeight);
     preferred->width = tw->tree.maxwidth;

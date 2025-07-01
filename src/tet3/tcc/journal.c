@@ -259,7 +259,7 @@ char *jnl_tfname(const char *dir, const char *prefix)
 	static char salt[] = "AAA";
 	static char fname[MAXPATH];
 	char *p;
-	register int try, trymax = (sizeof salt - 1) * 26;
+	int try, trymax = (sizeof salt - 1) * 26;
 	int fd;
 
 	for (try = 0; try < trymax; try++) {
@@ -410,7 +410,7 @@ register struct proctab *prp;
 	static char s2p1fmt[] = "TC Start, %s";
 	static char s2p2fmt[] = ", ICs: {%s}";
 	char *p;
-	register int needlen;
+	int needlen;
 
 	sprintf(s1, "%d %.*s %s", prp->pr_activity,
 		MAXPATH, prp->pr_scen->sc_tcname, jnl_time(time((time_t *) 0)));
@@ -778,8 +778,8 @@ char *s2;
 {
 	static char *s1;
 	static int s1len;
-	register int len, needlen;
-	register int *ip;
+	int len, needlen;
+	int *ip;
 	char *p;
 	register struct scentab *ep = prp->pr_scen;
 
@@ -990,7 +990,7 @@ jnl_mwrite(int id, const char *s1, const char *s2, FILE *fp, const char *fname)
 	int len1, space;
 	char msg[TET_JNL_LEN];
 	const char *p;
-	register int n;
+	int n;
 
 	/* see if the line is too long -
 	** (we assume that only the third field will cause overflow)

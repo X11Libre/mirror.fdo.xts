@@ -65,7 +65,7 @@ MODIFICATIONS:
 int tet_ts_nbio(pp)
 register struct ptab *pp;
 {
-	register int fd = ((struct tptab *) pp->pt_tdata)->tp_fd;
+	int fd = ((struct tptab *) pp->pt_tdata)->tp_fd;
 	int flags;
 
 	if ((flags = fcntl(fd, F_GETFL, 0)) < 0) {

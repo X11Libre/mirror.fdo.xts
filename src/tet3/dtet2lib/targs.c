@@ -72,7 +72,7 @@ int ptype;
 char **argv;
 {
 	char *p, **ap;
-	register int argc, needlen, tfcount;
+	int argc, needlen, tfcount;
 	register long sys;
 	register struct tflags *tp;
 	register struct stype *sp;

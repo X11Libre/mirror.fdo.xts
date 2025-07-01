@@ -152,7 +152,7 @@ int ts_stserver(pp, argv)
 struct ptab *pp;
 char **argv;
 {
-	register int rc;
+	int rc;
 	char **newargv;
 	static char *tsargv[] = { "-P", (char *) 0, (char *) 0 };
 
@@ -185,7 +185,7 @@ static int ts_ss2(pp, argv)
 struct ptab *pp;
 char **argv;
 {
-	register int rc, fd;
+	int rc, fd;
 
 	/* get a file descriptor for the server */
 	if ((fd = t_open(tet_tpname, O_RDWR, (struct t_info *) 0)) < 0) {
@@ -388,7 +388,7 @@ struct ptab *pp;
 
 int tet_ss_tsinfo(pp, ptype)
 struct ptab *pp;
-register int ptype;
+int ptype;
 {
 	register struct tptab 	*tp;
 	register struct tsinfo 	*mp;

@@ -124,7 +124,7 @@ struct rtab *rp;
 */
 
 struct rtab *tet_rtfind(remoteid)
-register int remoteid;
+int remoteid;
 {
 	register struct rtab *rp;
 

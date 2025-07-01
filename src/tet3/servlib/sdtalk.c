@@ -87,7 +87,7 @@ static int sd_ptcheck PROTOLIST((void));
 
 TET_IMPORT int tet_sdlogon()
 {
-	register int rc;
+	int rc;
 	TET_SIGSAFE_DEF
 
 	if (!tet_sdptab) {
@@ -114,7 +114,7 @@ TET_IMPORT int tet_sdlogon()
 int tet_sdlogoff(stayopen)
 int stayopen;
 {
-	register int rc;
+	int rc;
 	TET_SIGSAFE_DEF
 
 	if (!tet_sdptab || (tet_sdptab->pt_flags & PF_LOGGEDON) == 0)
@@ -173,10 +173,10 @@ int len;
 */
 
 char *tet_sdtalk(req, delay)
-register int req;
+int req;
 int delay;
 {
-	register int mtype, len, rc;
+	int mtype, len, rc;
 	TET_SIGSAFE_DEF
 
 	TRACE3(tet_Tsyncd, 1, "sdtalk: request = %s, delay = %s",

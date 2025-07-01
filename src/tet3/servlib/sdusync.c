@@ -70,7 +70,7 @@ struct synmsg *smp;
 {
 	register struct valmsg *mp;
 	register struct synreq *sp;
-	register int n;
+	int n;
 	struct synmsg smtmp;
 	extern char tet_sderrmsg[];
 

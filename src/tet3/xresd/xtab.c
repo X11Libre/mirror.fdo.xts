@@ -130,7 +130,7 @@ int uxtalloc(xp, nud)
 struct xtab *xp;
 int nud;
 {
-	register int needlen;
+	int needlen;
 
 	ASSERT(xp);
 	needlen = nud * sizeof *xp->xt_ud;
@@ -199,7 +199,7 @@ register struct ptab *pp;
 {
 	register struct xtab *xp;
 	register struct uxtab *up;
-	register int count, done;
+	int count, done;
 
 	/* find related xres table entries and update them
 		remove an entry that is no longer required */

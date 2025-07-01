@@ -54,9 +54,9 @@ MODIFICATIONS:
 
 TET_IMPORT int tet_getargs(s, argv, maxargs)
 char *s, **argv;
-register int maxargs;
+int maxargs;
 {
-	register int argc, new;
+	int argc, new;
 
 	for (argc = 0, new = 1; *s; s++)
 		if (isspace(*s)) {

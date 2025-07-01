@@ -124,7 +124,7 @@ char **lines;
 static int tc_cs(sysid, request, lines, nline, mode)
 int sysid, request, mode;
 char **lines;
-register int nline;
+int nline;
 {
 	/* make sure that lines is non-zero and that nline is +ve */
 	if (!lines || nline <= 0) {
@@ -165,11 +165,11 @@ register int nline;
 
 static int tc_cs2(sysid, request, lines, nline, mode, done)
 int sysid, request, mode, done;
-register int nline;
+int nline;
 char **lines;
 {
 	register struct avmsg *mp;
-	register int n;
+	int n;
 
 	/* get the TCCD message buffer */
 	if ((mp = (struct avmsg *) tet_tcmsgbuf(sysid, avmsgsz(OP_CONF_ARGC(nline)))) == (struct avmsg *) 0) {

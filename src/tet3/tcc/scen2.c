@@ -102,7 +102,7 @@ int proc2sclist()
 	struct scentab *sctmp;
 	register struct scentab *ep;
 	struct scentab *q;
-	register int skip;
+	int skip;
 
 	/*
 	** sclist is a LIFO stack -
@@ -688,7 +688,7 @@ static void check_valid_scen_name(ep)
 struct scentab *ep;
 {
 	const char *p;
-	register int ok;
+	int ok;
 
 	TRACE2(tet_Tscen, 6, "check scenrio name %s", ep->sc_scenario);
 
@@ -796,8 +796,8 @@ register struct scentab *ep;
 static void cts2(ep)
 register struct scentab *ep;
 {
-	register int *ip1, *ip2;
-	register int dups;
+	int *ip1, *ip2;
+	int dups;
 
 	TRACESCELEM(tet_Tscen, 6, ep, "check remote or distributed directive");
 
@@ -892,7 +892,7 @@ static void etf2(ep)
 struct scentab *ep;
 {
 	register struct scentab *child;
-	register int done;
+	int done;
 
 	TRACE2(tet_Tscen, 6,
 		"etf2(): examine the level below the PARALLEL directive at %s",
@@ -968,7 +968,7 @@ register struct scentab *ep1;
 	struct scentab *parent = ep1->sc_parent;
 	struct scentab *forw, *back;
 	register struct scentab *ep2;
-	register int found, done;
+	int found, done;
 
 	TRACE4(tet_Tscen, 6, "etf3(): examine the top level of referenced scenario node %s which points to %s (%s)",
 		tet_i2x(ep1), tet_i2x(ep1->sc_scenptr),
@@ -1242,7 +1242,7 @@ struct scentab **sctp;
 {
 	register struct scentab *q;
 	register struct dirtab *dp;
-	register int *edp;
+	int *edp;
 	struct scentab *seq;
 	static char fmt[] = "\tmay not enclose %.32s";
 	char msg[sizeof fmt + 32];
@@ -1339,7 +1339,7 @@ void check_empty_timed_loops()
 static int check_timed_loops(ep)
 register struct scentab *ep;
 {
-	register int n, count = 0;
+	int n, count = 0;
 
 #ifndef NOTRACE
 	static int level;

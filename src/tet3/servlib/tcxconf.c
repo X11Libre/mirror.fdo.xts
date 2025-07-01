@@ -77,7 +77,7 @@ char *fname;
 struct cflist *mlp, *vlp, *rlp;
 {
 	struct cflist *slp;
-	register int rc;
+	int rc;
 	char **cp;
 
 	/* send the config file name to TCCD */
@@ -208,7 +208,7 @@ int sysid;
 struct cflist *slp, *rlp;
 {
 	int nlines, done;
-	register int n;
+	int n;
 	char **cp1, **cp2;
 
 	/* send the config lines */

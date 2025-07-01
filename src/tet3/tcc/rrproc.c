@@ -132,7 +132,7 @@ void rrproc(codelist, old_journal_file)
 char *codelist, *old_journal_file;
 {
 	char *p, **ap;
-	register int n;
+	int n;
 	int rrerrors = 0;
 	char **argv = (char **) 0;
 	int largv = 0;
@@ -464,7 +464,7 @@ int *argcp;
 {
 	static char key[] = "Command line: ";
 	char *p1, *p2;
-	register int new, quotes;
+	int new, quotes;
 	char **ap;
 	char **argv = (char **) 0;
 	int largv = 0;
@@ -738,7 +738,7 @@ char *buf;
 int startid;
 {
 	register struct jline *jlp;
-	register int done, sel;
+	int done, sel;
 	register struct scentab *ep2;
 	int mode, endid;
 
@@ -935,7 +935,7 @@ char *buf;
 int mode;
 {
 	register struct jline *jlp;
-	register int done, sel;
+	int done, sel;
 	int len, needlen, tmplen;
 	char *p;
 
@@ -1032,7 +1032,7 @@ char *buf;
 int mode;
 {
 	struct jline *jlp;
-	register int *ip, result, sel;
+	int *ip, result, sel;
 
 	/* read the TP result line */
 	if ((jlp = rrp_getline(buf)) == (struct jline *) 0)
@@ -1597,7 +1597,7 @@ register struct scentab *ep;
 
 static void set_scflags(ep, flags)
 register struct scentab *ep;
-register int flags;
+int flags;
 {
 	/*
 	** traverse the tree at this level, seting the specified flags
@@ -1622,7 +1622,7 @@ register int flags;
 
 static void clear_scflags(ep, flags)
 register struct scentab *ep;
-register int flags;
+int flags;
 {
 	/*
 	** traverse the tree at this level, clearing the specified flags

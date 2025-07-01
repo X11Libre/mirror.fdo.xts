@@ -117,7 +117,7 @@ int *abortflag;
 {
 	register struct restab *rtp;
 	const char *name;
-	register int abrt;
+	int abrt;
 
 	if (!tet_restab && tet_initrestab() < 0) {
 		name = "UNKNOWN";
@@ -152,7 +152,7 @@ char *name;
 int *abortflag;
 {
 	register struct restab *rtp;
-	register int code, abrt;
+	int code, abrt;
 
 	if (
 		(tet_restab || tet_initrestab() == 0) &&
@@ -186,7 +186,7 @@ char *fname;
 	char buf[BUFSIZ];
 	struct restab rtmp;
 	char *p, **ap;
-	register int line;
+	int line;
 	int rc = 0;
 
 	/* install the default table first time through */
@@ -285,7 +285,7 @@ char *s;
 {
 	static char *argv[NFLDS + 1];
 	char *p, **ap;
-	register int argc, new, quote;
+	int argc, new, quote;
 
 	/* strip comments and a trailing newline */
 	for (p = s; *p; p++)
@@ -372,7 +372,7 @@ register struct restab *rtp1;
 */
 
 static struct restab *getrtbycode(code)
-register int code;
+int code;
 {
 	register struct restab *rtp;
 
@@ -435,7 +435,7 @@ int tet_initrestab()
 */
 
 int tet_addresult(lastresult, thisresult)
-register int lastresult, thisresult;
+int lastresult, thisresult;
 {
 	if (lastresult < 0)
 		return(thisresult);
@@ -530,7 +530,7 @@ int result;
 */
 
 int tet_addstatus(laststatus, thisstatus)
-register int laststatus, thisstatus;
+int laststatus, thisstatus;
 {
 	if (laststatus < 0)
 		return(thisstatus);

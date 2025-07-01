@@ -56,7 +56,7 @@ MODIFICATIONS:
 */
 
 int tet_maperrno(errnum)
-register int errnum;
+int errnum;
 {
 	register struct errmap *ep, *ee;
 

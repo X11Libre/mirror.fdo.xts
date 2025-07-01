@@ -65,7 +65,7 @@ long snid, xrid;
 {
 	char *dp;
 	char **ap;
-	register int n, nargs;
+	int n, nargs;
 	extern char tet_tcerrmsg[];
 
 	/* make sure that path and argv are non-null */

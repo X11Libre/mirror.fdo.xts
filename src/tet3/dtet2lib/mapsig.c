@@ -52,7 +52,7 @@ MODIFICATIONS:
 */
 
 int tet_mapsignal(sig)
-register int sig;
+int sig;
 {
 	register struct sigmap *sp, *se;
 	extern struct sigmap tet_sigmap[];

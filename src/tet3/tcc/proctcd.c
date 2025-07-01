@@ -161,7 +161,7 @@ void setup_child_proctabs(prp)
 register struct proctab *prp;
 {
 	register struct proctab *child;
-	register int *ip;
+	int *ip;
 	struct proctab *lback = (struct proctab *) 0;
 
 	ASSERT(prp->pr_nsys > 1);
@@ -195,7 +195,7 @@ register struct proctab *prp;
 int (*func) PROTOLIST((struct proctab *));
 {
 	register struct proctab *child;
-	register int rc = 0;
+	int rc = 0;
 
 	ASSERT(prp->pr_magic == PR_MAGIC);
 	ASSERT((prp->pr_flags & PRF_TC_CHILD) == 0);
@@ -218,10 +218,10 @@ int (*func) PROTOLIST((struct proctab *));
 
 int child_proctabs_tstate(prp, state)
 struct proctab *prp;
-register int state;
+int state;
 {
 	register struct proctab *child;
-	register int count = 0;
+	int count = 0;
 
 	for (child = prp->pr_child; child; child = child->pr_lforw) {
 		ASSERT(child->pr_magic == PR_MAGIC);
@@ -258,7 +258,7 @@ struct proctab *prp;
 int configure_tccd(prp)
 register struct proctab *prp;
 {
-	register int *ip;
+	int *ip;
 
 	for (ip = prp->pr_sys; ip < prp->pr_sys + prp->pr_nsys; ip++)
 		if (conf1tccd(prp, *ip, prp->pr_currmode) < 0)
@@ -279,7 +279,7 @@ struct proctab *prp;
 int sysid, opmode;
 {
 	register struct systab *sp;
-	register int cfmode, tc_cfmode;
+	int cfmode, tc_cfmode;
 	struct cflist *lp;
 
 	/*

@@ -53,7 +53,7 @@ MODIFICATIONS:
 */
 
 int tet_unmapsignal(sig)
-register int sig;
+int sig;
 {
 	register struct sigmap *sp, *se;
 	extern struct sigmap tet_sigmap[];

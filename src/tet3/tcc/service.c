@@ -77,7 +77,7 @@ static void wakeup PROTOLIST((struct proctab *));
 int tcc_sloop()
 {
 	register struct proctab *prp, *rqforw;
-	register int done;
+	int done;
 	int status = TET_EXIT_SUCCESS;
 
 	TRACE1(tet_Texec, 2, "tcc_sloop() START");
@@ -114,7 +114,7 @@ int tcc_sloop()
 int tcc_timeouts(now)
 time_t now;
 {
-	register int count = 0;
+	int count = 0;
 	register struct proctab *prp;
 
 	TRACE1(tet_Texec, 2, "tcc_timeouts() START");
@@ -582,7 +582,7 @@ struct proctab *prp;
 */
 
 int nextmode(modes, currmode)
-register int modes, currmode;
+int modes, currmode;
 {
 	if (modes & TCC_ABORT)
 		return(TCC_END);

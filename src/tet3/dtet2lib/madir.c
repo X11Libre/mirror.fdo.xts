@@ -62,7 +62,7 @@ static int mkad2 PROTOLIST((char *));
 int tet_mkalldirs(path)
 char *path;
 {
-	register int rc;
+	int rc;
 	struct STAT_ST stbuf;
 	char buf[MAXPATH + 1];
 
@@ -93,7 +93,7 @@ static int mkad2(path)
 char *path;
 {
 	char *p;
-	register int rc;
+	int rc;
 	struct STAT_ST stbuf;
 	int errsave;
 

@@ -375,9 +375,9 @@ static void ChangeManaged(widget)
     Widget widget;
 {
     ViewportWidget w = (ViewportWidget)widget;
-    register int num_children = w->composite.num_children;
+    int num_children = w->composite.num_children;
     register Widget child, *childP;
-    register int i;
+    int i;
 
     child = (Widget)NULL;
     for (childP=w->composite.children, i=0; i < num_children; childP++, i++) {
@@ -658,7 +658,7 @@ static void ComputeLayout(widget, query, destroy_scrollbars)
 	    }
 	}
 	else {
-	    register int bw = bar->core.border_width;
+	    int bw = bar->core.border_width;
 	    XtResizeWidget( bar, clip_width, bar->core.height, bw );
 	    XtMoveWidget( bar,
 			  ((needsvert && !w->viewport.useright)
@@ -681,7 +681,7 @@ static void ComputeLayout(widget, query, destroy_scrollbars)
 	    }
 	}
 	else {
-	    register int bw = bar->core.border_width;
+	    int bw = bar->core.border_width;
 	    XtResizeWidget( bar, bar->core.width, clip_height, bw );
 	    XtMoveWidget( bar,
 			  (w->viewport.useright

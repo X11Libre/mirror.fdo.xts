@@ -94,7 +94,7 @@ struct ptab *pp;
 {
 	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	char *p1, *p2;
-	register int n;
+	int n;
 	char buf[128];
 
 	/* all reply messages have no data */
@@ -330,7 +330,7 @@ void op_chdir(pp)
 struct ptab *pp;
 {
 	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
-	register int errsave;
+	int errsave;
 
 	/* all reply messages have no data */
 	pp->ptm_mtype = MT_NODATA;
@@ -362,7 +362,7 @@ void op_unlink(pp)
 struct ptab *pp;
 {
 	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
-	register int errsave;
+	int errsave;
 
 	/* all reply messages have no data */
 	pp->ptm_mtype = MT_NODATA;

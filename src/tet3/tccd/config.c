@@ -130,7 +130,7 @@ void op_cfname(pp)
 register struct ptab *pp;
 {
 	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
-	register int n;
+	int n;
 
 	/* all reply messages have no data */
 	pp->ptm_mtype = MT_NODATA;
@@ -184,7 +184,7 @@ void op_sndconf(pp)
 register struct ptab *pp;
 {
 	char *p;
-	register int rc;
+	int rc;
 	register struct ctab *cp;
 	FILE *fp;
 	char buf[BUFSIZ];
@@ -280,7 +280,7 @@ struct ptab *pp;
 {
 	register struct avmsg *rp;
 	register struct ctab *cp;
-	register int n;
+	int n;
 
 	/* error replies contain no data */
 	pp->ptm_mtype = MT_NODATA;
@@ -345,7 +345,7 @@ register struct ptab *pp;
 {
 	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	register struct ctab *cp;
-	register int mode;
+	int mode;
 
 	/* remove old entries from the config table */
 	ctpurge();
@@ -405,7 +405,7 @@ static int op_c2(mode)
 int mode;
 {
 	char *fname;
-	register int rc;
+	int rc;
 
 	/* get a tmp name for the config file */
 	if ((fname = tet_mktfname("tccd")) == (char *) 0)
@@ -438,7 +438,7 @@ int mode;
 static int op_c3(fname)
 char *fname;
 {
-	register int rc;
+	int rc;
 	FILE *fp;
 
 	/* open the tmp config file
@@ -502,7 +502,7 @@ static int op_sc2(pp)
 struct ptab *pp;
 {
 	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
-	register int n, rc;
+	int n, rc;
 	char *s;
 
 	/* see if there are any more messages to come */
@@ -726,7 +726,7 @@ char *s;
 static void ctpurge()
 {
 	register struct ctab *cp;
-	register int done;
+	int done;
 
 	do {
 		done = 1;
@@ -748,7 +748,7 @@ void op_setconf(pp)
 register struct ptab *pp;
 {
 	register struct valmsg *mp = (struct valmsg *) pp->ptm_data;
-	register int mode;
+	int mode;
 	static char envname[] = "TET_CONFIG";
 	static char *var;
 	static int lvar;
@@ -814,7 +814,7 @@ register struct ptab *pp;
 
 void config_cleanup()
 {
-	register int n;
+	int n;
 
 	for (n = 0; n < sizeof tet_config / sizeof tet_config[0]; n++)
 		if (tet_config[n])

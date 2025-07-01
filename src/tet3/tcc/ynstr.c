@@ -74,7 +74,7 @@ char *s;
 int flag;
 {
 	char ***spp;
-	register int *nspp;
+	int *nspp;
 
 	/* determine which list to use */
 	switch (flag) {
@@ -104,7 +104,7 @@ char *s;
 int flag;
 {
 	char ***spp;
-	register int *nspp;
+	int *nspp;
 
 	/* determine which list to use */
 	switch (flag) {
@@ -149,7 +149,7 @@ int flag;
 {
 	char **sp;
 	char **yeslist, **nolist;
-	register int Nyeslist, Nnolist;
+	int Nyeslist, Nnolist;
 
 	/* determine which lists to use */
 	switch (flag) {
@@ -233,7 +233,7 @@ char *s1, *s2;
 static char *findstr(s, sp, nsp)
 char *s;
 char **sp;
-register int nsp;
+int nsp;
 {
 	while (--nsp >= 0)
 		if (!strcmp(s, *sp))

@@ -150,7 +150,7 @@ void XmuCvtStringToCursor(args, num_args, fromVal, toVal)
     static Cursor cursor;		/* static for cvt magic */
     char *name = (char *)fromVal->addr;
     Screen *screen;
-    register int i;
+    int i;
     char maskname[PATH_MAX];
     Pixmap source, mask;
     /* XXX - make fg/bg resources */

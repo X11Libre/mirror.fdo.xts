@@ -385,7 +385,7 @@ static void tpstart2(icno, tpno, testnum)
 int icno, tpno, testnum;
 {
 	register struct synreq *sp;
-	register int vote;
+	int vote;
 	int nsys = tet_Nsname;
 	int errflag;
 	char errmsg[128];

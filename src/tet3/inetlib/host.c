@@ -79,7 +79,7 @@ char *host;
 {
 	register struct hcache *cp1, *cp2;
 	register struct hostent *hp;
-	register int max;
+	int max;
 	int err;
 
 	/* see if host is already in the cache */

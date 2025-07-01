@@ -72,7 +72,7 @@ static void stinit PROTOLIST((void));
 static void stinit()
 {
 	register struct avmsg *ap = (struct avmsg *) 0;
-	register int n = 0;
+	int n = 0;
 
 	AVMSG_INIT(st, ap, n, fixed);
 	OFFSET_INIT(offst);
@@ -86,7 +86,7 @@ TET_IMPORT int tet_avmsg2bs(from, to)
 register struct avmsg *from;
 char *to;
 {
-	register int n;
+	int n;
 	char *p, *sp;
 	unsigned short offset;
 
@@ -130,9 +130,9 @@ char *to;
 
 TET_IMPORT int tet_bs2avmsg(from, fromlen, to, tolen)
 char *from;
-register int fromlen;
+int fromlen;
 register struct avmsg **to;
-register int *tolen;
+int *tolen;
 {
 	if (fixed < 0)
 		stinit();
@@ -172,9 +172,9 @@ register int *tolen;
 static int bs2avmargv(from, to, nargv, len)
 char *from;
 char **to;
-register int nargv, len;
+int nargv, len;
 {
-	register int n;
+	int n;
 	unsigned short offset;
 
 	if (fixed < 0)
@@ -198,7 +198,7 @@ register int nargv, len;
 TET_IMPORT int tet_avmsgbslen(mp)
 register struct avmsg *mp;
 {
-	register int len, n;
+	int len, n;
 
 	len = AV_AVMSGSZ(mp->av_argc);
 	for (n = 0; n < (int) mp->av_argc; n++)

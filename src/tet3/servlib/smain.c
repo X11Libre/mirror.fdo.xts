@@ -65,7 +65,7 @@ int argc, needtetroot;
 char **argv;
 {
 	char *p;
-	register int rc;
+	int rc;
 	char buf[30];
 
 #ifndef NOTRACE

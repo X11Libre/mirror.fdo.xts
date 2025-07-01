@@ -178,7 +178,7 @@ int ustalloc(sp, nud)
 struct stab *sp;
 int nud;
 {
-	register int needlen;
+	int needlen;
 
 	ASSERT(sp);
 	needlen = nud * sizeof *sp->st_ud;
@@ -241,11 +241,11 @@ register long snid;
 struct stab *stufind(xrid, udp, nud)
 register long xrid;
 register struct ustab *udp;
-register int nud;
+int nud;
 {
 	register struct stab *sp;
 	register struct ustab *up1, *up2;
-	register int count;
+	int count;
 
 	for (sp = stab; sp; sp = sp->st_next) {
 		if ((sp->st_flags & SF_USYNC) == 0 || sp->st_xrid != xrid ||
@@ -274,7 +274,7 @@ void stcheck(sp)
 register struct stab *sp;
 {
 	register struct ustab *up;
-	register int count, vote;
+	int count, vote;
 
 	if (sp->st_flags & SF_ATTENTION)
 		return;
@@ -319,7 +319,7 @@ register struct stab *sp;
 void stloop()
 {
 	register struct stab *sp;
-	register int done;
+	int done;
 
 	TRACE2(tet_Tsyncd, 7, "stloop TOP: stab = %s", tet_i2x(stab));
 
@@ -348,7 +348,7 @@ register struct stab *sp;
 {
 	register struct ustab *up;
 	register long spno = SPMAX;
-	register int count;
+	int count;
 
 	/*
 	** find the lowest non-zero sync point number
@@ -428,7 +428,7 @@ register struct stab *sp;
 register long spno;
 {
 	register struct ustab *up;
-	register int count;
+	int count;
 
 	/* reset the event flags and user states after the event has happened;
 	   see if the sync table entry is still required:
@@ -558,7 +558,7 @@ register struct ptab *pp;
 {
 	register struct valmsg *rp;
 	register struct ustab *up2;
-	register int len, n, rc;
+	int len, n, rc;
 	int msflags, mssysid, msdlen;
 	char *msdata;
 
@@ -681,7 +681,7 @@ register struct ptab *pp;
 
 void stuend(snid, sysid)
 register long snid;
-register int sysid;
+int sysid;
 {
 	register struct stab *sp;
 	register struct ustab *up;
@@ -708,7 +708,7 @@ struct ptab *pp;
 {
 	register struct stab *sp;
 	register struct ustab *up;
-	register int check;
+	int check;
 
 	TRACE2(tet_Tsyncd, 7, "stdead() called: %s", tet_r2a(&pp->pt_rid));
 

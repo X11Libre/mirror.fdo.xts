@@ -112,7 +112,7 @@ void ss_tsinitb4fork()
 int ss_tsargproc(firstarg, nextarg)
 char *firstarg, *nextarg;
 {
-	register int rc = 0;
+	int rc = 0;
 
 	switch (*(firstarg + 1)) {
 	case 'P':

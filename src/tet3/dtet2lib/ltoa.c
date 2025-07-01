@@ -56,7 +56,7 @@ register long n;
 	static char buf[NLBUF][LNUMSZ];
 	static int count;
 	char *p;
-	register int sign;
+	int sign;
 
 	sign = (n < 0L) ? -1 : 1;
 

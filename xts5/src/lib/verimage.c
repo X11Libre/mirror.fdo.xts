@@ -143,7 +143,7 @@ int		vlite;
 static FILE	*fp;
 long	initfpos;
 XImage	*imp;
-register int 	x, y;
+int 	x, y;
 register unsigned long	ipix;
 unsigned long	pix;
 unsigned long 	count;

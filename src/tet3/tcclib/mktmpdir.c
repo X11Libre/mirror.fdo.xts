@@ -79,7 +79,7 @@ static int tcf_mktd2 PROTOLIST((char *));
 int tcf_mktmpdir(dir, subdp)
 char *dir, **subdp;
 {
-	register int needlen, rc;
+	int needlen, rc;
 	char salt1, salt2;
 	char pidstr[LNUMSZ];
 	static char *subdir;

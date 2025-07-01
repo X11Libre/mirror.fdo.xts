@@ -103,7 +103,7 @@ static SIG_FUNC_T waitchild PROTOLIST((int));
 int ss_tsargproc(firstarg, nextarg)
 char *firstarg, *nextarg;
 {
-	register int rc = 0;
+	int rc = 0;
 	char *mode;
 	static struct netbuf np;	/* XTI TCCD address */
 	register struct netbuf *p;
@@ -175,7 +175,7 @@ char *firstarg, *nextarg;
 void ss_tsinitb4fork()
 {
 
-	register int fd;
+	int fd;
 	struct t_bind  req;
 	struct t_bind *ret;
 
@@ -308,7 +308,7 @@ struct ptab *pp;
 {
 	register struct tptab *tp = (struct tptab *) pp->pt_tdata;
 	char *p;
-	register int pid;
+	int pid;
 
 	/* log the connection */
 	logent("connection received from", tet_addr2lname(&tp->tp_call));
@@ -359,7 +359,7 @@ int sig;
 {
 	int status;
 #ifndef NOTRACE
-	register int pid;
+	int pid;
 #endif
 
 	signal(SIGCHLD, SIG_DFL);

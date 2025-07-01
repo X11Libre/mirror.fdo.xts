@@ -76,7 +76,7 @@ struct sysent *tet_libgetsysent()
 {
 	static struct sysent sysent;
 	char *args[3];
-	register int rc;
+	int rc;
 
 	if (sfp == NULL && tet_libsetsysent() < 0)
 		return((struct sysent *) 0);

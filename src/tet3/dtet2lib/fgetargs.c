@@ -52,11 +52,11 @@ MODIFICATIONS:
 int tet_fgetargs(fp, argv, maxargs)
 FILE *fp;
 char **argv;
-register int maxargs;
+int maxargs;
 {
 	static char buf[BUFSIZ];
 	char *p;
-	register int argc;
+	int argc;
 
 	do {
 		if (fgets(buf, sizeof buf, fp) == NULL)

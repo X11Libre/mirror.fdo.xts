@@ -106,7 +106,7 @@ static int
 rvs2(const char *s, const char **vp)
 {
 	const char *p;
-	register int sysid;
+	int sysid;
 	static char fmt[] = "TET_REM";
 
 	/* see if this is a TET_REM variable */

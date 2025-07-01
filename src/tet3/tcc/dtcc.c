@@ -190,7 +190,7 @@ static int ti_st2(pp, argv)
 struct ptab *pp;
 char **argv;
 {
-	register int rc;
+	int rc;
 	char **avp;
 
 #ifndef NOTRACE
@@ -217,7 +217,7 @@ static int tccdlogon()
 {
 	static char fmt[] = "can't access %.*s on system";
 	char msg[sizeof fmt + MAXPATH];
-	register int sysid, sysmax;
+	int sysid, sysmax;
 	char *dir;
 
 	for (sysid = 0, sysmax = symax(); sysid <= sysmax; sysid++)

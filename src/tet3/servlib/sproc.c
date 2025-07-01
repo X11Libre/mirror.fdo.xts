@@ -128,7 +128,7 @@ static void op_logon(pp)
 register struct ptab *pp;
 {
 	register struct ptab *q;
-	register int errflag, rc;
+	int errflag, rc;
 	struct remid rid;
 
 	/* see if process is already connected via another ptab entry -
@@ -267,7 +267,7 @@ register struct ptab *pp;
 {
 
 	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
-	register int n;
+	int n;
 
 	printf("%s: call to op_print(): argc = %d\n",
 		tet_progname, mp->av_argc);

@@ -934,7 +934,7 @@ tet_merr_stdchan(int errnum, const char **msgs, int nmsgs)
 {
 	char **lp;
 	const char **msgp;
-	register int n;
+	int n;
 	int errtmp, errors;
 	char errbuf[TET_JNL_LEN];
 	char **lines;

@@ -88,7 +88,7 @@ MODIFICATIONS:
 TET_IMPORT int tet_remgetlist(sysnames)
 int **sysnames;
 {
-	register int n, nsys, *ip1, *ip2;
+	int n, nsys, *ip1, *ip2;
 	static int *snames;
 	static int slen;
 	static int nsname = -1;

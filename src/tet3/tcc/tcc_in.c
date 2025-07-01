@@ -123,7 +123,7 @@ int ts_stserver(pp, argv)
 struct ptab *pp;
 char **argv;
 {
-	register int rc;
+	int rc;
 	register SOCKET sd;
 
 	/* get a socket for the server */
@@ -150,7 +150,7 @@ char **argv;
 SOCKET sd;
 {
 	register struct tptab *tp = (struct tptab *) pp->pt_tdata;
-	register int fd, pid, rc;
+	int fd, pid, rc;
 	struct sockaddr_in sin;
 	int len, status;
 	char path[MAXPATH];
@@ -293,7 +293,7 @@ struct ptab *pp;
 
 int tet_ss_tsinfo(pp, ptype)
 struct ptab *pp;
-register int ptype;
+int ptype;
 {
 	register struct tptab *tp;
 	register struct tsinfo *mp;

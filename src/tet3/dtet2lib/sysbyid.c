@@ -51,7 +51,7 @@ MODIFICATIONS:
 */
 
 struct sysent *tet_libgetsysbyid(sysid)
-register int sysid;
+int sysid;
 {
 	static struct sysent *sp;
 

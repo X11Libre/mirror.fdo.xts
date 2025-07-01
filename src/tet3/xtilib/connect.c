@@ -74,7 +74,7 @@ void tet_ts_connect(pp)
 register struct ptab *pp;
 {
 	register struct tptab *tp = (struct tptab *) pp->pt_tdata;
-	register int rc, fd, nfd, c_event;
+	int rc, fd, nfd, c_event;
 	char buf[256], *event;
 	struct t_info info;
 	struct t_call sndcall;

@@ -58,7 +58,7 @@ int fd;
 {
 
 
-	register int flags;
+	int flags;
 
 	if ((flags = fcntl(fd, F_GETFL, 0)) < 0) {
 		error(errno, "can't get file status flags for fd", tet_i2a(fd));

@@ -118,7 +118,7 @@ MODIFICATIONS:
 int tet_getmaxic()
 {
 	register struct tet_testlist *tp;
-	register int icmax;
+	int icmax;
 
 	icmax = 0;
 	for (tp = tet_testlist; tp->testfunc != TET_NULLFP; tp++)
@@ -131,7 +131,7 @@ int tet_getmaxic()
 int tet_getminic()
 {
 	register struct tet_testlist *tp;
-	register int icmin;
+	int icmin;
 
 	icmin = TET_MAX(tet_testlist[0].icref, 0);
 	for (tp = tet_testlist; tp->testfunc != TET_NULLFP; tp++)
@@ -169,7 +169,7 @@ int tet_gettpcount(icnum)
 int icnum;
 {
 	register struct tet_testlist *tp;
-	register int tpcount;
+	int tpcount;
 
 	tpcount = 0;
 	for (tp = tet_testlist; tp->testfunc != TET_NULLFP; tp++)
@@ -190,7 +190,7 @@ int tet_gettestnum(icnum, tpnum)
 int icnum, tpnum;
 {
 	register struct tet_testlist *tp;
-	register int testnum;
+	int testnum;
 
 	testnum = 0;
 	for (tp = tet_testlist; tp->testfunc != TET_NULLFP; tp++) {

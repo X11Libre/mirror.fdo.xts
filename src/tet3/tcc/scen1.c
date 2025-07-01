@@ -1070,7 +1070,7 @@ char *s;
 int *startp, *endp;
 {
 	char *p;
-	register int rc;
+	int rc;
 
 	for (p = s; *p; p++)
 		if (*p == '-') {

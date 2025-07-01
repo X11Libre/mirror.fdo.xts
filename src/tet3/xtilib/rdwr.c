@@ -88,7 +88,7 @@ int tet_ts_rcvmsg(pp)
 register struct ptab *pp;
 {
 	register struct tptab *tp = (struct tptab *) pp->pt_tdata;
-	register int rc;
+	int rc;
 
 	int 	flags;
 
@@ -163,7 +163,7 @@ static int doread(pp)
 register struct ptab *pp;
 {
 	register struct tptab *tp = (struct tptab *) pp->pt_tdata;
-	register int cnt, rc = -1;
+	int cnt, rc = -1;
 	int flags, save_errno;
 
 	TRACE3(tet_Tio, 4, "doread: expect %s bytes on fd %s",
@@ -238,7 +238,7 @@ int tet_ts_sndmsg(pp)
 register struct ptab *pp;
 {
 	register struct tptab *tp = (struct tptab *) pp->pt_tdata;
-	register int rc, err;
+	int rc, err;
 	int save_errno;
 	SIG_T (*pipe_save)();
 
@@ -355,7 +355,7 @@ static int bs2md(bp, pp)
 char *bp;
 struct ptab *pp;
 {
-	register int rc;
+	int rc;
 
 	if ((pp->pt_flags & PF_SERVER) == 0)
 		pp->pt_savreq = pp->ptm_req;
@@ -390,7 +390,7 @@ static int md2bs(pp)
 register struct ptab *pp;
 {
 	register struct tptab *tp = (struct tptab *) pp->pt_tdata;
-	register int len = 0;
+	int len = 0;
 
 	/* work out the required buffer size */
 	switch (pp->ptm_req) {

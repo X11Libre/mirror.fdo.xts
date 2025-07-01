@@ -86,7 +86,7 @@ long pid;
 int timeout;
 {
 	register time_t start;
-	register int fd, rc, errsave;
+	int fd, rc, errsave;
 	char salt1, salt2;
 	char pidstr[LNUMSZ];
 	static char *fname;

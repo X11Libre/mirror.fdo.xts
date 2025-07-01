@@ -70,10 +70,10 @@ char *env;
 int tet_tcputenvv(sysid, envp, nenv)
 int sysid;
 char **envp;
-register int nenv;
+int nenv;
 {
 	register struct avmsg *mp;
-	register int n;
+	int n;
 	extern char tet_tcerrmsg[];
 
 	/* make sure that envp is non-zero and that nenv is +ve */

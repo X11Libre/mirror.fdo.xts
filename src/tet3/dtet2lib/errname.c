@@ -54,7 +54,7 @@ MODIFICATIONS:
 
 const char *
 tet_errname(errnum)
-register int errnum;
+int errnum;
 {
 	register struct errmap *ep, *ee;
 	static char fmt[] = "Error %d";

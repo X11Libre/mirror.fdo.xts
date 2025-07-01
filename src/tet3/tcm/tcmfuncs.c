@@ -130,7 +130,7 @@ char **argv;
 #ifndef TET_LITE /* -START-LITE-CUT- */
 	char errmsg[128];
 	char **ap;
-	register int *ip;
+	int *ip;
 	struct synreq *synreq, *sp;
 	int count;
 	int nsys;

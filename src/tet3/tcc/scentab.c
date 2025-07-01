@@ -307,7 +307,7 @@ void
 tracescelem(int flag, int level, register struct scentab *ep, const char *text)
 {
 	static char null[] = "NULL";
-	register int n;
+	int n;
 
 	if (text) {
 		TRACE3(flag, level, "%s %s", text, tet_i2x(ep));

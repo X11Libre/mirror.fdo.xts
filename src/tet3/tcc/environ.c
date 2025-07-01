@@ -66,7 +66,7 @@ static void init1environ PROTOLIST((struct systab *));
 
 void initenviron()
 {
-	register int sysid, sysmax;
+	int sysid, sysmax;
 	register struct systab *sp;
 
 	/* do this once for each connected system */

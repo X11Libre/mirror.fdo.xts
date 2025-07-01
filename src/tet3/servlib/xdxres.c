@@ -81,7 +81,7 @@ char **lines;
 int nlines;
 {
 	register struct avmsg *mp;
-	register int n;
+	int n;
 	extern char tet_xderrmsg[];
 
 	/* make sure that lines is non-zero and nlines is +ve */

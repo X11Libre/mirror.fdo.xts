@@ -150,7 +150,7 @@ unsigned long 	inpix;
 unsigned long 	outpix;
 int 	flags;
 {
-register int 	x, y;
+int 	x, y;
 XImage	*im;
 int 	xorig;
 int 	yorig;

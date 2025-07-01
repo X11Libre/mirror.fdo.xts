@@ -58,7 +58,7 @@ int sysid, timeout;
 char *file;
 {
 	register struct avmsg *mp;
-	register int delay;
+	int delay;
 	extern char tet_tcerrmsg[];
 
 	/* make sure that file is non-null */

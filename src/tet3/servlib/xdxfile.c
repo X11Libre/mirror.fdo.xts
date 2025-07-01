@@ -68,8 +68,8 @@ static int xd_wrloop PROTOLIST((FILE *, int, char *));
 int tet_xdxfile(ifile, ofile)
 char *ifile, *ofile;
 {
-	register int rc;
-	register int xfid;
+	int rc;
+	int xfid;
 	register FILE *ifp;
 	struct STAT_ST stbuf;
 
@@ -212,7 +212,7 @@ FILE *ifp;
 int xfid;
 char *ifile;
 {
-	register int rc;
+	int rc;
 
 	while ((rc = xd_tfwrite(ifp, xfid, ifile)) > 0)
 		;
@@ -234,7 +234,7 @@ int xfid;
 char *ifile;
 {
 	register struct btmsg *mp;
-	register int n;
+	int n;
 	extern char tet_xderrmsg[];
 
 	/* get the XRESD message buffer */

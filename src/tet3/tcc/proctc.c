@@ -564,7 +564,7 @@ register struct proctab *prp;
 static int tcs1_lock(prp)
 register struct proctab *prp;
 {
-	register int rc;
+	int rc;
 
 	TRACE4(tet_Texec, 6, "tcs1_lock(%s), sysid = %s, flags = %s",
 		tet_i2x(prp), tet_i2a(*prp->pr_sys), prpflags(prp->pr_flags));
@@ -741,7 +741,7 @@ register struct proctab *prp;
 static int tcs1_copy(prp)
 register struct proctab *prp;
 {
-	register int rc;
+	int rc;
 
 	TRACE4(tet_Texec, 6, "tcs1_copy(%s), sysid = %s, flags = %s",
 		tet_i2x(prp), tet_i2a(*prp->pr_sys), prpflags(prp->pr_flags));
@@ -1442,7 +1442,7 @@ struct proctab *prp;
 
 static int nexttcstate(prp, status)
 register struct proctab *prp;
-register int status;
+int status;
 {
 	static char s[] = "TET_EXEC_IN_PLACE";
 

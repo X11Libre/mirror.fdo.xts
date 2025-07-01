@@ -110,7 +110,7 @@ char **argv;
 int tet_ss_argproc(firstarg, nextarg)
 char *firstarg, *nextarg;
 {
-	register int rc;
+	int rc;
 
 	switch (*(firstarg + 1)) {
 	case 's':
@@ -318,7 +318,7 @@ int tet_ss_logon(pp)
 /* register */ struct ptab *pp;
 {
 	register struct ptab *pp1, *pp2;
-	register int count;
+	int count;
 	extern struct ptab *tet_ptab;
 
 	/* make sure that we only have one MTCC logged on */

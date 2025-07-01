@@ -78,7 +78,7 @@ struct synreq *synreq;
 {
 	register struct valmsg *mp;
 	register struct synreq *sp;
-	register int n;
+	int n;
 	extern char tet_sderrmsg[];
 
 	/* get the SYNCD message buffer */

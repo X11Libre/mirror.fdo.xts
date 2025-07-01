@@ -56,7 +56,7 @@ int tet_ti_talk(pp, delay)
 struct ptab *pp;
 int delay;
 {
-	register int rc;
+	int rc;
 
 	tet_si_clientloop(pp, delay);
 

@@ -64,7 +64,7 @@ MODIFICATIONS:
 int tet_ts_tcmputenv()
 {
 	char *p1, *p2;
-	register int first;
+	int first;
 	register struct netbuf *ap;
 	char envstring[1024];
 	char addrbuff[1024];

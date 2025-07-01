@@ -66,8 +66,8 @@ int tet_ss_bs2md(from, pp)
 char *from;
 register struct ptab *pp;
 {
-	register int request = pp->pt_savreq;
-	register int rc;
+	int request = pp->pt_savreq;
+	int rc;
 
 	switch (request) {
 	case OP_USYNC:
@@ -107,9 +107,9 @@ char **bp;
 int *lp, offs;
 {
 	char *mp = pp->ptm_data;
-	register int request = pp->ptm_req;
-	register int len;
-	register int rc;
+	int request = pp->ptm_req;
+	int len;
+	int rc;
 
 	/* calculate outgoing data size */
 	switch (request) {

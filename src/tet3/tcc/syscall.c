@@ -93,7 +93,7 @@ int tcc_access(sysid, path, mode)
 int sysid, mode;
 char *path;
 {
-	register int rc;
+	int rc;
 
 #ifdef TET_LITE	/* -LITE-CUT-LINE- */
 	rc = tet_eaccess(path, mode);
@@ -114,7 +114,7 @@ int tcc_mkdir(sysid, dir)
 int sysid;
 char *dir;
 {
-	register int rc;
+	int rc;
 
 #ifdef TET_LITE	/* -LITE-CUT-LINE- */
 	rc = tet_mkdir(dir, MODEANY);
@@ -135,7 +135,7 @@ int tcc_rmdir(sysid, dir)
 int sysid;
 char *dir;
 {
-	register int rc;
+	int rc;
 
 #ifdef TET_LITE	/* -LITE-CUT-LINE- */
 	rc = tet_rmdir(dir);
@@ -156,7 +156,7 @@ int tcc_chdir(sysid, dir)
 int sysid;
 char *dir;
 {
-	register int rc;
+	int rc;
 
 #ifdef TET_LITE	/* -LITE-CUT-LINE- */
 	rc = CHDIR(dir);
@@ -177,7 +177,7 @@ int tcc_unlink(sysid, fname)
 int sysid;
 char *fname;
 {
-	register int rc;
+	int rc;
 
 #ifdef TET_LITE	/* -LITE-CUT-LINE- */
 	rc = UNLINK(fname);
@@ -195,7 +195,7 @@ int tcc_kill(sysid, pid, signum)
 int sysid, signum;
 long pid;
 {
-	register int rc;
+	int rc;
 
 	TRACE4(tet_Ttcc, 4, "sending signal %s to pid %s on system %s",
 		tet_i2a(signum), tet_l2a(pid), tet_i2a(sysid));
@@ -216,8 +216,8 @@ int tcc_waitnohang(sysid, remid, statp)
 int sysid, *statp;
 long remid;
 {
-	register int rc;
-	register int errsave;
+	int rc;
+	int errsave;
 
 #ifdef TET_LITE		/* -LITE-CUT-LINE- */
 	pid_t pid;

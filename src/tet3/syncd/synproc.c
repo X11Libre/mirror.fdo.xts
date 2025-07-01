@@ -136,7 +136,7 @@ register struct ptab *pp;
 	register struct valmsg *mp = (struct valmsg *) pp->ptm_data;
 	register struct stab *sp;
 	register struct ustab *up;
-	register int i, j, nsys;
+	int i, j, nsys;
 
 	/* all reply messages have no data */
 	pp->ptm_mtype = MT_NODATA;
@@ -332,7 +332,7 @@ struct ptab *pp;
 	register struct valmsg *mp = (struct valmsg *) pp->ptm_data;
 	register struct stab *sp;
 	register struct ustab *up;
-	register int i, j, nsys;
+	int i, j, nsys;
 	struct stab tmp;
 
 	/* all error reply messages (from here) have no data -

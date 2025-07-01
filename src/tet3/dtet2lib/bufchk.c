@@ -58,7 +58,7 @@ MODIFICATIONS:
 
 TET_IMPORT int tet_bufchk(bpp, lp, newlen)
 char **bpp;
-register int *lp, newlen;
+int *lp, newlen;
 {
 	char *bp;
 

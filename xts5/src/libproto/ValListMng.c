@@ -1113,7 +1113,7 @@ unsigned long value;
 static int
 Ones(Mask mask)                /* HACKMEM 169 */
 {
-    register int y;
+    int y;
 
     y = (mask >> 1) &033333333333;
     y = mask - y - ((y >>1) & 033333333333);

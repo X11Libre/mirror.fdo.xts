@@ -914,7 +914,7 @@ Widget w;
 {
     SimpleMenuWidget smw = (SimpleMenuWidget) w;
     register Widget * child, * next_child;
-    register int i;
+    int i;
     Arg args[2];
 
     if ( (smw->simple_menu.label_string == NULL) ||

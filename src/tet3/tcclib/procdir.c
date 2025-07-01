@@ -92,7 +92,7 @@ tcf_procdir(const char *fromdir, const char *todir,
             char *sfiles[], int nsfile, int flag)
 {
 	char **fip, **fromfiles;
-	register int rc, rctmp;
+	int rc, rctmp;
 
 	TRACE3(Ttcclib, 8, "procdir(): fromdir = \"%s\", todir = \"%s\"",
 		fromdir, todir);
@@ -126,7 +126,7 @@ static int
 procfile(const char *fromdir, const char *todir, const char *fromfile,
          char *sfiles[], int nsfile, int flag)
 {
-	register int n;
+	int n;
 	struct STAT_ST stbuf;
 	int len;
 	char path[MAXPATH + 1];
@@ -207,7 +207,7 @@ static int
 copydir(const char *fromdir, const char *todir, int flag)
 {
 	char **fip, **fromfiles;
-	register int rc, rctmp;
+	int rc, rctmp;
 	struct STAT_ST stbuf;
 	int len;
 	char path[MAXPATH + 1];
@@ -299,7 +299,7 @@ static int
 tscopy(const char *fromfile, const char *todir)
 {
 	char *p;
-	register int ifd, rc;
+	int ifd, rc;
 	int len;
 	char tofile[MAXPATH + 1];
 
@@ -353,7 +353,7 @@ tscopy(const char *fromfile, const char *todir)
 static int
 tsc2(int ifd, const char *fromfile, const char *tofile)
 {
-	register int n, ofd, rc;
+	int n, ofd, rc;
 	char buf[BUFSIZ];
 	struct STAT_ST stbuf;
 
@@ -402,7 +402,7 @@ tsc2(int ifd, const char *fromfile, const char *tofile)
 static int
 pmatch(const char *str, const char *pattern)
 {
-        register int schar;
+        int schar;
         char c;
         int unresolved, lchar, notflag;
 

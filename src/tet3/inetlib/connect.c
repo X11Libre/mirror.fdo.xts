@@ -85,9 +85,9 @@ TET_IMPORT void tet_ts_connect(pp)
 register struct ptab *pp;
 {
 	register struct tptab *tp = (struct tptab *) pp->pt_tdata;
-	register int rc;
+	int rc;
 	register SOCKET sd;
-	register int nsd;
+	int nsd;
 	struct sockaddr_in sin;
 	int err;
 	static char fmt[] = "connect to %.16s port %d failed";

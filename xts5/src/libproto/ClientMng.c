@@ -312,7 +312,7 @@ static XstDisplay *
 XstOpenDisplay (const char *display, int bytesex, int needswap, int cl)
 {
     register    XstDisplay * dpy;	/* New XstDisplay object being created. */
-    register int    i;
+    int    i;
     int     j,
             k;			/* random iterator indexes */
     const char   *display_name;	/* pointer to display name */
@@ -799,13 +799,13 @@ register    XstDisplay * dpy;
 
     /* OK, now on with ours.... */
     if (dpy -> screens) {
-	register int    i;
+	int    i;
 
 	for (i = 0; i < dpy -> nscreens; i++) {
 	    XstScreen * sp = &dpy -> screens[i];
 
 	    if (sp -> depths) {
-		register int    j;
+		int    j;
 
 		for (j = 0; j < sp -> ndepths; j++) {
 		    XstDepth * dp = &sp -> depths[j];

@@ -108,7 +108,7 @@ static void ist2(ep, sys, nsys)
 register struct scentab *ep;
 int *sys, nsys;
 {
-	register int *ip;
+	int *ip;
 	register struct systab *sp;
 	static int *oldsys;
 
@@ -240,7 +240,7 @@ int sysid;
 int symax()
 {
 	register struct systab *sp;
-	register int max = -1;
+	int max = -1;
 
 	for (sp = systab; sp; sp = sp->sy_next) {
 		ASSERT(sp->sy_magic == SY_MAGIC);

@@ -53,10 +53,10 @@ MODIFICATIONS:
 
 int tet_sdsnsys(snid, snames, nsname)
 long snid;
-register int *snames, nsname;
+int *snames, nsname;
 {
 	register struct valmsg *mp;
-	register int n;
+	int n;
 	extern char tet_sderrmsg[];
 
 	/* check snames and nsname */

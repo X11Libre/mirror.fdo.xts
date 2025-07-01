@@ -53,10 +53,10 @@ MODIFICATIONS:
 
 int tet_tcsysname(sysid, snames, nsname)
 int sysid;
-register int *snames, nsname;
+int *snames, nsname;
 {
 	register struct valmsg *mp;
-	register int n;
+	int n;
 	extern char tet_tcerrmsg[];
 
 	/* make sure that snames is non-zero and that nsname is +ve */

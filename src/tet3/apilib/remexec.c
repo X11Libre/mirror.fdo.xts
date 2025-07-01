@@ -143,7 +143,7 @@ char **argv;
 	register struct rtab *rp;
 	char **ap;
 	register long pid;
-	register int needlen, rc;
+	int needlen, rc;
 	TET_SIGSAFE_DEF
 	char thistest[LNUMSZ], activity[LNUMSZ];
 	char context[LNUMSZ], block[LNUMSZ];
@@ -340,7 +340,7 @@ int sysid;
 
 static int getconf()
 {
-	register int n;
+	int n;
 	char **ap;
 	static char *cfname[XD_NCFNAME];
 
@@ -419,7 +419,7 @@ char ***confp;
 int *lconfp, *nconfp;
 {
 	char **p1, **p2;
-	register int n;
+	int n;
 	int nlines, eof;
 	char *cp[AV_NLINE];
 
@@ -474,7 +474,7 @@ int sysid;
 	char **p3;
 #endif
 	char *s1, *s2 = "";
-	register int n, rc;
+	int n, rc;
 	char buf[MAXPATH + 48];
 	char *envs[2];
 #define Nenvs (sizeof envs / sizeof envs[0])
@@ -696,7 +696,7 @@ char **sconf;
 	char **rconf = (char **) 0;
 	int lrconf = 0, nrconf = 0;
 	int nlines, done;
-	register int n, err;
+	int n, err;
 	char **p1, **p2;
 
 	/* send the config lines */

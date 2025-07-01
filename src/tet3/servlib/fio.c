@@ -216,7 +216,7 @@ struct ptab *pp;
 	char *dp = pp->ptm_data;
 	register struct ftab *ftp;
 	char *p;
-	register int n, nlines;
+	int n, nlines;
 	char buf[BUFSIZ];
 
 #define mp	((struct valmsg *) dp)
@@ -305,7 +305,7 @@ void tet_op_puts(pp)
 register struct ptab *pp;
 {
 	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
-	register int n;
+	int n;
 	register struct ftab *ftp;
 	static char errmsg[] = "write error on";
 
@@ -345,7 +345,7 @@ void tet_fiodead(pp)
 register struct ptab *pp;
 {
 	register struct ftab *ftp;
-	register int done;
+	int done;
 
 	do {
 		done = 1;
@@ -367,7 +367,7 @@ register struct ptab *pp;
 static int dofclose(ftp)
 register struct ftab *ftp;
 {
-	register int rc;
+	int rc;
 
 	/* close the file */
 	if (fclose(ftp->ft_fp) == EOF) {
@@ -434,7 +434,7 @@ register struct ftab *ftp;
 static void ftlfree(ftp)
 register struct ftab *ftp;
 {
-	register int n;
+	int n;
 	char *p;
 
 	for (n = 0; n < AV_NLINE; n++)

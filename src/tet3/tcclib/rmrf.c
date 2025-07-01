@@ -79,7 +79,7 @@ char *path;
 	char file[MAXPATH + 1];
 	struct STAT_ST stbuf;
 	char *p;
-	register int rc = 0;
+	int rc = 0;
 	int errsave;
 
 	TRACE2(Ttcclib, 8, "rmrf(): path = %s", path);

@@ -68,7 +68,7 @@ MODIFICATIONS:
 
 int tet_getdtablesize()
 {
-	register int rc;
+	int rc;
 
 
 #  ifdef HAS_GETDTABLESIZE

@@ -89,7 +89,7 @@ static int xd_ptcheck PROTOLIST((void));
 
 TET_IMPORT int tet_xdlogon()
 {
-	register int rc;
+	int rc;
 	TET_SIGSAFE_DEF
 
 	if (!tet_xdptab) {
@@ -112,7 +112,7 @@ TET_IMPORT int tet_xdlogon()
 
 int tet_xdlogoff()
 {
-	register int rc;
+	int rc;
 	TET_SIGSAFE_DEF
 
 	if (!tet_xdptab || (tet_xdptab->pt_flags & PF_LOGGEDON) == 0)
@@ -146,10 +146,10 @@ int len;
 */
 
 char *tet_xdtalk(req, delay)
-register int req;
+int req;
 int delay;
 {
-	register int mtype, len, rc;
+	int mtype, len, rc;
 	TET_SIGSAFE_DEF
 
 	TRACE3(tet_Txresd, 1, "xdtalk: request = %s, delay = %s",

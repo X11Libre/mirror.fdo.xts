@@ -56,7 +56,7 @@ MODIFICATIONS:
 
 TET_IMPORT int tet_buftrace(char **bpp, int *lp, int newlen, const char *file, int line)
 {
-	register int rc;
+	int rc;
 
 	TRACE6(tet_Tbuf, 6,
 		"call bufchk from %s, %s: buf = %s, len = %s, newlen = %s",

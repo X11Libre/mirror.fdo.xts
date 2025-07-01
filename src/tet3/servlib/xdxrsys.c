@@ -54,10 +54,10 @@ MODIFICATIONS:
 
 int tet_xdxrsys(xrid, snames, nsname)
 long xrid;
-register int *snames, nsname;
+int *snames, nsname;
 {
 	register struct valmsg *mp;
-	register int n;
+	int n;
 	extern char tet_xderrmsg[];
 
 	/* make sure that snames is non-zero and nsname is +ve */

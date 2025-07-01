@@ -166,7 +166,7 @@ static void irc2()
 
 static void rescode_distribute()
 {
-	register int sysid, sysmax;
+	int sysid, sysmax;
 	FILE *fp;
 	char line[LBUFLEN];
 	char **lines = (char **) 0;
@@ -277,7 +277,7 @@ int nlines;
 void rescode_cleanup()
 {
 #ifndef TET_LITE	/* -START-LITE-CUT- */
-	register int sysid, sysmax;
+	int sysid, sysmax;
 	register struct systab *sp;
 #endif /* !TET_LITE */	/* -END-LITE-CUT- */
 

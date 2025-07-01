@@ -255,7 +255,7 @@ register struct ptab *pp;
 	register struct valmsg *mp = (struct valmsg *) pp->ptm_data;
 	register struct xtab *xp;
 	register struct uxtab *up;
-	register int i, j, nsys;
+	int i, j, nsys;
 
 	/* all reply messages have no data */
 	pp->ptm_mtype = MT_NODATA;
@@ -373,7 +373,7 @@ struct ptab *pp;
 	register struct uxtab *up;
 	register struct ptab *q;
 	register struct xtab *xp;
-	register int rc, count;
+	int rc, count;
 	struct ptab *pte;
 	extern struct ptab *tet_ptab;
 
@@ -653,7 +653,7 @@ register struct ptab *pp;
 	register struct valmsg *mp = (struct valmsg *) pp->ptm_data;
 	register struct xtab *xp;
 	register struct uxtab *up;
-	register int result;
+	int result;
 	int abflag;
 	static char fmt[] = "ABORT on result code %d:";
 	static char gcerr[] =
@@ -766,7 +766,7 @@ int tpend(xp)
 register struct xtab *xp;
 {
 	register struct uxtab *up;
-	register int result, rc;
+	int result, rc;
 
 	/* make sure that the event was expected */
 	if (xp->xt_flags & XF_TPINPROGRESS) {
@@ -820,7 +820,7 @@ static char wrfail[] = "write failed on";
 
 static int xrmsg(xp, code)
 register struct xtab *xp;
-register int code;
+int code;
 {
 	time_t now;
 	register struct tm *tp;
@@ -897,7 +897,7 @@ register struct xtab *xp;
 register struct avmsg *mp;
 {
 	char *s;
-	register int n;
+	int n;
 
 	/* write out the lines to the tmp file */
 	for (n = 0; n < OP_XRES_NLINE(mp); n++) {

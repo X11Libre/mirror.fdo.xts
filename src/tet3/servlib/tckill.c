@@ -57,7 +57,7 @@ int sysid, signum;
 long pid;
 {
 	register struct valmsg *mp;
-	register int remsig;
+	int remsig;
 	extern char tet_tcerrmsg[];
 
 	/* convert the signal number to its machine-independent value */

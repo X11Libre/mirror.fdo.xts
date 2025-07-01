@@ -95,7 +95,7 @@ int tet_tclogon(sysid)
 int sysid;
 {
 	register struct ptab *pp;
-	register int rc;
+	int rc;
 	TET_SIGSAFE_DEF
 
 	/* make sure that we aren't logged on already */
@@ -138,7 +138,7 @@ static int tc_l2(pp, sysid)
 struct ptab *pp;
 int sysid;
 {
-	register int rc;
+	int rc;
 
 	/* connect to the TCCD and log on to it */
 	/* TET_SIGSAFE_START() is done higher up */
@@ -234,7 +234,7 @@ int tet_tclogoff(sysid)
 int sysid;
 {
 	register struct ptab *pp;
-	register int rc;
+	int rc;
 	TET_SIGSAFE_DEF
 
 	/* get the ptab entry for this TCCD */
@@ -278,11 +278,11 @@ int sysid, len;
 */
 
 char *tet_tctalk(sysid, req, delay)
-register int sysid, req;
+int sysid, req;
 int delay;
 {
 	register struct ptab *pp;
-	register int mtype, len, rc;
+	int mtype, len, rc;
 	TET_SIGSAFE_DEF
 
 	TRACE4(tet_Ttccd, 1, "tctalk: sysid = %s, request = %s, delay = %s",
@@ -436,7 +436,7 @@ static int tc_traceargs(pp)
 struct ptab *pp;
 {
 	char **avp, **argv;
-	register int argc;
+	int argc;
 	register struct avmsg *ap;
 
 	/* get a set of trace flags */

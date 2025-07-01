@@ -67,7 +67,7 @@ static int ti_lo2 PROTOLIST((struct ptab *));
 int tet_ti_logon(pp)
 register struct ptab *pp;
 {
-	register int wantptype = pp->ptr_ptype;
+	int wantptype = pp->ptr_ptype;
 
 	if ((pp->pt_flags & (PF_CONNECTED | PF_LOGGEDON)) == (PF_CONNECTED | PF_LOGGEDON)) {
 		error(0, "already logged on to", tet_r2a(&pp->pt_rid));
@@ -160,7 +160,7 @@ int tet_ti_logoff(pp, stayopen)
 struct ptab *pp;
 int stayopen;
 {
-	register int rc;
+	int rc;
 
 	if (pp->pt_flags & PF_LOGGEDON)
 		rc = ti_lo2(pp);

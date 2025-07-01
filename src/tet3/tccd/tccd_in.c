@@ -118,7 +118,7 @@ static SIG_FUNC_T waitchild PROTOLIST((int));
 int ss_tsargproc(firstarg, nextarg)
 char *firstarg, *nextarg;
 {
-	register int rc = 0;
+	int rc = 0;
 
 	switch (*(firstarg + 1)) {
 #ifndef INETD
@@ -188,7 +188,7 @@ void ss_tsinitb4fork()
 #else /* INETD */
 
 	struct sockaddr_in sin;
-	register int sd;
+	int sd;
 	SIG_FUNC_T waitchild();
 
 	/* get the tccd port number if not overridden on the cmd line */
@@ -319,7 +319,7 @@ struct ptab *pp;
 	char *p;
 
 #ifndef INETD
-	register int pid;
+	int pid;
 #endif
 
 	/* log the connection */
@@ -371,7 +371,7 @@ int ss_tslogon()
 	static char equiv[] = "systems.equiv";
 	char fname[MAXPATH + 1];
 	char *argv[1];
-	register int argc, rc;
+	int argc, rc;
 	register unsigned long raddr;
 	FILE *fp;
 
@@ -421,7 +421,7 @@ int sig;
 {
 	int status;
 #ifndef NOTRACE
-	register int pid;
+	int pid;
 #endif
 
 	signal(SIGCHLD, SIG_DFL);

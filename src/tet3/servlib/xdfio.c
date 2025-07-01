@@ -158,7 +158,7 @@ int fid;
 
 char **tet_xdgetsv(fid, nlines, eof)
 int fid, *eof;
-register int *nlines;
+int *nlines;
 {
 	char *dp;
 

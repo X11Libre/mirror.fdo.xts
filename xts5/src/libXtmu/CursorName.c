@@ -182,7 +182,7 @@ int XmuCursorNameToIndex (name)
 			{"xterm",		XC_xterm},
     };
     Const struct _CursorName *table;
-    register int i;
+    int i;
     char tmp[40];
     
     if (strlen ((char *)name) >= sizeof (tmp)) return -1;

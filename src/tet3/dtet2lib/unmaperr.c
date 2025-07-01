@@ -55,7 +55,7 @@ MODIFICATIONS:
 */
 
 int tet_unmaperrno(repcode)
-register int repcode;
+int repcode;
 {
 	register struct errmap *ep, *ee;
 

@@ -129,7 +129,7 @@ int timeout;
 {
 	register time_t now = time((time_t *) 0);
 	register time_t tsave;
-	register int inptab;
+	int inptab;
 	extern struct ptab *tet_ptab;
 
 	TRACE4(tet_Tserv, 4, "%s servwait START: state = %s, flags = %s",
@@ -227,7 +227,7 @@ register struct ptab *pp;
 static void ti_rcv2(pp)
 register struct ptab *pp;
 {
-	register int rc;
+	int rc;
 
 	/* do initial flag check and set */
 	if ((pp->pt_flags & PF_INPROGRESS) == 0)
@@ -317,7 +317,7 @@ register struct ptab *pp;
 static void ti_sndmsg(pp)
 register struct ptab *pp;
 {
-	register int rc;
+	int rc;
 	static long seqno;
 
 	/* set up flags and message header first time through */

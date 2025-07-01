@@ -62,7 +62,7 @@ void op_cfname(pp)
 register struct ptab *pp;
 {
 	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
-	register int n;
+	int n;
 
 	/* all reply messages have no data */
 	pp->ptm_mtype = MT_NODATA;
@@ -112,7 +112,7 @@ void op_rcfname(pp)
 register struct ptab *pp;
 {
 	register struct avmsg *rp;
-	register int n;
+	int n;
 
 	/* make sure that we have some cfnames to return */
 	if (!cfname[XD_NCFNAME - 1]) {

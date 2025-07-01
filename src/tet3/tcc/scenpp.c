@@ -424,7 +424,7 @@ static void printloc(thislineno, thisfname, indent)
 int thislineno, indent;
 char *thisfname;
 {
-	register int doit = 0;
+	int doit = 0;
 
 	if (linectrl) {
 		if (!lastfname || strcmp(lastfname, thisfname)) {
@@ -447,7 +447,7 @@ char *thisfname;
 static void doindent(indent)
 int indent;
 {
-	register int space;
+	int space;
 
 	for (space = indent * tabwidth; space > 7; space -= 8)
 		putc('\t', ofp);

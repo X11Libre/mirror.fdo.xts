@@ -77,7 +77,7 @@ int lfd;
 {
 	register struct ptab *pp;
 	register struct tptab *tp;
-	register int nfd;
+	int nfd;
 	int	i,len, c_event;
 	char	*p;
 

@@ -479,7 +479,7 @@ char *
 strinstr(char *s1, const char *s2)
 {
 char	*cp;
-register int 	c;
+int 	c;
 int 	len;
 
 	len = strlen(s2);

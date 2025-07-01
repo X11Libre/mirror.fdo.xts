@@ -80,7 +80,7 @@ struct ptab *pp;
 	struct in_addr addr, *ap;
 	register struct sysent *sp;
 	register struct tptab *tp = (struct tptab *) pp->pt_tdata;
-	register int port;
+	int port;
 
 	/* look up the host name in the systems file */
 	errno = 0;

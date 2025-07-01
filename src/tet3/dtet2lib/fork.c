@@ -60,7 +60,7 @@ MODIFICATIONS:
 
 int tet_dofork()
 {
-	register int rc, try;
+	int rc, try;
 
 	for (try = 0; (rc = fork()) < 0 && try < 5; try++)
 		sleep((unsigned) TET_MAX(1 << try, 2));

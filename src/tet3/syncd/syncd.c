@@ -289,7 +289,7 @@ int tet_ss_logon(pp)
 register struct ptab *pp;
 {
 	register struct ptab *pp1, *pp2;
-	register int count;
+	int count;
 	extern struct ptab *tet_ptab;
 
 	/* make sure that we only have one MTCC and one XRESD logged on */

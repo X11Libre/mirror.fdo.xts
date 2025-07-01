@@ -386,7 +386,7 @@ XExposeEvent *event;
 Region region;
 {
 	SquareCellWidget cw = (SquareCellWidget) w;
-	register int x, y;
+	int x, y;
 	unsigned int width, height;
 
 	avs_set_event(6, avs_get_event(6)+1);
@@ -591,7 +591,7 @@ Widget w;
 	SquareCellWidget cw = (SquareCellWidget) w;
 	int n_horiz_segments, n_vert_segments;
 	XSegment segment[MAXLINES];
-	register int x, y;
+	int x, y;
 	XFillRectangle(XtDisplay((Widget)cw), cw->squareCell.big_picture,
 	cw->squareCell.undraw_gc, 0, 0, 
 	cw->squareCell.pixmap_width_in_pixels 

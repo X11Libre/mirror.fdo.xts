@@ -54,7 +54,7 @@ char **tet_addargv(argv1, argv2)
 char **argv1, **argv2;
 {
 	char **ap;
-	register int newargc;
+	int newargc;
 	char **newargv;
 	int nalen;
 

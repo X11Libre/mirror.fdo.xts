@@ -121,7 +121,7 @@ struct etab *ep;
 */
 
 struct etab *etfind(pid)
-register int pid;
+int pid;
 {
 	register struct etab *ep;
 
@@ -140,7 +140,7 @@ void etdead(pp)
 struct ptab *pp;
 {
 	register struct etab *ep;
-	register int done;
+	int done;
 
 	do {
 		done = 1;

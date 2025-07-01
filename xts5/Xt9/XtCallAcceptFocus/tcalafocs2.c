@@ -366,7 +366,7 @@ Widget w;
 XExposeEvent *event;
 {
     SquareCellWidget cw = (SquareCellWidget) w;
-    register int x, y;
+    int x, y;
     unsigned int width, height;
     if (!XtIsRealized((Widget)cw))
     return;

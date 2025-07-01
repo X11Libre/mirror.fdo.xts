@@ -240,7 +240,7 @@ static FILE	*fout;
 static int 	olineno = 0;
 static const char	*ofilename;
 char	buf[BUFSIZ];
-register int 	n;
+int 	n;
 extern	char	*OutFileName;
 extern	int 	pflag;
 extern	int 	Cmdname;

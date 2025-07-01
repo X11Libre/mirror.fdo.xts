@@ -53,7 +53,7 @@ MODIFICATIONS:
 */
 
 struct ptab *tet_getnextptbyptype(ptype, start)
-register int ptype;
+int ptype;
 struct ptab *start;
 {
 	register struct ptab *pp;

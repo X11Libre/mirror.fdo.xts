@@ -276,7 +276,7 @@ int tcnamelen;
 static void tooladdargv(avp, alp, anp, s, splitflds)
 char ***avp;
 int *alp, splitflds;
-register int *anp;
+int *anp;
 char *s;
 {
 	char *p, **ap;
@@ -541,7 +541,7 @@ register struct proctab *prp;
 static int toolrunning(prp)
 register struct proctab *prp;
 {
-	register int rc;
+	int rc;
 
 	rc = toolrun2(prp);
 

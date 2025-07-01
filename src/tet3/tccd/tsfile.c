@@ -92,7 +92,7 @@ void op_mksdir(pp)
 register struct ptab *pp;
 {
 	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
-	register int n, nmax, rc;
+	int n, nmax, rc;
 	register struct dirent *dp;
 	DIR *dirp;
 	char savdir[MAXPATH + 1], lokdir[sizeof savdir];
@@ -199,7 +199,7 @@ struct ptab *pp;
 {
 	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	char *todir;
-	register int flag;
+	int flag;
 	int len;
 	char dir[MAXPATH];
 
@@ -215,7 +215,7 @@ struct ptab *pp;
 
 #ifndef NOTRACE
 	if (tet_Ttccd > 0) {
-		register int n;
+		int n;
 		TRACE3(tet_Ttccd, 4, "OP_TSFILES: nfiles = %s, flag = %s",
 			tet_i2a(OP_TSFILES_NFILES(mp)), tet_l2a(AV_FLAG(mp)));
 		for (n = 0; n < OP_TSFILES_NFILES(mp); n++)

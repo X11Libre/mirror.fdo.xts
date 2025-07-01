@@ -656,7 +656,7 @@ static int
 maskshift(mask)
 register unsigned long mask;
 {
-register int i;
+int i;
 
 	for (i = 0; mask; i++) {
 		if (mask & 0x1)

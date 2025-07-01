@@ -236,7 +236,7 @@ static int engine_tcinterrupt(sig)
 int sig;
 {
 	register struct proctab *prp;
-	register int count = 0;
+	int count = 0;
 
 	TRACE2(TET_MAX(tet_Ttcc, tet_Texec), 4,
 		"engine_tcinterrupt(): signal = %s", tet_i2a(sig));
@@ -298,7 +298,7 @@ register struct proctab *prp;
 void engine_shutdown()
 {
 	register struct proctab *prp;
-	register int count = 0;
+	int count = 0;
 	static int been_here = 0;
 
 	TRACE3(TET_MAX(tet_Ttcc, tet_Texec), 4,

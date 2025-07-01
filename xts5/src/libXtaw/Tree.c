@@ -236,7 +236,7 @@ static void initialize_dimensions (listp, sizep, n)
     int *sizep;
     int n;
 {
-    register int i;
+    int i;
     register Dimension *l;
 
     if (!*listp) {
@@ -746,7 +746,7 @@ static void compute_bounding_box_subtree (tree, w, depth)
     int depth;
 {
     TreeConstraints tc = TREE_CONSTRAINT(w);  /* info attached to all kids */
-    register int i;
+    int i;
     Bool horiz = IsHorizontal (tree);
     Dimension newwidth, newheight;
     Dimension bw2 = w->core.border_width * 2;
@@ -862,7 +862,7 @@ static void arrange_subtree (tree, w, depth, x, y)
 {
     TreeConstraints tc = TREE_CONSTRAINT(w);  /* info attached to all kids */
     TreeConstraints firstcc, lastcc;
-    register int i;
+    int i;
     int newx, newy;
     Bool horiz = IsHorizontal (tree);
     Widget child = NULL;

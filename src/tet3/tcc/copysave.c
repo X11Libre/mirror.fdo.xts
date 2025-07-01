@@ -117,7 +117,7 @@ void rtlcopy()
 
 void rtrcopy()
 {
-	register int sysid, sysmax;
+	int sysid, sysmax;
 	char *rtdir;
 
 	for (sysid = 1, sysmax = symax(); sysid <= sysmax; sysid++)
@@ -168,7 +168,7 @@ char *rtdir;
 
 void inittmpdir()
 {
-	register int sysid, sysmax;
+	int sysid, sysmax;
 	register struct systab *sp;
 
 	for (sysid = 0, sysmax = symax(); sysid <= sysmax; sysid++)
@@ -417,7 +417,7 @@ char *from, *to;
 
 void initsfdir()
 {
-	register int sysid, sysmax;
+	int sysid, sysmax;
 	register struct systab *sp;
 	int rc = 0;
 

@@ -67,7 +67,7 @@ int *statp, options;
 
 #if defined(SVR2) || defined(BSD42) || defined(BSD43)
 
-	register int rc;
+	int rc;
 	union wait status;
 
 	if ((rc = wait3(&status, options, 0)) > 0)

@@ -142,12 +142,12 @@ char *line;
 
 int tet_tcputsv(sysid, fid, lines, nline)
 int sysid, fid;
-register int nline;
+int nline;
 char **lines;
 {
 
 	register struct avmsg *mp;
-	register int n;
+	int n;
 
 	/* make sure that lines is non-zero and that nline is +ve */
 	if (!lines || nline <= 0) {

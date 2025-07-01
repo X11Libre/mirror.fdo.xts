@@ -136,7 +136,7 @@ long inpix;
 long outpix;
 int flags;
 {
-register int x, y;
+int x, y;
 int xorig;
 int yorig;
 unsigned int fullwidth;

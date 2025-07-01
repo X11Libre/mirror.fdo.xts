@@ -102,7 +102,7 @@ int tet_tcmc_main(argc, argv)
 int argc;
 char **argv;
 {
-	register int rc;
+	int rc;
 
 
 #ifdef TET_THREADS

@@ -114,9 +114,9 @@ void rbuftrace(char **bpp, int *lp, int newlen, const char *file, int line)
 
 int split(s, argv, maxargs, delim)
 char *s, **argv;
-register int maxargs, delim;
+int maxargs, delim;
 {
-	register int argc, new;
+	int argc, new;
 
 	if (isspace(delim))
 		return(tet_getargs(s, argv, maxargs));
@@ -183,7 +183,7 @@ void scengiveup()
 void
 tcc_dirname(const char *path, char dir[], int dirlen)
 {
-	register int len;
+	int len;
 
 	if ((len = tet_basename(path) - path - 1) == 0 && isdirsep(*path))
 		len++;
@@ -206,7 +206,7 @@ tcc_dirname(const char *path, char dir[], int dirlen)
 void fullpath(const char *dir, const char *file, char path[], int pathlen, int remote)
 {
 	char *p = path;
-	register int len;
+	int len;
 
 #ifndef NOTRACE
 	static char null[] = "NULL";

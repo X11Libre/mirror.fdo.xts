@@ -79,7 +79,7 @@ static int check_grouplist PROTOLIST((struct STAT_ST *, int));
 
 int tet_eaccess(path, mode)
 char *path;
-register int mode;
+int mode;
 {
 	struct STAT_ST stbuf;
 

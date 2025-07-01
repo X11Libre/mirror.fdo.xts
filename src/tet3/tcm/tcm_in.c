@@ -94,7 +94,7 @@ void tet_ts_tcminit()
 	char **ap;
 	char *envstring, *p;
 	char **args;
-	register int nargs;
+	int nargs;
 	static char envname[] = "TET_TSARGS";
 
 	/* get the dtet ts args out of the environment and count them */
@@ -218,7 +218,7 @@ struct ptab *pp;
 
 int tet_tcm_tsinfo(pp, ptype)
 struct ptab *pp;
-register int ptype;
+int ptype;
 {
 	register struct tptab *tp;
 	register struct tsinfo *mp;

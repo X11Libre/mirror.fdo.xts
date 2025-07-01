@@ -59,7 +59,7 @@ int sysid, timeout;
 char *lockdir;
 {
 	register struct avmsg *mp;
-	register int delay;
+	int delay;
 	extern char tet_tcerrmsg[];
 
 	/* make sure that lockdir is non-null */

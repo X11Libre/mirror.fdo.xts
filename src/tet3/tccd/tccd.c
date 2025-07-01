@@ -161,8 +161,8 @@ char **argv;
 int tet_ss_argproc(firstarg, nextarg)
 char *firstarg, *nextarg;
 {
-	register int rc = 0;
-	register int mask;
+	int rc = 0;
+	int mask;
 	char *p;
 
 	switch (*(firstarg + 1)) {
@@ -555,8 +555,8 @@ register struct ptab *pp;
 {
 	register struct valmsg *mp = (struct valmsg *) pp->ptm_data;
 	register struct sptab *sp = (struct sptab *) pp->pt_sdata;
-	register int *snp;
-	register int i, j, needlen;
+	int *snp;
+	int i, j, needlen;
 
 	/* all reply messages have no data */
 	pp->ptm_mtype = MT_NODATA;

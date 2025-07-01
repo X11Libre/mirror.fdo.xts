@@ -92,8 +92,8 @@ static int rep_bs2md(from, pp)
 char *from;
 register struct ptab *pp;
 {
-	register int rc;
-	register int request = pp->pt_savreq;
+	int rc;
+	int request = pp->pt_savreq;
 
 	switch (request) {
 	case OP_TFOPEN:
@@ -124,8 +124,8 @@ static int req_bs2md(from, pp)
 char *from;
 register struct ptab *pp;
 {
-	register int rc;
-	register int request = pp->ptm_req;
+	int rc;
+	int request = pp->ptm_req;
 
 	switch (request) {
 	case OP_SYSID:
@@ -209,8 +209,8 @@ char **bp;
 int *lp, offs;
 {
 	char *mp = pp->ptm_data;
-	register int request = pp->ptm_req;
-	register int len, rc;
+	int request = pp->ptm_req;
+	int len, rc;
 
 	/* calculate outgoing data size */
 	switch (request) {
@@ -273,8 +273,8 @@ char **bp;
 int *lp, offs;
 {
 	char *mp = pp->ptm_data;
-	register int request = pp->ptm_req;
-	register int len, rc;
+	int request = pp->ptm_req;
+	int len, rc;
 
 	/* calculate outgoing data size */
 	switch (request) {

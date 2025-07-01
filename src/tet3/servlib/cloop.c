@@ -58,7 +58,7 @@ void tet_si_clientloop(pp, delay)
 register struct ptab *pp;
 int delay;
 {
-	register int done;
+	int done;
 
 	TRACE3(tet_Tloop, 2, "clientloop START %s, delay = %s",
 		tet_r2a(&pp->pt_rid), tet_i2a(delay));

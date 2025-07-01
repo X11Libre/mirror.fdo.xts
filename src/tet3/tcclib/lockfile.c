@@ -74,7 +74,7 @@ int tcf_lockfile(fname, timeout)
 char *fname;
 int timeout;
 {
-	register int fd, errsave, rc;
+	int fd, errsave, rc;
 	register time_t start;
 
 	ASSERT(fname && *fname);

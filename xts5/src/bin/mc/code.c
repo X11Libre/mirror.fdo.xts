@@ -715,7 +715,7 @@ const char	**cpp;
 int
 assertfill(FILE *fp, char *buf, FILE *outfp, const char *prefix)
 {
-register int 	assertpos;
+int 	assertpos;
 char	*tok;
 int 	oldpos;
 int 	inmacro;	/* inmacro is set to the 'depth' of the macro */
@@ -996,7 +996,7 @@ doxcall(
 char	prefix[PRELEN];
 char	*pp;
 char	*cp;
-register int 	i;
+int 	i;
 int 	insertstat = 0;
 int 	insertval = 0;
 

@@ -97,10 +97,10 @@ char **files, *subdir;
 static int tc_tsfiles(sysid, files, nfile, subdir, savedir, flag)
 int sysid, flag;
 char **files, *subdir, *savedir;
-register int nfile;
+int nfile;
 {
 	register struct avmsg *mp;
-	register int n;
+	int n;
 	extern char tet_tcerrmsg[];
 
 	/* make sure that files is non-zero and that nfile is +ve */

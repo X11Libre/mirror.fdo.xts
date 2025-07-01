@@ -71,10 +71,10 @@ static int short2bs PROTOLIST((short *, char *, int));
 int tet_bs2st(from, to, st, nst, len)
 char *from, *to;
 register struct stdesc *st;
-register int nst, len;
+int nst, len;
 {
 	char *fp, *tp;
-	register int n, count;
+	int n, count;
 
 	for (count = 0; nst > 0 && count < len; nst--, st++) {
 		fp = from + st->st_bsoff;
@@ -117,10 +117,10 @@ register int nst, len;
 int tet_st2bs(from, to, st, nst)
 char *from, *to;
 register struct stdesc *st;
-register int nst;
+int nst;
 {
 	char *fp, *tp;
-	register int n, count;
+	int n, count;
 
 	for (count = 0; nst > 0; nst--, st++) {
 		fp = from + st->st_stoff;
@@ -156,9 +156,9 @@ register int nst;
 static int bs2char(from, to, n)
 char *from;
 char *to;
-register int n;
+int n;
 {
-	register int count = n;
+	int count = n;
 
 	while (--n >= 0)
 		*to++ = *from++;
@@ -169,9 +169,9 @@ register int n;
 static int bs2short(from, to, n)
 char *from;
 register short *to;
-register int n;
+int n;
 {
-	register int count = n * SHORTSIZE;
+	int count = n * SHORTSIZE;
 
 	while (--n >= 0) {
 		*to++ = ld16(from);
@@ -184,9 +184,9 @@ register int n;
 static int bs2ushort(from, to, n)
 char *from;
 register unsigned short *to;
-register int n;
+int n;
 {
-	register int count = n * SHORTSIZE;
+	int count = n * SHORTSIZE;
 
 	while (--n >= 0) {
 		*to++ = ld16u(from);
@@ -199,9 +199,9 @@ register int n;
 static int bs2long(from, to, n)
 char *from;
 register long *to;
-register int n;
+int n;
 {
-	register int count = n * LONGSIZE;
+	int count = n * LONGSIZE;
 
 	while (--n >= 0) {
 		*to++ = ld32(from);
@@ -220,9 +220,9 @@ register int n;
 
 static int char2bs(from, to, n)
 char *from, *to;
-register int n;
+int n;
 {
-	register int count = n;
+	int count = n;
 
 	while (--n >= 0)
 		*to++ = *from++;
@@ -233,9 +233,9 @@ register int n;
 static int short2bs(from, to, n)
 register short *from;
 char *to;
-register int n;
+int n;
 {
-	register int count = n * SHORTSIZE;
+	int count = n * SHORTSIZE;
 
 	while (--n >= 0) {
 		st16(*from, to);
@@ -249,9 +249,9 @@ register int n;
 static int long2bs(from, to, n)
 register long *from;
 char *to;
-register int n;
+int n;
 {
-	register int count = n * LONGSIZE;
+	int count = n * LONGSIZE;
 
 	while (--n >= 0) {
 		st32(*from, to);

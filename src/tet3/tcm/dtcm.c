@@ -818,7 +818,7 @@ int status;
 */
 
 static void XSync_report(nsys, functype)
-register int nsys;
+int nsys;
 char *functype;
 {
 	register struct synreq *sp;
@@ -1083,7 +1083,7 @@ static struct iclist *iclalloc()
 
 static int split(s, argv, maxargs, delim)
 char *s, **argv;
-register int maxargs, delim;
+int maxargs, delim;
 {
 	char **ap = argv;
 

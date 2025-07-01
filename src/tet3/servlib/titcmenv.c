@@ -67,10 +67,10 @@ MODIFICATIONS:
 int tet_ti_tcmputenv(psysid, snid, xrid, sname, nsname)
 int psysid;
 long snid, xrid;
-register int *sname, nsname;
+int *sname, nsname;
 {
 	char *p1, *p2;
-	register int n, needlen;
+	int n, needlen;
 	char sysidstr[LNUMSZ], psysidstr[LNUMSZ];
 	char snidstr[LNUMSZ], xridstr[LNUMSZ];
 	static char envname[] = "TET_TIARGS=";

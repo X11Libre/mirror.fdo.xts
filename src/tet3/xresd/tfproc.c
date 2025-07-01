@@ -282,7 +282,7 @@ void tfdead(pp)
 register struct ptab *pp;
 {
 	register struct tftab *tp;
-	register int done;
+	int done;
 
 	do {
 		done = 1;
@@ -304,7 +304,7 @@ register struct ptab *pp;
 static int dotfclose(tp)
 register struct tftab *tp;
 {
-	register int rc;
+	int rc;
 
 	/* perform the close operation */
 	if (fclose(tp->tf_fp) == EOF) {
@@ -396,7 +396,7 @@ struct tftab *tp;
 */
 
 static struct tftab *tffind(id)
-register int id;
+int id;
 {
 	register struct tftab *tp;
 

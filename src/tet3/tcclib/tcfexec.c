@@ -103,9 +103,9 @@ char *path, **argv, *outfile;
 long snid;
 int flag, *pidp;
 {
-	register int pid, rc;
+	int pid, rc;
 
-	register int fd, n;
+	int fd, n;
 
 #ifndef NOTRACE
 	char **ap;

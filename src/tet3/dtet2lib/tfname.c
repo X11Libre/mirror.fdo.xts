@@ -89,7 +89,7 @@ tet_mktfname(const char *prefix)
 {
 	const char **tdp;
 	char *p;
-	register int rc = TR_ERROR;
+	int rc = TR_ERROR;
 	char *fname;
 
 	/* do initial setup first time through */
@@ -140,7 +140,7 @@ static int
 tryone(const char *dir, const char *prefix, char **np)
 {
 	char *fname, *pidstr;
-	register int fd, n, rc;
+	int fd, n, rc;
 	size_t needlen;
 	char buf[1024];
 

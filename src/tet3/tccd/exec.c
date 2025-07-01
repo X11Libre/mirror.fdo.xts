@@ -117,7 +117,7 @@ register struct ptab *pp;
 	register struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	register struct sptab *sp = (struct sptab *) pp->pt_sdata;
 	register struct etab *ep;
-	register int rc;
+	int rc;
 
 	/* do a sanity check on the request message */
 	if (OP_EXEC_NARG(mp) < 1 || !AV_PATH(mp) || !AV_ARG(mp, 0))
@@ -155,7 +155,7 @@ struct ptab *pp;
 struct etab *ep;
 {
 	char *dp = pp->ptm_data;
-	register int rc;
+	int rc;
 	char *path;
 	int flag, pid;
 	char *p;
@@ -313,7 +313,7 @@ register struct ptab *pp;
 {
 	register struct valmsg *mp = (struct valmsg *) pp->ptm_data;
 	register struct etab *ep;
-	register int rc;
+	int rc;
 
 	TRACE3(tet_Ttccd, 4, "op_wait: pid = %s, timeout = %s",
 		tet_l2a(VM_PID(mp)), tet_l2a(VM_WTIMEOUT(mp)));
@@ -376,7 +376,7 @@ register struct ptab *pp;
 {
 	register struct valmsg *mp = (struct valmsg *) pp->ptm_data;
 	register struct etab *ep;
-	register int signum, rc;
+	int signum, rc;
 
 	TRACE3(tet_Ttccd, 4, "op_kill: pid = %s, signum = %s",
 		tet_l2a(VM_PID(mp)), tet_l2a(VM_SIGNUM(mp)));
@@ -499,9 +499,9 @@ static int wait_timedout;
 
 static int waitforchild(pid, timeout)
 int pid;
-register int timeout;
+int timeout;
 {
-	register int rc;
+	int rc;
 	register SIG_T (*sig_save)();
 	register unsigned alarm_save;
 	register time_t interval, start;
@@ -545,11 +545,11 @@ register int timeout;
 
 static int wfc2(pid, timeout, start)
 int pid;
-register int timeout;
+int timeout;
 time_t start;
 {
 	register struct etab *ep;
-	register int rc, tleft, save_errno;
+	int rc, tleft, save_errno;
 	int status;
 
 	/* reap all terminated children until pid is found, storing

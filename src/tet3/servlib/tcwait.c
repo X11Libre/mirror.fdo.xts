@@ -61,7 +61,7 @@ long pid;
 int *statp;
 {
 	register struct valmsg *mp;
-	register int delay;
+	int delay;
 	extern char tet_tcerrmsg[];
 
 	/* get the TCCD message buffer */

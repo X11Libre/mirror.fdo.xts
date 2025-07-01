@@ -80,12 +80,12 @@ int tet_mkdir(path, mode)
 char *path;
 int mode;
 {
-	register int rc;
+	int rc;
 
 #ifdef NOMKDIR
 
 	char *p;
-	register int n;
+	int n;
 	struct stat stbuf;
 	char dir[MAXPATH + 1];
 
@@ -139,12 +139,12 @@ int mode;
 int tet_rmdir(path)
 char *path;
 {
-	register int rc;
+	int rc;
 
 #ifdef NOMKDIR
 
 	char *p;
-	register int n;
+	int n;
 	struct stat stbuf;
 	char dir[MAXPATH + 1];
 
@@ -214,7 +214,7 @@ char *prog, *path;
 int mode;
 {
 	char *argv[3];
-	register int pid, rc;
+	int pid, rc;
 	int status, save_errno;
 	char msg[32];
 

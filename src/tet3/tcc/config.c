@@ -778,7 +778,7 @@ void doconfig()
 	register struct systab *sp;
 	struct cflist *blp, *elp, *clp;
 #ifndef TET_LITE	/* -START-LITE-CUT- */
-	register int sysid, sysmax;
+	int sysid, sysmax;
 	struct cflist tmp;
 	struct cflist *lp;
 	char **cp;
@@ -2276,7 +2276,7 @@ getcflag(const char *name, int sysid, int mode)
 static char **
 findcfg(const char *name, register struct cflist *lp)
 {
-	register int len;
+	int len;
 	char **cp, *p;
 
 	/* make len equal to the number of bytes in the name */

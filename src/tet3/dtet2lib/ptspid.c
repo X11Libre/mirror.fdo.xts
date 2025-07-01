@@ -53,7 +53,7 @@ MODIFICATIONS:
 */
 
 struct ptab *tet_getptbysyspid(sysid, pid)
-register int sysid;
+int sysid;
 register long pid;
 {
 	register struct ptab *pp;

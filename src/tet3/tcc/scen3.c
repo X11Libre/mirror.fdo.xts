@@ -186,7 +186,7 @@ register struct scentab *ep;
 static void remove_unneeded_scenarios()
 {
 	register struct scentab *ep;
-	register int done;
+	int done;
 
 	/*
 	** remove each scenario which does not have the NEEDED flag set;
@@ -255,7 +255,7 @@ static void proc3refscen(parent)
 struct scentab *parent;
 {
 	register struct scentab *ep;
-	register int done;
+	int done;
 
 	/*
 	** traverse the tree at this level, copying in referenced

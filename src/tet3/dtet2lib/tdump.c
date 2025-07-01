@@ -53,7 +53,7 @@ void tet_tdump(from, len, title)
 char *from, *title;
 int len;
 {
-	register int save_errno = errno;
+	int save_errno = errno;
 	extern FILE *tet_tfp;
 
 	if (!tet_tfp)

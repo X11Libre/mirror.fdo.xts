@@ -117,7 +117,7 @@ void proc_parallel(prp)
 register struct proctab *prp;
 {
 	register struct scentab *ep;
-	register int count;
+	int count;
 	struct proctab *lback;
 
 	TRACE3(tet_Texec, 6, "proc_parallel(%s): currmode = %s",
@@ -231,7 +231,7 @@ int count;
 {
 	register struct scentab *ep2;
 	register struct proctab *child;
-	register int n;
+	int n;
 	void (*jnlstart) PROTOLIST((struct proctab *));
 	void (*jnlend) PROTOLIST((struct proctab *));
 
@@ -320,7 +320,7 @@ void (*jnlfunc) PROTOLIST((struct proctab *));
 static void proc_par_simple(prp, ep, count, lbp)
 struct proctab *prp, **lbp;
 struct scentab *ep;
-register int count;
+int count;
 {
 	register struct proctab *child;
 
@@ -602,9 +602,9 @@ register struct proctab *prp;
 
 static int count_tc(ep, flagmask)
 register struct scentab *ep;
-register int flagmask;
+int flagmask;
 {
-	register int count = 0;
+	int count = 0;
 
 	/*
 	** traverse the tree at this level, counting test cases and
@@ -945,7 +945,7 @@ register struct proctab *prp;
 static int is_tcdist(ep)
 register struct scentab *ep;
 {
-	register int *ip;
+	int *ip;
 
 	ASSERT(ep->sc_type == SC_DIRECTIVE);
 	switch (ep->sc_directive) {

@@ -168,7 +168,7 @@ int n;
 
 static int bs2short(from, to, n)
 char *from;
-register short *to;
+short *to;
 int n;
 {
 	int count = n * SHORTSIZE;
@@ -231,7 +231,7 @@ int n;
 }
 
 static int short2bs(from, to, n)
-register short *from;
+short *from;
 char *to;
 int n;
 {

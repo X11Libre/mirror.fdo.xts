@@ -1632,7 +1632,7 @@ static void
 ReleaseGCs(w)
 Widget w;
 {
-    register PanedWidget pw = (PanedWidget)w;
+    PanedWidget pw = (PanedWidget)w;
 
     XtReleaseGC( w, pw->paned.normgc );
     XtReleaseGC( w, pw->paned.invgc );

@@ -246,7 +246,7 @@ static void ClassInitialize(void)
 static void ClassPartInitialize(class)
     WidgetClass class;
 {
-    register FormWidgetClass c = (FormWidgetClass)class;
+    FormWidgetClass c = (FormWidgetClass)class;
 
     if (c->form_class.layout == XtInheritLayout)
 	c->form_class.layout = Layout;

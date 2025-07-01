@@ -283,8 +283,8 @@ static void ClassInitialize(void)
 static void ClassPartInitialize(class)
     WidgetClass class;
 {
-    register FormWidgetClass c = (FormWidgetClass)class;
-    register FormWidgetClass super = (FormWidgetClass) 
+    FormWidgetClass c = (FormWidgetClass)class;
+    FormWidgetClass super = (FormWidgetClass) 
 	c->core_class.superclass;
 
     if (c->form_class.layout == XtInheritLayout)

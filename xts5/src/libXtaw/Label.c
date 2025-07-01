@@ -525,7 +525,7 @@ static void Redisplay(w, event, region)
 }
 
 static void _Reposition(lw, width, height, dx, dy)
-    register LabelWidget lw;
+    LabelWidget lw;
     Dimension width, height;
     Position *dx, *dy;
 {
@@ -684,7 +684,7 @@ static XtGeometryResult QueryGeometry(w, intended, preferred)
     Widget w;
     XtWidgetGeometry *intended, *preferred;
 {
-    register LabelWidget lw = (LabelWidget)w;
+    LabelWidget lw = (LabelWidget)w;
 
     preferred->request_mode = CWWidth | CWHeight;
     preferred->width = (lw->label.label_width + 2 * lw->label.internal_width +

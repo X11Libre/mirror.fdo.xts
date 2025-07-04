@@ -94,7 +94,7 @@ int status;
 
 	avs_xt_hier("Tchcksbcls3", "XtCheckSubclass");
 	tet_infoline("PREP: Install error message handler");
-	XtAppSetErrorMsgHandler(app_ctext, &XtEM_Proc2);
+	XtAppSetErrorMsgHandler(app_ctext, (XtErrorMsgHandler _X_NORETURN)&XtEM_Proc2);
         tet_infoline("PREP: Create test label widget");
         labelw_msg = (Widget) CreateLabelWidget("Test", boxw1);
         tet_infoline("PREP: Create windows for widgets and map them");

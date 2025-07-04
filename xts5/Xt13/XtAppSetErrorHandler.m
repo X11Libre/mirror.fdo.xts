@@ -118,7 +118,7 @@ pid_t pid2;
 		tet_result(TET_FAIL);
 	}
 	tet_infoline("PREP: Re-Register error handler");
-	previous_handler = XtAppSetErrorHandler(app_ctext, previous_handler);
+	previous_handler = XtAppSetErrorHandler(app_ctext, (XtErrorHandler _X_NORETURN)previous_handler);
 	tet_infoline("TEST: Pointer to previous handler returned");
 	if (previous_handler != XtEMH_Proc) {
 		sprintf(ebuf, "ERROR: Pointer to previous handler not rreturned");

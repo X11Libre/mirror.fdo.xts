@@ -117,7 +117,7 @@ pid_t pid2;
 	tet_infoline("PREP: Create windows for widgets and map them");
 	XtRealizeWidget(topLevel);
 	tet_infoline("PREP: Set up toolkit handler for XtMalloc failure");
-	XtAppSetErrorMsgHandler(app_ctext, alloc_handler);
+	XtAppSetErrorMsgHandler(app_ctext, (XtErrorMsgHandler _X_NORETURN)alloc_handler);
 	tet_infoline("PREP: Determine largest malloc");
 	max_limit = mem_limit();
 	tet_infoline("PREP: Allocate that much and the check over the limit XtMalloc calls XtErrorMsg");

@@ -169,7 +169,7 @@ pid_t pid2;
 	tet_infoline("PREP: Create windows for widgets and map them");
 	XtRealizeWidget(topLevel);
 	tet_infoline("PREP: Set up toolkit handler for XtRealloc failure");
-	XtAppSetErrorMsgHandler(app_ctext, alloc_handler);
+	XtAppSetErrorMsgHandler(app_ctext, (XtErrorMsgHandler _X_NORETURN)alloc_handler);
 	tet_infoline("PREP: Determine largest realloc");
 	max_limit = mem_limit();
 	tet_infoline("TEST: Allocate memory then verify over the limit XtRealloc calls error handler");

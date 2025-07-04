@@ -121,7 +121,7 @@ pid_t pid2;
 	XtRealizeWidget(topLevel);
  
 	tet_infoline("PREP: Set up toolkit handler for XtCalloc failure");
-	XtAppSetErrorMsgHandler(app_ctext, alloc_handler);
+	XtAppSetErrorMsgHandler(app_ctext, (XtErrorMsgHandler _X_NORETURN)alloc_handler);
 	tet_infoline("PREP: Determine largest malloc");
 	num = mem_limit();
 	tet_infoline("PREP: Over the limit XtCalloc should call XtErrorMessage");

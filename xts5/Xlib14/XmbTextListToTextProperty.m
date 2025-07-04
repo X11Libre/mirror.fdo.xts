@@ -209,7 +209,7 @@ list property structure and return Success.
                          list,
                          count,
                          (XICCEncodingStyle)XStdICCTextStyle,
-                         &text_prop
+                         text_prop
                         );
                 }
 	}

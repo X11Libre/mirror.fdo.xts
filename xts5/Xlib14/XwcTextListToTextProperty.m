@@ -269,7 +269,7 @@ int ret;
 			svcwcTextListToTextProperty(
 				display_good, string_list,
 				10, (XICCEncodingStyle)XTextStyle, 
-				&text_prop);
+				text_prop);
                 }
 	}
 	tet_result(TET_PASS);

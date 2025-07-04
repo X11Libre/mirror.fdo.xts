@@ -366,7 +366,7 @@ Cardinal *num_args;
 static void
 Redisplay(w, event, region)
 Widget w;
-XExposeEvent *event;
+XEvent *event;
 Region region;
 {
 	SquareCellWidget cw = (SquareCellWidget) w;
@@ -375,10 +375,11 @@ Region region;
 	if (!XtIsRealized((Widget)cw))
 	return;
 	if (event) { /* called from btn-event or expose */
-	x = event->x;
-	y = event->y; 
-	width = event->width;
-	height = event->height;
+	XExposeEvent *e = (XExposeEvent *)event;
+	x = e->x;
+	y = e->y;
+	width = e->width;
+	height = e->height;
 	} 
 	else {	/* called because complete redraw */
 	x = 0;
@@ -464,25 +465,31 @@ Widget w;
 	XtFree(cw->squareCell.cell);
 }
 static void
-DrawCell(w, event)
+DrawCell(w, event, params, num_params)
 Widget w;
 XEvent *event;
+String *params;
+Cardinal *num_params;
 {
 	SquareCellWidget cw = (SquareCellWidget) w;
 	DrawPixmaps(cw->squareCell.draw_gc, DRAW, (Widget)cw, (XButtonEvent *)event);
 }
 static void
-UndrawCell(w, event)
+UndrawCell(w, event, params, num_params)
 Widget w;
 XEvent *event;
+String *params;
+Cardinal *num_params;
 {
 	SquareCellWidget cw = (SquareCellWidget) w;
 	DrawPixmaps(cw->squareCell.undraw_gc, UNDRAW, (Widget)cw, (XButtonEvent *)event);
 }
 static void
-ToggleCell(w, event)
+ToggleCell(w, event, params, num_params)
 Widget w;
 XEvent *event;
+String *params;
+Cardinal *num_params;
 {
 	SquareCellWidget cw = (SquareCellWidget) w;
 	static int oldx = -1, oldy = -1;

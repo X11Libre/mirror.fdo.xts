@@ -96,4 +96,5 @@ libxtest = static_library(
   'xtest',
   files_libxtest,
   include_directories : [inc_include, inc_tet3, inc_xts5],
+  dependencies : [deps_xts_args],
 )

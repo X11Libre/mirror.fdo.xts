@@ -97,7 +97,7 @@ dep_xtrans = dependency('xtrans')
 dep_xmu = dependency('xmu')
 dep_xaw7 = dependency('xaw7')
 
-deps_xts = [dep_x11, dep_xext, dep_xi, dep_xtst, dep_xau]
+deps_xts = [dep_x11, dep_xext, dep_xi, dep_xt, dep_xtst, dep_xau]
 deps_xt = [dep_x11, dep_xext, dep_xi, dep_xt, dep_xtst, dep_xtrans]
 deps_xaw = [dep_x11, dep_xext, dep_xi, dep_xtst, dep_xmu, dep_xaw7]
 

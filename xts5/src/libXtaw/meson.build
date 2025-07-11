@@ -27,5 +27,5 @@ libxtaw = static_library(
     'Sme.c', 'Simple.c', 'SmeBSB.c', 'SimpleMenu.c', 'XawInit.c',
   ],
   include_directories : [inc_include],
-  dependencies : [deps_xts_args],
+  dependencies : [deps_xts_args, deps_xaw_args],
 )

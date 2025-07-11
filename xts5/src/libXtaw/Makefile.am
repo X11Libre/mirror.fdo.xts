@@ -1,6 +1,6 @@
 include ../../common.mk
 
-AM_CFLAGS = $(XTS_CFLAGS)
+AM_CFLAGS = $(XTS_CFLAGS) $(XAW_CFLAGS)
 AM_CPPFLAGS = -D_CONST_X_STRING
 noinst_LTLIBRARIES = libXtaw.la
 libXtaw_la_SOURCES = AllWidgets.c \

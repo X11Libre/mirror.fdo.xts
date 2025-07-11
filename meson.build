@@ -90,6 +90,7 @@ conf.set('_CONST_X_STRING', 1)
 dep_x11 = dependency('x11')
 dep_xext = dependency('xext')
 dep_xi = dependency('xi')
+dep_xt = dependency('xt')
 dep_xtst = dependency('xtst')
 dep_xau = dependency('xau')
 dep_xtrans = dependency('xtrans')
@@ -97,7 +98,7 @@ dep_xmu = dependency('xmu')
 dep_xaw7 = dependency('xaw7')
 
 deps_xts = [dep_x11, dep_xext, dep_xi, dep_xtst, dep_xau]
-deps_xt = [dep_x11, dep_xext, dep_xi, dep_xtst, dep_xtrans]
+deps_xt = [dep_x11, dep_xext, dep_xi, dep_xt, dep_xtst, dep_xtrans]
 deps_xaw = [dep_x11, dep_xext, dep_xi, dep_xtst, dep_xmu, dep_xaw7]
 
 # Get just the compiler/preprocessor args and includes for each dependency

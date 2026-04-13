@@ -103,8 +103,7 @@ static void tfrm PROTOLIST((struct tftab *));
 **	op_tfopen() - process an OP_TFOPEN request
 */
 
-void op_tfopen(pp)
-struct ptab *pp;
+void op_tfopen(struct ptab *pp)
 {
 	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	struct tftab *tp;
@@ -153,10 +152,7 @@ struct ptab *pp;
 **	return ER_OK if successful or other ER_* error code on error
 */
 
-static int op_tfo2(pp, tp, tfname)
-struct ptab *pp;
-struct tftab *tp;
-char *tfname;
+static int op_tfo2(struct ptab *pp, struct tftab *tp, char *tfname)
 {
 	struct valmsg *rp;
 	char *p;
@@ -213,8 +209,7 @@ char *tfname;
 **	op_tfclose() - process an OP_TFCLOSE request
 */
 
-void op_tfclose(pp)
-struct ptab *pp;
+void op_tfclose(struct ptab *pp)
 {
 	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
 	struct tftab *tp;
@@ -238,8 +233,7 @@ struct ptab *pp;
 **	op_tfwrite() - process an OP_TFWRITE request
 */
 
-void op_tfwrite(pp)
-struct ptab *pp;
+void op_tfwrite(struct ptab *pp)
 {
 	struct btmsg *mp = (struct btmsg *) pp->ptm_data;
 	struct tftab *tp;
@@ -278,8 +272,7 @@ struct ptab *pp;
 **	tfdead() - tftab processing when a connection closes
 */
 
-void tfdead(pp)
-struct ptab *pp;
+void tfdead(struct ptab *pp)
 {
 	struct tftab *tp;
 	int done;
@@ -301,8 +294,7 @@ struct ptab *pp;
 **	return ER_OK if successful or other ER_* error code on error
 */
 
-static int dotfclose(tp)
-struct tftab *tp;
+static int dotfclose(struct tftab *tp)
 {
 	int rc;
 
@@ -353,8 +345,7 @@ static struct tftab *tfalloc()
 **	tffree() - free an xfer file table element
 */
 
-static void tffree(tp)
-struct tftab *tp;
+static void tffree(struct tftab *tp)
 {
 	TRACE2(tet_Tbuf, 6, "free tftab = %s", tet_i2x(tp));
 
@@ -372,8 +363,7 @@ struct tftab *tp;
 **	tfadd() - insert an element in the tftab list
 */
 
-static void tfadd(tp)
-struct tftab *tp;
+static void tfadd(struct tftab *tp)
 {
 	tet_listinsert((struct llist **) &tftab, (struct llist *) tp);
 }
@@ -382,8 +372,7 @@ struct tftab *tp;
 **	tfrm() - remove an element from the tftab list
 */
 
-static void tfrm(tp)
-struct tftab *tp;
+static void tfrm(struct tftab *tp)
 {
 	tet_listremove((struct llist **) &tftab, (struct llist *) tp);
 }
@@ -395,8 +384,7 @@ struct tftab *tp;
 **	return (struct tftab *) 0 if none can be found
 */
 
-static struct tftab *tffind(id)
-int id;
+static struct tftab *tffind(int id)
 {
 	struct tftab *tp;
 
@@ -406,4 +394,3 @@ int id;
 
 	return(tp);
 }
-

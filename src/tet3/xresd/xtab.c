@@ -97,8 +97,7 @@ struct xtab *xtalloc()
 **	xtfree() - close files and free an xres table element
 */
 
-void xtfree(xp)
-struct xtab *xp;
+void xtfree(struct xtab *xp)
 {
 	TRACE2(tet_Tbuf, 6, "free xtab = %s", tet_i2x(xp));
 
@@ -126,9 +125,7 @@ struct xtab *xp;
 **	return 0 if successful or -1 on error
 */
 
-int uxtalloc(xp, nud)
-struct xtab *xp;
-int nud;
+int uxtalloc(struct xtab *xp, int nud)
 {
 	int needlen;
 
@@ -160,8 +157,7 @@ struct xtab *xp;
 **	xtrm() - remove an element from the xtab list
 */
 
-void xtrm(xp)
-struct xtab *xp;
+void xtrm(struct xtab *xp)
 {
 	if (xp->xt_flags & XF_TPINPROGRESS)
 		tpend(xp);
@@ -178,8 +174,7 @@ struct xtab *xp;
 **	return (struct xtab *) 0 if none can be found
 */
 
-struct xtab *xtfind(xrid)
-long xrid;
+struct xtab *xtfind(long xrid)
 {
 	struct xtab *xp;
 
@@ -194,8 +189,7 @@ long xrid;
 **	xtdead() - xtab processing when a connection closes
 */
 
-void xtdead(pp)
-struct ptab *pp;
+void xtdead(struct ptab *pp)
 {
 	struct xtab *xp;
 	struct uxtab *up;
@@ -232,4 +226,3 @@ struct ptab *pp;
 		}
 	} while (!done);
 }
-

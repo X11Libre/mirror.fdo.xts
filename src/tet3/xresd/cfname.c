@@ -58,8 +58,7 @@ static char *cfname[XD_NCFNAME];	/* the stored config file names */
 **	op_cfname() - store config file names
 */
 
-void op_cfname(pp)
-struct ptab *pp;
+void op_cfname(struct ptab *pp)
 {
 	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	int n;
@@ -108,8 +107,7 @@ struct ptab *pp;
 **	op_rcfname() - return stored config file name
 */
 
-void op_rcfname(pp)
-struct ptab *pp;
+void op_rcfname(struct ptab *pp)
 {
 	struct avmsg *rp;
 	int n;
@@ -142,4 +140,3 @@ struct ptab *pp;
 	pp->ptm_mtype = MT_AVMSG;
 	pp->ptm_len = avmsgsz(OP_CFNAME_ARGC(XD_NCFNAME));
 }
-

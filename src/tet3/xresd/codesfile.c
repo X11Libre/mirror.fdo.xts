@@ -61,8 +61,7 @@ static char *codesfile;			/* the stored config file name */
 **	op_codesf() - store a tet result codes file name
 */
 
-void op_codesf(pp)
-struct ptab *pp;
+void op_codesf(struct ptab *pp)
 {
 	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 
@@ -109,4 +108,3 @@ struct ptab *pp;
 	/* all ok so return success */
 	pp->ptm_rc = ER_OK;
 }
-

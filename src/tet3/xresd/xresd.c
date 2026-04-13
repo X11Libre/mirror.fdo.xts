@@ -90,9 +90,7 @@ char *Tet_savedir;			/* saved files directory */
 **									*
 ************************************************************************/
 
-int main(argc, argv)
-int argc;
-char **argv;
+int main(int argc, char **argv)
 {
 	/* must be first */
 	tet_init_globals("tetxresd", PT_XRESD, 0, tet_generror, tet_genfatal);
@@ -107,8 +105,7 @@ char **argv;
 **	return 0 if only first arg was used or 1 if both args were used
 */
 
-int tet_ss_argproc(firstarg, nextarg)
-char *firstarg, *nextarg;
+int tet_ss_argproc(char **firstarg, char **nextarg)
 {
 	int rc;
 
@@ -181,8 +178,7 @@ int tet_ss_serverloop()
 **	server logoff routines should not come here
 */
 
-void tet_ss_dead(pp)
-struct ptab *pp;
+void tet_ss_dead(struct ptab *pp)
 {
 	static char fmt[] = "%s connection closed";
 	static char cl[] = "client";
@@ -216,8 +212,7 @@ struct ptab *pp;
 **	tet_ss_process() - request processing routine
 */
 
-void tet_ss_process(pp)
-struct ptab *pp;
+void tet_ss_process(struct ptab *pp)
 {
 	/* a server ptab might get here via tet_si_servwait() */
 	if ((pp->pt_flags & PF_SERVER) == 0)
@@ -228,8 +223,7 @@ struct ptab *pp;
 **	tet_ss_serverproc() - request processing as a server
 */
 
-void tet_ss_serverproc(pp)
-struct ptab *pp;
+void tet_ss_serverproc(struct ptab *pp)
 {
 	switch (pp->ptm_req) {
 	case OP_XROPEN:
@@ -314,8 +308,7 @@ struct ptab *pp;
 */
 
 /* ARGSUSED */
-int tet_ss_logon(pp)
-struct ptab *pp;
+int tet_ss_logon(struct ptab *pp)
 {
 	struct ptab *pp1, *pp2;
 	int count;
@@ -347,8 +340,7 @@ struct ptab *pp;
 **	tet_ss_logoff() - server-specific logoff processing
 */
 
-void tet_ss_logoff(pp)
-struct ptab *pp;
+void tet_ss_logoff(struct ptab *pp)
 {
 	xtdead(pp);
 	tfdead(pp);
@@ -377,8 +369,7 @@ void tet_ss_cleanup()
 **	return 0 if successful or -1 on error
 */
 
-int tet_ss_ptalloc(pp)
-struct ptab *pp;
+int tet_ss_ptalloc(struct ptab *pp)
 {
 	struct sptab *sp;
 
@@ -402,8 +393,7 @@ struct ptab *pp;
 **	tet_ss_ptfree() - free server-specific data element in a ptab structure
 */
 
-void tet_ss_ptfree(pp)
-struct ptab *pp;
+void tet_ss_ptfree(struct ptab *pp)
 {
 	struct sptab *sp = (struct sptab *) pp->pt_sdata;
 
@@ -419,10 +409,8 @@ struct ptab *pp;
 **	tet_ss_newptab() - server-specific new ptab entry handler
 */
 
-void tet_ss_newptab(pp)
-struct ptab *pp;
+void tet_ss_newptab(struct ptab *pp)
 {
 	/* add the entry to the process table */
 	tet_ptadd(pp);
 }
-

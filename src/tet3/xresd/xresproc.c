@@ -113,8 +113,7 @@ static int xrwrite PROTOLIST((struct xtab *, struct avmsg *));
 **		VM_XRID = xrid to use in all subsequent references to the file
 */
 
-void op_xropen(pp)
-struct ptab *pp;
+void op_xropen(struct ptab *pp)
 {
 	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	struct xtab *xp;
@@ -156,9 +155,7 @@ struct ptab *pp;
 **	return ER_OK if successful or other ER_* error code on error
 */
 
-static int op_xr2(pp, xp)
-struct ptab *pp;
-struct xtab *xp;
+static int op_xr2(struct ptab *pp, struct xtab *xp)
 {
 	char *dp = pp->ptm_data;
 	static char msg[] = "can't open";
@@ -202,8 +199,7 @@ struct xtab *xp;
 **		VM_XRID = xrid of tet_xres file to be closed
 */
 
-void op_xrclose(pp)
-struct ptab *pp;
+void op_xrclose(struct ptab *pp)
 {
 	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
 	struct xtab *xp;
@@ -249,8 +245,7 @@ struct ptab *pp;
 **		VM_XSYSID(0) .. VM_XSYSID(OP_XRSYS_NSYS - 1) = system names
 */
 
-void op_xrsys(pp)
-struct ptab *pp;
+void op_xrsys(struct ptab *pp)
 {
 	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
 	struct xtab *xp;
@@ -326,8 +321,7 @@ struct ptab *pp;
 **		VM_XRID = xrid to use
 */
 
-void op_xrsend(pp)
-struct ptab *pp;
+void op_xrsend(struct ptab *pp)
 {
 	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
 	struct sptab *sp = (struct sptab *) pp->pt_sdata;
@@ -366,8 +360,7 @@ struct ptab *pp;
 **	op_icstart() - signal IC start
 */
 
-void op_icstart(pp)
-struct ptab *pp;
+void op_icstart(struct ptab *pp)
 {
 	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
 	struct uxtab *up;
@@ -464,8 +457,7 @@ struct ptab *pp;
 **	op_icend() - receive notification of IC end
 */
 
-void op_icend(pp)
-struct ptab *pp;
+void op_icend(struct ptab *pp)
 {
 	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
 	struct xtab *xp;
@@ -513,8 +505,7 @@ struct ptab *pp;
 **	op_tpstart() - receive notification of TP start
 */
 
-void op_tpstart(pp)
-struct ptab *pp;
+void op_tpstart(struct ptab *pp)
 {
 	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
 	struct xtab *xp;
@@ -574,8 +565,7 @@ struct ptab *pp;
 **	op_tpend() - receive notification of TP end
 */
 
-void op_tpend(pp)
-struct ptab *pp;
+void op_tpend(struct ptab *pp)
 {
 	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
 	struct xtab *xp;
@@ -620,8 +610,7 @@ struct ptab *pp;
 **	op_xres() - receive xres lines from clients
 */
 
-void op_xres(pp)
-struct ptab *pp;
+void op_xres(struct ptab *pp)
 {
 	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	struct xtab *xp;
@@ -647,8 +636,7 @@ struct ptab *pp;
 **	op_result() - receive a TP result
 */
 
-void op_result(pp)
-struct ptab *pp;
+void op_result(struct ptab *pp)
 {
 	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
 	struct xtab *xp;
@@ -739,8 +727,7 @@ struct ptab *pp;
 **	return ER_OK if successful or other ER_* error code on error
 */
 
-int icend(xp)
-struct xtab *xp;
+int icend(struct xtab *xp)
 {
 	/* make sure the event was expected */
 	if (xp->xt_flags & XF_ICINPROGRESS) {
@@ -762,8 +749,7 @@ struct xtab *xp;
 **	that contributes to the consolidated result is to abort all TCMs
 */
 
-int tpend(xp)
-struct xtab *xp;
+int tpend(struct xtab *xp)
 {
 	struct uxtab *up;
 	int result, rc;
@@ -818,9 +804,7 @@ struct xtab *xp;
 
 static char wrfail[] = "write failed on";
 
-static int xrmsg(xp, code)
-struct xtab *xp;
-int code;
+static int xrmsg(struct xtab *xp, int code)
 {
 	time_t now;
 	struct tm *tp;
@@ -872,9 +856,7 @@ int code;
 **	xrinfo() - write a TCM/API error message to the xres file
 */
 
-static void xrinfo(xp, s1, s2)
-struct xtab *xp;
-char *s1, *s2;
+static void xrinfo(struct xtab *xp, char *s1, char *s2)
 {
 	TRACE6(tet_Txresd, 1, "xrinfo(): %s|%s|%s%s%s",
 		tet_i2a(TET_JNL_TCM_INFO), tet_l2a(xp->xt_activity), s1,
@@ -892,9 +874,7 @@ char *s1, *s2;
 **	return ER_OK if successful or other ER_* error code on error
 */
 
-static int xrwrite(xp, mp)
-struct xtab *xp;
-struct avmsg *mp;
+static int xrwrite(struct xtab *xp, struct avmsg *mp)
 {
 	char *s;
 	int n;
@@ -924,8 +904,7 @@ struct avmsg *mp;
 */
 
 #ifndef NOTRACE
-static char *xrstate(state)
-int state;
+static char *xrstate(int state)
 {
 	static char text[] = "xres-state ";
 	static char msg[sizeof text + LNUMSZ];
@@ -943,4 +922,3 @@ int state;
 	}
 }
 #endif /* NOTRACE */
-

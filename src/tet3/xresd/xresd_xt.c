@@ -109,8 +109,7 @@ void ss_tsinitb4fork()
 **	return 0 if only firstarg was used or 1 if both args were used
 */
 
-int ss_tsargproc(firstarg, nextarg)
-char *firstarg, *nextarg;
+int ss_tsargproc(char *firstarg, char *nextarg)
 {
 	int rc = 0;
 
@@ -130,4 +129,3 @@ char *firstarg, *nextarg;
 
 	return(rc);
 }
-

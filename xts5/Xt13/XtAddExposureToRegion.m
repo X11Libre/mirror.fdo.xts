@@ -64,16 +64,13 @@ Widget labelw, rowcolw, click_quit;
 
 extern const char *event_names[];
 
-/*
-** Procedure XtEVT1_Proc
-*/
-void XtEVT1_Proc(w, client_data, event, continue_to_dispatch)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+void XtEVT1_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
-Region test_region;
+	Region test_region;
 
 	if ( event->type == Expose ) {
 		tet_infoline("PREP: Create a region");
@@ -90,13 +87,14 @@ Region test_region;
 		tet_result(TET_FAIL);
 	}
 }
-void XtEVT_Proc1(w, client_data, event, continue_to_dispatch)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+
+void XtEVT_Proc1(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
-Region test_region;
+	Region test_region;
 
 	if (event->type == GraphicsExpose ) {
 		tet_infoline("PREP: Create a region");
@@ -113,16 +111,14 @@ Region test_region;
 		tet_result(TET_FAIL);
 	}
 }
-/*
-** Procedure XtEVT2_Proc
-*/
-void XtEVT2_Proc(w, client_data, event, continue_to_dispatch)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+
+void XtEVT2_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
-Region test_region;
+	Region test_region;
 
 	if ( event->type == KeyPress ) {
 		tet_infoline("PREP: Create a region");
@@ -138,12 +134,17 @@ Region test_region;
 		tet_result(TET_FAIL);
 	}
 }
+
 /*
 ** Installed Warning handler
 */
-void XtEMH2_Proc(str, str2, str3, str4, str5, car)
-String str, str2, str3, str4, *str5;
-Cardinal *car;
+void XtEMH2_Proc(
+    String str,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
+    Cardinal *car)
 {
 	avs_set_event(3,1);
 	exit(0);
@@ -151,9 +152,13 @@ Cardinal *car;
 /*
 ** Installed Error handler
 */
-void XtEMH_Proc(str, str2, str3, str4, str5, car)
-String str, str2, str3, str4, *str5;
-Cardinal *car;
+void XtEMH_Proc(
+    String str,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
+    Cardinal *car)
 {
 	avs_set_event(2,1);
 	exit(0);

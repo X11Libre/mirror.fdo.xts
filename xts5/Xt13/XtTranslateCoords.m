@@ -62,10 +62,10 @@ XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
-void Popup(w, client_data, call_data)
-Widget w;
-XtPointer client_data; /* cast to topLevel */
-XtPointer call_data;
+void Popup(
+    Widget w,
+    XtPointer client_data, /* cast to topLevel */
+    XtPointer call_data)
 {
 	Widget topLevel = (Widget) client_data;
 	Widget menuw = (Widget) call_data;

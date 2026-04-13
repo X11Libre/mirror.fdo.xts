@@ -76,11 +76,11 @@ static Boolean convert_proc(Widget, Atom*, Atom*, Atom*, XtPointer*,
 static void requestor_callback(Widget, XtPointer, Atom*, Atom*, XtPointer,
 	unsigned long*, int*);
 
-static void XtEVT_handler1(sender_widget, client_data, event, continue_to_dispatch)
-Widget sender_widget;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+static void XtEVT_handler1(
+    Widget sender_widget,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 Boolean status;
 XButtonEvent *bevent;
@@ -97,11 +97,11 @@ XButtonEvent *bevent;
 	check_dec(True, status, "XtOwnSelection return value");
 }
 
-static void XtEVT_handler2(receiver_widget, client_data, event, continue_to_dispatch)
-Widget receiver_widget;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+static void XtEVT_handler2(
+    Widget receiver_widget,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 XButtonEvent *bevent;
 
@@ -127,15 +127,14 @@ XButtonEvent *bevent;
 		);
 }
 
-static Boolean convert_proc(w, selection, target, type_return, value_return,
-		length_return, format_return)
-Widget w;
-Atom *selection;
-Atom *target;
-Atom *type_return;
-XtPointer *value_return;
-unsigned long *length_return;
-int *format_return;
+static Boolean convert_proc(
+    Widget w,
+    Atom *selection,
+    Atom *target,
+    Atom *type_return,
+    XtPointer *value_return,
+    unsigned long *length_return,
+    int *format_return)
 {
 	
 	char *data;
@@ -158,16 +157,15 @@ int *format_return;
 	return(True);
 	}
 }
-static void
-requestor_callback(w, client_data, selection, type, value,
-		length, format)
-Widget w;
-XtPointer client_data;
-Atom *selection;
-Atom *type;
-XtPointer value;
-unsigned long *length;
-int *format;
+
+static void requestor_callback(
+    Widget w,
+    XtPointer client_data,
+    Atom *selection,
+    Atom *type,
+    XtPointer value,
+    unsigned long *length,
+    int *format)
 {
 	int integer;
 	avs_set_event(3,1);
@@ -189,28 +187,27 @@ int *format;
 	exit(0);
 	}
 }
-static Boolean convert_proc2(w, selection, target, type_return, value_return,
-		length_return, format_return)
-Widget w;
-Atom *selection;
-Atom *target;
-Atom *type_return;
-XtPointer *value_return;
-unsigned long *length_return;
-int *format_return;
+
+static Boolean convert_proc2(
+    Widget w,
+    Atom *selection,
+    Atom *target,
+    Atom *type_return,
+    XtPointer *value_return,
+    unsigned long *length_return,
+    int *format_return)
 {
 	return False;
 }
-static void
-requestor_callback2(w, client_data, selection, type, value,
-		length, format)
-Widget w;
-XtPointer client_data;
-Atom *selection;
-Atom *type;
-XtPointer value;
-unsigned long *length;
-int *format;
+
+static void requestor_callback2(
+    Widget w,
+    XtPointer client_data,
+    Atom *selection,
+    Atom *type,
+    XtPointer value,
+    unsigned long *length,
+    int *format)
 {
 	avs_set_event(1, 1); 
 	tet_infoline("TEST: callback: length is 0");
@@ -222,11 +219,12 @@ int *format;
 	}
 	exit(0);
 }
-static void XtEVT_handler1_2(sender_widget, client_data, event, continue_to_dispatch)
-Widget sender_widget;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+
+static void XtEVT_handler1_2(
+    Widget sender_widget,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 Boolean status;
 XButtonEvent *bevent;
@@ -242,11 +240,12 @@ XButtonEvent *bevent;
 		 );
 	check_dec(True, status, "XtOwnSelection return value");
 }
-static void XtEVT_handler2_2(receiver_widget, client_data, event, continue_to_dispatch)
-Widget receiver_widget;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+
+static void XtEVT_handler2_2(
+    Widget receiver_widget,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 XButtonEvent *bevent;
 

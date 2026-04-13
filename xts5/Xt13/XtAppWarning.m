@@ -64,11 +64,7 @@ Widget labelw, rowcolw, click_quit;
 
 char msg[1024];
 
-/*
-** XtWMH_Proc()
-*/
-static void XtWMH_Proc(str)
-String str;
+static void XtWMH_Proc(String str)
 {
 	fprintf(stdout, "X Toolkit Warning: %s", str);
 	avs_set_event(1, avs_get_event(1)+1);

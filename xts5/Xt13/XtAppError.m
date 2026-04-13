@@ -62,8 +62,7 @@ char msg[1024];
 /*
 ** XtEMH_Proc
 */
-static void XtEMH_Proc(str)
-String str;
+static void XtEMH_Proc(String str)
 {
 	avs_set_event(1, 1);
 	fprintf(stdout, "X Toolkit Error: %s", str);

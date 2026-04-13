@@ -79,8 +79,8 @@ Widget labelw, rowcolw, click_quit;
 char pathname1[]	= "/test/path/";
 char string_good1_1[] = "/test/path/128data1";
 char string_good1_2[] = "/test/path/data1128";
-Boolean FindFile1(string)
-String string;
+
+Boolean FindFile1(String string)
 {
 int count1;
 
@@ -106,8 +106,7 @@ int count1;
 	tet_result(TET_FAIL);
 }
 
-Boolean FindFileFail(string)
-String string;
+Boolean FindFileFail(String string)
 {
 	avs_set_event(1, 1);
 	return(FALSE);
@@ -115,8 +114,7 @@ String string;
 
 char *pathname2	= "/test/path/%N";
 char *string_good2 = "/test/path/TEST_N";
-Boolean FindFile2(string)
-String string;
+Boolean FindFile2(String string)
 {
 	avs_set_event(1, 1);
 	check_str(string_good2, string, "String passed to predicate");
@@ -124,8 +122,7 @@ String string;
 }
 char *pathname3	= "/test/path/%N";
 char *string_good3 = "/test/path/Trspathnm3";
-Boolean FindFile3(string)
-String string;
+Boolean FindFile3(String string)
 {
 	avs_set_event(1, 1);
 	check_str(string_good3, string, "String passed to predicate");
@@ -133,8 +130,7 @@ String string;
 }
 char *pathname3a	= "/test/%:path/%:";
 char *string_good3a = "/test/:path/:";
-Boolean FindFile3a(string)
-String string;
+Boolean FindFile3a(String string)
 {
 	avs_set_event(1, 1);
 	check_str(string_good3a, string, "String passed to predicate");
@@ -142,8 +138,7 @@ String string;
 }
 char *pathname4	= "/test/path/%T";
 char *string_good4 = "/test/path/TEST_T";
-Boolean FindFile4(string)
-String string;
+Boolean FindFile4(String string)
 {
 	avs_set_event(1, 1);
 	check_str(string_good4, string, "String passed to predicate");
@@ -151,8 +146,7 @@ String string;
 }
 char *pathname4a	= "/test/%%path/%%";
 char *string_good4a = "/test/%path/%";
-Boolean FindFile4a(string)
-String string;
+Boolean FindFile4a(String string)
 {
 	avs_set_event(1, 1);
 	check_str(string_good4a, string, "String passed to predicate");
@@ -160,8 +154,7 @@ String string;
 }
 char *pathname5	= "/test/path/%S";
 char *string_good5 = "/test/path/TEST_S";
-Boolean FindFile5(string)
-String string;
+Boolean FindFile5(String string)
 {
 	avs_set_event(1, 1);
 	check_str(string_good5, string, "String passed to predicate");
@@ -170,8 +163,7 @@ String string;
 char *pathname5a = ":/test/path/%S";
 char *string_good5a_1 = "TEST_FTEST_S";
 char *string_good5a_2 = "/test/path/TEST_S";
-Boolean FindFile5a(string)
-String string;
+Boolean FindFile5a(String string)
 {
 int count1;
 
@@ -197,8 +189,7 @@ int count1;
 	tet_result(TET_FAIL);
 }
 char *string_good6 = "/test/path/TEST_ENV";
-Boolean FindFile6(string)
-String string;
+Boolean FindFile6(String string)
 {
 	avs_set_event(1, 1);
 	check_str(string_good6, string, "String passed to predicate");
@@ -208,8 +199,7 @@ char *pathname6a = "/test/path/::%S";
 char *string_good6a_1 = "/test/path/";
 char *string_good6a_2 = "TEST_FTEST_S";
 char *string_good6a_3 = "TEST_S";
-Boolean FindFile6a(string)
-String string;
+Boolean FindFile6a(String string)
 {
 int count1;
 
@@ -243,23 +233,20 @@ int count1;
 }
 char *pathname7	= "/test/path/%L";
 char *string_good7 = "/test/path/LANGUAGE_TERRITORY";
-Boolean FindFile7(string)
-String string;
+Boolean FindFile7(String string)
 {
 	avs_set_event(1, 1);
 	check_str(string_good7, string, "String passed to predicate");
 	return(TRUE);
 }
-void failfor(str)
-char *str;
+void failfor(char *str)
 {
 	sprintf(ebuf, "ERROR: Expected string to contain %s", str);
 	tet_infoline(ebuf);
 	tet_result(TET_FAIL);
 }
 
-Boolean FindFile10(string)
-String string;
+Boolean FindFile10(String string)
 {
 int	count;
 char	*str;
@@ -305,23 +292,22 @@ char	*str;
 
 char *pathname11	= "/test/path/%C";
 char *string_good11 = "/test/path/CUSTOM";
-Boolean FindFile11(string)
-String string;
+Boolean FindFile11(String string)
 {
 	avs_set_event(1, 1);
 	check_str(string_good11, string, "String passed to predicate");
 	return(TRUE);
 }
 
-String thelangproc(display, language, client_data)
-Display *display;
-String language;
-XtPointer client_data;
+String thelangproc(
+    Display *display,
+    String language,
+    XtPointer client_data)
 {
 	return("LANGUAGE_TERRITORY");
 }
 
-void vsw_init_lang()
+void vsw_init_lang(void)
 {
 char app_class[128]; 
 Display *display;

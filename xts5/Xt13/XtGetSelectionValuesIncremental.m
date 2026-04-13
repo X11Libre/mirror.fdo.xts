@@ -84,11 +84,11 @@ static void requestor_callback(Widget, XtPointer, Atom*, Atom*, XtPointer,
 int incr_string = 1; 
 int incr_int = 1;
 
-static void XtEVT_handler1(sender_widget, client_data, event, continue_to_dispatch)
-Widget sender_widget;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+static void XtEVT_handler1(
+    Widget sender_widget,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 
 	Boolean status;
@@ -108,11 +108,11 @@ Boolean *continue_to_dispatch;
 	check_dec(True, status, "XtOwnSelectionIncremental return value");
 }
 
-static void XtEVT_handler2(receiver_widget, client_data, event, continue_to_dispatch)
-Widget receiver_widget;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+static void XtEVT_handler2(
+    Widget receiver_widget,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 	XtPointer cd[2] = {
 		(XtPointer) 0,
@@ -136,19 +136,18 @@ Boolean *continue_to_dispatch;
 		bevent->time
 		);
 }
-static Boolean 
-convert_proc(w, selection, target, type_return, value_return,
-		length_return, format_return, max_length, client_data, request_id)
-Widget w;
-Atom *selection;
-Atom *target;
-Atom *type_return;
-XtPointer *value_return;
-unsigned long *length_return;
-int *format_return;
-unsigned long *max_length;
-XtPointer client_data;
-XtRequestId *request_id;
+
+static Boolean convert_proc(
+    Widget w,
+    Atom *selection,
+    Atom *target,
+    Atom *type_return,
+    XtPointer *value_return,
+    unsigned long *length_return,
+    int *format_return,
+    unsigned long *max_length,
+    XtPointer client_data,
+    XtRequestId *request_id)
 {
 	
 	char *data;
@@ -191,36 +190,35 @@ XtRequestId *request_id;
 	} /* end switch */
 	} /* end if type XA_INTEGER */
 }
-static void
-lose_proc(w, selection, client_data)
-Widget w;
-Atom *selection;
-XtPointer client_data;
+
+static void lose_proc(
+    Widget w,
+    Atom *selection,
+    XtPointer client_data)
 {
 	sprintf(ebuf, "ERROR: labelw_good widget lost selection ownership");
 	tet_infoline(ebuf);
 	tet_result(TET_FAIL);
 }
-static void
-done_proc(w, selection, target, request_id, client_data)
-Widget w;
-Atom *selection;
-Atom *target;
-XtRequestId *request_id;
-XtPointer client_data;
+
+static void done_proc(
+    Widget w,
+    Atom *selection,
+    Atom *target,
+    XtRequestId *request_id,
+    XtPointer client_data)
 {
 	XtDisownSelection(w, *selection, CurrentTime);
 }
-static void
-requestor_callback(w, client_data, selection, type, value,
-		length, format)
-Widget w;
-XtPointer client_data;
-Atom *selection;
-Atom *type;
-XtPointer value;
-unsigned long *length;
-int *format;
+
+static void requestor_callback(
+    Widget w,
+    XtPointer client_data,
+    Atom *selection,
+    Atom *type,
+    XtPointer value,
+    unsigned long *length,
+    int *format)
 {
 	int integer;
 	if ( *type == XA_STRING ) {
@@ -270,16 +268,15 @@ int *format;
 	incr_int += 1;
 	} /* end if type XA_INTEGER */
 }
-static void
-requestor_callback2(w, client_data, selection, type, value,
-		length, format)
-Widget w;
-XtPointer client_data;
-Atom *selection;
-Atom *type;
-XtPointer value;
-unsigned long *length;
-int *format;
+
+static void requestor_callback2(
+    Widget w,
+    XtPointer client_data,
+    Atom *selection,
+    Atom *type,
+    XtPointer value,
+    unsigned long *length,
+    int *format)
 {
 	avs_set_event(1, 1); 
 	tet_infoline("TEST: callback: length is 0");
@@ -291,11 +288,12 @@ int *format;
 	}
 	exit(0);
 }
-static void XtEVT_handler2_1(receiver_widget, client_data, event, continue_to_dispatch)
-Widget receiver_widget;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+
+static void XtEVT_handler2_1(
+    Widget receiver_widget,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 	XtPointer cd[2] = {
 		(XtPointer) 0,
@@ -319,13 +317,13 @@ Boolean *continue_to_dispatch;
 		bevent->time
 		);
 }
-static void XtEVT_handler1_3(sender_widget, client_data, event, continue_to_dispatch)
-Widget sender_widget;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
-{
 
+static void XtEVT_handler1_3(
+    Widget sender_widget,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
+{
 	Boolean status;
 	XButtonEvent *bevent;
 
@@ -343,11 +341,11 @@ Boolean *continue_to_dispatch;
 	check_dec(True, status, "XtOwnSelectionIncremental return value");
 }
 
-static void XtEVT_handler2_3(receiver_widget, client_data, event, continue_to_dispatch)
-Widget receiver_widget;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+static void XtEVT_handler2_3(
+    Widget receiver_widget,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 	XtPointer cd[2] = {
 		(XtPointer) 0,
@@ -371,21 +369,19 @@ Boolean *continue_to_dispatch;
 		bevent->time
 		);
 }
-static Boolean 
-convert_proc3(w, selection, target, type_return, value_return,
-		length_return, format_return, max_length, client_data, request_id)
-Widget w;
-Atom *selection;
-Atom *target;
-Atom *type_return;
-XtPointer *value_return;
-unsigned long *length_return;
-int *format_return;
-unsigned long *max_length;
-XtPointer client_data;
-XtRequestId *request_id;
+
+static Boolean convert_proc3(
+    Widget w,
+    Atom *selection,
+    Atom *target,
+    Atom *type_return,
+    XtPointer *value_return,
+    unsigned long *length_return,
+    int *format_return,
+    unsigned long *max_length,
+    XtPointer client_data,
+    XtRequestId *request_id)
 {
-	
 	return False;
 }
 >>SET tpstartup avs_alloc_sem

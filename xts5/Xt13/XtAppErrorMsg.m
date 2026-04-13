@@ -64,17 +64,14 @@ char file_name[128];
 XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
-/*
-** XtEMH_Proc
-*/
-static void XtEMH_Proc(name_good, type_good, class_good,
-		defaultp, params, num_params)
-String name_good;
-String type_good;
-String class_good;
-String defaultp;
-String *params;
-Cardinal *num_params;
+
+static void XtEMH_Proc(
+    String name_good,
+    String type_good,
+    String class_good,
+    String defaultp,
+    String *params,
+    Cardinal *num_params)
 {
 	tet_infoline("TEST: Arguments passed to message handler correctly");
 	avs_set_event(1, 1);

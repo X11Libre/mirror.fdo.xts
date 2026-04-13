@@ -65,9 +65,13 @@ Widget labelw, rowcolw, click_quit;
 /*
 ** XtEMH_Proc
 */
-void XtEMH_Proc(str, str2, str3, str4, str5, car)
-String str, str2, str3, str4, *str5;
-Cardinal *car;
+void XtEMH_Proc(
+    String str,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
+    Cardinal *car)
 {
 	avs_set_event(1,1);
 }

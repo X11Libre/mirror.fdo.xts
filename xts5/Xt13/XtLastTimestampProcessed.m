@@ -64,14 +64,11 @@ Widget labelw, rowcolw, click_quit;
 
 extern const char *event_names[];
 
-/*
-** XtEVT_Proc
-*/
-void XtEVT_Proc(w, client_data, event, continue_to_dispatch)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+void XtEVT_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 	if ( event->type == ButtonPress )
 	avs_set_event(1, 1);
@@ -84,8 +81,7 @@ Boolean *continue_to_dispatch;
 
 #define DESIRED_TIME (Time) 779
 
-void analyse_events(quit)
-Widget quit;
+void analyse_events(Widget quit)
 {
 	XtAppContext app_context;
 	Display *display;
@@ -115,8 +111,7 @@ Widget quit;
 	} /* end for */
 }
 
-void analyse_events2(quit)
-Widget quit;
+void analyse_events2(Widget quit)
 {
 	XtAppContext app_context;
 	Display *display;

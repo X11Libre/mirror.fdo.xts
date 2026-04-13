@@ -71,24 +71,22 @@ Widget labelw, rowcolw, click_quit;
 
 char *filepath	= "/test/path/";
 char *string_good1 = "/test/path/:";
-Boolean FindFile1(string)
-String string;
+
+Boolean FindFile1(String string)
 {
 	check_str(string_good1, string, "String passed to predicate");
 	return(TRUE);
 }
 
 char *string_good2 = "/test/path/%";
-Boolean FindFile2(string)
-String string;
+Boolean FindFile2(String string)
 {
 	check_str(string_good2, string, "String passed to predicate");
 	return(TRUE);
 }
 char *string_good3_1 = "/test/path/128data1";
 char *string_good3_2 = "/test/path/data1128";
-Boolean FindFile3(string)
-String string;
+Boolean FindFile3(String string)
 {
 int count3;
 
@@ -115,8 +113,7 @@ int count3;
 }
 
 char *string_good5 = "/test/path/%";
-Boolean FindFile5(string)
-String string;
+Boolean FindFile5(String string)
 {
 	return(FALSE);
 }

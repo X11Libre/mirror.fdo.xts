@@ -58,11 +58,7 @@ All Rights Reserved.
 #include <X11/ConstrainP.h>
 #include <X11/CoreP.h>
 
-/*
-** XtEMH_Proc
-*/
-void XtEMH_Proc(str)
-String str;
+void XtEMH_Proc(String str)
 {
 	avs_set_event(1,1);
 }

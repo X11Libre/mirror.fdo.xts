@@ -77,11 +77,11 @@ static void requestor_callback(Widget, XtPointer, Atom*, Atom*, XtPointer,
 static void requestor_callback2(Widget, XtPointer, Atom*, Atom*, XtPointer,
 	unsigned long*, int*);
 
-static void XtEVT_handler1(sender_widget, client_data, event, continue_to_dispatch)
-Widget sender_widget;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+static void XtEVT_handler1(
+    Widget sender_widget,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 	Boolean status;
 	XButtonEvent *bevent;
@@ -102,11 +102,12 @@ Boolean *continue_to_dispatch;
 	tet_infoline("TEST: Disown selection");
 	XtDisownSelection(sender_widget, SELECTION, CurrentTime); 
 }
-static void XtEVT_handler1_2(sender_widget, client_data, event, continue_to_dispatch)
-Widget sender_widget;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+
+static void XtEVT_handler1_2(
+    Widget sender_widget,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 	Boolean status;
 	XButtonEvent *bevent;
@@ -130,11 +131,11 @@ Boolean *continue_to_dispatch;
 	XtDisownSelection(sender_widget, SELECTION, CurrentTime); 
 }
 
-static void XtEVT_handler1_3(sender_widget, client_data, event, continue_to_dispatch)
-Widget sender_widget;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+static void XtEVT_handler1_3(
+    Widget sender_widget,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 	Boolean status;
 	XButtonEvent *bevent;
@@ -156,11 +157,11 @@ Boolean *continue_to_dispatch;
 	XtDisownSelection(topLevel, SELECTION, CurrentTime); 
 }
 
-static void XtEVT_handler2_3(receiver_widget, client_data, event, continue_to_dispatch)
-Widget receiver_widget;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+static void XtEVT_handler2_3(
+    Widget receiver_widget,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 	XButtonEvent *bevent;
 
@@ -177,11 +178,11 @@ Boolean *continue_to_dispatch;
 		);
 }
 
-static void XtEVT_handler2(receiver_widget, client_data, event, continue_to_dispatch)
-Widget receiver_widget;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+static void XtEVT_handler2(
+    Widget receiver_widget,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 	XButtonEvent *bevent;
 
@@ -197,18 +198,16 @@ Boolean *continue_to_dispatch;
 		bevent->time
 		);
 }
-static Boolean 
-convert_proc(w, selection, target, type_return, value_return,
-		length_return, format_return)
-Widget w;
-Atom *selection;
-Atom *target;
-Atom *type_return;
-XtPointer *value_return;
-unsigned long *length_return;
-int *format_return;
+
+static Boolean convert_proc(
+    Widget w,
+    Atom *selection,
+    Atom *target,
+    Atom *type_return,
+    XtPointer *value_return,
+    unsigned long *length_return,
+    int *format_return)
 {
-	
 	char *data;
 	avs_set_event(3, 1);
 	if ( *target == TYPE ) {
@@ -222,16 +221,15 @@ int *format_return;
 	} else
 	return(False);
 }
-static void
-requestor_callback(w, client_data, selection, type, value,
-		length, format)
-Widget w;
-XtPointer client_data;
-Atom *selection;
-Atom *type;
-XtPointer value;
-unsigned long *length;
-int *format;
+
+static void requestor_callback(
+    Widget w,
+    XtPointer client_data,
+    Atom *selection,
+    Atom *type,
+    XtPointer value,
+    unsigned long *length,
+    int *format)
 {
 	tet_infoline("TEST: Requestor callback not passed valid data");
 	check_dec(SELECTION, *selection, "*selection");
@@ -241,16 +239,15 @@ int *format;
 	}
 	check_dec(0, *length, "*length");
 }
-static void
-requestor_callback2(w, client_data, selection, type, value,
-		length, format)
-Widget w;
-XtPointer client_data;
-Atom *selection;
-Atom *type;
-XtPointer value;
-unsigned long *length;
-int *format;
+
+static void requestor_callback2(
+    Widget w,
+    XtPointer client_data,
+    Atom *selection,
+    Atom *type,
+    XtPointer value,
+    unsigned long *length,
+    int *format)
 {
 	tet_infoline("TEST: Requestor callback passed valid data");
 	check_dec(SELECTION, *selection, "*selection");
@@ -259,9 +256,10 @@ int *format;
 	check_dec(strlen(MSG), *length, "*length");
 	check_dec(FORMAT, *format, "*format");
 }
-void XtTMO_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+
+void XtTMO_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }

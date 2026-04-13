@@ -63,8 +63,7 @@ Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
 /* actual gc values */
-void CheckValues(values_good)
-XGCValues *values_good;
+void CheckValues(XGCValues *values_good)
 {
 	check_dec((long) GXcopy, (long) values_good->function, "function");
 	check_dec((long) ~0L, (long) values_good->plane_mask, "plane_mask");
@@ -84,9 +83,8 @@ XGCValues *values_good;
 	check_dec((long)0, (long)values_good->clip_y_origin, "clip_y_origin");
 	check_dec((long)0, (long)values_good->dash_offset, "dash_offset");
 }
-XtGCMask ConstructGC(w, vals)
-Widget w;
-XGCValues *vals;
+
+XtGCMask ConstructGC(Widget w, XGCValues *vals)
 {
 	Display *display_good;
 	Window window_good;

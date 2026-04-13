@@ -82,19 +82,18 @@ static void requestor_callback1(Widget, XtPointer, Atom*, Atom*, XtPointer,
 
 int increment = 1; 
 
-/* procedure XtTMO1_Proc to be invoked */
-void XtTMO1_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTMO1_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
 
-static void XtEVT1_handler1(sender_widget, client_data, event, continue_to_dispatch)
-Widget sender_widget;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+static void XtEVT1_handler1(
+    Widget sender_widget,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 	Boolean status;
 XButtonEvent *bevent;
@@ -114,11 +113,11 @@ XButtonEvent *bevent;
 	check_dec(True, status, "XtOwnSelectionIncremental return value");
 }
 
-static void XtEVT1_handler2(receiver_widget, client_data, event, continue_to_dispatch)
-Widget receiver_widget;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+static void XtEVT1_handler2(
+    Widget receiver_widget,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 XButtonEvent *bevent;
 
@@ -133,21 +132,19 @@ XButtonEvent *bevent;
 		bevent->time
 		);
 }
-static Boolean 
-convert_proc1(w, selection, target, type_return, value_return,
-		length_return, format_return, max_length, client_data, request_id)
-Widget w;
-Atom *selection;
-Atom *target;
-Atom *type_return;
-XtPointer *value_return;
-unsigned long *length_return;
-int *format_return;
-unsigned long *max_length;
-XtPointer client_data;
-XtRequestId *request_id;
+
+static Boolean convert_proc1(
+    Widget w,
+    Atom *selection,
+    Atom *target,
+    Atom *type_return,
+    XtPointer *value_return,
+    unsigned long *length_return,
+    int *format_return,
+    unsigned long *max_length,
+    XtPointer client_data,
+    XtRequestId *request_id)
 {
-	
 	char *data;
 	if ( *target == TYPE ) {
 	switch (increment) {
@@ -177,37 +174,36 @@ XtRequestId *request_id;
 	} else
 	return(False);
 }
-static void
-lose_proc1(w, selection, client_data)
-Widget w;
-Atom *selection;
-XtPointer client_data;
+
+static void lose_proc1(
+    Widget w,
+    Atom *selection,
+    XtPointer client_data)
 {
 	sprintf(ebuf, "ERROR: labelw_good widget lost selection ownership");
 	tet_infoline(ebuf);
 	tet_result(TET_FAIL);
 	exit(0);
 }
-static void
-done_proc1(w, selection, target, request_id, client_data)
-Widget w;
-Atom *selection;
-Atom *target;
-XtRequestId *request_id;
-XtPointer client_data;
+
+static void done_proc1(
+    Widget w,
+    Atom *selection,
+    Atom *target,
+    XtRequestId *request_id,
+    XtPointer client_data)
 {
 	XtDisownSelection(w, *selection, CurrentTime);
 }
-static void
-requestor_callback1(w, client_data, selection, type, value,
-		length, format)
-Widget w;
-XtPointer client_data;
-Atom *selection;
-Atom *type;
-XtPointer value;
-unsigned long *length;
-int *format;
+
+static void requestor_callback1(
+    Widget w,
+    XtPointer client_data,
+    Atom *selection,
+    Atom *type,
+    XtPointer value,
+    unsigned long *length,
+    int *format)
 {
 	switch (increment) {
 	case 1:
@@ -238,19 +234,18 @@ static void cancel_proc2();
 static void requestor_callback2(Widget, XtPointer, Atom*, Atom*, XtPointer,
 	unsigned long*, int*);
 
-/* procedure XtTMO2_Proc to be invoked */
-void XtTMO2_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTMO2_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
 
-static void XtEVT2_handler1(sender_widget, client_data, event, continue_to_dispatch)
-Widget sender_widget;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+static void XtEVT2_handler1(
+    Widget sender_widget,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 	Boolean status;
 XButtonEvent *bevent;
@@ -270,12 +265,12 @@ XButtonEvent *bevent;
 		 );
 	check_dec(False, status, "XtOwnSelectionIncremental return value");
 }
-static
-void XtEVT2_handler2(receiver_widget, client_data, event, continue_to_dispatch)
-Widget receiver_widget;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+
+static void XtEVT2_handler2(
+    Widget receiver_widget,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 XButtonEvent *bevent;
 
@@ -290,21 +285,19 @@ XButtonEvent *bevent;
 		bevent->time
 		);
 }
-static Boolean 
-convert_proc2(w, selection, target, type_return, value_return,
-		length_return, format_return, max_length, client_data, request_id)
-Widget w;
-Atom *selection;
-Atom *target;
-Atom *type_return;
-XtPointer *value_return;
-unsigned long *length_return;
-int *format_return;
-unsigned long *max_length;
-XtPointer client_data;
-XtRequestId *request_id;
+
+static Boolean convert_proc2(
+    Widget w,
+    Atom *selection,
+    Atom *target,
+    Atom *type_return,
+    XtPointer *value_return,
+    unsigned long *length_return,
+    int *format_return,
+    unsigned long *max_length,
+    XtPointer client_data,
+    XtRequestId *request_id)
 {
-	
 	char *data;
 	if ( *target == TYPE ) {
 	switch (increment) {
@@ -334,36 +327,35 @@ XtRequestId *request_id;
 	} else
 	return(False);
 }
-static void
-lose_proc2(w, selection, client_data)
-Widget w;
-Atom *selection;
-XtPointer client_data;
+
+static void lose_proc2(
+    Widget w,
+    Atom *selection,
+    XtPointer client_data)
 {
 	sprintf(ebuf, "ERROR: labelw_good widget lost selection ownership");
 	tet_infoline(ebuf);
 	tet_result(TET_FAIL);
 }
-static void
-done_proc2(w, selection, target, request_id, client_data)
-Widget w;
-Atom *selection;
-Atom *target;
-XtRequestId *request_id;
-XtPointer client_data;
+
+static void done_proc2(
+    Widget w,
+    Atom *selection,
+    Atom *target,
+    XtRequestId *request_id,
+    XtPointer client_data)
 {
 	XtDisownSelection(w, *selection, CurrentTime);
 }
-static void
-requestor_callback2(w, client_data, selection, type, value,
-		length, format)
-Widget w;
-XtPointer client_data;
-Atom *selection;
-Atom *type;
-XtPointer value;
-unsigned long *length;
-int *format;
+
+static void requestor_callback2(
+    Widget w,
+    XtPointer client_data,
+    Atom *selection,
+    Atom *type,
+    XtPointer value,
+    unsigned long *length,
+    int *format)
 {
 	switch (increment) {
 	case 1:
@@ -393,19 +385,18 @@ static void cancel_proc3();
 static void requestor_callback3(Widget, XtPointer, Atom*, Atom*, XtPointer,
 	unsigned long*, int*);
 
-/* procedure XtTMO3_Proc to be invoked */
-void XtTMO3_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTMO3_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
 
-static void XtEVT3_handler1(sender_widget, client_data, event, continue_to_dispatch)
-Widget sender_widget;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+static void XtEVT3_handler1(
+    Widget sender_widget,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 	Boolean status;
 XButtonEvent *bevent;
@@ -423,12 +414,12 @@ XButtonEvent *bevent;
 		 );
 	check_dec(True, status, "XtOwnSelectionIncremental return value");
 }
-static
-void XtEVT3_handler2(receiver_widget, client_data, event, continue_to_dispatch)
-Widget receiver_widget;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+
+static void XtEVT3_handler2(
+    Widget receiver_widget,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 XButtonEvent *bevent;
 
@@ -442,21 +433,19 @@ XButtonEvent *bevent;
 		bevent->time
 		);
 }
-static Boolean 
-convert_proc3(w, selection, target, type_return, value_return,
-		length_return, format_return, max_length, client_data, request_id)
-Widget w;
-Atom *selection;
-Atom *target;
-Atom *type_return;
-XtPointer *value_return;
-unsigned long *length_return;
-int *format_return;
-unsigned long *max_length;
-XtPointer client_data;
-XtRequestId *request_id;
+
+static Boolean convert_proc3(
+    Widget w,
+    Atom *selection,
+    Atom *target,
+    Atom *type_return,
+    XtPointer *value_return,
+    unsigned long *length_return,
+    int *format_return,
+    unsigned long *max_length,
+    XtPointer client_data,
+    XtRequestId *request_id)
 {
-	
 	char *data;
 	if ( *target == TYPE ) {
 	switch (increment) {
@@ -488,36 +477,35 @@ XtRequestId *request_id;
 	} else
 	return(False);
 }
-static void
-lose_proc3(w, selection, client_data)
-Widget w;
-Atom *selection;
-XtPointer client_data;
+
+static void lose_proc3(
+    Widget w,
+    Atom *selection,
+    XtPointer client_data)
 {
 	sprintf(ebuf, "ERROR: labelw_good widget lost selection ownership");
 	tet_infoline(ebuf);
 	tet_result(TET_FAIL);
 }
-static void
-done_proc3(w, selection, target, request_id, client_data)
-Widget w;
-Atom *selection;
-Atom *target;
-XtRequestId *request_id;
-XtPointer client_data;
+
+static void done_proc3(
+    Widget w,
+    Atom *selection,
+    Atom *target,
+    XtRequestId *request_id,
+    XtPointer client_data)
 {
 	XtDisownSelection(w, *selection, CurrentTime);
 }
-static void
-requestor_callback3(w, client_data, selection, type, value,
-		length, format)
-Widget w;
-XtPointer client_data;
-Atom *selection;
-Atom *type;
-XtPointer value;
-unsigned long *length;
-int *format;
+
+static void requestor_callback3(
+    Widget w,
+    XtPointer client_data,
+    Atom *selection,
+    Atom *type,
+    XtPointer value,
+    unsigned long *length,
+    int *format)
 {
 	switch (increment) {
 	case 1:
@@ -548,19 +536,18 @@ static void cancel4_proc();
 static void requestor_callback(Widget, XtPointer, Atom*, Atom*, XtPointer,
 	unsigned long*, int*);
 
-/* procedure XtTMO4_Proc to be invoked */
-void XtTMO4_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTMO4_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
 
-static void XtEVT4_handler1(sender_widget, client_data, event, continue_to_dispatch)
-Widget sender_widget;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+static void XtEVT4_handler1(
+    Widget sender_widget,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 	Boolean status;
 XButtonEvent *bevent;
@@ -578,12 +565,12 @@ XButtonEvent *bevent;
 		 );
 	check_dec(True, status, "XtOwnSelectionIncremental return value");
 }
-static
-void XtEVT4_handler2(receiver_widget, client_data, event, continue_to_dispatch)
-Widget receiver_widget;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+
+static void XtEVT4_handler2(
+    Widget receiver_widget,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 XButtonEvent *bevent;
 
@@ -597,21 +584,19 @@ XButtonEvent *bevent;
 		bevent->time
 		);
 }
-static Boolean 
-convert4_proc(w, selection, target, type_return, value_return,
-		length_return, format_return, max_length, client_data, request_id)
-Widget w;
-Atom *selection;
-Atom *target;
-Atom *type_return;
-XtPointer *value_return;
-unsigned long *length_return;
-int *format_return;
-unsigned long *max_length;
-XtPointer client_data;
-XtRequestId *request_id;
+
+static Boolean convert4_proc(
+    Widget w,
+    Atom *selection,
+    Atom *target,
+    Atom *type_return,
+    XtPointer *value_return,
+    unsigned long *length_return,
+    int *format_return,
+    unsigned long *max_length,
+    XtPointer client_data,
+    XtRequestId *request_id)
 {
-	
 	char *data;
 	if ( *target == TYPE ) {
 	switch (increment) {
@@ -641,37 +626,36 @@ XtRequestId *request_id;
 	} else
 	return(False);
 }
-static void
-lose4_proc(w, selection, client_data)
-Widget w;
-Atom *selection;
-XtPointer client_data;
+
+static void lose4_proc(
+    Widget w,
+    Atom *selection,
+    XtPointer client_data)
 {
 	sprintf(ebuf, "ERROR: labelw_good widget lost selection ownership");
 	tet_infoline(ebuf);
 	tet_result(TET_FAIL);
 }
-static void
-done4_proc(w, selection, target, request_id, client_data)
-Widget w;
-Atom *selection;
-Atom *target;
-XtRequestId *request_id;
-XtPointer client_data;
+
+static void done4_proc(
+    Widget w,
+    Atom *selection,
+    Atom *target,
+    XtRequestId *request_id,
+    XtPointer client_data)
 {
 	avs_set_event(1, 1);
 	XtDisownSelection(w, *selection, CurrentTime);
 }
-static void
-requestor_callback(w, client_data, selection, type, value,
-		length, format)
-Widget w;
-XtPointer client_data;
-Atom *selection;
-Atom *type;
-XtPointer value;
-unsigned long *length;
-int *format;
+
+static void requestor_callback(
+    Widget w,
+    XtPointer client_data,
+    Atom *selection,
+    Atom *type,
+    XtPointer value,
+    unsigned long *length,
+    int *format)
 {
 	switch (increment) {
 	case 1:
@@ -702,19 +686,18 @@ static void cancel_proc5();
 static void requestor_callback5(Widget, XtPointer, Atom*, Atom*, XtPointer,
 	unsigned long*, int*);
 
-/* procedure XtTMO5_Proc to be invoked */
-void XtTMO5_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTMO5_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
 
-static void XtEVT5_handler1(sender_widget, client_data, event, continue_to_dispatch)
-Widget sender_widget;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+static void XtEVT5_handler1(
+    Widget sender_widget,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 	Boolean status;
 XButtonEvent *bevent;
@@ -732,12 +715,12 @@ XButtonEvent *bevent;
 		 );
 	check_dec(True, status, "XtOwnSelectionIncremental return value");
 }
-static
-void XtEVT5_handler2(receiver_widget, client_data, event, continue_to_dispatch)
-Widget receiver_widget;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+
+static void XtEVT5_handler2(
+    Widget receiver_widget,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 XButtonEvent *bevent;
 
@@ -751,21 +734,19 @@ XButtonEvent *bevent;
 		bevent->time
 		);
 }
-static Boolean 
-convert_proc5(w, selection, target, type_return, value_return,
-		length_return, format_return, max_length, client_data, request_id)
-Widget w;
-Atom *selection;
-Atom *target;
-Atom *type_return;
-XtPointer *value_return;
-unsigned long *length_return;
-int *format_return;
-unsigned long *max_length;
-XtPointer client_data;
-XtRequestId *request_id;
+
+static Boolean convert_proc5(
+    Widget w,
+    Atom *selection,
+    Atom *target,
+    Atom *type_return,
+    XtPointer *value_return,
+    unsigned long *length_return,
+    int *format_return,
+    unsigned long *max_length,
+    XtPointer client_data,
+    XtRequestId *request_id)
 {
-	
 	char *data;
 	if ( *target == TYPE ) {
 	switch (increment) {
@@ -795,34 +776,33 @@ XtRequestId *request_id;
 	} else
 	return(False);
 }
-static void
-lose_proc5(w, selection, client_data)
-Widget w;
-Atom *selection;
-XtPointer client_data;
+
+static void lose_proc5(
+    Widget w,
+    Atom *selection,
+    XtPointer client_data)
 {
 	avs_set_event(1, 1);
 }
-static void
-done_proc5(w, selection, target, request_id, client_data)
-Widget w;
-Atom *selection;
-Atom *target;
-XtRequestId *request_id;
-XtPointer client_data;
+
+static void done_proc5(
+    Widget w,
+    Atom *selection,
+    Atom *target,
+    XtRequestId *request_id,
+    XtPointer client_data)
 {
 	XtDisownSelection(w, *selection, CurrentTime);
 }
-static void
-requestor_callback5(w, client_data, selection, type, value,
-		length, format)
-Widget w;
-XtPointer client_data;
-Atom *selection;
-Atom *type;
-XtPointer value;
-unsigned long *length;
-int *format;
+
+static void requestor_callback5(
+    Widget w,
+    XtPointer client_data,
+    Atom *selection,
+    Atom *type,
+    XtPointer value,
+    unsigned long *length,
+    int *format)
 {
 	switch (increment) {
 	case 1:
@@ -845,11 +825,11 @@ int *format;
 	increment += 1;
 }
 
-static void XtEVT6_handler1(sender_widget, client_data, event, continue_to_dispatch)
-Widget sender_widget;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+static void XtEVT6_handler1(
+    Widget sender_widget,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 	Boolean status;
 XButtonEvent *bevent;

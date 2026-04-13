@@ -62,11 +62,7 @@ XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
-/*
-** XtEMH_Proc
-*/
-void XtEMH_Proc(str)
-String str;
+void XtEMH_Proc(String str)
 {
 	avs_set_event(1,1);
 }

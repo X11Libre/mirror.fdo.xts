@@ -76,11 +76,11 @@ static void done_proc1(Widget, Atom*, Atom*);
 static void requestor_callback1(Widget, XtPointer, Atom*, Atom*, XtPointer,
 	unsigned long*, int*);
 
-static void XtEVT1_handler1(sender_widget, client_data, event, continue_to_dispatch)
-Widget sender_widget;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+static void XtEVT1_handler1(
+    Widget sender_widget,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 Boolean status;
 XButtonEvent *bevent;
@@ -98,11 +98,11 @@ XButtonEvent *bevent;
 	check_dec(True, status, "status");
 }
 
-static void XtEVT1_handler2(receiver_widget, client_data, event, continue_to_dispatch)
-Widget receiver_widget;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+static void XtEVT1_handler2(
+    Widget receiver_widget,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 XButtonEvent *bevent;
 
@@ -117,15 +117,14 @@ XButtonEvent *bevent;
 		);
 }
 
-static Boolean convert_proc1(w, selection, target, type_return, value_return,
-		length_return, format_return)
-Widget w;
-Atom *selection;
-Atom *target;
-Atom *type_return;
-XtPointer *value_return;
-unsigned long *length_return;
-int *format_return;
+static Boolean convert_proc1(
+    Widget w,
+    Atom *selection,
+    Atom *target,
+    Atom *type_return,
+    XtPointer *value_return,
+    unsigned long *length_return,
+    int *format_return)
 {
 	
 	char *data;
@@ -149,33 +148,32 @@ int *format_return;
 	} else
 	return(False);
 }
-static void
-lose_proc1(w, selection)
-Widget w;
-Atom *selection;
+
+static void lose_proc1(
+    Widget w,
+    Atom *selection)
 {
 	sprintf(ebuf, "ERROR: labelw_good widget lost selection ownership");
 	tet_infoline(ebuf);
 	tet_result(TET_FAIL);
 }
-static void
-done_proc1(w, selection, target)
-Widget w;
-Atom *selection;
-Atom *target;
+
+static void done_proc1(
+    Widget w,
+    Atom *selection,
+    Atom *target)
 {
 	XtDisownSelection(w, *selection, CurrentTime);
 }
-static void
-requestor_callback1(w, client_data, selection, type, value,
-		length, format)
-Widget w;
-XtPointer client_data;
-Atom *selection;
-Atom *type;
-XtPointer value;
-unsigned long *length;
-int *format;
+
+static void requestor_callback1(
+    Widget w,
+    XtPointer client_data,
+    Atom *selection,
+    Atom *type,
+    XtPointer value,
+    unsigned long *length,
+    int *format)
 {
 	check_dec(SELECTION, *selection, "*selection");
 	check_dec(TYPE , *type, "*type");
@@ -192,20 +190,24 @@ static void done_proc2(Widget, Atom*, Atom*);
 static void requestor_callback2(Widget, XtPointer, Atom*, Atom*, XtPointer,
 	unsigned long*, int*);
 
-void XtWMH_Proc(str1, str2, str3, str4, str5, car)
-String str1, str2, str3, str4, *str5;
-Cardinal *car;
+void XtWMH_Proc(
+    String str1,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
+    Cardinal *car)
 {
 	avs_set_event(2,1);
 }
 
-static void XtEVT2_handler1(sender_widget, client_data, event, continue_to_dispatch)
-Widget sender_widget;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+static void XtEVT2_handler1(
+    Widget sender_widget,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
-XButtonEvent *bevent;
+	XButtonEvent *bevent;
 	Boolean status;
 
 	bevent = (XButtonEvent *)event;
@@ -220,13 +222,13 @@ XButtonEvent *bevent;
 	check_dec(True, status, "XtOwnSelection return value");
 }
 
-static void XtEVT2_handler2(receiver_widget, client_data, event, continue_to_dispatch)
-Widget receiver_widget;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+static void XtEVT2_handler2(
+    Widget receiver_widget,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
-XButtonEvent *bevent;
+	XButtonEvent *bevent;
 
 	bevent = (XButtonEvent *)event;
 	XtGetSelectionValue(
@@ -239,15 +241,14 @@ XButtonEvent *bevent;
 		);
 }
 
-static Boolean convert_proc2(w, selection, target, type_return, value_return,
-		length_return, format_return)
-Widget w;
-Atom *selection;
-Atom *target;
-Atom *type_return;
-XtPointer *value_return;
-unsigned long *length_return;
-int *format_return;
+static Boolean convert_proc2(
+    Widget w,
+    Atom *selection,
+    Atom *target,
+    Atom *type_return,
+    XtPointer *value_return,
+    unsigned long *length_return,
+    int *format_return)
 {
 	
 	char *data;
@@ -261,32 +262,32 @@ int *format_return;
 	}
 	exit(0);
 }
-static void
-lose_proc2(w, selection)
-Widget w;
-Atom *selection;
+
+static void lose_proc2(
+    Widget w,
+    Atom *selection)
 {
 	sprintf(ebuf, "ERROR: labelw_good widget lost selection ownership");
 	tet_infoline(ebuf);
 	tet_result(TET_FAIL);
 }
-static void
-done_proc2(w, selection, target)
-Widget w;
-Atom *selection;
-Atom *target;
+
+static void done_proc2(
+    Widget w,
+    Atom *selection,
+    Atom *target)
 {
 	XtDisownSelection(w, *selection, CurrentTime);
 }
 
-static void requestor_callback2(w, client_data, selection, type, value, length, format)
-Widget w;
-XtPointer client_data;
-Atom *selection;
-Atom *type;
-XtPointer value;
-unsigned long *length;
-int *format;
+static void requestor_callback2(
+    Widget w,
+    XtPointer client_data,
+    Atom *selection,
+    Atom *type,
+    XtPointer value,
+    unsigned long *length,
+    int *format)
 {
 	check_dec(SELECTION, *selection, "*selection");
 	check_dec(TYPE , *type, "*type");

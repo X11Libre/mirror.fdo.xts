@@ -139,10 +139,7 @@ void tet_ts_tcminit()
 **	the ts info is stored indirectly through *paddr
 */
 
-static void storetsinfo(arg, paddr, ptype)
-char *arg;
-struct ptab **paddr;
-int ptype;
+static void storetsinfo(char *arg, struct ptab **paddr, int ptype)
 {
 	struct ptab	*pp;
 	struct tptab	*tp;
@@ -187,8 +184,7 @@ int ptype;
 **	return 0 if successful or -1 on error
 */
 
-int tet_tcm_tsconnect(pp)
-struct ptab *pp;
+int tet_tcm_tsconnect(struct ptab *pp)
 {
 	switch (pp->ptr_ptype) {
 	case PT_SYNCD:
@@ -214,9 +210,7 @@ struct ptab *pp;
 **	return 0 if successful or -1 on error
 */
 
-int tet_tcm_tsinfo(pp, ptype)
-struct ptab *pp;
-int ptype;
+int tet_tcm_tsinfo(struct ptab *pp, int ptype)
 {
 	struct tptab *tp;
 	struct tsinfo *mp;
@@ -312,8 +306,7 @@ int tet_tcm_ts_tsinfolen()
 **	tet_tcm_ts_tsinfo2bs() - call tet_tsinfo2bs()
 */
 
-int tet_tcm_ts_tsinfo2bs(from, to)
-char *from, *to;
+int tet_tcm_ts_tsinfo2bs(char *from, *to)
 {
 	return(tet_tsinfo2bs((struct tsinfo *) from, to));
 }

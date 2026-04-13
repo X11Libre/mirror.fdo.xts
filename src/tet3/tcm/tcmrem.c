@@ -90,9 +90,7 @@ TET_EXPORT sigset_t tet_blockable_sigs;
 **	It is simply a wrapper for tet_tcmc_main().
 */
 
-int main(argc, argv)
-int	argc;
-char	**argv;
+int main(int argc, char **argv)
 {
 	/* must be first */
 	tet_init_globals(argc > 0 ? tet_basename(*argv) : "remote process controller",
@@ -132,10 +130,7 @@ int tet_tcmptype()
 **	tet_tcm_async() - do an automatic sync from a tcmrem STCM
 */
 
-TET_EXPORT int tet_tcm_async(spno, vote, timeout, synreq, nsys)
-long spno;
-int vote, timeout, *nsys;
-struct synreq *synreq;
+TET_EXPORT int tet_tcm_async(long spno, int vote, int timeout, struct synreq *synreq, int *nsys)
 {
 	return(tet_sdasync(tet_snid, tet_xrid, spno, vote, timeout, synreq, nsys));
 }
@@ -149,8 +144,7 @@ struct synreq *synreq;
 **	server logoff routines do not come here
 */
 
-TET_EXPORT void tet_ss_dead(pp)
-struct ptab *pp;
+TET_EXPORT void tet_ss_dead(struct ptab *pp)
 {
 	/* emit a diagnostic if this is unexpected */
 	if ((pp->pt_flags & PF_LOGGEDOFF) == 0)
@@ -163,8 +157,7 @@ struct ptab *pp;
 **	tet_ss_connect() - connect to remote process
 */
 
-TET_EXPORT void tet_ss_connect(pp)
-struct ptab *pp;
+TET_EXPORT void tet_ss_connect(struct ptab *pp)
 {
 	tet_ts_connect(pp);
 }
@@ -176,16 +169,14 @@ struct ptab *pp;
 **	tcm does not make use of server-specific data
 */
 
-TET_EXPORT int tet_ss_ptalloc(pp)
-struct ptab *pp;
+TET_EXPORT int tet_ss_ptalloc(struct ptab *pp)
 {
 	pp->pt_sdata = (char *) 0;
 	return(0);
 }
 
 /* ARGSUSED */
-TET_EXPORT void tet_ss_ptfree(pp)
-struct ptab *pp;
+TET_EXPORT void tet_ss_ptfree(struct ptab *pp)
 {
 	/* nothing */
 }
@@ -215,8 +206,7 @@ TET_EXPORT int tet_ss_serverloop()
 **	process reaches this state, so tet_ss_process() should never be called
 **/
 
-TET_EXPORT void tet_ss_process(pp)
-struct ptab *pp;
+TET_EXPORT void tet_ss_process(struct ptab *pp)
 {
 	error(0, "internal error - tet_ss_process called!",
 		tet_r2a(&pp->pt_rid));
@@ -230,9 +220,7 @@ struct ptab *pp;
 
 extern int tet_tcm_bs2md PROTOLIST((char *, struct ptab *));
 
-TET_EXPORT int tet_ss_bs2md(from, pp)
-char *from;
-struct ptab *pp;
+TET_EXPORT int tet_ss_bs2md(char *from, struct ptab *pp)
 {
 	return tet_tcm_bs2md(from, pp);
 }
@@ -240,27 +228,21 @@ struct ptab *pp;
 extern int tet_tcm_md2bs PROTOLIST((struct ptab *pp, char **bp, int *lp,
 	int offs));
 
-TET_EXPORT int tet_ss_md2bs(pp, bp, lp, offs)
-struct ptab *pp;
-char **bp;
-int *lp, offs;
+TET_EXPORT int tet_ss_md2bs(struct ptab *pp, char **bp, int *lp, int offs)
 {
 	return tet_tcm_md2bs(pp, bp, lp, offs);
 }
 
 extern int tet_tcm_tsconnect PROTOLIST((struct ptab *));
 
-TET_EXPORT int tet_ss_tsconnect(pp)
-struct ptab *pp;
+TET_EXPORT int tet_ss_tsconnect(struct ptab *pp)
 {
 	return tet_tcm_tsconnect(pp);
 }
 
 extern int tet_tcm_tsinfo PROTOLIST((struct ptab *, int));
 
-TET_EXPORT int tet_ss_tsinfo(pp, ptype)
-struct ptab *pp;
-int ptype;
+TET_EXPORT int tet_ss_tsinfo(struct ptab *pp, int ptype)
 {
 	return tet_tcm_tsinfo(pp, ptype);
 }

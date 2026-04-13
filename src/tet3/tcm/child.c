@@ -98,9 +98,7 @@ static	long	start_sequence;
 #endif /* TET_THREADS */
 
 
-int tet_tcmc_main(argc, argv)
-int argc;
-char **argv;
+int tet_tcmc_main(int argc, char **argv)
 {
 	int rc;
 

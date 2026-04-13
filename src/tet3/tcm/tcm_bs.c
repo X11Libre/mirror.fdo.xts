@@ -69,9 +69,7 @@ static char reqerr[] = "unknown request code";
 **	return length of internal-format message, or -ve error code on error
 */
 
-int tet_tcm_bs2md(from, pp)
-char *from;
-struct ptab *pp;
+int tet_tcm_bs2md(char *from, struct ptab *pp)
 {
 	int rc;
 	int request = pp->pt_savreq;
@@ -114,10 +112,7 @@ struct ptab *pp;
 **	or -ve error code on error
 */
 
-int tet_tcm_md2bs(pp, bp, lp, offs)
-struct ptab *pp;
-char **bp;
-int *lp, offs;
+int tet_tcm_md2bs(struct ptab *pp, char **bp, int *lp, int offs)
 {
 	char *mp = pp->ptm_data;
 	int request = pp->ptm_req;

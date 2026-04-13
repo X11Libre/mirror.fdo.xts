@@ -94,7 +94,7 @@ static void rptversion PROTOLIST((const char *, const char **));
 **	there is no return if they're different
 */
 
-void tet_check_apilib_version()
+void tet_check_apilib_version(void)
 {
 	if (mstrcmp(tet_apilib_version, expected_apilib_version)) {
 		fprintf(stderr,

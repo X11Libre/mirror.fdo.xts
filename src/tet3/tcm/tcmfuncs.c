@@ -120,9 +120,7 @@ extern int tet_psysid;			/* parent's system id */
 */
 
 /* ARGSUSED */
-void tet_tcminit(argc, argv)
-int argc;
-char **argv;
+void tet_tcminit(int argc, char **argv)
 {
 	char *envstring, *p;
 	char **args;

@@ -232,9 +232,7 @@ static	char	buf[256];
 
 /* ARGSUSED */
 int
-tet_tcm_main(argc, argv)
-int	argc;
-char	**argv;
+tet_tcm_main(int argc, char **argv)
 {
 	char *cp;
 	struct iclist *icp;
@@ -399,8 +397,7 @@ char	**argv;
 **	return the number of TPs actually executed
 */
 
-static int call_tps(icnum, tpcount)
-int icnum, *tpcount;
+static int call_tps(int icnum, int *tpcount)
 {
 	int testcount, testnum, tpnum, result = TET_PASS;
 #ifndef TET_LITE /* -START-LITE-CUT- */
@@ -435,8 +432,7 @@ int icnum, *tpcount;
 **	call_1tp() - call a single test purpose function
 */
 
-static int call_1tp(icnum, tpnum, testnum)
-int icnum, tpnum, testnum;
+static int call_1tp(int icnum, int tpnum, int testnum)
 {
 	int result;
 
@@ -549,8 +545,7 @@ int icnum, tpnum, testnum;
 
 
 static	void
-sigabandon(sig)
-int	sig;
+sigabandon(int sig)
 {
 	static char	mbuf[132];
 
@@ -579,8 +574,7 @@ int	sig;
 	tet_exit(EXIT_FAILURE);
 }
 
-static	void
-sigterm()
+static void sigterm(void)
 {
 	/*  Cleanup and exit if SIGTERM received */
 
@@ -636,8 +630,7 @@ sigterm()
 
 
 static	void
-sigskip(sig)
-int sig;
+sigskip(int sig)
 {
 	/*
 	 * Catch unexpected signals and (in main thread) longjmp() to
@@ -700,8 +693,7 @@ sig_init(const char *var, sigset_t *set)
 
 
 static	void
-setsigs(func)
-void	(*func)(int);
+setsigs(void(*func)(int))
 {
 	/*
 	 * Sets all signals except SIGKILL, SIGSTOP and SIGCHLD
@@ -763,8 +755,7 @@ void	(*func)(int);
 **		and exit
 */
 
-void tet_docleanup(status)
-int status;
+void tet_docleanup(int status)
 {
 #ifndef TET_LITE /* -START-LITE-CUT- */
 	int nsys;
@@ -817,9 +808,7 @@ int status;
 **		tet_tcm_async() calls
 */
 
-static void XSync_report(nsys, functype)
-int nsys;
-char *functype;
+static void XSync_report(int nsys, char *functype)
 {
 	struct synreq *sp;
 	char errmsg[128];
@@ -857,9 +846,7 @@ char *functype;
 **	all of the ICs beyond the highest IC specified in the previous element
 */
 
-static void build_iclist(icspec, nicspec)
-char **icspec;
-int nicspec;
+static void build_iclist(char **icspec, int nicspec)
 {
 	static char fmt[] = "tet_get%sic() returns %d but tet_isdefic(%d) returns FALSE!";
 	char msg[sizeof fmt + (LNUMSZ * 2)];
@@ -926,9 +913,7 @@ int nicspec;
 **		a group of elements in a single specification
 */
 
-static void build_icl2(icspec, icmin, icmax)
-char *icspec;
-int icmin, icmax;
+static void build_icl2(char *icspec, int icmin, int icmax)
 {
 	char buf[(LNUMSZ * 2) + 2];
 	char *p;
@@ -957,9 +942,7 @@ int icmin, icmax;
 */
 
 static void
-build_icl3(icspec, icmin, icmax)
-char *icspec;
-int icmin, icmax;
+build_icl3(char *icspec, int icmin, int icmax)
 {
 	static int last_icend = -1;
 	int icstart, icend;
@@ -1062,7 +1045,7 @@ int icmin, icmax;
 **	iclalloc() - allocate an IC list element and return a pointer thereto
 */
 
-static struct iclist *iclalloc()
+static struct iclist *iclalloc(void)
 {
 	struct iclist *icp;
 
@@ -1081,9 +1064,7 @@ static struct iclist *iclalloc()
 **	return the number of fields found
 */
 
-static int split(s, argv, maxargs, delim)
-char *s, **argv;
-int maxargs, delim;
+static int split(char *s, char **argv, int maxargs, int delim)
 {
 	char **ap = argv;
 

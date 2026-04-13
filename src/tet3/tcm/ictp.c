@@ -191,8 +191,7 @@ static void tpstart2 PROTOLIST((int, int, int));
 **	this function is only executed by STCMs
 */
 
-TET_IMPORT int tet_icstart(icno, tpcount)
-int icno, tpcount;
+TET_IMPORT int tet_icstart(int icno, int tpcount)
 {
 	int rc;
 
@@ -207,8 +206,7 @@ int icno, tpcount;
 
 #ifdef TET_LITE	/* -LITE-CUT-LINE- */
 
-static int icstart2(icno, tpcount)
-int icno, tpcount;
+static int icstart2(int icno, int tpcount)
 {
 	char buf[128];
 
@@ -219,8 +217,7 @@ int icno, tpcount;
 
 #else		/* -START-LITE-CUT- */
 
-static int icstart2(icno, tpcount)
-int icno, tpcount;
+static int icstart2(int icno, int tpcount)
 {
 	struct synreq *sp;
 	int nsys = tet_Nsname;
@@ -289,8 +286,7 @@ int icno, tpcount;
 **	tet_icend() - signal IC end
 */
 
-TET_IMPORT void tet_icend(icno, tpcount)
-int icno, tpcount;
+TET_IMPORT void tet_icend(int icno, int tpcount)
 {
 
 	TRACE3(tet_Ttcm, 7, "tet_icend(): icno = %s, tpcount = %s",
@@ -304,8 +300,7 @@ int icno, tpcount;
 
 #ifdef TET_LITE	/* -LITE-CUT-LINE- */
 
-static void icend2(icno, tpcount)
-int icno, tpcount;
+static void icend2(int icno, int tpcount)
 {
 	char buf[128];
 
@@ -332,8 +327,7 @@ static void icend2(icno, tpcount)
 **	tet_tpstart() - signal TP start
 */
 
-TET_IMPORT void tet_tpstart(icno, tpno, testnum)
-int icno, tpno, testnum;
+TET_IMPORT void tet_tpstart(int icno, int tpno, int testnum)
 {
 
 	TRACE4(tet_Ttcm, 7, "tet_tpstart(): icno = %s, tpno = %s, testnum = %s",
@@ -353,8 +347,7 @@ int icno, tpno, testnum;
 
 #ifdef TET_LITE	/* -LITE-CUT-LINE- */
 
-static void tpstart2(icno, tpno, testnum)
-int icno, tpno, testnum;
+static void tpstart2(int icno, int tpno, int testnum)
 {
 	char buf[128];
 
@@ -381,8 +374,7 @@ int icno, tpno, testnum;
 
 #else		/* -START-LITE-CUT- */
 
-static void tpstart2(icno, tpno, testnum)
-int icno, tpno, testnum;
+static void tpstart2(int icno, int tpno, int testnum)
 {
 	struct synreq *sp;
 	int vote;
@@ -450,8 +442,7 @@ int icno, tpno, testnum;
 **	return 0 if successful or -1 to abort the test case
 */
 
-TET_IMPORT int tet_tpend(icno, tpno, testnum)
-int icno, tpno, testnum;
+TET_IMPORT int tet_tpend(int icno, int tpno, int testnum)
 {
 	int rc;
 
@@ -467,8 +458,7 @@ int icno, tpno, testnum;
 
 #ifdef TET_LITE	/* -LITE-CUT-LINE- */
 
-static int tpend2(icno, tpno, testnum)
-int icno, tpno, testnum;
+static int tpend2(int icno, int tpno, int testnum)
 {
 	const char *res;
 	int have_result, nextres, err;
@@ -569,8 +559,7 @@ int icno, tpno, testnum;
 
 #else		/* -START-LITE-CUT- */
 
-static int tpend2(icno, tpno, testnum)
-int icno, tpno, testnum;
+static int tpend2(int icno, int tpno, int testnum)
 {
 	struct synreq *sp;
 	int err;
@@ -790,8 +779,7 @@ static int ismaster()
 **	tet_openres() - open the tet_xres file in TETware-Lite
 */
 
-TET_IMPORT void tet_openres(progname)
-char *progname;
+TET_IMPORT void tet_openres(char *progname)
 {
 	static char tmpvar[] = "TET_TMPRESFILE";
 	char buf[MAXPATH];
@@ -871,7 +859,7 @@ lite_output(int mtype, const char *fields, const char *data)
 **	curtime() - return string containing current time
 */
 
-static char *curtime()
+static char *curtime(void)
 {
 	time_t t;
 	struct tm *tp;
@@ -886,4 +874,3 @@ static char *curtime()
 }
 
 #endif		/* -END-LITE-CUT- */
-

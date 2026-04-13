@@ -156,9 +156,7 @@ XHostAddress *host = xthosts;
  *
  */
 
-static
-void
-tester()
+static void tester(void)
 {
 	int mode;
 	extern int Xst_error_count;

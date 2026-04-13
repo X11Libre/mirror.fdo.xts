@@ -125,9 +125,7 @@ xReq *gpcr;
 xGetPointerControlReply *gpcrep;
 xChangePointerControlReq *req;
 
-static
-void
-tester()
+static void tester(void)
 {
 	Create_Client(CLIENT);
 

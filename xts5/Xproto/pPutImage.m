@@ -139,7 +139,7 @@ xPutImageReq *pir;
 
 static
 void
-tester()
+tester(void)
 {
 	unsigned char *from;
 	unsigned char *to;

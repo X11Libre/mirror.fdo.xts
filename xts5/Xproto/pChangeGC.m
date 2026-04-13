@@ -123,9 +123,7 @@ SOFTWARE.
 static TestType test_type = SETUP;
 xChangeGCReq *req;
 
-static
-void
-tester()
+static void tester(void)
 {
 	Create_Client(CLIENT);
 

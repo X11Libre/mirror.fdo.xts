@@ -124,9 +124,7 @@ static TestType test_type = SETUP;
 Atom Test_Property;
 xChangePropertyReq *req;
 
-static
-void
-tester()
+static void tester(void)
 {
 	Create_Client(CLIENT);
 

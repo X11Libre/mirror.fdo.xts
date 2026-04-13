@@ -127,7 +127,7 @@ xOpenFontReq *req;
 
 static
 void
-tester()
+tester(void)
 {
 	Set_Init_Timer();
 

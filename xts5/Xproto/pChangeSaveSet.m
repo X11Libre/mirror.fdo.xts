@@ -127,9 +127,7 @@ xChangeSaveSetReq *req;
 xEvent *ev;
 xError *err;
 
-static
-void
-tester()
+static void tester(void)
 {
 	Create_Client(CLIENT);
 	Create_Client(CLIENT1);

@@ -133,9 +133,7 @@ xAllocColorReply *reply;
    methods:	 
 */
 
-static
-void
-tester()
+static void tester(void)
 {
 	Create_Client(CLIENT);
 

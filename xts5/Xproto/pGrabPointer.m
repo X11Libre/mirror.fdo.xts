@@ -126,7 +126,7 @@ xGrabPointerReply *rep;
 
 static
 void
-tester()
+tester(void)
 {
 	Create_Client(CLIENT);
 

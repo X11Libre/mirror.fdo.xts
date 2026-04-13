@@ -126,7 +126,7 @@ xPolyText8Req *req;
 
 static
 void
-tester()
+tester(void)
 {
 	Create_Client(CLIENT);
 

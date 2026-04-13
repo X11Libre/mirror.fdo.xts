@@ -136,7 +136,7 @@ xListInstalledColormapsReply *reply;
 
 static
 void
-tester()
+tester(void)
 {
 	
 

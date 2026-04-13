@@ -132,7 +132,7 @@ const char *Test_prop2 = "__Test2_prop";
 
 static
 void
-tester()
+tester(void)
 {
 	Create_Client(CLIENT);
         Create_Default_Window(CLIENT);

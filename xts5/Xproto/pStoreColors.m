@@ -146,9 +146,7 @@ extern CARD32 reply_pixel;
    methods:	 
 */
 
-static
-void
-tester_rw()
+static void tester_rw(void)
 {
 	Create_Client(CLIENT);
 	if (!Allocatable (CLIENT)) {
@@ -206,7 +204,7 @@ tester_rw()
 */
 static
 void
-tester()
+tester(void)
 {
 	Create_Client(CLIENT);
 

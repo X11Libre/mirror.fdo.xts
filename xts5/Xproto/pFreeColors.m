@@ -142,7 +142,7 @@ extern CARD32 reply_pixel;
 
 static
 void
-tester()
+tester(void)
 {
 	Create_Client(CLIENT);
 

@@ -123,9 +123,7 @@ SOFTWARE.
 xReq req;
 xError *err;
 
-static
-void
-bad_request()
+static void bad_request(void)
 {
 	Create_Client(CLIENT);
 

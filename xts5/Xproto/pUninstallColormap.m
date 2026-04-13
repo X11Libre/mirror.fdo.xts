@@ -137,7 +137,7 @@ xAllocColorCellsReply *reply;
 
 static
 void
-tester()
+tester(void)
 {
 	
 

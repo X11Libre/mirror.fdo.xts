@@ -134,7 +134,7 @@ static TestType test_type = SETUP;
 
 static
 void
-tester()
+tester(void)
 {
 	int status = Create_Client_Tested(CLIENT, test_type);
 

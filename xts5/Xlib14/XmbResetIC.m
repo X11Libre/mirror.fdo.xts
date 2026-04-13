@@ -106,14 +106,10 @@ setup_locale(void)
        message("unable to setup locale setup_locale() function failed\n", NULL, 0) ;
 }
 
-/*****
- * svcmbResetIC routine 
- *****/                             
-static void
-svcmbResetIC(display, ic)
-    Display  *display ;
-    XIC  ic ;
-    {
+static void svcmbResetIC(
+    Display *display,
+    XIC ic)
+{
 /*****
  * external defs
  *****/

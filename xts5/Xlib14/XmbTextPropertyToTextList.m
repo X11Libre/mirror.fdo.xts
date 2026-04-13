@@ -93,16 +93,12 @@ mod_stat(void)
          */
     }
 
-/*****
- * svcmbTextPropertyToTextList routine 
- *****/                             
-static void
-svcmbTextPropertyToTextList(display, text_prop_good, list_good, count_good)
-    Display             *display ;
-    XTextProperty	*text_prop_good ;
-    char	**list_good ;
-    int		count_good ;
-    {
+static void svcmbTextPropertyToTextList(
+    Display *display,
+    XTextProperty *text_prop_good,
+    char **list_good,
+    int count_good)
+{
 
 /*****
  * external defs

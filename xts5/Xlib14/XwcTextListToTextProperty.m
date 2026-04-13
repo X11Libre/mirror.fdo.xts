@@ -97,17 +97,12 @@ mod_stat(void)
 	 */
 }
 
-/*****
- * svcwcTextListToTextProperty routine 
- *****/                             
-static void
-svcwcTextListToTextProperty(display, list_good, count_good,
-		   style_good, text_prop_good )
-Display     *display ;
-wchar_t     *list_good[];
-int		count_good;
-XICCEncodingStyle style_good;
-XTextProperty	text_prop_good;
+static void svcwcTextListToTextProperty(
+    Display *display,
+    wchar_t *list_good[],
+    int count_good,
+    XICCEncodingStyle style_good,
+    XTextProperty text_prop_good)
 {
         extern int  errcnt;
         extern int  errflg;

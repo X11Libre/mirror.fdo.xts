@@ -96,16 +96,12 @@ mod_stat(void)
          */
     }
 
-/*****
- * svcwcTextPropertyToTextList routine 
- *****/                             
-static void
-svcwcTextPropertyToTextList(display, text_prop_good, list_good, count_good)
-    Display             *display ;
-    XTextProperty	text_prop_good ;
-    wchar_t            	*list_good[] ;
-    int		        count_good ;
-    {
+static void svcwcTextPropertyToTextList(
+    Display *display,
+    XTextProperty text_prop_good,
+    wchar_t *list_good[],
+    int count_good)
+{
 
 /*****
  * external defs

@@ -126,9 +126,7 @@ int		length = strlen(string);
 >>SET startup localestartup
 >>SET cleanup localecleanup
 >>EXTERN
-static void
-fillbuf(bp)
-	char	*bp;
+static void fillbuf(char *bp)
 {
 	int 	i;
 

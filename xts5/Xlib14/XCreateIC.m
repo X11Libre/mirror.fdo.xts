@@ -147,39 +147,32 @@ static const char *style_name[] = {
 
 
 /* some callbacks procedures */
-static void
-preedit_start()
+static void preedit_start(void)
 {
 }
 
-static void
-preedit_draw()
+static void preedit_draw(void)
 {
 }
 
-static void
-preedit_done()
+static void preedit_done(void)
 {
 }
 
-static void
-preedit_caret()
+static void preedit_caret(void)
 {
 }
 
 /* some status callback procedures */
-static void
-status_start()
+static void status_start(void)
 {
 }
 
-static void
-status_draw()
+static void status_draw(void)
 {
 }
 
-static void
-status_done()
+static void status_done(void)
 {
 }
 

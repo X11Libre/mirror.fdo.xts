@@ -128,9 +128,7 @@ int 	y = 20;
 XwcTextItem	*items;
 int 	nitems = 0;
 >>EXTERN
-static void
-fillbuf(bp)
-	char	*bp;
+static void fillbuf(char *bp)
 {
 	int 	i;
 

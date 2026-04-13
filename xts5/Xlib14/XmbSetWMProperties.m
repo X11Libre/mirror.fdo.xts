@@ -140,17 +140,16 @@ int x_init,
 
 
 static void
-svcmbSetWMProperties(display, window_id, window_name, 
-icon_name, argv, num_args, hints, wmh_good, classh_good) 
-Display              *display;
-Window               window_id;
-char                 *window_name;
-char                 *icon_name;
-char                 **argv;
-int                  num_args;
-XSizeHints           *hints;
-XWMHints		 *wmh_good;
-XClassHint		 *classh_good ;
+svcmbSetWMProperties(
+    Display *display,
+    Window window_id,
+    const char *window_name,
+    const char *icon_name,
+    const char **argv,
+    int num_args,
+    XSizeHints *hints,
+    XWMHints *wmh_good,
+    XClassHint *classh_good)
 {
         extern int  errcnt;
         extern int  errflg;
@@ -215,7 +214,7 @@ static unsigned long leftover;
 	errflg = 0;
 	XSetErrorHandler(signal_status);
 	XmbSetWMProperties( display, window_id, window_name, 
-		icon_name, argv, num_args, 
+		icon_name, (char**)argv, num_args, 
 		hints, wmh_good, classh_good);
 	XSync(display_arg, 0);
 	XSetErrorHandler(unexp_err);          

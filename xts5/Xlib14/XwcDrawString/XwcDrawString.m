@@ -129,9 +129,7 @@ int 	y = 20;
 wchar_t	*wstring;
 int		length;
 >>EXTERN
-static void
-fillbuf(bp)
-	char	*bp;
+static void fillbuf(char *bp)
 {
 	int 	i;
 

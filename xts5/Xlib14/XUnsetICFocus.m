@@ -98,12 +98,7 @@ mod_stat(void)
          */
     }
 
-/*****
- * svcUnsetICFocus routine 
- *****/                             
-static void
-svcUnsetICFocus(ic_value)
-    XIC   ic_value ;
+static void svcUnsetICFocus(XIC ic_value)
     {
 /*****
  * external defs

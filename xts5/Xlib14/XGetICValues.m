@@ -227,8 +227,7 @@ static int st_mask = XIMStatusArea |
                      XIMStatusNone;
  
 static char style_strname[128];
-static char *get_style_str(which_style)
-	XIMStyle which_style;
+static char *get_style_str(XIMStyle which_style)
 {
 	int which_pe,which_st;
 
@@ -239,13 +238,11 @@ static char *get_style_str(which_style)
 		st_names[which_st]);
 	return(style_strname);
 }
- 
 
-static Bool
-echo_val(type,name,return_val)
-int type;
-char *name;
-ic_val_def *return_val;
+static Bool echo_val(
+    int type,
+    char *name,
+    ic_val_def *return_val)
 {
 	/* echo the returned value */
 	switch(type)

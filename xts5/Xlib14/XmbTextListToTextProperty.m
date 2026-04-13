@@ -67,14 +67,12 @@ Display	   *display_good;
 char *exec_file_name;
 int x_init, y_init, w_init, h_init;
 
-static void
-svcmbTextListToTextProperty(display, list_good, 
-	count_good, style_good, text_prop_good )
-Display     *display ;
-char	**list_good ;
-int		count_good ;
-XICCEncodingStyle style_good ;
-XTextProperty	text_prop_good ;
+static void svcmbTextListToTextProperty(
+    Display *display,
+    char **list_good,
+    int count_good,
+    XICCEncodingStyle style_good,
+    XTextProperty text_prop_good)
 {
         extern int  errflg;
         extern int  chkflg;

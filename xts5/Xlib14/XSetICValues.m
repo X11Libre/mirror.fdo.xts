@@ -176,12 +176,11 @@ char *endlist = NULL;
 >>SET cleanup fontcleanup
 >>EXTERN
 
-static Bool
-check_val(type,name,base_val,return_val)
-int type;
-char *name;
-ic_val_def *base_val;
-ic_val_def *return_val;
+static Bool check_val(
+    int type,
+    char *name,
+    ic_val_def *base_val,
+    ic_val_def *return_val)
 {
 	/* check the base_value returned in ic_base_val */
 	switch(type)

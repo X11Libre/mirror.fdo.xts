@@ -129,9 +129,7 @@ static XmbTextItem	deftext[] = {
 	{"world", 5, 20, None},
 };
 
-static void
-fillbuf(bp)
-	char	*bp;
+static void fillbuf(char *bp)
 {
 	int 	i;
 

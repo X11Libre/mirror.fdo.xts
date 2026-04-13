@@ -107,10 +107,9 @@ setup_locale(void)
        message("unable to setup locale setup_locale() function failed\n", NULL, 0) ;
 }
 
-static void
-svcwcResetIC(display, ic)
-Display  *display ;
-XIC  ic ;
+static void svcwcResetIC(
+    Display *display,
+    XIC ic)
 {
         extern int  errcnt;
         extern int  errflg;

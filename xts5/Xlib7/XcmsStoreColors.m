@@ -89,20 +89,12 @@ int x_init,
     h_init,
     w_init;
 
-/******
- * routines
- ******/
-
-/*****
- * svccmsStoreColors routine 
- *****/                             
-static void
-svccmsStoreColors(display, colormap, colors, ncolors, flags_return)
-Display              *display ;
-Colormap             colormap ;
-XcmsColor            colors[2] ;
-unsigned int         ncolors ;
-Bool                 flags_return[] ;
+static void svccmsStoreColors(
+    Display              *display,
+    Colormap             colormap,
+    XcmsColor            colors[2],
+    unsigned int         ncolors,
+    Bool                 flags_return[])
 {
 
 /*****

@@ -109,20 +109,12 @@ char tmpbuf[255];
 char *exec_file_name;
 int x_init, y_init, h_init, w_init;
 
-/******
- * routines
- ******/
-
-/*****
- * svccmsQueryColors routine 
- *****/                             
-static void
-svccmsQueryColors(display, colormap, colors, ncolors, format)
-Display              *display ;
-Colormap             colormap ;
-XcmsColor            colors[2] ;
-unsigned int         ncolors ;
-XcmsColorFormat      format ;
+static void svccmsQueryColors(
+    Display              *display,
+    Colormap             colormap,
+    XcmsColor            colors[2],
+    unsigned int         ncolors,
+    XcmsColorFormat      format)
 {
 
 /*****

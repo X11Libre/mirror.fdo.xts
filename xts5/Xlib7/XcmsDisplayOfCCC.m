@@ -78,17 +78,9 @@ int        depth_good ;
 char *exec_file_name;
 int x_init, y_init, h_init, w_init;
 
-/******
- * routines
- ******/
-
-/*****
- * svccmsDisplayOfCCC routine 
- *****/                             
-static void
-svccmsDisplayOfCCC(display, ccc)
-Display              *display ;
-XcmsCCC              ccc ;
+static void svccmsDisplayOfCCC(
+    Display              *display,
+    XcmsCCC              ccc)
 {
 
 /*****

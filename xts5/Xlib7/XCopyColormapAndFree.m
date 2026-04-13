@@ -334,10 +334,10 @@ For each of the visual classes DirectColor, PseudoColor and GrayScale:
   Verify r/o and r/w behaviour of these 4 in copy, with XStoreColors.
   
 >>EXTERN
-static Bool check_rgb(dpy, cmap, xcp)
-	Display *dpy;
-	Colormap cmap;
-	XColor *xcp;
+static Bool check_rgb(
+	Display *dpy,
+	Colormap cmap,
+	XColor *xcp)
 {
 	XColor ncol;
 

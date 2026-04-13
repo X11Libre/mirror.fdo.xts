@@ -88,20 +88,12 @@ int x_init,
     h_init,
     w_init;
 
-/******
- * routines
- ******/
-
-/*****
- * svccmsTekHVCQueryMaxVSamples routine 
- *****/                             
-static void
-svccmsTekHVCQueryMaxVSamples(display, ccc, hue_good, color, nsamples)
-Display              *display ;
-XcmsCCC              ccc ;
-XcmsFloat            hue_good ;
-XcmsColor            color[2] ;
-unsigned int         nsamples ;
+static void svccmsTekHVCQueryMaxVSamples(
+    Display              *display,
+    XcmsCCC              ccc,
+    XcmsFloat            hue_good,
+    XcmsColor            color[2],
+    unsigned int         nsamples)
 {
 
 /*****

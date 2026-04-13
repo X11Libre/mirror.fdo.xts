@@ -83,20 +83,12 @@ int        depth_good ;
 char *exec_file_name;
 int x_init, y_init, h_init, w_init;
 
-/******
- * routines
- ******/
-
-/*****
- * svccmsCIELabQueryMinL routine 
- *****/                             
-static void
-svccmsCIELabQueryMinL(display, ccc, hue_a, chroma, color )
-Display              *display ;
-XcmsCCC              ccc ;
-XcmsFloat            hue_a ;
-XcmsFloat            chroma ;
-XcmsColor            color ;
+static void svccmsCIELabQueryMinL(
+    Display              *display,
+    XcmsCCC              ccc,
+    XcmsFloat            hue_a,
+    XcmsFloat            chroma,
+    XcmsColor            color)
 {
 
 /*****

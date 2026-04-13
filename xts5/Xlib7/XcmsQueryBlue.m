@@ -86,19 +86,11 @@ int x_init,
     h_init,
     w_init;
 
-/******
- * routines
- ******/
-
-/*****
- * svccmsQueryBlue routine 
- *****/                             
-static void
-svccmsQueryBlue(display, ccc, format, color)
-Display              *display ;
-XcmsCCC              ccc ;
-XcmsColorFormat      format ;
-XcmsColor            color ;
+static void svccmsQueryBlue(
+    Display              *display,
+    XcmsCCC              ccc,
+    XcmsColorFormat      format,
+    XcmsColor            color)
 {
 
 /*****

@@ -86,19 +86,11 @@ int x_init,
     h_init,
     w_init;
 
-/******
- * routines
- ******/
-
-/*****
- * svccmsQueryRed routine 
- *****/                             
-static void
-svccmsQueryRed(display, ccc, format, color)
-Display              *display ;
-XcmsCCC              ccc ;
-XcmsColorFormat      format ;
-XcmsColor            color ;
+static void svccmsQueryRed(
+    Display              *display,
+    XcmsCCC              ccc,
+    XcmsColorFormat      format,
+    XcmsColor            color)
 {
         extern int  errcnt;
         extern int  errflg;

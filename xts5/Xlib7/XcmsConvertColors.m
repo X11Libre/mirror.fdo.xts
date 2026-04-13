@@ -81,22 +81,13 @@ int x_init,
     h_init,
     w_init;
 
-/******
- * routines
- ******/
-
-/*****
- * svccmsConvertColors routine 
- *****/                             
-static void
-svccmsConvertColors(display, ccc, colors_in_out, ncolors,
-		   target_format, c_flag)
-Display   *display ;
-XcmsCCC   ccc ;
-XcmsColor colors_in_out[] ;
-unsigned int ncolors ;
-XcmsColorFormat target_format ;
-Bool c_flag[] ;
+static void svccmsConvertColors(
+    Display   *display,
+    XcmsCCC   ccc,
+    XcmsColor colors_in_out[],
+    unsigned int ncolors,
+    XcmsColorFormat target_format,
+    Bool c_flag[])
 {
 
 /*****

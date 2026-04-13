@@ -87,19 +87,11 @@ int x_init,
     h_init,
     w_init;
 
-/******
- * routines
- ******/
-
-/*****
- * svccmsSetWhiteAdjustProc routine 
- *****/                             
-static void
-svccmsSetWhiteAdjustProc(display, ccc, white_adjust_proc, client_data)
-Display              *display ;
-XcmsCCC              ccc ;
-XcmsWhiteAdjustProc  white_adjust_proc ;
-XPointer             client_data ;
+static void svccmsSetWhiteAdjustProc(
+    Display              *display,
+    XcmsCCC              ccc,
+    XcmsWhiteAdjustProc  white_adjust_proc,
+    XPointer             client_data)
 {
 
 /*****

@@ -87,20 +87,12 @@ int x_init,
     h_init,
     w_init;
 
-/******
- * routines
- ******/
-
-/*****
- * svccmsTekHVCQueryMinV routine 
- *****/                             
-static void
-svccmsTekHVCQueryMinV(display, ccc, hue_good, chroma_good, color)
-Display              *display ;
-XcmsCCC              ccc ;
-XcmsFloat            hue_good ;
-XcmsFloat            chroma_good ;
-XcmsColor            color ;
+static void svccmsTekHVCQueryMinV(
+    Display              *display,
+    XcmsCCC              ccc,
+    XcmsFloat            hue_good,
+    XcmsFloat            chroma_good,
+    XcmsColor            color)
 {
 
 /*****

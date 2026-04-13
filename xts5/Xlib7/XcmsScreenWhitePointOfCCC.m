@@ -83,17 +83,9 @@ int        depth_good ;
 char *exec_file_name;
 int x_init, y_init, h_init, w_init;
 
-/******
- * routines
- ******/
-
-/*****
- * svccmsScreenWhitePointOfCCC routine 
- *****/                             
-static void
-svccmsScreenWhitePointOfCCC(display, ccc)
-Display              *display ;
-XcmsCCC             ccc ;
+static void svccmsScreenWhitePointOfCCC(
+    Display              *display,
+    XcmsCCC             ccc)
 {
 
 /*****

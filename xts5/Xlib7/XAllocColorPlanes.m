@@ -114,8 +114,7 @@ unsigned long *bmask_return = &dummy;
 >>EXTERN
 static unsigned long dummy;
 
-static int contiguous(mask)
-unsigned long mask;
+static int contiguous(unsigned long mask)
 {
 	if(!mask)
 		return(0L);
@@ -126,8 +125,7 @@ unsigned long mask;
 	return( bitcount(mask) == 1);
 }
 
-static int maskshift(mask)
-unsigned long mask;
+static int maskshift(unsigned long mask)
 {
 	int	i = 0;
 

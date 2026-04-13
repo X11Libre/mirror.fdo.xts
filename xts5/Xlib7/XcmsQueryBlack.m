@@ -88,19 +88,11 @@ int x_init,
     h_init,
     w_init;
 
-/******
- * routines
- ******/
-
-/*****
- * svccmsQueryBlack routine 
- *****/                             
-static void
-svccmsQueryBlack(display, ccc, format, color)
-Display              *display ;
-XcmsCCC              ccc ;
-XcmsColorFormat      format ;
-XcmsColor            color ;
+static void svccmsQueryBlack(
+    Display              *display,
+    XcmsCCC              ccc,
+    XcmsColorFormat      format,
+    XcmsColor            color)
 {
 
 /*****

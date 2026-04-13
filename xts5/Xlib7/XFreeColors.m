@@ -111,10 +111,10 @@ unsigned long dummypix;
 #define ENOUGH_TIME	100
 
 static
-Bool munch(size_in_out, pixels, npix)
-	int	*size_in_out;
-	unsigned long *pixels;
-	int	npix;
+Bool munch(
+	int	*size_in_out,
+	unsigned long *pixels,
+	int	npix)
 {
 	int i;
 	int sz = 0;

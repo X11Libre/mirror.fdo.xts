@@ -86,20 +86,12 @@ int x_init,
     h_init,
     w_init;
 
-/******
- * routines
- ******/
-
-/*****
- * svccmsCIELuvQueryMaxC routine 
- *****/                             
-static void
-svccmsCIELuvQueryMaxC(display, ccc, hue_a, L_s, color )
-Display              *display ;
-XcmsCCC              ccc ;
-XcmsFloat            hue_a ;
-XcmsFloat            L_s ;
-XcmsColor            color ;
+static void svccmsCIELuvQueryMaxC(
+    Display              *display,
+    XcmsCCC              ccc,
+    XcmsFloat            hue_a,
+    XcmsFloat            L_s,
+    XcmsColor            color)
 {
 
 /*****

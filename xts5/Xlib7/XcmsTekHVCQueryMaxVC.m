@@ -87,15 +87,11 @@ int x_init,
     h_init,
     w_init;
 
-/*****
- * svccmsTekHVCQueryMaxVC routine 
- *****/                             
-static void
-svccmsTekHVCQueryMaxVC(display, ccc, hue_good, color)
-Display              *display ;
-XcmsCCC              ccc ;
-XcmsFloat            hue_good ;
-XcmsColor            color ;
+static void svccmsTekHVCQueryMaxVC(
+    Display              *display,
+    XcmsCCC              ccc,
+    XcmsFloat            hue_good,
+    XcmsColor            color)
 {
 
 /*****

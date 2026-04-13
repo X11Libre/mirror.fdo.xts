@@ -114,10 +114,12 @@ XColor		*exact_def_return = &color_ret;
 XColor		color_ret;
 
 Status
-checkcolor( red, green, blue, shift, ret_desired)
-unsigned int	red, green, blue;
-unsigned int	shift;
-XColor		*ret_desired;
+checkcolor(
+    unsigned int	red,
+    unsigned int	green,
+    unsigned int	blue,
+    unsigned int	shift,
+    XColor		*ret_desired)
 {
 	ret_desired->red = (unsigned short) red<<shift;
 	ret_desired->green = (unsigned short) green<<shift;
@@ -125,9 +127,7 @@ XColor		*ret_desired;
 	return((ret_desired->red == color_ret.red) && (ret_desired->green == color_ret.green) && (ret_desired->blue == color_ret.blue));
 }
 
-static void
-rgb_report(desired)
-XColor	*desired;
+static void rgb_report(XColor *desired)
 {
 	report("%s() returned red 0x%x green 0x%x blue 0x%x instead of red 0x%x green 0x%x blue 0x%x.",  
 		TestName,

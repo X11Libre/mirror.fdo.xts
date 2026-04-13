@@ -652,9 +652,7 @@ If visual class DirectColor is supported:
 #define bitcontig(x)	((((x) + lowbit(x)) & (x)) == 0)
 #define bitsubset(a,b)	(((a) & (b)) == (a))
 
-static int
-maskshift(mask)
-unsigned long mask;
+static int maskshift(unsigned long mask)
 {
 int i;
 
@@ -666,12 +664,11 @@ int i;
 	return i;
 }
 
-static
-Bool set_one_col(refp, s, flags, mask)
-	unsigned long *refp;
-	char *s;
-	char flags;
-	unsigned long mask;
+static Bool set_one_col(
+	unsigned long *refp,
+	char *s,
+	char flags,
+	unsigned long mask)
 {
 	unsigned long i;
 	XColor *cp1;

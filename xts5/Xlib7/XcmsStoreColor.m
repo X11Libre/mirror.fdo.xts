@@ -82,18 +82,10 @@ int        depth_good ;
 char *exec_file_name;
 int x_init, y_init, h_init, w_init;
 
-/******
- * routines
- ******/
-
-/*****
- * svccmsStoreColor routine 
- *****/                             
-static void
-svccmsStoreColor(display, colormap, color)
-Display              *display ;
-Colormap             colormap ;
-XcmsColor            color ;
+static void svccmsStoreColor(
+    Display              *display,
+    Colormap             colormap,
+    XcmsColor            color)
 {
 
 /*****

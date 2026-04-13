@@ -101,19 +101,11 @@ int x_init,
     h_init,
     w_init;
 
-/******
- * routines
- ******/
-
-/*****
- * svccmsQueryColor routine 
- *****/                             
-static void
-svccmsQueryColor(display, colormap, color, format)
-Display              *display ;
-Colormap             colormap ;
-XcmsColor            color ;
-XcmsColorFormat      format ;
+static void svccmsQueryColor(
+    Display              *display,
+    Colormap             colormap,
+    XcmsColor            color,
+    XcmsColorFormat      format)
 {
 /*****
  * external defs

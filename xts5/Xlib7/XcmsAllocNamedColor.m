@@ -92,21 +92,13 @@ int x_init,
     h_init,
     w_init;
 
-/******
- * routines
- ******/
-
-/*****
- * svccmsAllocNamedColor routine 
- *****/
-static void
-svccmsAllocNamedColor(display, colormap, color_string, scrn, exact, format)
-Display              *display ;
-Colormap             colormap ;
-char                 *color_string ;
-XcmsColor            scrn ;
-XcmsColor            exact ;
-XcmsColorFormat      format ;
+static void svccmsAllocNamedColor(
+    Display              *display,
+    Colormap             colormap,
+    char                 *color_string,
+    XcmsColor            scrn,
+    XcmsColor            exact,
+    XcmsColorFormat      format)
 {
 /*****
  * external defs

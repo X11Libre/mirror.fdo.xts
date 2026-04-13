@@ -84,20 +84,12 @@ int        depth_good ;
 char *exec_file_name;
 int x_init, y_init, h_init, w_init;
 
-/******
- * routines
- ******/
-
-/*****
- * svccmsTekHVCQueryMaxC routine 
- *****/                             
-static void
-svccmsTekHVCQueryMaxC(display, ccc, hue_good, value_good, color)
-Display              *display ;
-XcmsCCC              ccc ;
-XcmsFloat            hue_good ;
-XcmsFloat            value_good ;
-XcmsColor            color ;
+static void svccmsTekHVCQueryMaxC(
+    Display              *display,
+    XcmsCCC              ccc,
+    XcmsFloat            hue_good,
+    XcmsFloat            value_good,
+    XcmsColor            color)
 {
 
 /*****

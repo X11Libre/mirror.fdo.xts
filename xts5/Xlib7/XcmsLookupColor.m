@@ -97,22 +97,13 @@ int x_init,
     h_init,
     w_init;
 
-/******
- * routines
- ******/
-
-/*****
- * svccmsLookupColor routine 
- *****/                             
-static void
-svccmsLookupColor(display, colormap, color_return, exact,
-	      scrn, result_format)
-Display              *display ;
-Colormap             colormap ;
-char                 *color_return ;
-XcmsColor            exact ;
-XcmsColor            scrn ;
-XcmsColorFormat      result_format ;
+static void svccmsLookupColor(
+    Display              *display,
+    Colormap             colormap,
+    char                 *color_return,
+    XcmsColor            exact,
+    XcmsColor            scrn,
+    XcmsColorFormat      result_format)
 {
 
 /*****

@@ -85,17 +85,9 @@ int x_init,
     h_init,
     w_init;
 
-/******
- * routines
- ******/
-
-/*****
- * svccmsCCCOfColormap routine 
- *****/                             
-static void
-svccmsCCCOfColormap(display, colormap)
-Display              *display ;
-Colormap             colormap ;
+static void svccmsCCCOfColormap(
+    Display *display,
+    Colormap colormap)
 {
 
 /*****

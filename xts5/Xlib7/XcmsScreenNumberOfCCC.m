@@ -87,17 +87,9 @@ int x_init,
     h_init,
     w_init;
 
-/******
- * routines
- ******/
-
-/*****
- * svccmsScreenNumberOfCCC routine 
- *****/                             
-static void
-svccmsScreenNumberOfCCC(display, ccc)
-Display              *display ;
-XcmsCCC               ccc ;
+static void svccmsScreenNumberOfCCC(
+    Display              *display,
+    XcmsCCC               ccc)
 {
 
 /*****

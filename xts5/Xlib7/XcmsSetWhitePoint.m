@@ -87,18 +87,10 @@ int x_init,
     h_init,
     w_init;
 
-/******
- * routines
- ******/
-
-/*****
- * svccmsSetWhitePoint routine 
- *****/                             
-static void
-svccmsSetWhitePoint(display, ccc, color)
-Display              *display ;
-XcmsCCC              ccc ;
-XcmsColor            color ;
+static void svccmsSetWhitePoint(
+    Display              *display,
+    XcmsCCC              ccc,
+    XcmsColor            color)
 {
 
 /*****

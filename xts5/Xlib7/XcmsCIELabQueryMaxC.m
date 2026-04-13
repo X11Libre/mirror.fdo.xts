@@ -72,13 +72,12 @@ int        depth_good ;
 char *exec_file_name;
 int x_init, y_init, h_init, w_init;
 
-static void
-svccmsCIELabQueryMaxC(display, ccc, hue_a, L_s, color )
-Display              *display ;
-XcmsCCC              ccc ;
-XcmsFloat            hue_a ;
-XcmsFloat            L_s ;
-XcmsColor            color ;
+static void svccmsCIELabQueryMaxC(
+    Display              *display,
+    XcmsCCC              ccc,
+    XcmsFloat            hue_a,
+    XcmsFloat            L_s,
+    XcmsColor            color)
 {
         extern int  errcnt;
         extern int  errflg;

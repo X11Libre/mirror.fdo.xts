@@ -90,17 +90,9 @@ int x_init,
     h_init,
     w_init;
 
-/******
- * routines
- ******/
-
-/*****
- * svccmsPrefixOfFormat routine 
- *****/                             
-static void
-svccmsPrefixOfFormat(display, format)
-Display              *display ;
-XcmsColorFormat      format ;
+static void svccmsPrefixOfFormat(
+    Display              *display,
+    XcmsColorFormat      format)
 {
 
 /*****

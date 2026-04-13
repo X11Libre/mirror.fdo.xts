@@ -84,13 +84,9 @@ int x_init, y_init, h_init, w_init;
  * routines
  ******/
 
-/*****
- * svccmsAddColorSpace routine 
- *****/                             
-static void
-svccmsAddColorSpace(display, color_space)
-Display              *display ;
-XcmsColorSpace       *color_space ;
+static void svccmsAddColorSpace(
+    Display *display,
+    XcmsColorSpace *color_space)
 {
 
 /*****

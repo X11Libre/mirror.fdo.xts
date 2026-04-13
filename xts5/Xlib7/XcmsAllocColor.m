@@ -74,8 +74,7 @@ All Rights Reserved.
 >>#
 >>AVSCODE
 >>TITLE XcmsAllocColor Xlib7
-void
-XcmsAllocColor()
+void XcmsAllocColor(void)
 >>EXTERN
 #include "xtest.h"
 
@@ -94,11 +93,11 @@ XColor goodColorSpec;
 char tmpbuf[255];
 
 void
-svccmsAllocColor(display, colormap, color, format)
-Display              *display ;
-Colormap             colormap ;
-XcmsColor            color ;
-XcmsColorFormat      format ;
+svccmsAllocColor(
+    Display *display,
+    Colormap colormap,
+    XcmsColor color,
+    XcmsColorFormat format)
 {
 extern int  errcnt;
 extern int  errflg;

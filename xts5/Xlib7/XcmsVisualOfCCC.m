@@ -83,17 +83,9 @@ int x_init,
     h_init,
     w_init;
 
-/******
- * routines
- ******/
-
-/*****
- * svccmsVisualOfCCC routine 
- *****/                             
-static void
-svccmsVisualOfCCC(display, ccc)
-Display              *display ;
-XcmsCCC              ccc ;
+static void svccmsVisualOfCCC(
+    Display              *display,
+    XcmsCCC              ccc)
 {
 
 /*****

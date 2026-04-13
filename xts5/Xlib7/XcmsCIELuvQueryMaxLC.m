@@ -83,19 +83,11 @@ int        depth_good ;
 char *exec_file_name;
 int x_init, y_init, h_init, w_init;
 
-/******
- * routines
- ******/
-
-/*****
- * svccmsCIELuvQueryMaxLC routine 
- *****/                             
-static void
-svccmsCIELuvQueryMaxLC(display, ccc, hue_a, color)
-Display              *display ;
-XcmsCCC              ccc ;
-XcmsFloat            hue_a ;
-XcmsColor            color ;
+static void svccmsCIELuvQueryMaxLC(
+    Display              *display,
+    XcmsCCC              ccc,
+    XcmsFloat            hue_a,
+    XcmsColor            color)
 {
 
 /*****

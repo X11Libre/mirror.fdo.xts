@@ -97,24 +97,20 @@ int x_init,
  ******/
 
 int
-func1()
+func1(void)
 {
   return XcmsInitSuccess;
 }
 
 void 
-func2()
+func2(void)
 {
 	return;
 }
 
-/*****
- * svccmsAddFunctionSet routine 
- *****/                             
-static void
-svccmsAddFunctionSet(display, function_set)
-Display              *display ;
-XcmsFunctionSet      *function_set ;
+static void svccmsAddFunctionSet(
+    Display *display,
+    XcmsFunctionSet *function_set)
 {
 
 /*****

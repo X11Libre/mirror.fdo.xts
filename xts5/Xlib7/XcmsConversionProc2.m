@@ -80,13 +80,12 @@ int (*XcmsConversionFunc)(XcmsCCC, XcmsColor*, unsigned int, Bool*) ;
 char *exec_file_name;
 int x_init, y_init, h_init, w_init;
 
-static void
-svccmsConversionProc(display, ccc, colors, num, flags)
-Display              *display ;
-XcmsCCC              ccc ;
-XcmsColor            colors[] ;
-unsigned int         num ;
-Bool                 flags[] ;
+static void svccmsConversionProc(
+    Display              *display,
+    XcmsCCC              ccc,
+    XcmsColor            colors[],
+    unsigned int         num,
+    Bool                 flags[])
 {
 /*****
  * external defs

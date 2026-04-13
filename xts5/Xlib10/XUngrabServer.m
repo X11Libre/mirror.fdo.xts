@@ -160,8 +160,7 @@ int 	ret;
 		delete("Child process timed out");
 	}
 >>EXTERN
-static void
-pproc()
+static void pproc(void)
 {
 XEvent	ev;
 int 	pass = 0, fail = 0;
@@ -196,8 +195,7 @@ int 	pass = 0, fail = 0;
 /*
  * Perform operation on client2 while display has the server grabbed.
  */
-static void
-cproc()
+static void cproc(void)
 {
 long 	val;
 Atom	name;

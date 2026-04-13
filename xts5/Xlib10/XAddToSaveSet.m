@@ -153,9 +153,7 @@ const char *T2[] = {
  * windows.
  * Before returning, client1 is destroyed.
  */
-void
-setupsaveset(btret)
-struct	buildtree	*btret[NELEM(T1)];
+void setupsaveset(struct buildtree *btret[NELEM(T1)])
 {
 Display	*client1;
 Display	*client2;

@@ -162,8 +162,7 @@ static Window	win;
 	tet_fork(cproc, pproc, 1, ~0);
 	/* Test now continues in pproc */
 >>EXTERN
-static void
-pproc()
+static void pproc(void)
 {
 int 	waittime;
 XEvent	ev;
@@ -205,8 +204,7 @@ int 	pass = 0, fail = 0;
 /*
  * Perform operation on client2 while client1 has the server grabbed.
  */
-static void
-cproc()
+static void cproc(void)
 {
 long 	val;
 Atom	name;

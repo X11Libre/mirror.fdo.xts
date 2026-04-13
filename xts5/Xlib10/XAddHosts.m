@@ -174,12 +174,11 @@ Bool	state;
 /*
  * Returns the number of hosts in hosts[] that are in the acl.
  */
-static int
-hostsinacl(hosts, nxthosts, acl, nhosts)
-XHostAddress	*hosts;
-int 	nxthosts;
-XHostAddress	*acl;
-int 	nhosts;
+static int hostsinacl(
+    XHostAddress *hosts,
+    int nxthosts,
+    XHostAddress *acl,
+    int nhosts)
 {
 int 	i, j;
 int 	n;

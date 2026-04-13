@@ -118,8 +118,7 @@ static	int 	origpb;
 static	int 	origae;
 
 >>SET startup savesaver
-static void
-savesaver()
+static void savesaver(void)
 {
 	startup();
 	if(Dsp)
@@ -127,8 +126,7 @@ savesaver()
 }
 
 >>SET cleanup resetsaver
-static void
-resetsaver()
+static void resetsaver(void)
 {
 	if(Dsp)
 		XSetScreenSaver(Dsp, origt, origi, origpb, origae);

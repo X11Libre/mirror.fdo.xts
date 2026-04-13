@@ -170,11 +170,10 @@ Bool	state;
 	XRemoveHost(display, host);
 >>EXTERN
 
-static int
-ishostinacl(host, acl, nhosts)
-XHostAddress	*host;
-XHostAddress	*acl;
-int 	nhosts;
+static int ishostinacl(
+    XHostAddress *host,
+    XHostAddress *acl,
+    int nhosts)
 {
 int 	i;
 

@@ -125,8 +125,7 @@ static	Window	WinA;
 static	Window	WinB;
 static	Window	WinBase;
 
-static void
-reparentinit()
+static void reparentinit(void)
 {
 Window	win;
 

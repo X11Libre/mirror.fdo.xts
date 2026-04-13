@@ -70,9 +70,9 @@ ShellWidget menuw, menuw2;
 Widget pushb_good2, rowcolw_good2;
 
 /*timeout callback*/
-void XtTI1_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI1_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	tet_infoline("TEST: Shell is popped-up");
 	if (menuw->shell.popped_up == False) {
@@ -81,10 +81,11 @@ XtIntervalId *id;
 	}
 	exit(0);
 }
+
 /*timeout callback*/
-void XtTI7_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI7_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	tet_infoline("TEST: Shell is popped-up");
 	if (menuw->shell.popped_up == False) {
@@ -98,10 +99,11 @@ XtIntervalId *id;
 	}
 	exit(0);
 }
-void XtCB1_Proc(w, client_data, call_data)
-Widget w;
-XtPointer client_data;
-XtPointer call_data;
+
+void XtCB1_Proc(
+    Widget w,
+    XtPointer client_data,
+    XtPointer call_data)
 {
 	tet_infoline("TEST: Call_data points to grab_kind value");
 	if (*(int *)call_data != XtGrabExclusive) {
@@ -111,25 +113,27 @@ XtPointer call_data;
 	}
 	avs_set_event(1,1);
 }
-void XtCB8_Proc(w, client_data, call_data)
-Widget w;
-XtPointer client_data;
-XtPointer call_data;
+
+void XtCB8_Proc(
+    Widget w,
+    XtPointer client_data,
+    XtPointer call_data)
 {
 	avs_set_event(2,1);
 }
 
 /*timeout callback*/
-void XtTI2a_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI2a_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
+
 /*timeout callback*/
-void XtTI2b_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI2b_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	tet_infoline("TEST: Popup1 is popped-up");
 	if (menuw->shell.popped_up == False) {
@@ -167,57 +171,67 @@ XtIntervalId *id;
 	send_event((Widget)menuw2, KeyPress, KeyPressMask, TRUE);
 	XtAppAddTimeOut(app_ctext, AVSXTLOOPTIMEOUT, &XtTI2a_Proc, NULL);
 }
+
 /*popup's parent's event handler*/
-void XtEV2a_Proc(w, client_data, event, contin)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *contin;
+void XtEV2a_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *contin)
 {
 	if (event->type == KeyPress) {
 		avs_set_event(2,1);
 	}
 }
+
 /*popup1's event handler*/
-void XtEV2b_Proc(w, client_data, event, contin)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *contin;
+void XtEV2b_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *contin)
 {
 	if (event->type == KeyPress) {
 		avs_set_event(3,1);
 	}
 }
+
 /*popup2's event handler*/
-void XtEV2c_Proc(w, client_data, event, contin)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *contin;
+void XtEV2c_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *contin)
 {
 	if (event->type == KeyPress) {
 		avs_set_event(4,avs_get_event(4)+1);
 	}
 }
-void XtCB2_Proc(w, client_data, call_data)
-Widget w;
-XtPointer client_data, call_data;
+
+void XtCB2_Proc(
+    Widget w,
+    XtPointer client_data,
+    XtPointer call_data)
 {
 	avs_set_event(1,avs_get_event(1)+1);
 }
+
 /*
 ** Installed Warning handler
 */
-void XtEVT3_handler(str1, str2, str3, str4, str5, car)
-String str1, str2, str3, str4, *str5;
-Cardinal *car;
+void XtEVT3_handler(
+    String str1,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
+    Cardinal *car)
 {
 	avs_set_event(1,avs_get_event(1)+1);
 	exit(0);
 }
-void cpc_proc(w)
-Widget w;
+
+void cpc_proc(Widget w)
 {
 	avs_set_event(2, 1);
 	tet_infoline("TEST: create_popup_child_proc argument");

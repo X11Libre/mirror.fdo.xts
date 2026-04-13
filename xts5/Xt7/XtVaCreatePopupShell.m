@@ -67,9 +67,9 @@ Widget labelw_good;
 Widget pushb_good, rowcolw_good;
 
 /*timeout callback*/
-void XtTI_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	if (menuw->shell.popped_up == False) {
 		tet_infoline("ERROR: Shell is not popped up");
@@ -78,10 +78,10 @@ XtIntervalId *id;
 	exit(0);
 }
 
-void XtCBP_Proc(w, client_data, call_data)
-Widget w;
-XtPointer client_data;
-XtPointer call_data;
+void XtCBP_Proc(
+    Widget w,
+    XtPointer client_data,
+    XtPointer call_data)
 {
 	avs_set_event(1,1);
 	exit(0);

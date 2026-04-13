@@ -65,9 +65,9 @@ Widget labelw, rowcolw, click_quit;
 ShellWidget menuw;
 
 /*timeout callback*/
-void XtTI_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	tet_infoline("TEST: Shell is popped-up");
 	if (menuw->shell.popped_up == False) {
@@ -76,18 +76,20 @@ XtIntervalId *id;
 	}
 	exit(0);
 }
-void XtCBP_Proc(w, client_data, call_data)
-Widget w;
-XtPointer client_data;
-XtPointer call_data;
+
+void XtCBP_Proc(
+    Widget w,
+    XtPointer client_data,
+    XtPointer call_data)
 {
 	avs_set_event(1,1);
 	exit(0);
 }
+
 /*timeout callback*/
-void XtTI_Proc2(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI_Proc2(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }

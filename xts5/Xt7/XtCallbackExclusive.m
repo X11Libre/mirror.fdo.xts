@@ -64,16 +64,15 @@ Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 ShellWidget menuw;
 
-void cpcp(w)
-Widget w;
+void cpcp(Widget w)
 {
 	avs_set_event(2,1);
 }
-	
+
 /*timeout callback*/
-void XtTI_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	tet_infoline("TEST: Shell is popped-up");
 	if (menuw->shell.popped_up == False) {
@@ -93,10 +92,11 @@ XtIntervalId *id;
 	}
 	exit(0);
 }
-void XtCB1_Proc(w, client_data, call_data)
-Widget w;
-XtPointer client_data;
-XtPointer call_data;
+
+void XtCB1_Proc(
+    Widget w,
+    XtPointer client_data,
+    XtPointer call_data)
 {
 	tet_infoline("TEST: Call_data points to XtGrabExclusive");
 	if (*(int *)call_data != XtGrabExclusive) {

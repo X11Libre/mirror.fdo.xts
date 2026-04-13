@@ -80,17 +80,17 @@ int status = 0;
 extern const char *event_names[];
 
 /*timeout callback*/
-void XtTI2a(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI2a(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
 
 /*timeout callback*/
-void XtTI2b(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI2b(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	tet_infoline("PREP: Send KeyPress event to popups' parent");
 	send_event(labelw_good, KeyPress, KeyPressMask, TRUE);
@@ -105,9 +105,9 @@ XtIntervalId *id;
 
 
 /*timeout callback*/
-void XtTI2c(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI2c(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	tet_infoline("TEST: Popups' parent did not receive KeyPress");
 	status = avs_get_event(2);
@@ -137,9 +137,9 @@ XtIntervalId *id;
 }
 
 /*timeout callback*/
-void XtTI2d(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI2d(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	tet_infoline("PREP: Send KeyPress event to popups' parent");
 	send_event(labelw_good, KeyPress, KeyPressMask, TRUE);
@@ -153,44 +153,47 @@ XtIntervalId *id;
 }
 
 /*popups' parent's event handler*/
-void XTEV2a(w, client_data, event, contin)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *contin;
+void XTEV2a(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *contin)
 {
 	if (event->type == KeyPress) {
 		avs_set_event(2, avs_get_event(2)+1);
 	}
 }
+
 /*popup1's event handler*/
-void XtEV2b(w, client_data, event, contin)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *contin;
+void XtEV2b(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *contin)
 {
 	if (event->type == KeyPress) {
 		avs_set_event(3, avs_get_event(3)+1);
 	}
 }
+
 /*popup2's event handler*/
-void XtEV2c(w, client_data, event, contin)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *contin;
+void XtEV2c(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *contin)
 {
 	if (event->type == KeyPress) {
 		avs_set_event(4, avs_get_event(4)+1);
 	}
 }
+
 /*popup3's event handler*/
-void XtEV2d(w, client_data, event, contin)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *contin;
+void XtEV2d(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *contin)
 {
 	if (event->type == KeyPress) {
 		avs_set_event(1, avs_get_event(1)+1);
@@ -198,9 +201,9 @@ Boolean *contin;
 }
 
 /*timeout callback*/
-void XtTI1_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI1_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	tet_infoline("TEST: Shell popped-up field is False");
 	if (menuw->shell.popped_up == True) {
@@ -209,10 +212,11 @@ XtIntervalId *id;
 	}
 	exit(0);
 }
-void XtCB1_Proc(w, client_data, call_data)
-Widget w;
-XtPointer client_data;
-XtPointer call_data;
+
+void XtCB1_Proc(
+    Widget w,
+    XtPointer client_data,
+    XtPointer call_data)
 {
 	tet_infoline("TEST: Call_data points to grab_kind value");
 	if (*(int *)call_data != XtGrabExclusive) {
@@ -222,34 +226,46 @@ XtPointer call_data;
 	}
 	avs_set_event(1,avs_get_event(1)+1);
 }
+
 /*
 ** Installed Warning handler
 */
-void XtEVT3_handler(str1, str2, str3, str4, str5, car)
-String str1, str2, str3, str4, *str5;
-Cardinal *car;
+void XtEVT3_handler(
+    String str1,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
+    Cardinal *car)
 {
 	avs_set_event(1,avs_get_event(1)+1);
 	exit(0);
 }
-void XtEVT4_handler(str1, str2, str3, str4, str5, car)
-String str1, str2, str3, str4, *str5;
-Cardinal *car;
+
+void XtEVT4_handler(
+    String str1,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
+    Cardinal *car)
 {
 	avs_set_event(2,avs_get_event(2)+1);
 	exit(0);
 }
+
 /*timeout callback*/
-void XtTI4_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI4_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
-void XtCB4_Proc(w, client_data, call_data)
-Widget w;
-XtPointer client_data;
-XtPointer call_data;
+
+void XtCB4_Proc(
+    Widget w,
+    XtPointer client_data,
+    XtPointer call_data)
 {
 	avs_set_event(1,avs_get_event(1)+1);
 }

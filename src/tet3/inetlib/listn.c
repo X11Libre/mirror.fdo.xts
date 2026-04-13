@@ -53,12 +53,10 @@ MODIFICATIONS:
 **	tet_ts_listen() - arrange to listen on the incoming message socket
 */
 
-void tet_ts_listen(sd)
-SOCKET sd;
+void tet_ts_listen(SOCKET sd)
 {
 	TRACE2(tet_Tio, 4, "listen on sd %s", tet_i2a(sd));
 
 	if (listen(sd, 10) == SOCKET_ERROR)
 		fatal(SOCKET_ERRNO, "listen() failed on sd", tet_i2a(sd));
 }
-

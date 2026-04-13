@@ -74,8 +74,7 @@ static struct hcache hcache[NHCACHE];	/* the cache itself */
 **	return (struct in_addr *) 0 if the address cannot be found
 */
 
-TET_IMPORT struct in_addr *tet_gethostaddr(host)
-char *host;
+TET_IMPORT struct in_addr *tet_gethostaddr(char *host)
 {
 	struct hcache *cp1, *cp2;
 	struct hostent *hp;
@@ -117,4 +116,3 @@ char *host;
 
 	return(&cp2->hc_addr);
 }
-

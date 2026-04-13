@@ -62,8 +62,7 @@ MODIFICATIONS:
 **	is not connected to the specified server
 */
 
-void tet_ts_disconnect(pp)
-struct ptab *pp;
+void tet_ts_disconnect(struct ptab *pp)
 {
         struct tptab *tp = (struct tptab *) pp->pt_tdata;
 

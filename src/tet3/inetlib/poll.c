@@ -99,9 +99,7 @@ MODIFICATIONS:
 **		-1 on error
 */
 
-int tet_ts_poll(pp, timeout)
-struct ptab *pp;
-int timeout;
+int tet_ts_poll(struct ptab *pp, int timeout)
 {
 	struct ptab *q;
 	struct tptab *tp;
@@ -223,4 +221,3 @@ int timeout;
 
 	return(1);
 }
-

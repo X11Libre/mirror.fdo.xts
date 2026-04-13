@@ -93,8 +93,7 @@ static int md2bs PROTOLIST((struct ptab *));
 **	return an ER_ code to show the state of the local receive processing
 */
 
-int tet_ts_rcvmsg(pp)
-struct ptab *pp;
+int tet_ts_rcvmsg(struct ptab *pp)
 {
 	struct tptab *tp = (struct tptab *) pp->pt_tdata;
 	int rc;
@@ -166,8 +165,7 @@ struct ptab *pp;
 **		-1 on error
 */
 
-static int doread(pp)
-struct ptab *pp;
+static int doread(struct ptab *pp)
 {
 	struct tptab *tp = (struct tptab *) pp->pt_tdata;
 	int cnt, rc = -1;
@@ -236,8 +234,7 @@ struct ptab *pp;
 **	return an ER_ code to show the state of the local send processing
 */
 
-int tet_ts_sndmsg(pp)
-struct ptab *pp;
+int tet_ts_sndmsg(struct ptab *pp)
 {
 	struct tptab *tp = (struct tptab *) pp->pt_tdata;
 	int rc, err;
@@ -375,9 +372,7 @@ struct ptab *pp;
 **	return ER_OK if successful, or -ve error code on error
 */
 
-static int bs2md(bp, pp)
-char *bp;
-struct ptab *pp;
+static int bs2md(char *bp, struct ptab *pp)
 {
 	int rc;
 
@@ -410,8 +405,7 @@ struct ptab *pp;
 **	on error
 */
 
-static int md2bs(pp)
-struct ptab *pp;
+static int md2bs(struct ptab *pp)
 {
 	struct tptab *tp = (struct tptab *) pp->pt_tdata;
 	int len = 0;
@@ -445,8 +439,7 @@ struct ptab *pp;
 **		dead connected process
 */
 
-void tet_ts_dead(pp)
-struct ptab *pp;
+void tet_ts_dead(struct ptab *pp)
 {
 	struct tptab *tp = (struct tptab *) pp->pt_tdata;
 
@@ -480,4 +473,3 @@ void tet_ts_cleanup()
 	/* nothing */
 
 }
-

@@ -58,8 +58,7 @@ MODIFICATIONS:
 **		and allocate a ptab entry for it
 */
 
-void tet_ts_accept(lsd)
-SOCKET lsd;
+void tet_ts_accept(SOCKET lsd)
 {
 	struct sockaddr_in sin;
 	struct ptab *pp;
@@ -106,4 +105,3 @@ SOCKET lsd;
 
 	pp->pt_flags |= PF_CONNECTED;
 }
-

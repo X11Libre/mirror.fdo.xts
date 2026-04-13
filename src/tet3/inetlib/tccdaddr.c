@@ -74,8 +74,7 @@ MODIFICATIONS:
 **	return 0 if successful or -1 on error
 */
 
-TET_IMPORT int tet_gettccdaddr(pp)
-struct ptab *pp;
+TET_IMPORT int tet_gettccdaddr(struct ptab *pp)
 {
 	struct in_addr addr, *ap;
 	struct sysent *sp;
@@ -116,4 +115,3 @@ struct ptab *pp;
 
 	return(0);
 }
-

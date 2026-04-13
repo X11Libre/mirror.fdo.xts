@@ -65,9 +65,7 @@ static void stinit()
 	TSINFO_INIT(st, sp, n, nst);
 }
 
-TET_IMPORT int tet_tsinfo2bs(from, to)
-struct tsinfo *from;
-char *to;
+TET_IMPORT int tet_tsinfo2bs(struct tsinfo *from, char *to)
 {
 	if (nst < 0)
 		stinit();
@@ -79,11 +77,7 @@ char *to;
 **	tet_bs2tsinfo() - convert a tsinfo message to internal format
 */
 
-int tet_bs2tsinfo(from, fromlen, to, tolen)
-char *from;
-int fromlen;
-struct tsinfo **to;
-int *tolen;
+int tet_bs2tsinfo(char *from, int fromlen, struct tsinfo **to, int *tolen)
 {
 	if (nst < 0)
 		stinit();
@@ -96,4 +90,3 @@ int *tolen;
 
 	return(sizeof **to);
 }
-

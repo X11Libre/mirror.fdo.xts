@@ -64,11 +64,11 @@ Widget labelw, rowcolw, click_quit;
 
 extern const char *event_names[];
 
-void XtACT_Proc(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+void XtACT_Proc(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	avs_set_event(1,1);
 	tet_infoline("TEST: Accelerator is invoked in source widget rowcolw");

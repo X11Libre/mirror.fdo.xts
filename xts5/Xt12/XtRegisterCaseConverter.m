@@ -62,20 +62,21 @@ XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
-void XtCPP_Proc(dpy, sym, lower, upper)
-Display *dpy;
-KeySym sym;
-KeySym *lower;
-KeySym *upper;
+void XtCPP_Proc(
+    Display *dpy,
+    KeySym sym,
+    KeySym *lower,
+    KeySym *upper)
 {
 	avs_set_event(1,1);
 	exit(0);
 }
-void XtCPP_Proc2(dpy, sym, lower, upper)
-Display *dpy;
-KeySym sym;
-KeySym *lower;
-KeySym *upper;
+
+void XtCPP_Proc2(
+    Display *dpy,
+    KeySym sym,
+    KeySym *lower,
+    KeySym *upper)
 {
 	avs_set_event(2,1);
 	exit(0);

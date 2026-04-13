@@ -62,11 +62,11 @@ XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
-void AvsWidAction(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+void AvsWidAction(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	avs_set_event(2,1);
 }
@@ -74,14 +74,13 @@ Cardinal *num_params;
 XtActionsRec actions[] = {
 	{AVS_WID_ACTION, AvsWidAction},
 };
-void XtAHP_Proc(widget, client_data,
-	action_name, event, params, num_params)
-Widget widget;
-XtPointer client_data;
-String action_name;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+void XtAHP_Proc(
+    Widget widget,
+    XtPointer client_data,
+    String action_name,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	avs_set_event(1, 1); 
 }

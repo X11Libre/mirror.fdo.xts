@@ -64,11 +64,11 @@ Widget labelw, rowcolw, click_quit;
 
 extern const char *event_names[];
 
-void AvsWidAction(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+void AvsWidAction(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	avs_set_event(1,1);
 }
@@ -76,9 +76,13 @@ Cardinal *num_params;
 XtActionsRec actions[] = {
 	{AVS_WID_ACTION, AvsWidAction},
 };
-void XtWMH_Proc(str1, str2, str3, str4, str5, car)
-String str1, str2, str3, str4, *str5;
-Cardinal *car;
+void XtWMH_Proc(
+    String str1,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
+    Cardinal *car)
 {
 	avs_set_event(1,1);
 }

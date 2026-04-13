@@ -65,13 +65,12 @@ XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
-
-void Proc(dpy, keycode, modifiers, modifiers_return, keysym_return)
-Display *dpy;
-KeyCode keycode;
-Modifiers modifiers;
-Modifiers *modifiers_return;
-KeySym *keysym_return;
+void Proc(
+    Display *dpy,
+    KeyCode keycode,
+    Modifiers modifiers,
+    Modifiers *modifiers_return,
+    KeySym *keysym_return)
 {
 	KeySym keysym;
 	avs_set_event(1,1);

@@ -62,11 +62,11 @@ XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
-void XtACT_Proc(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+void XtACT_Proc(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	sprintf(ebuf, "ERROR: Translation <BtnDown> deleted, XtACT_Proc shall not be invoked");
 	tet_infoline(ebuf);
@@ -74,12 +74,9 @@ Cardinal *num_params;
 	exit(0);
 }
 
-
-
-/* procedure XtTMO_Proc to be invoked */
-void XtTMO_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTMO_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }

@@ -67,11 +67,11 @@ extern const char *event_names[];
 char client_stuff[] = "These are the times that try men's souls";
 int flag;
 /*an action procedure*/
-void AvsWidAction1(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+void AvsWidAction1(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	if (avs_get_event(1) == 0) {
 		sprintf(ebuf, "ERROR: Action hook procedure was not called before action procedure");
@@ -86,13 +86,13 @@ XtActionsRec actions1[] = {
 	{AVS_WID_ACTION1, AvsWidAction1},
 };
 /*an action hook procedure*/
-void XtAHP1_Proc(widget, client_data, action_name, event, params, num_params)
-Widget widget;
-XtPointer client_data;
-String action_name;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+void XtAHP1_Proc(
+    Widget widget,
+    XtPointer client_data,
+    String action_name,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 		avs_set_event(1, 1); 
 		flag = 1;
@@ -129,11 +129,11 @@ Cardinal *num_params;
 }
 
 /*an action procedure*/
-void AvsWidAction2(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+void AvsWidAction2(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	if (avs_get_event(1) == 0) {
 		sprintf(ebuf, "ERROR: Action hook procedure was not called before action procedure");
@@ -148,13 +148,13 @@ XtActionsRec actions2[] = {
 	{AVS_WID_ACTION2, AvsWidAction2},
 };
 /*an action hook procedure*/
-void XtAHP2_Proc(widget, client_data, action_name, event, params, num_params)
-Widget widget;
-XtPointer client_data;
-String action_name;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+void XtAHP2_Proc(
+    Widget widget,
+    XtPointer client_data,
+    String action_name,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	avs_set_event(1, 1); 
 	flag = 1;
@@ -190,11 +190,11 @@ Cardinal *num_params;
 	}
 }
 /*an action procedure*/
-void AvsWidAction3(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+void AvsWidAction3(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	if (flag != 2) {
 		sprintf(ebuf, "ERROR: Action hook procedures not called before action procedure");
@@ -209,13 +209,13 @@ XtActionsRec actions3[] = {
 	{AVS_WID_ACTION3, AvsWidAction3},
 };
 /*another action hook procedure*/
-void XtAHP3a_Proc(widget, client_data, action_name, event, params, num_params)
-Widget widget;
-XtPointer client_data;
-String action_name;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+void XtAHP3a_Proc(
+    Widget widget,
+    XtPointer client_data,
+    String action_name,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 		flag++;
 		avs_set_event(3, flag); 
@@ -239,13 +239,13 @@ Cardinal *num_params;
 	}
 }
 /*an action hook procedure*/
-void XtAHP3_Proc(widget, client_data, action_name, event, params, num_params)
-Widget widget;
-XtPointer client_data;
-String action_name;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+void XtAHP3_Proc(
+    Widget widget,
+    XtPointer client_data,
+    String action_name,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	flag++;
 	avs_set_event(2, flag); 
@@ -269,11 +269,11 @@ Cardinal *num_params;
 	}
 }
 /*an action procedure*/
-void AvsWidAction4(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+void AvsWidAction4(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	if (flag != 2) {
 		sprintf(ebuf, "ERROR: Action hook procedures not called before action procedure");
@@ -288,13 +288,13 @@ XtActionsRec actions4[] = {
 	{AVS_WID_ACTION4, AvsWidAction4},
 };
 /*an action hook procedure*/
-void XtAHP4_Proc(widget, client_data, action_name, event, params, num_params)
-Widget widget;
-XtPointer client_data;
-String action_name;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+void XtAHP4_Proc(
+    Widget widget,
+    XtPointer client_data,
+    String action_name,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 		flag++;
 		avs_set_event(flag+1, 1); 
@@ -326,11 +326,11 @@ Cardinal *num_params;
 	}
 }
 /*an action procedure*/
-void AvsWidAction5(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+void AvsWidAction5(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	if (flag != 2) {
 		sprintf(ebuf, "ERROR: Action hook procedures not called before action procedure");
@@ -345,13 +345,13 @@ XtActionsRec actions5[] = {
 	{AVS_WID_ACTION5, AvsWidAction5},
 };
 /*an action hook procedure*/
-void XtAHP5_Proc(widget, client_data, action_name, event, params, num_params)
-Widget widget;
-XtPointer client_data;
-String action_name;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+void XtAHP5_Proc(
+    Widget widget,
+    XtPointer client_data,
+    String action_name,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	flag++;
 	avs_set_event(flag+1, 1); 

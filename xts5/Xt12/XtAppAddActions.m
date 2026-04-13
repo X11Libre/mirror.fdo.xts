@@ -63,11 +63,12 @@ Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
 extern const char *event_names[];
-void AvsWidAction(widget, event, params, num_params)
-Widget widget;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+
+void AvsWidAction(
+    Widget widget,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	avs_set_event(1,1);
 	tet_infoline("TEST: Widget passed correctly to action procedure");
@@ -89,11 +90,11 @@ XtActionsRec actions[] = {
 	{AVS_WID_ACTION, AvsWidAction},
 };
 /*action procedure*/
-void AvsWidAction2(widget, event, params, num_params)
-Widget widget;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+void AvsWidAction2(
+    Widget widget,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	tet_infoline("ERROR: Least recent action procedure was called");
 	tet_result(TET_FAIL);

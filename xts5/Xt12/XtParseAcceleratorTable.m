@@ -64,14 +64,11 @@ Widget labelw, rowcolw, click_quit;
 
 extern const char *event_names[];
 
-/*
-** Procedure XtACT_Proc
-*/
-void XtACT_Proc(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+void XtACT_Proc(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	if ( event->type == ButtonPress )
 		avs_set_event(1,1);

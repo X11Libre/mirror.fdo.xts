@@ -76,35 +76,29 @@ int status;
 Widget labelw_msg;
 
 #ifdef XTESTEXTENSION
-static void XtACP_Proc(widget, event, params, num_params)
-Widget widget;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+static void XtACP_Proc(
+    Widget widget,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	avs_set_event(2,1);
 }
 
-/*
-** procedure XtTMO_Proc
-*/
-void XtTMO_Proc2(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTMO_Proc2(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
-XEvent event;
+	XEvent event;
 
 	tet_infoline("ERROR: Timed out waiting for user input");
 	tet_result(TET_UNRESOLVED);
 	exit(0);
 }
 
-/*
-** procedure XtTMO_Proc
-*/
-void XtTMO_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTMO_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	Position rootx, rooty;
 	XtAppAddTimeOut(app_ctext, (unsigned long)2000, XtTMO_Proc2, topLevel);
@@ -116,8 +110,7 @@ XtIntervalId *id;
 	XTestFakeKeyEvent(XtDisplay(labelw_msg), XKeysymToKeycode(XtDisplay(labelw_msg), 32), False, CurrentTime);
 }
 
-static void analyse_events(TestWidget)
-Widget TestWidget;
+static void analyse_events(Widget TestWidget)
 {
 	XtAppContext app_context;
 	Display *display;

@@ -64,11 +64,11 @@ Widget labelw, rowcolw, click_quit;
 
 extern const char *event_names[];
 
-XtActionProc XtACT1_Proc(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+XtActionProc XtACT1_Proc(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	if ( event->type == ButtonPress )
 		avs_set_event(1,1);
@@ -79,14 +79,12 @@ Cardinal *num_params;
 	}
 	exit(0);
 }
-/*
-** Procedure XtACT2_Proc
-*/
-XtActionProc XtACT2_Proc(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+
+XtActionProc XtACT2_Proc(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	if ( event->type == ButtonPress )
 	avs_set_event(1,1);
@@ -97,14 +95,12 @@ Cardinal *num_params;
 	}
 	exit(0);
 }
-/*
-** Procedure XtACT3_Proc
-*/
-XtActionProc XtACT3_Proc(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+
+XtActionProc XtACT3_Proc(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	if ( event->type == ButtonPress )
 	avs_set_event(1,1);
@@ -115,11 +111,12 @@ Cardinal *num_params;
 	}
 	exit(0);
 }
-XtActionProc XtACT4_Proc(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+
+XtActionProc XtACT4_Proc(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	if ( event->type == ButtonPress )
 	avs_set_event(1,1);

@@ -63,11 +63,36 @@ Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
 extern const char *event_names[];
-XtActionProc XtACT1_Proc(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+XtActionProc XtACT1_Proc(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
+{
+	if ( event->type == ButtonPress ) {
+	avs_set_event(1,1);
+	exit(0);
+	}
+	else {
+	sprintf(ebuf, "ERROR: Expected ButtonPress event Received %s", event_names[event->type]);
+		tet_infoline(ebuf);
+		tet_result(TET_FAIL);
+	}
+}
+
+/*timeout callback*/
+void XtTI1_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
+{
+	exit(0);
+}
+
+XtActionProc XtACT2_Proc(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	if ( event->type == ButtonPress ) {
 	avs_set_event(1,1);
@@ -80,20 +105,18 @@ Cardinal *num_params;
 	}
 }
 /*timeout callback*/
-void XtTI1_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI2_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
-/*
-** Procedure XtACT2_Proc
-*/
-XtActionProc XtACT2_Proc(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+
+XtActionProc XtACT3_Proc(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	if ( event->type == ButtonPress ) {
 	avs_set_event(1,1);
@@ -106,64 +129,34 @@ Cardinal *num_params;
 	}
 }
 /*timeout callback*/
-void XtTI2_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI3_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
-/*
-** Procedure XtACT3_Proc
-*/
-XtActionProc XtACT3_Proc(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
-{
-	if ( event->type == ButtonPress ) {
-	avs_set_event(1,1);
-	exit(0);
-	}
-	else {
-	sprintf(ebuf, "ERROR: Expected ButtonPress event Received %s", event_names[event->type]);
-		tet_infoline(ebuf);
-		tet_result(TET_FAIL);
-	}
-}
-/*timeout callback*/
-void XtTI3_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
-{
-	exit(0);
-}
-/*
-** Procedure XtACT4_Proc
-*/
-XtActionProc XtACT4_Proc(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+
+XtActionProc XtACT4_Proc(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	avs_set_event(1,1);
 }
-/*
-** Procedure XtACT4a_Proc
-*/
-XtActionProc XtACT4a_Proc(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+
+XtActionProc XtACT4a_Proc(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	avs_set_event(2,1);
 }
 /*timeout callback*/
-void XtTI4_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI4_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }

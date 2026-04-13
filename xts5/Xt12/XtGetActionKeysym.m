@@ -66,11 +66,11 @@ Widget labelw, rowcolw, click_quit;
 /* keysym sent */
 KeySym keysym;
 
-void AvsWidAction1(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+void AvsWidAction1(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	KeySym k;
 	/* Indicate that action procedure was called */
@@ -90,11 +90,11 @@ Cardinal *num_params;
 XtActionsRec actions1[] = {
 	{AVS_WID_ACTION1, AvsWidAction1},
 };
-void AvsWidAction2(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+void AvsWidAction2(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	KeySym k;
 	/* Indicate that action procedure was called */
@@ -111,11 +111,11 @@ Cardinal *num_params;
 XtActionsRec actions2[] = {
 	{AVS_WID_ACTION2, AvsWidAction2},
 };
-void AvsWidAction3(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+void AvsWidAction3(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	Modifiers modret;
 	KeySym k;
@@ -152,11 +152,11 @@ KeySym keysymB;
 
 XEvent eventA, eventB;
 
-void AvsWidAction5(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+void AvsWidAction5(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	KeySym k;
 	/* Indicate that action procedure was called */
@@ -175,11 +175,11 @@ XtActionsRec actions5[] = {
 	{AVS_WID_ACTION5, AvsWidAction5},
 };
 
-void AvsWidAction6(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+void AvsWidAction6(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	KeySym k;
 	/* Indicate that action procedure was called */
@@ -197,11 +197,12 @@ Cardinal *num_params;
 XtActionsRec actions6[] = {
 	{AVS_WID_ACTION6, AvsWidAction6},
 };
-void AvsWidAction7(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+
+void AvsWidAction7(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	KeySym k;
 	/* Indicate that action procedure was called */

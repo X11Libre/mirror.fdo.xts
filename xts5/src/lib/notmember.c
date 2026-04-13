@@ -134,9 +134,7 @@ static unsigned long biggest[] = {
  * maximum value of the parameter.
  */
 static unsigned long
-guess_largest(un, is_bit_set)
-	unsigned long un;
-	Bool is_bit_set;
+guess_largest(unsigned long un, Bool is_bit_set)
 {
 	int i;
 
@@ -177,10 +175,7 @@ guess_largest(un, is_bit_set)
  * when the encoding is CARD*, so should be OK.
  */
 int
-notmember(list, len, ret)
-int 	*list;
-int 	len;
-long	*ret;
+notmember(int *list, int len, long *ret)
 {
 long	*rp;
 long 	min, max;
@@ -228,10 +223,7 @@ int 	i;
  * array.
  */
 int
-notmaskmember(list, len, ret)
-unsigned long	*list;
-int 	len;
-unsigned long	*ret;
+notmaskmember(unsigned long *list, int len, unsigned long *ret)
 {
 unsigned long	bit;
 unsigned long	large;

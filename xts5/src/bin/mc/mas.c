@@ -124,10 +124,7 @@ static	FILE	*FpBanner;
 static	FILE	*FpHeader;
 static	FILE	*FpText;
 
-void
-mascopyright(fp, buf)
-FILE	*fp;
-char	*buf;
+void mascopyright(FILE *fp, char *buf)
 {
 static	int 	firsttime = 1;
 
@@ -146,19 +143,13 @@ static	int 	firsttime = 1;
 	firsttime = 0;
 }
 
-void
-masheader(fp, buf)
-FILE	*fp;
-char	*buf;
+void masheader(FILE *fp, char *buf)
 {
 	fprintf(FpText, ">>TITLE %s %s\n", State.name, State.chap);
 	skip(fp, buf);
 }
 
-void
-masassertion(fp, buf)
-FILE	*fp;
-char	*buf;
+void masassertion(FILE *fp, char *buf)
 {
 	fprintf(FpText, ">>ASSERTION ");
 	if (State.category != CAT_NONE)
@@ -169,19 +160,13 @@ char	*buf;
 	fprintf(FpText, "\n");
 }
 
-void
-masstrategy(fp, buf)
-FILE	*fp;
-char	*buf;
+void masstrategy(FILE *fp, char *buf)
 {
 	fprintf(FpText, ">>STRATEGY\n");
 	echon(fp, buf, FpText);
 }
 
-void
-masdefassertion(fp, buf)
-FILE	*fp;
-char	*buf;
+void masdefassertion(FILE *fp, char *buf)
 {
 	fprintf(FpText, ">>ASSERTION def %s-%d\n",
 		State.name, State.assertion);
@@ -189,19 +174,13 @@ char	*buf;
 }
 
 /* Hooks */
-/*ARGSUSED*/
-void
-masstart(buf)
-char	*buf;
+void masstart(char *buf)
 {
 	FpBanner = cretmpfile(F_BANNER, NULL);
 	FpText = cretmpfile(F_TEXT, NULL);
 }
 
-/*ARGSUSED*/
-void
-masend(buf)
-char	*buf;
+void masend(char *buf)
 {
 	fputs(">>#\n", FpBanner);
 	outfile(FpBanner);

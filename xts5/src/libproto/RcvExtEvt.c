@@ -151,10 +151,7 @@ SOFTWARE.
 extern int XInputFirstEvent;
 
 int
-Rcv_Ext_Evt(rp,rbuf,client)
-xEvent *rp;
-char rbuf[];
-int client;
+Rcv_Ext_Evt(xEvent *rp, char rbuf[], int client)
 {
 #ifdef INPUTEXTENSION
 #ifdef Xpi

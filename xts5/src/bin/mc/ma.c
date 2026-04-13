@@ -124,10 +124,7 @@ static	FILE	*FpBanner;
 static	FILE	*FpHeader;
 static	FILE	*FpText;
 
-void
-macopyright(fp, buf)
-FILE	*fp;
-char	*buf;
+void macopyright(FILE *fp, char *buf)
 {
 static	int 	firsttime = 1;
 
@@ -142,19 +139,13 @@ static	int 	firsttime = 1;
 	firsttime = 0;
 }
 
-void
-maheader(fp, buf)
-FILE	*fp;
-char	*buf;
+void maheader(FILE *fp, char *buf)
 {
 	fprintf(FpText, ".TH %s %s\n", State.name, State.chap);
 	skip(fp, buf);
 }
 
-void
-maassertion(fp, buf)
-FILE	*fp;
-char	*buf;
+void maassertion(FILE *fp, char *buf)
 {
 	fprintf(FpText, ".TI ");
 	if (State.category != CAT_NONE)
@@ -168,29 +159,20 @@ char	*buf;
 	}
 }
 
-void
-madefassertion(fp, buf)
-FILE	*fp;
-char	*buf;
+void madefassertion(FILE *fp, char *buf)
 {
 	fprintf(FpText, ".TI def \\\" %s-%d\n", State.name, State.assertion);
 	echon(fp, buf, FpText);
 }
 
 /* Hooks */
-/*ARGSUSED*/
-void
-mastart(buf)
-char	*buf;
+void mastart(char *buf)
 {
 	FpBanner = cretmpfile(F_BANNER, NULL);
 	FpText = cretmpfile(F_TEXT, NULL);
 }
 
-/*ARGSUSED*/
-void
-maend(buf)
-char	*buf;
+void maend(char *buf)
 {
 	fputs("'\\\"\n", FpBanner);
 	outfile(FpBanner);
@@ -206,9 +188,7 @@ char	*buf;
 	outfile(FpText);
 }
 
-void
-macomment(buf)
-char	*buf;
+void macomment(char *buf)
 {
 extern	int 	pflag;
 

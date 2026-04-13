@@ -141,11 +141,11 @@ static void Length_Error(unsigned long bytes_needed, int client, xReply *rp,
                          int type, const char *label, int calc);
 
 int
-Rcv_Rep(rp,rbuf,type,client)
-xReply *rp;   /* pointer to XLIB-format reply structure */
-char rbuf[];  /* receive buffer for reply data */
-int type;     /* */
-int client;   /* */
+Rcv_Rep(
+    xReply *rp,   /* pointer to XLIB-format reply structure */
+    char rbuf[],  /* receive buffer for reply data */
+    int type,     /* */
+    int client)   /* */
 {       /*
 	needswap           
 	rbp                pointer to first byte of receive buffer after header

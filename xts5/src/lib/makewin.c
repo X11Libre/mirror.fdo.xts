@@ -153,9 +153,7 @@ static void incxy(Display *, XVisualInfo *);
  * created.  It has the same size as the window would.
  */
 Window
-makewin(disp, vp)
-Display	*disp;
-XVisualInfo	*vp;
+makewin(Display *disp, XVisualInfo *vp)
 {
 Window	w;
 
@@ -170,11 +168,7 @@ Window	w;
  * same root and depth.  Otherwise just like makewin.
  */
 void
-winpair(disp, vp, w1p, w2p)
-Display *disp;
-XVisualInfo	*vp;
-Window	*w1p;
-Window	*w2p;
+winpair(Display *disp, XVisualInfo *vp, Window *w1p, Window *w2p)
 {
 
 	incxy(disp, vp);
@@ -191,11 +185,7 @@ Window	*w2p;
  * of the given depth is created instead.
  */
 Drawable
-makewinpos(disp, vp, x, y)
-Display	*disp;
-XVisualInfo	*vp;
-int 	x;
-int 	y;
+makewinpos(Display *disp, XVisualInfo *vp, int x, int y)
 {
 Window	w;
 XEvent	event;

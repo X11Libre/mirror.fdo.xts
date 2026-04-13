@@ -152,8 +152,7 @@ static	int		NumFontSet = 0;
 static	char *fontset_strs[MAX_FONTSETS];
 
 /* Start again at the beginning of the list of fontsets */
-void
-resetfontset()
+void resetfontset(void)
 {
 	char *pstr,*npstr;
 	int i,nchars;
@@ -217,8 +216,7 @@ resetfontset()
  * Returns False if there is one, otherwise True.
  */
 int
-nextfontset(fontset)
-	char **fontset;
+nextfontset(char **fontset)
 {
 	/* cycle through the list of Font Sets from the config file. */
 	if(CurFontSet >= NumFontSet)
@@ -233,8 +231,7 @@ nextfontset(fontset)
  * Returns the number of times that fontset will succeed. Only valid
  * after a call to resetfontset().
  */
-int
-nfontset()
+int nfontset(void)
 {
 	return(NumFontSet);
 }

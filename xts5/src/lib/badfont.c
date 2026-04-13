@@ -125,8 +125,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  * is a bad font ID anyway.
  */
 Font
-badfont(disp)
-Display	*disp;
+badfont(Display *disp)
 {
 XFontStruct	*fsp;
 Font	font;

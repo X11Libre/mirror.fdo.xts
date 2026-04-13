@@ -128,9 +128,7 @@ extern	int 	Errnum;	/* Number of error record */
  * on the whole area of the drawable.
  */
 XImage *
-savimage(disp, d)
-Display	*disp;
-Drawable	d;
+savimage(Display *disp, Drawable d)
 {
 unsigned int 	width;
 unsigned int 	height;
@@ -150,11 +148,7 @@ XImage	*imp;
  * This is common code for the routines compsavimage() and diffsavimage().
  */
 static Status
-compsavcommon(disp, d, im, diff)
-Display	*disp;
-Drawable d;
-XImage	*im;
-int 	diff;	/* True if difference expected */
+compsavcommon(Display *disp, Drawable d, XImage *im, int diff)
 {
 XImage	*newim;
 int 	x, y;
@@ -199,19 +193,13 @@ unsigned long	pix1, pix2;
 }
 
 Status
-compsavimage(disp, d, im)
-Display	*disp;
-Drawable d;
-XImage	*im;
+compsavimage(Display *disp, Drawable d, XImage *im)
 {
 	return compsavcommon(disp, d, im, 0);
 }
 
 Status
-diffsavimage(disp, d, im)
-Display	*disp;
-Drawable d;
-XImage	*im;
+diffsavimage(Display *disp, Drawable d, XImage *im)
 {
 	return compsavcommon(disp, d, im, 1);
 }

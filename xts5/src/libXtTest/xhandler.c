@@ -79,8 +79,7 @@ SOFTWARE.
 /*error messages formatted here*/
 extern char ebuf[4096];
 
-int x_handler(disp)
-Display *disp;
+int x_handler(Display *disp)
 {
 
     const char *stars, *errormsg, *server;

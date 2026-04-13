@@ -177,7 +177,7 @@ extern	Font	ErrdefFont;
 void	aborttest();
 
 void
-startup()
+startup(void)
 {
 int 	i;
 char	*disp;
@@ -288,7 +288,7 @@ extern	int 	io_err(Display *d);
  * Cleanup functions called at the end of the test purposes.
  */
 void
-cleanup()
+cleanup(void)
 {
 	if (Dsp) {
 #ifndef GENERATE_PIXMAPS
@@ -303,7 +303,7 @@ cleanup()
  * Version to set fontpath.
  */
 void
-fontstartup()
+fontstartup(void)
 {
 	startup();
 	if (Dsp == (Display *)0) 
@@ -313,7 +313,7 @@ fontstartup()
 }
 
 void
-setxtfontpath()
+setxtfontpath(void)
 {
 char	*fpathlist;
 char	*fpathtmp;
@@ -366,7 +366,7 @@ int 	i;
  * Version to reset fontpath.
  */
 void
-fontcleanup()
+fontcleanup(void)
 {
 	if (Dsp) {
 		XSetFontPath(Dsp, odir_array, odirs);
@@ -381,7 +381,7 @@ fontcleanup()
  * Version to set input focus.
  */
 void
-focusstartup()
+focusstartup(void)
 {
 	startup();
 	if (Dsp == (Display *)0) 
@@ -404,7 +404,7 @@ focusstartup()
  * Version to reset input focus.
  */
 void
-focuscleanup()
+focuscleanup(void)
 {
 	if (Dsp)
 		XSetInputFocus(Dsp, ofocus, revert_to, CurrentTime);
@@ -417,7 +417,7 @@ focuscleanup()
  * Version to set input focus and fontpath.
  */
 void
-fontfocusstartup()
+fontfocusstartup(void)
 {
 	fontstartup();
 	if (Dsp == (Display *)0) 
@@ -440,7 +440,7 @@ fontfocusstartup()
  * Version to reset input focus and fontpath.
  */
 void
-fontfocuscleanup()
+fontfocuscleanup(void)
 {
 	if (Dsp)
 		XSetInputFocus(Dsp, ofocus, revert_to, CurrentTime);
@@ -453,7 +453,7 @@ fontfocuscleanup()
  * Version to initialise the resource manager.
  */
 void
-rmstartup()
+rmstartup(void)
 {
 	startup();
 	XrmInitialize();
@@ -465,7 +465,7 @@ rmstartup()
  * case and the tcc.
  */
 void
-aborttest()
+aborttest(void)
 {
 	tccabort("Could not open display %s",
 		(config.display)? config.display: "<not set>");
@@ -477,15 +477,14 @@ aborttest()
  * likely cause a reset, when its last connection is closed).
  */
 void
-reset_delay()
+reset_delay(void)
 {
 	sleep(config.reset_delay);
 }
 
 #ifdef INPUTEXTENSION
 Bool
-init_xinput(dpy)
-Display *dpy;
+init_xinput(Display *dpy)
 {
 struct valname *vp;
 

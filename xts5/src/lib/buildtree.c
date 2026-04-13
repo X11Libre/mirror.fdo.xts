@@ -315,9 +315,7 @@ int 	n = list[0].num;
  * ID.
  */
 struct	buildtree *
-btwtobtp(list, w)
-struct	buildtree	*list;
-Window	w;
+btwtobtp(struct buildtree *list, Window w)
 {
 int 	n = list[0].num;
 
@@ -345,9 +343,7 @@ struct	buildtree	*btp;
  * Return the window name corresponding to the given id.
  */
 char *
-btwton(list, w)
-struct	buildtree	*list;
-Window	w;
+btwton(struct buildtree *list, Window w)
 {
 struct	buildtree	*btp;
 

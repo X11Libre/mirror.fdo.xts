@@ -170,8 +170,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  * in a similar, but almost completely different, way to strtol.
  */
 int
-atov( str )
-char *str;
+atov( char *str )
 {
 	int base = 10;
 	int value= 0;

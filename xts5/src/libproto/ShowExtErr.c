@@ -135,8 +135,7 @@ SOFTWARE.
 extern int XInputFirstError;
 
 void
-Show_Ext_Err(mp)
-xError *mp;
+Show_Ext_Err(xError *mp)
 {
 int err;
 

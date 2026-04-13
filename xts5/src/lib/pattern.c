@@ -123,9 +123,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  * at (0,0) then at (5,0) (10,0) etc.
  */
 void
-pattern(disp, d)
-Display	*disp;
-Drawable	d;
+pattern(Display *disp, Drawable d)
 {
 unsigned int 	width;
 unsigned int 	height;
@@ -150,10 +148,7 @@ GC  	gc;
  * with the origin the origin of the area.
  */
 Status
-checkpattern(disp, d, ap)
-Display	*disp;
-Drawable	d;
-struct	area	*ap;
+checkpattern(Display *disp, Drawable d, struct area *ap)
 {
 XImage	*imp;
 int 	x, y;

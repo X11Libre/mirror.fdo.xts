@@ -282,13 +282,7 @@ static	int	_winh(Display *, Winh *, int, long);
  * winh_adopt -	add to window hierarchy
  */
 Winh *
-winh_adopt(display, parent, valuemask, attributes, winhg, winhmask)
-Display	*display;
-Winh	*parent;
-unsigned long valuemask;
-XSetWindowAttributes *attributes;
-Winhg	*winhg;
-long	winhmask;
+winh_adopt(Display *display, Winh *parent, unsigned long valuemask, XSetWindowAttributes *attributes, Winhg *winhg, long winhmask)
 {
 	Winh	*child;
 
@@ -369,10 +363,7 @@ long	winhmask;
  * winh_create -	create windows in hierarchy
  */
 int
-winh_create(display, winh, winhmask)
-Display	*display;
-Winh	*winh;
-long	winhmask;
+winh_create(Display *display, Winh *winh, long winhmask)
 {
 	_display_ = display;	/* save in global... */
 	_winhmask_ = winhmask;
@@ -380,8 +371,7 @@ long	winhmask;
 }
 
 static int
-_winh_create(winh)
-Winh	*winh;
+_winh_create(Winh *winh)
 {
 	struct area	*ap;
 	int	border_width;
@@ -411,9 +401,7 @@ Winh	*winh;
  * winh_find -	locate node for window in hierarchy
  */
 Winh *
-winh_find(winh, window)
-Winh	*winh;
-Window	window;
+winh_find(Winh *winh, Window window)
 {
 	_window_ = window;
 	if (!winh_walk(winh, 0, _winh_find))
@@ -422,8 +410,7 @@ Window	window;
 }
 
 static	int
-_winh_find(winh)
-Winh	*winh;
+_winh_find(Winh *winh)
 {
 	if (winh->window == _window_) {
 		_foundit_ = winh;
@@ -439,11 +426,7 @@ Winh	*winh;
  *	o initialize the high, low, and sequence counts for each event type
  */
 int
-winh_plant(source, event, event_mask, winhmask)
-Winh	*source;
-XEvent	*event;
-long	event_mask;
-long	winhmask;
+winh_plant(Winh *source, XEvent *event, long event_mask, long winhmask)
 {
 	Winh	*winh;
 
@@ -486,8 +469,7 @@ long	winhmask;
 }
 
 static	int
-_winh_plant(winh)
-Winh	*winh;
+_winh_plant(Winh *winh)
 {
 	long	emask;
 	Winhc	*winhc;
@@ -509,9 +491,7 @@ Winh	*winh;
  *		returns pointer to beginning of list
  */
 static	Winhe *
-addto(winhe, event)
-Winhe	*winhe;
-XEvent	*event;
+addto(Winhe *winhe, XEvent *event)
 {
 	Winhe	*head = winhe;
 	Winhe	*last;
@@ -548,8 +528,7 @@ XEvent	*event;
  * winh_pending -	return number of events in heirarchy event queue
  */
 int
-winh_pending(expected)
-int	expected;
+winh_pending(int expected)
 {
 	return(expected ? expected_events : sequence);
 }
@@ -566,9 +545,7 @@ int	expected;
  *	o maintain event count statistics
  */
 int
-winh_harvest(display, winh)
-Display	*display;
-Winh	*winh;
+winh_harvest(Display *display, Winh *winh)
 {
 	int	i;
 	int	status = 0;
@@ -626,10 +603,7 @@ Winh	*winh;
  * winh_weed -	check heirarchy for undesirable or missing events
  */
 int
-winh_weed(winh, event_type, winhmask)
-Winh	*winh;
-int	event_type;
-long	winhmask;
+winh_weed(Winh *winh, int event_type, long winhmask)
 {
 	_winhmask_ = winhmask;
 	_event_type_ = event_type;
@@ -637,8 +611,7 @@ long	winhmask;
 }
 
 static	int
-_winh_weed(winh)
-Winh	*winh;
+_winh_weed(Winh *winh)
 {
 	int	status = 0;
 
@@ -691,10 +664,7 @@ Winh	*winh;
  * winh_ignore_event -	ignore an event type while weeding
  */
 int
-winh_ignore_event(winh, event_type, winhmask)
-Winh	*winh;
-int	event_type;
-long	winhmask;
+winh_ignore_event(Winh *winh, int event_type, long winhmask)
 {
 	_event_type_ = event_type;
 	_winhmask_ = winhmask;
@@ -702,8 +672,7 @@ long	winhmask;
 }
 
 static	int
-_winh_ignore_event(winh)
-Winh	*winh;
+_winh_ignore_event(Winh *winh)
 {
 	Winhe	*d = winh->delivered;
 
@@ -719,10 +688,7 @@ Winh	*winh;
  * winh_selectinput -	update hierarchy to reflect event selection
  */
 int
-winh_selectinput(display, winh, event_mask)
-Display	*display;
-Winh	*winh;
-long	event_mask;
+winh_selectinput(Display *display, Winh *winh, long event_mask)
 {
 	_display_ = display;
 	_event_mask_ = event_mask;
@@ -732,8 +698,7 @@ long	event_mask;
 }
 
 static	int
-_winh_selectinput(winh)
-Winh	*winh;
+_winh_selectinput(Winh *winh)
 {
 	Winhc	*cl, *last;
 
@@ -788,11 +753,7 @@ Winh	*winh;
  * winh_changewindowattributes -	update hierarchy to reflect event selection
  */
 int
-winh_changewindowattributes(display, winh, valuemask, attributes)
-Display	*display;
-Winh	*winh;
-unsigned long	valuemask;
-XSetWindowAttributes *attributes;
+winh_changewindowattributes(Display *display, Winh *winh, unsigned long valuemask, XSetWindowAttributes *attributes)
 {
 	if (winh == (Winh *) NULL) {
 		delete("NULL winh in winh_changewindowattributes");
@@ -850,8 +811,7 @@ XSetWindowAttributes *attributes;
  * getguardian -	return guardian corresponding to specified display
  */
 static	Winh *
-getguardian(display)
-Display	*display;
+getguardian(Display *display)
 {
 	Winh	*winh;
 
@@ -870,8 +830,7 @@ Display	*display;
  *			consult config.alt_screen
  */
 static	Winh *
-initguardian(display)
-Display	*display;
+initguardian(Display *display)
 {
 	Winh	*winh;
 	Winh	*awinh;
@@ -930,8 +889,7 @@ Display	*display;
  * add_sibling -	add a sibling to the end of a sibling list
  */
 static	void
-add_sibling (sfirst, s)
-Winh	*sfirst, *s;
+add_sibling (Winh *sfirst, Winh *s)
 {
 	/* find last sibling in list */
 	while (sfirst->nextsibling != (Winh *) NULL)
@@ -945,8 +903,7 @@ Winh	*sfirst, *s;
  * add_child -	add child to parent, initializing relevant data
  */
 static	void
-add_child(parent, child)
-Winh	*parent, *child;
+add_child(Winh *parent, Winh *child)
 {
 
 	child->parent = parent;
@@ -986,8 +943,7 @@ winhmalloc(
  * winh_free -	free winh resources by walking hierarchy calling _winh_free
  */
 void
-winh_free(winh)
-Winh *winh;
+winh_free(Winh *winh)
 {
 	free_eventlist();
 	if (winh == (Winh *) NULL)
@@ -999,8 +955,7 @@ Winh *winh;
 }
 
 static int
-_winh_free(winh)
-Winh *winh;
+_winh_free(Winh *winh)
 {
 	Winhc	*cl;
 
@@ -1020,8 +975,7 @@ Winh *winh;
  * winhe_free -	free members in specified Winhe list
  */
 static	void
-winhe_free(winhe)
-Winhe	*winhe;
+winhe_free(Winhe *winhe)
 {
 	while (winhe != (Winhe *) NULL) {
 		Winhe	*next = winhe->next;
@@ -1033,8 +987,7 @@ Winhe	*winhe;
 }
 
 static	int
-_free_eventlist(winh)
-Winh	*winh;
+_free_eventlist(Winh *winh)
 {
 	winhe_free(winh->expected);
 	winh->expected = (Winhe *) NULL;
@@ -1089,10 +1042,7 @@ free_eventlist(void)
  *	This might be simpler if there were a parent to all guardians.
  */
 int
-winh_walk(winh, depthfirst, procedure)
-Winh	*winh;
-int	depthfirst;
-int	(*procedure)(Winh*);
+winh_walk(Winh *winh, int depthfirst, int (*procedure)(Winh*))
 {
 	int	depth;
 
@@ -1194,10 +1144,7 @@ _winh_walk(
  * winh_climb -	climb from start to stop
  */
 int
-winh_climb(start, stop, procedure)
-Winh	*start;
-Winh	*stop;
-int	(*procedure)(Winh*, Winh*, Winh*, Winh*);
+winh_climb(Winh *start, Winh *stop, int (*procedure)(Winh*, Winh*, Winh*, Winh*))
 {
 	Winh	*current, *previous;
 
@@ -1234,8 +1181,7 @@ int	(*procedure)(Winh*, Winh*, Winh*, Winh*);
  *		returns 1 on error, else returns 0
  */
 static	int
-winh_print(winh)
-Winh	*winh;
+winh_print(Winh *winh)
 {
 	int	i;
 	char	in[512];
@@ -1342,8 +1288,7 @@ Winh	*winh;
  *	return -1 if unrecognized event_type
  */
 int
-winh_eventindex(event_type)
-int	event_type;
+winh_eventindex(int event_type)
 {
 	int	i;
 
@@ -1361,9 +1306,7 @@ int	event_type;
  *			return -1 on error
  */
 int
-winh_ordercheck(before, after)
-int	before;
-int after;
+winh_ordercheck(int before, int after)
 {
 	int	ibefore, iafter;
 
@@ -1398,10 +1341,7 @@ int after;
  * winh -	create a standard symmetrical window hierarchy
  */
 int
-winh(display, depth, winhmask)
-Display	*display;
-int	depth;
-long	winhmask;
+winh(Display *display, int depth, long winhmask)
 {
 	int	status;
 

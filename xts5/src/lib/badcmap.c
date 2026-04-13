@@ -127,9 +127,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  */
 
 Colormap
-badcolormap(disp, win)
-	Display *disp;
-	Window  win;
+badcolormap(Display *disp, Window win)
 {
 	Colormap cmap;
 

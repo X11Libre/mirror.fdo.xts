@@ -214,10 +214,10 @@ WidgetClass commandWidgetClass = (WidgetClass) &commandClassRec;
  *
  ****************************************************************/
 
-static GC 
-Get_GC(cbw, fg, bg)
-CommandWidget cbw;
-Pixel fg, bg;
+static GC Get_GC(
+    CommandWidget cbw,
+    Pixel fg,
+    Pixel bg)
 {
   XGCValues	values;
   
@@ -236,13 +236,11 @@ Pixel fg, bg;
 		 &values);
 }
 
-
-/* ARGSUSED */
-static void 
-Initialize(request, new, args, num_args)
-Widget request, new;
-ArgList args;			/* unused */
-Cardinal *num_args;		/* unused */
+static void Initialize(
+    Widget request,
+    Widget new,
+    ArgList args,
+    Cardinal *num_args)
 {
   CommandWidget cbw = (CommandWidget) new;
   int shape_event_base, shape_error_base;
@@ -269,9 +267,7 @@ Cardinal *num_args;		/* unused */
   cbw->command.highlighted = HighlightNone;
 }
 
-static Region 
-HighlightRegion(cbw)
-CommandWidget cbw;
+static Region HighlightRegion(CommandWidget cbw)
 {
   static Region outerRegion = NULL, innerRegion, emptyRegion;
   XRectangle rect;
@@ -306,13 +302,11 @@ CommandWidget cbw;
 *
 ***************************/
 
-/* ARGSUSED */
-static void 
-Set(w,event,params,num_params)
-Widget w;
-XEvent *event;
-String *params;		/* unused */
-Cardinal *num_params;	/* unused */
+static void Set(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
   CommandWidget cbw = (CommandWidget)w;
 
@@ -324,13 +318,11 @@ Cardinal *num_params;	/* unused */
     PaintCommandWidget(w, (Region) NULL, TRUE);
 }
 
-/* ARGSUSED */
-static void
-Unset(w,event,params,num_params)
-Widget w;
-XEvent *event;
-String *params;		/* unused */
-Cardinal *num_params;
+static void Unset(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
   CommandWidget cbw = (CommandWidget)w;
 
@@ -344,13 +336,11 @@ Cardinal *num_params;
   }
 }
 
-/* ARGSUSED */
-static void 
-Reset(w,event,params,num_params)
-Widget w;
-XEvent *event;
-String *params;		/* unused */
-Cardinal *num_params;   /* unused */
+static void Reset(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
   CommandWidget cbw = (CommandWidget)w;
 
@@ -362,13 +352,11 @@ Cardinal *num_params;   /* unused */
     Unhighlight(w, event, params, num_params);
 }
 
-/* ARGSUSED */
-static void 
-Highlight(w,event,params,num_params)
-Widget w;
-XEvent *event;
-String *params;		
-Cardinal *num_params;	
+static void Highlight(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
   CommandWidget cbw = (CommandWidget)w;
 
@@ -393,12 +381,11 @@ Cardinal *num_params;
 }
 
 /* ARGSUSED */
-static void 
-Unhighlight(w,event,params,num_params)
-Widget w;
-XEvent *event;
-String *params;		/* unused */
-Cardinal *num_params;	/* unused */
+static void Unhighlight(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
   CommandWidget cbw = (CommandWidget)w;
 
@@ -408,12 +395,11 @@ Cardinal *num_params;	/* unused */
 }
 
 /* ARGSUSED */
-static void 
-Notify(w,event,params,num_params)
-Widget w;
-XEvent *event;
-String *params;		/* unused */
-Cardinal *num_params;	/* unused */
+static void Notify(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
   CommandWidget cbw = (CommandWidget)w; 
 
@@ -436,11 +422,10 @@ Cardinal *num_params;	/* unused */
 ************************/
 
 /* ARGSUSED */
-static void 
-Redisplay(w, event, region)
-Widget w;
-XEvent *event;
-Region region;
+static void Redisplay(
+    Widget w,
+    XEvent *event,
+    Region region)
 {
   PaintCommandWidget(w, region, FALSE);
 }
@@ -453,11 +438,10 @@ Region region;
  *	Returns: none
  */
 
-static void 
-PaintCommandWidget(w, region, change)
-Widget w;
-Region region;
-Boolean change;
+static void PaintCommandWidget(
+    Widget w,
+    Region region,
+    Boolean change)
 {
   CommandWidget cbw = (CommandWidget) w;
   Boolean very_thick;
@@ -513,9 +497,7 @@ Boolean change;
   (*SuperClass->core_class.expose) (w, (XEvent *) NULL, region);
 }
 
-static void 
-Destroy(w)
-Widget w;
+static void Destroy(Widget w)
 {
   CommandWidget cbw = (CommandWidget) w;
 
@@ -588,10 +570,9 @@ static void ClassInitialize(void)
 }
 
 
-static Boolean
-ShapeButton(cbw, checkRectangular)
-CommandWidget cbw;
-Boolean checkRectangular;
+static Boolean ShapeButton(
+    CommandWidget cbw,
+    Boolean checkRectangular)
 {
     Dimension corner_size;
 
@@ -611,10 +592,10 @@ Boolean checkRectangular;
     return(TRUE);
 }
 
-static void Realize(w, valueMask, attributes)
-    Widget w;
-    Mask *valueMask;
-    XSetWindowAttributes *attributes;
+static void Realize(
+    Widget w,
+    Mask *valueMask,
+    XSetWindowAttributes *attributes)
 {
     (*commandWidgetClass->core_class.superclass->core_class.realize)
 	(w, valueMask, attributes);
@@ -622,8 +603,7 @@ static void Realize(w, valueMask, attributes)
     ShapeButton( (CommandWidget) w, FALSE);
 }
 
-static void Resize(w)
-    Widget w;
+static void Resize(Widget w)
 {
     if (XtIsRealized(w)) 
 	ShapeButton( (CommandWidget) w, FALSE);

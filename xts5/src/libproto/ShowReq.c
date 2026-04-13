@@ -139,8 +139,7 @@ SOFTWARE.
 #include "XstlibInt.h"
 
 void
-Show_Req(mp)
-xReq *mp;
+Show_Req(xReq *mp)
 {
 	/*
 	 * This is really one switch, it is split up here to accomodate

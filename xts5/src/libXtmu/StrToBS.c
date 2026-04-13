@@ -88,13 +88,11 @@ SOFTWARE.
 #define	done(address, type) \
 	{ (*toVal).size = sizeof(type); (*toVal).addr = (caddr_t) address; }
 
-/* ARGSUSED */
-void
-XmuCvtStringToBackingStore (args, num_args, fromVal, toVal)
-    XrmValue	*args;		/* unused */
-    Cardinal	*num_args;	/* unused */
-    XrmValuePtr fromVal;
-    XrmValuePtr toVal;
+void XmuCvtStringToBackingStore (
+    XrmValue	*args,		/* unused */
+    Cardinal	*num_args,	/* unused */
+    XrmValuePtr fromVal,
+    XrmValuePtr toVal)
 {
     char	lowerString[1024];
     XrmQuark	q;

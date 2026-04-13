@@ -131,9 +131,7 @@ static	int	Resourceid; /* Place to save BadValues */
  * examination.
  */
 int
-error_status(disp, errevent)
-Display	*disp;
-XErrorEvent *errevent;
+error_status(Display *disp, XErrorEvent *errevent)
 {
 
 	/*
@@ -162,9 +160,7 @@ XErrorEvent *errevent;
  * It is always an error to get here.
  */
 int
-unexp_err(disp, errevent)
-Display	*disp;
-XErrorEvent *errevent;
+unexp_err(Display *disp, XErrorEvent *errevent)
 {
 char	text[TEXTLEN];
 
@@ -186,8 +182,7 @@ char	text[TEXTLEN];
  * to return.
  */
 int
-io_err(disp)
-Display	*disp;
+io_err(Display *disp)
 {
 	delete("A fatal I/O error occurred");
 
@@ -201,7 +196,7 @@ Display	*disp;
  * error_status.
  */
 int
-geterr()
+geterr(void)
 {
 	return(Error);
 }
@@ -211,7 +206,7 @@ geterr()
  * error_status. 
  */
 int
-getbadvalue()
+getbadvalue(void)
 {
 	return(Resourceid);
 }
@@ -220,7 +215,7 @@ getbadvalue()
  * Reset Error to Success.
  */
 void
-reseterr()
+reseterr(void)
 {
 	Error = Success;
 }

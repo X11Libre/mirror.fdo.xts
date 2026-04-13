@@ -122,9 +122,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  * Flush the gc cache.
  */
 void
-gcflush(dpy, gc)
-Display *dpy;
-GC gc;
+gcflush(Display *dpy, GC gc)
 {
 	 LockDisplay(dpy);
 	_XFlushGCCache(dpy,gc);

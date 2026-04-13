@@ -89,17 +89,17 @@ static XtResource resources[] = {
 };
 #endif
 
-static void actproc1(a1, a2, a3, a4)
-Widget a1;
-XEvent* a2;
-String* a3;
-Cardinal* a4;
+static void actproc1(
+    Widget a1,
+    XEvent* a2,
+    String* a3,
+    Cardinal* a4)
 {}
-static void actproc2(a1, a2, a3, a4)
-Widget a1;
-XEvent* a2;
-String* a3;
-Cardinal* a4;
+static void actproc2(
+    Widget a1,
+    XEvent* a2,
+    String* a3,
+    Cardinal* a4)
 {}
 
 static XtActionsRec actions[] = {
@@ -208,18 +208,11 @@ SetValues (Widget gcurrent, Widget grequest, Widget gnew,
     return redraw;
 }
 
-
-/* ARGSUSED */
-static XtGeometryResult GeometryManager (w, request, reply)
-    Widget w;
-    XtWidgetGeometry *request;
-    XtWidgetGeometry *reply;
+static XtGeometryResult GeometryManager (
+    Widget w,
+    XtWidgetGeometry *request,
+    XtWidgetGeometry *reply)
 {
-/*
-	AvsCompRec *me = (AvsCompRec*)XtParent(w);
-*/
-
-
 	if (!request) {
 		reply->x = w->core.x;
 		reply->y = w->core.y;
@@ -278,14 +271,14 @@ static XtGeometryResult GeometryManager (w, request, reply)
 	return XtGeometryYes;
 }
 
-static void Destroy (gw)
-    Widget gw;
+static void Destroy (Widget gw)
 {
 }
 
-static XtGeometryResult QueryGeometry (w, request, preferred)
-    Widget w;
-    XtWidgetGeometry *request, *preferred;
+static XtGeometryResult QueryGeometry (
+    Widget w,
+    XtWidgetGeometry *request,
+    XtWidgetGeometry *preferred)
 {
 	AvsCompRec *me = (AvsCompRec*)w;
 

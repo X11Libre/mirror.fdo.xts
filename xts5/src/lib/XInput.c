@@ -122,16 +122,15 @@ extern int XInputMajorOpcode;
 static int handle_x_errors (Display *, XErrorEvent *);
 
 void
-Close_Extension_Display()
+Close_Extension_Display(void)
     {
     XCloseDisplay(dpy2);
     dpy2 = NULL;
     }
 
 int
-Setup_Extension_DeviceInfo(dmask)
-    unsigned int dmask;
-    {
+Setup_Extension_DeviceInfo(unsigned int dmask)
+{
     char *disp;
     int i, j, k, num_feedbacks,ndevices,numvaluators;
     XModifierKeymap *mmap;
@@ -524,27 +523,20 @@ Setup_Extension_DeviceInfo(dmask)
     }
 
 void
-SuppressExtensionEvents(dpy, win)
-    Display *dpy;
-    Window win;
-    {
+SuppressExtensionEvents(Display *dpy, Window win)
+{
     XChangeDeviceDontPropagateList(dpy, win, pclass, propclasses, AddToList);
-    }
+}
 
 void
-SelectExtensionEvents(dpy, win)
-    Display *dpy;
-    Window win;
-    {
+SelectExtensionEvents(Display *dpy, Window win)
+{
     XSelectExtensionEvent(dpy, win, classes, nclass);
-    }
+}
 
 void
-MinMaxKeys(dpy, dev, min, max, num)
-    Display *dpy;
-    XDevice *dev;
-    int *min, *max, *num;
-    {
+MinMaxKeys(Display *dpy, XDevice *dev, int *min, int *max, int *num)
+{
     int i, j, ndevices;
     XDeviceInfoPtr list;
     XAnyClassPtr any;
@@ -571,10 +563,8 @@ MinMaxKeys(dpy, dev, min, max, num)
     }
 
 int
-SetFeedbackInfo (mask, id)
-    unsigned int mask;
-    XID id;
-    {
+SetFeedbackInfo(unsigned int mask, XID id)
+{
     if (!Setup_Extension_DeviceInfo(mask))
 	return(False);
     if (mask==KFeedMask && Devs.KbdFeed!=NULL)

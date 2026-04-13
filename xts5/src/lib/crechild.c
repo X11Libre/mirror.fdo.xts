@@ -126,10 +126,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  * If ap is NULL then the child will exactly cover the parent window.
  */
 Window
-crechild(disp, w, ap)
-Display	*disp;
-Window	w;
-struct	area	*ap;
+crechild(Display *disp, Window w, struct area *ap)
 {
 Window	child;
 XEvent	event;
@@ -161,10 +158,7 @@ XWindowAttributes	atts;
  * If ap is NULL then the child will exactly cover the parent window.
  */
 Window
-creunmapchild(disp, w, ap)
-Display	*disp;
-Window	w;
-struct	area	*ap;
+creunmapchild(Display *disp, Window w, struct area *ap)
 {
 Window	child;
 struct area ar;

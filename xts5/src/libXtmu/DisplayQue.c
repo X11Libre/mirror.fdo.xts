@@ -104,10 +104,10 @@ static int _DQCloseDisplay();
 /*
  * XmuDQCreate - create a display queue
  */
-XmuDisplayQueue *XmuDQCreate (closefunc, freefunc, data)
-    XmuCloseDisplayQueueProc closefunc;
-    XmuFreeDisplayQueueProc freefunc;
-    caddr_t data;
+XmuDisplayQueue *XmuDQCreate(
+    XmuCloseDisplayQueueProc closefunc,
+    XmuFreeDisplayQueueProc freefunc,
+    caddr_t data)
 {
     XmuDisplayQueue *q = (XmuDisplayQueue *) malloc (sizeof (XmuDisplayQueue));
     if (q) {
@@ -126,9 +126,7 @@ XmuDisplayQueue *XmuDQCreate (closefunc, freefunc, data)
  * optionally invoking the close callbacks.
  */
 
-Bool XmuDQDestroy (q, docallbacks)
-    XmuDisplayQueue *q;
-    Bool docallbacks;
+Bool XmuDQDestroy (XmuDisplayQueue *q, Bool docallbacks)
 {
     XmuDisplayQueueEntry *e = q->head;
 
@@ -146,9 +144,7 @@ Bool XmuDQDestroy (q, docallbacks)
 /*
  * XmuDQLookupDisplay - finds the indicated display on the given queue
  */
-XmuDisplayQueueEntry *XmuDQLookupDisplay (q, dpy)
-    XmuDisplayQueue *q;
-    Display *dpy;
+XmuDisplayQueueEntry *XmuDQLookupDisplay(XmuDisplayQueue *q, Display *dpy)
 {
     XmuDisplayQueueEntry *e;
 
@@ -163,10 +159,10 @@ XmuDisplayQueueEntry *XmuDQLookupDisplay (q, dpy)
  * XmuDQAddDisplay - add the specified display to the queue; set data as a
  * convenience.  Does not ensure that dpy hasn't already been added.
  */
-XmuDisplayQueueEntry *XmuDQAddDisplay (q, dpy, data)
-    XmuDisplayQueue *q;
-    Display *dpy;
-    caddr_t data;
+XmuDisplayQueueEntry *XmuDQAddDisplay(
+    XmuDisplayQueue *q,
+    Display *dpy,
+    caddr_t data)
 {
     XmuDisplayQueueEntry *e;
 
@@ -199,9 +195,7 @@ XmuDisplayQueueEntry *XmuDQAddDisplay (q, dpy, data)
 /*
  * XmuDQRemoveDisplay - remove the specified display from the queue
  */
-Bool XmuDQRemoveDisplay (q, dpy)
-    XmuDisplayQueue *q;
-    Display *dpy;
+Bool XmuDQRemoveDisplay(XmuDisplayQueue *q, Display *dpy)
 {
     XmuDisplayQueueEntry *e;
 
@@ -234,9 +228,7 @@ Bool XmuDQRemoveDisplay (q, dpy)
  * _DQCloseDisplay - upcalled from CloseHook to notify this queue; remove the
  * display when finished
  */
-static int _DQCloseDisplay (dpy, arg)
-    Display *dpy;
-    caddr_t arg;
+static int _DQCloseDisplay(Display *dpy, caddr_t arg)
 {
     XmuDisplayQueue *q = (XmuDisplayQueue *) arg;
     XmuDisplayQueueEntry *e;

@@ -693,9 +693,7 @@ int 	dum;
  * All metrics zero is used here.
  */
 static XCharStruct *
-getmetric(fsp, c)
-XFontStruct	*fsp;
-unsigned int 	c;
+getmetric(XFontStruct *fsp, unsigned int c)
 {
 XCharStruct	*cm;
 int 	byte1;

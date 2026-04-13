@@ -188,10 +188,7 @@ static void	setline(FILE *);
 static void	setoutline(void);
 static void 	roffstrip(char *, int);
 
-/*ARGSUSED*/
-void
-mcstart(buf)
-char	*buf;
+void mcstart(char *buf)
 {
 	FpBanner = cretmpfile(F_BANNER, NULL);
 	FpSynopsis = cretmpfile(F_SYNOPSIS, NULL);
@@ -205,10 +202,7 @@ char	*buf;
 	fprintf(FpCode, "extern int 	tet_thistest;\n\n");
 }
 
-/*ARGSUSED*/
-void
-mcend(buf)
-char	*buf;
+void mcend(char *buf)
 {
 	int i;
 
@@ -315,10 +309,7 @@ char	*buf;
 /*
  * Output the copyright messages
  */
-void
-mccopyright(fp, buf)
-FILE	*fp;
-char	*buf;
+void mccopyright(FILE *fp, char *buf)
 {
 static	int 	firsttime = 1;
 int i;
@@ -343,10 +334,7 @@ int i;
 /*
  * A header request has been found.
  */
-void
-mcheader(fp, buf)
-FILE	*fp;
-char	*buf;
+void mcheader(FILE *fp, char *buf)
 {
 char	*arg;
 char	*cp;
@@ -656,10 +644,7 @@ int 	image = 0;
 /*
  * An assertion has been found. Place it as a comment in the source.
  */
-void
-mcassertion(fp, buf)
-FILE	*fp;
-char	*buf;
+void mcassertion(FILE *fp, char *buf)
 {
 const char	**cpp;
 
@@ -788,10 +773,7 @@ char	*endl;
 /*
  * Strip nroff backslash constructions from the token.
  */
-static void
-roffstrip(intok, macro)
-char	*intok;
-int 	macro;
+static void roffstrip(char *intok, int macro)
 {
 char	*pos;
 char	*tok;
@@ -820,9 +802,7 @@ char	*tok;
  * If the arg is punctuation that should be attatched to the preceeding
  * word then return 1, else 0.
  */
-int
-joinpunct(c)
-int 	c;
+int joinpunct(int c)
 {
 	if (strchr("!)+}]?/,.", c))
 		return 1;
@@ -830,10 +810,7 @@ int 	c;
 		return 0;
 }
 
-void
-mcstrategy(fp, buf)
-FILE	*fp;
-char	*buf;
+void mcstrategy(FILE *fp, char *buf)
 {
 /*APTEST - place strategy in journal*/
 	if (FpStrategy != (FILE *) -1) {
@@ -848,10 +825,7 @@ char	*buf;
 
 }
 
-void
-mccode(fp, buf)
-FILE	*fp;
-char	*buf;
+void mccode(FILE *fp, char *buf)
 {
 int 	indecs = 1;
 
@@ -935,10 +909,7 @@ int 	indecs = 1;
 	funcend();
 }
 
-void
-mcexterncode(fp, buf)
-FILE	*fp;
-char	*buf;
+void mcexterncode(FILE *fp, char *buf)
 {
 	ExpectError = "Success";
 	Resyncline = 1;
@@ -1118,10 +1089,7 @@ int 	insertval = 0;
 }
 
 
-void
-mcdefassertion(fp, buf)
-FILE	*fp;
-char	*buf;
+void mcdefassertion(FILE *fp, char *buf)
 {
 
 	char buf2[MAXLINE];
@@ -1147,25 +1115,19 @@ char	*buf;
  * Start and end included files.  Don't clutter up the output by
  * printing when temporary files are being included.
  */
-void
-mcincstart(buf)
-char	*buf;
+void mcincstart(char *buf)
 {
 	if (strcmp(buf+strlen(buf)-4, ".tmc") != 0)
 		fprintf(FpCode, "/* Including from file %s */\n", buf);
 }
 
-void
-mcincend(buf)
-char	*buf;
+void mcincend(char *buf)
 {
 	if (strcmp(buf+strlen(buf)-4, ".tmc") != 0)
 		fprintf(FpCode, "/* End of included file %s */\n\n", buf);
 }
 
-static void
-setline(fp)
-FILE	*fp;
+static void setline(FILE *fp)
 {
 static	int 	lastline;
 

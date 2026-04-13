@@ -125,8 +125,7 @@ static struct	sigaction	oact;
 #endif
 
 static void
-alrm_exit(a)
-int a;
+alrm_exit(int a)
 {
 	exit(TIMEOUT_EXIT);
 }
@@ -136,8 +135,7 @@ int a;
  * only be called from a child process normally.
  */
 void
-settimeout(to)
-int 	to;
+settimeout(int to)
 {
 #ifndef OLDSIGNALS
 struct	sigaction	act;
@@ -161,8 +159,7 @@ struct	sigaction	act;
 /*
  * Clear a previously set timeout.  Return the amount of time remaining.
  */
-unsigned long
-cleartimeout()
+unsigned long cleartimeout(void)
 {
 unsigned long	timeleft;
 

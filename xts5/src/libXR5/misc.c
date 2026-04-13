@@ -118,11 +118,10 @@ purpose.  It is provided "as is" without express or implied warranty.
 
 #define BUFFER_SIZE 256;
 
-int 
-badstat(display, expected, received)
-Display *display;
-int expected[];
-int received;
+int badstat(
+    Display *display,
+    int expected[],
+    int received)
 {
 	extern int chkflg;
 
@@ -200,14 +199,13 @@ int received;
 	    chkflg = 1;
 	    return (REGR_NORMAL);
 }
-                                      
-                                        
-void r_wait(disp, wind, seconds, cmap)
-Display *disp;
-Window wind;
-int seconds;
-Colormap cmap;
-{                
+
+void r_wait(
+    Display *disp,
+    Window wind,
+    int seconds,
+    Colormap cmap)
+{
         extern int blowup_size,region_mode,PixPerCM;
         extern struct args regr_args;
 	extern XWindowAttributes wat_save;

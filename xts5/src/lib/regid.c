@@ -148,8 +148,7 @@ static int 	Regenabled = 1;
  * Get a free place to store something of the given type.
  * Finds a place in the list, expanding it it necessary.
  */
-static	struct	regid *
-getcell()
+static struct regid *getcell(void)
 {
 struct	regid	*rp;
 
@@ -184,10 +183,7 @@ struct	regid	*rp;
  * been registered manually.
  */
 void
-regid(disp, id, type)
-Display	*disp;
-union	regtypes	*id;
-int 	type;
+regid(Display *disp, union regtypes *id, int type)
 {
 struct	regid	*savcell;
 
@@ -249,8 +245,7 @@ struct	regid	*savcell;
 
 }
 
-void
-freereg()
+void freereg(void)
 {
 struct	regid	*rp;
 
@@ -309,11 +304,11 @@ struct	regid	*rp;
  * Functions to enable and disable resource registration.  After disabling
  * it then resources can be freed explicitly.
  */
-void regenable()
+void regenable(void)
 {
 	Regenabled = 1;
 }
-void regdisable()
+void regdisable(void)
 {
 	Regenabled = 0;
 }

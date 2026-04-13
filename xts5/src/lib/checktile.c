@@ -127,13 +127,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  * The width and height if zero default to the rest of the drawable.
  */
 Status
-checktile(disp, d, ap, xorig, yorig, pm)
-Display	*disp;
-Drawable d;
-struct	area	*ap;
-int 	xorig;
-int 	yorig;
-Pixmap	pm;
+checktile(Display *disp, Drawable d, struct area *ap, int xorig, int yorig, Pixmap pm)
 {
 XImage	*im;
 XImage	*pmim;
@@ -205,9 +199,7 @@ static	char	tile_bits[] = {
  * Make a 7x7 tile and fill it with a pattern.
  */
 Pixmap
-maketile(disp, d)
-Display	*disp;
-Drawable	d;
+maketile(Display *disp, Drawable d)
 {
 Pixmap	pm;
 unsigned int 	depth;

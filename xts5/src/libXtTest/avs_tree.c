@@ -68,10 +68,8 @@ SOFTWARE.
 
 #include <XtTest.h>
 
-Widget avs_xt_tree(w)
-Widget w;
+Widget avs_xt_tree(Widget w)
 {
-
 	Widget mainw, drawaw, formw;
 /*
 	Widget scrollw;

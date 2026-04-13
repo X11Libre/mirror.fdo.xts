@@ -127,8 +127,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 extern char **environ;
 
 int
-xtest_putenv(envstr)
-char *envstr;
+xtest_putenv(char *envstr)
 {
         /*
          * This routine mimics putenv(), and is provided purely

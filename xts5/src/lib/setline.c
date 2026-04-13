@@ -122,10 +122,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  * Set the line width, without affecting anything else.
  */
 void
-setwidth(disp, gc, width)
-Display	*disp;
-GC		gc;
-unsigned int 	width;
+setwidth(Display *disp, GC gc, unsigned int width)
 {
 XGCValues	gcv;
 
@@ -137,10 +134,7 @@ XGCValues	gcv;
  * Set the capstyle without affecting anything else.
  */
 void
-setcapstyle(disp, gc, capstyle)
-Display	*disp;
-GC		gc;
-int 	capstyle;
+setcapstyle(Display *disp, GC gc, int capstyle)
 {
 XGCValues	gcv;
 
@@ -152,10 +146,7 @@ XGCValues	gcv;
  * Set the line style without affecting anything else.
  */
 void
-setlinestyle(disp, gc, linestyle)
-Display	*disp;
-GC		gc;
-int 	linestyle;
+setlinestyle(Display *disp, GC gc, int linestyle)
 {
 XGCValues	gcv;
 
@@ -167,10 +158,7 @@ XGCValues	gcv;
  * Set the join style without affecting anything else.
  */
 void
-setjoinstyle(disp, gc, joinstyle)
-Display	*disp;
-GC		gc;
-int 	joinstyle;
+setjoinstyle(Display *disp, GC gc, int joinstyle)
 {
 XGCValues	gcv;
 

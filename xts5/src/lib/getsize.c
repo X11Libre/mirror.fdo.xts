@@ -124,11 +124,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  * Either of widthp or heightp can be NULL.
  */
 void
-getsize(disp, d, widthp, heightp)
-Display	*disp;
-Drawable	d;
-unsigned int 	*widthp;
-unsigned int 	*heightp;
+getsize(Display *disp, Drawable d, unsigned int *widthp, unsigned int *heightp)
 {
 unsigned int 	dummy;
 Window 	root;
@@ -146,9 +142,7 @@ unsigned int 	depth;
  * Returns the depth of the given drawable.
  */
 unsigned int
-getdepth(disp, d)
-Display	*disp;
-Drawable	d;
+getdepth(Display *disp, Drawable d)
 {
 Window 	root;
 int 	x;

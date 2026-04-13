@@ -123,8 +123,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  * a pixmap and freeing it
  */
 Pixmap
-badpixm(disp)
-Display	*disp;
+badpixm(Display *disp)
 {
 Pixmap	pm;
 Window	w;

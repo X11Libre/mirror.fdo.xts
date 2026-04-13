@@ -103,7 +103,7 @@ ferrno(const char *funcname)
 
 /*read config file variables and set in memory versions to*/
 /*minimize performance hit of checking for on each call*/
-static void check_debug()
+static void check_debug(void)
 {
 	char * str;
 

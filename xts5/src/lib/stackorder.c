@@ -123,9 +123,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  * position in the stacking order, with 0 being the lowest.
  */
 int
-stackorder(disp, win)
-Display	*disp;
-Window	win;
+stackorder(Display *disp, Window win)
 {
 Window	*children;
 Window	parent, root;

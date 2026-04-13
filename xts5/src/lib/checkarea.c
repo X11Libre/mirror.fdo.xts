@@ -142,13 +142,7 @@ static	void	dorgnerr(XImage *im, Region rgn, unsigned long inpix, unsigned long 
  * (See also checkregion)
  */
 Status
-checkarea(disp, d, ap, inpix, outpix, flags)
-Display	*disp;
-Drawable d;
-struct	area	*ap;
-unsigned long 	inpix;
-unsigned long 	outpix;
-int 	flags;
+checkarea(Display *disp, Drawable d, struct area *ap, unsigned long inpix, unsigned long outpix, int flags)
 {
 int 	x, y;
 XImage	*im;
@@ -237,9 +231,7 @@ int 	inloopflag = 0;
  * Check that the whole window or pixmap is clear (set to pixel value W_BG)
  */
 Status
-checkclear(disp, d)
-Display	*disp;
-Drawable	d;
+checkclear(Display *disp, Drawable d)
 {
 	return(checkarea(disp, d, (struct area *)0, W_BG, W_BG, CHECK_IN));
 }

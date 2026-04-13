@@ -133,8 +133,7 @@ SOFTWARE.
 
 
 Atom
-Create_Atom (client)
-int     client;
+Create_Atom (int client)
 {
     xInternAtomReq * req;
     xInternAtomReply * rep;
@@ -160,8 +159,7 @@ int     client;
 
 
 Atom
-Create_Default_Atom (client)
-int     client;
+Create_Default_Atom (int client)
 {
     Atom rid;
     rid = Create_Atom (client);
@@ -179,8 +177,7 @@ int     client;
 */
 
 Colormap
-Create_Colormap (client)
-int     client;
+Create_Colormap (int client)
 {
     xCreateColormapReq * req;
     Colormap mid;
@@ -205,8 +202,7 @@ int     client;
 */
 
 Colormap
-Create_Default_Colormap (client)
-int     client;
+Create_Default_Colormap (int client)
 {
     Colormap rid;
     rid = Create_Colormap (client);
@@ -216,8 +212,7 @@ int     client;
 
 
 Cursor
-Create_Cursor (client)
-int     client;
+Create_Cursor (int client)
 {
     xCreateCursorReq * req;
     Cursor cid;
@@ -233,8 +228,7 @@ int     client;
 
 
 Cursor
-Create_Default_Cursor (client)
-int     client;
+Create_Default_Cursor (int client)
 {
     Cursor rid;
     rid = Create_Cursor (client);
@@ -245,8 +239,7 @@ int     client;
 
 
 Font
-Create_Font (client)
-int     client;
+Create_Font (int client)
 {
     xOpenFontReq * req;
     Font fid;
@@ -262,8 +255,7 @@ int     client;
 
 
 Font
-Create_Default_Font (client)
-int     client;
+Create_Default_Font (int client)
 {
     Font rid;
     rid = Create_Font (client);
@@ -273,8 +265,7 @@ int     client;
 
 
 GContext
-Create_GContext (client)
-int     client;
+Create_GContext (int client)
 {
     xCreateGCReq * req;
     GContext gc;
@@ -289,8 +280,7 @@ int     client;
 }
 
 GContext
-Create_Default_GContext (client)
-int     client;
+Create_Default_GContext (int client)
 {
     GContext rid;
     rid = Create_GContext (client);
@@ -299,8 +289,7 @@ int     client;
 }
 
 Pixmap
-Create_Pixmap (client)
-int     client;
+Create_Pixmap (int client)
 {
     xCreatePixmapReq * req;
     Pixmap pid;
@@ -315,8 +304,7 @@ int     client;
 }
 
 Pixmap
-Create_Default_Pixmap (client)
-int     client;
+Create_Default_Pixmap (int client)
 {
     Pixmap rid;
     rid = Create_Pixmap (client);
@@ -325,8 +313,7 @@ int     client;
 }
 
 Pixmap
-Create_Cursor_Pixmap (client)
-int     client;
+Create_Cursor_Pixmap (int client)
 {
     xCreatePixmapReq * req;
     Pixmap pid;
@@ -342,8 +329,7 @@ int     client;
 }
 
 Pixmap
-Create_Default_Cursor_Pixmap (client)
-int     client;
+Create_Default_Cursor_Pixmap (int client)
 {
     Pixmap rid;
     rid = Create_Cursor_Pixmap (client);
@@ -352,8 +338,7 @@ int     client;
 }
 
 Window
-Create_Window (client)
-int     client;
+Create_Window (int client)
 {
     xCreateWindowReq * req;
     Window wid;
@@ -369,9 +354,7 @@ int     client;
 
 #if 0
 Window
-Create_Child_Window (client, parent)
-int     client;
-Window	parent;
+Create_Child_Window (int client, Window parent)
 {
     xCreateWindowReq * req;
     Window wid;
@@ -398,8 +381,7 @@ Window	parent;
 */
 
 Window
-Create_Default_Window (client)
-int     client;
+Create_Default_Window (int client)
 {
     Window rid;
     rid = Create_Window (client);
@@ -408,9 +390,7 @@ int     client;
 }
 
 static xEvent
-Create_Event (client, event_type)
-int     client;
-int event_type;
+Create_Event (int client, int event_type)
 {
     xEvent event;
     int i;
@@ -435,9 +415,7 @@ int event_type;
 }
 
 void
-Create_Default_Event (client, event_type)
-int     client;
-int event_type;
+Create_Default_Event (int client, int event_type)
 {
     Set_Default_Event(client, Create_Event(client, event_type));
 }

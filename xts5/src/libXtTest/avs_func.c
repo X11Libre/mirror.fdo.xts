@@ -90,11 +90,10 @@ title(const char *function)
 	return(tit_string);
 }
 
-/*ARGUSED*/
-void PostMenu(w, client_data, event)
-Widget   w;
-XtPointer  client_data;
-XButtonEvent  *event;
+void PostMenu(
+    Widget w,
+    XtPointer client_data,
+    XButtonEvent *event)
 {
 	Widget popupmenu = (Widget) client_data;
 
@@ -111,9 +110,9 @@ XButtonEvent  *event;
 ** Configure the dimension of box widget
 */
 /*ARGSUSED*/
-void ConfigureDimension(root, boxw)
-Widget root;
-Widget boxw;
+void ConfigureDimension(
+    Widget root,
+    Widget boxw)
 {
 	XtWidgetGeometry intended, geom;
 
@@ -129,16 +128,16 @@ Widget boxw;
 ** destroy the widget tree
 */
 /*ARGSUSED*/
-void DestroyTree(w, client_data, call_data)
-Widget w;
-XtPointer client_data, call_data;
+void DestroyTree(
+    Widget w,
+    XtPointer client_data,
+    XtPointer call_data)
 {
 	Widget root = (Widget) client_data;
 	XtDestroyWidget(root);
 }
 
-size_t
-mem_limit()
+size_t mem_limit(void)
 {
 	char	*ptr;
 	size_t	hbit,i,j;
@@ -157,14 +156,14 @@ mem_limit()
 ** called by XtMalloc, XtCalloc and XtRealloc XtNewString
 */
 int alloc_handler_called = 0;
-/*ARGUSED*/
-void alloc_handler(name, type, class, defaultp, params, num_params)
-String name;
-String type;
-String class;
-String defaultp;
-String *params;
-Cardinal *num_params;
+
+void alloc_handler(
+    String name,
+    String type,
+    String class,
+    String defaultp,
+    String *params,
+    Cardinal *num_params)
 {
 alloc_handler_called = 1;
 }

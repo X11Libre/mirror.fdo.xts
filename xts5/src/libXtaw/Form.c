@@ -224,11 +224,11 @@ static XrmQuark	XtQChainLeft, XtQChainRight, XtQChainTop,
 	}
 
 /* ARGSUSED */
-static void _CvtStringToEdgeType(args, num_args, fromVal, toVal)
-    XrmValuePtr args;		/* unused */
-    Cardinal    *num_args;      /* unused */
-    XrmValuePtr fromVal;
-    XrmValuePtr toVal;
+static void _CvtStringToEdgeType(
+    XrmValuePtr args,		/* unused */
+    Cardinal    *num_args,      /* unused */
+    XrmValuePtr fromVal,
+    XrmValuePtr toVal)
 {
     static XtEdgeType edgeType;
     XrmQuark q;
@@ -280,8 +280,7 @@ static void ClassInitialize(void)
 			NULL);
 }
 
-static void ClassPartInitialize(class)
-    WidgetClass class;
+static void ClassPartInitialize(WidgetClass class)
 {
     FormWidgetClass c = (FormWidgetClass)class;
     FormWidgetClass super = (FormWidgetClass) 
@@ -315,12 +314,13 @@ static void Initialize(Widget request, Widget new,
  *	Returns: TRUE of children may always be resized.
  */
 
-static Boolean
-ChangeFormGeometry(w, query_only, width, height, ret_width, ret_height)
-Widget w;
-Boolean query_only;
-Dimension width, height;
-Dimension *ret_width, *ret_height;
+static Boolean ChangeFormGeometry(
+    Widget w,
+    Boolean query_only,
+    Dimension width,
+    Dimension height,
+    Dimension *ret_width,
+    Dimension *ret_height)
 {
     FormWidget fw = (FormWidget) w;
     Boolean always_resize_children;
@@ -450,8 +450,7 @@ static Boolean Layout(
  *	Returns: none.
  */
 
-static void ResizeChildren(w) 
-Widget w;
+static void ResizeChildren(Widget w)
 {
     FormWidget fw = (FormWidget) w;
     int num_children = fw->composite.num_children;
@@ -482,8 +481,7 @@ Widget w;
 }
 
 
-static void LayoutChild(w)
-    Widget w;
+static void LayoutChild(Widget w)
 {
     FormConstraints form = (FormConstraints)w->core.constraints;
     Widget ref;
@@ -531,11 +529,11 @@ static void LayoutChild(w)
     form->form.layout_state = LayoutDone;
 }
 
-
-static Position TransformCoord(loc, old, new, type)
-    Position loc;
-    Dimension old, new;
-    XtEdgeType type;
+static Position TransformCoord(
+    Position loc,
+    Dimension old,
+    Dimension new,
+    XtEdgeType type)
 {
     if (type == XtRubber) {
         if ( ((int) old) > 0)
@@ -549,8 +547,7 @@ static Position TransformCoord(loc, old, new, type)
     return (loc);
 }
 
-static void Resize(w)
-    Widget w;
+static void Resize(Widget w)
 {
     FormWidget fw = (FormWidget)w;
     WidgetList children = fw->composite.children;
@@ -602,10 +599,10 @@ static void Resize(w)
  */
 
 /* ARGSUSED */
-static XtGeometryResult GeometryManager(w, request, reply)
-    Widget w;
-    XtWidgetGeometry *request;
-    XtWidgetGeometry *reply;	/* RETURN */
+static XtGeometryResult GeometryManager(
+    Widget w,
+    XtWidgetGeometry *request,
+    XtWidgetGeometry *reply)
 {
     Dimension old_width, old_height;
     FormWidget fw = (FormWidget) XtParent(w);
@@ -750,10 +747,12 @@ static void ConstraintInitialize(Widget request, Widget new,
 }
 
 /*ARGSUSED*/
-static Boolean ConstraintSetValues(current, request, new, args, num_args)
-    Widget current, request, new;
-    ArgList args;
-    Cardinal *num_args;
+static Boolean ConstraintSetValues(
+    Widget current,
+    Widget request,
+    Widget new,
+    ArgList args,
+    Cardinal *num_args)
 {
   FormConstraints cfc = (FormConstraints) current->core.constraints;
   FormConstraints nfc = (FormConstraints) new->core.constraints;
@@ -785,8 +784,7 @@ static Boolean ConstraintSetValues(current, request, new, args, num_args)
   return( FALSE );
 }
 
-static void ChangeManaged(w)
-    Widget w;
+static void ChangeManaged(Widget w)
 {
   FormWidget fw = (FormWidget)w;
   FormConstraints form;
@@ -824,9 +822,10 @@ static void ChangeManaged(w)
 }
 
 
-static XtGeometryResult PreferredGeometry( widget, request, reply  )
-    Widget widget;
-    XtWidgetGeometry *request, *reply;
+static XtGeometryResult PreferredGeometry(
+    Widget widget,
+    XtWidgetGeometry *request,
+    XtWidgetGeometry *reply)
 {
     FormWidget w = (FormWidget)widget;
     
@@ -856,17 +855,11 @@ static XtGeometryResult PreferredGeometry( widget, request, reply  )
  */
 
 void
-#if NeedFunctionPrototypes
 XawFormDoLayout(Widget w,
 #if NeedWidePrototypes
 		int doit)
 #else
 		Boolean doit)
-#endif
-#else
-XawFormDoLayout(w, doit)
-Widget w;
-Boolean doit;
 #endif
 {
     Widget *childP;

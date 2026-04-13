@@ -172,7 +172,7 @@ va_list args;
  * should be sync'ed.
  */
 int
-isdeleted()
+isdeleted(void)
 {
 extern	Display	*Dsp;
 
@@ -189,7 +189,7 @@ extern	Display	*Dsp;
  * Reset the delete status back to false.
  */
 void
-resetdelete()
+resetdelete(void)
 {
 	TestDeleted = False;
 }

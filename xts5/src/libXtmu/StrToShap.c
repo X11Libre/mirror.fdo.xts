@@ -102,13 +102,13 @@ SOFTWARE.
 	}
 
 
-Boolean XmuCvtStringToShapeStyle(dpy, args, num_args, from, toVal, data)
-    Display *dpy;
-    XrmValue *args;		/* unused */
-    Cardinal *num_args;		/* unused */
-    XrmValue *from;
-    XrmValue *toVal;
-    XtPointer *data;		/* unused */
+Boolean XmuCvtStringToShapeStyle(
+    Display *dpy,
+    XrmValue *args,		/* unused */
+    Cardinal *num_args,		/* unused */
+    XrmValue *from,
+    XrmValue *toVal,
+    XtPointer *data)		/* unused */
 {
     if (   XmuCompareISOLatin1((char*)from->addr, XtERectangle) == 0
 	|| XmuCompareISOLatin1((char*)from->addr, "ShapeRectangle") == 0)

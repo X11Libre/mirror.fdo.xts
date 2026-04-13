@@ -182,8 +182,7 @@ WidgetClass smeObjectClass = (WidgetClass) &smeClassRec;
  */
 
 static void
-ClassPartInitialize(class)
-WidgetClass class;
+ClassPartInitialize(WidgetClass class)
 {
     SmeObjectClass m_ent, superC;
 
@@ -229,11 +228,8 @@ Initialize(Widget request, Widget new, ArgList args, Cardinal *num_args)
  *	Arguments: w - the menu entry.
  *	Returns: none.
  */
-
-/* ARGSUSED */
 static void
-Highlight(w)
-Widget w;
+Highlight(Widget w)
 {
 /* This space intentionally left blank. */
 }
@@ -243,11 +239,7 @@ Widget w;
  *	Arguments: w - the menu entry.
  *	Returns: none.
  */
-
-/* ARGSUSED */
-static void
-Unhighlight(w)
-Widget w;
+static void Unhighlight(Widget w)
 {
 /* This space intentionally left blank. */
 }
@@ -258,9 +250,7 @@ Widget w;
  *	Returns: none.
  */
 
-static void
-Notify(w) 
-Widget w;
+static void Notify(Widget w)
 {
     XtCallCallbacks(w, XtNcallback, NULL);
 }
@@ -276,10 +266,10 @@ Widget w;
  * I just return the height and a width of 1.
  */
 
-static XtGeometryResult
-QueryGeometry(w, intended, return_val) 
-Widget w;
-XtWidgetGeometry *intended, *return_val;
+static XtGeometryResult QueryGeometry(
+    Widget w,
+    XtWidgetGeometry *intended,
+    XtWidgetGeometry *return_val)
 {
     SmeObject entry = (SmeObject) w;
     Dimension width;

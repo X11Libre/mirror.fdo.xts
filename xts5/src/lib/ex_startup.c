@@ -147,7 +147,7 @@ Cursor	ErrdefCursor;
 Font	ErrdefFont;
 
 void
-exec_startup()
+exec_startup(void)
 {
 char	*disp;
 char	*cp;
@@ -216,7 +216,7 @@ extern	int 	io_err(Display *);
  * are called via tet_exec.
  */
 void
-exec_cleanup()
+exec_cleanup(void)
 {
 	if (Dsp)
 		XCloseDisplay(Dsp);

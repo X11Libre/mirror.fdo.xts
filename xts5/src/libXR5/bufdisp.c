@@ -117,11 +117,10 @@ purpose.  It is provided "as is" without express or implied warranty.
 #include "Xstlib.h"
 
 void 
-bufrdisp(display)
-Display *display;    
+bufrdisp(Display *display)
 {
 	return;
-}       
+}
 
 void 
 bufrgc(GC gc_id, const char *gc_name)

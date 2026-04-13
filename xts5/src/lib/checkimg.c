@@ -129,12 +129,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  * If ap is NULL then the whole image is checked.
  */
 Status
-checkimg(im, ap, inpix, outpix, flags)
-XImage *im;
-struct area *ap;
-long inpix;
-long outpix;
-int flags;
+checkimg(XImage *im, struct area *ap, long inpix, long outpix, int flags)
 {
 int x, y;
 int xorig;
@@ -211,12 +206,7 @@ int inloopflag = 0;
  *			of an image structure
  */
 Status
-checkimgstruct(im, depth, width, height, format)
-XImage *im;
-unsigned int depth;
-unsigned int width;
-unsigned int height;
-int format;
+checkimgstruct(XImage *im, unsigned int depth, unsigned int width, unsigned int height, int format)
 {
 	if (im->depth != depth) {
 		report("Incorrect depth (%d != %d)", im->depth, depth);

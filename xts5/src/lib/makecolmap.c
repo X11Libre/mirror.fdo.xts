@@ -125,10 +125,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  */
 
 Colormap
-makecolmap(disp, visual, alloc)
-Display *disp;
-Visual *visual;
-int alloc;
+makecolmap(Display *disp, Visual *visual, int alloc)
 {
 	Colormap colormap;
 
@@ -142,8 +139,7 @@ int alloc;
  * return floor of log to base two.
  * if x is zero returns -1 ( lg(x) != -1 for any integer x)
  */
-int lg(x)
-	unsigned long x;
+int lg(unsigned long x)
 {
 	int count = -1;
 
@@ -154,9 +150,7 @@ int lg(x)
 /*
  * return a sting representing the argument value as a binary number.
  */
-char *bitstr(val, spare)
-	unsigned long val;
-	char spare[];
+char *bitstr(unsigned long val, char spare[])
 {
 	int i;
 

@@ -118,8 +118,7 @@ const char *event_names[] = {
       "MappingNotify",
 } ;
 
-void x_event_name(type)
-int type ;
+void x_event_name(int type)
 {
     return;
 }

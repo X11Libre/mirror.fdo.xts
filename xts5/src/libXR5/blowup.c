@@ -133,21 +133,25 @@ int windx,windy,wind_width,wind_height,scrn_width,scrn_height;
 /*
  * get the image and blow it up
  */                          
-void vmakebig(vdisplay, window, blowup_win, x, y, zoom_factor,pixels_across, size, format, gc, gcback, gcfore, kgi, ix, iy, 
-              background, view_color, test_color)
-Display *vdisplay;
-Window window;
-Window blowup_win;
-int x, y, zoom_factor;
-int pixels_across;
-int size;
-int format;
-GC gc;                  
-unsigned long gcback,gcfore;
-XImage *kgi;			/* known good image */
-int ix, iy;		  	/* origin of known good image relative to the screen */
-unsigned long background;       /* background color */
-int view_color,test_color;
+void vmakebig(
+    Display *vdisplay,
+    Window window,
+    Window blowup_win,
+    int x,
+    int y,
+    int zoom_factor,
+    int pixels_across,
+    int size,
+    int format,
+    GC gc,
+    unsigned long gcback,
+    unsigned long gcfore,
+    XImage *kgi,                /* known good image */
+    int ix,                     /* origin of known good image relative to the screen */
+    int iy,
+    unsigned long background,   /* background color */
+    int view_color,
+    int test_color)
 {
 	XImage *ximage;
 	int across,down,e,f, azf;    
@@ -268,22 +272,23 @@ int view_color,test_color;
  * do initialization and handle events                                                                
  */
 
-
-void VBlowup(vdisplay, window, init_x, init_y, size, granularity, cmap, kgi, ix,
-             iy, background, warp_pointer_x, warp_pointer_y,show_banner,compare_color)
-Display *vdisplay;
-Window window;
-int init_x, init_y;
-int size;
-int granularity;
-Colormap cmap;
-XImage *kgi;
-int ix, iy;
-unsigned long background;
-int warp_pointer_x, warp_pointer_y;
-int show_banner;
-int compare_color;                 
-{                                                      
+void VBlowup(
+    Display *vdisplay,
+    Window window,
+    int init_x,
+    int init_y,
+    int size,
+    int granularity,
+    Colormap cmap,
+    XImage *kgi,
+    int ix,
+    int iy,
+    unsigned long background,
+    int warp_pointer_x,
+    int warp_pointer_y,
+    int show_banner,
+    int compare_color)
+{
         int	show_color = compare_color;
                                                                                      
 	XImage *ximage2;

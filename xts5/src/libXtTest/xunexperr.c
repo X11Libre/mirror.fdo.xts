@@ -77,9 +77,7 @@ extern char ebuf[4096];
  *	Setup by the test cases with: XSetErrorHandler(x_unexperr)
 */
 
-int x_unexperr(disp, error_event)
-Display *disp;
-XErrorEvent *error_event;
+int x_unexperr(Display *disp, XErrorEvent *error_event)
 {
 
     char	proto_string[30];

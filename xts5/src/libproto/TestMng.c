@@ -183,27 +183,25 @@ static struct {
 };
 
 static int
-Required_Byte_Sex()
+Required_Byte_Sex(void)
 {
 	return(Xst_required_byte_sex);
 }
 
 void
-Set_Required_Byte_Sex(set_to)
-int	set_to;
+Set_Required_Byte_Sex(int set_to)
 {
 	Xst_required_byte_sex = set_to;
 }
 
 void
-Set_Byte_Sex(set_to)
-int	set_to;
+Set_Byte_Sex(int set_to)
 {
 	Xst_byte_sex = set_to;
 }
 
 void
-Exit_OK ()
+Exit_OK (void)
 {
     /*
      * This routine is called if the test reaches a conclusion and passes 
@@ -214,7 +212,7 @@ Exit_OK ()
 }
 
 void
-XstExit () {
+XstExit (void) {
     /*
      * This routine is called when the test wishes to exit 
      * on encountering an error.
@@ -228,29 +226,28 @@ XstExit () {
 }
 
 void
-XstAbort () {
+XstAbort (void) {
     if (Xst_error_count <= 0)
 	Xst_error_count++;
     XstExit();
 }
 
 void
-XstDelete () {
+XstDelete (void) {
     if (Xst_delete_count <= 0)
 	Xst_delete_count++;
     XstExit();
 }
 
 void
-Untested () {
+Untested (void) {
     if (Xst_untested_count <= 0)
 	Xst_untested_count++;
     XstExit();
 }
 
 void
-Finish(client)
-int client;
+Finish(int client)
 {
 	if (Get_Test_Type(client) == SETUP)
 		XstDelete();
@@ -259,7 +256,7 @@ int client;
 }
 
 void
-checkconfig ()
+checkconfig (void)
 {
     int	j;
 
@@ -303,8 +300,7 @@ checkconfig ()
 }
 
 void
-testfunc(func)
-void	(*func)();
+testfunc(void (*func)())
 {
 int	pass = 0;
 int	fail = 0;

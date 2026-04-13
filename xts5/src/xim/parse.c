@@ -132,8 +132,7 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 #define MAXIDLEN 32
 
-Bool parse_skwhite(ppstr)
-	char **ppstr;
+Bool parse_skwhite(char **ppstr)
 {
 	Bool ret;
 	char *pstr;
@@ -148,10 +147,7 @@ Bool parse_skwhite(ppstr)
 }
 
 
-Bool parse_getid(ppstr,pid,upit)
-	char **ppstr;
-	char *pid;
-	Bool upit;
+Bool parse_getid(char **ppstr, char *pid, Bool upit)
 {
 	Bool ret;
 	char *pstr;
@@ -183,9 +179,7 @@ Bool parse_getid(ppstr,pid,upit)
 	return(ret);
 }
 
-Bool parse_getnum(ppstr,pnum)
-	char **ppstr;
-	int *pnum;
+Bool parse_getnum(char **ppstr, int *pnum)
 {
 	Bool ret;
 	char *pstr;
@@ -216,9 +210,7 @@ Bool parse_getnum(ppstr,pnum)
 	return(ret);
 }
 
-Bool parse_gethex(ppstr,pnum)
-	char **ppstr;
-	int *pnum;
+Bool parse_gethex(char **ppstr, int *pnum)
 {
 	Bool ret;
 	char *pstr;

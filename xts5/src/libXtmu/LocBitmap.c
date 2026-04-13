@@ -119,20 +119,9 @@ static char **split_path_string();
 /*
  * XmuLocateBitmapFile - read a bitmap file using the normal defaults
  */
-
-#if NeedFunctionPrototypes
 Pixmap XmuLocateBitmapFile (Screen *screen, _Xconst char *name, char *srcname,
 			    int srcnamelen, int *widthp, int *heightp, 
 			    int *xhotp, int *yhotp)
-#else
-Pixmap XmuLocateBitmapFile (screen, name, srcname, srcnamelen,
-			    widthp, heightp, xhotp, yhotp)
-    Screen *screen;
-    char *name;
-    char *srcname;			/* RETURN */
-    int srcnamelen;
-    int *widthp, *heightp, *xhotp, *yhotp;  /* RETURN */
-#endif
 {
     return XmuLocatePixmapFile (screen, name, 
 				(unsigned long) 1, (unsigned long) 0,
@@ -144,24 +133,11 @@ Pixmap XmuLocateBitmapFile (screen, name, srcname, srcnamelen,
 /*
  * version that reads pixmap data as well as bitmap data
  */
-#if NeedFunctionPrototypes
 Pixmap XmuLocatePixmapFile (Screen *screen, _Xconst char *name, 
 			    unsigned long fore, unsigned long back, 
 			    unsigned int depth, 
 			    char *srcname, int srcnamelen,
 			    int *widthp, int *heightp, int *xhotp, int *yhotp)
-#else
-Pixmap XmuLocatePixmapFile (screen, name, fore, back, depth, 
-			    srcname, srcnamelen,
-			    widthp, heightp, xhotp, yhotp)
-    Screen *screen;
-    char *name;
-    unsigned long fore, back;
-    unsigned int depth;
-    char *srcname;			/* RETURN */
-    int srcnamelen;
-    int *widthp, *heightp, *xhotp, *yhotp;  /* RETURN */
-#endif
 {
     Display *dpy = DisplayOfScreen (screen);
     Window root = RootWindowOfScreen (screen);

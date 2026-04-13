@@ -92,17 +92,17 @@ static XtResource resources[] = {
 };
 #endif
 
-static void actproc11(a1, a2, a3, a4)
-Widget a1;
-XEvent* a2;
-String* a3;
-Cardinal* a4;
+static void actproc11(
+    Widget a1,
+    XEvent* a2,
+    String* a3,
+    Cardinal* a4)
 {}
-static void actproc12(a1, a2, a3, a4)
-Widget a1;
-XEvent* a2;
-String* a3;
-Cardinal* a4;
+static void actproc12(
+    Widget a1,
+    XEvent* a2,
+    String* a3,
+    Cardinal* a4)
 {}
 
 static XtActionsRec actions[] = {
@@ -174,11 +174,11 @@ WidgetClass avsComp2WidgetClass = (WidgetClass) &avsComp2ClassRec;
  *                                                                           *
  *****************************************************************************/
 
-static void ChangeManagedTest(w)
-Widget w;
+static void ChangeManagedTest(Widget w)
 {
 	avs_set_event(5,1);
 }
+
 static void ClassInitialize (void)
 {
     XawInitializeWidgetSet();
@@ -211,16 +211,11 @@ static Boolean SetValues (Widget grequest, Widget gnew, Widget gcurrent,
     return redraw;
 }
 
-
-/* ARGSUSED */
-static XtGeometryResult GeometryManager (w, request, reply)
-    Widget w;
-    XtWidgetGeometry *request;
-    XtWidgetGeometry *reply;
+static XtGeometryResult GeometryManager (
+    Widget w,
+    XtWidgetGeometry *request,
+    XtWidgetGeometry *reply)
 {
-/*
-	AvsComp2Rec *me = (AvsComp2Rec*)XtParent(w);
-*/
 	avs_set_event(4,avs_get_event(4)+1);
 
 	if (!request) {
@@ -279,19 +274,16 @@ static XtGeometryResult GeometryManager (w, request, reply)
 	}
 	
 	return XtGeometryAlmost;
-/*
-	return XtGeometryYes;
-*/
 }
 
-static void Destroy (gw)
-    Widget gw;
+static void Destroy (Widget gw)
 {
 }
 
-static XtGeometryResult QueryGeometry (w, request, preferred)
-    Widget w;
-    XtWidgetGeometry *request, *preferred;
+static XtGeometryResult QueryGeometry (
+    Widget w,
+    XtWidgetGeometry *request,
+    XtWidgetGeometry *preferred)
 {
 	AvsComp2Rec *me = (AvsComp2Rec*)w;
 

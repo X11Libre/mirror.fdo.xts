@@ -198,11 +198,13 @@ WidgetClass boxWidgetClass = (WidgetClass)&boxClassRec;
  *
  */
 
-static void DoLayout(bbw, width, height, reply_width, reply_height, position)
-    BoxWidget	bbw;
-    Dimension	width, height;
-    Dimension	*reply_width, *reply_height; /* bounding box */
-    Boolean	position;	/* actually reposition the windows? */
+static void DoLayout(
+    BoxWidget bbw,
+    Dimension width,
+    Dimension height,
+    Dimension *reply_width,
+    Dimension *reply_height,     /* bounding box */
+    Boolean position)            /* actually reposition the windows? */
 {
     Boolean vbox = (bbw->box.orientation == XtorientVertical);
     Cardinal  i;
@@ -318,9 +320,10 @@ static void DoLayout(bbw, width, height, reply_width, reply_height, position)
  *
  */
 
-static XtGeometryResult PreferredSize(widget, constraint, preferred)
-    Widget widget;
-    XtWidgetGeometry *constraint, *preferred;
+static XtGeometryResult PreferredSize(
+    Widget widget,
+    XtWidgetGeometry *constraint,
+    XtWidgetGeometry *preferred)
 {
     BoxWidget w = (BoxWidget)widget;
     Dimension width /*, height */;
@@ -419,14 +422,11 @@ static XtGeometryResult PreferredSize(widget, constraint, preferred)
  *
  */
 
-static void Resize(w)
-    Widget	w;
+static void Resize(Widget w)
 {
     Dimension junk;
-
     DoLayout((BoxWidget)w, w->core.width, w->core.height, &junk, &junk, TRUE);
-
-} /* Resize */
+}
 
 /*
  *
@@ -437,8 +437,7 @@ static void Resize(w)
  * TryNewLayout just says if it's possible, and doesn't actually move the kids
  */
 
-static Boolean TryNewLayout(bbw)
-    BoxWidget	bbw;
+static Boolean TryNewLayout(BoxWidget bbw)
 {
     Dimension 	preferred_width, preferred_height;
     Dimension	proposed_width, proposed_height;
@@ -523,10 +522,10 @@ static Boolean TryNewLayout(bbw)
  */
 
 /*ARGSUSED*/
-static XtGeometryResult GeometryManager(w, request, reply)
-    Widget		w;
-    XtWidgetGeometry	*request;
-    XtWidgetGeometry	*reply;	/* RETURN */
+static XtGeometryResult GeometryManager(
+    Widget		w,
+    XtWidgetGeometry	*request,
+    XtWidgetGeometry	*reply) /* RETURN */
 
 {
     Dimension	width, height, borderWidth;
@@ -587,8 +586,7 @@ static XtGeometryResult GeometryManager(w, request, reply)
     return (XtGeometryYes);
 }
 
-static void ChangeManaged(w)
-    Widget w;
+static void ChangeManaged(Widget w)
 {
     /* Reconfigure the box */
     TryNewLayout((BoxWidget)w);
@@ -624,10 +622,10 @@ static void Initialize(
 
 } /* Initialize */
 
-static void Realize(w, valueMask, attributes)
-    Widget w;
-    Mask *valueMask;
-    XSetWindowAttributes *attributes;
+static void Realize(
+    Widget w,
+    Mask *valueMask,
+    XSetWindowAttributes *attributes)
 {
     attributes->bit_gravity = NorthWestGravity;
     *valueMask |= CWBitGravity;

@@ -124,10 +124,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  */
 /*ARGSUSED2*/
 void
-dumpimage(imp, name, ap)
-XImage	*imp;
-char	*name;
-struct	area	*ap;	/* NOTUSED yet */
+dumpimage(XImage *imp, char *name, struct area *ap)
 {
 FILE	*fp;
 int 	x, y;

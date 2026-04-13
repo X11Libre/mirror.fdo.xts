@@ -149,7 +149,7 @@ push_stdout(const char *file, const char *mode)
 **	You want stdout opened for writing...
 */
 
-void pop_stdout()
+void pop_stdout(void)
 {
 	if (Dup_stdout == -1) {
 		sprintf(ebuf, "ERROR: pop_stdout: push_stdout never called");
@@ -223,7 +223,7 @@ push_stderr(const char *file, const char *mode)
 **	You want stderr opened for writing...
 */
 
-void pop_stderr()
+void pop_stderr(void)
 {
 	if (Dup_stderr == -1) {
 		sprintf(ebuf, "ERROR: pop_stderr: push_stderr never called");
@@ -290,7 +290,7 @@ push_to_devnull(const char *file, const char *mode)
 	}
 }
 
-int restore_from_devnull()
+int restore_from_devnull(void)
 {
 	if (Dup_stdout == -1) {
 			sprintf(ebuf, "ERROR: restore_from_devnull: push_to_devnull never called");

@@ -121,15 +121,13 @@ static	int 	failcount;
  * use at all because there is no guarantee that pfcount is actually
  * called.
  */
-void pfcount(pass, fail)
-int 	pass;
-int 	fail;
+void pfcount(int pass, int fail)
 {
 	passcount += pass;
 	failcount += failcount;
 }
 
-void rptcounts()
+void rptcounts(void)
 {
 	trace("passcount=%d, failcount=%d", passcount, failcount);
 }

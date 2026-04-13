@@ -166,8 +166,7 @@ WidgetClass avsObjClass = (WidgetClass)&avsObjClassRec;
  */
 
 
-static void AvsObjClassPartInitialize(wc)
-    WidgetClass wc;
+static void AvsObjClassPartInitialize(WidgetClass wc)
 {
 /*
     AvsObjClass roc = (AvsObjClass)wc;
@@ -183,20 +182,19 @@ AvsObjInitialize(Widget requested_widget, Widget new_widget,
 {
 }
 
-/*ARGSUSED*/
-static void AvsObjSetValuesAlmost(old, new, request, reply)
-    Widget		old;
-    Widget		new;
-    XtWidgetGeometry    *request;
-    XtWidgetGeometry    *reply;
+static void AvsObjSetValuesAlmost(
+    Widget old,
+    Widget new,
+    XtWidgetGeometry *request,
+    XtWidgetGeometry *reply)
 {
     *request = *reply;
 }
 
-void AvsObjCallCallbackList(w, call_data, event_num)
-Widget w;
-XtPointer call_data;
-int event_num;
+void AvsObjCallCallbackList(
+    Widget w,
+    XtPointer call_data,
+    int event_num)
 {
 	XtCallCallbackList(w, w->core.destroy_callbacks, call_data);
 	avs_set_event(event_num, 1);

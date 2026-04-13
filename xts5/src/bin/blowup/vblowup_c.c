@@ -509,30 +509,30 @@ const char *whiches[] = {
 /*
  * do initialization and handle events                                                                
  */
-
-int
-VBlowup(display, window, egc, init_x, init_y, w, h, size, granularity, cmap,
-		pbi, kgi, ix, iy,
-		background, warp_pointer_x, warp_pointer_y,show_banner,
-		compare_color, expose_handler, winzoomp, font_name)
-Display *display;
-Window window; /* window in bg with >=1:1 version of pbi in it */
-GC	egc;
-int init_x, init_y;
-int size, w, h;
-int granularity;
-Colormap cmap;
-XImage *pbi,*kgi;
-int ix, iy;
-unsigned long background;
-int warp_pointer_x, warp_pointer_y;
-int show_banner;
-int compare_color;
-void (*expose_handler)(Display*, Window, GC, XImage*, XImage*, int, XEvent*,
-	unsigned int);
-int	*winzoomp;
-char	*font_name;
-{                                                      
+int VBlowup(
+    Display *display,
+    Window window, /* window in bg with >=1:1 version of pbi in it */
+    GC	egc,
+    int init_x,
+    int init_y,
+    int size,
+    int w,
+    int h,
+    int granularity,
+    Colormap cmap,
+    XImage *pbi,
+    XImage *kgi,
+    int ix,
+    int iy,
+    unsigned long background,
+    int warp_pointer_x,
+    int warp_pointer_y,
+    int show_banner,
+    int compare_color,
+    void (*expose_handler)(Display*, Window, GC, XImage*, XImage*, int, XEvent*, unsigned int),
+    int *winzoomp,
+    char *font_name)
+{
         int	show_color = compare_color;
                                                                                      
 	Font	fid;

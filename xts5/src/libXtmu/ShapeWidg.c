@@ -86,10 +86,11 @@ SOFTWARE.
 static ShapeError();
 static  ShapeRectangle(), ShapeOval(), ShapeEllipseOrRoundedRectangle();
 
-Boolean XmuReshapeWidget(w, shape_style, corner_width, corner_height)
-    Widget w;
-    int shape_style;
-    int corner_width, corner_height;
+Boolean XmuReshapeWidget(
+    Widget w,
+    int shape_style,
+    int corner_width,
+    int corner_height)
 {
     switch (shape_style) {
 
@@ -117,8 +118,7 @@ Boolean XmuReshapeWidget(w, shape_style, corner_width, corner_height)
     return True;
 }
 
-static ShapeError(w)
-    Widget w;
+static ShapeError(Widget w)
 {
     String params[1];
     Cardinal num_params = 1;
@@ -130,9 +130,7 @@ static ShapeError(w)
 		   );
 }
 
-
-static ShapeRectangle(w)
-    Widget w;
+static ShapeRectangle(Widget w)
 {
     XShapeCombineMask( XtDisplay(w), XtWindow(w),
 		       ShapeBounding, 0, 0, None, ShapeSet );
@@ -140,9 +138,7 @@ static ShapeRectangle(w)
 		       ShapeClip, 0, 0, None, ShapeSet );
 }
 
-
-static ShapeOval(w)
-    Widget w;
+static ShapeOval(Widget w)
 {
     Display *dpy = XtDisplay(w);
     unsigned width = w->core.width + (w->core.border_width<<1);
@@ -195,11 +191,11 @@ static ShapeOval(w)
     XFreeGC (dpy, gc );
 }
 
-
-static ShapeEllipseOrRoundedRectangle(w, ellipse, ew, eh)
-    Widget w;
-    Boolean ellipse;
-    int ew, eh;
+static ShapeEllipseOrRoundedRectangle(
+    Widget w,
+    Boolean ellipse,
+    int ew,
+    int eh)
 {
     Display *dpy = XtDisplay(w);
     unsigned width = w->core.width + (w->core.border_width<<1);

@@ -171,10 +171,7 @@ static	int 	blocker(Display *, Block_Info *);
  * to unblock procedure.  See block.man for more details.
  */
 Status
-block(display, event, info)
-Display	*display;
-XEvent	*event;
-Block_Info	*info;
+block(Display *display, XEvent *event, Block_Info *info)
 {
 	FILE	*fp;
 	int	exit_status;
@@ -254,8 +251,7 @@ Block_Info	*info;
 
 /*ARGSUSED*/
 static void
-block_alarm(sig)
-int 	sig;
+block_alarm(int sig)
 {
 	longjmp(jumptohere, 1);
 }

@@ -160,10 +160,10 @@ static XVaNestedList status_list = NULL;
 
 /* some callbacks procedures */
 static void
-iccb_preedit_start(ic,client,call_data)
-	XIC ic;
-	XPointer client;
-	XPointer call_data;
+iccb_preedit_start(
+	XIM ic,
+	XPointer client,
+	XPointer call_data)
 {
 	iccb_preedit_cnt[ICCB_START]++;
 	if(ic == NULL)
@@ -179,10 +179,10 @@ iccb_preedit_start(ic,client,call_data)
 }
 
 static void
-iccb_preedit_draw(ic,client,call_data)
-	XIC ic;
-	XPointer client;
-	XPointer call_data;
+iccb_preedit_draw(
+	XIM ic,
+	XPointer client,
+	XPointer call_data)
 {
 	iccb_preedit_cnt[ICCB_DRAW]++;
 	if(ic == NULL)
@@ -198,10 +198,10 @@ iccb_preedit_draw(ic,client,call_data)
 }
 
 static void
-iccb_preedit_done(ic,client,call_data)
-	XIC ic;
-	XPointer client;
-	XPointer call_data;
+iccb_preedit_done(
+	XIM ic,
+	XPointer client,
+	XPointer call_data)
 {
 	iccb_preedit_cnt[ICCB_DONE]++;
 	if(ic == NULL)
@@ -217,10 +217,10 @@ iccb_preedit_done(ic,client,call_data)
 }
 
 static void
-iccb_preedit_caret(ic,client,call_data)
-	XIC ic;
-	XPointer client;
-	XPointer call_data;
+iccb_preedit_caret(
+	XIM ic,
+	XPointer client,
+	XPointer call_data)
 {
 	iccb_preedit_cnt[ICCB_CARET]++;
 	if(ic == NULL)
@@ -237,10 +237,10 @@ iccb_preedit_caret(ic,client,call_data)
 
 /* some status callback procedures */
 static void
-iccb_status_start(ic,client,call_data)
-	XIC ic;
-	XPointer client;
-	XPointer call_data;
+iccb_status_start(
+	XIM ic,
+	XPointer client,
+	XPointer call_data)
 {
 	iccb_status_cnt[ICCB_START]++;
 	if(ic == NULL)
@@ -256,10 +256,10 @@ iccb_status_start(ic,client,call_data)
 }
 
 static void
-iccb_status_draw(ic,client,call_data)
-	XIC ic;
-	XPointer client;
-	XPointer call_data;
+iccb_status_draw(
+	XIM ic,
+	XPointer client,
+	XPointer call_data)
 {
 	iccb_status_cnt[ICCB_DRAW]++;
 	if(ic == NULL)
@@ -275,10 +275,10 @@ iccb_status_draw(ic,client,call_data)
 }
 
 static void
-iccb_status_done(ic,client,call_data)
-	XIC ic;
-	XPointer client;
-	XPointer call_data;
+iccb_status_done(
+	XIM ic,
+	XPointer client,
+	XPointer call_data)
 {
 	iccb_status_cnt[ICCB_DONE]++;
 	if(ic == NULL)
@@ -294,10 +294,10 @@ iccb_status_done(ic,client,call_data)
 }
 
 static void
-iccb_geom(ic,client,call_data)
-	XIC ic;
-	XPointer client;
-	XPointer call_data;
+iccb_geom(
+	XIM ic,
+	XPointer client,
+	XPointer call_data)
 {
 	iccb_geom_cnt++;
 	if(ic == NULL)
@@ -312,7 +312,7 @@ iccb_geom(ic,client,call_data)
 	}
 }
 
-XrmDatabase rm_db_open()
+XrmDatabase rm_db_open(void)
 {
     XrmDatabase db;
 
@@ -327,9 +327,8 @@ XrmDatabase rm_db_open()
     trace("Opened resource database");
     return(db);
 }
- 
-XIM im_open(db)
-	XrmDatabase db;
+
+XIM im_open(XrmDatabase db)
 {
 	XIM im;
 
@@ -344,9 +343,7 @@ XIM im_open(db)
 	return(im);
 }
 
-Bool ic_setup(pwin,pfs)
-	Window *pwin;
-	XFontSet *pfs;
+Bool ic_setup(Window *pwin, XFontSet *pfs)
 {
 	XVisualInfo *vp;
 	Window win;
@@ -402,8 +399,7 @@ Bool ic_setup(pwin,pfs)
 	return(True);
 }
 
-Bool reset_ic_style(im)
-	XIM im;
+Bool reset_ic_style(XIM im)
 {
 	char *pval;
 
@@ -417,8 +413,7 @@ Bool reset_ic_style(im)
 	return(True);
 }
 
-Bool next_ic_style(which_style)
-	XIMStyle *which_style;
+Bool next_ic_style(XIMStyle *which_style)
 {
 	int i;
 
@@ -441,15 +436,15 @@ Bool next_ic_style(which_style)
  * after a call to reset_ic_style().
  */
 int
-n_ic_styles()
+n_ic_styles(void)
 {
    return(num_styles);
 }
 
-XIC ic_open(im,win,which_style)
-	XIM im;
-	Window win;
-	XIMStyle which_style;
+XIC ic_open(
+	XIM im,
+	Window win,
+	XIMStyle which_style)
 {
 	int pe_cnt,st_cnt,dummy;
 	XPoint spot_loc;
@@ -618,8 +613,7 @@ XIC ic_open(im,win,which_style)
 	return(ic);
 }
 
-void ic_close(ic)
-	XIC ic;
+void ic_close(XIC ic)
 {
 	if(preedit_list != NULL)
 		XFree(preedit_list);
@@ -632,12 +626,11 @@ void ic_close(ic)
 }
 
 void
-ic_get_cb(pe_cb,status_cb,geom_cb)
-	XIMCallback pe_cb[];
-	XIMCallback status_cb[];
-	XIMCallback *geom_cb;
+ic_get_cb(
+	XIMCallback pe_cb[],
+	XIMCallback status_cb[],
+	XIMCallback *geom_cb)
 {
-	
     pe_cb[ICCB_START].callback = iccb_preedit_start;
     pe_cb[ICCB_DONE].callback  = iccb_preedit_done;
     pe_cb[ICCB_DRAW].callback  = iccb_preedit_draw;

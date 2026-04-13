@@ -128,9 +128,7 @@ static	Font	Gcfont = NO_FONT;		/* Default font to place in gc */
  * and background, function to GXcopy and planes to AllPlanes.
  */
 GC
-makegc(disp, d)
-Display	*disp;
-Drawable	d;
+makegc(Display *disp, Drawable d)
 {
 GC	gc;
 
@@ -148,8 +146,7 @@ GC	gc;
 }
 
 void
-setgcfont(font)
-Font	font;
+setgcfont(Font font)
 {
 	Gcfont = font;
 }

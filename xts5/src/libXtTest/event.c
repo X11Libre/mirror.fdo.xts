@@ -86,7 +86,7 @@ static struct   sigaction       nact;
 #endif
 
 /* Allocates Semaphores*/
-int avs_alloc_sem()
+int avs_alloc_sem(void)
 {
 	vsw_debug_enter("libXtTest/event.c:avs_alloc_sem()",0);
 
@@ -110,7 +110,7 @@ int avs_alloc_sem()
 }
 
 
-void avs_free_sem()
+void avs_free_sem(void)
 {
 	vsw_debug_enter("libXtTest/event.c:avs_free_sem()",0);
 
@@ -135,9 +135,7 @@ void avs_free_sem()
 **
 */
 
-int avs_wait_event(event, t)
-int event;
-int t;
+int avs_wait_event(int event, int t)
 {
 	struct sembuf mysembuf;
 	int save_errno;
@@ -247,8 +245,7 @@ int t;
 	return 0;
 }
 
-int avs_post_event(event)
-int event;
+int avs_post_event(int event)
 {
 	struct sembuf mysembuf;
 
@@ -284,9 +281,7 @@ int event;
 	return 0;
 }
 
-int avs_set_event(event, val)
-int event;
-int val;
+int avs_set_event(int event, int val)
 {
 	union semun {
 		int val;
@@ -323,9 +318,7 @@ int val;
 	return 0;
 }
 
-
-int avs_get_event(event)
-int event;
+int avs_get_event(int event)
 {
 	vsw_debug_enter("libXtTest/event.c:avs_get_event()",0);
 

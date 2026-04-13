@@ -147,7 +147,7 @@ SOFTWARE.
  * This version of tpstartup.c is for the X protocol test suite.
  */
 void
-tpstartup()
+tpstartup(void)
 {
 }
 
@@ -155,15 +155,14 @@ tpstartup()
  * Actions to take at the end of a test purpose.
  */
 void
-tpcleanup()
+tpcleanup(void)
 {
 }
 
 static char *savedfontpath = NULL;
 
 static char *
-put_in_commas(rep)
-xGetFontPathReply *rep;
+put_in_commas(xGetFontPathReply *rep)
 {
 	char *p = NULL; /* for now, need Xstrealloc() etc. */
 	unsigned int total_len;
@@ -215,8 +214,7 @@ xGetFontPathReply *rep;
 }
 
 static char *
-getfontpath(client)
-int client;
+getfontpath(int client)
 {
 	xReq *req;
 	xGetFontPathReply *rep;
@@ -238,9 +236,7 @@ int client;
 }
 
 static void
-setfontpath(client,prevpath)
-int client;
-char *prevpath;
+setfontpath(int client, char *prevpath)
 {
 	xReq *req;
 	char *commaptr;
@@ -294,7 +290,7 @@ char *prevpath;
  * Special version to set font path and create long lived client.
  */
 void
-tpfontstartup()
+tpfontstartup(void)
 {
 	/*
 	 * Reset SIGALRM signals to be caught in case the TCM has messed 
@@ -321,7 +317,7 @@ tpfontstartup()
  * Special version to reset font path and destroy long lived client.
  */
 void
-tpfontcleanup()
+tpfontcleanup(void)
 {
 	setfontpath(LONG_LIVED_CLIENT, savedfontpath);
 	if (savedfontpath != NULL)

@@ -167,8 +167,7 @@ static int  inwork = 0;		/* Are we fussing with the queue? */
 
 /*ARGSUSED*/
 static void
-dispatch (sig)
-int 	sig;
+dispatch (int sig)
 {
     struct timer   *next = NULL;
 
@@ -203,7 +202,7 @@ int 	sig;
  */
 
 int
-Set_Init_Timer()
+Set_Init_Timer(void)
 {
     Log_Debug("Set_Init_Timer called");
     if (signal (SIGALRM, dispatch) == (void (*)())-1) {
@@ -290,8 +289,7 @@ Set_Timer (
 }
 
 int
-Get_Timer (timer)
-int     timer;
+Get_Timer (int timer)
 {
     struct timer   *prev;
     struct timer   *next;
@@ -312,9 +310,7 @@ int     timer;
     }
 }
 
-int
-        Stop_Timer (timer)
-int     timer;
+int Stop_Timer (int timer)
 {
     struct timer   *prev = NULL;
     struct timer   *next = NULL;
@@ -347,13 +343,13 @@ int     timer;
 static int ringring;
 
 static void
-vis_chk_exp()
+vis_chk_exp(void)
 {
 	ringring = 1;
 }
 
 void
-Visual_Check()
+Visual_Check(void)
 {
 	if (Xst_visual_check <= 0)
 		return;

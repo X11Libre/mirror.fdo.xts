@@ -134,9 +134,7 @@ SOFTWARE.
 #include "XstlibInt.h"
 
 void
-Map_Window(client,win)	/* use this routine only when exposure events are */
-	int client;	/* being accepted */
-	Window win;
+Map_Window(int client, Window win)	/* use this routine only when exposure events are */
 {
 	xResourceReq *mwr;
 	xEvent *ev;
@@ -160,9 +158,7 @@ Map_Window(client,win)	/* use this routine only when exposure events are */
 
 #if 0
 void
-Map_a_Window(client, win)	/* use when no expose events are expected */
-	int client;
-	Window win;
+Map_a_Window(int client, Window win)	/* use when no expose events are expected */
 {
 	xResourceReq *req;
 
@@ -175,9 +171,7 @@ Map_a_Window(client, win)	/* use when no expose events are expected */
 }
 
 void
-Unmap_Window(client, win)
-	int client;
-	Window win;
+Unmap_Window(int client, Window win)
 {
 	xResourceReq *req;
 	xEvent *ev;
@@ -200,9 +194,7 @@ Unmap_Window(client, win)
 }
 
 void
-Unmap_a_Window(client, win)
-	int client;
-	Window win;
+Unmap_a_Window(int client, Window win)
 {
 	xResourceReq *req;
 
@@ -215,10 +207,7 @@ Unmap_a_Window(client, win)
 }
 
 void
-Set_Event_Mask(client, win, mask)
-	int client;
-	Window win;
-	unsigned long mask;
+Set_Event_Mask(int client, Window win, unsigned long mask)
 {
 	xChangeWindowAttributesReq *cwar;
 
@@ -235,9 +224,7 @@ Set_Event_Mask(client, win, mask)
 }
 
 void
-Destroy_Window(client, win)
-	int client;
-	Window win;
+Destroy_Window(int client, Window win)
 {
 	xResourceReq *req;
 

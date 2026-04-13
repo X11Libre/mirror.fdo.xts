@@ -141,11 +141,11 @@ static XtConvertArgRec screenConvertArg[] = {
 #define FONTSPECIFIER		"FONT "
 
 /*ARGSUSED*/
-void XmuCvtStringToCursor(args, num_args, fromVal, toVal)
-    XrmValuePtr args;
-    Cardinal    *num_args;
-    XrmValuePtr	fromVal;
-    XrmValuePtr	toVal;
+void XmuCvtStringToCursor(
+    XrmValuePtr args,
+    Cardinal    *num_args,
+    XrmValuePtr fromVal,
+    XrmValuePtr toVal)
 {
     static Cursor cursor;		/* static for cvt magic */
     char *name = (char *)fromVal->addr;
@@ -282,13 +282,13 @@ void XmuCvtStringToCursor(args, num_args, fromVal, toVal)
 
 /*ARGSUSED*/
 Boolean
-XmuCvtStringToColorCursor(dpy, args, num_args, fromVal, toVal, converter_data)
-    Display     *dpy;
-    XrmValuePtr args;
-    Cardinal    *num_args;
-    XrmValuePtr	fromVal;
-    XrmValuePtr	toVal;
-    XtPointer   *converter_data;	/* unused */
+XmuCvtStringToColorCursor(
+    Display     *dpy,
+    XrmValuePtr args,
+    Cardinal    *num_args,
+    XrmValuePtr fromVal,
+    XrmValuePtr toVal,
+    XtPointer   *converter_data)	/* unused */
 {
     Cursor cursor;
     Pixel fg, bg;

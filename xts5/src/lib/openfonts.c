@@ -127,9 +127,7 @@ extern	Display	*Dsp;
  * the array.
  */
 void
-openfonts(fonts, nfonts)
-Font	fonts[];
-int 	nfonts;
+openfonts(Font fonts[], int nfonts)
 {
 char	name[64];
 int 	i;

@@ -261,9 +261,7 @@ Initialize(Widget request, Widget new, ArgList args, Cardinal *num_args)
  *      Returns: none.
  */
 
-static void
-Destroy(w)
-Widget w;
+static void Destroy(Widget w)
 {
     SmeBSBObject entry = (SmeBSBObject) w;
 
@@ -281,11 +279,10 @@ Widget w;
  */
 
 /* ARGSUSED */
-static void
-Redisplay(w, event, region)
-Widget w;
-XEvent * event;
-Region region;
+static void Redisplay(
+    Widget w,
+    XEvent *event,
+    Region region)
 {
     GC gc;
     SmeBSBObject entry = (SmeBSBObject) w;
@@ -412,10 +409,10 @@ SetValues(Widget current, Widget request, Widget new,
  * I just return the height and width of the label plus the margins.
  */
 
-static XtGeometryResult
-QueryGeometry(w, intended, return_val) 
-Widget w;
-XtWidgetGeometry *intended, *return_val;
+static XtGeometryResult QueryGeometry(
+    Widget w,
+    XtWidgetGeometry *intended,
+    XtWidgetGeometry *return_val)
 {
     SmeBSBObject entry = (SmeBSBObject) w;
     Dimension width, height;
@@ -455,9 +452,7 @@ XtWidgetGeometry *intended, *return_val;
  *      Returns: none.
  */
 
-static void 
-FlipColors(w)
-Widget w;
+static void FlipColors(Widget w)
 {
     SmeBSBObject entry = (SmeBSBObject) w;
 
@@ -483,10 +478,10 @@ Widget w;
  *	Returns: none.
  */
 
-static void
-GetDefaultSize(w, width, height) 
-Widget w;
-Dimension * width, * height;
+static void GetDefaultSize(
+    Widget w,
+    Dimension *width,
+    Dimension *height)
 {
     SmeBSBObject entry = (SmeBSBObject) w;
 
@@ -512,10 +507,7 @@ Dimension * width, * height;
  *      Returns: none
  */
 
-static void
-DrawBitmaps(w, gc)
-Widget w;
-GC gc;
+static void DrawBitmaps(Widget w, GC gc)
 {
     int x_loc, y_loc;
     SmeBSBObject entry = (SmeBSBObject) w;
@@ -567,11 +559,7 @@ GC gc;
  *                           FALSE if we are testing the right bitmap.
  *      Returns: none
  */
-
-static void
-GetBitmapInfo(w, is_left)
-Widget w;
-Boolean is_left;
+static void GetBitmapInfo(Widget w, Boolean is_left)
 {
     SmeBSBObject entry = (SmeBSBObject) w;    
     unsigned int depth, bw;
@@ -625,10 +613,7 @@ Boolean is_left;
  *      Arguments: w - the simple menu widget.
  *      Returns: none.
  */
-
-static void
-CreateGCs(w)
-Widget w;
+static void CreateGCs(Widget w)
 {
     SmeBSBObject entry = (SmeBSBObject) w;    
     XGCValues values;
@@ -666,10 +651,7 @@ Widget w;
  *      Arguments: w - the simple menu widget.
  *      Returns: none.
  */
-
-static void
-DestroyGCs(w)
-Widget w;
+static void DestroyGCs(Widget w)
 {
     SmeBSBObject entry = (SmeBSBObject) w;    
 

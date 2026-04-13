@@ -133,8 +133,7 @@ SOFTWARE.
 extern int XInputMajorOpcode;
 
 void
-Show_Ext_Req(mp)
-xReq *mp;
+Show_Ext_Req(xReq *mp)
 {
 #ifdef INPUTEXTENSION
 	if (mp->reqType == XInputMajorOpcode) {

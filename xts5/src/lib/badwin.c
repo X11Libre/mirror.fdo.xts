@@ -123,8 +123,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  * a window and destroying it
  */
 Window
-badwin(disp)
-Display	*disp;
+badwin(Display *disp)
 {
 Window	w;
 

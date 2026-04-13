@@ -125,10 +125,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  * test suite.  The image is cleared to W_BG.
  */
 XImage *
-makeimg(disp, vp, format)
-Display	*disp;
-XVisualInfo	*vp;
-int	format;
+makeimg(Display *disp, XVisualInfo *vp, int format)
 {
 XImage	*im;
 unsigned int width = I_STDWIDTH;
@@ -173,9 +170,7 @@ unsigned int n;
  * Set every pixel in an image to pixel.
  */
 void
-dsetimg(ximage, pixel)
-XImage	*ximage;
-unsigned long pixel;
+dsetimg(XImage *ximage, unsigned long pixel)
 {
 	int x;
 	int y;
@@ -191,9 +186,7 @@ unsigned long pixel;
  * assumed by the lines.
  */
 void
-patternimg(ximage, pixel)
-XImage	*ximage;
-unsigned long pixel;
+patternimg(XImage *ximage, unsigned long pixel)
 {
 	int x;
 	int y;

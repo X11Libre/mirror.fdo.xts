@@ -121,22 +121,20 @@ purpose.  It is provided "as is" without express or implied warranty.
 
 int errorflag;	/**return value of function**/
 
-int 
-DummyEH(display_struc, error_event)
-Display      *display_struc;
-XErrorEvent  *error_event;
+int DummyEH(
+    Display *display_struc,
+    XErrorEvent *error_event)
 {
 	errorflag = 1;
 	return (REGR_FAILURE);
 }
 
 
-int 
-save_stat(save_mask, gc_id, display_struc, drawable_id)
-int     save_mask;
-GC      gc_id;
-Display *display_struc;
-Drawable  drawable_id;
+int save_stat(
+    int save_mask,
+    GC gc_id,
+    Display *display_struc,
+    Drawable drawable_id)
 {
 	extern Window wid_save;
 	extern Pixmap pid_save;

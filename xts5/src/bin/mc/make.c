@@ -168,10 +168,7 @@ void	makeline();
 extern	struct	mclist	*Sources;
 struct	mclist	*filenames;
 
-/*ARGSUSED*/
-void
-mmstart(buf)
-char	*buf;
+void mmstart(char *buf)
 {
 
 	/* sections to include */
@@ -187,11 +184,7 @@ char	*buf;
 	FpTop = cretmpfile(F_TOP, NULL);
 }
 
-
-/*ARGSUSED*/
-void
-mmend(buf)
-char	*buf;
+void mmend(char *buf)
 {
 char	*lp;
 int 	i;
@@ -347,10 +340,7 @@ int 	linepos;
 }
 
 
-void
-mmcopyright(fp, buf)
-FILE	*fp;
-char	*buf;
+void mmcopyright(FILE *fp, char *buf)
 {
 int	i;
 
@@ -368,10 +358,7 @@ int	i;
 	}
 }
 
-void
-mmheader(fp, buf)
-FILE	*fp;
-char	*buf;
+void mmheader(FILE *fp, char *buf)
 {
 	/*
 	 * This is a name of the function that the test is being
@@ -384,18 +371,12 @@ char	*buf;
 	skip(fp, buf);
 }
 
-void
-mmmake(fp, buf)
-FILE	*fp;
-char	*buf;
+void mmmake(FILE *fp, char *buf)
 {
 	echon(fp, buf, FpTop);
 }
 
-void
-mmcfiles(fp, buf)
-FILE	*fp;
-char	*buf;
+void mmcfiles(FILE *fp, char *buf)
 {
 char	*cp;
 char	*tok;
@@ -407,9 +388,7 @@ char	*tok;
 	skip(fp, buf);
 }
 
-void
-mmincstart(name)
-char	*name;
+void mmincstart(char *name)
 {
 
 	/* If this is temp file then don't bother with it */
@@ -429,8 +408,7 @@ char	*name;
 /*
  * create an mclist structure and initialise it
  */
-struct	mclist *
-createmclist()
+struct mclist *createmclist(void)
 {
 struct	mclist	*mclp;
 
@@ -451,10 +429,7 @@ struct	mclist	*mclp;
  * A pointer to the list is returned, it may have been realloced so
  * it could have changed.
  */
-struct	mclist *
-addmclist(list, string)
-struct	mclist	*list;
-char	*string;
+struct mclist *addmclist(struct mclist *list, char *string)
 {
 int 	size;
 
@@ -477,10 +452,7 @@ int 	size;
 /*
  * Get a list string item.
  */
-char *
-getmclistitem(list, n)
-struct mclist *list;
-int 	n;
+char *getmclistitem(struct mclist *list, int n)
 {
 
 	if (n >= list->num)

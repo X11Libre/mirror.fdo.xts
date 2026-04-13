@@ -77,13 +77,13 @@ extern char ebuf[4096];
  *
  */
 
-void xt_handler(name, type, class, defaultp, params, num_params)
-String name;
-String type;
-String class;
-String defaultp ;
-String *params ;
-Cardinal *num_params ;
+void xt_handler(
+    String name,
+    String type,
+    String class,
+    String defaultp,
+    String *params,
+    Cardinal *num_params )
 {
 String par[10];
 int i;
@@ -127,13 +127,13 @@ char buffer[1000], buffer2[1000];
  *
  */
 
-void xt_whandler(name, type, class, defaultp, params, num_params)
-String name;
-String type;
-String class;
-String defaultp ;
-String *params ;
-Cardinal *num_params ;
+void xt_whandler(
+    String name,
+    String type,
+    String class,
+    String defaultp,
+    String *params,
+    Cardinal *num_params)
 {
 String par[10];
 int i;

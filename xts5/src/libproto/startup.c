@@ -156,8 +156,7 @@ Display *Dsp;
 
 extern	int 	ntests;
 
-void
-protostartup()
+void protostartup(void)
 {
 int 	i;
 char	*disp;
@@ -237,8 +236,7 @@ extern	struct	tet_testlist	tet_testlist[];
 /*
  * Cleanup function called at the end of the test purposes.
  */
-void
-protocleanup()
+void protocleanup(void)
 {
 	if (Dsp) {
 		/* At present this causes needless problems... */

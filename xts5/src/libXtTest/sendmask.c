@@ -109,17 +109,16 @@ SOFTWARE.
 
 #include <XtTest.h>
 #include <X11/Xatom.h>              /* standard x atom values */
- 
-void send_event_mask_time (dsply, wndw, msk, typ, key, sevent, event_time)
-Display *dsply;
-Window wndw;
-unsigned long   msk;
-int     typ;
-KeyCode key;
-XEvent * sevent;
-Time event_time;
-{
 
+void send_event_mask_time (
+    Display *dsply,
+    Window wndw,
+    unsigned long msk,
+    int typ,
+    KeyCode key,
+    XEvent *sevent,
+    Time event_time)
+{
     Status st;
     XWindowAttributes w_att;
     Atom atom;
@@ -429,13 +428,13 @@ Time event_time;
     return;
 }
 
-void send_event_mask (dsply, wndw, msk, typ, key, sevent)
-Display *dsply;
-Window wndw;
-unsigned long   msk;
-int     typ;
-KeyCode key;
-XEvent *sevent;
+void send_event_mask (
+    Display *dsply,
+    Window wndw,
+    unsigned long msk,
+    int typ,
+    KeyCode key,
+    XEvent *sevent)
 {
 	send_event_mask_time (dsply, wndw, msk, typ, key, sevent, (Time) CurrentTime);
 }

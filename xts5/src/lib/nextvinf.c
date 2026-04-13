@@ -152,8 +152,7 @@ static	void	uniquify(void);
  * VI_ALT_PIX or VI_ALT_WIN are used.
  */
 void
-resetvinf(flags)
-int 	flags;
+resetvinf(int flags)
 {
 XVisualInfo	vi;
 
@@ -255,8 +254,7 @@ XVisualInfo	vi;
  * Returns False if there is one, otherwise True.
  */
 int
-nextvinf(visp)
-XVisualInfo 	**visp;
+nextvinf(XVisualInfo **visp)
 {
 static	XVisualInfo	vi;
 
@@ -297,7 +295,7 @@ static	XVisualInfo	vi;
  * after a call to resetvinf().
  */
 int
-nvinf()
+nvinf(void)
 {
 	return(Nvis+Ndepths);
 }
@@ -308,9 +306,7 @@ nvinf()
  * desired to loop over all types and depths.
  */
 Drawable
-defdraw(disp, type)
-Display *disp;
-int 	type;
+defdraw(Display *disp, int type)
 {
 XVisualInfo	*vp;
 Drawable	d;
@@ -334,8 +330,7 @@ int		ret;
  * where it is not neccessary to loop over all types.
  */
 Window
-defwin(disp)
-Display	*disp;
+defwin(Display *disp)
 {
 XVisualInfo	*vp;
 

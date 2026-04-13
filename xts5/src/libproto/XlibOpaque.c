@@ -177,17 +177,15 @@ SOFTWARE.
  * of the form hostname:number.screen ("::" if DECnet) is returned in a result
  * parameter. The screen number to use is also returned.
  */
-int XstConnectDisplay (display_name, expanded_name, screen_num,
-		       auth_proto, auth_length, auth_string, auth_strlen,
-		       xlib_dpy)
-    const char *display_name;
-    char **expanded_name;	/* return */
-    int *screen_num;		/* return */
-    char **auth_proto;		/* return */
-    int *auth_length;		/* return */
-    char **auth_string;		/* return */
-    int *auth_strlen;		/* return */
-    Display **xlib_dpy;		/* return */
+int XstConnectDisplay (
+    const char *display_name,
+    char **expanded_name,	/* return */
+    int *screen_num,		/* return */
+    char **auth_proto,		/* return */
+    int *auth_length,		/* return */
+    char **auth_string,		/* return */
+    int *auth_strlen,		/* return */
+    Display **xlib_dpy)		/* return */
 {
 	*expanded_name = NULL;
 	*auth_proto = "";
@@ -206,10 +204,7 @@ int XstConnectDisplay (display_name, expanded_name, screen_num,
  * Disconnect from server.
  */
 
-int XstDisconnectDisplay (server)
-
-    int server;
-
+int XstDisconnectDisplay (int server)
 {
     return close(server);
 }
@@ -217,8 +212,7 @@ int XstDisconnectDisplay (server)
 #undef NULL
 #define NULL ((char *) 0)
 
-_XstWaitForReadable(dpy)
-  XstDisplay *dpy;
+_XstWaitForReadable(XstDisplay *dpy)
 {
     fd_set r_mask;
     int result;
@@ -235,19 +229,18 @@ _XstWaitForReadable(dpy)
 
 static unsigned int padlength[4] = {0, 3, 2, 1};
 
-XstSendClientPrefix (dpy, client, auth_proto, auth_string, needswap)
-     XstDisplay *dpy;
-     xConnClientPrefix *client;
-	char	*auth_proto;
-	char	*auth_string;
-     int needswap;
+XstSendClientPrefix (
+    XstDisplay *dpy,
+    xConnClientPrefix *client,
+    char *auth_proto,
+    char *auth_string,
+    int needswap)
 {
 	BPRINTF1 ("OpenDisplay already done by Xlib XOpenDisplay()\n");
 	return;
 }
 
-static int num_formats(xdpy)
-Display *xdpy;
+static int num_formats(Dislay *xdpy)
 {
 	int nf = 0;
 	XPixmapFormatValues *xpfvp = XListPixmapFormats(xdpy, &nf);
@@ -257,8 +250,7 @@ Display *xdpy;
 	return nf;
 }
 
-static int calc_length(xdpy)
-Display *xdpy;
+static int calc_length(Display *xdpy)
 {
 	int total, nb, s;
 	int nf = num_formats(xdpy);
@@ -292,10 +284,7 @@ Display *xdpy;
 	return total;
 }
 
-GetConnSetupPrefix (client, prefixp, needswap)
-int client;
-xConnSetupPrefix * prefixp;
-int     needswap;
+GetConnSetupPrefix (int client, xConnSetupPrefix *prefixp, int needswap)
 {
     XstDisplay * dpy;
     Display *xdpy;
@@ -323,8 +312,7 @@ int     needswap;
  *		as if it all came from the conection.
  */
 
-static unsigned long infer_mask(xdpy)
-Display *xdpy;
+static unsigned long infer_mask(Display *xdpy)
 {
 	int i;
 	unsigned long mask = 0;
@@ -335,11 +323,7 @@ Display *xdpy;
 	return mask;
 }
 
-GetConnSetupData (client, setupdp, len, needswap)
-int client;
-xConnSetup * setupdp;
-int     len;
-int     needswap;
+GetConnSetupData (int client, xConnSetup *setupdp, int len, int needswap)
 {
     XstDisplay * dpy;
     char   *sptr;		/* pointer into setup data area */

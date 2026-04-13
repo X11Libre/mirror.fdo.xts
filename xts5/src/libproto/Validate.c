@@ -144,8 +144,7 @@ SOFTWARE.
 */
 
 int
-Allocatable (client)
-int client;
+Allocatable (int client)
 {
     int visual_class;
 	XstDisplay	*dsp;

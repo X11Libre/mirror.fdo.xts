@@ -196,9 +196,9 @@ static int nkeys_subact = sizeof(keys_subact) / sizeof(char *);
  * Open a xim input/stimulus file and read the header
  * Returns false if can't read the xim stimulus file
  */
-Bool xim_stimulus_open(plocale,style)
-	char *plocale;			/* name of the locale */
-	XIMStyle *style;
+Bool xim_stimulus_open(
+	char *plocale,			/* name of the locale */
+	XIMStyle *style)
 {
 	int testnum;		/* invocable component */
 	char fname[MAXFNAME];
@@ -326,8 +326,7 @@ Bool xim_stimulus_open(plocale,style)
 /*
  * Read a stimulus file and emit stimuli
  */
-Bool xim_stimulus_read(ic)
-	XIC ic;
+Bool xim_stimulus_read(XIC ic)
 {
 	char *pstr,*tstr;
 	char id[MAXIDLEN];
@@ -473,7 +472,7 @@ Bool xim_stimulus_read(ic)
 /*
  * Close the xim stimuli file 
  */
-void xim_stimulus_close()
+void xim_stimulus_close(void)
 {
 	if(fp_stimulus == NULL)
 		return;

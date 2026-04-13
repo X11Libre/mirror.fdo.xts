@@ -107,17 +107,17 @@ static void RectClassPartInitialize(WidgetClass);
 static void RectSetValuesAlmost(Widget, Widget,
                                 XtWidgetGeometry *, XtWidgetGeometry *);
 
-static void actproc11(a1, a2, a3, a4)
-Widget a1;
-XEvent* a2;
-String* a3;
-Cardinal* a4;
+static void actproc11(
+    Widget a1,
+    XEvent* a2,
+    String* a3,
+    Cardinal* a4)
 {}
-static void actproc12(a1, a2, a3, a4)
-Widget a1;
-XEvent* a2;
-String* a3;
-Cardinal* a4;
+static void actproc12(
+    Widget a1,
+    XEvent* a2,
+    String* a3,
+    Cardinal* a4)
 {}
 
 static XtActionsRec actions[] = {
@@ -166,11 +166,10 @@ externaldef(rectobjclassrec) AvsRectObjClassRec avsrectObjClassRec = {
 externaldef(avsrectObjClass)
 WidgetClass avsrectObjClass = (WidgetClass)&avsrectObjClassRec;
 
-/*ARGSUSED*/
-static void XtCopyAncestorSensitive(widget, offset, value)
-    Widget      widget;
-    int		offset;
-    XrmValue    *value;
+static void XtCopyAncestorSensitive(
+    Widget widget,
+    int offset,
+    XrmValue *value)
 {
     static Boolean  sensitive;
     Widget parent = widget->core.parent;
@@ -185,8 +184,7 @@ static void XtCopyAncestorSensitive(widget, offset, value)
  */
 
 
-static void RectClassPartInitialize(wc)
-    WidgetClass wc;
+static void RectClassPartInitialize(WidgetClass wc)
 {
     RectObjClass roc = (RectObjClass)wc;
     RectObjClass super = ((RectObjClass)roc->rect_class.superclass);
@@ -213,22 +211,20 @@ static void RectClassPartInitialize(wc)
     }
 }
 
-/* ARGSUSED */
-static void RectObjInitialize(requested_widget, new_widget, args, num_args)
-    Widget   requested_widget;
-    Widget new_widget;
-    ArgList args;
-    Cardinal *num_args;
+static void RectObjInitialize(
+    Widget requested_widget,
+    Widget new_widget,
+    ArgList args,
+    Cardinal *num_args)
 {
     ((RectObj)new_widget)->rectangle.managed = FALSE;
 }
 
-/*ARGSUSED*/
-static void RectSetValuesAlmost(old, new, request, reply)
-    Widget		old;
-    Widget		new;
-    XtWidgetGeometry    *request;
-    XtWidgetGeometry    *reply;
+static void RectSetValuesAlmost(
+    Widget old,
+    Widget new,
+    XtWidgetGeometry *request,
+    XtWidgetGeometry *reply)
 {
     *request = *reply;
 }

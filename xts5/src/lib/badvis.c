@@ -123,8 +123,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  * XTestSetVisualIDOfVisual.
  */
 void
-badvis(v)
-Visual	*v;
+badvis(Visual *v)
 {
 	XTestSetVisualIDOfVisual(v, (VisualID)0xFFFFFFFF);
 	/* known invalid as top 3 bits set. */

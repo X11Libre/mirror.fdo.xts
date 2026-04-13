@@ -131,7 +131,7 @@ static int 	brkval;
  * Actions to take at the beginning of a test purpose.
  */
 void
-tpstartup()
+tpstartup(void)
 {
 extern  int     unexp_err(Display *, XErrorEvent *ep);
 extern  int     io_err(Display *);
@@ -161,7 +161,7 @@ extern  int     io_err(Display *);
  * Actions to take at the end of a test purpose.
  */
 void
-tpcleanup()
+tpcleanup(void)
 {
 	/* Free all registered resources */
 	freereg();

@@ -136,11 +136,7 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 extern	Display	*Dsp;
 
 void
-cleanup_locale(style,fs,im,db)
-        XIMStyles *style;
-        XFontSet fs;
-        XIM im;
-        XrmDatabase db;
+cleanup_locale(XIMStyles *style, XFontSet fs, XIM im, XrmDatabase db)
 {
         if(style != NULL)
                 XFree(style);

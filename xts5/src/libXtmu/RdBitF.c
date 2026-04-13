@@ -163,8 +163,7 @@ static void initHexTable()
 /*
  *	read next hex value in the input stream, return -1 if EOF
  */
-static int NextInt (fstream)
-    FILE *fstream;
+static int NextInt (FILE *fstream)
 {
     int	ch;
     int	value = 0;
@@ -199,11 +198,13 @@ static int NextInt (fstream)
  * its arguments won't have been touched.  This routine should look as much
  * like the Xlib routine XReadBitmapfile as possible.
  */
-int XmuReadBitmapData (fstream, width, height, datap, x_hot, y_hot)
-    FILE *fstream;			/* handle on file  */
-    unsigned int *width, *height;	/* RETURNED */
-    unsigned char **datap;		/* RETURNED */
-    int *x_hot, *y_hot;			/* RETURNED */
+int XmuReadBitmapData (
+    FILE *fstream,		/* handle on file  */
+    unsigned int *width,
+    unsigned int *height,	/* RETURNED */
+    unsigned char **datap;	/* RETURNED */
+    int *x_hot,
+    int *y_hot)			/* RETURNED */
 {
     unsigned char *data = NULL;		/* working variable */
     char line[MAX_SIZE];		/* input line from file */
@@ -322,18 +323,9 @@ int XmuReadBitmapData (fstream, width, height, datap, x_hot, y_hot)
     RETURN (BitmapSuccess);
 }
 
-
-#if NeedFunctionPrototypes
 int XmuReadBitmapDataFromFile (_Xconst char *filename, unsigned int *width, 
 			       unsigned int *height, unsigned char **datap,
 			       int *x_hot, int *y_hot)
-#else
-int XmuReadBitmapDataFromFile (filename, width, height, datap, x_hot, y_hot)
-    char *filename;
-    unsigned int *width, *height;	/* RETURNED */
-    unsigned char **datap;		/* RETURNED */
-    int *x_hot, *y_hot;			/* RETURNED */
-#endif
 {
     FILE *fstream;
     int status;

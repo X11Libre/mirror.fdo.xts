@@ -148,9 +148,7 @@ static 	int	dkeyind[MAX_DEVICES];
  * released later.
  */
 void
-buttonpress(disp, button)
-Display *disp;
-unsigned int     button;
+buttonpress(Display *disp, unsigned int button)
 {
 	if (!SimulateButtonPressEvent(disp, button)) {
 		delete("XTEST extension not configured or in use");
@@ -165,10 +163,7 @@ unsigned int     button;
 
 #ifdef INPUTEXTENSION
 void
-devicebuttonpress(disp, dev, button)
-Display *disp;
-XDevice *dev;
-unsigned int     button;
+devicebuttonpress(Display *disp, XDevice *dev, unsigned int button)
 {
 	if (!SimulateDeviceButtonPressEvent(disp, dev, button)) {
 		delete("XTEST extension not configured or in use");
@@ -186,9 +181,7 @@ unsigned int     button;
  * Simulate a button release, the corresponding saved event is removed.
  */
 void
-buttonrel(disp, button)
-Display *disp;
-unsigned int     button;
+buttonrel(Display *disp, unsigned int button)
 {
 int 	i;
 
@@ -212,10 +205,7 @@ int 	i;
 
 #ifdef INPUTEXTENSION
 void
-devicebuttonrel(disp, dev, button)
-Display *disp;
-XDevice *dev;
-unsigned int     button;
+devicebuttonrel(Display *disp, XDevice *dev, unsigned int button)
 {
 int 	i;
 
@@ -243,9 +233,7 @@ int 	i;
  * released later.
  */
 void
-keypress(disp, key)
-Display *disp;
-int     key;
+keypress(Display *disp, int key)
 {
 	if (key == NoSymbol)
 		return;
@@ -263,10 +251,7 @@ int     key;
 
 #ifdef INPUTEXTENSION
 void
-devicekeypress(disp, dev, key)
-Display *disp;
-XDevice *dev;
-int     key;
+devicekeypress(Display *disp, XDevice *dev, int key)
 {
 int id = dev->device_id;
 
@@ -293,9 +278,7 @@ int id = dev->device_id;
  * Simulate a key release, the corresponding saved event is removed.
  */
 void
-keyrel(disp, key)
-Display *disp;
-int     key;
+keyrel(Display *disp, int key)
 {
 int 	i;
 
@@ -321,10 +304,7 @@ int 	i;
 
 #ifdef INPUTEXTENSION
 void
-devicekeyrel(disp, dev, key)
-Display *disp;
-XDevice *dev;
-int     key;
+devicekeyrel(Display *disp, XDevice *dev, int key)
 {
 int 	i, id=dev->device_id;
 
@@ -358,7 +338,7 @@ int 	i, id=dev->device_id;
  * Release buttons pressed with buttonpress, in reverse order of pressing.
  */
 void
-relbuttons()
+relbuttons(void)
 {
 int 	i;
 
@@ -371,8 +351,7 @@ int 	i;
 
 #ifdef INPUTEXTENSION
 void
-devicerelbuttons(dev)
-XDevice *dev;
+devicerelbuttons(XDevice *dev)
 {
 int 	i;
 
@@ -388,7 +367,7 @@ int 	i;
  * Release keys pressed with keypress, in reverse order of pressing.
  */
 void
-relkeys()
+relkeys(void)
 {
 int 	i;
 
@@ -399,8 +378,7 @@ int 	i;
 	keyind = 0;
 }
 #ifdef INPUTEXTENSION
-void devicerelkeys(dev)
-XDevice *dev;
+void devicerelkeys(XDevice *dev)
 {
 int 	i, id=dev->device_id;
 
@@ -422,7 +400,7 @@ int 	i, id=dev->device_id;
  * if none are currently pressed (applies to all the release functions.)
  */
 void
-relalldev()
+relalldev(void)
 {
 	relbuttons();
 	relkeys();
@@ -445,14 +423,14 @@ static	XModifierKeymap	*devcurmap;
  * case.
  */
 static unsigned int
-_wantmods(disp, dev, want)
-Display	*disp;
+_wantmods(
+    Display *disp,
 #ifdef INPUTEXTENSION
-XDevice *dev;
+    XDevice *dev,
 #else
-void *dev;
+    void *dev,
 #endif
-int 	want;
+    int want)
 {
 unsigned int 	mask;
 int 	nmods;
@@ -510,19 +488,14 @@ int 	i;
 
 #ifdef INPUTEXTENSION
 unsigned int
-wantdevmods(disp, dev, want)
-Display	*disp;
-XDevice *dev;
-int 	want;
+wantdevmods(Display *disp, XDevice *dev, int want)
 {
 	return (_wantmods(disp, dev, want));
 }
 #endif
 
 unsigned int
-wantmods(disp, want)
-Display	*disp;
-int 	want;
+wantmods(Display *disp, int want)
 {
 	return (_wantmods(disp, NULL, want));
 }
@@ -537,18 +510,13 @@ static void devmodthing(Display *, int, unsigned int, int);
  * function should be made of bits obtained by a previous call to wantmods,
  * to ensure that they have assigned keycodes.
  */
-void modpress(disp, mask)
-Display	*disp;
-unsigned int 	mask;
+void modpress(Display *disp, unsigned int mask)
 {
 	modthing(disp, mask, True);
 }
 
 #if 0 /* def INPUTEXTENSION */
-void devmodpress(disp, dev, mask)
-Display	*disp;
-XDevice *dev;
-unsigned int 	mask;
+void devmodpress(Display *disp, XDevice *dev, unsigned int mask)
 {
 	devmodthing(disp, dev, mask, True);
 }
@@ -559,18 +527,13 @@ unsigned int 	mask;
  * function should be made of bits obtained by a previous call to wantmods,
  * to ensure that they have assigned keycodes.
  */
-void modrel(disp, mask)
-Display	*disp;
-unsigned int 	mask;
+void modrel(Display *disp, unsigned int mask)
 {
 	modthing(disp, mask, False);
 }
 
 #if 0 /* def INPUTEXTENSION */
-void devmodrel(disp, dev, mask)
-Display	*disp;
-XDevice *dev;
-unsigned int 	mask;
+void devmodrel(Display *disp, XDevice *dev, unsigned int mask)
 {
 	devmodthing(disp, dev, mask, False);
 }
@@ -645,9 +608,7 @@ void	(*func)();
  * Check if a keycode corresponds to any of mods in a mask, returned by
  * wantmods.
  */
-int ismodkey(mask, kc)
-unsigned int 	mask;
-int kc;
+int ismodkey(unsigned int mask, int kc)
 {
 int 	mod;
 
@@ -670,7 +631,7 @@ int 	mod;
  * This routine should be called at the end of a test after any of the
  * device press routines have been called.
  */
-void restoredevstate()
+void restoredevstate(void)
 {
 extern	Display	*Dsp;
 
@@ -682,8 +643,7 @@ extern	Display	*Dsp;
 /*
  * Returns True if we don't want to do extended testing for any reason.
  */
-int noext(needbutton)
-int 	needbutton;
+int noext(int needbutton)
 {
 
 	if (config.extensions == False) {
@@ -704,7 +664,7 @@ int 	needbutton;
 /*
  * Returns the number of physical buttons.
  */
-int nbuttons()
+int nbuttons(void)
 {
 static int 	Nbuttons = -1;
 unsigned	char	pmap[5];
@@ -719,8 +679,7 @@ extern	Display	*Dsp;
  * Returns a valid keycode for the server.  A different one is returned
  * every time (until it wraps round).
  */
-int getkeycode(display)
-Display	*display;
+int getkeycode(Display *display)
 {
 static	int 	minkc, maxkc;
 static	int 	curkey;
@@ -742,9 +701,7 @@ static	int 	curkey;
  * every time (until it wraps round).
  */
 #ifdef INPUTEXTENSION
-int getdevkeycode(display,dev)
-Display	*display;
-XDevice *dev;
+int getdevkeycode(Display *display, XDevice *dev)
 {
 static	int 	minkc, maxkc;
 static	int 	devcurkey[MAX_DEVICES];

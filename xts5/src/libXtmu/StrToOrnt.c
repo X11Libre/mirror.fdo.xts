@@ -90,13 +90,11 @@ SOFTWARE.
 #define	done(address, type) \
 	{ (*toVal).size = sizeof(type); (*toVal).addr = (caddr_t) address; }
 
-/* ARGSUSED */
-void
-XmuCvtStringToOrientation(args, num_args, fromVal, toVal)
-    XrmValuePtr args;		/* unused */
-    Cardinal	*num_args;	/* unused */
-    XrmValuePtr	fromVal;
-    XrmValuePtr	toVal;
+void XmuCvtStringToOrientation(
+    XrmValuePtr args,		/* unused */
+    Cardinal    *num_args,	/* unused */
+    XrmValuePtr fromVal,
+    XrmValuePtr toVal)
 {
     static XtOrientation orient;
     static	XrmQuark  XtQEhorizontal;

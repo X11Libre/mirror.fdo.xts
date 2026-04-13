@@ -138,22 +138,15 @@ SOFTWARE.
 #include "DataMove.h"
 
 /*ARGSUSED*/
-void pack1(bufpp,val)
-char **bufpp;
-char val;
+void pack1(char **bufpp, char val)
 {
-
     *(*bufpp) = (char) val;
     *bufpp += 1;
 }
 
 void
-pack2(bufpp,val,swap)
-char **bufpp;
-CARD16 val;
-int swap;
+pack2(char **bufpp, CARD16 val, int swap)
 {
-
     if (swap) {
 	swapcpsp(((char *)&val),(*bufpp));
     }
@@ -164,10 +157,7 @@ int swap;
 }
 
 void
-pack4(bufpp,val,swap)
-char **bufpp;
-CARD32 val;
-int swap;
+pack4(char **bufpp, CARD32 val, int swap)
 {
 
     if (swap) {
@@ -198,9 +188,7 @@ int swap;
  */
 
 void
-pack2_lsb (bufpp,val)
-    char **bufpp;
-    CARD16 val;
+pack2_lsb (char **bufpp, CARD16 val)
 {
     if (native_byte_sex () == 1) { 
 	swapcpsp(((char *)&val),(*bufpp));     /* msb, so swap */
@@ -212,9 +200,7 @@ pack2_lsb (bufpp,val)
 }
 
 void
-packpad(bufpp,cnt)
-char **bufpp;
-int cnt;
+packpad(char **bufpp, int cnt)
 {
 
     memset(*bufpp, 0, (size_t)cnt);
@@ -308,27 +294,21 @@ Copy_Padded_String16(char **to, const char *from)
 }
 
 void
-Set_Value1(to,val)
-char **to;
-char val;
+Set_Value1(char **to, char val)
 {
     **to = val;
     (*to)++;
 }
 
 void
-Set_Value2(to,val)
-char **to;
-CARD16 val;
+Set_Value2(char **to, CARD16 val)
 {
     nonswapcpsp(((char *)&val),(*to));
     *to += 2;
 }
 
 void
-Set_Value4(to,val)
-char **to;
-CARD32 val;
+Set_Value4(char **to, CARD32 val)
 {
     nonswapcplp(((char *)&val),(*to));
     *to += 4;

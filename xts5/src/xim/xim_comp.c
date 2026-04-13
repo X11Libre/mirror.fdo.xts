@@ -353,9 +353,9 @@ xim_comp_st_draw(XIMStatusDrawCallbackStruct *pde,
 	return(errcnt);
 }
 
-Bool xim_compare(pe,pa)
-	cbstk_def *pe;			/* stack of expected responses */
-	cbstk_def *pa;			/* stack of actual responses */
+Bool xim_compare(
+	cbstk_def *pe,			/* stack of expected responses */
+	cbstk_def *pa)			/* stack of actual responses */
 {
 	int i,cnt;
 	int errcnt = 0;
@@ -418,10 +418,10 @@ Bool xim_compare(pe,pa)
 	return((errcnt == 0));
 }
 
-int xim_wsneq(s1,s2,cnt)
-	wchar_t *s1;
-	wchar_t *s2;
-	int cnt;
+int xim_wsneq(
+	wchar_t *s1,
+	wchar_t *s2,
+	int cnt)
 {
 	int i;
 

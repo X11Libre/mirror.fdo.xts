@@ -124,9 +124,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 #include	"pixval.h"
 
 Pixmap
-nondepth1pixmap(disp, d)
-	Display	*disp;
-	Drawable d;
+nondepth1pixmap(Display *disp, Drawable d)
 {
 	XVisualInfo *vp;
 

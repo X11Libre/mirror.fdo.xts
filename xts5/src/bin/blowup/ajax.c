@@ -160,10 +160,7 @@ int 	FileType;
 #define	TYPE_ERROR	1
 #define	TYPE_DATA	2
 
-int
-main(argc, argv)
-int 	argc;
-char	**argv;
+int main(int argc, char **argv)
 {
 Display	*disp;
 Window	win;
@@ -248,12 +245,11 @@ int	errs = 0;
 	} while (--argc > 0);
 }
 
-static int
-processfile(disp, win, gc, file)
-Display	*disp;
-Window	win;
-GC		gc;
-char	*file;
+static int processfile(
+    Display *disp,
+    Window win,
+    GC gc,
+    char *file)
 {
 FILE	*fp;
 int	ret;
@@ -282,12 +278,11 @@ int	ret;
 	return ret;
 }
 
-static int
-proc(disp, win, gc, fp)
-Display	*disp;
-Window	win;
-GC		gc;
-FILE	*fp;
+static int proc(
+    Display *disp,
+    Window win,
+    GC gc,
+    FILE *fp)
 {
 static	int 	mapped = 0;
 XImage	*images[2];
@@ -317,13 +312,12 @@ int	ret;
 	return ret;
 }
 
-static int
-dispimage(disp, win, gc, images, nim)
-Display *disp;
-Window win;
-GC		gc;
-XImage	*images[2];
-int	nim;
+static int dispimage(
+    Display *disp,
+    Window win,
+    GC gc,
+    XImage *images[2],
+    int nim)
 {
 int 	w, h, size;
 static	XImage	*lastim1, *lastim2;
@@ -426,11 +420,10 @@ printf("repaint: Done\n");
 #endif /* DEBUG */
 }
 
-static int
-readimage(fp, images, disp)
-FILE	*fp;
-XImage	*images[2];
-Display *disp;
+static int readimage(
+    FILE *fp,
+    XImage *images[2],
+    Display *disp)
 {
 char	buf[512];
 unsigned long	*ip;
@@ -551,11 +544,10 @@ int 	x, y;
 	return 0;
 }
 
-static void
-setzoom(disp, win, gc)
-Display	*disp;
-Window	win;
-GC	gc;
+static void setzoom(
+    Display *disp,
+    Window win,
+    GC gc)
 {
 Pixmap	pm;
 GC		gc1;

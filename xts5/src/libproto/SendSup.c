@@ -149,9 +149,7 @@ SOFTWARE.
 #define CHUNK	1024	/* allocation chunk for o/p buffer, power of 2 */
 
 void
-squeeze_me_in(cl, len)
-	int cl;
-	unsigned long len;
+squeeze_me_in(int cl, unsigned long len)
 {
 	unsigned long remaining, used;
 	XstDisplay *dpy = Get_Display(cl);
@@ -183,11 +181,7 @@ squeeze_me_in(cl, len)
 }
 
 void
-Send_Value_List(cl,rp,size,format)
-int cl;
-xReq *rp;
-int size;
-int format;
+Send_Value_List(int cl, xReq *rp, int size, int format)
 {
     int i;
 
@@ -258,10 +252,7 @@ int format;
 }
 
 void
-Send_String16(cl,rp,size)
-int cl;
-xReq *rp;
-int size;
+Send_String16(int cl, xReq *rp, int size)
 {
     unsigned char *valuePtr;
     int valueLen;
@@ -297,10 +288,7 @@ int size;
  */
 
 void
-Send_CHAR2B (cl, rp, size)
-    int cl;
-    xReq *rp;
-    int size;
+Send_CHAR2B (int cl, xReq *rp, int size)
 {
     unsigned short * valuePtr;
     int valueLen;
@@ -317,10 +305,7 @@ Send_CHAR2B (cl, rp, size)
 }
 
 void
-Send_TextItem8(cl,rp,size)
-int cl;
-xReq *rp;
-int size;
+Send_TextItem8(int cl, xReq *rp, int size)
 {
     unsigned char *valuePtr;
     int valueLen;
@@ -335,11 +320,8 @@ int size;
 }
 
 void
-Send_TextItem16(cl,rp,size)
-int cl;
-xReq *rp;
-int size;
-  {
+Send_TextItem16(int cl, xReq *rp, int size)
+{
       unsigned char *valuePtr;
       int valueLen;
       int i;
@@ -360,10 +342,7 @@ int size;
   }
 
 void
-SendIt(cl, bytesToSend, isABigRequest)
-int cl;
-unsigned long bytesToSend;
-int isABigRequest;
+SendIt(int cl, unsigned long bytesToSend, int isABigRequest)
 {
 unsigned long bufferedBytes;
 

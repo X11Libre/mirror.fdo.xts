@@ -101,12 +101,10 @@ typedef struct _PixmapCache {
 
 static CacheEntry *pixmapCache = NULL;
 
-
-
-Pixmap XmuCreateStippledPixmap(screen, fore, back, depth)
-    Screen *screen;
-    Pixel fore, back;
-    unsigned int depth;
+Pixmap XmuCreateStippledPixmap(
+    Screen *screen,
+    Pixel fore, back,
+    unsigned int depth)
 /*
  *	Creates a stippled pixmap of specified depth
  *	caches these so that multiple requests share the pixmap
@@ -152,9 +150,9 @@ Pixmap XmuCreateStippledPixmap(screen, fore, back, depth)
     return( stippled_pixmap );
 }
 
-void XmuReleaseStippledPixmap(screen, pixmap)
-    Screen *screen;
-    Pixmap pixmap;
+void XmuReleaseStippledPixmap(
+    Screen *screen,
+    Pixmap pixmap)
 {
     Display *display = DisplayOfScreen(screen);
     CacheEntry *cachePtr, **prevP;

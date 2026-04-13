@@ -168,21 +168,20 @@ static void Poll_Server (int client);
 static int Rcv_Poll (xReply *rep, char rbuf[], int client);
 
 static  void
-Timeout_Func () {
+Timeout_Func (void) {
     Log_Msg ("Expect: wanted %s, got TIMEOUT! (server may be dead)\n", wanted);
     Finish (this_client);
 }
 
 static  void
-Enable_Timeout (client)
-int client;
+Enable_Timeout (int client)
 {
     this_client = client;
     Set_Timer (EXPECT_TIMER_ID, Xst_timeout_value, Timeout_Func);
 }
 
 static  void
-Disable_Timeout () {
+Disable_Timeout (void) {
     Stop_Timer (EXPECT_TIMER_ID);
 }
 
@@ -191,8 +190,7 @@ Disable_Timeout () {
  *	Call Expect_Error expecting BadAccess error.
  */
 void
-Expect_BadAccess(client)
-int	client;
+Expect_BadAccess(int client)
 {
 	xError *err;
 
@@ -212,8 +210,7 @@ int	client;
  *	Call Expect_Error expecting BadValue error.
  */
 void
-Expect_BadValue(client)
-int	client;
+Expect_BadValue(int client)
 {
 	xError *err;
 
@@ -232,8 +229,7 @@ int	client;
  *	Call Expect_Error expecting BadLength error.
  */
 void
-Expect_BadLength(client)
-int	client;
+Expect_BadLength(int client)
 {
 	xError *err;
 
@@ -252,8 +248,7 @@ int	client;
  *	Call Expect_Error expecting BadIDChoice error.
  */
 void
-Expect_BadIDChoice(client)
-int	client;
+Expect_BadIDChoice(int client)
 {
 	xError *err;
 
@@ -292,11 +287,10 @@ int	client;
 				 * put up with.
 				 */
 
-xReply
-* Expect (client, class, type)
-int     client;   /* client number */
-int     class;    /* expected class, e.g. event, error */
-int     type;     /* request type */
+xReply* Expect (
+    int client,   /* client number */
+    int class,    /* expected class, e.g. event, error */
+    int type)     /* request type */
 {
     XstDisplay * dpy = Get_Display (client);
     xReply * rep = (xReply *) Xstmalloc (sizeof (xReply));
@@ -582,7 +576,7 @@ Get_Me_That (
     }
     if (this_read < size) {
 	Log_Msg ("Expect: wanted %s, got TRUNCATED\n", wanted);
-	Log_Msg ("Expect: wanted %d additional, got %d\n",
+	Log_Msg ("Expect: wanted %d additional, got %ld\n",
 		size, this_read);
 	Show_Rep ((xReply *) rbuf, Xst_clients[client].cl_reqtype, (long)this_read);
 	Finish (client);
@@ -592,8 +586,7 @@ Get_Me_That (
 }
 
 static void
-Poll_Server (client)
-int     client;
+Poll_Server (int client)
 {
     XstDisplay * dpy = Get_Display (client);
     xReq * req;
@@ -650,10 +643,7 @@ enames (
 }
 
 static int
-Rcv_Poll (rep, rbuf, client)
-        xReply * rep;
-	char rbuf[];
-	int client;
+Rcv_Poll (xReply *rep, char rbuf[], int client)
 {
     return(Rcv_Rep(rep,rbuf, X_GetInputFocus, client));
 }

@@ -137,8 +137,7 @@ AvsWidClassRec avsWidClassRec = {
 
 WidgetClass avsWidgetClass = (WidgetClass)&avsWidClassRec;
 
-static void ClassPartInitialize(class)
-    WidgetClass class;
+static void ClassPartInitialize(WidgetClass class)
 {
 /*
     AvsWidgetClass c = (AvsWidgetClass)class;
@@ -147,10 +146,10 @@ static void ClassPartInitialize(class)
 	/* Nothing to check or change */
 }
 
-static void Realize(w, valueMask, attributes)
-	Widget w;
-    Mask *valueMask;
-    XSetWindowAttributes *attributes;
+static void Realize(
+    Widget w,
+    Mask *valueMask,
+    XSetWindowAttributes *attributes)
 {
 
     XtCreateWindow( w, (unsigned int)InputOutput, (Visual *)CopyFromParent,
@@ -170,8 +169,7 @@ static void Initialize (Widget grequest, Widget gnew,
 	if (request->core.height <= 0) new->core.height = 5;
 }
 
-static Boolean sv_almost(current, request, new)
-    Widget current, request, new;
+static Boolean sv_almost(Widget current, Widget request, Widget new)
 {
 /*
     AvsWidget s_old = (AvsWidget) current;
@@ -194,9 +192,10 @@ static Boolean SetValues(Widget current, Widget request, Widget new,
     return False;   
 }
 
-static XtGeometryResult QueryGeometry(w, request, preferred)
-Widget w;
-XtWidgetGeometry *request, *preferred;
+static XtGeometryResult QueryGeometry(
+    Widget w,
+    XtWidgetGeometry *request,
+    XtWidgetGeometry *preferred)
 {
 	AvsWidget me = (AvsWidget)w;
 

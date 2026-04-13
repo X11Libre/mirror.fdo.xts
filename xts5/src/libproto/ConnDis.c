@@ -550,11 +550,11 @@ int _XDisconnectDisplay (XtransConnInfo	trans_conn)
 
 
 Bool
-_XSendClientPrefix (dpy, client, auth_proto, auth_string, prefix)
-     Display *dpy;
-     xConnClientPrefix *client;		/* contains count for auth_* */
-     char *auth_proto, *auth_string;	/* NOT null-terminated */
-     xConnSetupPrefix *prefix;		/* prefix information */
+_XSendClientPrefix (
+     Display *dpy,
+     xConnClientPrefix *client,		/* contains count for auth_* */
+     char *auth_proto, *auth_string,	/* NOT null-terminated */
+     xConnSetupPrefix *prefix)		/* prefix information */
 {
     int auth_length = client->nbytesAuthProto;
     int auth_strlen = client->nbytesAuthString;
@@ -676,9 +676,7 @@ static _Xconst int  *xauth_lengths = default_xauth_lengths;
 
 static int  xauth_names_length = NUM_DEFAULT_AUTH;
 
-void XSetAuthorization (name, namelen, data, datalen)
-    int namelen, datalen;		/* lengths of name and data */
-    char *name, *data;			/* NULL or arbitrary array of bytes */
+void XSetAuthorization (char *name, int namelen, char *data, int datalen)
 {
     char *tmpname, *tmpdata;
 
@@ -780,9 +778,9 @@ extern krb5_flags krb5_kdc_default_options;
  * so we can tell XOpenDisplay to not bother looking for it by
  * itself.
  */
-static int k5_clientauth(dpy, sprefix)
-    Display *dpy;
-    xConnSetupPrefix *sprefix;
+static int k5_clientauth(
+    Display *dpy,
+    xConnSetupPrefix *sprefix)
 {
     krb5_error_code retval;
     xReq prefix;

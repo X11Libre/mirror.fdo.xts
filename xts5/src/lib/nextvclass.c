@@ -168,7 +168,7 @@ static struct valname S_displayclass[] = {
  * Returns -1 on failure, 0 on success.
  */
 int
-initvclass()
+initvclass(void)
 {
 struct	valname *vp;
 char	*dp;
@@ -243,7 +243,7 @@ int	Lclass;
  * Start again at the beginning of the list of visual classes.
  */
 void
-resetvclass()
+resetvclass(void)
 {
 	VCindex = 0;
 }
@@ -254,9 +254,7 @@ resetvclass()
  * otherwise True.
  */
 int
-nextvclass(vp, dp)
-int 	*vp;
-int 	*dp;
+nextvclass(int *vp, int *dp)
 {
 	if (Vclass == 0) {
 		report("initvclass has not been called");
@@ -274,7 +272,7 @@ int 	*dp;
 }
 
 int
-nvclass()
+nvclass(void)
 {
 	return(Nclass);
 }

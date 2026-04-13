@@ -134,11 +134,7 @@ extern	struct	tet_testlist tet_testlist[];
 
 int 	Errnum;	/* Number of error record */
 
-int verifyimage(disp, d, ap, vlite)
-Display		*disp;
-Drawable	d;
-struct	area	*ap;
-int		vlite;
+int verifyimage(Display *disp, Drawable d, struct area *ap, int vlite)
 {
 static FILE	*fp;
 long	initfpos;

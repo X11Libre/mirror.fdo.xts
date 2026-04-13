@@ -72,12 +72,12 @@ extern char ebuf[4096];
 /*
 ** Simulate event
 */
-void send_event_time(widget, event_type, event_mask, selection, event_time)
-Widget widget;
-int event_type;
-long event_mask;
-Boolean selection;
-Time event_time;
+void send_event_time(
+    Widget widget,
+    int event_type,
+    long event_mask,
+    Boolean selection,
+    Time event_time)
 {
      XtAppContext app_context;
      Display *display;
@@ -111,11 +111,11 @@ Time event_time;
 
 }
 
-void send_event(widget, event_type, event_mask, selection)
-Widget widget;
-int event_type;
-long event_mask;
-Boolean selection;
+void send_event(
+    Widget widget,
+    int event_type,
+    long event_mask,
+    Boolean selection)
 {
 	send_event_time(widget, event_type, event_mask, selection, (Time) CurrentTime);
 }

@@ -122,9 +122,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  * is called first, the window is then covered and exposed.
  */
 void
-setforexpose(disp, w)
-Display	*disp;
-Window	w;
+setforexpose(Display *disp, Window w)
 {
 	/*
 	 * Ensure that the background is set.  The whole screen is drawn
@@ -142,9 +140,7 @@ Window	w;
  * fields) are incorrect.
  */
 Status
-exposefill(disp, w)
-Display	*disp;
-Window	w;
+exposefill(Display *disp, Window w)
 {
 XEvent	ev;
 XExposeEvent	good;
@@ -221,9 +217,7 @@ int 	lastcount = 0;
  * This routine may produce error messages and files.
  */
 Status
-exposecheck(disp, w)
-Display	*disp;
-Window	w;
+exposecheck(Display *disp, Window w)
 {
 
 	if (exposefill(disp, w) == False)
@@ -237,9 +231,7 @@ Window	w;
  * no error messages or error files are produced.
  */
 Status
-expose_test_restored(disp, w)
-Display	*disp;
-Window	w;
+expose_test_restored(Display *disp, Window w)
 {
 	return checkarea(disp, w, (struct area *)0, W_FG, W_FG, CHECK_ALL|CHECK_DIFFER);
 }

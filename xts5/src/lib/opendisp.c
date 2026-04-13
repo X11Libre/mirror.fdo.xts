@@ -124,8 +124,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  * Open the display in DISPLAY.
  */
 
-Display *
-opendisplay()
+Display *opendisplay(void)
 {
 	Display *disp;
 	char *server;

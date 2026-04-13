@@ -130,14 +130,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  * Can be used in conjunction with ROOTCOORDSET macro.
  */
 void
-rootcoordset(display, src_w, dest_w, src_x, src_y, dest_x_return, dest_y_return)
-Display	*display;
-Window	src_w;
-Window	dest_w;
-int	src_x;
-int	src_y;
-int	*dest_x_return;
-int	*dest_y_return;
+rootcoordset(Display *display, Window src_w, Window dest_w, int src_x, int src_y, int *dest_x_return, int *dest_y_return)
 {
 	Window	window;
 
@@ -148,9 +141,7 @@ int	*dest_y_return;
  * Set the serial member of the specified event to NextRequest.
  */
 void
-serialset(display, event)
-Display	*display;
-XEvent	*event;
+serialset(Display *display, XEvent *event)
 {
 	event->xany.serial = NextRequest(display);
 }
@@ -160,9 +151,7 @@ XEvent	*event;
  * equal, else return False.
  */
 Bool
-serialtest(good, ev)
-XEvent	*good;
-XEvent	*ev;
+serialtest(XEvent *good, XEvent *ev)
 {
 	if (ev->xany.serial != good->xany.serial) {
 		report("Checking event type %s", eventname(good->type));

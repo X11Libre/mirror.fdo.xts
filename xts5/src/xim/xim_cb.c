@@ -685,8 +685,7 @@ xim_ic_term(void)
 }
 
 /* initialize all the ic information */
-XIC xim_ic_init(locale)
-	char *locale;
+XIC xim_ic_init(char *locale)
 {
 	xim_fs = NULL;
 	xim_db = NULL;

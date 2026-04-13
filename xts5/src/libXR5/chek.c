@@ -122,9 +122,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  *  num_diff is the total number of differences discovered
  *
  ******/
-void diff_message(environment,num_diff)
-    int environment;
-    int *num_diff;
+void diff_message(int environment, int *num_diff)
 {
     const char *fmtstr;
     union msglst f_lst[1];    
@@ -156,13 +154,12 @@ void diff_message(environment,num_diff)
 }  /** end of message function **/
 #endif
 
-int 
-chek_stat(save_mask, gc_id, display_struc, drawable_id, watOK)
-int save_mask;
-GC gc_id;
-Display *display_struc;
-Drawable drawable_id;
-int watOK;
+int chek_stat(
+    int save_mask,
+    GC gc_id,
+    Display *display_struc,
+    Drawable drawable_id,
+    int watOK)
 {
 	    return (REGR_NORMAL);
 }

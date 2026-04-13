@@ -157,8 +157,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  * Author: Gene Olsen
  */
 unsigned int
-bitcount(n)
-	unsigned long n;
+bitcount(unsigned long n)
 {
 
 	n = (n & 0x55555555) + ((n >> 1) & 0x55555555);
@@ -175,9 +174,7 @@ bitcount(n)
  * Used for checking reults of getting images/subimages with plane masks.
  */
 unsigned long
-getpix(m, p)
-unsigned long	m;
-unsigned long	p;
+getpix(unsigned long m, unsigned long p)
 {
 	unsigned long	pix = 0;
 	unsigned long	bit = 1;

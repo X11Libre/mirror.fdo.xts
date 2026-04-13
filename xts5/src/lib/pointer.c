@@ -131,11 +131,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  * structure with resource registration system.
  */
 PointerPlace *
-warppointer(display, dest_w, dest_x, dest_y)
-Display	*display;
-Window	dest_w;
-int	dest_x;
-int	dest_y;
+warppointer(Display *display, Window dest_w, int dest_x, int dest_y)
 {
 	PointerPlace *ptr;
 	Window	wtmp;
@@ -165,9 +161,7 @@ int	dest_y;
  * No reporting is performed.
  */
 Bool
-pointermoved(display, ptr)
-Display	*display;
-PointerPlace	*ptr;
+pointermoved(Display *display, PointerPlace *ptr)
 {
 	Window	root;
 	int	x, y;
@@ -186,9 +180,7 @@ PointerPlace	*ptr;
  * Return the pointer to saved location and free data structure.
  */
 void
-unwarppointer(display, ptr)
-Display	*display;
-PointerPlace *ptr;
+unwarppointer(Display *display, PointerPlace *ptr)
 {
 	XWarpPointer(display, None, ptr->oroot, 0, 0, 0, 0, ptr->ox, ptr->oy);
 	free(ptr);
@@ -199,9 +191,7 @@ PointerPlace *ptr;
  */
 
 void
-pointerrootpos(display, ptr)
-Display	*display;
-PointerPlace	*ptr;
+pointerrootpos(Display *display, PointerPlace *ptr)
 {
 	Window	root;
 	int	x, y;

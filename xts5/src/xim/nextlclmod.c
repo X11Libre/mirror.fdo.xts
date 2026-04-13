@@ -152,8 +152,7 @@ static	int		NumLclMod = 0;
 static	char *lclmod_strs[MAX_LOCALE_MODS];
 
 /* Start again at the beginning of the list of locale modifiers */
-void
-resetlclmod()
+void resetlclmod(void)
 {
 	char *pstr,*npstr;
 	int i,nchars;
@@ -221,8 +220,7 @@ resetlclmod()
  * Returns False if there is one, otherwise True.
  */
 int
-nextlclmod(lclmod)
-	char **lclmod;
+nextlclmod(char **lclmod)
 {
 	/* cycle through the list of locale modifiers from the config file. */
 	if(CurLclMod >= NumLclMod)
@@ -237,8 +235,7 @@ nextlclmod(lclmod)
  * Returns the number of times that nextlclmod will succeed. Only valid
  * after a call to resetlclmod().
  */
-int
-nlclmod()
+int nlclmod(void)
 {
 	return(NumLclMod);
 }

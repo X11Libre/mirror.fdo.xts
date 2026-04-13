@@ -74,12 +74,16 @@ SOFTWARE.
 
 #include <X11/Xlib.h>
 
-void
-XmuDrawRoundedRectangle (dpy, draw, gc, x, y, w, h, ew, eh)
-    Display		*dpy;
-    Drawable		draw;
-    GC			gc;
-    int			x, y, w, h, ew, eh;
+void XmuDrawRoundedRectangle(
+    Display *dpy,
+    Drawable draw,
+    GC gc,
+    int x,
+    int y,
+    int w,
+    int h,
+    int ew,
+    int eh)
 {
 	XArc	arcs[8];
 
@@ -147,11 +151,16 @@ XmuDrawRoundedRectangle (dpy, draw, gc, x, y, w, h, ew, eh)
 }
 
 void
-XmuFillRoundedRectangle (dpy, draw, gc, x, y, w, h, ew, eh)
-    Display		*dpy;
-    Drawable		draw;
-    GC			gc;
-    int			x, y, w, h, ew, eh;
+XmuFillRoundedRectangle(
+    Display *dpy;
+    Drawable draw;
+    GC gc;
+    int x,
+    int y,
+    int w,
+    int h,
+    int ew,
+    int eh)
 {
 	XArc	arcs[4];
 	XRectangle rects[3];

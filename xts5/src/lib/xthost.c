@@ -194,9 +194,7 @@ int 	nxtbadhosts = sizeof(xtbadhosts)/sizeof(xtbadhosts[0]);
  * them.
  */
 int
-samehost(h1, h2)
-XHostAddress	*h1;
-XHostAddress	*h2;
+samehost(XHostAddress *h1, XHostAddress *h2)
 {
 int 	i;
 

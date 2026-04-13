@@ -105,17 +105,16 @@ static int _CloseDisplay(), _FreeCCDQ();
  * internal utility callbacks
  */
 
-static int _FreeCCDQ (q)
-    XmuDisplayQueue *q;
+static int _FreeCCDQ(XmuDisplayQueue *q)
 {
     XmuDQDestroy (dq, False);
     dq = NULL;
 }
 
 
-static int _CloseDisplay (q, e)
-    XmuDisplayQueue *q;
-    XmuDisplayQueueEntry *e;
+static int _CloseDisplay(
+    XmuDisplayQueue *q,
+    XmuDisplayQueueEntry *e)
 {
     XmuCvtCache *c;
     extern void _XmuStringToBitmapFreeCache();
@@ -128,8 +127,7 @@ static int _CloseDisplay (q, e)
     return 0;
 }
 
-static void _InitializeCvtCache (c)
-    XmuCvtCache *c;
+static void _InitializeCvtCache (XmuCvtCache *c)
 {
     extern void _XmuStringToBitmapInitCache();
 
@@ -142,8 +140,7 @@ static void _InitializeCvtCache (c)
  * XmuCCLookupDisplay - return the cache entry for the indicated display;
  * initialize the cache if necessary
  */
-XmuCvtCache *_XmuCCLookupDisplay (dpy)
-    Display *dpy;
+XmuCvtCache *_XmuCCLookupDisplay(Display *dpy)
 {
     XmuDisplayQueueEntry *e;
 

@@ -425,10 +425,7 @@ int XstConnectDisplay (display_name, expanded_name, screen_num,
  * Disconnect from server.
  */
 
-int XstDisconnectDisplay (server)
-
-    int server;
-
+int XstDisconnectDisplay (int server)
 {
     return close(server);
 }
@@ -436,8 +433,7 @@ int XstDisconnectDisplay (server)
 #undef NULL
 #define NULL ((char *) 0)
 
-_XstWaitForReadable(dpy)
-  XstDisplay *dpy;
+_XstWaitForReadable(XstDisplay  *dpy)
 {
     fd_set r_mask;
     int result;
@@ -454,12 +450,7 @@ _XstWaitForReadable(dpy)
 
 static unsigned int padlength[4] = {0, 3, 2, 1};
 
-XstSendClientPrefix (dpy, client, auth_proto, auth_string, needswap)
-     XstDisplay *dpy;
-     xConnClientPrefix *client;
-	char	*auth_proto;
-	char	*auth_string;
-     int needswap;
+XstSendClientPrefix (XstDisplay *dpy, xConnClientPrefix *client, char *auth_proto, char *auth_string, int needswap)
 {
 	/*
 	 * Authorization string stuff....  Must always transmit multiple of 4
@@ -557,8 +548,7 @@ XstSendClientPrefix (dpy, client, auth_proto, auth_string, needswap)
 static char *nothing = "No reply from server when trying to connect to %s\n";
 
 static void
-Timeout_Func(action)
-int action;
+Timeout_Func(int action)
 {
     char *server = Xst_server_node == NULL ? "Default Server" : Xst_server_node;
 
@@ -601,10 +591,7 @@ Bad_Open_Timeout_Func() {
     Timeout_Func(PASS_action);
 }
 
-GetConnSetupPrefix (client, prefixp, needswap)
-int client;
-xConnSetupPrefix * prefixp;
-int     needswap;
+GetConnSetupPrefix (int client, xConnSetupPrefix *prefixp, int needswap)
 {
     XstDisplay * dpy;
     char    buffer[OBUFSIZE];
@@ -647,11 +634,7 @@ int     needswap;
  *		in XOpenDisplay - might merge later)
  */
 
-GetConnSetupData (client, setupdp, len, needswap)
-int client;
-xConnSetup * setupdp;
-int     len;
-int     needswap;
+GetConnSetupData (int client, xConnSetup *setupdp, int len, int needswap)
 {
     XstDisplay * dpy;
     char    buffer[OBUFSIZE];

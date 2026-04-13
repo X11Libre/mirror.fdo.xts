@@ -122,8 +122,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  * makeregion() returns a new region.
  */
 
-Region
-makeregion()
+Region makeregion(void)
 {
 	Region	reg;
 

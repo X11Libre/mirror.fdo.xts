@@ -82,7 +82,7 @@ SOFTWARE.
 Display *display;
 extern char ebuf[];
 
-Window avs_xext_init()
+Window avs_xext_init(void)
 {
 	Window window_arg;
 
@@ -165,7 +165,7 @@ Window avs_xext_init()
 	return(window_arg);
 }
 
-void avs_xext_close()
+void avs_xext_close(void)
 {
 	XCloseDisplay(display);
 }

@@ -120,8 +120,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 
 /* func. to give min of 3 vars */
 static
-int min3(a, b, c)
-	int a,b,c;
+int min3(int a, int b, int c)
 {
 	if (a < b)
 		b = a;
@@ -134,8 +133,7 @@ int min3(a, b, c)
  * Get the number of cells in a colourmap given the vp.
  */
 int
-maxsize(vp)
-	XVisualInfo	*vp;
+maxsize(XVisualInfo *vp)
 {
 	int	 	r,g,b;
 	unsigned long 	mask;

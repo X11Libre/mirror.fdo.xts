@@ -308,8 +308,7 @@ ClassInitialize(void)
  */
 
 static void
-ClassPartInitialize(wc)
-WidgetClass wc;
+ClassPartInitialize(WidgetClass wc)
 {
     SimpleMenuWidgetClass smwc = (SimpleMenuWidgetClass) wc;
 
@@ -375,13 +374,7 @@ Initialize(Widget request, Widget new, ArgList args, Cardinal *num_args)
  *                 region - the region the needs to be repainted. 
  *      Returns: none.
  */
-
-/* ARGSUSED */
-static void
-Redisplay(w, event, region)
-Widget w;
-XEvent * event;
-Region region;
+static void Redisplay(Widget w, XEvent * event, Region region)
 {
     SimpleMenuWidget smw = (SimpleMenuWidget) w;
     SmeObject * entry;
@@ -423,11 +416,7 @@ Region region;
  *      Returns: none
  */
 
-static void
-Realize(w, mask, attrs)
-Widget w;
-XtValueMask * mask;
-XSetWindowAttributes * attrs;
+static void Realize(Widget w, XtValueMask *mask, XSetWindowAttributes *attrs)
 {
     SimpleMenuWidget smw = (SimpleMenuWidget) w;
 
@@ -451,9 +440,7 @@ XSetWindowAttributes * attrs;
  *      Returns: none.
  */
 
-static void
-Resize(w)
-Widget w;
+static void Resize(Widget w)
 {
     SimpleMenuWidget smw = (SimpleMenuWidget) w;
     SmeObject * entry;
@@ -545,11 +532,7 @@ SetValues(Widget current, Widget request, Widget new,
  * height.
  */
 
-static Boolean
-SetValuesHook(w, arglist, num_args)
-Widget w;
-ArgList arglist;
-Cardinal *num_args;
+static Boolean SetValuesHook(Widget w, ArgList arglist, Cardinal *num_args)
 {
     Cardinal i;
     Dimension width, height;
@@ -584,9 +567,7 @@ Cardinal *num_args;
  */
 
 static XtGeometryResult
-GeometryManager(w, request, reply)
-Widget w;
-XtWidgetGeometry * request, * reply;
+GeometryManager(Widget w, XtWidgetGeometry *request, XtWidgetGeometry *reply)
 {
     SimpleMenuWidget smw = (SimpleMenuWidget) XtParent(w);
     SmeObject entry = (SmeObject) w;
@@ -652,10 +633,7 @@ XtWidgetGeometry * request, * reply;
  *	Arguments: w - the simple menu widget.
  *	Returns: none.
  */
-
-static void
-ChangeManaged(w)
-Widget w;
+static void ChangeManaged(Widget w)
 {
     Layout(w, NULL, NULL);
 }
@@ -677,15 +655,13 @@ Widget w;
  *                                      we expect the name of the menu here.
  *      Returns: none
  */
-
-/* ARGSUSED */
 static void
-PositionMenuAction(w, event, params, num_params)
-Widget w;
-XEvent * event;
-String * params;
-Cardinal * num_params;
-{ 
+PositionMenuAction(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
+{
   Widget menu;
   XPoint loc;
 
@@ -745,13 +721,12 @@ Cardinal * num_params;
  */
 
 /* ARGSUSED */
-static void
-Unhighlight(w, event, params, num_params)
-Widget w;
-XEvent * event;
-String * params;
-Cardinal * num_params;
-{ 
+static void Unhighlight(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
+{
     SimpleMenuWidget smw = (SimpleMenuWidget) w;
     SmeObject entry = smw->simple_menu.entry_set;
     SmeObjectClass class;
@@ -772,12 +747,11 @@ Cardinal * num_params;
  */
 
 /* ARGSUSED */
-static void
-Highlight(w, event, params, num_params)
-Widget w;
-XEvent * event;
-String * params;
-Cardinal * num_params;
+static void Highlight(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
     SimpleMenuWidget smw = (SimpleMenuWidget) w;
     SmeObject entry;
@@ -813,12 +787,11 @@ Cardinal * num_params;
  */
 
 /* ARGSUSED */
-static void
-Notify(w, event, params, num_params)
-Widget w;
-XEvent * event;
-String * params;
-Cardinal * num_params;
+static void Notify(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
     SimpleMenuWidget smw = (SimpleMenuWidget) w;
     SmeObject entry = smw->simple_menu.entry_set;
@@ -843,12 +816,7 @@ Cardinal * num_params;
  */
 
 void
-#if NeedFunctionPrototypes
 XawSimpleMenuAddGlobalActions(XtAppContext app_con)
-#else
-XawSimpleMenuAddGlobalActions(app_con)
-XtAppContext app_con;
-#endif
 {
     XtInitializeWidgetClass(simpleMenuWidgetClass);
     XmuCallInitializers( app_con );
@@ -862,12 +830,7 @@ XtAppContext app_con;
  */
 
 Widget
-#if NeedFunctionPrototypes
 XawSimpleMenuGetActiveEntry(Widget w)
-#else
-XawSimpleMenuGetActiveEntry(w)
-Widget w;
-#endif
 {
     SimpleMenuWidget smw = (SimpleMenuWidget) w;
 
@@ -881,12 +844,7 @@ Widget w;
  */
 
 void
-#if NeedFunctionPrototypes
 XawSimpleMenuClearActiveEntry(Widget w)
-#else
-XawSimpleMenuClearActiveEntry(w)
-Widget w;
-#endif
 {
     SimpleMenuWidget smw = (SimpleMenuWidget) w;
 
@@ -908,9 +866,7 @@ Widget w;
  * in the list.
  */
 
-static void
-CreateLabel(w)
-Widget w;
+static void CreateLabel(Widget w)
 {
     SimpleMenuWidget smw = (SimpleMenuWidget) w;
     Widget * child, * next_child;
@@ -962,10 +918,7 @@ Widget w;
  * +++ "w" can be the simple menu widget or any of its object children.
  */
 
-static void
-Layout(w, width_ret, height_ret)
-Widget w;
-Dimension *width_ret, *height_ret;
+static void Layout(Widget w, Dimension *width_ret, Dimension *height_ret)
 {
     SmeObject current_entry, *entry;
     SimpleMenuWidget smw;
@@ -1041,10 +994,7 @@ Dimension *width_ret, *height_ret;
  */
 
 /* ARGSUSED */
-static void
-AddPositionAction(app_con, data)
-XtAppContext app_con;
-caddr_t data;
+static void AddPositionAction(XtAppContext app_con, caddr_t data)
 {
     static XtActionsRec pos_action[] = {
         { "XawPositionSimpleMenu", PositionMenuAction },
@@ -1060,10 +1010,7 @@ caddr_t data;
  *	Returns: the menu widget or NULL.
  */
 
-static Widget 
-FindMenu(widget, name)
-Widget widget;
-String name;
+static Widget FindMenu(Widget widget, String name)
 {
     Widget w, menu;
     
@@ -1080,10 +1027,7 @@ String name;
  *	Returns: none.
  */
 
-static void
-PositionMenu(w, location)
-Widget w;
-XPoint * location;
+static void PositionMenu(Widget w, XPoint * location)
 {
     SimpleMenuWidget smw = (SimpleMenuWidget) w;
     SmeObject entry;
@@ -1134,10 +1078,7 @@ XPoint * location;
  *	Returns: none 
  */
 
-static void
-MoveMenu(w, x, y)
-Widget w;
-Position x, y;
+static void MoveMenu(Widget w, Position x, Position y)
 {
     Arg arglist[2];
     Cardinal num_args = 0;
@@ -1178,10 +1119,7 @@ Position x, y;
  */
 
 /* ARGSUSED */
-static void
-ChangeCursorOnGrab(w, junk, garbage)
-Widget w;
-XtPointer junk, garbage;
+static void ChangeCursorOnGrab(Widget w, XtPointer junk, XtPointer garbage)
 {
     SimpleMenuWidget smw = (SimpleMenuWidget) w;
     
@@ -1204,10 +1142,10 @@ XtPointer junk, garbage;
  *      Returns: none
  */
 
-static void
-MakeSetValuesRequest(w, width, height)
-Widget w;
-Dimension width, height;
+static void MakeSetValuesRequest(
+    Widget w,
+    Dimension width,
+    Dimension height)
 {
     SimpleMenuWidget smw = (SimpleMenuWidget) w;
     Arg arglist[2];
@@ -1232,9 +1170,7 @@ Dimension width, height;
  *      Returns: width of menu.
  */
 
-static Dimension
-GetMenuWidth(w, w_ent)
-Widget w, w_ent;
+static Dimension GetMenuWidth(Widget w, Widget w_ent)
 {
     SmeObject cur_entry = (SmeObject) w_ent;
     SimpleMenuWidget smw = (SimpleMenuWidget) w;
@@ -1273,9 +1209,7 @@ Widget w, w_ent;
  *      Returns: width of menu.
  */
 
-static Dimension
-GetMenuHeight(w)
-Widget w;
+static Dimension GetMenuHeight(Widget w)
 {
     SimpleMenuWidget smw = (SimpleMenuWidget) w;
     SmeObject * entry;
@@ -1303,10 +1237,7 @@ Widget w;
  *      Returns: the entry that this point is in.
  */
 
-static SmeObject
-GetEventEntry(w, event)
-Widget w;
-XEvent * event;
+static SmeObject GetEventEntry(Widget w, XEvent *event)
 {
     Position x_loc, y_loc;
     SimpleMenuWidget smw = (SimpleMenuWidget) w;

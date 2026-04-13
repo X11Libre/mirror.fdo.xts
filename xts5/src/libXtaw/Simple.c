@@ -177,8 +177,7 @@ static void ClassInitialize(void)
 		       XtCacheByDisplay, NULL);
 }
 
-static void ClassPartInitialize(class)
-    WidgetClass class;
+static void ClassPartInitialize(WidgetClass class)
 {
     SimpleWidgetClass c = (SimpleWidgetClass)class;
     SimpleWidgetClass super = (SimpleWidgetClass) 
@@ -198,10 +197,10 @@ static void ClassPartInitialize(class)
 	c->simple_class.change_sensitive = super->simple_class.change_sensitive;
 }
 
-static void Realize(w, valueMask, attributes)
-    Widget w;
-    Mask *valueMask;
-    XSetWindowAttributes *attributes;
+static void Realize(
+    Widget w,
+    Mask *valueMask,
+    XSetWindowAttributes *attributes)
 {
     Pixmap border_pixmap;
 
@@ -240,9 +239,7 @@ static void Realize(w, valueMask, attributes)
  *	Returns: none.
  */
 
-static void
-ConvertCursor(w)
-Widget w;
+static void ConvertCursor(Widget w)
 {
     SimpleWidget simple = (SimpleWidget) w;
     XrmValue from, to;

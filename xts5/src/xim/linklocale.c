@@ -141,8 +141,7 @@ extern   int   tet_thistest;
 extern   struct   tet_testlist tet_testlist[];
 
 int
-linklocale(plocale)
-char *plocale;
+linklocale(char *plocale)
 {
 int ic;
 char name1[128];
@@ -182,7 +181,7 @@ char buf[BUF_LEN];
 }
 
 void
-unlinklocales()
+unlinklocales(void)
 {
 int ic;
 char name[128];

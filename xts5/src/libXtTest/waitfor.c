@@ -73,8 +73,7 @@ SOFTWARE.
 extern char ebuf[4096];
 
 /*signal handler*/
-static void lsah2(s)
-int s;
+static void lsah2(int s)
 {
 	got_sigalrm++;
 }
@@ -87,9 +86,7 @@ int s;
 **	timeout		Maximum time (in seconds) to wait.
 */
 
-int wait_for(pid, timeout)
-pid_t	pid;
-int	timeout;
+int wait_for(pid_t pid, int timeout)
 {
 	int	child, save_errno;
 	pid_t	ret_val;

@@ -130,11 +130,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  * in the gc funtion tests.
  */
 void
-setfuncpixel(disp, drw, xp, yp)
-Display	*disp;
-Drawable	drw;
-int 	*xp;
-int 	*yp;
+setfuncpixel(Display *disp, Drawable drw, int *xp, int *yp)
 {
 int 	x;
 int 	y;

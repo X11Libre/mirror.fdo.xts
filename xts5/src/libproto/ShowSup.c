@@ -161,10 +161,7 @@ static char scratchbuf[PRTBUFSIZ];  /* ? */
 */
 
 void
-Show_Value_List_Req (rp, size, format)
-xReq * rp;
-int     size;
-int	format;
+Show_Value_List_Req (xReq *rp, int size, int format)
 {
 	Reset_Some();
 	switch (format) {
@@ -323,10 +320,7 @@ int	format;
 */
 
 void
-Show_Value_List_Rep (rp, size, format)
-xReply  *rp;
-int     size;
-int	format;
+Show_Value_List_Rep (xReply *rp, int size, int format)
 {
 	Reset_Some();
 	switch(format){
@@ -483,10 +477,7 @@ int	format;
 */
 
 void
-Show_String8 (rp, size, length)
-void   *rp;
-int     size;
-int	length;
+Show_String8 (void *rp, int size, int length)
 {
 	unsigned char  *valuePtr;
 	int     i;
@@ -568,11 +559,7 @@ Show_Strs(const unsigned char *cp, int nstrs, int nbytes, const char *label)
 */
 
 void
-Show_Value_List_nRep (rp, nval, size, format)
-xReply  *rp;
-int     nval;
-int     size;
-int	format;
+Show_Value_List_nRep (xReply *rp, int nval, int size, int format)
 {
 	Reset_Some();
 	switch(format){

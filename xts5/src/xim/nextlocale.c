@@ -158,7 +158,7 @@ static	char locale_strs[MAX_LOCALES][MAXIDLEN];
 
 /* Start again at the beginning of the list of locales */
 void
-resetlocale()
+resetlocale(void)
 {
 	char *pstr,*npstr;
 	int i,nchars;
@@ -220,8 +220,7 @@ resetlocale()
  * Returns False if there is one, otherwise True.
  */
 int
-nextlocale(locale)
-	char **locale;
+nextlocale(char **locale)
 {
 	/* cycle through the list of locales from the config file. */
 	if(CurLocale >= NumLocales)
@@ -237,13 +236,12 @@ nextlocale(locale)
  * after a call to resetlocale().
  */
 int
-nlocales()
+nlocales(void)
 {
 	return(NumLocales);
 }
 
-Bool locale_set(plocale)
-    char *plocale;
+Bool locale_set(char *plocale)
 {
     Bool res;
     char *p;
@@ -273,8 +271,7 @@ char *old_locale;
                 strcpy(old_locale_str,old_locale);
 }
 
-void
-localestartup()
+void localestartup(void)
 {
 	/* Use the startup function which sets the font path, as most
 	   tests which use localestartup() also need the fp set */
@@ -285,10 +282,8 @@ localestartup()
         localesave();
 }
 
-void
-localecleanup()
+void localecleanup(void)
 {
         if (Dsp) setlocale(LC_CTYPE,old_locale_str);
- 
         fontcleanup();
 }

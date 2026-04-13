@@ -246,9 +246,7 @@ static int nkeys_st_draw = sizeof(keys_st_draw) / sizeof(char *);
  * Open a xim response file and read the header
  * Returns false if can't read the xim response file
  */
-Bool xim_response_open(plocale,style)
-	char *plocale;			/* name of the locale */
-	XIMStyle *style;
+Bool xim_response_open(char *plocale, XIMStyle *style)
 {
 	int testnum;		/* invocable component */
 	char fname[MAXFNAME];
@@ -379,10 +377,10 @@ Bool xim_response_open(plocale,style)
 	return(True);
 }
 
-void xim_response_push_cb(pstk,cb,data)
-	cbstk_def *pstk;
-	int cb;		/* Callback index */
-	void *data;
+void xim_response_push_cb(
+	cbstk_def *pstk,
+	int cb,		/* Callback index */
+	void *data)
 {
 	if(pstk == NULL)
 		return;
@@ -397,8 +395,7 @@ void xim_response_push_cb(pstk,cb,data)
 	pstk->top++;
 }
 
-void xim_response_pop_cb(pstk)
-	cbstk_def *pstk;
+void xim_response_pop_cb(cbstk_def *pstk)
 {
 	XIMText *pt;
 	XIMPreeditDrawCallbackStruct *ped;
@@ -472,8 +469,8 @@ void xim_response_pop_cb(pstk)
 
 /* read the feedback bits for a XIM Text string */
 /* (one long feedback per byte) */
-static unsigned long *read_feedback(cnt)
-	int cnt;			/* number of feedbacks expected */
+static unsigned long *read_feedback(
+	int cnt)			/* number of feedbacks expected */
 {
 	int num,n;
 	Bool data_end,in_data;
@@ -558,8 +555,8 @@ static unsigned long *read_feedback(cnt)
 }
 
 /* read the string as a wide character string */
-static wchar_t *read_wcstr(cnt)
-	int cnt;			/* number of feedbacks expected */
+static wchar_t *read_wcstr(
+	int cnt)			/* number of feedbacks expected */
 {
 	int n,num;
 	Bool data_end,in_data;
@@ -639,8 +636,8 @@ static wchar_t *read_wcstr(cnt)
 }
 
 /* read the string as a multi-byte character string */
-static char *read_mbstr(cnt)
-	int cnt;			/* number of mb chars expected */
+static char *read_mbstr(
+	int cnt)			/* number of mb chars expected */
 {
 	int n,num;
 	Bool data_end,in_data;
@@ -720,7 +717,7 @@ static char *read_mbstr(cnt)
 }
 
 /* read the XIMText data from a response file */
-static XIMText *read_ximtext()
+static XIMText *read_ximtext(void)
 {
 	Bool data_end,in_data;
 	XIMText *pt;
@@ -830,7 +827,7 @@ static XIMText *read_ximtext()
 
 /* read the callback data from a response file for */
 /* the preedit_draw callback and stuff it into the appropriate record */ 
-static char *read_pe_draw()
+static char *read_pe_draw(void)
 {
 	Bool cb_end,in_cb;
 	int key,num;
@@ -958,7 +955,7 @@ static char *read_pe_draw()
 
 /* read the callback data from a response file for */
 /* the preedit_caret callback and stuff it into the appropriate record */ 
-static char *read_pe_caret()
+static char *read_pe_caret(void)
 {
 	Bool cb_end,in_cb;
 	int key,num;
@@ -1078,7 +1075,7 @@ static char *read_pe_caret()
 	return((char *)pd);
 }
 
-static Pixmap read_pixmap()
+static Pixmap read_pixmap(void)
 {
 	Bool data_end,in_data;
 	XIMText *pt;
@@ -1139,7 +1136,7 @@ static Pixmap read_pixmap()
 
 /* read the callback data from a response file for */
 /* the status_draw callback and stuff it into the appropriate record */ 
-static char *read_st_draw()
+static char *read_st_draw(void)
 {
 	Bool cb_end,in_cb;
 	int key,num;
@@ -1388,7 +1385,7 @@ Bool xim_response_read()
 /*
  * Close an xim response file 
  */
-void xim_response_close()
+void xim_response_close(void)
 {
 	if(fp_response == NULL)
 		return;
@@ -1398,7 +1395,7 @@ void xim_response_close()
 
 
 /*******************************************************************/
-void xim_response_clean_cb()
+void xim_response_clean_cb(void)
 {
 	int i;
 	cbstk_def *pstk;
@@ -1411,8 +1408,7 @@ void xim_response_clean_cb()
 }
 
 /* check to see if we have collected all the responses we expect */
-Bool xim_response_done(pstk)
-	cbstk_def *pstk;
+Bool xim_response_done(cbstk_def *pstk)
 {
 	if(pstk->top == cbstk.top)
 		return(True);
@@ -1421,8 +1417,7 @@ Bool xim_response_done(pstk)
 }
 
 /* compare actual responses vs. expected responses */
-Bool xim_response_compare(astk)
-	cbstk_def *astk;
+Bool xim_response_compare(cbstk_def *astk)
 {
 	cbstk_def *pstk;
 

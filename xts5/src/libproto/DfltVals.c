@@ -180,9 +180,9 @@ Gen_Good_time (int client) {
  */
 
 VisualID
-Gen_Good_Visual (client,scr)
-    int client;         /* client number */
-    int scr;            /* screen number */
+Gen_Good_Visual (
+    int client,         /* client number */
+    int scr)            /* screen number */
 {
     XstVisual *vp;         /* pointer to visual structure */
 
@@ -199,8 +199,7 @@ Get_Resource_Id(int client)
 
 /* func. to give min of 3 vars */
 static
-int min3(a, b, c)
-	int a,b,c;
+int min3(int a, int b, int c)
 {
 	if (a < b)
 		b = a;
@@ -213,8 +212,7 @@ int min3(a, b, c)
  * Get a suitable number of colormap entries to allocate.
  */
 int
-Get_Maxsize(client)
-	int 	client;
+Get_Maxsize(int client)
 {
 	XstVisual	*vp;
 	int	 	r,g,b;

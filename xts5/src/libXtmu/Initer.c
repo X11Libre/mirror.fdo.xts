@@ -100,10 +100,7 @@ static Cardinal init_list_length = 0;
 
 static Boolean AddToAppconList();
 
-void
-XmuAddInitializer(func, data) 
-XmuInitializerProc func;
-caddr_t data;
+void XmuAddInitializer(XmuInitializerProc func, caddr_t data)
 {
   init_list_length++;
   init_list = (struct InitializerList *) XtRealloc( (char *) init_list, 
@@ -115,9 +112,7 @@ caddr_t data;
   init_list[init_list_length - 1].app_con_list = NULL;
 }
 
-void
-XmuCallInitializers(app_con)
-XtAppContext app_con;
+void XmuCallInitializers(XtAppContext app_con)
 {
   int i;
 
@@ -136,9 +131,9 @@ XtAppContext app_con;
  *	Returns: TRUE if not found, FALSE if found.
  */
 
-static Boolean
-AddToAppconList(app_list, app_con)
-XtAppContext **app_list, app_con;
+static Boolean AddToAppconList(
+    XtAppContext **app_list,
+    XtAppContext app_con)
 {
   int i;
   XtAppContext *local_list;

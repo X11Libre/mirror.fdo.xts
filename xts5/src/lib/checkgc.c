@@ -119,11 +119,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 #include	"xtestlib.h"
 
 int
-checkgccomponent(disp, gc, valuemask, values)
-Display *disp;
-GC gc;
-unsigned int valuemask;  
-XGCValues *values;
+checkgccomponent(Display *disp, GC gc, unsigned int valuemask, XGCValues *values)
 {
 	XGCValues rvalues;
 

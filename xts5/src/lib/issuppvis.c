@@ -123,9 +123,7 @@ static int Nsupvis;
 static unsigned long Supvismsk;
 
 static int
-issupid(n, vip)
-int		n;
-XVisualInfo	*vip;
+issupid(int n, XVisualInfo *vip)
 {
 XVisualInfo	*vp;
 char	*idlist;
@@ -154,9 +152,7 @@ int 	i;
  * use the XT_VISUAL_CLASSES parameter.
  */
 int
-issuppvis(disp, vis)
-Display	*disp;
-int 	vis;
+issuppvis(Display *disp, int vis)
 {
 XVisualInfo	templ;
 XVisualInfo	*vip;
@@ -190,9 +186,7 @@ int	result;
  * visuals.
  */
 unsigned long
-visualsupported(disp, mask)      
-Display *disp;
-unsigned long mask;
+visualsupported(Display *disp, unsigned long mask)
 {
 	unsigned long resultmask = 0;
 
@@ -228,8 +222,7 @@ unsigned long mask;
 }
 
 void
-resetsupvis(vismask)
-unsigned long vismask;
+resetsupvis(unsigned long vismask)
 {
 	resetvinf(VI_WIN);
 	Nsupvis = 0;
@@ -238,8 +231,7 @@ unsigned long vismask;
 
 
 int
-nextsupvis(vi)
-XVisualInfo **vi;
+nextsupvis(XVisualInfo **vi)
 {
 	while(nextvinf(vi))
 		if(Supvismsk & (1L<<(*vi)->class)) {
@@ -252,7 +244,7 @@ XVisualInfo **vi;
 }
 
 int
-nsupvis()
+nsupvis(void)
 {
 	return Nsupvis;
 }

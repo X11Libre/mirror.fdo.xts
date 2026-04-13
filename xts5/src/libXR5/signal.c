@@ -113,9 +113,9 @@ purpose.  It is provided "as is" without express or implied warranty.
 #include <r5structs.h>
 #include <r5decl.h>
 
-int signal_status(disp, error_event)
-Display *disp;
-XErrorEvent *error_event;
+int signal_status(
+    Display *disp,
+    XErrorEvent *error_event)
 {
     extern int errflg;
     extern int first_error;

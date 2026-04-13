@@ -421,10 +421,7 @@ static const char	*reasons[] = {
 /*
  * Do one section.
  */
-void do1sec(fp, buf, sec)
-FILE	*fp;
-char	*buf;
-int 	sec;
+void do1sec(FILE *fp, char *buf, int sec)
 {
 char	*line;
 const char	*str;
@@ -555,10 +552,7 @@ dohook(
 /*
  * Skip over this section.
  */
-void
-skip(fp, buf)
-FILE	*fp;
-char	*buf;
+void skip(FILE *fp, char *buf)
 {
 	while (newline(fp, buf) != NULL && !SECSTART(buf))
 		;
@@ -568,11 +562,7 @@ char	*buf;
  * Copy the complete section straight to the output, including the
  * section start line.
  */
-void
-echo(fp, buf, fpout)
-FILE	*fp;
-char	*buf;
-FILE	*fpout;
+void echo(FILE *fp, char *buf, FILE *fpout)
 {
 	fwrite(buf, strlen(buf), 1, fpout);
 	echon(fp, buf, fpout);
@@ -582,11 +572,7 @@ FILE	*fpout;
  * Copy this section straight to the output, without the section start
  * line.
  */
-void
-echon(fp, buf, fpout)
-FILE	*fp;
-char	*buf;
-FILE	*fpout;
+void echon(FILE *fp, char *buf, FILE *fpout)
 {
 	while (newline(fp, buf) != NULL && !SECSTART(buf))
 		fwrite(buf, strlen(buf), 1, fpout);
@@ -595,8 +581,7 @@ FILE	*fpout;
 /*
  * At this point we insert any default code that needs inserting.
  */
-void dodefaults(buf)
-char	*buf;
+void dodefaults(char *buf)
 {
 FILE	*fp;
 int 	needed;

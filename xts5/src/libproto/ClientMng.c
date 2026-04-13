@@ -167,7 +167,7 @@ static void ReleaseMemory(XstDisplay *dpy, char *setup);
  */
 
 unsigned char
-native_byte_sex ()
+native_byte_sex (void)
 {
     int realbytesex;
 
@@ -200,8 +200,7 @@ native_byte_sex ()
  */
 
 void
-Create_Client(client)
-int client;
+Create_Client(int client)
 {
     int bytesex = Xst_byte_sex;
     unsigned char creal;          /* what byte sex this machine is */
@@ -254,9 +253,7 @@ int client;
  *	a boolean indicating whether display opened correctly.
  */
 int
-Create_Client_Tested(client, test_type)
-int client;
-TestType test_type;
+Create_Client_Tested(int client, TestType test_type)
 {
     int bytesex = Xst_byte_sex;
     unsigned char creal;          /* what byte sex this machine is */
@@ -759,18 +756,14 @@ XstOpenDisplay (const char *display, int bytesex, int needswap, int cl)
 /* OutOfMemory is called if Xstmalloc fails.  XOpenDisplay returns NULL
    after this returns. */
 
-static  void OutOfMemory (dpy, setup)
-        XstDisplay * dpy;
-	char   *setup;
+static  void OutOfMemory (XstDisplay *dpy, char *setup)
 {
     ReleaseMemory (dpy, setup);
     errno = ENOMEM;
     Log_Del ("Not enough memory for holding connection setup info.\n");
 }
 
-static  void ReleaseMemory (dpy, setup)
-        XstDisplay * dpy;
-	char   *setup;
+static  void ReleaseMemory (XstDisplay *dpy, char *setup)
 {
     XstDisconnectDisplay (dpy -> fd);
     XstFreeDisplayStructure (dpy);
@@ -788,8 +781,7 @@ static  void ReleaseMemory (dpy, setup)
  */
 
 static void
-XstFreeDisplayStructure (dpy)
-XstDisplay * dpy;
+XstFreeDisplayStructure (XstDisplay *dpy)
 {
     /* if we have used XOpenDisplay to get the fd then free the xlib things */
     if (dpy -> xlib_dpy != (Display *)NULL) {
@@ -855,8 +847,7 @@ XstNewModifiermap (int keyspermodifier)
     return (res);
 }
 
-void Destroy_Client(client)
-int client;
+void Destroy_Client(int client)
 {
 	XstDisplay *dpy = Get_Display(client);
 	int 	tmpfd = -1;

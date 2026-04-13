@@ -135,9 +135,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 #endif
 
 Status
-SimulateKeyPressEvent(dpy, keycode)
-Display	*dpy;
-KeyCode	keycode;
+SimulateKeyPressEvent(Display *dpy, KeyCode keycode)
 {
 #ifdef XTESTEXTENSION
 	XTestFakeKeyEvent(dpy, keycode, 1, 0);
@@ -150,10 +148,7 @@ KeyCode	keycode;
 
 #ifdef INPUTEXTENSION
 Status
-SimulateDeviceKeyPressEvent(dpy, dev, keycode)
-Display	*dpy;
-XDevice *dev;
-KeyCode	keycode;
+SimulateDeviceKeyPressEvent(Display *dpy, XDevice *dev, KeyCode keycode)
 {
 #ifdef XTESTEXTENSION
 	XTestFakeDeviceKeyEvent(dpy, dev, keycode, 1, NULL, 0, 0);
@@ -165,9 +160,7 @@ KeyCode	keycode;
 #endif
 
 Status
-SimulateKeyReleaseEvent(dpy, keycode)
-Display	*dpy;
-KeyCode	keycode;
+SimulateKeyReleaseEvent(Display *dpy, KeyCode keycode)
 {
 #ifdef XTESTEXTENSION
 	XTestFakeKeyEvent(dpy, keycode, 0, 0);
@@ -179,10 +172,7 @@ KeyCode	keycode;
 
 #ifdef INPUTEXTENSION
 Status
-SimulateDeviceKeyReleaseEvent(dpy, dev, keycode)
-Display	*dpy;
-XDevice *dev;
-KeyCode	keycode;
+SimulateDeviceKeyReleaseEvent(Display *dpy, XDevice *dev, KeyCode keycode)
 {
 #ifdef XTESTEXTENSION
 	XTestFakeDeviceKeyEvent(dpy, dev, keycode, 0, NULL, 0, 0);
@@ -194,9 +184,7 @@ KeyCode	keycode;
 #endif
 
 Status
-SimulateButtonPressEvent(dpy, button)
-Display		*dpy;
-unsigned int	button;
+SimulateButtonPressEvent(Display *dpy, unsigned int button)
 {
 #ifdef XTESTEXTENSION
 	XTestFakeButtonEvent(dpy, button, 1, 0);
@@ -208,10 +196,7 @@ unsigned int	button;
 
 #ifdef INPUTEXTENSION
 Status
-SimulateDeviceButtonPressEvent(dpy, dev, button)
-Display		*dpy;
-XDevice *dev;
-unsigned int	button;
+SimulateDeviceButtonPressEvent(Display *dpy, XDevice *dev, unsigned int button)
 {
 #ifdef XTESTEXTENSION
 	XTestFakeDeviceButtonEvent(dpy, dev, button, 1, NULL, 0, 0);
@@ -223,9 +208,7 @@ unsigned int	button;
 #endif
 
 Status
-SimulateButtonReleaseEvent(dpy, button)
-Display		*dpy;
-unsigned int	button;
+SimulateButtonReleaseEvent(Display *dpy, unsigned int button)
 {
 #ifdef XTESTEXTENSION
 	XTestFakeButtonEvent(dpy, button, 0, 0);
@@ -237,10 +220,7 @@ unsigned int	button;
 
 #ifdef INPUTEXTENSION
 Status
-SimulateDeviceButtonReleaseEvent(dpy, dev, button)
-Display		*dpy;
-XDevice *dev;
-unsigned int	button;
+SimulateDeviceButtonReleaseEvent(Display *dpy, XDevice *dev, unsigned int button)
 {
 #ifdef XTESTEXTENSION
 	XTestFakeDeviceButtonEvent(dpy, dev, button, 0, NULL, 0, 0);
@@ -252,10 +232,7 @@ unsigned int	button;
 #endif
 
 Status
-CompareCursorWithWindow(dpy, window, cursor)
-Display	*dpy;
-Window	window;
-Cursor	cursor;
+CompareCursorWithWindow(Display *dpy, Window window, Cursor cursor)
 {
 #ifdef XTESTEXTENSION
 	return XTestCompareCursorWithWindow(dpy, window, cursor);
@@ -265,9 +242,7 @@ Cursor	cursor;
 }
 
 Status
-CompareCurrentWithWindow(dpy, window)
-Display	*dpy;
-Window	window;
+CompareCurrentWithWindow(Display *dpy, Window window)
 {
 #ifdef XTESTEXTENSION
 	return XTestCompareCurrentCursorWithWindow(dpy, window);
@@ -277,11 +252,7 @@ Window	window;
 }
 
 Status
-SimulateMotionEvent(dpy, screen, x, y)
-Display	*dpy;
-int	screen;
-int	x;
-int	y;
+SimulateMotionEvent(Display *dpy, int screen, int x, int y)
 {
 #ifdef XTESTEXTENSION
 	XTestFakeMotionEvent(dpy, screen, x, y, 0);
@@ -293,13 +264,7 @@ int	y;
 
 #ifdef INPUTEXTENSION
 Status
-SimulateDeviceMotionEvent(dpy, dev, is_relative, n_axes, axes, first)
-Display	*dpy;
-XDevice *dev;
-Bool	is_relative;
-int	n_axes;
-int	*axes;
-int	first;
+SimulateDeviceMotionEvent(Display *dpy, XDevice *dev, Bool is_relative, int n_axes, int *axes, int first)
 {
 #ifdef XTESTEXTENSION
 	XTestFakeDeviceMotionEvent(dpy, dev, is_relative, first, axes, n_axes, 0);
@@ -325,8 +290,7 @@ static xReq _dummy_request = {
 };
 
 Status
-XTestDiscard(dpy)
-    Display *dpy;
+XTestDiscard(Display *dpy)
 {
     Bool something;
     char *ptr;
@@ -351,9 +315,7 @@ XTestDiscard(dpy)
  * opaque data structure. The XTEST extension library includes this function.
  */
 void
-XTestSetGContextOfGC(gc, gid)
-	GC gc;
-	GContext gid;
+XTestSetGContextOfGC(GC gc, GContext gid)
 {
 	gc->gid = gid;
 }
@@ -363,7 +325,7 @@ XTestSetGContextOfGC(gc, gid)
  * opaque data structure. The XTEST extension library includes this function.
  */
 void
-XTestSetVisualIDOfVisual(v, vid)
+XTestSetVisualIDOfVisual(Visual *v, VisualID vid)
 	Visual *v;
 	VisualID vid;
 {

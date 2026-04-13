@@ -314,9 +314,7 @@ static struct errz_t errz[] = {
 **	all errnos are required but they are allowed to be absent
 */
 
-
-char *err_lookup(num)
-int num;
+char *err_lookup(int num)
 {
 	static char foo[256];
 	int	i;

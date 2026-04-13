@@ -147,10 +147,7 @@ int client;
 int base;
 #else
 int
-Rcv_Evt(rp,rbuf,client)
-xEvent *rp;
-char rbuf[];
-int client;
+Rcv_Evt(xEvent *rp, char rbuf[], int client)
 #endif
 {
 #ifdef Xpi

@@ -287,9 +287,7 @@ char	line[MAXLINE];
  * List out all the alternatives that have been defined for this error.
  * This allows you to do things like 'a valid Pixmap or None'.
  */
-int
-erralternates(out)
-char	*out;
+int erralternates(char *out)
 {
 int 	i;
 char	*word;

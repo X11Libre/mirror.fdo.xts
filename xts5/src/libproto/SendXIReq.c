@@ -163,9 +163,7 @@ static void Send_Feedback_Control (int client, XID class, void *ptr);
 
 #ifdef INPUTEXTENSION
 void
-Send_XInput_Req(client,rp)
-xReq *rp;
-int client;
+Send_XInput_Req(int client, xReq *rp)
 {
     _Send_XInput_Req(client,rp,0);	/* not polling thru this entry point */
 }
@@ -729,11 +727,8 @@ _Send_XInput_Req(
 }
 
 static void
-Send_Feedback_Control (client, class, ptr)
-    int client;
-    XID class;
-    void *ptr;
-    {
+Send_Feedback_Control (int client, XID class, void *ptr)
+{
     int i;
     xFeedbackCtl *f = (xFeedbackCtl *) ptr;
 
@@ -807,11 +802,8 @@ Send_Feedback_Control (client, class, ptr)
     }
 
 static void
-Send_Extension_Event (client, num_ev, num_classes, ptr)
-    int client;
-    int num_ev, num_classes;
-    void *ptr;
-    {
+Send_Extension_Event (int client, int num_ev, int num_classes, void *ptr)
+{
     int i;
     int *cptr = (int *) ((xEvent *)ptr + num_ev);
 

@@ -113,13 +113,13 @@ purpose.  It is provided "as is" without express or implied warranty.
 #include <X11/Xatom.h>		/* standard x atom values */
 #include "XtTest.h"
  
-void send_event_mask (dsply, wndw, msk, typ, key, sevent)
-Display * dsply;
-Window wndw;
-unsigned long   msk;
-int     typ;
-KeyCode key;
-XEvent * sevent;
+void send_event_mask (
+    Display *dsply,
+    Window wndw,
+    unsigned long msk,
+    int typ,
+    KeyCode key,
+    XEvent *sevent)
 {
     Status st;
     XWindowAttributes w_att;

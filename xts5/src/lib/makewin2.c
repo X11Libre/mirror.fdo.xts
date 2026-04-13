@@ -145,13 +145,7 @@ static void 	incxy(Display *, int, XVisualInfo *);
  * No events are selected for the created window.
  */
 Window
-mkwinchild(disp, vp, ap, mapflag, parent, border_width)
-Display	*disp;
-XVisualInfo	*vp;
-struct	area	*ap;
-int		mapflag;
-Window		parent;
-int		border_width;
+mkwinchild(Display *disp, XVisualInfo *vp, struct area *ap, int mapflag, Window parent, int border_width)
 {
 Window	w;
 struct	area	area;
@@ -223,11 +217,7 @@ unsigned long cmap_attr = 0;
  * No events are selected for the created window.
  */
 Window
-mkwin(disp, vp, ap, mapflag)
-Display	*disp;
-XVisualInfo	*vp;
-struct	area	*ap;
-int		mapflag;
+mkwin(Display *disp, XVisualInfo *vp, struct area *ap, int mapflag)
 {
 	return(mkwinchild(disp, vp, ap, mapflag, DefaultRootWindow(disp), 1));
 }

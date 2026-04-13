@@ -162,10 +162,7 @@ Send_Req(
 }
 
 void
-_Send_Req(client,rp,pollreq)
-int client;
-xReq *rp;
-int pollreq;
+_Send_Req(int client, xReq* rp, int pollreq)
 {
 	XstDisplay *dpy = Get_Display(client);
 	unsigned long bytesToSend = rp->length << 2;

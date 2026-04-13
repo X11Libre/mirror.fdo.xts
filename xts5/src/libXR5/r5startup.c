@@ -157,8 +157,7 @@ extern Atom	ErrdefAtom;
 extern Cursor	ErrdefCursor;
 extern Font	ErrdefFont;
 
-void
-r5_startup()
+void r5_startup(void)
 {
 int 	i;
 char	*disp;
@@ -288,7 +287,7 @@ extern	struct	tet_testlist	tet_testlist[];
  * Cleanup functions called at the end of the test purposes.
  */
 void
-r5_cleanup()
+r5_cleanup(void)
 {
 	if (Dsp) 
 	{

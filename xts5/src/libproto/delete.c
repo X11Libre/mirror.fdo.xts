@@ -175,7 +175,7 @@ va_list args;
  * Return True if deleted, False if not.
  */
 int
-isdeleted()
+isdeleted(void)
 {
 	return(Xst_delete_count > 0);
 }
@@ -184,7 +184,7 @@ isdeleted()
  * Reset the delete count back to 0.
  */
 void
-resetdelete()
+resetdelete(void)
 {
 	Xst_delete_count = 0;
 }

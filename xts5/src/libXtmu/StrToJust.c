@@ -87,11 +87,11 @@ SOFTWARE.
 
 /* ARGSUSED */
 void
-XmuCvtStringToJustify(args, num_args, fromVal, toVal)
-    XrmValuePtr args;		/* unused */
-    Cardinal	*num_args;	/* unused */
-    XrmValuePtr fromVal;
-    XrmValuePtr toVal;
+XmuCvtStringToJustify(
+    XrmValuePtr args,		/* unused */
+    Cardinal    *num_args,	/* unused */
+    XrmValuePtr fromVal,
+    XrmValuePtr toVal)
 {
     static XtJustify	e;
     static XrmQuark	XrmQEleft;

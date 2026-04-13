@@ -92,12 +92,7 @@ SOFTWARE.
 
 #define Const const
 
-#if NeedFunctionPrototypes
 int XmuCursorNameToIndex (_Xconst char *name)
-#else
-int XmuCursorNameToIndex (name)
-    char *name;
-#endif
 {
     static Const struct _CursorName {
 	Const char	*name;

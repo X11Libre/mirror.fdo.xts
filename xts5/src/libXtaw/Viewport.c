@@ -195,9 +195,9 @@ ViewportClassRec viewportClassRec = {
 
 WidgetClass viewportWidgetClass = (WidgetClass)&viewportClassRec;
 
-static Widget CreateScrollbar(w, horizontal)
-    ViewportWidget w;
-    Boolean horizontal;
+static Widget CreateScrollbar(
+    ViewportWidget w,
+    Boolean horizontal)
 {
     Widget clip = w->viewport.clip;
     ViewportConstraints constraints =
@@ -325,10 +325,10 @@ ConstraintInitialize(Widget request, Widget new,
     ((ViewportConstraints)new->core.constraints)->viewport.reparented = False;
 }
 
-static void Realize(widget, value_mask, attributes)
-    Widget widget;
-    XtValueMask *value_mask;
-    XSetWindowAttributes *attributes;
+static void Realize(
+    Widget widget,
+    XtValueMask *value_mask,
+    XSetWindowAttributes *attributes)
 {
     ViewportWidget w = (ViewportWidget)widget;
     Widget child = w->viewport.child;
@@ -371,8 +371,7 @@ SetValues(Widget current, Widget request, Widget new,
 }
 
 
-static void ChangeManaged(widget)
-    Widget widget;
+static void ChangeManaged(Widget widget)
 {
     ViewportWidget w = (ViewportWidget)widget;
     int num_children = w->composite.num_children;
@@ -439,17 +438,17 @@ static void ChangeManaged(widget)
 }
 
 
-static void SetBar(w, top, length, total)
-    Widget w;
-    Position top;
-    Dimension length, total;
+static void SetBar(
+    Widget w,
+    Position top,
+    Dimension length,
+    Dimension total)
 {
     XawScrollbarSetThumb(w, (float)top/(float)total,
 			 (float)length/(float)total);
 }
 
-static void RedrawThumbs(w)
-  ViewportWidget w;
+static void RedrawThumbs(ViewportWidget w)
 {
     Widget child = w->viewport.child;
     Widget clip = w->viewport.clip;
@@ -463,11 +462,9 @@ static void RedrawThumbs(w)
 	        clip->core.height, child->core.height );
 }
 
-
-
-static void SendReport (w, changed)
-    ViewportWidget w;
-    unsigned int changed;
+static void SendReport(
+    ViewportWidget w,
+    unsigned int changed)
 {
     XawPannerReport rep;
 
@@ -487,10 +484,10 @@ static void SendReport (w, changed)
     }
 }
 
-
-static void MoveChild(w, x, y)
-    ViewportWidget w;
-    Position x, y;
+static void MoveChild(
+    ViewportWidget w,
+    Position x,
+    Position y)
 {
     Widget child = w->viewport.child;
     Widget clip = w->viewport.clip;
@@ -512,11 +509,10 @@ static void MoveChild(w, x, y)
     RedrawThumbs(w);
 }
 
-
-static void ComputeLayout(widget, query, destroy_scrollbars)
-    Widget widget;		/* Viewport */
-    Boolean query;		/* query child's preferred geom? */
-    Boolean destroy_scrollbars;	/* destroy un-needed scrollbars? */
+static void ComputeLayout(
+    Widget widget,		/* Viewport */
+    Boolean query,		/* query child's preferred geom? */
+    Boolean destroy_scrollbars)	/* destroy un-needed scrollbars? */
 {
     ViewportWidget w = (ViewportWidget)widget;
     Widget child = w->viewport.child;
@@ -717,11 +713,12 @@ static void ComputeLayout(widget, query, destroy_scrollbars)
  */
 
 static void
-ComputeWithForceBars(widget, query, intended, clip_width, clip_height)
-Widget widget;
-Boolean query;
-XtWidgetGeometry * intended;
-int *clip_width, *clip_height;
+ComputeWithForceBars(
+    Widget widget,
+    Boolean query,
+    XtWidgetGeometry *intended,
+    int *clip_width,
+    int *clip_height)
 {
     ViewportWidget w = (ViewportWidget)widget;
     Widget child = w->viewport.child;
@@ -790,8 +787,7 @@ int *clip_width, *clip_height;
 	intended->height = *clip_height;
 }
 
-static void Resize(widget)
-    Widget widget;
+static void Resize(Widget widget)
 {
     ComputeLayout( widget, /*query=*/True, /*destroy=*/True );
 }
@@ -807,10 +803,10 @@ static Boolean Layout(FormWidget w, unsigned int width, unsigned int height,
 }
 
 
-static void ScrollUpDownProc(widget, closure, call_data)
-    Widget widget;
-    XtPointer closure;
-    XtPointer call_data;
+static void ScrollUpDownProc(
+    Widget widget,
+    XtPointer closure,
+    XtPointer call_data)
 {
     ViewportWidget w = (ViewportWidget)closure;
     Widget child = w->viewport.child;
@@ -856,9 +852,10 @@ ThumbProc(Widget widget, XtPointer closure, XtPointer call_data)
     MoveChild(w, x, y);
 }
 
-static XtGeometryResult
-TestSmaller(w, request, reply_return)
-     ViewportWidget w; XtWidgetGeometry *request, *reply_return;
+static XtGeometryResult TestSmaller(
+    ViewportWidget w,
+    XtWidgetGeometry *request,
+    XtWidgetGeometry *reply_return)
 {
   if (request->width < w->core.width || request->height < w->core.height)
     return XtMakeGeometryRequest((Widget)w, request, reply_return);
@@ -866,11 +863,11 @@ TestSmaller(w, request, reply_return)
     return XtGeometryYes;  
 }
 
-static XtGeometryResult
-GeometryRequestPlusScrollbar(w, horizontal, request, reply_return)
-     Boolean horizontal;
-     ViewportWidget w; 
-     XtWidgetGeometry *request, *reply_return;
+static XtGeometryResult GeometryRequestPlusScrollbar(
+    ViewportWidget w,
+    Boolean horizontal,
+    XtWidgetGeometry *request,
+    XtWidgetGeometry *reply_return)
 {
   Widget sb;
   XtWidgetGeometry plusScrollbars;
@@ -886,10 +883,11 @@ GeometryRequestPlusScrollbar(w, horizontal, request, reply_return)
 #define WidthChange() (request->width != w->core.width)
 #define HeightChange() (request->height != w->core.height)
 
-static XtGeometryResult 
-QueryGeometry(w, request, reply_return)
-     ViewportWidget w; XtWidgetGeometry *request, *reply_return;
-{	
+static XtGeometryResult QueryGeometry(
+    ViewportWidget w,
+    XtWidgetGeometry *request,
+    XtWidgetGeometry *reply_return)
+{
   if (w->viewport.allowhoriz && w->viewport.allowvert) 
     return TestSmaller(w, request, reply_return);
 
@@ -920,9 +918,10 @@ QueryGeometry(w, request, reply_return)
 #undef WidthChange
 #undef HeightChange
 
-static XtGeometryResult GeometryManager(child, request, reply)
-    Widget child;
-    XtWidgetGeometry *request, *reply;
+static XtGeometryResult GeometryManager(
+    Widget child,
+    XtWidgetGeometry *request,
+    XtWidgetGeometry *reply)
 {
     ViewportWidget w = (ViewportWidget)child->core.parent;
     Boolean rWidth = (Boolean)(request->request_mode & CWWidth);
@@ -1010,9 +1009,10 @@ static XtGeometryResult GeometryManager(child, request, reply)
   }
 
 
-static Boolean GetGeometry(w, width, height)
-    Widget w;
-    Dimension width, height;
+static Boolean GetGeometry(
+    Widget w,
+    Dimension width,
+    Dimension height)
 {
     XtWidgetGeometry geometry, return_geom;
     XtGeometryResult result;
@@ -1045,9 +1045,10 @@ static Boolean GetGeometry(w, width, height)
     return (result == XtGeometryYes);
 }
 
-static XtGeometryResult PreferredGeometry(w, constraints, reply)
-    Widget w;
-    XtWidgetGeometry *constraints, *reply;
+static XtGeometryResult PreferredGeometry(
+    Widget w,
+    XtWidgetGeometry *constraints,
+    XtWidgetGeometry *reply)
 {
     if (((ViewportWidget)w)->viewport.child != NULL)
 	return XtQueryGeometry( ((ViewportWidget)w)->viewport.child,
@@ -1058,17 +1059,11 @@ static XtGeometryResult PreferredGeometry(w, constraints, reply)
 
 
 void
-#if NeedFunctionPrototypes
 XawViewportSetLocation (Widget gw,
 #if NeedWidePrototypes
 			double xoff, double yoff)
 #else
 			float xoff, float yoff)
-#endif
-#else
-XawViewportSetLocation (gw, xoff, yoff)
-    Widget gw;
-    float  xoff,yoff;
 #endif
 {
     ViewportWidget w = (ViewportWidget) gw;
@@ -1093,17 +1088,11 @@ XawViewportSetLocation (gw, xoff, yoff)
 }
 
 void
-#if NeedFunctionPrototypes
 XawViewportSetCoordinates (Widget gw,
 #if NeedWidePrototypes
 			   int x, int y)
 #else
 			   Position x, Position y)
-#endif
-#else
-XawViewportSetCoordinates (gw, x, y)
-    Widget gw;
-    Position x, y;
 #endif
 {
     ViewportWidget w = (ViewportWidget) gw;

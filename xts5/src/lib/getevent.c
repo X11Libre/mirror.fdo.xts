@@ -124,9 +124,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  * Returns the number of events that were in the queue on calling.
  */
 int
-getevent(disp, event)
-Display	*disp;
-XEvent	*event;
+getevent(Display *disp, XEvent *event)
 {
 int 	len;
 

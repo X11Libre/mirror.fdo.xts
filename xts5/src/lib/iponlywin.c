@@ -126,8 +126,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  * The window has size 5x5 at location 1, 1.
  */
 Window
-iponlywin(disp)
-Display	*disp;
+iponlywin(Display *disp)
 {
 Window	w;
 XSetWindowAttributes atts;

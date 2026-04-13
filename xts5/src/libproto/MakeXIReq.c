@@ -377,10 +377,7 @@ static int alloc_len; /* significantly different only in TOO_LONG tests */
   side-effects: causes memory to be allocated for requests
   methods:
 */
-xReq
-*Make_XInput_Req(client,type)
-int client;
-int type;
+xReq* Make_XInput_Req(int client, int type)
 {
 #ifdef INPUTEXTENSION
 	int i;

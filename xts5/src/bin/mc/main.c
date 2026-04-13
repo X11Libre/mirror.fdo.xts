@@ -194,10 +194,7 @@ static struct	cmdinfo	defcmd = {
 	"mtool -c <command> [-o <output-file>] [other-options]"
 };
 
-int
-main(argc, argv)
-int 	argc;
-char	**argv;
+int main(int argc, char **argv)
 {
 int 	c;
 int 	i;
@@ -321,10 +318,7 @@ newcmd:
 
 static char	putbackbuf[MAXLINE];
 
-char *
-newline(fp, buf)
-FILE	*fp;
-char	*buf;
+char *newline(FILE *fp, char *buf)
 {
 char	*res;
 extern	int 	Outputon;
@@ -369,9 +363,7 @@ extern	int 	Outputon;
 /*
  * Push back a line of input.
  */
-void
-putbackline(line)
-char	*line;
+void putbackline(char *line)
 {
 	if (*putbackbuf) {
 		err("Internal error: one line already pushed back\n");
@@ -388,9 +380,7 @@ char	*line;
  * Since this routine depends on assertion/strategy state so much
  * then perhaps this is the wrong place to do this.
  */
-void
-expandxname(line)
-char	*line;
+void expandxname(char *line)
 {
 static	char	buf[MAXLINE];
 char	*cp;
@@ -454,7 +444,7 @@ err(const char *mess)
  * Tidy up and exit.
  */
 int
-errexit()
+errexit(void)
 {
 	remfiles();
 	exit(EXIT_FAILURE);
@@ -465,9 +455,7 @@ errexit()
  * unexpected signals no action is taken to aid debuging.
  */
 /*ARGSUSED*/
-static void
-sigclean(sig)
-int 	sig;
+static void sigclean(int sig)
 {
 	errexit();
 }
@@ -506,9 +494,7 @@ static	struct	aslist	{
 } aslist[MAXICLIST];
 static	int 	aslind;
 
-static void
-setupaslist(list)
-char	*list;
+static void setupaslist(char *list)
 {
 char	*cp;
 
@@ -531,9 +517,7 @@ char	*cp;
 	}
 }
 
-int
-isassertwanted(a)
-int 	a;
+int isassertwanted(int a)
 {
 int 	i;
 

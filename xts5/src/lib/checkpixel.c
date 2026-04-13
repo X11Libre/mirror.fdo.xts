@@ -123,12 +123,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  */
 
 int
-checkpixel(display,drawable,x,y,value)
-Display *display;
-Drawable drawable;
-int x;
-int y;
-unsigned long value;
+checkpixel(Display *display,Drawable drawable,int x,int y,unsigned long value)
 {
 	XImage *image;
 	int 	pix;
@@ -144,11 +139,7 @@ unsigned long value;
  * pixels are of interest.
  */
 unsigned long
-getpixel(display, drawable, x, y)
-Display *display;
-Drawable drawable;
-int 	x;
-int 	y;
+getpixel(Display *display, Drawable drawable, int x, int y)
 {
 XImage *image;
 unsigned long	pix;
@@ -164,15 +155,7 @@ unsigned long	pix;
  */
 
 Status
-checkpixels(display, drawable, x, y, dx, dy, len, value)
-Display *display;
-Drawable drawable;	
-int x;
-int y;
-int	dx;
-int dy;
-int len;
-unsigned long value;
+checkpixels(Display *display, Drawable drawable, int x, int y, int dx, int dy, int len, unsigned long value)
 {
 	int i;
 	

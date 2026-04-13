@@ -135,10 +135,7 @@ SOFTWARE.
 #define ERROR_HEADER	4	/* size of constant header */
 
 int
-Rcv_Err(rp,rbuf,client)
-xError *rp;
-char rbuf[];
-int client;
+Rcv_Err(xError *rp, char rbuf[], int client)
 {
 	int needswap = Xst_clients[client].cl_swap;
 	char *rbp = rbuf;

@@ -86,12 +86,7 @@ SOFTWARE.
  * ISO Latin-1 case conversion routine
  */
 
-#if NeedFunctionPrototypes
 void XmuCopyISOLatin1Lowered(char *dst, _Xconst char *src)
-#else
-void XmuCopyISOLatin1Lowered(dst, src)
-    char *dst, *src;
-#endif
 {
     unsigned char *dest, *source;
 
@@ -111,12 +106,7 @@ void XmuCopyISOLatin1Lowered(dst, src)
     *dest = '\0';
 }
 
-#if NeedFunctionPrototypes
 void XmuCopyISOLatin1Uppered(char *dst, _Xconst char *src)
-#else
-void XmuCopyISOLatin1Uppered(dst, src)
-    char *dst, *src;
-#endif
 {
     unsigned char *dest, *source;
 
@@ -136,12 +126,7 @@ void XmuCopyISOLatin1Uppered(dst, src)
     *dest = '\0';
 }
 
-#if NeedFunctionPrototypes
 int XmuCompareISOLatin1 (_Xconst char *first, _Xconst char *second)
-#else
-int XmuCompareISOLatin1 (first, second)
-    char *first, *second;
-#endif
 {
     unsigned char *ap, *bp;
 

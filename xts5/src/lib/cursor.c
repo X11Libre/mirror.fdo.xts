@@ -120,19 +120,14 @@ purpose.  It is provided "as is" without express or implied warranty.
 
 /* does this cursor match that of the window? */
 
-int curofwin(display, cursor, window)
-Display	*display;
-Cursor	cursor;
-Window	window;
+int curofwin(Display *display, Cursor cursor, Window window)
 {
 	return CompareCursorWithWindow(display, window, cursor);
 }
 
 /* has this window the default cursor? */
 
-int defcur(display, window)
-Display	*display;
-Window	window;
+int defcur(Display *display, Window window)
 {
 	Window root, wjunk, withdefault;
 	int ijunk, rx, ry, res;
@@ -162,9 +157,7 @@ Window	window;
 
 /* is the current cursor the same as that of window? */
 
-int spriteiswin(display, window)
-Display	*display;
-Window	window;
+int spriteiswin(Display *display, Window window)
 {
 	return CompareCurrentWithWindow(display, window);
 }

@@ -158,8 +158,7 @@ static xReq * _Del_Masked_Value(xReq *reqp, unsigned long nominal_size,
  */
 
 xReq *
-Clear_Masked_Value (reqp)
-xReq * reqp;
+Clear_Masked_Value (xReq *reqp)
 {
     unsigned long   nominal_size;
 
@@ -234,15 +233,12 @@ xReq * reqp;
  */
 
 xReq *
-Add_Masked_Value (reqp, mask, value)
-xReq * reqp;
-unsigned long mask;
-unsigned long value;
+Add_Masked_Value (xReq *reqp, unsigned long mask, unsigned long value)
 {
     unsigned long   nominal_size;
 
     if (Ones(mask) != 1) {
-	Log_Msg("Add_Masked_Value called with bad mask = 0x%08x\n",mask);
+	Log_Msg("Add_Masked_Value called with bad mask = 0x%08lx\n",mask);
 	Abort();
     }
 
@@ -502,8 +498,7 @@ _Del_Masked_Value(
  */
 
 xReq *
-Clear_Counted_Value (reqp)
-xReq * reqp;
+Clear_Counted_Value (xReq *reqp)
 {
     unsigned long   nominal_size;
 
@@ -757,9 +752,7 @@ xReq * reqp;
  */
 
 xReq *
-Add_Counted_Value (reqp, value)
-xReq * reqp;
-unsigned long value;
+Add_Counted_Value (xReq *reqp, unsigned long value)
 {
     unsigned long   nominal_size;
     unsigned char   *valuePtr;
@@ -1143,10 +1136,10 @@ Ones(Mask mask)                /* HACKMEM 169 */
  */
 
 xReq *
-Add_Counted_Bytes (reqp, bytep, nbytes)
-    xReq * reqp;
-    unsigned char *bytep;
-    int nbytes;
+Add_Counted_Bytes (
+    xReq * reqp,
+    unsigned char *bytep,
+    int nbytes)
 {
     unsigned long   nominal_size;
     unsigned char   *valuePtr;

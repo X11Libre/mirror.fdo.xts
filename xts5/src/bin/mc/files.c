@@ -141,9 +141,7 @@ FILE	*opencopy();
 /*
  * Open the first source file.
  */
-FILE *
-nextfile(sources)
-struct	mclist	*sources;
+FILE *nextfile(struct mclist *sources)
 {
 FILE	*fp;
 static	int 	firsttime = 1;
@@ -233,8 +231,7 @@ char *tmpfile;
  * Combine all the files in the right order onto
  * stdout.
  */
-void outfile(fp)
-FILE	*fp;
+void outfile(FILE *fp)
 {
 static FILE	*fout;
 static int 	olineno = 0;
@@ -342,9 +339,7 @@ int 	savlineno;
 /*
  * Mark the file name for deletion at the end.
  */
-void
-filetemp(name)
-char	*name;
+void filetemp(char *name)
 {
 int 	i;
 

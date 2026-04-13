@@ -132,7 +132,7 @@ extern      Display *Dsp;
 int XTTestExtn = 0;
 
 Status
-IsExtTestAvailable()
+IsExtTestAvailable(void)
 {
 #ifdef XTESTEXTENSION
 	int	mop;

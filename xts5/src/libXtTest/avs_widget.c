@@ -77,9 +77,7 @@ SOFTWARE.
 #include <X11/Xaw/SimpleMenu.h>
 #include <xt/Box.h>
 
-
-Widget CreateMainWidget(w)
-Widget w;
+Widget CreateMainWidget(Widget w)
 {
 	Widget mainw;
 
@@ -94,8 +92,7 @@ Widget w;
 
 }
 
-Widget CreateDrawWidget(w)
-Widget w;
+Widget CreateDrawWidget(Widget w)
 {
 	Widget drawaw;
 
@@ -109,10 +106,8 @@ Widget w;
 	return((Widget)drawaw);
 }
 
-Widget CreateFormWidget(w)
-Widget w;
+Widget CreateFormWidget(Widget w)
 {
-
 	Widget formw;
 
 	formw = XtVaCreateManagedWidget(
@@ -125,10 +120,8 @@ Widget w;
 	return((Widget)formw);
 }
 
-Widget CreateScrollWidget(w)
-Widget w;
+Widget CreateScrollWidget(Widget w)
 {
-
 	Widget scrollw;
 
 	scrollw = XtVaCreateManagedWidget(
@@ -141,11 +134,8 @@ Widget w;
 	return((Widget)scrollw);
 }
 
-
-Widget CreateRowColWidget(w)
-Widget w;
+Widget CreateRowColWidget(Widget w)
 {
-
 	Widget rowcolw;
 
 	rowcolw = XtVaCreateManagedWidget(
@@ -158,8 +148,7 @@ Widget w;
 	return((Widget)rowcolw);
 }
 
-Widget CreateFrameWidget(w)
-Widget w;
+Widget CreateFrameWidget(Widget w)
 {
 	Widget framew;
 
@@ -173,8 +162,7 @@ Widget w;
 	return((Widget)framew);
 }
 
-Widget CreatePanedWidget(w)
-Widget w;
+Widget CreatePanedWidget(Widget w)
 {
 	Widget panedw;
 
@@ -188,8 +176,7 @@ Widget w;
 	return((Widget)panedw);
 }
 
-Widget CreateBoxWidget(w)
-Widget w;
+Widget CreateBoxWidget(Widget w)
 {
 	Widget boxw;
 
@@ -234,8 +221,7 @@ CreatePushButtonGadget(const char *string, Widget w)
 	return((Widget)pushb);
 }
 
-Widget CreateMenuShellWidget(w)
-Widget w;
+Widget CreateMenuShellWidget(Widget w)
 {
 	Widget menuw;
 
@@ -251,8 +237,7 @@ Widget w;
 	return((Widget)menuw);
 }
 
-Widget CreateDialogShellWidget(w)
-Widget w;
+Widget CreateDialogShellWidget(Widget w)
 {
 	Widget dialogsw;
 

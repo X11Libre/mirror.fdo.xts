@@ -116,10 +116,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 static	FILE	*FpBanner;
 static	FILE	*FpExp;
 
-void
-mepcopyright(fp, buf)
-FILE	*fp;
-char	*buf;
+void mepcopyright(FILE *fp, char *buf)
 {
 static int 	firsttime = 1;
 
@@ -132,28 +129,19 @@ static int 	firsttime = 1;
 	firsttime = 0;
 }
 
-void
-mepecho(fp, buf)
-FILE	*fp;
-char	*buf;
+void mepecho(FILE *fp, char *buf)
 {
 	echo(fp, buf, FpExp);
 }
 
 /* Hooks */
-/*ARGSUSED*/
-void
-mepstart(buf)
-char	*buf;
+void mepstart(char *buf)
 {
 	FpExp = cretmpfile(F_EXPAND, NULL);
 	FpBanner = cretmpfile(F_BANNER, NULL);
 }
 
-/*ARGSUSED*/
-void
-mepend(buf)
-char	*buf;
+void mepend(char *buf)
 {
 	fprintf(FpBanner, " */\n");
 	outfile(FpBanner);
@@ -161,16 +149,12 @@ char	*buf;
 	fclose(FpExp);
 }
 
-void
-mepset(buf)
-char	*buf;
+void mepset(char *buf)
 {
 	fprintf(FpExp, ">>SET %s", buf);
 }
 
-void
-mepcomment(buf)
-char	*buf;
+void mepcomment(char *buf)
 {
 	fprintf(FpExp, "%s", buf);
 }

@@ -219,8 +219,7 @@ static void	(*time_proc)() = 0;
 	} \
     }
 
-static int complain(dpy)
-Display *dpy; /* Yes, an Xlib display */
+static int complain(Display *dpy)
 {
 	static char buf[256];
 
@@ -243,17 +242,15 @@ Display *dpy; /* Yes, an Xlib display */
  * of the form hostname:number.screen ("::" if DECnet) is returned in a result
  * parameter. The screen number to use is also returned.
  */
-int XstConnectDisplay (display_name, expanded_name, screen_num,
-		       auth_proto, auth_length, auth_string, auth_strlen,
-		       xlib_dpy)
-    const char *display_name;
-    char **expanded_name;	/* return */
-    int *screen_num;		/* return */
-    char **auth_proto;		/* return */
-    int *auth_length;		/* return */
-    char **auth_string;		/* return */
-    int *auth_strlen;		/* return */
-    Display **xlib_dpy;		/* return */
+int XstConnectDisplay (
+    const char *display_name,
+    char **expanded_name,	/* return */
+    int *screen_num,		/* return */
+    char **auth_proto,		/* return */
+    int *auth_length,		/* return */
+    char **auth_string,		/* return */
+    int *auth_strlen,		/* return */
+    Display **xlib_dpy)		/* return */
 {
     int idisplay;
 
@@ -267,17 +264,13 @@ int XstConnectDisplay (display_name, expanded_name, screen_num,
  * Disconnect from server.
  */
 
-int XstDisconnectDisplay (server)
-
-    int server;
-
+int XstDisconnectDisplay (int server)
 {
     return close(server);
 }
 
 void
-_XstWaitForReadable(dpy)
-  XstDisplay *dpy;
+_XstWaitForReadable(XstDisplay *dpy)
 {
     fd_set r_mask;
     int result;
@@ -294,12 +287,12 @@ _XstWaitForReadable(dpy)
 
 static unsigned int padlength[4] = {0, 3, 2, 1};
 
-void XstSendClientPrefix (dpy, client, auth_proto, auth_string, needswap)
-     XstDisplay *dpy;
-     xConnClientPrefix *client;
-	char	*auth_proto;
-	char	*auth_string;
-     int needswap;
+void XstSendClientPrefix (
+    XstDisplay *dpy,
+    xConnClientPrefix *client,
+    char *auth_proto,
+    char *auth_string,
+    int needswap)
 {
 	/*
 	 * Authorization string stuff....  Must always transmit multiple of 4
@@ -398,8 +391,7 @@ void XstSendClientPrefix (dpy, client, auth_proto, auth_string, needswap)
 static const char *nothing = "No reply from server when trying to connect to %s\n";
 
 static void
-Timeout_Func(action)
-int action;
+Timeout_Func(int action)
 {
     const char *server = Xst_server_node == NULL ? "Default Server" : Xst_server_node;
 
@@ -428,25 +420,22 @@ int action;
 }
 
 static void
-Normal_Timeout_Func() {
+Normal_Timeout_Func(void) {
     Timeout_Func(DELETE_action);
 }
 
 static void
-Good_Open_Timeout_Func() {
+Good_Open_Timeout_Func(void) {
     Timeout_Func(FAIL_action);
 }
 
 static void
-Bad_Open_Timeout_Func() {
+Bad_Open_Timeout_Func(void) {
     Timeout_Func(PASS_action);
 }
 
 void
-GetConnSetupPrefix (client, prefixp, needswap)
-int client;
-xConnSetupPrefix * prefixp;
-int     needswap;
+GetConnSetupPrefix (int client, xConnSetupPrefix *prefixp, int needswap)
 {
     XstDisplay * dpy;
     char    buffer[OBUFSIZE];
@@ -489,11 +478,7 @@ int     needswap;
  *		in XOpenDisplay - might merge later)
  */
 
-void GetConnSetupData (client, setupdp, len, needswap)
-int client;
-xConnSetup * setupdp;
-int     len;
-int     needswap;
+void GetConnSetupData (int client, xConnSetup *setupdp, int len, int needswap)
 {
     XstDisplay * dpy;
     char    buffer[OBUFSIZE];
@@ -655,10 +640,7 @@ typedef struct {
 #define bignamelen (sizeof(XBigReqExtensionName) - 1)
 
 void
-BigRequestsSetup(client, dpy, needswap)
-int client;
-XstDisplay  *dpy;
-int     needswap;
+BigRequestsSetup(int client, XstDisplay *dpy, int needswap)
 {
     xQueryExtensionReq queryreq;
     xQueryExtensionReply queryreply;

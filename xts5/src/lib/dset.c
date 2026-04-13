@@ -123,9 +123,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  * that it will work on pixmaps.
  */
 void
-dclear(disp, d)
-Display	*disp;
-Drawable d;
+dclear(Display *disp, Drawable d)
 {
 	dset(disp, d, W_BG);
 }
@@ -135,10 +133,7 @@ Drawable d;
  * works on pixmaps.
  */
 void
-dset(disp, d, pix)
-Display	*disp;
-Drawable d;
-unsigned long	pix;
+dset(Display *disp, Drawable d, unsigned long pix)
 {
 unsigned int 	width, height;
 GC		gc;

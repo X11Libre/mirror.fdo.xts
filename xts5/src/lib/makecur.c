@@ -127,9 +127,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  * undefined, the shape defaults to inc.
  */
 Cursor
-makecurnum(disp, inc)
-Display	*disp;
-int inc;
+makecurnum(Display *disp, int inc)
 {
 Cursor cursor;
 char *varptr;
@@ -159,8 +157,7 @@ unsigned int shape;
  * undefined, the shape defaults to 0.
  */
 Cursor
-makecur(disp)
-Display *disp;
+makecur(Display *disp)
 {
 	return makecurnum(disp, 0);
 }
@@ -173,8 +170,7 @@ Display *disp;
  * variable is not set or is undefined, the shape defaults to 2.
  */
 Cursor
-makecur2(disp)
-Display *disp;
+makecur2(Display *disp)
 {
 	return makecurnum(disp, 2);
 }

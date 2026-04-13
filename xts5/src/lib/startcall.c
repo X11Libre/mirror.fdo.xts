@@ -126,8 +126,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  * handler stuff.  This routine should not generate protocol requests.
  */
 void
-_startcall(disp)
-Display	*disp;
+_startcall(Display *disp)
 {
 	/* Reset the error status */
 	reseterr();
@@ -144,8 +143,7 @@ Display	*disp;
  * before each time that the routine under test is called.
  */
 void
-startcall(disp)
-Display	*disp;
+startcall(Display *disp)
 {
 	XSync(disp, True);
 
@@ -158,9 +156,7 @@ Display	*disp;
  * Various tests assume that this routine merely un-sets up the error
  * handler stuff.  This routine should not generate protocol requests.
  */
-void
-_endcall(disp)
-Display	*disp;
+void _endcall(Display *disp)
 {
 	/*
 	 * Go back to the unexpected error handler.
@@ -184,11 +180,8 @@ Display	*disp;
  * should be called after the routine under test has been
  * called.  XSync() needs to be called before this.
  */
-void
-endcall(disp)
-Display	*disp;
+void endcall(Display *disp)
 {
-
 	XSync(disp, False);
 
 	_endcall(disp);

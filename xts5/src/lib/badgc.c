@@ -124,8 +124,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  * XTestSetGContextOfGC.
  */
 GC
-badgc(disp)
-Display	*disp;
+badgc(Display *disp)
 {
 GC	gc;
 

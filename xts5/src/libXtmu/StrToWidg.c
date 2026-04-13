@@ -103,12 +103,11 @@ SOFTWARE.
 	  return; \
 	}
 
-/* ARGSUSED */
-void XmuCvtStringToWidget(args, num_args, fromVal, toVal)
-    XrmValuePtr args;		/* parent */
-    Cardinal    *num_args;      /* 1 */
-    XrmValuePtr fromVal;
-    XrmValuePtr toVal;
+void XmuCvtStringToWidget(
+    XrmValuePtr args,		/* parent */
+    Cardinal    *num_args,      /* 1 */
+    XrmValuePtr fromVal,
+    XrmValuePtr toVal)
 {
     static Widget widget, *widgetP, parent;
     XrmName name = XrmStringToName(fromVal->addr);
@@ -184,14 +183,13 @@ void XmuCvtStringToWidget(args, num_args, fromVal, toVal)
 
 
 /*ARGSUSED*/
-Boolean XmuNewCvtStringToWidget(dpy, args, num_args, fromVal, toVal, 
-				converter_data)
-     Display *dpy;
-     XrmValue *args;		/* parent */
-     Cardinal *num_args;	/* 1 */
-     XrmValue *fromVal;
-     XrmValue *toVal;
-     XtPointer *converter_data;
+Boolean XmuNewCvtStringToWidget(
+     Display *dpy,
+     XrmValue *args,		/* parent */
+     Cardinal *num_args,	/* 1 */
+     XrmValue *fromVal,
+     XrmValue *toVal,
+     XtPointer *converter_data)
 {
     Widget *widgetP, parent;
     XrmName name = XrmStringToName(fromVal->addr);

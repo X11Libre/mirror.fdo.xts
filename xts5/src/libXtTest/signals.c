@@ -86,16 +86,13 @@ static void     (*osig)();
 static struct   sigaction       nact;
 #endif
 
-void lsah(sig)
-int sig;
+void lsah(int sig)
 {
 	got_sigalrm++;
 }
 
 
-int avs_signal(sig, handler)
-int sig;
-void (*handler)(int);
+int avs_signal(int sig, void (*handler)(int))
 {
 	vsw_debug_enter("libXtTest/signals.c:avs_signal()",0);
 
@@ -122,8 +119,7 @@ void (*handler)(int);
 }
 
 
-int avs_set_alarm(my_time)
-int my_time;
+int avs_set_alarm(int my_time)
 {
 	vsw_debug_enter("libXtTest/signals.c:avs_set_alarm()",0);
 
@@ -136,8 +132,7 @@ int my_time;
 	return alarm((unsigned int)my_time);
 }
 
-
-int avs_clear_alarm()
+int avs_clear_alarm(void)
 {
 	vsw_debug_enter("libXtTest/signals.c:avs_clear_alarm()",0);
 
@@ -157,8 +152,7 @@ int avs_clear_alarm()
 	return 0;
 }
 
-
-int avs_expect_alarm()
+int avs_expect_alarm(void)
 {
 	vsw_debug_enter("libXtTest/signals.c:avs_expect_alarm()",0);
 
@@ -177,8 +171,7 @@ int avs_expect_alarm()
 	return 0;
 }
 
-
-int avs_ignore_alarm()
+int avs_ignore_alarm(void)
 {
 	vsw_debug_enter("libXtTest/signals.c:avs_ignore_alarm()",0);
 

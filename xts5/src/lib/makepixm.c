@@ -126,9 +126,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  * test suite.  The pixmap is cleared to W_BG.
  */
 Pixmap
-makepixm(disp, vp)
-Display	*disp;
-XVisualInfo	*vp;
+makepixm(Display *disp, XVisualInfo *vp)
 {
 GC  	gc;
 Pixmap	pm;

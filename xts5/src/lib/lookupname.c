@@ -148,8 +148,7 @@ int 	NS_bool = NELEM(S_bool);
  * Return a character representation of the given bool value.
  */
 const char *
-boolname(val)
-int 	val;
+boolname(int val)
 {
 struct valname *vp;
 
@@ -195,8 +194,7 @@ int 	NS_eventmask = NELEM(S_eventmask);
  * Return a character representation of the given eventmask value.
  */
 const char *
-eventmaskname(val)
-unsigned long	val;
+eventmaskname(unsigned long val)
 {
 struct valname *vp;
 int	size;
@@ -299,8 +297,7 @@ int 	NXI_event = NELEM(XI_event);
  * Return a character representation of the given event value.
  */
 const char *
-eventname(val)
-int 	val;
+eventname(int val)
 {
 struct valname *vp;
 
@@ -334,8 +331,7 @@ int 	NS_keymask = NELEM(S_keymask);
  * Return a character representation of the given keymask value.
  */
 const char *
-keymaskname(val)
-unsigned long	val;
+keymaskname(unsigned long val)
 {
 struct valname *vp;
 int	size;
@@ -391,8 +387,7 @@ int 	NS_modifier = NELEM(S_modifier);
  * Return a character representation of the given modifier value.
  */
 const char *
-modifiername(val)
-int 	val;
+modifiername(int val)
 {
 struct valname *vp;
 
@@ -417,8 +412,7 @@ int 	NS_buttonmask = NELEM(S_buttonmask);
  * Return a character representation of the given buttonmask value.
  */
 const char *
-buttonmaskname(val)
-unsigned long	val;
+buttonmaskname(unsigned long val)
 {
 struct valname *vp;
 int	size;
@@ -471,8 +465,7 @@ int 	NS_button = NELEM(S_button);
  * Return a character representation of the given button value.
  */
 const char *
-buttonname(val)
-int 	val;
+buttonname(int val)
 {
 struct valname *vp;
 
@@ -496,8 +489,7 @@ int 	NS_notifymode = NELEM(S_notifymode);
  * Return a character representation of the given notifymode value.
  */
 const char *
-notifymodename(val)
-int 	val;
+notifymodename(int val)
 {
 struct valname *vp;
 
@@ -524,8 +516,7 @@ int 	NS_notifydetail = NELEM(S_notifydetail);
  * Return a character representation of the given notifydetail value.
  */
 const char *
-notifydetailname(val)
-int 	val;
+notifydetailname(int val)
 {
 struct valname *vp;
 
@@ -548,8 +539,7 @@ int 	NS_visibility = NELEM(S_visibility);
  * Return a character representation of the given visibility value.
  */
 const char *
-visibilityname(val)
-int 	val;
+visibilityname(int val)
 {
 struct valname *vp;
 
@@ -574,8 +564,7 @@ int 	NS_grabreply = NELEM(S_grabreply);
  * Return a character representation of the given grabreply value.
  */
 const char *
-grabreplyname(val)
-int 	val;
+grabreplyname(int val)
 {
 struct valname *vp;
 
@@ -603,8 +592,7 @@ int 	NS_alloweventmode = NELEM(S_alloweventmode);
  * Return a character representation of the given alloweventmode value.
  */
 const char *
-alloweventmodename(val)
-int 	val;
+alloweventmodename(int val)
 {
 struct valname *vp;
 
@@ -627,8 +615,7 @@ int 	NS_revertto = NELEM(S_revertto);
  * Return a character representation of the given revertto value.
  */
 const char *
-reverttoname(val)
-int 	val;
+reverttoname(int val)
 {
 struct valname *vp;
 
@@ -677,8 +664,7 @@ int 	NS_XIerror = NELEM(S_XIerror);
  * Return a character representation of the given error value.
  */
 const char *
-errorname(val)
-int val;
+errorname(int val)
 {
 struct valname *vp;
 
@@ -709,8 +695,7 @@ int 	NS_class = NELEM(S_class);
  * Return a character representation of the given class value.
  */
 const char *
-classname(val)
-int 	val;
+classname(int val)
 {
 struct valname *vp;
 
@@ -741,8 +726,7 @@ int 	NS_bitgravity = NELEM(S_bitgravity);
  * Return a character representation of the given bitgravity value.
  */
 const char *
-bitgravityname(val)
-int 	val;
+bitgravityname(int val)
 {
 struct valname *vp;
 
@@ -773,8 +757,7 @@ int 	NS_wingravity = NELEM(S_wingravity);
  * Return a character representation of the given wingravity value.
  */
 const char *
-wingravityname(val)
-int 	val;
+wingravityname(int val)
 {
 struct valname *vp;
 
@@ -797,8 +780,7 @@ int 	NS_backingstore = NELEM(S_backingstore);
  * Return a character representation of the given backingstore value.
  */
 const char *
-backingstorename(val)
-int 	val;
+backingstorename(int val)
 {
 struct valname *vp;
 
@@ -834,8 +816,7 @@ int 	NS_gcfunction = NELEM(S_gcfunction);
  * Return a character representation of the given gcfunction value.
  */
 const char *
-gcfunctionname(val)
-int 	val;
+gcfunctionname(int val)
 {
 struct valname *vp;
 
@@ -858,8 +839,7 @@ int 	NS_linestyle = NELEM(S_linestyle);
  * Return a character representation of the given linestyle value.
  */
 const char *
-linestylename(val)
-int 	val;
+linestylename(int val)
 {
 struct valname *vp;
 
@@ -883,8 +863,7 @@ int 	NS_capstyle = NELEM(S_capstyle);
  * Return a character representation of the given capstyle value.
  */
 const char *
-capstylename(val)
-int 	val;
+capstylename(int val)
 {
 struct valname *vp;
 
@@ -907,8 +886,7 @@ int 	NS_joinstyle = NELEM(S_joinstyle);
  * Return a character representation of the given joinstyle value.
  */
 const char *
-joinstylename(val)
-int 	val;
+joinstylename(int val)
 {
 struct valname *vp;
 
@@ -932,8 +910,7 @@ int 	NS_fillstyle = NELEM(S_fillstyle);
  * Return a character representation of the given fillstyle value.
  */
 const char *
-fillstylename(val)
-int 	val;
+fillstylename(int val)
 {
 struct valname *vp;
 
@@ -959,8 +936,7 @@ int 	NS_displayclass = NELEM(S_displayclass);
  * Return a character representation of the given displayclass value.
  */
 const char *
-displayclassname(val)
-int 	val;
+displayclassname(int val)
 {
 struct valname *vp;
 
@@ -1141,8 +1117,7 @@ int 	NXI_proto = NELEM(XI_proto);
  * Return a character representation of the given proto value.
  */
 const char *
-protoname(val)
-int val;
+protoname(int val)
 {
 struct valname *vp;
 
@@ -1238,8 +1213,7 @@ int 	NS_atom = NELEM(S_atom);
  * Return a character representation of the given atom value.
  */
 const char *
-atomname(val)
-int 	val;
+atomname(int val)
 {
 struct valname *vp;
 
@@ -1262,8 +1236,7 @@ int 	NS_mapstate = NELEM(S_mapstate);
  * Return a character representation of the given mapstate value.
  */
 const char *
-mapstatename(val)
-int 	val;
+mapstatename(int val)
 {
 struct valname *vp;
 
@@ -1293,8 +1266,7 @@ int 	NS_visualmask = NELEM(S_visualmask);
  * Return a character representation of the given visualmask value.
  */
 const char *
-visualmaskname(val)
-unsigned long	val;
+visualmaskname(unsigned long val)
 {
 struct valname *vp;
 int	size;
@@ -1345,8 +1317,7 @@ int 	NS_contexterror = NELEM(S_contexterror);
  * Return a character representation of the given contexterror value.
  */
 const char *
-contexterrorname(val)
-int 	val;
+contexterrorname(int val)
 {
 struct valname *vp;
 

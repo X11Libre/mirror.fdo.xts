@@ -133,10 +133,7 @@ SOFTWARE.
 extern int XInputMajorOpcode;
 
 void
-Show_Ext_Rep(mp,type,bytes_given)
-xReply *mp;
-int type;
-long bytes_given;
+Show_Ext_Rep(xReply *mp, int type, long bytes_given)
 {
 #ifdef INPUTEXTENSION
 	if (type & 0x0ff == XInputMajorOpcode) {

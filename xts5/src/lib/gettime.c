@@ -129,8 +129,7 @@ purpose.  It is provided "as is" without express or implied warranty.
  * Returns CurrentTime on error (as well as deleting the test).
  */
 Time
-gettime(disp)
-	Display	*disp;
+gettime(Display *disp)
 {
 	Window 	root;
 	static Atom	prop = None;

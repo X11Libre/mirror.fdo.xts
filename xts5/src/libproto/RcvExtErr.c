@@ -139,10 +139,7 @@ SOFTWARE.
 extern int XInputFirstError;
 
 int
-Rcv_Ext_Err(rp,rbuf,client)
-xError *rp;
-char rbuf[];
-int client;
+Rcv_Ext_Err(xError *rp, char rbuf[], int client)
 {
 	int err;
 	int needswap = Xst_clients[client].cl_swap;

@@ -281,14 +281,13 @@ va_list	args;
 }
 
 void
-setdblev(n)
-int 	n;
+setdblev(int n)
 {
 	DebugLevel = n;
 }
 
 int
-getdblev()
+getdblev(void)
 {
 	return DebugLevel;
 }

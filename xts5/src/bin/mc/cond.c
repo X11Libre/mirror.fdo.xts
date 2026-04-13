@@ -221,10 +221,8 @@ int 	i;
 	return (known)? False: True;
 }
 
-int
-doelse()
+int doelse(void)
 {
-
 	if (uselev[level]) {
 		if (offlevel == 0) {
 			Outputon = 0;
@@ -238,8 +236,7 @@ doelse()
 	return(True);
 }
 
-int
-doendif()
+int doendif(void)
 {
 	if (uselev[level]) {
 		if (offlevel == level) {

@@ -54,8 +54,7 @@ MODIFICATIONS:
 **	tet_addr2lname.c() - convert XTI call address to printable hex string
 */
 
-char *tet_addr2lname(np)
-struct netbuf *np;
+char *tet_addr2lname(struct netbuf *np)
 {
 	static char buf[MAX_ADDRL*2+1];
 	char *p=buf;
@@ -74,4 +73,3 @@ struct netbuf *np;
 
 	return (buf);
 }
-

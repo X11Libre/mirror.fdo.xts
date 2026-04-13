@@ -70,8 +70,7 @@ MODIFICATIONS:
 **	tet_ts_connect() - make a connection to a remote process
 */
 
-void tet_ts_connect(pp)
-struct ptab *pp;
+void tet_ts_connect(struct ptab *pp)
 {
 	struct tptab *tp = (struct tptab *) pp->pt_tdata;
 	int rc, fd, nfd, c_event;

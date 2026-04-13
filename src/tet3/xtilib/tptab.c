@@ -64,8 +64,7 @@ MODIFICATIONS:
 **	return 0 if successful or -1 on error
 */
 
-int tet_ts_ptalloc(pp)
-struct ptab *pp;
+int tet_ts_ptalloc(struct ptab *pp)
 {
 	struct tptab *tp;
 
@@ -94,8 +93,7 @@ struct ptab *pp;
 **		ptab structure
 */
 
-void tet_ts_ptfree(pp)
-struct ptab *pp;
+void tet_ts_ptfree(struct ptab *pp)
 {
 	struct tptab *tp = (struct tptab *) pp->pt_tdata;
 
@@ -116,4 +114,3 @@ struct ptab *pp;
 		pp->pt_tdata = (char *) 0;
 	}
 }
-

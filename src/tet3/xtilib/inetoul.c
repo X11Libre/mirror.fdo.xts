@@ -52,8 +52,7 @@ MODIFICATIONS:
 
 #define	N_PARTS	4
 
-unsigned long tet_inetoul(cp)
-char *cp;
+unsigned long tet_inetoul(char *cp)
 {
 #ifdef TCPTPI
 	unsigned long ip=0, base, part;
@@ -94,4 +93,3 @@ char *cp;
 	return ((unsigned long) 0);
 #endif /* TCPTPI */
 }
-

@@ -101,11 +101,8 @@ extern int tet_listen_fd;
 **		-1 on error
 */
 
-int tet_ts_poll(pp, timeout)
-struct ptab *pp;
-int timeout;
+int tet_ts_poll(struct ptab *pp, int timeout)
 {
-
 #ifndef SVID3_POLL
 	int     rc = 0;
 	time_t	start = time((time_t *) 0);
@@ -379,8 +376,7 @@ static int doaccept()
 
 #ifndef SVID3_POLL
 
-static int ts_poll2(pp)
-struct ptab *pp;
+static int ts_poll2(struct ptab *pp)
 {
 	struct ptab *q;
 	struct tptab *tp;
@@ -475,4 +471,3 @@ struct ptab *pp;
 }
 
 #endif /* !SVID3_POLL */
-

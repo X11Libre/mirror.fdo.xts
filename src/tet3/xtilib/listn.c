@@ -58,8 +58,7 @@ MODIFICATIONS:
 */
 
 /* ARGSUSED */
-void tet_ts_listen(fd)
-int fd;
+void tet_ts_listen(int fd)
 {
 	int i;
 
@@ -68,4 +67,3 @@ int fd;
 
 	return;
 }
-

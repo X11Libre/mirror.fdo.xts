@@ -54,8 +54,7 @@ MODIFICATIONS:
 **	tet_mode2i() - convert -M (mode) option to integer
 */
 
-int tet_mode2i(mode)
-char *mode;
+int tet_mode2i(char *mode)
 {
 
 	int tpi_mode = -1;

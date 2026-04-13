@@ -61,8 +61,7 @@ MODIFICATIONS:
 **	is not connected to the specified server
 */
 
-void tet_ts_disconnect(pp)
-struct ptab *pp;
+void tet_ts_disconnect(struct ptab *pp)
 {
         struct tptab *tp = (struct tptab *) pp->pt_tdata;
 
@@ -77,4 +76,3 @@ struct ptab *pp;
 	pp->pt_flags = (pp->pt_flags & ~(PF_LOGGEDON | PF_CONNECTED)) | PF_LOGGEDOFF;
 	pp->pt_state = PS_IDLE;
 }
-

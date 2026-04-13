@@ -62,8 +62,7 @@ MODIFICATIONS:
 **	return 0 if successful or -1 on error
 */
 
-int tet_ts_nbio(pp)
-struct ptab *pp;
+int tet_ts_nbio(struct ptab *pp)
 {
 	int fd = ((struct tptab *) pp->pt_tdata)->tp_fd;
 	int flags;
@@ -83,4 +82,3 @@ struct ptab *pp;
 	pp->pt_flags |= PF_NBIO;
 	return(0);
 }
-

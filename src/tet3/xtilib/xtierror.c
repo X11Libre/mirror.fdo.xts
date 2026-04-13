@@ -110,8 +110,7 @@ void tet_xtifatal(int errnum, const char *file, int line, const char *s1,
 **	tet_xterrno2a() - convert XTI t_errno to printable form
 */
 
-char *tet_xterrno2a(n)
-int n;
+char *tet_xterrno2a(int n)
 {
 	static char fmt[] = "Error %d";
 	static char buf[sizeof fmt + LNUMSZ];
@@ -204,9 +203,7 @@ int n;
 **	tet_xtev2a() - convert XTI event to printable form
 */
 
-char *tet_xtev2a(n)
-int n;
-
+char *tet_xtev2a(int n)
 {
 
 	static char fmt[] = "Event %d";
@@ -248,4 +245,3 @@ int n;
 	
 	}
 }
-

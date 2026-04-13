@@ -72,8 +72,7 @@ MODIFICATIONS:
 **		descriptor and allocate a ptab entry for it
 */
 
-void tet_ts_accept(lfd)
-int lfd;
+void tet_ts_accept(int lfd)
 {
 	struct ptab *pp;
 	struct tptab *tp;
@@ -174,4 +173,3 @@ int lfd;
 		pp->pt_flags |= PF_CONNECTED;
 	}
 }
-

@@ -57,8 +57,7 @@ MODIFICATIONS:
 **	tet_lname2addr() - convert XTI call address from ascii to binary
 */
 
-TET_IMPORT struct netbuf *tet_lname2addr(ln)
-char *ln;
+TET_IMPORT struct netbuf *tet_lname2addr(char *ln)
 {
 	static struct netbuf ret;
 	static char   addr[MAX_ADDRL];

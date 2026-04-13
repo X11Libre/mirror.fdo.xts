@@ -55,44 +55,35 @@ char *	tet_errlist[1];
 int	tet_nerr;
 void	(*tet_syncerr)();
 
-void tet_delete(test_no, reason)
-int test_no;
-char *reason;
+void tet_delete(int test_no, char *reason)
 {
 	;
 }
 
-int tet_exec(file, argv, envp)
-char *file, *argv[], *envp[];
+int tet_exec(char *file, char *argv[], char *envp[])
 {
 	return(0);
 }
 
-TET_NORETURN void tet_exit(status)
-int status;
+TET_NORETURN void tet_exit(int status)
 {
 	;
 }
 
-int tet_fork(childproc, parentproc, waittime, exitvals)
-void (*childproc)(), (*parentproc)();
+int tet_fork(void (*childproc)(), void (*parentproc)(), int waittime, int exitvals)
 int waittime, exitvals;
 {
 	return(0);
 }
 
 #if defined(TET_THREADS) || defined(TET_POSIX_THREADS)
-int tet_fork1(childproc, parentproc, waittime, exitvals)
-void (*childproc)(), (*parentproc)();
-int waittime, exitvals;
+int tet_fork1(void (*childproc)(), void (*parentproc)(), int waittime, int exitvals)
 {
 	return(0);
 }
 #endif /* THREADS */
 
-int tet_getsysbyid(sysid, sysp)
-int sysid;
-struct tet_sysent *sysp;
+int tet_getsysbyid(int sysid, struct tet_sysent *sysp)
 {
 	return 0;
 }
@@ -102,15 +93,12 @@ char *tet_getvar(const char *name)
 	return((const char *) 0);
 }
 
-void tet_infoline(data)
-char *data;
+void tet_infoline(char *data)
 {
 	;
 }
 
-int tet_kill(pid, sig)
-pid_t pid;
-int sig;
+int tet_kill(pid_t pid, int sig)
 {
 	return 0;
 }
@@ -120,17 +108,12 @@ void tet_logoff()
 	;
 }
 
-int tet_minfoline(lines, nlines)
-char **lines;
-int nlines;
+int tet_minfoline(char **lines, int nlines)
 {
 	return 0;
 }
 
-int tet_msync(syncptno, syncnames, waittime, msgp)
-long syncptno;
-int *syncnames, waittime;
-struct tet_synmsg *msgp;
+int tet_msync(long syncptno, int *syncnames, int waittime, struct tet_synmsg *msgp)
 {
 	return 0;
 }
@@ -142,32 +125,23 @@ int tet_printf(char *format, ...)
 }
 
 #ifdef TET_POSIX_THREADS
-int tet_pthread_create(new_thread, attr, start_routine, arg, waittime)
-pthread_t *new_thread;
-pthread_attr_t *attr;
-void *(*start_routine)();
-void *arg;
-int waittime;
+int tet_pthread_create(pthread_t new_thread, pthread_attr_t attr, void *(*start_routine)(), void *arg, int waittime)
 {
 	return 0;
 }
 #endif
 
-char *tet_reason(test_no)
-int test_no;
+char *tet_reason(int test_no)
 {
 	return((char *) 0);
 }
 
-int tet_remexec(sysname, file, argv)
-int sysname;
-char *file, **argv;
+int tet_remexec(int sysname, char *file, char **argv)
 {
 	return(0);
 }
 
-int tet_remgetlist(sysnames)
-int **sysnames;
+int tet_remgetlist(int **sysnames)
 {
 	return(0);
 }
@@ -177,35 +151,27 @@ int tet_remgetsys()
 	return(0);
 }
 
-int tet_remkill(remoteid)
-int remoteid;
+int tet_remkill(int remoteid)
 {
 	return(0);
 }
 
-int tet_remsync(syncptno, syncnames, nsyncname, waittime, vote, msgp)
-long syncptno;
-int *syncnames, nsyncname, waittime, vote;
-struct tet_synmsg *msgp;
+int tet_remsync(long syncptno, int *syncnames, int nsyncname, int waittime, int vote, struct tet_synmsg *msgp)
 {
 	return 0;
 }
 
-int tet_remtime(sysid, tp)
-int sysid;
-time_t *tp;
+int tet_remtime(int sysid, time_t tp)
 {
 	return 0;
 }
 
-int tet_remwait(remoteid, waittime, statloc)
-int remoteid, waittime, *statloc;
+int tet_remwait(int remoteid, int waittime, int *statloc)
 {
 	return(0);
 }
 
-void tet_result(result)
-int result;
+void tet_result(int result)
 {
 	;
 }
@@ -220,25 +186,17 @@ void tet_setcontext()
 	;
 }
 
-pid_t tet_spawn(file, argv, envp)
-char *file;
-char *argv[];
-char *envp[];
+pid_t tet_spawn(char *file, char *argv[], char *envp[])
 {
 	return 0;
 }
 
-int tet_sync(syncptno, syncnames, waittime)
-long syncptno;
-int *syncnames, waittime;
+int tet_sync(long syncptno, int *syncnames, int waittime)
 {
 	return(0);
 }
 
-void tet_syncreport(syncptno, statp, nsys)
-long syncptno;
-struct tet_syncstat *statp;
-int nsys;
+void tet_syncreport(long syncptno, struct tet_syncstat *statp, int nsys)
 {
 	;
 }
@@ -279,9 +237,7 @@ va_list ap;
 	return 0;
 }
 
-int tet_wait(pid, statp)
-pid_t pid;
-int *statp;
+int tet_wait(pid_t pid, int *statp)
 {
 	return 0;
 }
@@ -292,15 +248,11 @@ int *statp;
    TETware source), but not in llib-ltcm.ln and llib-ltcmc.ln */
 
 #if defined(TET_THREADS) || defined(TET_POSIX_THREADS)
-void tet_api_lock(getlock, file, line)
-int getlock;
-char *file;
-int line;
+void tet_api_lock(int getlock, char *file, int line)
 {
 	;
 }
-void tet_cln_threads(signum)
-int signum;
+void tet_cln_threads(int signum)
 {
 	;
 }
@@ -311,8 +263,7 @@ void tet_config()
 	;
 }
 
-void tet_delreas(ntests)
-int ntests;
+void tet_delreas(int ntests)
 {
 	;
 }
@@ -322,16 +273,12 @@ void tet_disconnect()
 	;
 }
 
-void tet_error(errno_val, msg)
-int errno_val;
-char *msg;
+void tet_error(int errno_val, char *msg)
 {
 	;
 }
 
-int tet_killw(child, timeout)
-pid_t child;
-unsigned int timeout;
+int tet_killw(pid_t child, unsigned int timeout)
 {
 	return 0;
 }
@@ -355,8 +302,7 @@ void tet_mtx_unlock()
 }
 #endif /* THREADS */
 
-char * tet_signame(sig)
-int sig;
+char * tet_signame(int sig)
 {
 	return (char *)0;
 }

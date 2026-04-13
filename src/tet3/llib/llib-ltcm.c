@@ -48,9 +48,7 @@ extern	void	(*tet_startup)();
 extern	void	(*tet_cleanup)();
 extern	struct tet_testlist tet_testlist[];
 
-int main(argc, argv)
-int argc;
-char **argv;
+int main(int argc, char **argv)
 {
 	(*tet_startup)();
 	(*tet_cleanup)();

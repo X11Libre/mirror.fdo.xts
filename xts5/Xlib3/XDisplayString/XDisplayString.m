@@ -187,7 +187,7 @@ In child :
 extern char **environ;
 
 static void
-t002exec()
+t002exec(void)
 {
 char	*argv[2];
 char	*str;

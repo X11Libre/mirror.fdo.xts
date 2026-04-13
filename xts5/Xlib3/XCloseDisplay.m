@@ -412,7 +412,7 @@ Display	*client2;
 const char	*atname = "XT_TEST_Atom";
 static int t006p_pass = 0;
 static void
-t006p()
+t006p(void)
 {
 XEvent	ev;
 int	pass=0;
@@ -432,7 +432,7 @@ int	pass=0;
 }
 
 static void
-t006c()
+t006c(void)
 {
 XEvent	ev;
 long	val;
@@ -627,11 +627,10 @@ const char	*T2[] = {
  * windows.
  * Before returning, client1 is destroyed.
  */
-void
-setupsaveset(btret, client1, client2)
-struct	buildtree	*btret[NELEM(T1)];
-Display			*client1;
-Display			*client2;
+void setupsaveset(
+    struct	buildtree	*btret[NELEM(T1)],
+    Display			*client1,
+    Display			*client2)
 {
 Window	base;
 Window	w;
@@ -1394,11 +1393,7 @@ Set the font path to the restored font path using XSetFontPath.
 Verify that no error occurs.
 Verify that the cursor font can be accessed.
 >>EXTERN
-int
-setfontpath(disp, fpathlist, var)
-Display	*disp;
-char	*fpathlist;
-char	*var;
+int setfontpath(Display *disp, char *fpathlist, char *var)
 {
 char	*fpathtmp;
 char	*ndir_array[MAX_DIRS];
@@ -1997,15 +1992,12 @@ does not fail with an XIO error.
 Otherwise:
   UNTESTED.
 >>EXTERN
-static int
-errorhandler(display)
-Display *display;
+static int errorhandler(Display *display)
 {
 	exit(-1);
 }
 
-static	void
-child_proc1()
+static void child_proc1(void)
 {
 	XSetIOErrorHandler(errorhandler);
 	XSynchronize(display, True);

@@ -110,9 +110,7 @@ static	Display	*client;
 static	int	exit_status = -1;
 static	int	path_checker = -1;
 
-static int
-errorhandler(display)
-Display *display;
+static int errorhandler(Display *display)
 {
 	/* Handler exits with exit status of exit_status. */
 	if(path_checker == 2)
@@ -126,8 +124,7 @@ Display *display;
  * Child exits with exit_status+1 to indicate TET_DELETE.
  * Child exits with exit_status-1 to indicate close failure.
  */
-static	void
-closer()
+static void closer(void)
 {
 int	cnn;	
 

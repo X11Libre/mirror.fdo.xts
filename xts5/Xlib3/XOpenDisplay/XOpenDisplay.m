@@ -133,9 +133,7 @@ Test1 : Test1.o $(LIBS) $(top_builddir)/src/tet3/tcm/libtcmchild.la
 >>EXTERN
 #include	"ctype.h"
 #include	"X11/Xatom.h"
-static char *copystring (src, len) /* Courtesy of Xlib. */
-    char *src;
-    int len;
+static char *copystring (char *src, int len) /* Courtesy of Xlib. */
 {
     char *dst = (char *) malloc (len + 1);
 
@@ -654,7 +652,7 @@ In child:
 extern char **environ;
 
 static void
-t005exec()
+t005exec(void)
 {
 char	*argv[2];
 char	*str;

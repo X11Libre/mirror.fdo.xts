@@ -108,9 +108,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 static	int 	f_pix_x = -1;
 static	int 	f_pix_y = -1;
 
-static void
-functest(functype)
-int 	functype;
+static void functest(int functype)
 {
 XVisualInfo	*vp;
 unsigned long	srcpix;

@@ -72,17 +72,17 @@ ShellWidget menuw, menuw2, menuw3;
 Widget pushb_good3, rowcolw_good3;
 
 /*timeout callback*/
-void XtTI1d(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI1d(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
 
 /*timeout callback*/
-void XtTI1c(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI1c(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	tet_infoline("PREP: Send KeyPress event to popup1");
 	send_event((Widget)menuw, KeyPress, KeyPressMask, TRUE);
@@ -93,11 +93,10 @@ XtIntervalId *id;
 	XtAppAddTimeOut(app_ctext, AVSXTLOOPTIMEOUT, XtTI1d, NULL);
 }
 
-
 /*timeout callback*/
-void XtTI1b(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI1b(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	tet_infoline("TEST: Popups' parent did not receive KeyPress");
 	status = avs_get_event(2);
@@ -117,9 +116,9 @@ XtIntervalId *id;
 }
 
 /*timeout callback*/
-void XtTI1a(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI1a(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	tet_infoline("PREP: Send KeyPress event to popup1");
 	send_event((Widget)menuw, KeyPress, KeyPressMask, TRUE);
@@ -129,34 +128,37 @@ XtIntervalId *id;
 	send_event((Widget)menuw2, KeyPress, KeyPressMask, TRUE);
 	XtAppAddTimeOut(app_ctext, AVSXTLOOPTIMEOUT, XtTI1b, NULL);
 }
+
 /*popups' parent's event handler*/
-void XtEV1a(w, client_data, event, contin)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *contin;
+void XtEV1a(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *contin)
 {
 	if (event->type == KeyPress) {
 		avs_set_event(2, avs_get_event(2)+1);
 	}
 }
+
 /*popup1's event handler*/
-void XtEV1b(w, client_data, event, contin)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *contin;
+void XtEV1b(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *contin)
 {
 	if (event->type == KeyPress) {
 		avs_set_event(3, avs_get_event(3)+1);
 	}
 }
+
 /*popup2's event handler*/
-void XtEV1c(w, client_data, event, contin)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *contin;
+void XtEV1c(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *contin)
 {
 	if (event->type == KeyPress) {
 		avs_set_event(4, avs_get_event(4)+1);
@@ -164,17 +166,17 @@ Boolean *contin;
 }
 
 /*timeout callback*/
-void XtTI2a(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI2a(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
 
 /*timeout callback*/
-void XtTI2b(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI2b(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	tet_infoline("PREP: Send KeyPress event to popups' parent");
 	send_event(labelw_good, KeyPress, KeyPressMask, TRUE);
@@ -187,11 +189,10 @@ XtIntervalId *id;
 	XtAppAddTimeOut(app_ctext, AVSXTLOOPTIMEOUT, XtTI2a, NULL);
 }
 
-
 /*timeout callback*/
-void XtTI2c(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI2c(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	tet_infoline("TEST: Popups' parent did not receive KeyPress");
 	status = avs_get_event(2);
@@ -215,9 +216,9 @@ XtIntervalId *id;
 }
 
 /*timeout callback*/
-void XtTI2d(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI2d(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	tet_infoline("PREP: Send KeyPress event to popups' parent");
 	send_event(labelw_good, KeyPress, KeyPressMask, TRUE);
@@ -229,56 +230,62 @@ XtIntervalId *id;
 	send_event((Widget)menuw3, KeyPress, KeyPressMask, TRUE);
 	XtAppAddTimeOut(app_ctext, AVSXTLOOPTIMEOUT, XtTI2c, NULL);
 }
+
 /*popups' parent's event handler*/
-void XTEV2a(w, client_data, event, contin)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *contin;
+void XTEV2a(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *contin)
 {
 	if (event->type == KeyPress) {
 		avs_set_event(2, avs_get_event(2)+1);
 	}
 }
+
 /*popup1's event handler*/
-void XtEV2b(w, client_data, event, contin)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *contin;
+void XtEV2b(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *contin)
 {
 	if (event->type == KeyPress) {
 		avs_set_event(3, avs_get_event(3)+1);
 	}
 }
+
 /*popup2's event handler*/
-void XtEV2c(w, client_data, event, contin)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *contin;
+void XtEV2c(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *contin)
 {
 	if (event->type == KeyPress) {
 		avs_set_event(4, avs_get_event(4)+1);
 	}
 }
+
 /*popup3's event handler*/
-void XtEV2d(w, client_data, event, contin)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *contin;
+void XtEV2d(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *contin)
 {
 	if (event->type == KeyPress) {
 		avs_set_event(1, avs_get_event(1)+1);
 	}
 }
-/*
-** XtEMH_Proc
-*/
-void XtEMH_Proc(str1, str2, str3, str4, str5, car)
-String str1, str2, str3, str4, *str5;
-Cardinal *car;
+
+void XtEMH_Proc(
+    String str1,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
+    Cardinal *car)
 {
 	avs_set_event(1,1);
 }

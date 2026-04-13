@@ -74,14 +74,12 @@ Widget topLevel;
 Widget labelw_msg;
 
 #ifdef XTESTEXTENSION
-/*
-** procedure XtTMO_Proc
-*/
-void XtTMO_Proc2(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+
+void XtTMO_Proc2(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
-XEvent event;
+	XEvent event;
 	/*fake user input to get autorepeat back*/
 	event.xkey.type = KeyRelease;
 	event.xkey.display = XtDisplay(topLevel);
@@ -93,12 +91,9 @@ XEvent event;
 	tet_result(TET_UNRESOLVED);
 }
 
-/*
-** procedure XtTMO_Proc
-*/
-void XtTMO_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTMO_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	Position rootx, rooty;
 
@@ -111,8 +106,7 @@ XtIntervalId *id;
 	XTestFakeKeyEvent(XtDisplay(labelw_msg), XKeysymToKeycode(XtDisplay(labelw_msg), 32), False, CurrentTime);
 }
 
-static void analyse_events(TestWidget)
-Widget TestWidget;
+static void analyse_events(Widget TestWidget)
 {
 	XtAppContext app_context;
 	Display *display;
@@ -154,6 +148,7 @@ Widget TestWidget;
 	exit(0);
 	} /* end for */
 }
+
 #endif
 >>SET tpstartup avs_alloc_sem
 >>SET tpcleanup avs_free_sem

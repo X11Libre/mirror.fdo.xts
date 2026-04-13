@@ -65,14 +65,12 @@ Widget labelw_msg;
 
 extern const char *event_names[];
 char client_stuff[] = "The quality of mercy is not strained";
-/*
-** XtEVT1_Proc event handler
-*/
-void XtEVT1_Proc(w, client_data, event, continue_to_process)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_process;
+
+void XtEVT1_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_process)
 {
 	if ( event->type == ButtonPress )
 	avs_set_event(1,1);
@@ -89,21 +87,20 @@ Boolean *continue_to_process;
 	}
 	exit(0);
 }
+
 /*timeout callback*/
-void XtTI1_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI1_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
-/*
-** XtEVT2_Proc event handler
-*/
-void XtEVT2_Proc(w, client_data, event, continue_to_process)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_process;
+
+void XtEVT2_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_process)
 {
 	if ( event->type == ButtonPress )
 	avs_set_event(1,1);
@@ -120,21 +117,20 @@ Boolean *continue_to_process;
 	}
 	exit(0);
 }
+
 /*timeout callback*/
-void XtTI2_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI2_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
-/*
-** Handler XtEVT3_Head
-*/
-void XtEVT3_Head(w, client_data, event, continue_to_process)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_process;
+
+void XtEVT3_Head(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_process)
 {
 	if ( event->type == ButtonPress )
 	avs_set_event(1,1);
@@ -144,14 +140,12 @@ Boolean *continue_to_process;
 		tet_result(TET_FAIL);
 	}
 }
-/*
-** Handler XtEVT3_Tail
-*/
-void XtEVT3_Tail(w, client_data, event, continue_to_process)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_process;
+
+void XtEVT3_Tail(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_process)
 {
 	if ( event->type == ButtonPress )
 	avs_set_event(2,1);
@@ -161,21 +155,20 @@ Boolean *continue_to_process;
 		tet_result(TET_FAIL);
 	}
 }
+
 /*timeout callback*/
-void XtTI3_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI3_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
-/*
-** Event handler XtEVT4_Proc
-*/
-void XtEVT4_Proc(w, client_data, event, continue_to_process)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_process;
+
+void XtEVT4_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_process)
 {
 	switch(event->type)
 	{
@@ -191,21 +184,20 @@ Boolean *continue_to_process;
 		tet_result(TET_FAIL);
 	} /* end switch */
 }
+
 /*timeout callback*/
-void XtTI4_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI4_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
-/*
-** XtEVT5_Proc event handler
-*/
-void XtEVT5_Proc(w, client_data, event, continue_to_process)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_process;
+
+void XtEVT5_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_process)
 {
 	if (event->type == ButtonPress )
 		avs_set_event(1,avs_get_event(1)+1);
@@ -215,21 +207,20 @@ Boolean *continue_to_process;
 		tet_result(TET_FAIL);
 	}
 }
+
 /*timeout callback*/
-void XtTI5_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI5_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
-/*
-** Handler XtEVT6_Proc
-*/
-void XtEVT6_Proc(w, client_data, event, continue_to_process)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_process;
+
+void XtEVT6_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_process)
 {
 	switch(event->type)
 	{
@@ -245,18 +236,20 @@ Boolean *continue_to_process;
 		tet_result(TET_FAIL);
 	} /* end switch */
 }
+
 /*timeout callback*/
-void XtTI6_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI6_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
-void XtEVT_ProcA(w, client_data, event, continue_to_process)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_process;
+
+void XtEVT_ProcA(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_process)
 {
 	if (event->type == ButtonPress) {
 		avs_set_event(1,1);

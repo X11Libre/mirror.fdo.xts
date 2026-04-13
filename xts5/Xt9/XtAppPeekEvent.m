@@ -75,23 +75,18 @@ XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
-/*
-** XtTMO_Proc
-*/
 int timeout_called = 0;
-void XtTMO_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+
+void XtTMO_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	timeout_called++;
 }
 
-/*
-** XtTMO_Proc
-*/
-void XtTMO3_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTMO3_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	/*
 	** Send event KeyPress and wake up XtAppPeekEvent.
@@ -104,11 +99,11 @@ XtIntervalId *id;
 XtInputId input_ret;
 char *msg = "Hello World";
 FILE *fid;
-/* Procedure XtIOP_Proc */
-void XtIOP_Proc(client_data, source, id)
-XtPointer client_data;
-int *source;
-XtInputId *id;
+
+void XtIOP_Proc(
+    XtPointer client_data,
+    int *source,
+    XtInputId *id)
 {
 }
 >>SET tpstartup avs_alloc_sem

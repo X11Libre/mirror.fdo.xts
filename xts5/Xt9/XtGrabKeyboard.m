@@ -77,7 +77,7 @@ Widget labelw;
 int eflag = 3;
 
 #ifdef XTESTEXTENSION
-void hack()
+void hack(void)
 {
 		eflag = 2;
 		kbvalues.auto_repeat_mode = AutoRepeatModeOn;
@@ -87,14 +87,11 @@ void hack()
 		send_event(topLevel, FocusOut, FocusChangeMask, TRUE);
 }
 
-/*
-** procedure XtTMO_Proc
-*/
-void XtTMO_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTMO_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
-XEvent event;
+	XEvent event;
 	/*fake user input to get autorepeat back*/
 	event.xkey.type = KeyRelease;
 	event.xkey.display = XtDisplay(labelw);
@@ -106,8 +103,7 @@ XEvent event;
 	tet_result(TET_UNRESOLVED);
 }
 
-static void analyse_events(TestWidget)
-Widget TestWidget;
+static void analyse_events(Widget TestWidget)
 {
 	XtAppContext app_context;
 	Display *display;

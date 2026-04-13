@@ -58,8 +58,7 @@ All Rights Reserved.
 #include <X11/ConstrainP.h>
 #include <X11/CoreP.h>
 
-static void analyse_events(w, w2)
-Widget w,w2;
+static void analyse_events(Widget w, Widget w2)
 {
 	XtAppContext app_context;
 	Display *display;
@@ -92,9 +91,10 @@ Widget w,w2;
 	 XtDispatchEvent(&loop_event);
 	} /* end for */
 }
-void XtTMO_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+
+void XtTMO_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }

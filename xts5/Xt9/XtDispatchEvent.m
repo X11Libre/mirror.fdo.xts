@@ -65,14 +65,11 @@ Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 Widget labelw_msg;
 
-/*
-** XtEVT_Proc
-*/
-void XtEVT_Proc(w, client_data, event, continue_to_dispatch)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+void XtEVT_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 	if ( event->type == KeyPress ) {
 		avs_set_event(1,1);
@@ -85,15 +82,17 @@ Boolean *continue_to_dispatch;
 		exit(0);
 	}
 }
-void XtTMO_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+
+void XtTMO_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
-void XtTMO_Proc5(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+
+void XtTMO_Proc5(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	tet_infoline("PREP: Send events");
 	send_event_time(labelw_msg, ButtonPress, ButtonPressMask, TRUE, 1);
@@ -103,13 +102,14 @@ XtIntervalId *id;
 	tet_infoline("PREP: Register timeout");
 	XtAppAddTimeOut(app_ctext, AVSXTLOOPTIMEOUT, XtTMO_Proc, topLevel);
 }
-void XtEVT_Proc2(w, client_data, event, continue_to_dispatch)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+
+void XtEVT_Proc2(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
-XKeyEvent *tevent;
+	XKeyEvent *tevent;
 
 	tevent = (XKeyEvent *)event;
 
@@ -128,8 +128,8 @@ XKeyEvent *tevent;
 	if (event->type == KeyRelease )
 		avs_set_event(4, 1); 
 }
-static void analyse_events1(quit)
-Widget quit;
+
+static void analyse_events1(Widget quit)
 {
 
 int i;
@@ -159,8 +159,7 @@ Widget widget;
 	} /* end for */
 }
 
-static void analyse_events2(quit)
-Widget quit;
+static void analyse_events2(Widget quit)
 {
 int i;
 XtAppContext app_context;

@@ -76,14 +76,12 @@ char label[80];
 Widget labelw_msg;
 
 #ifdef XTESTEXTENSION
-/*
-** procedure XtTMO_Proc
-*/
-void XtTMO_Proc2(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+
+void XtTMO_Proc2(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
-XEvent event;
+	XEvent event;
 	/*fake user input to get autorepeat back*/
 	event.xkey.type = KeyRelease;
 	event.xkey.display = XtDisplay(labelw_msg);
@@ -94,14 +92,12 @@ XEvent event;
 	tet_infoline("ERROR: Timed out waiting for input");
 	tet_result(TET_UNRESOLVED);
 }
-/*
-** procedure XtTMO_Proc
-*/
-void XtTMO_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+
+void XtTMO_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
-Position rootx, rooty;
+	Position rootx, rooty;
 
 	XtAppAddTimeOut(app_ctext, (unsigned long)2000, XtTMO_Proc2, topLevel);
 	tet_infoline("PREP: Send KeyRelease outside grab widget");
@@ -112,8 +108,7 @@ Position rootx, rooty;
 	XTestFakeKeyEvent(XtDisplay(labelw_msg), XKeysymToKeycode(XtDisplay(labelw_msg), 32), False, CurrentTime);
 }
 
-static void analyse_events(TestWidget)
-Widget TestWidget;
+static void analyse_events(Widget TestWidget)
 {
 	XtPointer client_data, call_data;
 	XtAppContext app_context;

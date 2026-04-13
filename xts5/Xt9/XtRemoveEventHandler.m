@@ -64,14 +64,11 @@ Widget labelw, rowcolw, click_quit;
 
 extern const char *event_names[];
 
-/*
-** Procedure XtEVT1_Proc
-*/
-void XtEVT1_Proc(w, client_data, event, continue_to_dispatch)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+void XtEVT1_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 	if (event->type == ButtonPress) {
 		avs_set_event(1,1);
@@ -95,32 +92,30 @@ Boolean *continue_to_dispatch;
 	tet_result(TET_FAIL);
 	exit(0);
 }
-/* procedure XtTMO1_Proc to be invoked */
-void XtTMO1_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+
+void XtTMO1_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
 
-void XtEVT3_Test(w, client_data, event, continue_to_dispatch)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+void XtEVT3_Test(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 	sprintf(ebuf, "ERROR: Event %s invoked XtEVT3_Test", event_names[event->type]);
 	tet_infoline(ebuf);
 	tet_result(TET_FAIL);
 }
-/*
-** Procedure XtEVT3_Proc
-*/
-void XtEVT3_Proc(w, client_data, event, continue_to_dispatch)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+
+void XtEVT3_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 	if ( event->type == ButtonPress )
 	avs_set_event(1,1);
@@ -132,14 +127,11 @@ Boolean *continue_to_dispatch;
 	exit(0);
 }
 
-/*
-** Procedure XtEVT2_Proc
-*/
-void XtEVT2_Proc(w, client_data, event, continue_to_dispatch)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+void XtEVT2_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 	if ( event->type == ButtonPress )
 	avs_set_event(1,1);
@@ -150,14 +142,12 @@ Boolean *continue_to_dispatch;
 	}
 	exit(0);
 }
-/*
-** Procedure XtEVT4_Proc
-*/
-void XtEVT4_Proc(w, client_data, event, continue_to_dispatch)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+
+void XtEVT4_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 	if ((event->type == ButtonPress) || (event->type == KeyPress))
 		avs_set_event(1, avs_get_event(1)+1);
@@ -167,14 +157,12 @@ Boolean *continue_to_dispatch;
 		tet_result(TET_FAIL);
 	}
 }
-/*
-** Procedure XtEVT4a_Proc
-*/
-void XtEVT4a_Proc(w, client_data, event, continue_to_dispatch)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+
+void XtEVT4a_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 	if ((event->type == ButtonRelease) || (event->type == KeyRelease))
 		avs_set_event(2, avs_get_event(2)+1);
@@ -184,36 +172,47 @@ Boolean *continue_to_dispatch;
 		tet_result(TET_FAIL);
 	}
 }
-/* procedure XtTMO4_Proc to be invoked */
-void XtTMO4_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+
+void XtTMO4_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
+
 /*
 ** Warning handler
 */
-void XtWMH_Proc(str1, str2, str3, str4, str5, car)
-String str1, str2, str3, str4, *str5;
-Cardinal *car;
+void XtWMH_Proc(
+    String str1,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
+    Cardinal *car)
 {
 	avs_set_event(2,1);
 }
+
 /*
 ** Error handler
 */
-void XtEMH_Proc(str1, str2, str3, str4, str5, car)
-String str1, str2, str3, str4, *str5;
-Cardinal *car;
+void XtEMH_Proc(
+    String str1,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
+    Cardinal *car)
 {
 	avs_set_event(3,1);
 }
-void XtEVT_ProcA(w, client_data, event, continue_to_dispatch)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+
+void XtEVT_ProcA(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 	if (event->type == GraphicsExpose )
 	avs_set_event(1,1);

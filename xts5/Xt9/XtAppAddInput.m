@@ -70,21 +70,22 @@ Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
 /* procedure XtTMO_Proc */
-void XtTMO_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTMO_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	XtDestroyWidget(topLevel);
 	exit(0);
 }
+
 XtInputId input_ret;
 char *msg = "Hello World";
 FILE *fid;
-/* Procedure XtIOP_Proc */
-void XtIOP_Proc(client_data, source, id)
-XtPointer client_data;
-int *source;
-XtInputId *id;
+
+void XtIOP_Proc(
+    XtPointer client_data,
+    int *source,
+    XtInputId *id)
 {
 	avs_set_event(1,1);
 	tet_infoline("TEST: InputID passed to procedure matches return from XtAddInput");

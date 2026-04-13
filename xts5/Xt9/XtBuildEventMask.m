@@ -62,48 +62,43 @@ XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
-/*
-** XtEVT1_Proc
-*/
-void XtEVT1_Proc(w, client_data, event, continue_to_process)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_process;
+void XtEVT1_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_process)
 {
 }
-/*
-** XtEVT2_Proc
-*/
-void XtEVT2_Proc(w, client_data, event, continue_to_process)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_process;
+
+void XtEVT2_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_process)
 {
 }
-void XtACT2_Proc(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+
+void XtACT2_Proc(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 }
-/*
-** XtEVT3_Proc
-*/
-void XtEVT3_Proc(w, client_data, event, continue_to_process)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_process;
+
+void XtEVT3_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_process)
 {
 }
-void XtACT3_Proc(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+
+void XtACT3_Proc(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 }
 

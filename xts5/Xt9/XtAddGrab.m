@@ -70,100 +70,101 @@ Widget labelw, rowcolw, click_quit;
 ** XtAddGrab() locks user input invoke, timeout procedure to exit
 ** from test after 2 seconds.
 */
-void XtTMNO1_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTMNO1_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
 
 /*rowcolw's event handler*/
-void XtEV1a_Proc(w, client_data, event, contin)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *contin;
+void XtEV1a_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *contin)
 {
 	avs_set_event(1,avs_get_event(1)+1);
 }
 
 /*labelw_good's event handler*/
-void XtEV1b_Proc(w, client_data, event, contin)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *contin;
+void XtEV1b_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *contin)
 {
 	avs_set_event(2,avs_get_event(2)+1);
 }
 
 /*labelw_good2's event handler*/
-void XtEV1c_Proc(w, client_data, event, contin)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *contin;
+void XtEV1c_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *contin)
 {
 	avs_set_event(3,avs_get_event(3)+1);
 }
 
 /*boxw1's event handler*/
-void XtEV1d_Proc(w, client_data, event, contin)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *contin;
+void XtEV1d_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *contin)
 {
 	avs_set_event(4,avs_get_event(4)+1);
 }
+
 /*
 ** XtTMO2_Proc procedure
 ** XtAddGrab() locks user input invoke, timeout procedure to exit
 ** from test after 2 seconds.
 */
-void XtTMO2_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTMO2_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
 
 /*rowcolw's event handler*/
-void XtEV2a_Proc(w, client_data, event, contin)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *contin;
+void XtEV2a_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *contin)
 {
 	avs_set_event(1,avs_get_event(1)+1);
 }
 
 /*labelw_good's event handler*/
-void XtEV2b_Proc(w, client_data, event, contin)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *contin;
+void XtEV2b_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *contin)
 {
 	avs_set_event(2,avs_get_event(2)+1);
 }
 
 /*labelw_good2's event handler*/
-void XtEV2c_Proc(w, client_data, event, contin)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *contin;
+void XtEV2c_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *contin)
 {
 	avs_set_event(3,avs_get_event(3)+1);
 }
 
 /*boxw1's event handler*/
-void XtEV2d_Proc(w, client_data, event, contin)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *contin;
+void XtEV2d_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *contin)
 {
 	avs_set_event(4,avs_get_event(4)+1);
 }
@@ -172,58 +173,62 @@ Boolean *contin;
 ** XtAddGrab() locks user input invoke, timeout procedure to exit
 ** from test after 2 seconds.
 */
-void XtTMO3_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTMO3_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
 
 /*rowcolw's event handler*/
-void XtEV3a_Proc(w, client_data, event, contin)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *contin;
+void XtEV3a_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *contin)
 {
 	avs_set_event(1,avs_get_event(1)+1);
 }
 
 /*labelw_good's event handler*/
-void XtEV3b_Proc(w, client_data, event, contin)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *contin;
+void XtEV3b_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *contin)
 {
 	avs_set_event(2,avs_get_event(2)+1);
 }
 
 /*labelw_good2's event handler*/
-void XtEV3c_Proc(w, client_data, event, contin)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *contin;
+void XtEV3c_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *contin)
 {
 	avs_set_event(3,avs_get_event(3)+1);
 }
 
 /*boxw1's event handler*/
-void XtEV3d_Proc(w, client_data, event, contin)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *contin;
+void XtEV3d_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *contin)
 {
 	avs_set_event(4,avs_get_event(4)+1);
 }
 /*
 ** Installed Warning handler
 */
-void XtEVT_handler(str1, str2, str3, str4, str5, car)
-String str1, str2, str3, str4, *str5;
-Cardinal *car;
+void XtEVT_handler(
+    String str1,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
+    Cardinal *car)
 {
 	avs_set_event(1,avs_get_event(1)+1);
 }

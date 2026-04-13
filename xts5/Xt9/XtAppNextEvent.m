@@ -74,42 +74,38 @@ Widget labelw, rowcolw, click_quit;
 
 extern const char *event_names[] ;
 
-/* procedure XtTMO1_Proc to be invoked */
-void XtTMO1_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTMO1_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
-/*
-** XtTMO2_Procedure
-*/
-void XtTMO2_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+
+void XtTMO2_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	avs_set_event(2,1);	
 	exit(0);
 }
-/*
-** XtTMO3_Proc
-*/
-void XtTMO3_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+
+void XtTMO3_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	avs_set_event(1, 1);
 	exit(0);
 	
 }
+
 XtInputId input_ret;
 char *msg = "Hello World";
 FILE *fid;
-/* Procedure XtIOP_Proc */
-void XtIOP_Proc(client_data, source, id)
-XtPointer client_data;
-int *source;
-XtInputId *id;
+
+void XtIOP_Proc(
+    XtPointer client_data,
+    int *source,
+    XtInputId *id)
 {
 	avs_set_event(1,1);
 	tet_infoline("TEST: InputID passed to procedure matches return from XtAddInput");

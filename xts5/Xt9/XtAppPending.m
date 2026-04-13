@@ -72,29 +72,25 @@ Widget labelw, rowcolw, click_quit;
 XtInputId input_ret;
 char *msg = "Hello World";
 FILE *fid;
-/* Procedure XtIOP_Proc */
-void XtIOP_Proc(client_data, source, id)
-XtPointer client_data;
-int *source;
-XtInputId *id;
+
+void XtIOP_Proc(
+    XtPointer client_data,
+    int *source,
+    XtInputId *id)
 {
 }
-/*
-** XtTMO_Proc
-*/
-void XtTMO1_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+
+void XtTMO1_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	send_event(topLevel, KeyPress, KeyPressMask, TRUE );
 	send_event(topLevel, KeyPress, KeyPressMask, TRUE );
 }
-/*
-** XtTMO_Proc
-*/
-void XtTMO2_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+
+void XtTMO2_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	/*
 	** Queue should be empty at this point
@@ -103,9 +99,10 @@ XtIntervalId *id;
 	*/
 	send_event(topLevel, KeyPress, KeyPressMask, TRUE);
 }
-void XtTMO3_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+
+void XtTMO3_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }

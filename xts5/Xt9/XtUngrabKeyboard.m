@@ -70,21 +70,18 @@ Widget labelw, rowcolw, click_quit;
 Widget click_pass, click_fail;
 
 #ifdef XTESTEXTENSION
-/*
-** procedure XtTMO_Proc
-*/
-void XtTMO_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+
+void XtTMO_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
-XEvent event;
+	XEvent event;
 	tet_infoline("ERROR: Timed out waiting for input");
 	tet_result(TET_UNRESOLVED);
 	exit(0);
 }
 
-static void analyse_events(TestWidget)
-Widget TestWidget;
+static void analyse_events(Widget TestWidget)
 {
 	Display *display;
 	XEvent loop_event;
@@ -139,6 +136,7 @@ Widget TestWidget;
 		}
 	} /* end for */
 }
+
 #endif
 >>SET tpstartup avs_alloc_sem
 >>SET tpcleanup avs_free_sem

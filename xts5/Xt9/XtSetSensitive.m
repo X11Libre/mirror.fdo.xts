@@ -64,14 +64,11 @@ Widget labelw, rowcolw, click_quit;
 
 extern const char *event_names[];
 
-/*
-** Registered procedure Proc
-*/
-void XtEVT_Proc(w, client_data, event, continue_to_dispatch)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+void XtEVT_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 	sprintf(ebuf, "ERROR: Event %s invoked XtEVT_Proc", event_names[event->type]);
 	tet_infoline(ebuf);
@@ -79,13 +76,13 @@ Boolean *continue_to_dispatch;
 	exit(0);
 }
 
-/* procedure XtTMO_Proc to be invoked */
-void XtTMO_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTMO_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
+
 >>SET tpstartup avs_alloc_sem
 >>SET tpcleanup avs_free_sem
 >>TITLE XtSetSensitive Xt9

@@ -62,9 +62,7 @@ XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
-static void
-analyse_events(w, w1)
-Widget w, w1;
+static void analyse_events(Widget w, Widget w1)
 {
 	XtAppContext app_context;
 	Display *display;

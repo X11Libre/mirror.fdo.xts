@@ -62,22 +62,20 @@ XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
-/*
-** XtTMO_ExitTest
-*/
-void XtTMO_ExitTest(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTMO_ExitTest(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
-Boolean XtWKP_Proc(client_data)
-XtPointer client_data;
+
+Boolean XtWKP_Proc(XtPointer client_data)
 {
 	sprintf(ebuf, "ERROR: Deleted procedure XtWKP_Proc should not be invoked.");
 	tet_infoline(ebuf);
 	tet_result(TET_FAIL);
 }
+
 >>TITLE XtRemoveWorkProc Xt9
 void
 XtRemoveWorkProc(id)

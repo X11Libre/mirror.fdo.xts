@@ -63,68 +63,70 @@ XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
-void KP1a(w, client_data, event, cont)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *cont;
+void KP1a(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *cont)
 {
 	avs_set_event(2,1);
 	exit(0);
 }
 
-void KP1b(w, client_data, event, cont)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *cont;
+void KP1b(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *cont)
 {
 	tet_infoline("ERROR: KeyPress was sent to subtree not descendant");
 	tet_result(TET_FAIL);
 	exit(0);
 }
 
-void KP2a(w, client_data, event, cont)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *cont;
+void KP2a(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *cont)
 {
 	avs_set_event(2,1);
 	exit(0);
 }
-void KP2b(w, client_data, event, cont)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *cont;
+
+void KP2b(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *cont)
 {
 	tet_infoline("ERROR: KeyPress was sent to descendant not subtree");
 	tet_result(TET_FAIL);
 	exit(0);
 }
-void KP3a(w, client_data, event, cont)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *cont;
+
+void KP3a(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *cont)
 {
 	avs_set_event(1,1);
 	exit(0);
 }
-void KP3b(w, client_data, event, cont)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *cont;
+
+void KP3b(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *cont)
 {
 	tet_infoline("ERROR: KeyPress was sent to subtree not descendant");
 	tet_result(TET_FAIL);
 	exit(0);
 }
-static void
-analyse_events4(w, w1)
-Widget w, w1;
+
+static void analyse_events4(Widget w, Widget w1)
 {
 	XtAppContext app_context;
 	Display *display;
@@ -155,20 +157,20 @@ Widget w, w1;
 	 XtDispatchEvent(&loop_event);
 	} /* end for */
 }
-void KP4(w, client_data, event, cont)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *cont;
+
+void KP4(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *cont)
 {
 	if (event->type == FocusIn) {
 		avs_set_event(1,1);
 		exit(0);
 	}
 }
-static void
-analyse_events5(w, w1)
-Widget w, w1;
+
+static void analyse_events5(Widget w, Widget w1)
 {
 	XtAppContext app_context;
 	Display *display;
@@ -199,20 +201,20 @@ Widget w, w1;
 	 XtDispatchEvent(&loop_event);
 	} /* end for */
 }
-void KP5(w, client_data, event, cont)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *cont;
+
+void KP5(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *cont)
 {
 	if (event->type == FocusIn) {
 		avs_set_event(1,1);
 		exit(0);
 	}
 }
-static void
-analyse_events6(w, w1)
-Widget w, w1;
+
+static void analyse_events6(Widget w, Widget w1)
 {
 	XtAppContext app_context;
 	Display *display;
@@ -245,17 +247,19 @@ Widget w, w1;
 	 XtDispatchEvent(&loop_event);
 	} /* end for */
 }
-void KP6(w, client_data, event, cont)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *cont;
+
+void KP6(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *cont)
 {
 	if (event->type == FocusOut) {
 		avs_set_event(1,1);
 		exit(0);
 	}
 }
+
 >>SET tpstartup avs_alloc_sem
 >>SET tpcleanup avs_free_sem
 >>TITLE XtSetKeyboardFocus Xt9

@@ -69,26 +69,24 @@ XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
-/*
-** XtIOP_Proc
-*/
-void XtIOP_Proc(client_data, source, id)
-XtPointer client_data;
-int *source;
-XtInputId *id;
+void XtIOP_Proc(
+    XtPointer client_data,
+    int *source,
+    XtInputId *id)
 {
 	sprintf(ebuf, "ERROR: Deleted procedure XtIOP_Proc invoked");
 	tet_infoline(ebuf);
 	tet_result(TET_FAIL);
 	exit(0);
 }
-/* procedure XtTMO_Proc to be invoked */
-void XtTMO_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+
+void XtTMO_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
+
 >>SET tpstartup avs_alloc_sem
 >>SET tpcleanup avs_free_sem
 >>TITLE XtRemoveInput Xt9

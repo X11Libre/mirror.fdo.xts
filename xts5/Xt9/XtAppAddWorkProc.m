@@ -64,8 +64,7 @@ Widget labelw, rowcolw, click_quit;
 
 char client_stuff[] = "These are the times that try men's souls";
 
-Boolean XtWKP_Proc(client_data)
-XtPointer client_data;
+Boolean XtWKP_Proc(XtPointer client_data)
 {
 int count;
 
@@ -84,8 +83,8 @@ int count;
 		return False;
 	}
 }
-Boolean XtWKP_Proc5(client_data)
-XtPointer client_data;
+
+Boolean XtWKP_Proc5(XtPointer client_data)
 {
 int count;
 
@@ -106,8 +105,7 @@ int count;
 	}
 }
 
-Boolean XtWKP_Proc3(client_data)
-XtPointer client_data;
+Boolean XtWKP_Proc3(XtPointer client_data)
 {
 int count;
 
@@ -122,8 +120,7 @@ int count;
 		return True;
 }
 
-Boolean XtWKP_Head(client_data)
-XtPointer client_data;
+Boolean XtWKP_Head(XtPointer client_data)
 {
 	Widget topLevel = (Widget) client_data;
 	sprintf(ebuf, "ERROR: Unexpected invocation of XtWKP_Head");
@@ -132,8 +129,7 @@ XtPointer client_data;
 	exit(0);
 }
 
-Boolean XtWKP_Tail(client_data)
-XtPointer client_data;
+Boolean XtWKP_Tail(XtPointer client_data)
 {
 	Widget topLevel = (Widget) client_data;
 	avs_set_event(1,1);
@@ -141,21 +137,20 @@ XtPointer client_data;
 }
 
 /* procedure XtTMO_Proc to be invoked */
-void XtTMO_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTMO_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
 
-Boolean XtWKP_Proc7(client_data)
-XtPointer client_data;
+Boolean XtWKP_Proc7(XtPointer client_data)
 {
 	avs_set_event(2, avs_get_event(1));
 	exit(0);
 }
-Boolean XtWKP_Proc6(client_data)
-XtPointer client_data;
+
+Boolean XtWKP_Proc6(XtPointer client_data)
 {
 	avs_set_event(1, avs_get_event(1)+1);
 	if (avs_get_event(1) == 1) {
@@ -172,11 +167,11 @@ extern const char *event_names[];
 /*
 ** Registered procedure Proc
 */
-void XtEVT_Proc(w, client_data, event, continue_to_dispatch)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+void XtEVT_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 	return;
 }

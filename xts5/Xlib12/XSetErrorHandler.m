@@ -117,20 +117,14 @@ static	int	counter = 0;
 static	int	lastserial = 0;
 static	int	lastrequest_code = 0;
 
-static int
-errorhandler(display, errorevent)
-Display *display;
-XErrorEvent *errorevent;
+static int errorhandler(Display *display, XErrorEvent *errorevent)
 {
 	lastserial = errorevent->serial;
 	lastrequest_code = errorevent->request_code;
 	return(counter++);
 }
 
-static int
-_errorhandler(display, errorevent)
-Display *display;
-XErrorEvent *errorevent;
+static int _errorhandler(Display *display, XErrorEvent *errorevent)
 {
 	return(counter--);
 }

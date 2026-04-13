@@ -153,8 +153,7 @@ In child :
 >>EXTERN
 extern char **environ;
 
-static void
-t001exec()
+static void t001exec(void)
 {
 char	*argv[2];
 char	*str;

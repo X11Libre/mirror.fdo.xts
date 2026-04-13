@@ -128,17 +128,13 @@ static	int	exit_statuses[] = {
 	2, 3, 4, 8, 16
 };
 
-static int
-errorhandler(display)
-Display *display;
+static int errorhandler(Display *display)
 {
 	/* Handler exits with exit status of exit_status. */
 	exit(exit_status);
 }
 
-static int
-_errorhandler(display)
-Display *display;
+static int _errorhandler(Display *display)
 {
 	/* Handler returns first time called. */
 	/* Handler exits upon second and subsequent invocations */
@@ -153,8 +149,7 @@ Display *display;
  * Child exits with exit_status+1 to indicate TET_DELETE.
  * Child exits with exit_status-1 to indicate failure.
  */
-static	void
-child_proc1()
+static void child_proc1(void)
 {
 	Window	w;
 	int 	fail = 0;

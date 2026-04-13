@@ -105,16 +105,13 @@ int (*procedure)(Display*) = afterfunction;
 >>EXTERN
 static	int	counter = 0;
 
-static int
-afterfunction(display)
-Display *display;
+static int afterfunction(Display *display)
 {
 	trace("In afterfunction(), screen number %d", XDefaultScreen(display));
 	return(counter++);
 }
-static int
-_afterfunction(display)
-Display *display;
+
+static int _afterfunction(Display *display)
 {
 	trace("In _afterfunction(), screen number %d", XDefaultScreen(display));
 	return(--counter);

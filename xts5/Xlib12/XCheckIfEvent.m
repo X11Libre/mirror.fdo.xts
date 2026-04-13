@@ -139,11 +139,10 @@ static XEvent _pred_event;	/* last event passed to _predicate */
 static int _pred_retval;	/* last returnvalue from _predicate */
 static int _pred_true;		/* True when True previously returned */
 
-static Bool
-_predicate (display, event, arg)
-Display *display;
-XEvent *event;
-char *arg;
+static Bool _predicate (
+    Display *display,
+    XEvent *event,
+    char *arg)
 {
 #ifdef	lint
 	XCloseDisplay(display);

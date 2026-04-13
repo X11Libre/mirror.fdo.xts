@@ -103,9 +103,7 @@ XSynchronize(display, onoff)
 Display *display = Dsp;
 Bool onoff;
 >>EXTERN
-static int
-afterfunction(display)
-Display *display;
+static int afterfunction(Display *display)
 {
 	return((int) display);
 }

@@ -114,24 +114,23 @@ unsigned int 	height;
 int		bitmap_pad;
 int		bytes_per_line;
 >>EXTERN
-int
-checkstruct(im, width, height, offset, format, data, bo, bmu, bmbo, bp, dep, bpl, bpp, rm, gm, bm)
-XImage		*im;
-int		width;
-int		height;
-int		offset;
-int		format;
-const char	*data;
-int		bo;
-int		bmu;
-int		bmbo;
-int		bp;
-int		dep;
-int		bpl;
-int		bpp;
-unsigned long	rm;
-unsigned long	gm;
-unsigned long	bm;
+int checkstruct(
+    XImage *im,
+    int width,
+    int height,
+    int offset,
+    int format,
+    const char *data,
+    int bo,
+    int bmu,
+    int bmbo,
+    int bp,
+    int dep,
+    int bpl,
+    int bpp,
+    unsigned long rm,
+    unsigned long gm,
+    unsigned long bm)
 {
 
 	int pass = 0;

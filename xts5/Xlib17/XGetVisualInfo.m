@@ -109,11 +109,10 @@ int	n_ret;
 int	n_all;
 XVisualInfo	v_tmpl;
 
-void
-init_vp(mask, vp, vptmpl)
-long mask;
-XVisualInfo     *vp;
-XVisualInfo     *vptmpl;
+void init_vp(
+    long mask,
+    XVisualInfo *vp,
+    XVisualInfo *vptmpl)
 {
 	vptmpl->visualid = 0;
 	vptmpl->screen = -1;
@@ -145,13 +144,12 @@ XVisualInfo     *vptmpl;
 		vptmpl->bits_per_rgb = vp->bits_per_rgb;
 }
 
-XVisualInfo *
-get_visuals(mask, vp, n_all, vptest, n)
-long mask;
-XVisualInfo     *vp;
-int	n_all;
-XVisualInfo     *vptest;
-int	*n;
+XVisualInfo *get_visuals(
+    long mask,
+    XVisualInfo *vp,
+    int n_all,
+    XVisualInfo *vptest,
+    int *n)
 {
 XVisualInfo     *vptr, *vpret;
 int	i;
@@ -191,10 +189,7 @@ int	i;
 	return(vpret);
 }
 
-void
-report_visuals(n, vp)
-int	n;
-XVisualInfo     *vp;
+void report_visuals(int n, XVisualInfo *vp)
 {
 int	i;
 
@@ -204,12 +199,11 @@ int	i;
 	}
 }
 
-int
-check_visuals(mask, n, expected, observed)
-long mask;
-int	n;
-XVisualInfo     *expected;
-XVisualInfo     *observed;
+int check_visuals(
+    long mask,
+    int n,
+    XVisualInfo *expected,
+    XVisualInfo *observed)
 {
 XVisualInfo     *vp, *vpo;
 int	i, j;
@@ -256,11 +250,10 @@ int	pass = 0;
 	return(-1);
 }
 
-int
-check_mask_visuals(mask, all, n_all)
-long mask;
-XVisualInfo     *all;
-int	n_all;
+int check_mask_visuals(
+    long mask,
+    XVisualInfo *all,
+    int n_all)
 {
 XVisualInfo     *vp, *expected, *visuals;
 int	i;

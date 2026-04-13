@@ -135,10 +135,7 @@ struct tet_testlist tet_testlist[] = {
 };
 int 	ntests = sizeof(tet_testlist)/sizeof(struct tet_testlist)-1;
 
-int
-tet_main(argc, argv)
-int argc;	
-char *argv[];
+int tet_main(int argc, char *argv[])
 {
 int		pass = 0, fail = 0;
 Display		*display;

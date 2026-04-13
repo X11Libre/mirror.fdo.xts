@@ -110,13 +110,12 @@ XAddPixel(ximage, value)
 XImage	*ximage;
 long	value;
 >>EXTERN
-void
-mpattern(display, d, w, h, dep)
-Display		*display;
-Drawable	d;
-unsigned int	w;
-unsigned int	h;
-int		dep;
+static void mpattern(
+    Display *display,
+    Drawable d,
+    unsigned int w,
+    unsigned int h,
+    int dep)
 {
 int		i;
 int		j;
@@ -139,12 +138,11 @@ unsigned long	val;
 		}
 }
 
-int
-mcheck(xi, w, h, dep)
-XImage		*xi;
-unsigned int	w;
-unsigned int	h;
-int		dep;
+static int mcheck(
+    XImage *xi,
+    unsigned int w,
+    unsigned int h,
+    int dep)
 {
 int		i;
 int		j;

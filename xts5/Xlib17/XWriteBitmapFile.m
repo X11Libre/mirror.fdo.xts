@@ -133,8 +133,7 @@ static unsigned char xwbf_data[]= {
 static unsigned int xwbf_width=16;
 static unsigned int xwbf_height=8;
 
-static void
-xwbf_start()
+static void xwbf_start(void)
 {
 	tpstartup();
 
@@ -145,8 +144,7 @@ xwbf_start()
 	(void)unlink(outfile(xwbf_name));
 }
 
-static void
-xwbf_clean()
+static void xwbf_clean(void)
 {
 	(void)unlink(filename);
 	tpcleanup();

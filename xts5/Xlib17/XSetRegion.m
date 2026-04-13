@@ -105,8 +105,7 @@ GC	gc;
 Region	r = XCreateRegion();
 >>SET tpcleanup strgncleanup
 >>EXTERN
-static void
-strgncleanup()
+static void strgncleanup(void)
 {
 	XDestroyRegion(r);
 	tpcleanup();

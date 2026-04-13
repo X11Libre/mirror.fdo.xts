@@ -106,12 +106,12 @@ int		y;
 unsigned int	subimage_width;
 unsigned int	subimage_height;
 >>EXTERN
-static int mpattern(display, d, w, h, dep)
-Display		*display;
-Drawable	d;
-unsigned int	w;
-unsigned int	h;
-int		dep;
+static int mpattern(
+    Display *display,
+    Drawable d,
+    unsigned int w,
+    unsigned int h,
+    int dep)
 {
 int		i;
 int		j;
@@ -137,13 +137,13 @@ unsigned long	val;
 		}
 }
 
-static int checksubimage(subim, x,y, w,h, dep)
-XImage		*subim;
-int		x;
-int		y;
-unsigned int	w;
-unsigned int	h;
-int 		dep;
+static int checksubimage(
+    XImage *subim,
+    int x,
+    int y,
+    unsigned int w,
+    unsigned int h,
+    int dep)
 {
 int	i;
 int	j;

@@ -105,11 +105,11 @@ int		x;
 int		y;
 unsigned long	pixel;
 >>EXTERN
-int bltimage(im, w, h, dep)
-XImage		*im;
-unsigned int	w;
-unsigned int	h;
-int		dep;
+int bltimage(
+    XImage *im,
+    unsigned int w,
+    unsigned int h,
+    int dep)
 {
 int		i;
 unsigned long	mask;

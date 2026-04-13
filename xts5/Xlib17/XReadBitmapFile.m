@@ -189,15 +189,12 @@ xrbf_create(
 	return 0;
 }
 
-static void
-xrbf_b_start() {
+static void xrbf_b_start(void) {
 	tpstartup();
 	xrbf_create(outfile(xrbf_name), xrbf_one, xrbf_n_one);
 }
 
-
-static void
-xrbf_b_end()  {
+static void xrbf_b_end(void)  {
 	unlink(outfile(xrbf_name));
 	tpcleanup();
 }

@@ -240,8 +240,7 @@ In the child process:
 >>EXTERN
 extern char **environ;
 
-static void
-t003exec()
+static void t003exec(void)
 {
 char	*argv[2];
 char	*envp;
@@ -289,8 +288,7 @@ In the child process:
 		tet_fork(t004exec, TET_NULLFP, 0, ~0);
 
 >>EXTERN
-static void
-t004exec()
+static void t004exec(void)
 {
 char	*argv[2];
 char	*envp;
@@ -336,8 +334,7 @@ In the child process:
 		tet_fork(t005exec, TET_NULLFP, 0, ~0);
 
 >>EXTERN
-static void
-t005exec()
+static void t005exec(void)
 {
 char	*argv[2];
 char	*envp;

@@ -108,11 +108,10 @@ A call to xname returns in the
 argument the smallest rectangle enclosing the region
 .A r .
 >>EXTERN
-Status
-checknotclear(disp, d, fg)
-Display		*disp;
-Drawable	d;
-unsigned long	fg;
+Status checknotclear(
+    Display *disp,
+    Drawable d,
+    unsigned long fg)
 {
 XImage			*im;
 unsigned int		width;

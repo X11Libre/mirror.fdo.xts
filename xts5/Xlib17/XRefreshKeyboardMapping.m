@@ -109,10 +109,7 @@ XMappingEvent	*event_map;
 #include	"X11/keysymdef.h"
 #undef XK_LATIN1
 
-static void
-cpymap(dest, src)
-	XModifierKeymap *dest;
-	XModifierKeymap *src;
+static void cpymap(XModifierKeymap *dest, XModifierKeymap *src)
 {
 	int i;
 	int n;

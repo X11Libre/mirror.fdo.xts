@@ -117,8 +117,7 @@ void loginit()
 **	logent() - make an entry in the TCCD log file
 */
 
-void logent(s1, s2)
-char *s1, *s2;
+void logent(char *s1, char *s2)
 {
 	FILE *fp;
 
@@ -186,4 +185,3 @@ static FILE *getlogfp()
 	else
 		return(lfp);
 }
-

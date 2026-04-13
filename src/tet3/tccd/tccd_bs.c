@@ -72,9 +72,7 @@ static int req_md2bs PROTOLIST((struct ptab *, char **, int *, int));
 **	return length of internal-format message, or -ve error code on error
 */
 
-int tet_ss_bs2md(from, pp)
-char *from;
-struct ptab *pp;
+int tet_ss_bs2md(char *from, struct ptab* pp)
 {
 	if (pp->pt_flags & PF_SERVER)
 		return(rep_bs2md(from, pp));
@@ -88,9 +86,7 @@ struct ptab *pp;
 **	return length of internal-format message, or -ve error code on error
 */
 
-static int rep_bs2md(from, pp)
-char *from;
-struct ptab *pp;
+static int rep_bs2md(char *from, struct ptab *pp)
 {
 	int rc;
 	int request = pp->pt_savreq;
@@ -120,9 +116,7 @@ struct ptab *pp;
 **	return length of internal-format message, or -ve error code on error
 */
 
-static int req_bs2md(from, pp)
-char *from;
-struct ptab *pp;
+static int req_bs2md(char *from, struct ptab *pp)
 {
 	int rc;
 	int request = pp->ptm_req;
@@ -184,10 +178,7 @@ struct ptab *pp;
 **	or -ve error code on error
 */
 
-int tet_ss_md2bs(pp, bp, lp, offs)
-struct ptab *pp;
-char **bp;
-int *lp, offs;
+int tet_ss_md2bs(struct ptab **pp, char **bp, int *lp, int offs)
 {
 	if ((pp->pt_flags & PF_SERVER) == 0)
 		return(rep_md2bs(pp, bp, lp, offs));
@@ -203,10 +194,7 @@ int *lp, offs;
 **	or -ve error code on error
 */
 
-static int rep_md2bs(pp, bp, lp, offs)
-struct ptab *pp;
-char **bp;
-int *lp, offs;
+static int rep_md2bs(struct ptab *pp, char **bp, int *lp, int offs)
 {
 	char *mp = pp->ptm_data;
 	int request = pp->ptm_req;
@@ -267,10 +255,7 @@ int *lp, offs;
 **	or -ve error code on error
 */
 
-static int req_md2bs(pp, bp, lp, offs)
-struct ptab *pp;
-char **bp;
-int *lp, offs;
+static int req_md2bs(struct ptab *pp, char **bp, int *lp, int offs)
 {
 	char *mp = pp->ptm_data;
 	int request = pp->ptm_req;
@@ -328,4 +313,3 @@ int *lp, offs;
 
 	return(rc < 0 ? ER_ERR : rc);
 }
-

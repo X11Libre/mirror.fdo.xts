@@ -126,8 +126,7 @@ static int procline PROTOLIST((char *));
 **		variable exchange
 */
 
-void op_cfname(pp)
-struct ptab *pp;
+void op_cfname(struct ptab *pp)
 {
 	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	int n;
@@ -180,8 +179,7 @@ struct ptab *pp;
 **	to the client
 */
 
-void op_sndconf(pp)
-struct ptab *pp;
+void op_sndconf(struct ptab *pp)
 {
 	char *p;
 	int rc;
@@ -275,8 +273,7 @@ struct ptab *pp;
 **		config variable exchange
 */
 
-void op_rcvconf(pp)
-struct ptab *pp;
+void op_rcvconf(struct ptab *pp)
 {
 	struct avmsg *rp;
 	struct ctab *cp;
@@ -340,8 +337,7 @@ struct ptab *pp;
 **		put the filename in the environment ready for an exec
 */
 
-void op_config(pp)
-struct ptab *pp;
+void op_config(struct ptab *pp)
 {
 	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	struct ctab *cp;
@@ -401,8 +397,7 @@ struct ptab *pp;
 **	return ER_OK if successful or other ER_* error code on error
 */
 
-static int op_c2(mode)
-int mode;
+static int op_c2(int mode)
 {
 	char *fname;
 	int rc;
@@ -435,8 +430,7 @@ int mode;
 **	return ER_OK if successful or other ER_* error code on error
 */
 
-static int op_c3(fname)
-char *fname;
+static int op_c3(char *fname)
 {
 	int rc;
 	FILE *fp;
@@ -468,9 +462,7 @@ char *fname;
 **	return ER_OK if successful or other ER_* error code on error
 */
 
-static int op_c4(fp, fname)
-FILE *fp;
-char *fname;
+static int op_c4(FILE *fp, char *fname)
 {
 	struct ctab *cp;
 
@@ -498,8 +490,7 @@ char *fname;
 **		-1 on error
 */
 
-static int op_sc2(pp)
-struct ptab *pp;
+static int op_sc2(struct ptab *pp)
 {
 	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	int n, rc;
@@ -533,8 +524,7 @@ struct ptab *pp;
 **	return ER_OK if successful or other ER_* error code on error
 */
 
-static int procline(s)
-char *s;
+static int procline(char *s)
 {
 	struct ctab *cp;
 	char *p1, *p2;
@@ -595,8 +585,7 @@ static struct ctab *ctalloc()
 **	ctfree() - free storage occupied by a config table element
 */
 
-static void ctfree(cp)
-struct ctab *cp;
+static void ctfree(struct ctab *cp)
 {
 	TRACE2(tet_Tbuf, 6, "free ctab = %s", tet_i2x(cp));
 
@@ -614,8 +603,7 @@ struct ctab *cp;
 **	ctadd() - insert an element in the config table
 */
 
-static void ctadd(cp)
-struct ctab *cp;
+static void ctadd(struct ctab *cp)
 {
 	tet_listinsert((struct llist **) &ctab, (struct llist *) cp);
 }
@@ -624,8 +612,7 @@ struct ctab *cp;
 **	ctrm() - remove an element from the config table
 */
 
-static void ctrm(cp)
-struct ctab *cp;
+static void ctrm(struct ctab *cp)
 {
 	tet_listremove((struct llist **) &ctab, (struct llist *) cp);
 }
@@ -639,8 +626,7 @@ struct ctab *cp;
 **	the s parameter may be delimited by either '=' or '\0'
 */
 
-static struct ctab *ctfind(s)
-char *s;
+static struct ctab *ctfind(char *s)
 {
 	char *p1, *p2;
 	struct ctab *cp;
@@ -666,8 +652,7 @@ char *s;
 **	return a pointer to the entry or (struct ctab *) 0 on error
 */
 
-static struct ctab *ctaddupdate(s)
-char *s;
+static struct ctab *ctaddupdate(char *s)
 {
 	struct ctab *cp;
 
@@ -695,9 +680,7 @@ char *s;
 **	return zero if successful or -1 on error
 */
 
-static int ctupdate(cp, s)
-struct ctab *cp;
-char *s;
+static int ctupdate(struct ctab *cp, char *s)
 {
 	char *oldstring;
 
@@ -744,8 +727,7 @@ static void ctpurge()
 **	op_setconf() - set the current configuration mode
 */
 
-void op_setconf(pp)
-struct ptab *pp;
+void op_setconf(struct ptab *pp)
 {
 	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
 	int mode;
@@ -820,4 +802,3 @@ void config_cleanup()
 		if (tet_config[n])
 			UNLINK(tet_config[n]);
 }
-

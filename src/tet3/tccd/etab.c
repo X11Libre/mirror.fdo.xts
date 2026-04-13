@@ -84,8 +84,7 @@ struct etab *etalloc()
 **	etfree() - free an exec table element
 */
 
-void etfree(ep)
-struct etab *ep;
+void etfree(struct etab *ep)
 {
 	TRACE2(tet_Tbuf, 6, "free etab = %s", tet_i2x(ep));
 
@@ -97,8 +96,7 @@ struct etab *ep;
 **	etadd() - insert an element in the etab list
 */
 
-void etadd(ep)
-struct etab *ep;
+void etadd(struct etab *ep)
 {
 	tet_listinsert((struct llist **) &etab, (struct llist *) ep);
 }
@@ -107,8 +105,7 @@ struct etab *ep;
 **	etrm() - remove an element from the etab list
 */
 
-void etrm(ep)
-struct etab *ep;
+void etrm(struct etab *ep)
 {
 	tet_listremove((struct llist **) &etab, (struct llist *) ep);
 }
@@ -120,8 +117,7 @@ struct etab *ep;
 **	return (struct etab *) 0 if not found
 */
 
-struct etab *etfind(pid)
-int pid;
+struct etab *etfind(int pid)
 {
 	struct etab *ep;
 
@@ -136,8 +132,7 @@ int pid;
 **	etdead() - etab processing when a process logs off or dies
 */
 
-void etdead(pp)
-struct ptab *pp;
+void etdead(struct ptab *pp)
 {
 	struct etab *ep;
 	int done;
@@ -155,4 +150,3 @@ struct ptab *pp;
 			}
 	} while (!done);
 }
-

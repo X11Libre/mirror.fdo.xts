@@ -89,8 +89,7 @@ MODIFICATIONS:
 **	request to set up an environment to be passed to a STCM via exec()
 */
 
-void op_putenv(pp)
-struct ptab *pp;
+void op_putenv(struct ptab *pp)
 {
 	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	char *p1, *p2;
@@ -145,8 +144,7 @@ struct ptab *pp;
 **	op_access() - determine the accessibility of a file wrt euid and egid
 */
 
-void op_access(pp)
-struct ptab *pp;
+void op_access(struct ptab *pp)
 {
 	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 
@@ -175,8 +173,7 @@ struct ptab *pp;
 **	op_mkdir() - make a directory
 */
 
-void op_mkdir(pp)
-struct ptab *pp;
+void op_mkdir(struct ptab *pp)
 {
 	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 
@@ -205,8 +202,7 @@ struct ptab *pp;
 **	op_mkalldirs() - make directories recursively
 */
 
-void op_mkalldirs(pp)
-struct ptab *pp;
+void op_mkalldirs(struct ptab *pp)
 {
 	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 
@@ -235,8 +231,7 @@ struct ptab *pp;
 **	op_rmdir() - remove a directory
 */
 
-void op_rmdir(pp)
-struct ptab *pp;
+void op_rmdir(struct ptab *pp)
 {
 	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 
@@ -265,8 +260,7 @@ struct ptab *pp;
 **	op_rmalldirs() - remove a directory subtree
 */
 
-void op_rmalldirs(pp)
-struct ptab *pp;
+void op_rmalldirs(struct ptab *pp)
 {
 	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 
@@ -295,8 +289,7 @@ struct ptab *pp;
 **	op_rcopy() - recursively copy files
 */
 
-void op_rcopy(pp)
-struct ptab *pp;
+void op_rcopy(struct ptab *pp)
 {
 	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 
@@ -326,8 +319,7 @@ struct ptab *pp;
 **	op_chdir() - change directory
 */
 
-void op_chdir(pp)
-struct ptab *pp;
+void op_chdir(struct ptab *pp)
 {
 	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	int errsave;
@@ -358,8 +350,7 @@ struct ptab *pp;
 **	op_unlink() - unlink a file
 */
 
-void op_unlink(pp)
-struct ptab *pp;
+void op_unlink(struct ptab *pp)
 {
 	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	int errsave;
@@ -391,8 +382,7 @@ struct ptab *pp;
 **	op_time() - return system time
 */
 
-void op_time(pp)
-struct ptab *pp;
+void op_time(struct ptab *pp)
 {
 	struct valmsg *mp;
 
@@ -422,8 +412,7 @@ struct ptab *pp;
 **	error occurs
 */
 
-void op_lockfile(pp)
-struct ptab *pp;
+void op_lockfile(struct ptab *pp)
 {
 	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 
@@ -452,8 +441,7 @@ struct ptab *pp;
 **	error occurs
 */
 
-void op_sharelock(pp)
-struct ptab *pp;
+void op_sharelock(struct ptab *pp)
 {
 	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	char *fname;
@@ -487,8 +475,7 @@ struct ptab *pp;
 **	op_mktmpdir() - make a unique temporary directory
 */
 
-void op_mktmpdir(pp)
-struct ptab *pp;
+void op_mktmpdir(struct ptab *pp)
 {
 	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	char *dir;
@@ -520,8 +507,7 @@ struct ptab *pp;
 **	op_rxfile() - transfer a file to the master system
 */
 
-void op_rxfile(pp)
-struct ptab *pp;
+void op_rxfile(struct ptab *pp)
 {
 	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 
@@ -549,4 +535,3 @@ struct ptab *pp;
 
 	pp->ptm_rc = (tet_xdxfile(AV_XFROM(mp), AV_XTO(mp)) < 0) ? ER_ERR : ER_OK;
 }
-

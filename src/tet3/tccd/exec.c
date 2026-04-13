@@ -91,8 +91,7 @@ static int waitforchild PROTOLIST((int, int));
 **	exit status of ~0 (255)
 */
 
-void op_exec(pp)
-struct ptab *pp;
+void op_exec(struct ptab *pp)
 {
 	if ((pp->ptm_rc = op_e2(pp)) == ER_OK) {
 		((struct valmsg *) pp->ptm_data)->vm_nvalue = OP_EXEC_NVALUE;
@@ -111,8 +110,7 @@ struct ptab *pp;
 **	return ER_OK if successful or other ER_* error code on error
 */
 
-static int op_e2(pp)
-struct ptab *pp;
+static int op_e2(struct ptab *pp)
 {
 	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	struct sptab *sp = (struct sptab *) pp->pt_sdata;
@@ -150,9 +148,7 @@ struct ptab *pp;
 **	return ER_OK if successful or other ER_* error code on error
 */
 
-static int op_e3(pp, ep)
-struct ptab *pp;
-struct etab *ep;
+static int op_e3(struct ptab *pp, struct etab *ep)
 {
 	char *dp = pp->ptm_data;
 	int rc;
@@ -288,8 +284,7 @@ void tcc_exec_signals()
 **		ok with status in VM_STATUS:		rc = ER_OK
 */
 
-void op_wait(pp)
-struct ptab *pp;
+void op_wait(struct ptab *pp)
 {
 	if ((pp->ptm_rc = op_w2(pp)) == ER_OK) {
 		((struct valmsg *) pp->ptm_data)->vm_nvalue = OP_WAIT_NVALUE;
@@ -308,8 +303,7 @@ struct ptab *pp;
 **	return ER_OK if successful or other ER_* error code on error
 */
 
-static int op_w2(pp)
-struct ptab *pp;
+static int op_w2(struct ptab *pp)
 {
 	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
 	struct etab *ep;
@@ -371,8 +365,7 @@ struct ptab *pp;
 **
 */
 
-void op_kill(pp)
-struct ptab *pp;
+void op_kill(struct ptab *pp)
 {
 	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
 	struct etab *ep;
@@ -442,8 +435,7 @@ struct ptab *pp;
 **	return 0 if successful or -1 on error
 */
 
-int tet_ss_ptalloc(pp)
-struct ptab *pp;
+int tet_ss_ptalloc(struct ptab *pp)
 {
 	struct sptab *sp;
 
@@ -468,8 +460,7 @@ struct ptab *pp;
 **	tet_ss_ptfree() - free server-specific data element in a ptab structure
 */
 
-void tet_ss_ptfree(pp)
-struct ptab *pp;
+void tet_ss_ptfree(struct ptab *pp)
 {
 	struct sptab *sp = (struct sptab *) pp->pt_sdata;
 
@@ -497,9 +488,7 @@ struct ptab *pp;
 static jmp_buf wait_env;
 static int wait_timedout;
 
-static int waitforchild(pid, timeout)
-int pid;
-int timeout;
+static int waitforchild(int pid, int timeout)
 {
 	int rc;
 	SIG_T (*sig_save)();
@@ -543,10 +532,7 @@ int timeout;
 **	or if the timeout expires
 */
 
-static int wfc2(pid, timeout, start)
-int pid;
-int timeout;
-time_t start;
+static int wfc2(int pid, int timeout, time_t start)
 {
 	struct etab *ep;
 	int rc, tleft, save_errno;
@@ -602,12 +588,9 @@ time_t start;
 */
 
 /* ARGSUSED */
-static SIG_FUNC_T catchalarm(sig)
-int sig;
+static SIG_FUNC_T catchalarm(int sig)
 {
 	signal(SIGALRM, SIG_IGN);
 	wait_timedout = 1;
 	longjmp(wait_env, 1);
 }
-
-

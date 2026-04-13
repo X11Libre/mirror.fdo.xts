@@ -115,8 +115,7 @@ static SIG_FUNC_T waitchild PROTOLIST((int));
 #ifdef INETD
 /* ARGSUSED */
 #endif
-int ss_tsargproc(firstarg, nextarg)
-char *firstarg, *nextarg;
+int ss_tsargproc(char *firstarg, char *nextarg)
 {
 	int rc = 0;
 
@@ -269,8 +268,7 @@ void ts_logstart()
 **	return 0 if successful or -1 on error
 */
 
-int tet_ss_tsconnect(pp)
-struct ptab *pp;
+int tet_ss_tsconnect(struct ptab *pp)
 {
 	/* syncd and xresd addresses have alread been stored when
 		op_tsinfo() was called (which also allocated the ptabs) -
@@ -311,8 +309,7 @@ void tet_ss_tsaccept()
 **	return 0 if successful or -1 on error
 */
 
-int tet_ss_tsafteraccept(pp)
-struct ptab *pp;
+int tet_ss_tsafteraccept(struct ptab *pp)
 {
 	struct tptab *tp = (struct tptab *) pp->pt_tdata;
 	struct hostent *hp;
@@ -416,8 +413,7 @@ int ss_tslogon()
 #else
 
 /* ARGSUSED */
-static SIG_FUNC_T waitchild(sig)
-int sig;
+static SIG_FUNC_T waitchild(int sig)
 {
 	int status;
 #ifndef NOTRACE
@@ -446,11 +442,7 @@ int sig;
 **	ts_bs2tsinfo() - call tet_bs2tsinfo()
 */
 
-int ts_bs2tsinfo(from, fromlen, to, tolen)
-char *from;
-int fromlen;
-char **to;
-int *tolen;
+int ts_bs2tsinfo(char *from, int fromlen, char **to, int *tolen)
 {
 	return(tet_bs2tsinfo(from, fromlen, (struct tsinfo **) to, tolen));
 }
@@ -459,8 +451,7 @@ int *tolen;
 **	op_tsinfo() - receive transport-specific data
 */
 
-void op_tsinfo(pp)
-struct ptab *pp;
+void op_tsinfo(struct ptab *pp)
 {
 	struct tsinfo *mp = (struct tsinfo *) pp->ptm_data;
 	struct sockaddr_in *ap;
@@ -514,4 +505,3 @@ struct ptab *pp;
 	/* all ok so set up the reply message and return */
 	pp->ptm_rc = ER_OK;
 }
-

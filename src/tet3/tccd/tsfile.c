@@ -88,8 +88,7 @@ static char *sfdir;			/* saved files directory */
 **	op_mksdir() - make a new save files directory
 */
 
-void op_mksdir(pp)
-struct ptab *pp;
+void op_mksdir(struct ptab *pp)
 {
 	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	int n, nmax, rc;
@@ -194,8 +193,7 @@ struct ptab *pp;
 **	op_tsfiles() - perform a transfer save files operation
 */
 
-void op_tsfiles(pp)
-struct ptab *pp;
+void op_tsfiles(struct ptab *pp)
 {
 	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	char *todir;
@@ -272,4 +270,3 @@ struct ptab *pp;
 	pp->ptm_rc = tcf_procdir(".", todir, &AV_TSFILE(mp, 0),
 		OP_TSFILES_NFILES(mp), flag);
 }
-

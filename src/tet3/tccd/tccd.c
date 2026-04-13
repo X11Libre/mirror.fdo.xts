@@ -124,9 +124,7 @@ static SIG_FUNC_T terminate PROTOLIST((int));
 **									*
 ************************************************************************/
 
-int main(argc, argv)
-int argc;
-char **argv;
+int main(int argc, char **argv)
 {
 	/* ignore certain signals */
 	signal(SIGHUP, SIG_IGN);
@@ -158,8 +156,7 @@ char **argv;
 **	return 0 if only firstarg was used or 1 if both args were used
 */
 
-int tet_ss_argproc(firstarg, nextarg)
-char *firstarg, *nextarg;
+int tet_ss_argproc(char *firstarg, char *nextarg)
 {
 	int rc = 0;
 	int mask;
@@ -340,8 +337,7 @@ int tet_ss_serverloop()
 **	tet_ss_dead() - server-specific routine to handle a dead process
 */
 
-void tet_ss_dead(pp)
-struct ptab *pp;
+void tet_ss_dead(struct ptab *pp)
 {
 	static char fmt[] = "%s connection closed";
 	static char cl[] = "client";
@@ -377,8 +373,7 @@ struct ptab *pp;
 **	tet_ss_connect() - connect to remote process
 */
 
-void tet_ss_connect(pp)
-struct ptab *pp;
+void tet_ss_connect(struct ptab *pp)
 {
 	tet_ts_connect(pp);
 }
@@ -405,8 +400,7 @@ struct ptab *pp;
 **	tet_ss_serverproc() - request processing as a server
 */
 
-void tet_ss_serverproc(pp)
-struct ptab *pp;
+void tet_ss_serverproc(struct ptab *pp)
 {
 	switch (pp->ptm_req) {
 	case OP_SYSID:
@@ -515,8 +509,7 @@ struct ptab *pp;
 **	op_sysid() - assign system id
 */
 
-static void op_sysid(pp)
-struct ptab *pp;
+static void op_sysid(struct ptab *pp)
 {
 	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
 
@@ -550,8 +543,7 @@ struct ptab *pp;
 **
 */
 
-static void op_sysname(pp)
-struct ptab *pp;
+static void op_sysname(struct ptab *pp)
 {
 	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
 	struct sptab *sp = (struct sptab *) pp->pt_sdata;
@@ -608,8 +600,7 @@ struct ptab *pp;
 **	return ER_OK if successful or other ER_* error code on error
 */
 
-int tet_ss_logon(pp)
-struct ptab *pp;
+int tet_ss_logon(struct ptab *pp)
 {
 	switch (pp->ptr_ptype) {
 	case PT_MTCC:
@@ -655,8 +646,7 @@ void tet_ss_cleanup()
 **	tet_ss_newptab() - server-specific new ptab entry handler
 */
 
-void tet_ss_newptab(pp)
-struct ptab *pp;
+void tet_ss_newptab(struct ptab *pp)
 {
 	/* add the entry to the process table */
 	tet_ptadd(pp);
@@ -672,8 +662,7 @@ struct ptab *pp;
 **	terminate() - SIGTERM signal handler
 */
 
-static SIG_FUNC_T terminate(sig)
-int sig;
+static SIG_FUNC_T terminate(int sig)
 {
 	logent("going down on signal", tet_i2a(sig));
 	tet_ss_cleanup();
@@ -686,10 +675,8 @@ int sig;
 **	return 0 if successful or -1 on error
 */
 
-int tetrootset(s)
-char *s;
+int tetrootset(char *s)
 {
 	sprintf(tet_root, "%.*s", (int) sizeof tet_root - 1, s);
 	return(0);
 }
-

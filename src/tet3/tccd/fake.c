@@ -50,8 +50,7 @@ MODIFICATIONS:
 */
 
 /* ARGSUSED */
-void tet_ss_timeout(pp)
-struct ptab *pp;
+void tet_ss_timeout(struct ptab *pp)
 {
 	/* nothing */
 }
@@ -64,4 +63,3 @@ void tet_ss_procrun()
 {
 	/* nothing */
 }
-

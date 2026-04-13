@@ -125,7 +125,7 @@ xGrabDeviceKeyReq *req;
 
 static
 void
-tester()
+tester(void)
 {
 	Create_Client(CLIENT);
 	if (!Setup_Extension_DeviceInfo(KeyMask))

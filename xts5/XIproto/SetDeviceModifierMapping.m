@@ -132,7 +132,7 @@ xEvent *ev;
 
 static
 void
-tester()
+tester(void)
 {
 int dmn;
 XEventClass dmnc;

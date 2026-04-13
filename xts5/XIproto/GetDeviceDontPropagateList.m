@@ -127,7 +127,7 @@ xGetDeviceDontPropagateListReply *rep;
 
 static
 void
-tester()
+tester(void)
 {
 Window	w;
 Display	*client1, *opendisplay();

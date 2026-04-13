@@ -128,7 +128,7 @@ extern ExtDeviceInfo Devs;
 
 static
 void
-tester()
+tester(void)
 {
 XEventClass dkpc;
 int dkp, dv;

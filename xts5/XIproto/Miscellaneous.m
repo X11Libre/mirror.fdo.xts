@@ -126,7 +126,7 @@ extern int MinKeyCode;
 
 static
 void
-tester()
+tester(void)
 {
 Display *dpy2, *opendisplay();
 Window w;

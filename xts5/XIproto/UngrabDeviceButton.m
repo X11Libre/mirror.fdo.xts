@@ -126,7 +126,7 @@ xUngrabDeviceButtonReq *req;
 
 static
 void
-tester()
+tester(void)
 {
 	Create_Client(CLIENT);
 	Create_Default_Window(CLIENT);

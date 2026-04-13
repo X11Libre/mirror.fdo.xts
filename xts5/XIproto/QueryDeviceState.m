@@ -126,7 +126,7 @@ xQueryDeviceStateReply *rep;
 
 static
 void
-tester()
+tester(void)
 {
 	Create_Client(CLIENT);
 	if (!Setup_Extension_DeviceInfo(AnyMask))

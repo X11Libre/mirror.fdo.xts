@@ -132,7 +132,7 @@ extern ExtDeviceInfo Devs;
 
 static
 void
-tester()
+tester(void)
 {
 extern int SavID;
 int chdvnot;

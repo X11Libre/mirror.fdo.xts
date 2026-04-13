@@ -127,7 +127,7 @@ xGetSelectedExtensionEventsReply *rep;
 
 static
 void
-tester()
+tester(void)
 {
 Display *client1, *opendisplay();
 Window w;

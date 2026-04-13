@@ -131,7 +131,7 @@ xSelectExtensionEventReq *slctreq;
 
 static
 void
-tester()
+tester(void)
 {
 int dmn;
 XEventClass dmncl;

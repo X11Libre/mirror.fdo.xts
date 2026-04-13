@@ -112,7 +112,7 @@ extern int NumButtons;
 XDevice *focusdevice;
 Display *fdisplay, *client1;
 
-void xi_cleanup()
+void xi_cleanup(void)
 {
       cleanup();
       client1 = NULL;

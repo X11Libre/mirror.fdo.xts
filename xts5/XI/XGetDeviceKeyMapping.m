@@ -128,8 +128,7 @@ static	KeySym	Keys[MAXKPK*MAXCODES];
  * the original keyboard map.
  */
 >>SET startup savekeymap
-static void
-savekeymap()
+static void savekeymap(void)
 {
 int 	i;
 int 	numkeys;
@@ -158,8 +157,7 @@ int 	numkeys;
 }
 
 >>SET cleanup cleankeymap
-static void
-cleankeymap()
+static void cleankeymap(void)
 {
 	if (Dsp && Devs.Key) {
 		XChangeDeviceKeyMapping(Dsp, Devs.Key, Min_KeyCode, oldkpk, oldkeym, ncodes);

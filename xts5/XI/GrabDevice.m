@@ -122,10 +122,7 @@ extern ExtDeviceInfo Devs;
  * Get the window that the pointer is currently in, if the pointer
  * is in a child of the given window. Otherwise it returns None.
  */
-Window
-getpointerwin(disp, win)
-Display	*disp;
-Window	win;
+Window getpointerwin(Display *disp, Window win)
 {
 Window	child;
 Window	wtmp;

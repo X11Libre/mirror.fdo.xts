@@ -223,8 +223,7 @@ Verify that the pointer is still frozen and therefore keyboard grab is not
 released.
 >>EXTERN
 
-static Status
-ispfrozen()
+static Status ispfrozen(void)
 {
 Window	win;
 XEvent	ev;

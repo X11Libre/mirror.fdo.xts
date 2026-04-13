@@ -193,10 +193,8 @@ Try to grab the device, verify that AlreadyGrabbed is returned.
 Call xname to release the grab.
 Try to grab the device, verify that the grab was released.
 >>EXTERN
-static Bool dgrabbed(dev, win)
-	XDevice *dev;
-	Window win;
-	{
+static Bool dgrabbed(XDevice *dev, Window win)
+{
 	int ret;
 	Display *client1;
 

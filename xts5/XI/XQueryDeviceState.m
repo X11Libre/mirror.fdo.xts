@@ -221,11 +221,12 @@ Move some valuators, if the device has any.
 Call QueryDeviceState.
 Check to see if those keys, buttons, and valuators are reported as being down.
 >>EXTERN
-static void
-devtype(dpy, dev, haskeys, hasbuttons, hasvaluators)
-Display *dpy;
-XDevice *dev;
-int *haskeys, *hasbuttons, *hasvaluators;
+static void devtype(
+    Display *dpy,
+    XDevice *dev,
+    int *haskeys,
+    int *hasbuttons,
+    int *hasvaluators)
 {
 int i, j, ndevices;
 XDeviceInfo *list;
@@ -274,10 +275,9 @@ XAnyClassPtr any;
 }
 
 >>EXTERN
-static void
-pokedev(display, device)
-Display *display;
-XDevice *device;
+static void pokedev(
+    Display *display,
+    XDevice *device)
 {
 int i, j, key1;
 XDeviceState *state;

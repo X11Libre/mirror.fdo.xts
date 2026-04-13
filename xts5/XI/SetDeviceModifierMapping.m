@@ -108,10 +108,8 @@ extern int MinKeyCode, MaxKeyCode;
 static	XModifierKeymap	*origmap;
 
 >>SET startup savemap
-static void
-savemap()
+static void savemap(void)
 {
-
 	startup();
 	if (!Setup_Extension_DeviceInfo(ModMask))
 	    {
@@ -126,8 +124,7 @@ savemap()
 }
 
 >>SET cleanup cleanmap
-static void
-cleanmap()
+static void cleanmap(void)
 {
 	if(Dsp && Devs.Key)
 		XSetDeviceModifierMapping(Dsp, Devs.Mod, origmap);

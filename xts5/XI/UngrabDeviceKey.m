@@ -186,10 +186,8 @@ client, then a call to xname releases the grab.
 Grab key.
 Touch test.
 >>EXTERN
-static Bool dgrabbed(dev, win)
-	XDevice *dev;
-	Window win;
-	{
+static Bool dgrabbed(XDevice *dev, Window win)
+{
 	int ret;
 	Display *client1;
 

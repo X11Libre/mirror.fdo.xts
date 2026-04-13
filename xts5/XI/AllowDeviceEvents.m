@@ -120,10 +120,8 @@ static	XEventClass class[3];
  * Verify devices and create grab window.
  */
 
-static int
-grabstartup()
+static int grabstartup(void)
 {
-
 	if (Dsp==NULL)
 		return(0);
 
@@ -146,8 +144,7 @@ grabstartup()
  * Destroy the grab window.
  */
 
-static void
-grabcleanup()
+static void grabcleanup(void)
 {
 	if (Dsp)
 	    XDestroyWindow(Dsp, grabwin);
@@ -156,10 +153,9 @@ grabcleanup()
 /*
  * Grab and freeze the device.
  */
-static void
-grabfreezedevice(disp, time)
-Display	*disp;
-Time	time;
+static void grabfreezedevice(
+    Display *disp,
+    Time time)
 {
 
 	device = Devs.Button;
@@ -172,9 +168,7 @@ Time	time;
  * device and check to see if we can receive it.  If we receive it,
  * then the device is not frozen.
  */
-static	Bool
-ispfrozen(disp)
-Display	*disp;
+static Bool ispfrozen(Display *disp)
 {
 int axisval=0, ret=True;
 XEvent ev;
@@ -762,9 +756,7 @@ else
 /*
  * Returns True if the keyboard is frozen.
  */
-static Bool
-iskfrozen(display)
-Display	*display;
+static Bool iskfrozen(Display *display)
 {
 XEvent	ev;
 Window	win;

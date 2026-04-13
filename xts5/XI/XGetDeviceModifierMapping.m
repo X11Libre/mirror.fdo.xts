@@ -157,10 +157,7 @@ If extension available and at least one button:
 else
   report untested.
 >>EXTERN
-static int dgrabbed(display, dev, win)
-Display *display;
-XDevice *dev;
-Window win;
+static int dgrabbed(Display *display, XDevice *dev, Window win)
 {
 int ret;
 Display *client1;

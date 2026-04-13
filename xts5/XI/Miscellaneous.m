@@ -107,13 +107,12 @@ Touch test to execute miscellaneous code that would not otherwise get executed.
 >>STRATEGY
 Touch test.
 >>EXTERN
-static int
-devtype(dpy, dev, keys, buttons, valuators)
-Display *dpy;
-XDevice *dev;
-XKeyInfoPtr *keys;
-XButtonInfoPtr *buttons;
-XValuatorInfoPtr *valuators;
+static int devtype(
+    Display *dpy,
+    XDevice *dev,
+    XKeyInfoPtr *keys,
+    XButtonInfoPtr *buttons,
+    XValuatorInfoPtr *valuators)
 {
 int i, j, ndevices, ret=0;
 XDeviceInfo *list;
@@ -169,11 +168,10 @@ return(ret);
  * Set up to get DeviceStateNotify events from the pathological input device:
  * one with 255 keys, 255 buttons, and 255 valuators.
  */
-static void
-getds (dpy, dev, input)
-Display *dpy;
-XDevice *dev;
-Bool input;
+static void getds (
+    Display *dpy,
+    XDevice *dev,
+    Bool input)
 {
 int i, j, n, numc, count=0, pass=0, fail=0;
 char *data;

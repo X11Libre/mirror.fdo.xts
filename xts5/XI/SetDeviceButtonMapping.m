@@ -122,8 +122,7 @@ extern ExtDeviceInfo Devs;
  * the test may later override this).
  */
 >>SET begin-function getnbutton
-static	void
-getnbutton()
+static void getnbutton(void)
 {
 	if (!Devs.Button)
 	    return;
@@ -139,8 +138,7 @@ getnbutton()
  */
 static unsigned char	oldmap[MAPSIZE];
 >>SET startup savemap
-static void
-savemap()
+static void savemap(void)
 {
 	startup();
 	if (!Setup_Extension_DeviceInfo(BtnMask))
@@ -153,8 +151,7 @@ savemap()
 }
 
 >>SET cleanup restoremap
-static void
-restoremap()
+static void restoremap(void)
 {
 	device = Devs.Button;
 	if(Dsp && Devs.Button)

@@ -59,8 +59,7 @@ MODIFICATIONS:
 **	tet_r2a() - return printable representation of remote process id
 */
 
-TET_IMPORT char *tet_r2a(rp)
-struct remid *rp;
+TET_IMPORT char *tet_r2a(struct remid *rp)
 {
 	static char fmt[] = "(sysid = %d, pid = %ld: %.20s)";
 	static char buf[NLBUF][RBUFSZ];

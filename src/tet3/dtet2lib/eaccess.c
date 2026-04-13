@@ -77,9 +77,7 @@ static int check_grouplist PROTOLIST((struct STAT_ST *, int));
 **	the above assumption is incorrect for a particular system.
 */
 
-int tet_eaccess(path, mode)
-char *path;
-int mode;
+int tet_eaccess(char *path, int mode)
 {
 	struct STAT_ST stbuf;
 
@@ -168,9 +166,7 @@ int mode;
 **		-1 on error (with errno set)
 */
 
-static int check_grouplist(stp, mode)
-struct STAT_ST *stp;
-int mode;
+static int check_grouplist(struct STAT_ST *stp, int mode)
 {
 	int errsave, ngids, ngmax;
 	gid_t *gidp;

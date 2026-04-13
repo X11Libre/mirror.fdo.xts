@@ -51,8 +51,7 @@ MODIFICATIONS:
 **	tet_ptsvote() - return a printable representation of a sync vote
 */
 
-char *tet_ptsvote(vote)
-int vote;
+char *tet_ptsvote(int vote)
 {
 	static char text[] = "unknown sync-vote ";
 	static char msg[sizeof text + LNUMSZ];

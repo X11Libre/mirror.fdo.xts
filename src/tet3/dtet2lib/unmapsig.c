@@ -52,8 +52,7 @@ MODIFICATIONS:
 **	return local signal number if successful or -1 on error
 */
 
-int tet_unmapsignal(sig)
-int sig;
+int tet_unmapsignal(int sig)
 {
 	struct sigmap *sp, *se;
 	extern struct sigmap tet_sigmap[];

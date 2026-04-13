@@ -49,10 +49,7 @@ MODIFICATIONS:
 **	return the number of fields found, or EOF on end-of-file
 */
 
-int tet_fgetargs(fp, argv, maxargs)
-FILE *fp;
-char **argv;
-int maxargs;
+int tet_fgetargs(FILE *fp, char **argv, int maxargs)
 {
 	static char buf[BUFSIZ];
 	char *p;

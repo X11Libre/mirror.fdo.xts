@@ -82,9 +82,7 @@ static void stinit()
 **	tet_avmsg2bs() - put an avmsg and associated strings on a byte stream
 */
 
-TET_IMPORT int tet_avmsg2bs(from, to)
-struct avmsg *from;
-char *to;
+TET_IMPORT int tet_avmsg2bs(struct avmsg *from, char *to)
 {
 	int n;
 	char *p, *sp;
@@ -128,11 +126,7 @@ char *to;
 **	area
 */
 
-TET_IMPORT int tet_bs2avmsg(from, fromlen, to, tolen)
-char *from;
-int fromlen;
-struct avmsg **to;
-int *tolen;
+TET_IMPORT int tet_bs2avmsg(char *from, int fromlen, struct avmsg **to, int *tolen)
 {
 	if (fixed < 0)
 		stinit();
@@ -169,10 +163,7 @@ int *tolen;
 **	area, not the strings themselves
 */
 
-static int bs2avmargv(from, to, nargv, len)
-char *from;
-char **to;
-int nargv, len;
+static int bs2avmargv(char *from, char **to, int nargv, int len)
 {
 	int n;
 	unsigned short offset;
@@ -195,8 +186,7 @@ int nargv, len;
 **	tet_avmsgbslen() - return length of an avmsg on a byte stream
 */
 
-TET_IMPORT int tet_avmsgbslen(mp)
-struct avmsg *mp;
+TET_IMPORT int tet_avmsgbslen(struct avmsg *mp)
 {
 	int len, n;
 

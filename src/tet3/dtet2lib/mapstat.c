@@ -64,8 +64,7 @@ MODIFICATIONS:
 **	form that is suitable for use with the W* macros on that system
 */
 
-int tet_mapstatus(status)
-int status;
+int tet_mapstatus(int status)
 {
 
 #  if defined(WIFEXITED) && defined(WEXITSTATUS)
@@ -86,7 +85,4 @@ int status;
 #  endif /* WIFEXITED && WEXITSTATUS */
 
 		return(status & 017777);
-
-
 }
-

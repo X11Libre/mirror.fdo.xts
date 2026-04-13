@@ -53,8 +53,7 @@ MODIFICATIONS:
 */
 
 const char *
-tet_errname(errnum)
-int errnum;
+tet_errname(int errnum)
 {
 	struct errmap *ep, *ee;
 	static char fmt[] = "Error %d";

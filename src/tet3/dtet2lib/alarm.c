@@ -121,8 +121,7 @@ static void *alrm_thr PROTOLIST((void *));
 #endif /* TET_THREADS */
 
 int
-tet_set_alarm(new_aa, old_aa)
-struct alrmaction *new_aa, *old_aa;
+tet_set_alarm(struct alrmaction *new_aa, struct alrmaction *old_aa)
 {
 #ifndef TET_THREADS
 
@@ -307,8 +306,7 @@ void *varg;
 #endif /* TET_THREADS */
 
 int
-tet_clr_alarm(old_aa)
-struct alrmaction *old_aa;
+tet_clr_alarm(struct alrmaction *old_aa)
 {
 #ifndef TET_THREADS
 

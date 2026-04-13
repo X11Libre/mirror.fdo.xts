@@ -59,8 +59,7 @@ static int mkad2 PROTOLIST((char *));
 **	return 0 if successful, -1 otherwise
 */
 
-int tet_mkalldirs(path)
-char *path;
+int tet_mkalldirs(char *path)
 {
 	int rc;
 	struct STAT_ST stbuf;
@@ -89,8 +88,7 @@ char *path;
 **	return 0 if successful, -1 otherwise
 */
 
-static int mkad2(path)
-char *path;
+static int mkad2(char *path)
 {
 	char *p;
 	int rc;

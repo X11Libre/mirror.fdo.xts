@@ -55,8 +55,7 @@ MODIFICATIONS:
 **	tet_maperrno() - map errno value to DTET message reply code
 */
 
-int tet_maperrno(errnum)
-int errnum;
+int tet_maperrno(int errnum)
 {
 	struct errmap *ep, *ee;
 

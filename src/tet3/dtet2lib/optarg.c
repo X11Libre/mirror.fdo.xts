@@ -49,11 +49,7 @@ MODIFICATIONS:
 **	if first is false, the string starts with a space
 */
 
-int tet_mkoptarg(s, intopt, arg, first)
-char *s;
-int intopt;
-char *arg;
-int first;
+int tet_mkoptarg(char *s, int intopt, char *arg, int first)
 {
 	char *p = s;
 	char opt = (char) (intopt & 0377);

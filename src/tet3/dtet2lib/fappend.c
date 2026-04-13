@@ -53,8 +53,7 @@ MODIFICATIONS:
 **	note that this function is a no-op on WIN32
 */
 
-int tet_fappend(fd)
-int fd;
+int tet_fappend(int fd)
 {
 
 

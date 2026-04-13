@@ -67,9 +67,7 @@ extern int tet_Nstype;
 **	otherwise newargv consists only of the -T arguments
 */
 
-char **tet_traceargs(ptype, argv)
-int ptype;
-char **argv;
+char **tet_traceargs(int ptype, char **argv)
 {
 	char *p, **ap;
 	int argc, needlen, tfcount;

@@ -50,8 +50,7 @@ MODIFICATIONS:
 **	tet_l2a() - convert long int to ascii
 */
 
-TET_IMPORT char *tet_l2a(n)
-long n;
+TET_IMPORT char *tet_l2a(long n)
 {
 	static char buf[NLBUF][LNUMSZ];
 	static int count;

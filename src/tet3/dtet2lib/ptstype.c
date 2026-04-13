@@ -52,8 +52,7 @@ MODIFICATIONS:
 **	return (struct ptab *) 0 if not found
 */
 
-struct ptab *tet_getptbysysptype(sysid, ptype)
-int sysid, ptype;
+struct ptab *tet_getptbysysptype(int sysid, int ptype)
 {
 	struct ptab *pp;
 	extern struct ptab *tet_ptab;

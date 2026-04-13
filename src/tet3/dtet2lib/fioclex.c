@@ -58,8 +58,7 @@ MODIFICATIONS:
 **	return 0 if successful or -1 on error
 */
 
-int tet_fioclex(fd)
-int fd;
+int tet_fioclex(int fd)
 {
 
 

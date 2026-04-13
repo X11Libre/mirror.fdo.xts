@@ -51,14 +51,12 @@ MODIFICATIONS:
 #include "globals.h"
 #include "dtetlib.h"
 
-
 /*
 **	tet_dofork() - try to fork a few times until successful
 **
 **	return fork() return value
 */
-
-int tet_dofork()
+int tet_dofork(void)
 {
 	int rc, try;
 
@@ -70,5 +68,3 @@ int tet_dofork()
 
 	return(rc);
 }
-
-

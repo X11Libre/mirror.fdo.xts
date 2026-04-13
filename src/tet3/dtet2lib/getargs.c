@@ -52,9 +52,7 @@ MODIFICATIONS:
 **	return the number of fields found
 */
 
-TET_IMPORT int tet_getargs(s, argv, maxargs)
-char *s, **argv;
-int maxargs;
+TET_IMPORT int tet_getargs(char *s, char **argv, int maxargs)
 {
 	int argc, new;
 

@@ -55,8 +55,7 @@ MODIFICATIONS:
 **	this routine is here because not all systems have putenv(3)
 */
 
-int tet_putenv(s)
-char *s;
+int tet_putenv(char *s)
 {
 
 	static char **env;

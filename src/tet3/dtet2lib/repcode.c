@@ -52,8 +52,7 @@ MODIFICATIONS:
 */
 
 TET_IMPORT const char *
-tet_ptrepcode(rc)
-int rc;
+tet_ptrepcode(int rc)
 {
 	static char text[] = "reply-code ";
 	static char msg[sizeof text + LNUMSZ];

@@ -49,9 +49,7 @@ MODIFICATIONS:
 **	tet_generror() - generic error printing routine
 */
 
-void tet_generror(errnum, file, line, s1, s2)
-int errnum, line;
-char *file, *s1, *s2;
+void tet_generror(int errnum, char *file, int line, char *s1, char *s2)
 {
 	tet_prerror(stderr, errnum, tet_progname, file, line, s1, s2);
 }

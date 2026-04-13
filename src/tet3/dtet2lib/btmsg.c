@@ -68,9 +68,7 @@ static void stinit()
 	BTMSG_INIT(st, sp, n, nst);
 }
 
-int tet_btmsg2bs(from, to)
-struct btmsg *from;
-char *to;
+int tet_btmsg2bs(struct btmsg *from, char *to)
 {
 	if (nst < 0)
 		stinit();
@@ -82,11 +80,7 @@ char *to;
 **	tet_bs2btmsg() - convert a btmsg message to internal format
 */
 
-int tet_bs2btmsg(from, fromlen, to, tolen)
-char *from;
-int fromlen;
-struct btmsg **to;
-int *tolen;
+int tet_bs2btmsg(char *from, int fromlen, struct btmsg **to, int *tolen)
 {
 	if (nst < 0)
 		stinit();

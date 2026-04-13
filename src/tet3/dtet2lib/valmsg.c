@@ -79,9 +79,7 @@ static void stinit()
 **	return the number of bytes occupied by the result
 */
 
-int tet_valmsg2bs(from, to)
-struct valmsg *from;
-char *to;
+int tet_valmsg2bs(struct valmsg *from, char *to)
 {
 	int count;
 	struct stdesc tmp;
@@ -107,11 +105,7 @@ char *to;
 **	return the number of bytes in the valmsg result, or -1 on error
 */
 
-TET_IMPORT int tet_bs2valmsg(from, fromlen, to, tolen)
-char *from;
-int fromlen;
-struct valmsg **to;
-int *tolen;
+TET_IMPORT int tet_bs2valmsg(char *from, int fromlen, struct valmsg **to, int *tolen)
 {
 	return(bs2vsmsg(from, fromlen, to, tolen, 0));
 }
@@ -120,12 +114,7 @@ int *tolen;
 **	bs2vsmsg() - common subroutine for tet_bs2valmsg() and tet_bs2synmsg()
 */
 
-static int bs2vsmsg(from, fromlen, to, tolen, smproc)
-char *from;
-int fromlen;
-struct valmsg **to;
-int *tolen;
-int smproc;
+static int bs2vsmsg(char **from, int fromlen, struct valmsg **to, int *tolen, int smproc)
 {
 	struct stdesc tmp;
 	int bslen, vmlen;
@@ -168,9 +157,7 @@ int smproc;
 **	return the number of bytes occupied by the result
 */
 
-int tet_synmsg2bs(from, to)
-struct valmsg *from;
-char *to;
+int tet_synmsg2bs(struct valmsg *from, char *to)
 {
 	int count;
 	int dlen;
@@ -196,11 +183,7 @@ char *to;
 **	return the number of bytes in the valmsg result, or -1 on error
 */
 
-TET_IMPORT int tet_bs2synmsg(from, fromlen, to, tolen)
-char *from;
-int fromlen;
-struct valmsg **to;
-int *tolen;
+TET_IMPORT int tet_bs2synmsg(char *from, int fromlen, struct valmsg **to, int *tolen)
 {
 	int count;
 	int dlen;

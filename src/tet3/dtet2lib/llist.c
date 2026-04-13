@@ -46,8 +46,7 @@ MODIFICATIONS:
 **	tet_listinsert() - insert new element at the head of a linked list
 */
 
-void tet_listinsert(head, elem)
-struct llist **head, *elem;
+void tet_listinsert(struct llist **head, struct llist *elem)
 {
 	ASSERT(head);
 	ASSERT(elem);
@@ -65,8 +64,7 @@ struct llist **head, *elem;
 **	tet_listremove() - remove an element from a linked list
 */
 
-void tet_listremove(head, elem)
-struct llist **head, *elem;
+void tet_listremove(struct llist **head, struct llist *elem)
 {
 	ASSERT(head);
 	ASSERT(elem);

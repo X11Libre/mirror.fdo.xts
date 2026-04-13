@@ -54,8 +54,7 @@ MODIFICATIONS:
 **	return 0 if there is no local errno equivalent
 */
 
-int tet_unmaperrno(repcode)
-int repcode;
+int tet_unmaperrno(int repcode)
 {
 	struct errmap *ep, *ee;
 

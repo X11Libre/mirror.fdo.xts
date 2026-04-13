@@ -104,9 +104,7 @@ static int rdcopy  PROTOLIST((char *, char *));
 **	and restored afterwards
 */
 
-int tet_fcopy(src, dest)
-char *src;
-char *dest;
+int tet_fcopy(char *src, char *dest)
 {
 	char buf[BUFSIZ];
 	char destfile[MAXPATH + 1];
@@ -293,9 +291,7 @@ char *dest;
 **
 */
 
-static int rdcopy (from, to)
-char *from;
-char *to;
+static int rdcopy (char *from, char *to)
 {
 	DIR *dirp;
         struct dirent *dp;

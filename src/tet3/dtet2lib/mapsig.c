@@ -51,8 +51,7 @@ MODIFICATIONS:
 **	return DTET signal number if successful or -1 on error
 */
 
-int tet_mapsignal(sig)
-int sig;
+int tet_mapsignal(int sig)
 {
 	struct sigmap *sp, *se;
 	extern struct sigmap tet_sigmap[];

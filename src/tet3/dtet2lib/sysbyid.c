@@ -50,8 +50,7 @@ MODIFICATIONS:
 **	return (struct sysent *) 0 on if not found or on error
 */
 
-struct sysent *tet_libgetsysbyid(sysid)
-int sysid;
+struct sysent *tet_libgetsysbyid(int sysid)
 {
 	static struct sysent *sp;
 

@@ -64,9 +64,7 @@ static void stinit()
 	DTMHDR_INIT(st, hp, n, nst, stlen);
 }
 
-int tet_dtmhdr2bs(from, to)
-struct dtmhdr *from;
-char *to;
+int tet_dtmhdr2bs(struct dtmhdr *from, char *to)
 {
 	if (nst < 0)
 		stinit();
@@ -74,9 +72,7 @@ char *to;
 	return(tet_st2bs((char *) from, to, st, nst));
 }
 
-int tet_dmlen2bs(from, to)
-int from;
-char *to;
+int tet_dmlen2bs(int from, char *to)
 {
 	struct dtmsg dummy;
 
@@ -87,10 +83,7 @@ char *to;
 	return(tet_st2bs((char *) &dummy, to, &st[stlen], 1));
 }
 
-int tet_bs2dtmhdr(from, to, len)
-char *from;
-struct dtmhdr *to;
-int len;
+int tet_bs2dtmhdr(char *from, struct dtmhdr *to, int len)
 {
 	if (nst < 0)
 		stinit();

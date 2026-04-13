@@ -46,10 +46,7 @@ MODIFICATIONS:
 **	tet_hexdump() - print a dump of n bytes starting at dp
 */
 
-void tet_hexdump(dp, n, fp)
-char *dp;
-int n;
-FILE *fp;
+void tet_hexdump(char *dp, int n, FILE *fp)
 {
 	char *start, *end;
 	char *p1, *p2;

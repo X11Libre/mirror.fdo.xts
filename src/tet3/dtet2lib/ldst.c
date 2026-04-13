@@ -68,10 +68,7 @@ static int short2bs PROTOLIST((short *, char *, int));
 **	structures and their stdesc descriptions)
 */
 
-int tet_bs2st(from, to, st, nst, len)
-char *from, *to;
-struct stdesc *st;
-int nst, len;
+int tet_bs2st(char *from, char *to, struct stdesc *st, int nst, int len)
 {
 	char *fp, *tp;
 	int n, count;
@@ -114,10 +111,7 @@ int nst, len;
 **	return the number of bytes occupied by the result
 */
 
-int tet_st2bs(from, to, st, nst)
-char *from, *to;
-struct stdesc *st;
-int nst;
+int tet_st2bs(char *from, char *to, struct stdesc *st, int nst)
 {
 	char *fp, *tp;
 	int n, count;
@@ -153,10 +147,7 @@ int nst;
 **	return the number of bytes of machine-independent data converted
 */
 
-static int bs2char(from, to, n)
-char *from;
-char *to;
-int n;
+static int bs2char(char *from, char *to, int n)
 {
 	int count = n;
 
@@ -166,10 +157,7 @@ int n;
 	return(count);
 }
 
-static int bs2short(from, to, n)
-char *from;
-short *to;
-int n;
+static int bs2short(char *from, char *to, int n)
 {
 	int count = n * SHORTSIZE;
 
@@ -181,10 +169,7 @@ int n;
 	return(count);
 }
 
-static int bs2ushort(from, to, n)
-char *from;
-unsigned short *to;
-int n;
+static int bs2ushort(char *from, unsigned short *to, int n)
 {
 	int count = n * SHORTSIZE;
 
@@ -196,10 +181,7 @@ int n;
 	return(count);
 }
 
-static int bs2long(from, to, n)
-char *from;
-long *to;
-int n;
+static int bs2long(char *from, long *to, int n)
 {
 	int count = n * LONGSIZE;
 
@@ -218,9 +200,7 @@ int n;
 **	return the number of bytes occupied by the machine-independent data
 */
 
-static int char2bs(from, to, n)
-char *from, *to;
-int n;
+static int char2bs(char *from, char *to, int n)
 {
 	int count = n;
 
@@ -230,10 +210,7 @@ int n;
 	return(count);
 }
 
-static int short2bs(from, to, n)
-short *from;
-char *to;
-int n;
+static int short2bs(short *from, char *to, int n)
 {
 	int count = n * SHORTSIZE;
 
@@ -246,10 +223,7 @@ int n;
 	return(count);
 }
 
-static int long2bs(from, to, n)
-long *from;
-char *to;
-int n;
+static int long2bs(long *from, char *to, int n)
 {
 	int count = n * LONGSIZE;
 

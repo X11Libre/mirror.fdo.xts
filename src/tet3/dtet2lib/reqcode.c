@@ -60,8 +60,7 @@ MODIFICATIONS:
 */
 
 TET_IMPORT const char *
-tet_ptreqcode(request)
-int request;
+tet_ptreqcode(int request)
 {
 	static char text[] = "request-code ";
 	static char msg[sizeof text + LNUMSZ];

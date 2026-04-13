@@ -55,8 +55,7 @@ MODIFICATIONS:
 **	tet_ptflags() - return printable representation of ptab pt_flags value
 */
 
-char *tet_ptflags(fval)
-int fval;
+char *tet_ptflags(int fval)
 {
 	static struct flags flags[] = {
 		{ PF_ATTENTION, "ATTENTION" },

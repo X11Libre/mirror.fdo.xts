@@ -148,9 +148,7 @@ static int tflagset PROTOLIST((char *, int));
 **	probably do what you want if you are persistent enough!
 */
 
-TET_IMPORT void tet_traceinit(argc, argv)
-int argc;
-char **argv;
+TET_IMPORT void tet_traceinit(int argc, char **argv)
 {
 	struct tflags *tp;
 	int value;
@@ -209,7 +207,7 @@ char **argv;
 **	tet_tfclear() - clear all the trace flags (except tet_Ttrace)
 */
 
-TET_IMPORT void tet_tfclear()
+TET_IMPORT void tet_tfclear(void)
 {
 	struct tflags *tp;
 
@@ -231,9 +229,7 @@ TET_IMPORT void tet_tfclear()
 **	or 1 if value (taken from *(argv + 1)) was used
 */
 
-static int tflagset(arg, value)
-char *arg;
-int value;
+static int tflagset(char *arg, int value)
 {
 	struct tflags *tp;
 	struct stype *sp;

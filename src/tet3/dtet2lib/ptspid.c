@@ -52,9 +52,7 @@ MODIFICATIONS:
 **	return (struct ptab *) 0 if not found
 */
 
-struct ptab *tet_getptbysyspid(sysid, pid)
-int sysid;
-long pid;
+struct ptab *tet_getptbysyspid(int sysid, long pid)
 {
 	struct ptab *pp;
 	extern struct ptab *tet_ptab;

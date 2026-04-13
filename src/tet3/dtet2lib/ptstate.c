@@ -55,8 +55,7 @@ MODIFICATIONS:
 **		value
 */
 
-char *tet_ptstate(state)
-int state;
+char *tet_ptstate(int state)
 {
 	static char text[] = "process-state ";
 	static char msg[sizeof text + LNUMSZ];

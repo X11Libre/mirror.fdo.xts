@@ -111,9 +111,7 @@ static int rtaddupdate PROTOLIST((struct restab *));
 */
 
 const char *
-tet_getresname(result, abortflag)
-int result;
-int *abortflag;
+tet_getresname(int result, int *abortflag)
 {
 	struct restab *rtp;
 	const char *name;
@@ -147,9 +145,7 @@ int *abortflag;
 **	on whether or not the corresponding action is to abort
 */
 
-int tet_getrescode(name, abortflag)
-char *name;
-int *abortflag;
+int tet_getrescode(char* name, int *abortflag)
 {
 	struct restab *rtp;
 	int code, abrt;
@@ -178,8 +174,7 @@ int *abortflag;
 **	return 0 if successful or -1 on error
 */
 
-int tet_readrescodes(fname)
-char *fname;
+int tet_readrescodes(char *fname)
 {
 	FILE *fp;
 	char **argv;
@@ -280,8 +275,7 @@ char *fname;
 */
 #define NFLDS	4
 
-static char **procline(s)
-char *s;
+static char **procline(char *s)
 {
 	static char *argv[NFLDS + 1];
 	char *p, **ap;
@@ -340,8 +334,7 @@ badresline(const char *msg, int line, const char *file)
 **	return 0 if successful or -1 on error
 */
 
-static int rtaddupdate(rtp1)
-struct restab *rtp1;
+static int rtaddupdate(struct restab *rtp1)
 {
 	struct restab *rtp2;
 
@@ -371,8 +364,7 @@ struct restab *rtp1;
 **	return (struct restab *) 0 if no entry for code can be found
 */
 
-static struct restab *getrtbycode(code)
-int code;
+static struct restab *getrtbycode(int code)
 {
 	struct restab *rtp;
 
@@ -390,8 +382,7 @@ int code;
 **	return (struct restab *) 0 if no entry for name can be found
 */
 
-static struct restab *getrtbyname(name)
-char *name;
+static struct restab *getrtbyname(char *name)
 {
 	struct restab *rtp;
 
@@ -409,7 +400,7 @@ char *name;
 **	return 0 if successful or -1 on error
 */
 
-int tet_initrestab()
+int tet_initrestab(void)
 {
 	struct restab *rtp;
 	struct restab rtmp;
@@ -434,8 +425,7 @@ int tet_initrestab()
 **		(non-distributed) TET
 */
 
-int tet_addresult(lastresult, thisresult)
-int lastresult, thisresult;
+int tet_addresult(int lastresult, int thisresult)
 {
 	if (lastresult < 0)
 		return(thisresult);
@@ -503,8 +493,7 @@ int lastresult, thisresult;
 **	return exit status corresponding to result code
 */
 
-int tet_resulttostatus(result)
-int result;
+int tet_resulttostatus(int result)
 {
 	switch (result) {
 	case TET_PASS:
@@ -529,8 +518,7 @@ int result;
 **	return status with highest priority
 */
 
-int tet_addstatus(laststatus, thisstatus)
-int laststatus, thisstatus;
+int tet_addstatus(int laststatus, int thisstatus)
 {
 	if (laststatus < 0)
 		return(thisstatus);

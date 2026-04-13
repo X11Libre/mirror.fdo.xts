@@ -48,8 +48,7 @@ MODIFICATIONS:
 **	tet_l2o() - convert long int to octal ascii
 */
 
-TET_IMPORT char *tet_l2o(n)
-long n;
+TET_IMPORT char *tet_l2o(long n)
 {
 	static char buf[NLBUF][LONUMSZ];
 	static int count;

@@ -50,8 +50,7 @@ MODIFICATIONS:
 **	arguments in an argv list before an exec
 */
 
-char **tet_addargv(argv1, argv2)
-char **argv1, **argv2;
+char **tet_addargv(char **argv1, char **argv2)
 {
 	char **ap;
 	int newargc;

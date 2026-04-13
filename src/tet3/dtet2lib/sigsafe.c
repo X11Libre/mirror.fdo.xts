@@ -66,7 +66,7 @@ static int init_done = 0;
 ** tet_init_blockable_sigs() - initialise set of blockable signals
 */
 
-TET_IMPORT void tet_init_blockable_sigs()
+TET_IMPORT void tet_init_blockable_sigs(void)
 {
 
 	/* start with full set, and then remove signals that
@@ -106,8 +106,7 @@ TET_IMPORT void tet_init_blockable_sigs()
 ** Return value is 0 for success, -1 on error.
 */
 
-int tet_sigsafe_start(oldset)
-sigset_t *oldset;
+int tet_sigsafe_start(sigset_t *oldset)
 {
 	ASSERT(init_done);
 
@@ -124,8 +123,7 @@ sigset_t *oldset;
 ** Return value is 0 for success, -1 on error.
 */
 
-int tet_sigsafe_end(oldset)
-sigset_t *oldset;
+int tet_sigsafe_end(sigset_t *oldset)
 {
 #  ifdef TET_THREADS
 	return TET_THR_SIGSETMASK(SIG_SETMASK, oldset, (sigset_t *) 0);

@@ -49,9 +49,7 @@ MODIFICATIONS:
 **	tet_tdump() - print a memory dump to the trace file
 */
 
-void tet_tdump(from, len, title)
-char *from, *title;
-int len;
+void tet_tdump(char *from, int len, char *title)
 {
 	int save_errno = errno;
 	extern FILE *tet_tfp;

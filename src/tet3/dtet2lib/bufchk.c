@@ -56,9 +56,7 @@ MODIFICATIONS:
 **	return 0 if successful or -1 on error
 */
 
-TET_IMPORT int tet_bufchk(bpp, lp, newlen)
-char **bpp;
-int *lp, newlen;
+TET_IMPORT int tet_bufchk(char **bpp, int *lp, int newlen)
 {
 	char *bp;
 

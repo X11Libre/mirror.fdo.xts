@@ -61,8 +61,7 @@ MODIFICATIONS:
 **	indirectly through *statp
 */
 
-int tet_dowait3(statp, options)
-int *statp, options;
+int tet_dowait3(int *statp, int options)
 {
 
 #if defined(SVR2) || defined(BSD42) || defined(BSD43)

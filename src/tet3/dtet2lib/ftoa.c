@@ -58,9 +58,7 @@ MODIFICATIONS:
 */
 
 const char *
-tet_f2a(fval, flags, nflags)
-int fval, nflags;
-struct flags flags[];
+tet_f2a(int fval, struct flags flags[], int nflags)
 {
 	static struct {
 		char *bp;

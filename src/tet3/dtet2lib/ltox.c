@@ -48,8 +48,7 @@ MODIFICATIONS:
 **	tet_l2x() - convert long int to hex ascii
 */
 
-TET_IMPORT char *tet_l2x(n)
-long n;
+TET_IMPORT char *tet_l2x(long n)
 {
 	static char buf[NLBUF][LXNUMSZ];
 	static int count;

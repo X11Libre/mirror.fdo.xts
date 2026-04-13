@@ -76,9 +76,7 @@ MODIFICATIONS:
 **	return 0 if successful, -1 otherwise
 */
 
-int tet_mkdir(path, mode)
-char *path;
-int mode;
+int tet_mkdir(char *path, int mode)
 {
 	int rc;
 
@@ -136,8 +134,7 @@ int mode;
 **	return 0 if successful, -1 otherwise
 */
 
-int tet_rmdir(path)
-char *path;
+int tet_rmdir(char *path)
 {
 	int rc;
 
@@ -209,9 +206,7 @@ char *path;
 **		-2 for some other error
 */
 
-static int hardmkrmdir(prog, path, mode)
-char *prog, *path;
-int mode;
+static int hardmkrmdir(char *prog, char *path, int mode)
 {
 	char *argv[3];
 	int pid, rc;

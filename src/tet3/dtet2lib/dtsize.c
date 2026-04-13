@@ -66,7 +66,7 @@ MODIFICATIONS:
 **	tet_getdtablesize() - return size of file descriptor table
 */
 
-int tet_getdtablesize()
+int tet_getdtablesize(void)
 {
 	int rc;
 

@@ -54,8 +54,7 @@ MODIFICATIONS:
 **		value
 */
 
-TET_IMPORT char *tet_systate(state)
-int state;
+TET_IMPORT char *tet_systate(int state)
 {
 	static char text[] = "sync-state ";
 	static char msg[sizeof text + LNUMSZ];

@@ -52,9 +52,7 @@ MODIFICATIONS:
 **	return (struct ptab *) 0 if not found
 */
 
-struct ptab *tet_getnextptbyptype(ptype, start)
-int ptype;
-struct ptab *start;
+struct ptab *tet_getnextptbyptype(int ptype, struct ptab *start)
 {
 	struct ptab *pp;
 

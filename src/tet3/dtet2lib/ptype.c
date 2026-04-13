@@ -51,8 +51,7 @@ MODIFICATIONS:
 */
 
 TET_IMPORT const char *
-tet_ptptype(ptype)
-int ptype;
+tet_ptptype(int ptype)
 {
 	static char text[] = "process-type ";
 	static char msg[sizeof text + LNUMSZ];

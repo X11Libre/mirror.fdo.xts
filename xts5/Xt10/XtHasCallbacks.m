@@ -62,14 +62,13 @@ XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
-/*
-** XtCBP1_Proc
-*/
-void XtCBP1_Proc(w, client_data, call_data)
-Widget w;
-XtPointer client_data, call_data;
+void XtCBP1_Proc(
+    Widget w,
+    XtPointer client_data,
+    XtPointer call_data)
 {
 }
+
 >>TITLE XtHasCallbacks Xt10
 XtCallbackStatus
 XtHasCallbacks(widget, callback_name)

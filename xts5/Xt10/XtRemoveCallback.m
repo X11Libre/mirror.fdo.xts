@@ -62,26 +62,24 @@ XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
-/*
-** procedure XtCBP_Proc
-*/
-void XtCBP_Proc(w, client_data, call_data)
-Widget w;
-XtPointer client_data, call_data;
+void XtCBP_Proc(
+    Widget w,
+    XtPointer client_data,
+    XtPointer call_data)
 {
 	sprintf(ebuf, "ERROR: Deleted Callback XtCBP_Proc was invoked");
 	tet_infoline(ebuf);
 	tet_result(TET_FAIL);
 }
-/*
-** procedure XtCBP2_Proc
-*/
-void XtCBP2_Proc(w, client_data, call_data)
-Widget w;
-XtPointer client_data, call_data;
+
+void XtCBP2_Proc(
+    Widget w,
+    XtPointer client_data,
+    XtPointer call_data)
 {
 	avs_set_event(1, avs_get_event(1)+1);
 }
+
 >>SET tpstartup avs_alloc_sem
 >>SET tpcleanup avs_free_sem
 >>TITLE XtRemoveCallback Xt10

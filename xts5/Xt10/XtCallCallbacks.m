@@ -69,13 +69,10 @@ char call_stuff[] = "My love she speaks like silence";
 
 Widget labelw_good;
 
-/*
-** Procedure XtCBP_ProcOne
-*/
-void XtCBP_ProcOne(w, client_data, call_data)
-Widget w;
-XtPointer client_data;
-XtPointer call_data;
+void XtCBP_ProcOne(
+    Widget w,
+    XtPointer client_data,
+    XtPointer call_data)
 {
 	
 	tet_infoline("TEST: Widget passed correctly");
@@ -109,13 +106,11 @@ XtPointer call_data;
 	}
 	avs_set_event(1, 1);
 }
-/*
-** Procedure XtCBP_ProcTwo
-*/
-void XtCBP_ProcTwo(w, client_data, call_data)
-Widget w;
-XtPointer client_data;
-XtPointer call_data;
+
+void XtCBP_ProcTwo(
+    Widget w,
+    XtPointer client_data,
+    XtPointer call_data)
 {
 	tet_infoline("TEST: Widget passed correctly");
 	if (w != labelw_good) {
@@ -148,6 +143,7 @@ XtPointer call_data;
 	}
 	avs_set_event(2, 1);
 }
+
 >>SET tpstartup avs_alloc_sem
 >>SET tpcleanup avs_free_sem
 >>TITLE XtCallCallbacks Xt10

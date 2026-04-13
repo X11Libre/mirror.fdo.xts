@@ -64,12 +64,11 @@ Widget labelw, rowcolw, click_quit;
 
 char client_stuff1[] = "This is client data";
 char client_stuff2[] = "This is more client data";
-/*
-** Callback procedure
-*/
-void XtCBP1_Head(w, client_data, call_data)
-Widget w;
-XtPointer client_data, call_data;
+
+void XtCBP1_Head(
+    Widget w,
+    XtPointer client_data,
+    XtPointer call_data)
 {
 	avs_set_event(1, 1);
 	tet_infoline("TEST: client data sent correctly");
@@ -88,12 +87,11 @@ XtPointer client_data, call_data;
 }
 
 char client_stuff[] = "This is some client data";
-/*
-** Callback procedure
-*/
-void XtCBP2_Proc(w, client_data, call_data)
-Widget w;
-XtPointer client_data, call_data;
+
+void XtCBP2_Proc(
+    Widget w,
+    XtPointer client_data,
+    XtPointer call_data)
 {
 	avs_set_event(1,avs_get_event(1)+1);
 	if (client_data != NULL) {
@@ -105,12 +103,11 @@ XtPointer client_data, call_data;
 		}
 	}
 }
-/*
-** Callback procedure
-*/
-void XtCBP1_Tail(w, client_data, call_data)
-Widget w;
-XtPointer client_data, call_data;
+
+void XtCBP1_Tail(
+    Widget w,
+    XtPointer client_data,
+    XtPointer call_data)
 {
 	avs_set_event(2, 1);
 	tet_infoline("TEST: client data sent correctly");
@@ -127,6 +124,7 @@ XtPointer client_data, call_data;
 		}
 	}
 }
+
 >>SET tpstartup avs_alloc_sem
 >>SET tpcleanup avs_free_sem
 >>TITLE XtAddCallbacks Xt10

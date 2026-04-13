@@ -68,13 +68,11 @@ char client_stuff1[] = "Four score and seven years ago";
 char client_stuff2[] = "The lazy brown dog";
 char call_stuff[] = "My love she speaks like silence";
 Widget avs_object;
-/*
-** Procedure XtCBP_ProcOne
-*/
-XtCallbackProc XtCBP_ProcOne(w, client_data, call_data)
-Widget w;
-XtPointer client_data;
-XtPointer call_data;
+
+XtCallbackProc XtCBP_ProcOne(
+    Widget w,
+    XtPointer client_data,
+    XtPointer call_data)
 {
 	
 	tet_infoline("TEST: Widget passed correctly");
@@ -108,13 +106,11 @@ XtPointer call_data;
 	}
 	avs_set_event(1, 1);
 }
-/*
-** Procedure XtCBP_ProcTwo
-*/
-XtCallbackProc XtCBP_ProcTwo(w, client_data, call_data)
-Widget w;
-XtPointer client_data;
-XtPointer call_data;
+
+XtCallbackProc XtCBP_ProcTwo(
+    Widget w,
+    XtPointer client_data,
+    XtPointer call_data)
 {
 	tet_infoline("TEST: Widget passed correctly");
 	if (w != avs_object) {
@@ -147,6 +143,7 @@ XtPointer call_data;
 	}
 	avs_set_event(2, 1);
 }
+
 >>SET tpstartup avs_alloc_sem
 >>SET tpcleanup avs_free_sem
 >>TITLE XtCallCallbackList Xt10

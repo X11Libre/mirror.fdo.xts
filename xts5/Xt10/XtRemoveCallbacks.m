@@ -62,37 +62,34 @@ XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
-/*
-** Callback to be invoked
-*/
-void XtCBP_ProcOne(w, client_data, call_data)
-Widget w;
-XtPointer client_data, call_data;
+void XtCBP_ProcOne(
+    Widget w,
+    XtPointer client_data,
+    XtPointer call_data)
 {
 	avs_set_event(1, 1);
 }
-/*
-** Callback not to be invoked
-*/
-void XtCBP_ProcTwo(w, client_data, call_data)
-Widget w;
-XtPointer client_data, call_data;
+
+void XtCBP_ProcTwo(
+    Widget w,
+    XtPointer client_data,
+    XtPointer call_data)
 {
 	sprintf(ebuf, "ERROR: Deleted callback XtCBP_ProcTwo invoked");
 	tet_infoline(ebuf);
 	tet_result(TET_FAIL);
 }
-/*
-** Callback not to be invoked
-*/
-void XtCBP_ProcThree(w, client_data, call_data)
-Widget w;
-XtPointer client_data, call_data;
+
+void XtCBP_ProcThree(
+    Widget w,
+    XtPointer client_data,
+    XtPointer call_data)
 {
 	sprintf(ebuf, "ERROR: Deleted Callback XtCBP_ProcThree invoked");
 	tet_infoline(ebuf);
 	tet_result(TET_FAIL);
 }
+
 >>SET tpstartup avs_alloc_sem
 >>SET tpcleanup avs_free_sem
 >>TITLE XtRemoveCallbacks Xt10

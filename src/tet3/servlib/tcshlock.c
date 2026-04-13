@@ -54,9 +54,7 @@ MODIFICATIONS:
 **	return pointer to lock file if successful or (char *) 0 on error
 */
 
-char *tet_tcsharelock(sysid, lockdir, timeout)
-int sysid, timeout;
-char *lockdir;
+char *tet_tcsharelock(int sysid, char *lockdir, int timeout)
 {
 	struct avmsg *mp;
 	int delay;
@@ -108,4 +106,3 @@ char *lockdir;
 	/* here for server error return */
 	return((char *) 0);
 }
-

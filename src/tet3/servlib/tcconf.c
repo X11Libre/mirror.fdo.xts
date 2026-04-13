@@ -62,9 +62,7 @@ static char *tc_csr PROTOLIST((int, int));
 **	return 0 if successful or -1 on error
 */
 
-int tet_tcconfigv(sysid, lines, nline, mode)
-int sysid, nline, mode;
-char **lines;
+int tet_tcconfigv(int sysid, char **lines, int nline, int mode)
 {
 	return(tc_cs(sysid, OP_CONFIG, lines, nline, mode));
 }
@@ -75,8 +73,7 @@ char **lines;
 **	return 0 if successful or -1 on error
 */
 
-int tet_tcsetconf(sysid, mode)
-int sysid, mode;
+int tet_tcsetconf(int sysid, int mode)
 {
 	struct valmsg *mp;
 
@@ -110,9 +107,7 @@ int sysid, mode;
 **	return 0 if successful or -1 on error
 */
 
-int tet_tcsndconfv(sysid, lines, nline)
-int sysid, nline;
-char **lines;
+int tet_tcsndconfv(int sysid, char **lines, int nline)
 {
 	return(tc_cs(sysid, OP_SNDCONF, lines, nline, 0));
 }
@@ -121,10 +116,7 @@ char **lines;
 **	tc_cs() - common function for OP_SNDCONF and OP_CONFIG
 */
 
-static int tc_cs(sysid, request, lines, nline, mode)
-int sysid, request, mode;
-char **lines;
-int nline;
+static int tc_cs(int sysid, int request, char **lines, int nline, int mode)
 {
 	/* make sure that lines is non-zero and that nline is +ve */
 	if (!lines || nline <= 0) {
@@ -163,10 +155,7 @@ int nline;
 **	return 0 if successful or -1 on error
 */
 
-static int tc_cs2(sysid, request, lines, nline, mode, done)
-int sysid, request, mode, done;
-int nline;
-char **lines;
+static int tc_cs2(int sysid, int request, char **lines, int nline, int mode, int done)
 {
 	struct avmsg *mp;
 	int n;
@@ -203,8 +192,7 @@ char **lines;
 **	another TCCD request to the same sysid is issued
 */
 
-char **tet_tcrcvconfv(sysid, nlines, done)
-int sysid, *nlines, *done;
+char **tet_tcrcvconfv(int sysid, int *nlines, int *done)
 {
 	struct avmsg *rp;
 
@@ -214,8 +202,7 @@ int sysid, *nlines, *done;
 		return((char **) 0);
 	}
 
-	if ((rp = (struct avmsg *) tc_csr(sysid, OP_RCVCONF)) == (struct avmsg
-*) 0)
+	if ((rp = (struct avmsg *) tc_csr(sysid, OP_RCVCONF)) == (struct avmsg*) 0)
 		return((char **) 0);
 
 	/* all ok so return all the return values */
@@ -231,8 +218,7 @@ int sysid, *nlines, *done;
 **		or (char *) 0 on error
 */
 
-static char *tc_csr(sysid, request)
-int sysid, request;
+static char *tc_csr(int sysid, int request)
 {
 	char *dp;
 	extern char tet_tcerrmsg[];
@@ -261,4 +247,3 @@ int sysid, request;
 	/* here for server error return */
 	return((char *) 0);
 }
-

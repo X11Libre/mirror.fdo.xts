@@ -83,8 +83,7 @@ static void ti_sndmsg PROTOLIST((struct ptab *));
 **	indicate the condition of the message connection
 */
 
-void tet_si_service(pp)
-struct ptab *pp;
+void tet_si_service(struct ptab *pp)
 {
 	TRACE4(tet_Tserv, 4, "%s tet_si_service: state = %s, flags = %s",
 		tet_r2a(&pp->pt_rid), tet_ptstate(pp->pt_state),
@@ -123,9 +122,7 @@ struct ptab *pp;
 **		process other requests
 */
 
-void tet_si_servwait(pp, timeout)
-struct ptab *pp;
-int timeout;
+void tet_si_servwait(struct ptab *pp, int timeout)
 {
 	time_t now = time((time_t *) 0);
 	time_t tsave;
@@ -195,8 +192,7 @@ int timeout;
 **	state of local processing
 */
 
-static void ti_rcvmsg(pp)
-struct ptab *pp;
+static void ti_rcvmsg(struct ptab *pp)
 {
 	/* receive the message */
 	ti_rcv2(pp);
@@ -224,8 +220,7 @@ struct ptab *pp;
 **	ti_rcv2() - extend the ti_rcvmsg() processing
 */
 
-static void ti_rcv2(pp)
-struct ptab *pp;
+static void ti_rcv2(struct ptab *pp)
 {
 	int rc;
 
@@ -314,8 +309,7 @@ struct ptab *pp;
 **	state of local processing
 */
 
-static void ti_sndmsg(pp)
-struct ptab *pp;
+static void ti_sndmsg(struct ptab *pp)
 {
 	int rc;
 	static long seqno;
@@ -375,4 +369,3 @@ struct ptab *pp;
 
 	pp->pt_flags |= PF_ATTENTION;
 }
-

@@ -64,10 +64,7 @@ MODIFICATIONS:
 **	return 0 if successful or -1 on error
 */
 
-int tet_ti_tcmputenv(psysid, snid, xrid, sname, nsname)
-int psysid;
-long snid, xrid;
-int *sname, nsname;
+int tet_ti_tcmputenv(int psysid, long snid, long xrid, int *sname, int nsname)
 {
 	char *p1, *p2;
 	int n, needlen;
@@ -181,4 +178,3 @@ int *sname, nsname;
 
 	return(0);
 }
-

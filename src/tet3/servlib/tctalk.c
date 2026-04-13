@@ -91,8 +91,7 @@ static int tc_traceargs PROTOLIST((struct ptab *));
 **	added to the global process table
 */
 
-int tet_tclogon(sysid)
-int sysid;
+int tet_tclogon(int sysid)
 {
 	struct ptab *pp;
 	int rc;
@@ -134,9 +133,7 @@ int sysid;
 **	return 0 if successful or -1 on error
 */
 
-static int tc_l2(pp, sysid)
-struct ptab *pp;
-int sysid;
+static int tc_l2(struct ptab *pp, int sysid)
 {
 	int rc;
 
@@ -162,8 +159,7 @@ int sysid;
 **	return 0 if successful or -1 on error
 */
 
-static int tc_l3(pp)
-struct ptab *pp;
+static int tc_l3(struct ptab *pp)
 {
 	struct valmsg *mp;
 
@@ -204,9 +200,7 @@ struct ptab *pp;
 **	return 0 if successful or -1 on error
 */
 
-static int tc_tsinfo(pp, ptype)
-struct ptab *pp;
-int ptype;
+static int tc_tsinfo(struct ptab *pp, int ptype)
 {
 	if (tet_ss_tsinfo(pp, ptype) < 0)
 		return(-1);
@@ -230,8 +224,7 @@ int ptype;
 **	return 0 if successful or -1 on error
 */
 
-int tet_tclogoff(sysid)
-int sysid;
+int tet_tclogoff(int sysid)
 {
 	struct ptab *pp;
 	int rc;
@@ -258,8 +251,7 @@ int sysid;
 **	return (char *) 0 on error
 */
 
-char *tet_tcmsgbuf(sysid, len)
-int sysid, len;
+char *tet_tcmsgbuf(int sysid, int len)
 {
 	struct ptab *pp;
 
@@ -277,9 +269,7 @@ int sysid, len;
 **	return (char *) 0 on error
 */
 
-char *tet_tctalk(sysid, req, delay)
-int sysid, req;
-int delay;
+char *tet_tctalk(int sysid, int req, int delay)
 {
 	struct ptab *pp;
 	int mtype, len, rc;
@@ -412,8 +402,7 @@ int delay;
 **	return (struct ptab *) 0 if not found
 */
 
-static struct ptab *tc_getptab(sysid)
-int sysid;
+static struct ptab *tc_getptab(int sysid)
 {
 	struct ptab *pp;
 
@@ -432,8 +421,7 @@ int sysid;
 
 #ifndef NOTRACE
 
-static int tc_traceargs(pp)
-struct ptab *pp;
+static int tc_traceargs(struct ptab *pp)
 {
 	char **avp, **argv;
 	int argc;
@@ -476,4 +464,3 @@ struct ptab *pp;
 }
 
 #endif /* !NOTRACE */
-

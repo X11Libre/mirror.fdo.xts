@@ -71,10 +71,7 @@ MODIFICATIONS:
 **	through *nsys
 */
 
-TET_IMPORT int tet_sdasync(snid, xrid, spno, vote, timeout, synreq, nsys)
-long snid, xrid, spno;
-int vote, timeout, *nsys;
-struct synreq *synreq;
+TET_IMPORT int tet_sdasync(long snid, long xrid, long spno, int vote, int timeout, struct synreq *synreq, int *nsys)
 {
 	struct valmsg *mp;
 	struct synreq *sp;
@@ -145,4 +142,3 @@ struct synreq *synreq;
 	*nsys = OP_AUSYNC_NSYS(mp);
 	return(0);
 }
-

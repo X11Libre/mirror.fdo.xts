@@ -52,9 +52,7 @@ MODIFICATIONS:
 **	return 0 if successful or -1 on error
 */
 
-int tet_xdxrsys(xrid, snames, nsname)
-long xrid;
-int *snames, nsname;
+int tet_xdxrsys(long xrid, int *snames, int nsname)
 {
 	struct valmsg *mp;
 	int n;
@@ -103,4 +101,3 @@ int *snames, nsname;
 	/* here for server error return */
 	return(-1);
 }
-

@@ -54,9 +54,7 @@ MODIFICATIONS:
 **	delay seconds
 */
 
-void tet_si_clientloop(pp, delay)
-struct ptab *pp;
-int delay;
+void tet_si_clientloop(struct ptab *pp, int delay)
 {
 	int done;
 
@@ -109,4 +107,3 @@ int delay;
 		tet_r2a(&pp->pt_rid), tet_ptstate(pp->pt_state),
 		tet_ptflags(pp->pt_flags));
 }
-

@@ -48,9 +48,7 @@ MODIFICATIONS:
 **	return 0 if successful or -1 on error
 */
 
-int tet_tcunlink(sysid, file)
-int sysid;
-char *file;
+int tet_tcunlink(int sysid, char *file)
 {
 	struct avmsg *mp;
 
@@ -73,4 +71,3 @@ char *file;
 	/* send the request and receive the reply */
 	return(tet_tcrsys(sysid, OP_UNLINK));
 }
-

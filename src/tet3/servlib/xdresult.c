@@ -53,9 +53,7 @@ MODIFICATIONS:
 **	return 0 if successful or -1 on error
 */
 
-int tet_xdresult(xrid, result)
-long xrid;
-int result;
+int tet_xdresult(long xrid, int result)
 {
 	struct valmsg *mp;
 	extern char tet_xderrmsg[];
@@ -94,4 +92,3 @@ int result;
 	/* here for server error return */
 	return(-1);
 }
-

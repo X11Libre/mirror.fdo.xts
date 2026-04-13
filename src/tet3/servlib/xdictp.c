@@ -58,9 +58,7 @@ MODIFICATIONS:
 **	return 0 if successful or -1 on error
 */
 
-TET_IMPORT int tet_xdicstart(xrid, icno, activity, tpcount)
-long xrid, activity;
-int icno, tpcount;
+TET_IMPORT int tet_xdicstart(long xrid, int icno, long activity, int tpcount)
 {
 	struct valmsg *mp;
 	extern char tet_xderrmsg[];
@@ -109,8 +107,7 @@ int icno, tpcount;
 **	return 0 if successful or -1 on error
 */
 
-TET_IMPORT int tet_xdicend(xrid)
-long xrid;
+TET_IMPORT int tet_xdicend(long xrid)
 {
 	struct valmsg *mp;
 	extern char tet_xderrmsg[];
@@ -157,9 +154,7 @@ long xrid;
 **	return 0 if successful or -1 on error
 */
 
-TET_IMPORT int tet_xdtpstart(xrid, tpno)
-long xrid;
-int tpno;
+TET_IMPORT int tet_xdtpstart(long xrid, int tpno)
 {
 	struct valmsg *mp;
 	extern char tet_xderrmsg[];
@@ -206,8 +201,7 @@ int tpno;
 **	return 0 if successful or -1 on error
 */
 
-TET_IMPORT int tet_xdtpend(xrid)
-long xrid;
+TET_IMPORT int tet_xdtpend(long xrid)
 {
 	struct valmsg *mp;
 	extern char tet_xderrmsg[];
@@ -246,4 +240,3 @@ long xrid;
 	/* here for server error return */
 	return(-1);
 }
-

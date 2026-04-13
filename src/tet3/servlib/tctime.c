@@ -53,9 +53,7 @@ MODIFICATIONS:
 **	return 0 if successful or -1 on error
 */
 
-int tet_tctime(sysid, tp)
-int sysid;
-long *tp;
+int tet_tctime(int sysid, long *tp)
 {
 	struct valmsg *mp;
 	extern char tet_tcerrmsg[];
@@ -86,4 +84,3 @@ long *tp;
 	/* here for server error return */
 	return(-1);
 }
-

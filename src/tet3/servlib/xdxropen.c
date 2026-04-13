@@ -53,8 +53,7 @@ MODIFICATIONS:
 **	return xrid of xres file if successful or -1 on error
 */
 
-long tet_xdxropen(xfname)
-char *xfname;
+long tet_xdxropen(char *xfname)
 {
 	char *dp;
 	extern char tet_xderrmsg[];
@@ -102,4 +101,3 @@ char *xfname;
 	/* here for server error return */
 	return(-1L);
 }
-

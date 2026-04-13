@@ -51,8 +51,7 @@ MODIFICATIONS:
 **	return 0 if successful or -1 on error
 */
 
-int tet_xdcfname(ecfname, dcfname, ccfname)
-char *ecfname, *dcfname, *ccfname;
+int tet_xdcfname(char *ecfname, char *dcfname, char *ccfname)
 {
 	struct avmsg *mp;
 	extern char tet_xderrmsg[];
@@ -96,4 +95,3 @@ char *ecfname, *dcfname, *ccfname;
 	/* here for server error return */
 	return(-1);
 }
-

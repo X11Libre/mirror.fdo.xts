@@ -111,8 +111,7 @@ TET_IMPORT int tet_sdlogon()
 **	return 0 if successful or -1 on error
 */
 
-int tet_sdlogoff(stayopen)
-int stayopen;
+int tet_sdlogoff(int stayopen)
 {
 	int rc;
 	TET_SIGSAFE_DEF
@@ -159,8 +158,7 @@ int tet_sdislogon()
 **	return (char *) 0 on error
 */
 
-char *tet_sdmsgbuf(len)
-int len;
+char *tet_sdmsgbuf(int len)
 {
 	return(sd_ptcheck() < 0 ? (char *) 0 : tet_ti_msgbuf(tet_sdptab, len));
 }
@@ -172,9 +170,7 @@ int len;
 **	return (char *) 0 on error
 */
 
-char *tet_sdtalk(req, delay)
-int req;
-int delay;
+char *tet_sdtalk(int req, int delay)
 {
 	int mtype, len, rc;
 	TET_SIGSAFE_DEF
@@ -258,4 +254,3 @@ static int sd_ptcheck()
 
 	return(0);
 }
-

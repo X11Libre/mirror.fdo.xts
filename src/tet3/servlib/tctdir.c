@@ -55,9 +55,7 @@ MODIFICATIONS:
 **		or (char *) 0 on error
 */
 
-char *tet_tcmktmpdir(sysid, dir)
-int sysid;
-char *dir;
+char *tet_tcmktmpdir(int sysid, char *dir)
 {
 	struct avmsg *mp;
 	extern char tet_tcerrmsg[];
@@ -98,4 +96,3 @@ char *dir;
 	/* here for server error return */
 	return((char *) 0);
 }
-

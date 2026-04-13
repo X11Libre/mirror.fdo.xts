@@ -54,8 +54,7 @@ MODIFICATIONS:
 **	return 0 if successful or -1 on error
 */
 
-TET_IMPORT int tet_xdxrsend(xrid)
-long xrid;
+TET_IMPORT int tet_xdxrsend(long xrid)
 {
 	struct valmsg *mp;
 	extern char tet_xderrmsg[];
@@ -98,4 +97,3 @@ long xrid;
 	/* here for server error return */
 	return(-1);
 }
-

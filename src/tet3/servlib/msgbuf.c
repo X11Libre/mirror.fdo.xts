@@ -55,9 +55,7 @@ MODIFICATIONS:
 **	return (char *) 0 on error
 */
 
-TET_IMPORT char *tet_ti_msgbuf(pp, newlen)
-struct ptab *pp;
-int newlen;
+TET_IMPORT char *tet_ti_msgbuf(struct ptab *pp, int newlen)
 {
 	if (BUFCHK(&pp->ptm_data, &pp->pt_mdlen, newlen) < 0)
 		return((char *) 0);
@@ -65,4 +63,3 @@ int newlen;
 	bzero(pp->ptm_data, newlen);
 	return(pp->ptm_data);
 }
-

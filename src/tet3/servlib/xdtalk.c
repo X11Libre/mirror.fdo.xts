@@ -132,8 +132,7 @@ int tet_xdlogoff()
 **	return (char *) 0 on error
 */
 
-char *tet_xdmsgbuf(len)
-int len;
+char *tet_xdmsgbuf(int len)
 {
 	return(xd_ptcheck() < 0 ? (char *) 0 : tet_ti_msgbuf(tet_xdptab, len));
 }
@@ -145,9 +144,7 @@ int len;
 **	return (char *) 0 on error
 */
 
-char *tet_xdtalk(req, delay)
-int req;
-int delay;
+char *tet_xdtalk(int req, int delay)
 {
 	int mtype, len, rc;
 	TET_SIGSAFE_DEF
@@ -314,4 +311,3 @@ int tet_xdislogon()
 }
 
 #endif
-

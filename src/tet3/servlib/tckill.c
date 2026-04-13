@@ -52,9 +52,7 @@ MODIFICATIONS:
 **	return 0 if successful or -1 on error
 */
 
-int tet_tckill(sysid, pid, signum)
-int sysid, signum;
-long pid;
+int tet_tckill(int sysid, long pid, int signum)
 {
 	struct valmsg *mp;
 	int remsig;
@@ -98,4 +96,3 @@ long pid;
 	/* here for server error return */
 	return(-1);
 }
-

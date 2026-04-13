@@ -60,9 +60,7 @@ MODIFICATIONS:
 **	return 0 if successful or 1 (for process exit code) on error
 */
 
-int tet_si_main(argc, argv, needtetroot)
-int argc, needtetroot;
-char **argv;
+int tet_si_main(int argc, char **argv, int needtetroot)
 {
 	char *p;
 	int rc;
@@ -110,4 +108,3 @@ char **argv;
 
 	return(-rc);
 }
-

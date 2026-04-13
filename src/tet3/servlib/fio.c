@@ -99,8 +99,7 @@ static int op_fo2 PROTOLIST((struct ptab *, struct ftab *));
 **	tet_op_fopen() - open a file 
 */
 
-void tet_op_fopen(pp)
-struct ptab *pp;
+void tet_op_fopen(struct ptab *pp)
 {
 	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	struct ftab *ftp;
@@ -145,9 +144,7 @@ struct ptab *pp;
 **	return ER_OK if successful or other ER_* error code on error
 */
 
-static int op_fo2(pp, ftp)
-struct ptab *pp;
-struct ftab *ftp;
+static int op_fo2(struct ptab *pp, struct ftab *ftp)
 {
 	char *dp = pp->ptm_data;
 
@@ -185,8 +182,7 @@ struct ftab *ftp;
 **	tet_op_fclose() - close a file
 */
 
-void tet_op_fclose(pp)
-struct ptab *pp;
+void tet_op_fclose(struct ptab *pp)
 {
 	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
 	struct ftab *ftp;
@@ -210,8 +206,7 @@ struct ptab *pp;
 **		replacing each newline with a '\0'
 */
 
-void tet_op_gets(pp)
-struct ptab *pp;
+void tet_op_gets(struct ptab *pp)
 {
 	char *dp = pp->ptm_data;
 	struct ftab *ftp;
@@ -301,8 +296,7 @@ struct ptab *pp;
 **	tet_op_puts() - write lines to a file, each one followed by a newline
 */
 
-void tet_op_puts(pp)
-struct ptab *pp;
+void tet_op_puts(struct ptab *pp)
 {
 	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
 	int n;
@@ -341,8 +335,7 @@ struct ptab *pp;
 **	tet_fiodead() - dead process handler
 */
 
-void tet_fiodead(pp)
-struct ptab *pp;
+void tet_fiodead(struct ptab *pp)
 {
 	struct ftab *ftp;
 	int done;
@@ -364,8 +357,7 @@ struct ptab *pp;
 **	return ER_OK if successful or other ER_* error code on error
 */
 
-static int dofclose(ftp)
-struct ftab *ftp;
+static int dofclose(struct ftab *ftp)
 {
 	int rc;
 
@@ -409,8 +401,7 @@ static struct ftab *ftalloc()
 **	ftfree() - free storage occupied by a file table element
 */
 
-static void ftfree(ftp)
-struct ftab *ftp;
+static void ftfree(struct ftab *ftp)
 {
 	TRACE2(tet_Tbuf, 6, "free ftab = %s", tet_i2x(ftp));
 
@@ -431,8 +422,7 @@ struct ftab *ftp;
 **	ftlfree() - free ftab line buffers if necessary
 */
 
-static void ftlfree(ftp)
-struct ftab *ftp;
+static void ftlfree(struct ftab *ftp)
 {
 	int n;
 	char *p;
@@ -450,8 +440,7 @@ struct ftab *ftp;
 **	ftadd() - insert an element in the file table
 */
 
-static void ftadd(ftp)
-struct ftab *ftp;
+static void ftadd(struct ftab *ftp)
 {
 	tet_listinsert((struct llist **) &ftab, (struct llist *) ftp);
 }
@@ -460,8 +449,7 @@ struct ftab *ftp;
 **	ftrm() - remove an element from the file table
 */
 
-static void ftrm(ftp)
-struct ftab *ftp;
+static void ftrm(struct ftab *ftp)
 {
 	tet_listremove((struct llist **) &ftab, (struct llist *) ftp);
 }
@@ -473,8 +461,7 @@ struct ftab *ftp;
 **	return (struct ftab *) 0 if not found
 */
 
-static struct ftab *ftfind(fid)
-long fid;
+static struct ftab *ftfind(long fid)
 {
 	struct ftab *ftp;
 
@@ -485,4 +472,3 @@ long fid;
 
 	return(ftp);
 }
-

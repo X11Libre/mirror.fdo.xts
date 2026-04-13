@@ -58,8 +58,7 @@ static char *xd_fio PROTOLIST((int));
 **	return file ID if successful or -1 on error
 */
 
-int tet_xdfopen(file)
-char *file;
+int tet_xdfopen(char *file)
 {
 	char *dp;
 
@@ -100,8 +99,7 @@ char *file;
 **	return file ID if successful or -1 on error
 */
 
-int tet_xdfclose(fid)
-int fid;
+int tet_xdfclose(int fid)
 {
 	struct valmsg *mp;
 
@@ -125,8 +123,7 @@ int fid;
 **	return (char *) 0 on EOF or error
 */
 
-char *tet_xdgets(fid)
-int fid;
+char *tet_xdgets(int fid)
 {
 	char **rp;
 	int nline = 1;
@@ -156,9 +153,7 @@ int fid;
 **	another XRESD request is issued
 */
 
-char **tet_xdgetsv(fid, nlines, eof)
-int fid, *eof;
-int *nlines;
+char **tet_xdgetsv(int fid, int *nlines, int *eof)
 {
 	char *dp;
 
@@ -204,8 +199,7 @@ int *nlines;
 **		or (char *) 0 on error
 */
 
-static char *xd_fio(request)
-int request;
+static char *xd_fio(int request)
 {
 	char *dp;
 	extern char tet_xderrmsg[];
@@ -233,4 +227,3 @@ int request;
 	/* here for server error return */
 	return((char *) 0);
 }
-

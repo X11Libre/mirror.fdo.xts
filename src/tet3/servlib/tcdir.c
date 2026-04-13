@@ -55,9 +55,7 @@ static int tc_dir PROTOLIST((int, char *, int));
 **	return 0 if successful or -1 on error
 */
 
-int tet_tcmkdir(sysid, dir)
-int sysid;
-char *dir;
+int tet_tcmkdir(int sysid, char *dir)
 {
 	return(tc_dir(sysid, dir, OP_MKDIR));
 }
@@ -69,9 +67,7 @@ char *dir;
 **	return 0 if successful or -1 on error
 */
 
-int tet_tcmkalldirs(sysid, dir)
-int sysid;
-char *dir;
+int tet_tcmkalldirs(int sysid, char *dir)
 {
 	return(tc_dir(sysid, dir, OP_MKALLDIRS));
 }
@@ -82,9 +78,7 @@ char *dir;
 **	return 0 if successful or -1 on error
 */
 
-int tet_tcrmdir(sysid, dir)
-int sysid;
-char *dir;
+int tet_tcrmdir(int sysid, char *dir)
 {
 	return(tc_dir(sysid, dir, OP_RMDIR));
 }
@@ -96,9 +90,7 @@ char *dir;
 **	return 0 if successful or -1 on error
 */
 
-int tet_tcrmalldirs(sysid, dir)
-int sysid;
-char *dir;
+int tet_tcrmalldirs(int sysid, char *dir)
 {
 	return(tc_dir(sysid, dir, OP_RMALLDIRS));
 }
@@ -109,9 +101,7 @@ char *dir;
 **	return 0 if successful or -1 on error
 */
 
-int tet_tcchdir(sysid, dir)
-int sysid;
-char *dir;
+int tet_tcchdir(int sysid, char *dir)
 {
 	return(tc_dir(sysid, dir, OP_CHDIR));
 }
@@ -122,9 +112,7 @@ char *dir;
 **	return 0 if successful or -1 on error
 */
 
-static int tc_dir(sysid, dir, request)
-int sysid, request;
-char *dir;
+static int tc_dir(int sysid, char *dir, int request)
 {
 	struct avmsg *mp;
 
@@ -147,4 +135,3 @@ char *dir;
 	/* send the request and receive the reply */
 	return(tet_tcrsys(sysid, request));
 }
-

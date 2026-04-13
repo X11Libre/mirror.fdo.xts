@@ -53,9 +53,7 @@ MODIFICATIONS:
 **	return 0 if successful or -1 on error
 */
 
-int tet_tcputenv(sysid, env)
-int sysid;
-char *env;
+int tet_tcputenv(int sysid, char *env)
 {
 	return(tet_tcputenvv(sysid, &env, 1));
 }
@@ -67,10 +65,7 @@ char *env;
 **	return 0 if successful or -1 on error
 */
 
-int tet_tcputenvv(sysid, envp, nenv)
-int sysid;
-char **envp;
-int nenv;
+int tet_tcputenvv(int sysid, char **envp, int nenv)
 {
 	struct avmsg *mp;
 	int n;
@@ -114,4 +109,3 @@ int nenv;
 	/* here for server error return */
 	return(-1);
 }
-

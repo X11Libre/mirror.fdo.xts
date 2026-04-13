@@ -65,8 +65,7 @@ static int xd_wrloop PROTOLIST((FILE *, int, char *));
 **	return 0 if successful or -1 on error
 */
 
-int tet_xdxfile(ifile, ofile)
-char *ifile, *ofile;
+int tet_xdxfile(char *ifile, char *ofile)
 {
 	int rc;
 	int xfid;
@@ -113,9 +112,7 @@ char *ifile, *ofile;
 **	return the transfer file id if successful or -1 on error
 */
 
-static long xd_tfopen(ofile, mode)
-char *ofile;
-int mode;
+static long xd_tfopen(char *ofile, int mode)
 {
 	char *dp;
 	extern char tet_xderrmsg[];
@@ -165,8 +162,7 @@ int mode;
 **	return 0 if successful or -1 on error
 */
 
-static int xd_tfclose(xfid)
-int xfid;
+static int xd_tfclose(int xfid)
 {
 	struct valmsg *mp;
 	extern char tet_xderrmsg[];
@@ -207,10 +203,7 @@ int xfid;
 **	return 0 if successful or -1 on error
 */
 
-static int xd_wrloop(ifp, xfid, ifile)
-FILE *ifp;
-int xfid;
-char *ifile;
+static int xd_wrloop(FILE *ifp, int xfid, char *ifile)
 {
 	int rc;
 
@@ -228,10 +221,7 @@ char *ifile;
 **		-1 on error
 */
 
-static int xd_tfwrite(ifp, xfid, ifile)
-FILE *ifp;
-int xfid;
-char *ifile;
+static int xd_tfwrite(FILE *ifp, int xfid, char *ifile)
 {
 	struct btmsg *mp;
 	int n;
@@ -275,4 +265,3 @@ char *ifile;
 	/* here for server error return */
 	return(-1);
 }
-

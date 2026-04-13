@@ -51,9 +51,7 @@ MODIFICATIONS:
 **	return 0 if successful or -1 on error
 */
 
-int tet_sdsnsys(snid, snames, nsname)
-long snid;
-int *snames, nsname;
+int tet_sdsnsys(long snid, int *snames, int nsname)
 {
 	struct valmsg *mp;
 	int n;
@@ -99,4 +97,3 @@ int *snames, nsname;
 	/* here for server error return */
 	return(-1);
 }
-

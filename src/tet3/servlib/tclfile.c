@@ -53,9 +53,7 @@ MODIFICATIONS:
 **	return 0 if successful or -1 on error
 */
 
-int tet_tclockfile(sysid, file, timeout)
-int sysid, timeout;
-char *file;
+int tet_tclockfile(int sysid, char *file, int timeout)
 {
 	struct avmsg *mp;
 	int delay;
@@ -107,4 +105,3 @@ char *file;
 	/* here for server error return */
 	return(-1);
 }
-

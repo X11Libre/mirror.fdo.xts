@@ -105,8 +105,7 @@ TET_IMPORT struct ptab *tet_ptalloc()
 **	tet_ptfree() - free ptab element memory
 */
 
-void tet_ptfree(pp)
-struct ptab *pp;
+void tet_ptfree(struct ptab *pp)
 {
 	TRACE2(tet_Tbuf, 6, "free ptab = %s", tet_i2x(pp));
 
@@ -126,8 +125,7 @@ struct ptab *pp;
 **	tet_ptadd() - insert an element in the ptab list
 */
 
-void tet_ptadd(pp)
-struct ptab *pp;
+void tet_ptadd(struct ptab *pp)
 {
 	tet_listinsert((struct llist **) &tet_ptab, (struct llist *) pp);
 }
@@ -136,9 +134,7 @@ struct ptab *pp;
 **	tet_ptrm() - remove an element from the ptab list
 */
 
-void tet_ptrm(pp)
-struct ptab *pp;
+void tet_ptrm(struct ptab *pp)
 {
 	tet_listremove((struct llist **) &tet_ptab, (struct llist *) pp);
 }
-

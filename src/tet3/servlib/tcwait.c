@@ -55,10 +55,7 @@ MODIFICATIONS:
 **	indirectly through *statp
 */
 
-int tet_tcwait(sysid, pid, timeout, statp)
-int sysid, timeout;
-long pid;
-int *statp;
+int tet_tcwait(int sysid, long pid, int timeout, int *statp)
 {
 	struct valmsg *mp;
 	int delay;
@@ -105,4 +102,3 @@ int *statp;
 	/* here for server error return */
 	return(-1);
 }
-

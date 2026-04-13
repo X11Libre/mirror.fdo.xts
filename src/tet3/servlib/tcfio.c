@@ -58,9 +58,7 @@ static char *tc_fio PROTOLIST((int, int));
 **	return file ID if successful or -1 on error
 */
 
-int tet_tcfopen(sysid, file)
-int sysid;
-char *file;
+int tet_tcfopen(int sysid, char *file)
 {
 	char *dp;
 
@@ -101,8 +99,7 @@ char *file;
 **	return file ID if successful or -1 on error
 */
 
-int tet_tcfclose(sysid, fid)
-int sysid, fid;
+int tet_tcfclose(int sysid, int fid)
 {
 	struct valmsg *mp;
 
@@ -126,9 +123,7 @@ int sysid, fid;
 **	return 0 if successful or -1 on error
 */
 
-int tet_tcputs(sysid, fid, line)
-int sysid, fid;
-char *line;
+int tet_tcputs(int sysid, int fid, char *line)
 {
 	return(tet_tcputsv(sysid, fid, &line, 1));
 }
@@ -140,10 +135,7 @@ char *line;
 **	return 0 if successful or -1 on error
 */
 
-int tet_tcputsv(sysid, fid, lines, nline)
-int sysid, fid;
-int nline;
-char **lines;
+int tet_tcputsv(int sysid, int fid, char **lines, int nline)
 {
 
 	struct avmsg *mp;
@@ -177,8 +169,7 @@ char **lines;
 **		or (char *) 0 on error
 */
 
-static char *tc_fio(sysid, request)
-int sysid, request;
+static char *tc_fio(int sysid, int request)
 {
 	char *dp;
 	extern char tet_tcerrmsg[];
@@ -206,4 +197,3 @@ int sysid, request;
 	/* here for server error return */
 	return((char *) 0);
 }
-

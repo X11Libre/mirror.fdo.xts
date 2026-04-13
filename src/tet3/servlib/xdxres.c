@@ -61,9 +61,7 @@ MODIFICATIONS:
 **	return 0 if successful or -1 on error
 */
 
-TET_IMPORT int tet_xdxres(xrid, line)
-long xrid;
-char *line;
+TET_IMPORT int tet_xdxres(long xrid, char *line)
 {
 	return(tet_xdxresv(xrid, &line, 1));
 }
@@ -75,10 +73,7 @@ char *line;
 **	return 0 if successful or -1 on error
 */
 
-int tet_xdxresv(xrid, lines, nlines)
-long xrid;
-char **lines;
-int nlines;
+int tet_xdxresv(long xrid, char **lines, int nlines)
 {
 	struct avmsg *mp;
 	int n;
@@ -124,4 +119,3 @@ int nlines;
 	/* here for server error return */
 	return(-1);
 }
-

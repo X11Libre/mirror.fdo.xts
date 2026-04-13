@@ -51,9 +51,7 @@ MODIFICATIONS:
 **	return 0 if successful or -1 on error
 */
 
-int tet_tcsysname(sysid, snames, nsname)
-int sysid;
-int *snames, nsname;
+int tet_tcsysname(int sysid, int *snames, int nsname)
 {
 	struct valmsg *mp;
 	int n;
@@ -98,4 +96,3 @@ int *snames, nsname;
 	/* here for server error return */
 	return(-1);
 }
-

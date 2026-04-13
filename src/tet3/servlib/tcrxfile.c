@@ -52,9 +52,7 @@ MODIFICATIONS:
 **	return 0 if successful or -1 on error
 */
 
-int tet_tcrxfile(sysid, from, to)
-int sysid;
-char *from, *to;
+int tet_tcrxfile(int sysid, char *from, char *to)
 {
 	struct avmsg *mp;
 	extern char tet_tcerrmsg[];
@@ -95,4 +93,3 @@ char *from, *to;
 	/* here for server error return */
 	return(-1);
 }
-

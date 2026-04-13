@@ -66,9 +66,7 @@ static int tc_tsfiles PROTOLIST((int, char **, int, char *, char *, int));
 **	return 0 if successful or -1 on error
 */
 
-int tet_tctslfiles(sysid, files, nfile, subdir, savedir)
-int sysid, nfile;
-char **files, *subdir, *savedir;
+int tet_tctslfiles(int sysid, char **files, int nfile, char *subdir, char *savedir)
 {
 	return(tc_tsfiles(sysid, files, nfile, subdir, savedir, AV_TS_LOCAL));
 }
@@ -80,9 +78,7 @@ char **files, *subdir, *savedir;
 **	return 0 if successful or -1 on error
 */
 
-int tet_tctsmfiles(sysid, files, nfile, subdir)
-int sysid, nfile;
-char **files, *subdir;
+int tet_tctsmfiles(int sysid, char **files, int nfile, char *subdir)
 {
 	return(tc_tsfiles(sysid, files, nfile, subdir, (char *) 0,
 		AV_TS_MASTER));
@@ -94,10 +90,7 @@ char **files, *subdir;
 **	return 0 if successful or -1 on error
 */
 
-static int tc_tsfiles(sysid, files, nfile, subdir, savedir, flag)
-int sysid, flag;
-char **files, *subdir, *savedir;
-int nfile;
+static int tc_tsfiles(int sysid, char **files, int nfile, char *subdir, char *savedir, int flag)
 {
 	struct avmsg *mp;
 	int n;
@@ -145,4 +138,3 @@ int nfile;
 	/* here for server error return */
 	return(-1);
 }
-

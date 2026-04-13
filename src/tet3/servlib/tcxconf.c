@@ -71,10 +71,7 @@ static int xconfig PROTOLIST((int, struct cflist *, struct cflist *));
 **	return 0 if successful or -1 on error
 */
 
-int tet_tcxconfig(sysid, fname, mlp, vlp, rlp)
-int sysid;
-char *fname;
-struct cflist *mlp, *vlp, *rlp;
+int tet_tcxconfig(int sysid, char *fname, struct cflist *mlp, struct cflist *vlp, struct cflist *rlp)
 {
 	struct cflist *slp;
 	int rc;
@@ -138,9 +135,7 @@ struct cflist *mlp, *vlp, *rlp;
 **	return 0 if successful or -1 on error
 */
 
-static int mconfig(sysid, mlp, vlp)
-int sysid;
-struct cflist *mlp, *vlp;
+static int mconfig(int sysid, struct cflist *mlp, struct cflist *vlp)
 {
 	static char fmt[] = "TET_REM%03d_%.*s";
 	char buf[MAXPATH * 2];
@@ -203,9 +198,7 @@ struct cflist *mlp, *vlp;
 **	return 0 if successful or -1 on error
 */
 
-static int xconfig(sysid, slp, rlp)
-int sysid;
-struct cflist *slp, *rlp;
+static int xconfig(int sysid, struct cflist *slp, struct cflist *rlp)
 {
 	int nlines, done;
 	int n;
@@ -245,4 +238,3 @@ struct cflist *slp, *rlp;
 	/* all OK so return success */
 	return(0);
 }
-

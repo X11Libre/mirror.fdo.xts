@@ -62,11 +62,7 @@ MODIFICATIONS:
 **	array at *synreq which contains nsys elements
 */
 
-int tet_sdusync(snid, xrid, spno, vote, timeout, synreq, nsys, smp)
-long snid, xrid, spno;
-int vote, timeout, nsys;
-struct synreq *synreq;
-struct synmsg *smp;
+int tet_sdusync(long snid, long xrid, long spno, int vote, int timeout, struct synreq *synreq, int nsys, struct synmsg *smp)
 {
 	struct valmsg *mp;
 	struct synreq *sp;
@@ -184,4 +180,3 @@ struct synmsg *smp;
 
 	return(0);
 }
-

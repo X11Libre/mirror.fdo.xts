@@ -73,8 +73,7 @@ static void op_trace PROTOLIST((struct ptab *));
 **	tet_si_serverproc() - server-independent message processing
 */
 
-void tet_si_serverproc(pp)
-struct ptab *pp;
+void tet_si_serverproc(struct ptab *pp)
 {
 	TRACE3(tet_Tserv, 4, "%s serverproc: request = %s",
 		tet_r2a(&pp->pt_rid), tet_ptreqcode(pp->ptm_req));
@@ -124,8 +123,7 @@ struct ptab *pp;
 **	op_logon() - process a logon request
 */
 
-static void op_logon(pp)
-struct ptab *pp;
+static void op_logon(struct ptab *pp)
 {
 	struct ptab *q;
 	int errflag, rc;
@@ -187,9 +185,7 @@ struct ptab *pp;
 **	logonfail() - send an error message after failed logon
 */
 
-static void logonfail(pp, rc)
-struct ptab *pp;
-int rc;
+static void logonfail(struct ptab *pp, int rc)
 {
 	pp->ptm_rc = rc;
 	pp->ptm_mtype = MT_NODATA;
@@ -204,8 +200,7 @@ int rc;
 **	op_logoff() - process a logoff request
 */
 
-static void op_logoff(pp)
-struct ptab *pp;
+static void op_logoff(struct ptab *pp)
 {
 	/* call the server-specific logoff routine */
 	tet_ss_logoff(pp);
@@ -221,8 +216,7 @@ struct ptab *pp;
 **	op_trace() - process a trace request
 */
 
-static void op_trace(pp)
-struct ptab *pp;
+static void op_trace(struct ptab *pp)
 {
 #ifdef NOTRACE
 	pp->ptm_rc = ER_TRACE;
@@ -243,8 +237,7 @@ struct ptab *pp;
 **	op_null() - process a null request
 */
 
-static void op_null(pp)
-struct ptab *pp;
+static void op_null(struct ptab *pp)
 {
 	/* do nothing successfully */
 	pp->ptm_rc = ER_OK;
@@ -262,8 +255,7 @@ struct ptab *pp;
 
 #if TESTING
 
-static void op_print(pp)
-struct ptab *pp;
+static void op_print(struct ptab *pp)
 {
 
 	struct avmsg *mp = (struct avmsg *) pp->ptm_data;
@@ -283,4 +275,3 @@ struct ptab *pp;
 }
 
 #endif /* TESTING */
-

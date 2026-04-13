@@ -64,8 +64,7 @@ static int ti_lo2 PROTOLIST((struct ptab *));
 **	return zero if successful or -1 on error
 */
 
-int tet_ti_logon(pp)
-struct ptab *pp;
+int tet_ti_logon(struct ptab *pp)
 {
 	int wantptype = pp->ptr_ptype;
 
@@ -156,9 +155,7 @@ struct ptab *pp;
 **	return 0 if successful or -1 on error
 */
 
-int tet_ti_logoff(pp, stayopen)
-struct ptab *pp;
-int stayopen;
+int tet_ti_logoff(struct ptab *pp, int stayopen)
 {
 	int rc;
 
@@ -181,8 +178,7 @@ int stayopen;
 **	return 0 if successful or -1 on error
 */
 
-static int ti_lo2(pp)
-struct ptab *pp;
+static int ti_lo2(struct ptab *pp)
 {
 	char *errmsg;
 
@@ -219,4 +215,3 @@ struct ptab *pp;
 	error(0, errmsg, tet_r2a(&pp->pt_rid));
 	return(-1);
 }
-

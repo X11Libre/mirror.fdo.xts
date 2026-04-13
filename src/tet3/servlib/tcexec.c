@@ -58,10 +58,7 @@ MODIFICATIONS:
 **	return pid of exec'd process if successful or -1 on error
 */
 
-long tet_tcexec(sysid, path, argv, outfile, snid, xrid, flag)
-int sysid, flag;
-char *path, **argv, *outfile;
-long snid, xrid;
+long tet_tcexec(int sysid, char *path, char **argv, char *outfile, long snid, long xrid, int flag)
 {
 	char *dp;
 	char **ap;
@@ -126,4 +123,3 @@ long snid, xrid;
 	/* here for server error return */
 	return(-1L);
 }
-

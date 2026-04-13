@@ -53,9 +53,7 @@ MODIFICATIONS:
 **	return 0 if successful or -1 on error
 */
 
-int tet_tcrcopy(sysid, from, to)
-int sysid;
-char *from, *to;
+int tet_tcrcopy(int sysid, char *from, char *to)
 {
 	struct avmsg *mp;
 
@@ -79,4 +77,3 @@ char *from, *to;
 	/* send the request and receive the reply */
 	return(tet_tcrsys(sysid, OP_RCOPY));
 }
-

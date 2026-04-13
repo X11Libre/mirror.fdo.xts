@@ -56,8 +56,7 @@ MODIFICATIONS:
 **	any more
 */
 
-void tet_so_dead(pp)
-struct ptab *pp;
+void tet_so_dead(struct ptab *pp)
 {
 	extern struct ptab *tet_ptab;
 
@@ -74,4 +73,3 @@ struct ptab *pp;
 		tet_ss_cleanup();
 	}
 }
-

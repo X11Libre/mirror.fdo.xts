@@ -48,12 +48,8 @@ MODIFICATIONS:
 **	return pid of exec'd process if successful or -1 on error
 */
 
-long tet_tcuexec(sysid, path, argv, snid, xrid)
-int sysid;
-char *path, **argv;
-long snid, xrid;
+long tet_tcuexec(int sysid, char *path, char **argv, long snid, long xrid)
 {
 	return(tet_tcexec(sysid, path, argv, (char *) 0, snid, xrid,
 		AV_EXEC_USER));
 }
-

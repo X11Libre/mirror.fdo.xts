@@ -52,9 +52,7 @@ MODIFICATIONS:
 **	return 0 if successful or -1 on error
 */
 
-int tet_ti_talk(pp, delay)
-struct ptab *pp;
-int delay;
+int tet_ti_talk(struct ptab *pp, int delay)
 {
 	int rc;
 
@@ -72,4 +70,3 @@ int delay;
 
 	return(rc);
 }
-

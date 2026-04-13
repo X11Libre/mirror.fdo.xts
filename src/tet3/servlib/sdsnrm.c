@@ -53,8 +53,7 @@ MODIFICATIONS:
 **	return 0 if successful or -1 on error
 */
 
-int tet_sdsnrm(snid)
-long snid;
+int tet_sdsnrm(long snid)
 {
 	struct valmsg *mp;
 	extern char tet_sderrmsg[];
@@ -90,4 +89,3 @@ long snid;
 	/* here for server error return */
 	return(-1);
 }
-

@@ -51,8 +51,7 @@ MODIFICATIONS:
 **	return 0 if successful or -1 on error
 */
 
-int tet_xdcodesfile(codesfile)
-char *codesfile;
+int tet_xdcodesfile(char *codesfile)
 {
 	struct avmsg *mp;
 	extern char tet_xderrmsg[];
@@ -94,4 +93,3 @@ char *codesfile;
 	/* here for server error return */
 	return(-1);
 }
-

@@ -51,9 +51,7 @@ MODIFICATIONS:
 **	return 0 if successful or -1 on error
 */
 
-int tet_tccfname(sysid, cfname)
-int sysid;
-char *cfname;
+int tet_tccfname(int sysid, char *cfname)
 {
 	struct avmsg *mp;
 	extern char tet_tcerrmsg[];
@@ -96,4 +94,3 @@ char *cfname;
 	/* here for server error return */
 	return(-1);
 }
-

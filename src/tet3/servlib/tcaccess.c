@@ -48,9 +48,7 @@ MODIFICATIONS:
 **	return 0 if successful or -1 on error
 */
 
-int tet_tcaccess(sysid, path, mode)
-int sysid, mode;
-char *path;
+int tet_tcaccess(int sysid, char *path, int mode)
 {
 	struct avmsg *mp;
 
@@ -74,4 +72,3 @@ char *path;
 	/* send the request and receive the reply */
 	return(tet_tcrsys(sysid, OP_ACCESS));
 }
-

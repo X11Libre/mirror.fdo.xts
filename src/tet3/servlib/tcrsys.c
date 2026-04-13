@@ -57,8 +57,7 @@ MODIFICATIONS:
 **	the remote errno value if possible
 */
 
-int tet_tcrsys(sysid, request)
-int sysid, request;
+int tet_tcrsys(int sysid, int request)
 {
 	char *dp;
 	extern char tet_tcerrmsg[];
@@ -83,4 +82,3 @@ int sysid, request;
 	/* here for server error return */
 	return(-1);
 }
-

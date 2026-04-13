@@ -113,8 +113,7 @@ static void proc_par_rdjnl PROTOLIST((struct proctab *, struct scentab *,
 **	nodes or a SEQUENTIAL, REMOTE or DISTRIBUTED directive.
 */
 
-void proc_parallel(prp)
-struct proctab *prp;
+void proc_parallel(struct proctab *prp)
 {
 	struct scentab *ep;
 	int count;
@@ -224,10 +223,7 @@ struct proctab *prp;
 **	DISTRIBUTED directive
 */
 
-static void proc_par_rdist(prp, ep1, count, lbp)
-struct proctab *prp, **lbp;
-struct scentab *ep1;
-int count;
+static void proc_par_rdist(struct proctab *prp, struct scentab *ep1, int count, struct proctab **lbp)
 {
 	struct scentab *ep2;
 	struct proctab *child;
@@ -282,10 +278,10 @@ int count;
 **	proc_parallel() is next called
 */
 
-static void proc_par_rdjnl(prp, ep, lbp, jnlfunc)
-struct proctab *prp, **lbp;
-struct scentab *ep;
-void (*jnlfunc) PROTOLIST((struct proctab *));
+static void proc_par_rdjnl(struct proctab *prp,
+                           struct scentab *ep,
+                           struct proctab **lbp,
+                           void (*jnlfunc) PROTOLIST((struct proctab *)))
 {
 	struct proctab *child;
 
@@ -317,10 +313,7 @@ void (*jnlfunc) PROTOLIST((struct proctab *));
 **	between this function and proc_par_rdist() above
 */
 
-static void proc_par_simple(prp, ep, count, lbp)
-struct proctab *prp, **lbp;
-struct scentab *ep;
-int count;
+static void proc_par_simple(struct proctab *prp, struct scentab *ep, int count, struct proctab **lbp)
 {
 	struct proctab *child;
 
@@ -338,9 +331,7 @@ int count;
 **	return a pointer to the allocated child proctab
 */
 
-static struct proctab *proc_par_s1(prp, ep)
-struct proctab *prp;
-struct scentab *ep;
+static struct proctab *proc_par_s1(struct proctab *prp, struct scentab *ep)
 {
 	struct proctab *child;
 
@@ -360,8 +351,7 @@ struct scentab *ep;
 **	fill the rest in, link it below the parent and add it to the runq
 */
 
-static void proc_par_s2(prp, lbp, child)
-struct proctab *prp, **lbp, *child;
+static void proc_par_s2(struct proctab *prp, struct proctab **lbp, struct proctab *child)
 {
 	child->pr_modes = prp->pr_currmode;
 	if (jnl_tmpfile(child) < 0) {
@@ -382,8 +372,7 @@ struct proctab *prp, **lbp, *child;
 **	proctab just linked in
 */
 
-static void proc_par_link(prp, child, lbp)
-struct proctab *prp, *child, **lbp;
+static void proc_par_link(struct proctab *prp, struct proctab *child, struct proctab **lbp)
 {
 	if (*lbp)
 		(*lbp)->pr_lforw = child;
@@ -408,8 +397,7 @@ struct proctab *prp, *child, **lbp;
 **	Any directive or leaf scenario node may appear below SEQUENTIAL.
 */
 
-void proc_sequential(prp)
-struct proctab *prp;
+void proc_sequential(struct proctab *prp)
 {
 	struct proctab *child;
 
@@ -444,8 +432,7 @@ struct proctab *prp;
 **	Any directive or leaf scenario node may appear below VARIABLE.
 */
 
-void proc_variable(prp)
-struct proctab *prp;
+void proc_variable(struct proctab *prp)
 {
 	TRACE3(tet_Texec, 6, "proc_variable(%s): currmode = %s",
 		tet_i2x(prp), prtccmode(prp->pr_currmode));
@@ -468,8 +455,7 @@ struct proctab *prp;
 **	VARIABLE, REMOTE or DISTRIBUTED directive below here.
 */
 
-void proc_random(prp)
-struct proctab *prp;
+void proc_random(struct proctab *prp)
 {
 	struct proctab *child;
 	struct scentab *ep1, *ep2;
@@ -600,9 +586,7 @@ struct proctab *prp;
 **		and below
 */
 
-static int count_tc(ep, flagmask)
-struct scentab *ep;
-int flagmask;
+static int count_tc(struct scentab *ep, int flagmask)
 {
 	int count = 0;
 
@@ -640,9 +624,7 @@ int flagmask;
 **	test cases yet
 */
 
-static struct scentab *get_tc(ep1, skp)
-struct scentab *ep1;
-int *skp;
+static struct scentab *get_tc(struct scentab *ep1, int *skp)
 {
 	struct scentab *ep2;
 
@@ -702,8 +684,7 @@ int *skp;
 **	or TIMED_LOOP.
 */
 
-void proc_rtloop(prp)
-struct proctab *prp;
+void proc_rtloop(struct proctab *prp)
 {
 	TRACE4(tet_Texec, 6, "proc_rtloop(%s): currmode = %s, starttime = %s",
 		tet_i2x(prp), prtccmode(prp->pr_currmode),
@@ -780,8 +761,7 @@ struct proctab *prp;
 **	return 1 if it's OK to continue the loop or 0 to end the loop
 */
 
-static int proc_rtl2(prp)
-struct proctab *prp;
+static int proc_rtl2(struct proctab *prp)
 {
 	struct proctab *child;
 
@@ -846,8 +826,7 @@ struct proctab *prp;
 **	return 1 if it's OK to go round the loop again, or 0 if it isn't
 */
 
-static int loop_test(prp)
-struct proctab *prp;
+static int loop_test(struct proctab *prp)
 {
 	time_t now, maxtime;
 
@@ -910,8 +889,7 @@ struct proctab *prp;
 **	or DISTRIBUTED, except anoter REMOTE or DISTRIBUTED directive.
 */
 
-void proc_rdist(prp)
-struct proctab *prp;
+void proc_rdist(struct proctab *prp)
 {
 	struct proctab *child;
 	struct scentab *ep = prp->pr_scen;
@@ -942,8 +920,7 @@ struct proctab *prp;
 **	is_tcdist() - return 1 if test cases are distributed, 0 if not
 */
 
-static int is_tcdist(ep)
-struct scentab *ep;
+static int is_tcdist(struct scentab *ep)
 {
 	int *ip;
 
@@ -965,4 +942,3 @@ struct scentab *ep;
 }
 
 #endif /* !TET_LITE */	/* -END-LITE-CUT- */
-

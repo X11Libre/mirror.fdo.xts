@@ -103,8 +103,7 @@ static void tcs_unlock PROTOLIST((struct proctab *));
 **		state is PRS_PROCESS
 */
 
-void proc_testcase(prp)
-struct proctab *prp;
+void proc_testcase(struct proctab *prp)
 {
 	TRACE5(tet_Texec, 4,
 		"proc_testcase(%s): tcname = %s, ref = %s, currmode = %s",
@@ -239,8 +238,7 @@ struct proctab *prp;
 **		state is PRS_WAIT
 */
 
-void proc_tcwait(prp)
-struct proctab *prp;
+void proc_tcwait(struct proctab *prp)
 {
 #ifndef TET_LITE	/* -START-LITE-CUT- */
 	struct proctab *child;
@@ -330,8 +328,7 @@ struct proctab *prp;
 **		a test case in the current mode of operation
 */
 
-static void tcs_start(prp)
-struct proctab *prp;
+static void tcs_start(struct proctab *prp)
 {
 	int rc;
 
@@ -378,8 +375,7 @@ struct proctab *prp;
 **	return 0 if successful or -1 on error
 */
 
-static int tcs_startproc(prp)
-struct proctab *prp;
+static int tcs_startproc(struct proctab *prp)
 {
 #ifndef TET_LITE	/* -START-LITE-CUT- */
 	struct proctab *child;
@@ -451,8 +447,7 @@ struct proctab *prp;
 **	return 0 if successful or -1 on error
 */
 
-static int tcs1_jnlstart(prp)
-struct proctab *prp;
+static int tcs1_jnlstart(struct proctab *prp)
 {
 	static int activity;
 	const char *action, *timestr;
@@ -532,8 +527,7 @@ struct proctab *prp;
 **	tcs_lock() - lock a test case
 */
 
-static void tcs_lock(prp)
-struct proctab *prp;
+static void tcs_lock(struct proctab *prp)
 {
 	int rc;
 
@@ -561,8 +555,7 @@ struct proctab *prp;
 **	return 0 if successful or -1 on error
 */
 
-static int tcs1_lock(prp)
-struct proctab *prp;
+static int tcs1_lock(struct proctab *prp)
 {
 	int rc;
 
@@ -584,8 +577,7 @@ struct proctab *prp;
 **	return 0 if successful or -1 on error
 */
 
-static int tcs1_lk2(prp)
-struct proctab *prp;
+static int tcs1_lk2(struct proctab *prp)
 {
 	char lkdir[MAXPATH], lkname[MAXPATH];
 	char *altexecdir;
@@ -655,8 +647,7 @@ struct proctab *prp;
 **	tcs_unlock() - unlock a test case
 */
 
-static void tcs_unlock(prp)
-struct proctab *prp;
+static void tcs_unlock(struct proctab *prp)
 {
 	int rc;
 
@@ -678,8 +669,7 @@ struct proctab *prp;
 **	in not actually locked
 */
 
-static int tcs1_unlock(prp)
-struct proctab *prp;
+static int tcs1_unlock(struct proctab *prp)
 {
 	TRACE4(tet_Texec, 6, "tcs1_unlock(%s), sysid = %s, flags = %s",
 		tet_i2x(prp), tet_i2a(*prp->pr_sys), prpflags(prp->pr_flags));
@@ -716,8 +706,7 @@ struct proctab *prp;
 **		temporary execution directory on each system
 */
 
-static void tcs_copy(prp)
-struct proctab *prp;
+static void tcs_copy(struct proctab *prp)
 {
 	int rc = 0;
 
@@ -738,8 +727,7 @@ struct proctab *prp;
 **	return 0 if successful or -1 on error
 */
 
-static int tcs1_copy(prp)
-struct proctab *prp;
+static int tcs1_copy(struct proctab *prp)
 {
 	int rc;
 
@@ -761,8 +749,7 @@ struct proctab *prp;
 **	return 0 if successful or -1 on error
 */
 
-static int tcs1_cp2(prp)
-struct proctab *prp;
+static int tcs1_cp2(struct proctab *prp)
 {
 	char fromdir[MAXPATH], todir[MAXPATH]; 
 	char *altexecdir, *tmproot, *tmpdir;
@@ -801,8 +788,7 @@ struct proctab *prp;
 **	tcs_prebuild() - execute the prebuild tool
 */
 
-static void tcs_prebuild(prp)
-struct proctab *prp;
+static void tcs_prebuild(struct proctab *prp)
 {
 	struct proctab *q;
 	char tcname[MAXPATH];
@@ -871,8 +857,7 @@ struct proctab *prp;
 **	tcs_buildfail() - execute the build fail tool on each system
 */
 
-static void tcs_buildfail(prp)
-struct proctab *prp;
+static void tcs_buildfail(struct proctab *prp)
 {
 	int rc;
 
@@ -916,8 +901,7 @@ struct proctab *prp;
 **	return 0 if successful or -1 on error
 */
 
-static int tcs1_buildfail(prp)
-struct proctab *prp;
+static int tcs1_buildfail(struct proctab *prp)
 {
 	char tcname[MAXPATH];
 	char ocfname[MAXPATH];
@@ -956,8 +940,7 @@ struct proctab *prp;
 **	tcs_bec() - execute the build, exec or clean tool on each system
 */
 
-static void tcs_bec(prp)
-struct proctab *prp;
+static void tcs_bec(struct proctab *prp)
 {
 	int rc = 0;
 
@@ -1024,8 +1007,7 @@ struct proctab *prp;
 **	return 0 if successful or -1 on error
 */
 
-static int tcs1_bec(prp)
-struct proctab *prp;
+static int tcs1_bec(struct proctab *prp)
 {
 	char tcname[MAXPATH];
 	char buf[MAXPATH];
@@ -1101,8 +1083,7 @@ struct proctab *prp;
 **	tcs_journal() - process the journal on each system
 */
 
-static void tcs_journal(prp)
-struct proctab *prp;
+static void tcs_journal(struct proctab *prp)
 {
 	int rc = 0;
 	int (*func) PROTOLIST((struct proctab *));
@@ -1168,8 +1149,7 @@ struct proctab *prp;
 **	tcs_save() - perform save files processing on each system
 */
 
-static void tcs_save(prp)
-struct proctab *prp;
+static void tcs_save(struct proctab *prp)
 {
 	int rc;
 
@@ -1188,8 +1168,7 @@ struct proctab *prp;
 **	return 0 if successful or -1 on error
 */
 
-static int tcs1_save(prp)
-struct proctab *prp;
+static int tcs1_save(struct proctab *prp)
 {
 	char *p;
 	char *buf;
@@ -1232,8 +1211,7 @@ struct proctab *prp;
 **	tcs_end() - perform test case end processing
 */
 
-static void tcs_end(prp)
-struct proctab *prp;
+static void tcs_end(struct proctab *prp)
 {
 	TRACE3(tet_Texec, 6, "tcs_end(%s), skipflags = %s", tet_i2x(prp),
 		prscflags(prp->pr_scen->sc_flags & SCF_SKIP_ALL));
@@ -1274,8 +1252,7 @@ struct proctab *prp;
 **		which has not been skipped
 */
 
-static void tcs_endproc(prp)
-struct proctab *prp;
+static void tcs_endproc(struct proctab *prp)
 {
 	TRACE2(tet_Texec, 6, "tcs_endproc(%s)", tet_i2x(prp));
 
@@ -1315,8 +1292,7 @@ struct proctab *prp;
 **	tcs1_jnlend() - emit a test case end message to the journal
 */
 
-static int tcs1_jnlend(prp)
-struct proctab *prp;
+static int tcs1_jnlend(struct proctab *prp)
 {
 	TRACE3(tet_Texec, 6, "tcs1_jnlend(%s), flags = %s",
 		tet_i2x(prp), prpflags(prp->pr_flags));
@@ -1367,8 +1343,7 @@ struct proctab *prp;
 **	always returns 0
 */
 
-static int tcs1_rmtmpdir(prp)
-struct proctab *prp;
+static int tcs1_rmtmpdir(struct proctab *prp)
 {
 	TRACE3(tet_Texec, 6, "tcs1_rmtmpdir(%s), flags = %s",
 		tet_i2x(prp), prpflags(prp->pr_flags));
@@ -1390,8 +1365,7 @@ struct proctab *prp;
 **	always returns 0
 */
 
-static int tcs1_freetetxres(prp)
-struct proctab *prp;
+static int tcs1_freetetxres(struct proctab *prp)
 {
 	TRACE3(tet_Texec, 6, "tcs1_freetetxres(%s), flags = %s",
 		tet_i2x(prp), prpflags(prp->pr_flags));
@@ -1412,8 +1386,7 @@ struct proctab *prp;
 **	always returns 0
 */
 
-static int tcs1_freetcedir(prp)
-struct proctab *prp;
+static int tcs1_freetcedir(struct proctab *prp)
 {
 	TRACE3(tet_Texec, 6, "tcs1_freetcedir(%s), flags = %s",
 		tet_i2x(prp), prpflags(prp->pr_flags));
@@ -1440,9 +1413,7 @@ struct proctab *prp;
 **	and not that the tool returned zero (success) exit status
 */
 
-static int nexttcstate(prp, status)
-struct proctab *prp;
-int status;
+static int nexttcstate(struct proctab *prp, int status)
 {
 	static char s[] = "TET_EXEC_IN_PLACE";
 
@@ -1546,4 +1517,3 @@ int status;
 	/* NOTREACHED */
 	return(0);
 }
-

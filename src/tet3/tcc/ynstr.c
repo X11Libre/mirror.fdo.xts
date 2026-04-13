@@ -69,9 +69,7 @@ static void ynstr2 PROTOLIST((char *, char ***, int *));
 **	yesstr() - store a -y argument from the tcc command line
 */
 
-void yesstr(s, flag)
-char *s;
-int flag;
+void yesstr(char *s, int flag)
 {
 	char ***spp;
 	int *nspp;
@@ -99,9 +97,7 @@ int flag;
 **	nostr() - store a -n argument from the tcc command line
 */
 
-void nostr(s, flag)
-char *s;
-int flag;
+void nostr(char *s, int flag)
 {
 	char ***spp;
 	int *nspp;
@@ -129,9 +125,7 @@ int flag;
 **	ynstr2() - common subroutine for yesstr() and nostr()
 */
 
-static void ynstr2(s, spp, nspp)
-char *s, ***spp;
-int *nspp;
+static void ynstr2(char *s, char ***spp, int *nspp)
 {
 	if (s && *s && findstr(s, *spp, *nspp) == (char *) 0)
 		addstr(s, spp, nspp);
@@ -143,9 +137,7 @@ int *nspp;
 **	return 1 if it is or 0 if it isn't
 */
 
-int okstr(s, flag)
-char *s;
-int flag;
+int okstr(char *s, int flag)
 {
 	char **sp;
 	char **yeslist, **nolist;
@@ -207,8 +199,7 @@ int flag;
 **	return 1 if it does or 0 if it doesn't
 */
 
-static int instring(s1, s2)
-char *s1, *s2;
+static int instring(char *s1, char *s2)
 {
 	char *p1, *p2, *p3;
 
@@ -230,10 +221,7 @@ char *s1, *s2;
 **	return (char *) 0 if the string is not in the list
 */
 
-static char *findstr(s, sp, nsp)
-char *s;
-char **sp;
-int nsp;
+static char *findstr(char *s, char **sp, int nsp)
 {
 	while (--nsp >= 0)
 		if (!strcmp(s, *sp))
@@ -248,13 +236,10 @@ int nsp;
 **	addstr() - add a string to the end of a string list
 */
 
-static void addstr(s, spp, nspp)
-char *s, ***spp;
-int *nspp;
+static void addstr(char *s, char ***spp, int *nspp)
 {
 	int len = *nspp * sizeof **spp;
 
 	RBUFCHK((char **) spp, &len, (*nspp + 1) * (int) sizeof **spp);
 	*(*spp + (*nspp)++) = rstrstore(s);
 }
-

@@ -89,9 +89,7 @@ int tet_tcerrno;	/* fake TCCD reply code */
 #ifdef TET_LITE	/* -LITE-CUT-LINE- */
 /* ARGSUSED */
 #endif /* TET_LITE */	/* -LITE-CUT-LINE- */
-int tcc_access(sysid, path, mode)
-int sysid, mode;
-char *path;
+int tcc_access(int sysid, char *path, int mode)
 {
 	int rc;
 
@@ -110,9 +108,7 @@ char *path;
 #ifdef TET_LITE	/* -LITE-CUT-LINE- */
 /* ARGSUSED */
 #endif /* TET_LITE */	/* -LITE-CUT-LINE- */
-int tcc_mkdir(sysid, dir)
-int sysid;
-char *dir;
+int tcc_mkdir(int sysid, char *dir)
 {
 	int rc;
 
@@ -131,9 +127,7 @@ char *dir;
 #ifdef TET_LITE	/* -LITE-CUT-LINE- */
 /* ARGSUSED */
 #endif /* TET_LITE */	/* -LITE-CUT-LINE- */
-int tcc_rmdir(sysid, dir)
-int sysid;
-char *dir;
+int tcc_rmdir(int sysid, char *dir)
 {
 	int rc;
 
@@ -152,9 +146,7 @@ char *dir;
 #ifdef TET_LITE	/* -LITE-CUT-LINE- */
 /* ARGSUSED */
 #endif /* TET_LITE */	/* -LITE-CUT-LINE- */
-int tcc_chdir(sysid, dir)
-int sysid;
-char *dir;
+int tcc_chdir(int sysid, char *dir)
 {
 	int rc;
 
@@ -173,9 +165,7 @@ char *dir;
 #ifdef TET_LITE	/* -LITE-CUT-LINE- */
 /* ARGSUSED */
 #endif /* TET_LITE */	/* -LITE-CUT-LINE- */
-int tcc_unlink(sysid, fname)
-int sysid;
-char *fname;
+int tcc_unlink(int sysid, char *fname)
 {
 	int rc;
 
@@ -191,9 +181,7 @@ char *fname;
 	return(rc);
 }
 
-int tcc_kill(sysid, pid, signum)
-int sysid, signum;
-long pid;
+int tcc_kill(int sysid, long pid, int signum)
 {
 	int rc;
 
@@ -212,9 +200,7 @@ long pid;
 	return(rc);
 }
 
-int tcc_waitnohang(sysid, remid, statp)
-int sysid, *statp;
-long remid;
+int tcc_waitnohang(int sysid, long remid, int *statp)
 {
 	int rc;
 	int errsave;
@@ -263,4 +249,3 @@ long remid;
 	errno = errsave;
 	return(rc);
 }
-

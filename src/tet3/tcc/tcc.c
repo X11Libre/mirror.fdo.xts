@@ -103,9 +103,7 @@ TET_EXPORT int tet_thistest;
 #define DEFAULT_TET_EXEC_ROOT "/usr/local/libexec"
 #endif
 
-int main(argc, argv)
-int argc;
-char **argv;
+int main(int argc, char **argv)
 {
 	char fname[MAXPATH];
 	char cwd[MAXPATH];
@@ -529,7 +527,7 @@ char **argv;
 **	badusage() - print a usage message and exit with exit code 2
 */
 
-static void badusage()
+static void badusage(void)
 {
 	static const char *options[] = {
 		0,	/* placeholder for tet_progname */
@@ -602,7 +600,7 @@ static void badusage()
 **	prversioninfo() - print out version information and exit
 */
 
-static void prversioninfo()
+static void prversioninfo(void)
 {
 	static char product_name[] =
 						"TET3";

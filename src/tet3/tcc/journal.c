@@ -133,8 +133,7 @@ static void jnl_rd_start PROTOLIST((struct proctab *, int, char *));
 **	cwd is tcc's initial working directory
 */
 
-void jnl_init(jopt, cwd)
-char *jopt, *cwd;
+void jnl_init(char *jopt, char *cwd)
 {
 	char fname[MAXPATH];
 	int fd;
@@ -177,7 +176,7 @@ char *jopt, *cwd;
 **	return 1 if it is or 0 if it isn't
 */
 
-int jnl_usable()
+int jnl_usable(void)
 {
 	struct STAT_ST stbuf;
 
@@ -192,12 +191,12 @@ int jnl_usable()
 **		journal file
 */
 
-char *jnl_jfname()
+char *jnl_jfname(void)
 {
 	return(jfname);
 }
 
-FILE *jnl_jfp()
+FILE *jnl_jfp(void)
 {
 	return(jfp);
 }
@@ -211,8 +210,7 @@ FILE *jnl_jfp()
 **	return 0 if successful or -1 on error
 */
 
-int jnl_tmpfile(prp)
-struct proctab *prp;
+int jnl_tmpfile(struct proctab *prp)
 {
 	FILE *fp;
 	char *fname;
@@ -290,9 +288,7 @@ char *jnl_tfname(const char *dir, const char *prefix)
 **		the journal file
 */
 
-void jnl_tcc_start(argc, argv)
-int argc;
-char **argv;
+void jnl_tcc_start(int argc, char **argv)
 {
 	char s1[DATESZ + TIMESZ + sizeof tcc_version + 3];
 	char s2[TET_JNL_LEN];
@@ -370,7 +366,7 @@ char **argv;
 	jnl_write(TET_JNL_TCC_START, s1, s2, jfp, jfname);
 }
 
-void jnl_uname()
+void jnl_uname(void)
 {
 	struct utsname uts;
 	char s1[sizeof uts.sysname + sizeof uts.nodename +
@@ -401,8 +397,7 @@ void jnl_uname()
 	jnl_write(TET_JNL_UNAME, s1, s2, jfp, jfname);
 }
 
-void jnl_tc_start(prp)
-struct proctab *prp;
+void jnl_tc_start(struct proctab *prp)
 {
 	char s1[LNUMSZ + MAXPATH + TIMESZ + 3];
 	static char *s2;
@@ -432,9 +427,7 @@ struct proctab *prp;
 	jnl_itrace(TET_JNL_INVOKE_TC, s1, s2);
 }
 
-void jnl_mcfg_start(fname, mode)
-char *fname;
-int mode;
+void jnl_mcfg_start(char *fname, int mode)
 {
 	char s1[MAXPATH + LONUMSZ + 2];
 
@@ -445,8 +438,7 @@ int mode;
 
 #ifndef TET_LITE	/* -START-LITE-CUT- */
 
-void jnl_scfg_start(sysid, mode)
-int sysid, mode;
+void jnl_scfg_start(int sysid, int mode)
 {
 	static char fmt[] = "remote_%03d %s";
 	char s1[sizeof fmt + LNUMSZ + LONUMSZ];
@@ -458,36 +450,31 @@ int sysid, mode;
 #endif /* !TET_LITE */	/* -END-LITE-CUT- */
 
 
-static void jnl_cfg_start(s1)
-char *s1;
+static void jnl_cfg_start(char *s1)
 {
 	static char s2[] = "Config Start";
 
 	jnl_write(TET_JNL_CFG_START, s1, s2, jfp, jfname);
 }
 
-void jnl_cfg(s2)
-char *s2;
+void jnl_cfg(char *s2)
 {
 	jnl_cfg2(s2, jfp, jfname);
 }
 
-static void jnl_cfg2(s2, fp, fname)
-FILE *fp;
-char *fname, *s2;
+static void jnl_cfg2(char *s2, FILE *fp, char *fname)
 {
 	jnl_write(TET_JNL_CFG_VALUE, (char *) 0, s2, fp, fname);
 }
 
-void jnl_cfg_end()
+void jnl_cfg_end(void)
 {
 	static char s2[] = "Config End";
 
 	jnl_write(TET_JNL_CFG_END, (char *) 0, s2, jfp, jfname);
 }
 
-void jnl_tcc_msg(s2)
-char *s2;
+void jnl_tcc_msg(char *s2)
 {
 	jnl_tcc_m2(s2, jfp, jfname);
 }
@@ -511,8 +498,7 @@ jnl_sceninfo(struct proctab *prp, const char *s2)
 		prp->pr_jfp, prp->pr_jfname);
 }
 
-void jnl_tc_end(prp)
-struct proctab *prp;
+void jnl_tc_end(struct proctab *prp)
 {
 	char s1[(LNUMSZ * 2) + TIMESZ + 3];
 	static char fmt[] = "TC End, %s";
@@ -525,8 +511,7 @@ struct proctab *prp;
 	jnl_itrace(TET_JNL_TC_END, s1, s2);
 }
 
-void jnl_user_abort(prp)
-struct proctab *prp;
+void jnl_user_abort(struct proctab *prp)
 {
 	char *s1 = jnl_time(time((time_t *) 0));
 	static char s2[] = "User Abort";
@@ -542,8 +527,7 @@ void jnl_captured(struct proctab *prp, const char *s2)
 		prp->pr_jfp, prp->pr_jfname);
 }
 
-void jnl_build_start(prp)
-struct proctab *prp;
+void jnl_build_start(struct proctab *prp)
 {
 	static char fmt[] = "Build Start, %s";
 	char s2[sizeof fmt + REFSZ];
@@ -552,8 +536,7 @@ struct proctab *prp;
 	jnl_bc_start(prp, TET_JNL_BUILD_START, s2);
 }
 
-void jnl_clean_start(prp)
-struct proctab *prp;
+void jnl_clean_start(struct proctab *prp)
 {
 	static char fmt[] = "Clean Start, %s";
 	char s2[sizeof fmt + REFSZ];
@@ -562,10 +545,7 @@ struct proctab *prp;
 	jnl_bc_start(prp, TET_JNL_CLEAN_START, s2);
 }
 
-static void jnl_bc_start(prp, id, s2)
-struct proctab *prp;
-int id;
-char *s2;
+static void jnl_bc_start(struct proctab *prp, int id, char *s2)
 {
 	char s1[LNUMSZ + MAXPATH + TIMESZ + 3];
 
@@ -576,8 +556,7 @@ char *s2;
 	jnl_itrace(id, s1, s2);
 }
 
-void jnl_build_end(prp)
-struct proctab *prp;
+void jnl_build_end(struct proctab *prp)
 {
 	static char fmt[] = "Build End, %s";
 	char s2[sizeof fmt + REFSZ];
@@ -586,8 +565,7 @@ struct proctab *prp;
 	jnl_bc_end(prp, TET_JNL_BUILD_END, s2);
 }
 
-void jnl_clean_end(prp)
-struct proctab *prp;
+void jnl_clean_end(struct proctab *prp)
 {
 	static char fmt[] = "Clean End, %s";
 	char s2[sizeof fmt + REFSZ];
@@ -596,10 +574,7 @@ struct proctab *prp;
 	jnl_bc_end(prp, TET_JNL_CLEAN_END, s2);
 }
 
-static void jnl_bc_end(prp, id, s2)
-struct proctab *prp;
-int id;
-char *s2;
+static void jnl_bc_end(struct proctab *prp, int id, char *s2)
 {
 	char s1[(LNUMSZ * 2) + TIMESZ + 3];
 
@@ -610,8 +585,7 @@ char *s2;
 	jnl_itrace(id, s1, s2);
 }
 
-void jnl_par_start(prp)
-struct proctab *prp;
+void jnl_par_start(struct proctab *prp)
 {
 	static char fmt[] = "Parallel Start, %s";
 	char *s1 = tet_i2a(prp->pr_scen->sc_count);
@@ -621,8 +595,7 @@ struct proctab *prp;
 	jnl_write(TET_JNL_PRL_START, s1, s2, prp->pr_jfp, prp->pr_jfname);
 }
 
-void jnl_par_end(prp)
-struct proctab *prp;
+void jnl_par_end(struct proctab *prp)
 {
 	static char fmt[] = "Parallel End, %s";
 	char s2[sizeof fmt + REFSZ];
@@ -632,8 +605,7 @@ struct proctab *prp;
 		prp->pr_jfp, prp->pr_jfname);
 }
 
-void jnl_seq_start(prp)
-struct proctab *prp;
+void jnl_seq_start(struct proctab *prp)
 {
 	static char implied[] = "Implied ";
 	static char fmt[] = "%sSequential Start, %s";
@@ -646,8 +618,7 @@ struct proctab *prp;
 		prp->pr_jfp, prp->pr_jfname);
 }
 
-void jnl_seq_end(prp)
-struct proctab *prp;
+void jnl_seq_end(struct proctab *prp)
 {
 	static char implied[] = "Implied ";
 	static char fmt[] = "%sSequential End, %s";
@@ -660,8 +631,7 @@ struct proctab *prp;
 		prp->pr_jfp, prp->pr_jfname);
 }
 
-void jnl_rpt_start(prp)
-struct proctab *prp;
+void jnl_rpt_start(struct proctab *prp)
 {
 	static char fmt[] = "Repeat Start, %s";
 	char *s1 = tet_i2a(prp->pr_scen->sc_count);
@@ -671,8 +641,7 @@ struct proctab *prp;
 	jnl_write(TET_JNL_RPT_START, s1, s2, prp->pr_jfp, prp->pr_jfname);
 }
 
-void jnl_rpt_end(prp)
-struct proctab *prp;
+void jnl_rpt_end(struct proctab *prp)
 {
 	static char fmt[] = "Repeat End, %s";
 	char s2[sizeof fmt + REFSZ];
@@ -682,8 +651,7 @@ struct proctab *prp;
 		prp->pr_jfp, prp->pr_jfname);
 }
 
-void jnl_tloop_start(prp)
-struct proctab *prp;
+void jnl_tloop_start(struct proctab *prp)
 {
 	static char fmt[] = "Timed Loop Start, %s";
 	char *s1 = tet_l2a(prp->pr_scen->sc_seconds);
@@ -693,8 +661,7 @@ struct proctab *prp;
 	jnl_write(TET_JNL_TLOOP_START, s1, s2, prp->pr_jfp, prp->pr_jfname);
 }
 
-void jnl_tloop_end(prp)
-struct proctab *prp;
+void jnl_tloop_end(struct proctab *prp)
 {
 	static char fmt[] = "Timed Loop End, %s";
 	char s2[sizeof fmt + REFSZ];
@@ -704,8 +671,7 @@ struct proctab *prp;
 		prp->pr_jfp, prp->pr_jfname);
 }
 
-void jnl_rnd_start(prp)
-struct proctab *prp;
+void jnl_rnd_start(struct proctab *prp)
 {
 	static char fmt[] = "Random Start, %s";
 	char s2[sizeof fmt + REFSZ];
@@ -715,8 +681,7 @@ struct proctab *prp;
 		prp->pr_jfp, prp->pr_jfname);
 }
 
-void jnl_rnd_end(prp)
-struct proctab *prp;
+void jnl_rnd_end(struct proctab *prp)
 {
 	static char fmt[] = "Random End, %s";
 	char s2[sizeof fmt + REFSZ];
@@ -729,8 +694,7 @@ struct proctab *prp;
 
 #ifndef TET_LITE	/* -START-LITE-CUT- */
 
-void jnl_rmt_start(prp)
-struct proctab *prp;
+void jnl_rmt_start(struct proctab *prp)
 {
 	static char fmt[] = "Remote Start, %s";
 	char s2[sizeof fmt + REFSZ];
@@ -739,8 +703,7 @@ struct proctab *prp;
 	jnl_rd_start(prp, TET_JNL_RMT_START, s2);
 }
 
-void jnl_rmt_end(prp)
-struct proctab *prp;
+void jnl_rmt_end(struct proctab *prp)
 {
 	static char fmt[] = "Remote End, %s";
 	char s2[sizeof fmt + REFSZ];
@@ -750,8 +713,7 @@ struct proctab *prp;
 		prp->pr_jfp, prp->pr_jfname);
 }
 
-void jnl_dist_start(prp)
-struct proctab *prp;
+void jnl_dist_start(struct proctab *prp)
 {
 	static char fmt[] = "Distributed Start, %s";
 	char s2[sizeof fmt + REFSZ];
@@ -760,8 +722,7 @@ struct proctab *prp;
 	jnl_rd_start(prp, TET_JNL_DIST_START, s2);
 }
 
-void jnl_dist_end(prp)
-struct proctab *prp;
+void jnl_dist_end(struct proctab *prp)
 {
 	static char fmt[] = "Distributed End, %s";
 	char s2[sizeof fmt + REFSZ];
@@ -771,10 +732,7 @@ struct proctab *prp;
 		prp->pr_jfp, prp->pr_jfname);
 }
 
-static void jnl_rd_start(prp, id, s2)
-struct proctab *prp;
-int id;
-char *s2;
+static void jnl_rd_start(struct proctab *prp, int id, char *s2)
 {
 	static char *s1;
 	static int s1len;
@@ -807,8 +765,7 @@ char *s2;
 #endif /* !TET_LITE */	/* -END-LITE-CUT- */
 
 
-void jnl_var_start(prp)
-struct proctab *prp;
+void jnl_var_start(struct proctab *prp)
 {
 	static char fmt[] = "Variable Start, %s";
 	char s2[sizeof fmt + REFSZ];
@@ -822,8 +779,7 @@ struct proctab *prp;
 		jnl_cfg2(*vp, prp->pr_jfp, prp->pr_jfname);
 }
 
-void jnl_var_end(prp)
-struct proctab *prp;
+void jnl_var_end(struct proctab *prp)
 {
 	static char fmt[] = "Variable End, %s";
 	char s2[sizeof fmt + REFSZ];
@@ -833,7 +789,7 @@ struct proctab *prp;
 		prp->pr_jfp, prp->pr_jfname);
 }
 
-void jnl_tcc_end()
+void jnl_tcc_end(void)
 {
 	char *s1 = jnl_time(time((time_t *) 0));
 	static char s2[] = "TCC End";
@@ -846,8 +802,7 @@ void jnl_tcc_end()
 **	to the journal on behalf of non-API conforming test cases
 */
 
-void jnl_tcm_start(prp)
-struct proctab *prp;
+void jnl_tcm_start(struct proctab *prp)
 {
 	char s1[LNUMSZ + sizeof tcc_version + 4];
 	static char s2[] = "TCM Start (auto-generated by TCC)";
@@ -856,26 +811,21 @@ struct proctab *prp;
 	jnl_write(TET_JNL_TCM_START, s1, s2, prp->pr_jfp, prp->pr_jfname);
 }
 
-void jnl_ic_start(prp)
-struct proctab *prp;
+void jnl_ic_start(struct proctab *prp)
 {
 	static char s2[] = "IC Start (auto-generated by TCC)";
 
 	jnl_ic_se(prp, TET_JNL_IC_START, s2);
 }
 
-void jnl_ic_end(prp)
-struct proctab *prp;
+void jnl_ic_end(struct proctab *prp)
 {
 	static char s2[] = "IC End (auto-generated by TCC)";
 
 	jnl_ic_se(prp, TET_JNL_IC_END, s2);
 }
 
-static void jnl_ic_se(prp, id, s2)
-struct proctab *prp;
-int id;
-char *s2;
+static void jnl_ic_se(struct proctab *prp, int id, char *s2)
 {
 	char s1[LNUMSZ + TIMESZ + 6];
 
@@ -884,8 +834,7 @@ char *s2;
 	jnl_write(id, s1, s2, prp->pr_jfp, prp->pr_jfname);
 }
 
-void jnl_tp_start(prp)
-struct proctab *prp;
+void jnl_tp_start(struct proctab *prp)
 {
 	char s1[LNUMSZ + TIMESZ + 4];
 	static char s2[] = "TP Start (auto-generated by TCC)";
@@ -895,9 +844,7 @@ struct proctab *prp;
 	jnl_write(TET_JNL_TP_START, s1, s2, prp->pr_jfp, prp->pr_jfname);
 }
 
-void jnl_tp_result(prp, tpno, result)
-struct proctab *prp;
-int tpno, result;
+void jnl_tp_result(struct proctab *prp, int tpno, int result)
 {
 	char s1[(LNUMSZ * 3) + TIMESZ + 4];
 	static char *s2;
@@ -1029,9 +976,7 @@ jnl_mwrite(int id, const char *s1, const char *s2, FILE *fp, const char *fname)
 **		when required by the -I command-line option
 */
 
-static void jnl_itrace(id, s1, s2)
-int id;
-char *s1, *s2;
+static void jnl_itrace(int id, char *s1, char *s2)
 {
 	if (tcc_Iflag) {
 		fprintf(stderr, "tcc:%d|%s|%s\n", id, s1, s2);
@@ -1044,8 +989,7 @@ char *s1, *s2;
 **		date in YYYYMMDD format
 */
 
-static char *jnl_date(now)
-time_t now;
+static char *jnl_date(time_t now)
 {
 	struct tm *tp = localtime(&now);
 	static char buf[DATESZ + 1];
@@ -1061,8 +1005,7 @@ time_t now;
 **		time in HH:MM:SS format
 */
 
-char *jnl_time(now)
-time_t now;
+char *jnl_time(time_t now)
 {
 	struct tm *tp = localtime(&now);
 	static char buf[TIMESZ + 1];
@@ -1102,8 +1045,7 @@ jnl_mode(int mode)
 **		by child proctabs into the journal file at this level
 */
 
-void jnl_consolidate(prp)
-struct proctab *prp;
+void jnl_consolidate(struct proctab *prp)
 {
 	struct proctab *child;
 	char buf[TET_JNL_LEN + 2];
@@ -1152,8 +1094,7 @@ struct proctab *prp;
 **	jnl_scenref() - generate a scenario reference string
 */
 
-static char *jnl_scenref(prp)
-struct proctab *prp;
+static char *jnl_scenref(struct proctab *prp)
 {
 	static char scenref[REFSZ];
 
@@ -1163,4 +1104,3 @@ struct proctab *prp;
 
 	return(scenref);
 }
-

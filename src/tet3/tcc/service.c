@@ -74,7 +74,7 @@ static void wakeup PROTOLIST((struct proctab *));
 **	service all entries in the run queue which need attention
 */
 
-int tcc_sloop()
+int tcc_sloop(void)
 {
 	struct proctab *prp, *rqforw;
 	int done;
@@ -111,8 +111,7 @@ int tcc_sloop()
 **	return the number of proctabs which need attention
 */
 
-int tcc_timeouts(now)
-time_t now;
+int tcc_timeouts(time_t now)
 {
 	int count = 0;
 	struct proctab *prp;
@@ -142,8 +141,7 @@ time_t now;
 **		whose ATTENTION flag is set
 */
 
-static void tcc_service(prp)
-struct proctab *prp;
+static void tcc_service(struct proctab *prp)
 {
 
 	TRACE4(tet_Texec, 3, "tcc_service(%s): state = %s, flags = %s",
@@ -178,8 +176,7 @@ struct proctab *prp;
 **		whose state is PRS_PROCESS
 */
 
-static void proc_process(prp)
-struct proctab *prp;
+static void proc_process(struct proctab *prp)
 {
 	struct scentab *ep = prp->pr_scen;
 
@@ -216,8 +213,7 @@ struct proctab *prp;
 **		whose state is PRS_PROCESS
 */
 
-static void proc_directive(prp)
-struct proctab *prp;
+static void proc_directive(struct proctab *prp)
 {
 	struct scentab *ep = prp->pr_scen;
 
@@ -311,8 +307,7 @@ struct proctab *prp;
 **		whose state is PRS_PROCESS
 */
 
-static void proc_sceninfo(prp)
-struct proctab *prp;
+static void proc_sceninfo(struct proctab *prp)
 {
 	TRACE2(tet_Texec, 4, "proc_sceninfo(%s)", tet_i2x(prp));
 
@@ -331,8 +326,7 @@ struct proctab *prp;
 **		is PRS_WAIT
 */
 
-static void proc_wait(prp)
-struct proctab *prp;
+static void proc_wait(struct proctab *prp)
 {
 	struct scentab *ep = prp->pr_scen;
 
@@ -362,8 +356,7 @@ struct proctab *prp;
 **	proc_next() - step on to the next action when state is PRS_NEXT
 */
 
-static void proc_next(prp)
-struct proctab *prp;
+static void proc_next(struct proctab *prp)
 {
 #ifndef NOTRACE
 	struct scentab *ep = prp->pr_scen;
@@ -409,8 +402,7 @@ struct proctab *prp;
 **	proc_n2() - extend the proc_next() processing
 */
 
-static void proc_n2(prp)
-struct proctab *prp;
+static void proc_n2(struct proctab *prp)
 {
 	struct scentab *ep = prp->pr_scen;
 
@@ -544,8 +536,7 @@ struct proctab *prp;
 **	move on to the next stage of processing
 */
 
-static void wakeup(prp)
-struct proctab *prp;
+static void wakeup(struct proctab *prp)
 {
 	struct proctab *child;
 
@@ -581,8 +572,7 @@ struct proctab *prp;
 **		of operation and the current mode
 */
 
-int nextmode(modes, currmode)
-int modes, currmode;
+int nextmode(int modes, int currmode)
 {
 	if (modes & TCC_ABORT)
 		return(TCC_END);
@@ -608,4 +598,3 @@ int modes, currmode;
 		/* NOTREACHED */
 	}
 }
-

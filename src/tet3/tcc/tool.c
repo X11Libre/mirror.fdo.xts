@@ -97,10 +97,7 @@ static void xresfilename PROTOLIST((char *, char *, int));
 **	toolpfree()
 */
 
-char **toolprep(prp, tcname, tcnamelen)
-struct proctab *prp;
-char *tcname;
-int tcnamelen;
+char **toolprep(struct proctab *prp, char *tcname, int tcnamelen)
 {
 	char *p;
 	const char *toolvar, *filevar, *edir;
@@ -273,11 +270,7 @@ int tcnamelen;
 **		into an existing argv array, growing it if necessary
 */
 
-static void tooladdargv(avp, alp, anp, s, splitflds)
-char ***avp;
-int *alp, splitflds;
-int *anp;
-char *s;
+static void tooladdargv(char ***avp, int *alp, int *anp, char *s, int splitflds)
 {
 	char *p, **ap;
 	char buf[MAXPATH * 2];
@@ -318,8 +311,7 @@ char *s;
 **	toolpfree() - free up memory allocated by toolprep()
 */
 
-void toolpfree(argv)
-char **argv;
+void toolpfree(char **argv)
 {
 	char **ap;
 
@@ -340,9 +332,7 @@ char **argv;
 **	return 0 if successful or -1 on error
 */
 
-int toolexec(prp, tcname, argv, ocfname)
-struct proctab *prp;
-char *tcname, **argv, *ocfname;
+int toolexec(struct proctab *prp, char *tcname, char **argv, char *ocfname)
 {
 	char buf[MAXPATH];
 #ifndef TET_LITE	/* -START-LITE-CUT- */
@@ -430,8 +420,7 @@ char *tcname, **argv, *ocfname;
 **	running, or -1 if the tool exited with non-zero exit code
 */
 
-int toolwait(prp)
-struct proctab *prp;
+int toolwait(struct proctab *prp)
 {
 	int rc;
 
@@ -476,8 +465,7 @@ struct proctab *prp;
 **	running, or -1 if the tool exited with non-zero exit code
 */
 
-static int toolw2(prp)
-struct proctab *prp;
+static int toolw2(struct proctab *prp)
 {
 	int status;
 
@@ -538,8 +526,7 @@ struct proctab *prp;
 **	return 0 if this is OK or -1 if an error has occurred
 */
 
-static int toolrunning(prp)
-struct proctab *prp;
+static int toolrunning(struct proctab *prp)
 {
 	int rc;
 
@@ -562,8 +549,7 @@ struct proctab *prp;
 **	return 0 if this is OK or -1 if an error has occurred
 */
 
-static int toolrun2(prp)
-struct proctab *prp;
+static int toolrun2(struct proctab *prp)
 {
 	time_t now = time((time_t *) 0);
 	time_t next;
@@ -642,9 +628,7 @@ struct proctab *prp;
 **	is located in the directory where the test case is to be processed
 */
 
-void ocfilename(tcpath, ocfname, ocfnamelen)
-char *tcpath, *ocfname;
-int ocfnamelen;
+void ocfilename(char *tcpath, char *ocfname, int ocfnamelen)
 {
 	tcdirfname(tcpath, "tet_captured", ocfname, ocfnamelen);
 }
@@ -656,9 +640,7 @@ int ocfnamelen;
 **	by a previous call to toolprep()
 */
 
-static void xresfilename(tcpath, xrfname, xrfnamelen)
-char *tcpath, *xrfname;
-int xrfnamelen;
+static void xresfilename(char *tcpath, char *xrfname, int xrfnamelen)
 {
 	const char *tcname = tet_basename(tcpath);
 	char logname[64];
@@ -689,9 +671,7 @@ tcdirfname(const char *tcpath, const char *fname, char *path, int pathlen)
 **		the journal
 */
 
-static void ocfile2jnl(prp, ocfname)
-struct proctab *prp;
-char *ocfname;
+static void ocfile2jnl(struct proctab *prp, char *ocfname)
 {
 #ifndef TET_LITE	/* -START-LITE-CUT- */
 	char *tfname;
@@ -726,9 +706,7 @@ char *ocfname;
 **		capture file on the local system
 */
 
-static void ocf2jnl2(prp, ocfname)
-struct proctab *prp;
-char *ocfname;
+static void ocf2jnl2(struct proctab *prp, char *ocfname)
 {
 	char buf[LBUFLEN];
 	FILE *fp;
@@ -765,9 +743,7 @@ char *ocfname;
 **	return 0 if successful or -1 on error
 */
 
-int getremfile(prp, fromfile, tofile)
-struct proctab *prp;
-char *fromfile, *tofile;
+int getremfile(struct proctab *prp, char *fromfile, char *tofile)
 {
 	static char fmt[] = "can't transfer file to %.*s from";
 	char msg[sizeof fmt + MAXPATH];
@@ -792,4 +768,3 @@ char *fromfile, *tofile;
 }
 
 #endif /* !TET_LITE */	/* -END-LITE-CUT- */
-

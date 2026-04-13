@@ -128,8 +128,7 @@ static void set_scflags PROTOLIST((struct scentab *, int));
 **	rrproc() - prune the scenario tree in rerun or resume mode
 */
 
-void rrproc(codelist, old_journal_file)
-char *codelist, *old_journal_file;
+void rrproc(char *codelist, char *old_journal_file)
 {
 	char *p, **ap;
 	int n;
@@ -341,8 +340,7 @@ char *codelist, *old_journal_file;
 **	rrp_tccstart() - process the TCC start line in the old journal file
 */
 
-static void rrp_tccstart(jlp)
-struct jline *jlp;
+static void rrp_tccstart(struct jline *jlp)
 {
 	int argc, c, modes;
 	char **argv, **ap1, **ap2;
@@ -458,9 +456,7 @@ struct jline *jlp;
 **	the number of arguments is returned indirectly through *argcp
 */
 
-static char **rrp_ts2(fld3, argcp)
-char *fld3;
-int *argcp;
+static char **rrp_ts2(char *fld3, int *argcp)
 {
 	static char key[] = "Command line: ";
 	char *p1, *p2;
@@ -542,8 +538,7 @@ int *argcp;
 **	badynopt() - report a bad -y or -n option in the old journal file
 */
 
-static void badynopt(c)
-int c;
+static void badynopt(int c)
 {
 	fprintf(stderr, "TCC: TCC Start line in old journal file contains a bad format -%c option\n", c);
 	tcc_exit(1);
@@ -554,8 +549,7 @@ int c;
 **		which matches the journal line scenario reference
 */
 
-static struct scentab *rrp_findscen(jlp)
-struct jline *jlp;
+static struct scentab *rrp_findscen(struct jline *jlp)
 {
 	struct scentab *ep;
 	int sctype, scdir;
@@ -665,9 +659,7 @@ struct jline *jlp;
 **	matches the specified reference
 */
 
-static struct scentab *rrp_fs2(ep, ref)
-struct scentab *ep;
-long ref;
+static struct scentab *rrp_fs2(struct scentab *ep, long ref)
 {
 	struct scentab *ep2;
 
@@ -695,9 +687,7 @@ long ref;
 **	old journal file was not generated from the current scenario
 */
 
-static void rrp_tcsync(ep, jlp)
-struct scentab *ep;
-struct jline *jlp;
+static void rrp_tcsync(struct scentab *ep, struct jline *jlp)
 {
 	int is_testcase_start_id = 0;
 
@@ -732,10 +722,7 @@ struct jline *jlp;
 **	zero otherwise
 */
 
-static int rrp_proctc(ep, buf, startid)
-struct scentab *ep;
-char *buf;
-int startid;
+static int rrp_proctc(struct scentab *ep, char *buf, int startid)
 {
 	struct jline *jlp;
 	int done, sel;
@@ -928,11 +915,7 @@ int startid;
 **	return 1 if a result code below this IC selects this IC, zero otherwise
 */
 
-static int rrp_procic(ep, icno, buf, mode)
-struct scentab *ep;
-int icno;
-char *buf;
-int mode;
+static int rrp_procic(struct scentab *ep, int icno, char *buf, int mode)
 {
 	struct jline *jlp;
 	int done, sel;
@@ -1027,9 +1010,7 @@ int mode;
 **	return 1 if the result selects the enclosing IC, zero otherwise
 */
 
-static int rrp_proctp(buf, mode)
-char *buf;
-int mode;
+static int rrp_proctp(char *buf, int mode)
 {
 	struct jline *jlp;
 	int *ip, result, sel;
@@ -1080,10 +1061,7 @@ int mode;
 **	return 1 if the status code selects this test case, zero otherwise
 */
 
-static int rrp_procendline(ep, jlp, mode)
-struct scentab *ep;
-struct jline *jlp;
-int mode;
+static int rrp_procendline(struct scentab *ep, struct jline *jlp, int mode)
 {
 	int status = atoi(jlp->jl_flds2[1]);
 
@@ -1136,8 +1114,7 @@ int mode;
 **	return (struct jline *) 0 on EOF or error
 */
 
-static struct jline *rrp_getline(buf)
-char *buf;
+static struct jline *rrp_getline(char *buf)
 {
 	static char fmt1[] = "ignored badly formatted journal line number %ld in";
 	static char fmt2[] = "expected %d subfields in field 2, observed";
@@ -1342,9 +1319,7 @@ char *buf;
 **	if it is, increment the enclosing directive's iteration count
 */
 
-static void rrp_checkloopstart(ep, jlp)
-struct scentab *ep;
-struct jline *jlp;
+static void rrp_checkloopstart(struct scentab *ep, struct jline *jlp)
 {
 	struct scentab *parent;
 
@@ -1415,9 +1390,7 @@ struct jline *jlp;
 **	pointed to by ep, or zero otherwise
 */
 
-static int rrp_cl2(ep, tc, random)
-struct scentab *ep, *tc;
-int random;
+static int rrp_cl2(struct scentab *ep, struct scentab *tc, int random)
 {
 	for (; ep && ep != tc; ep = ep->sc_forw) {
 		ASSERT(ep->sc_magic == SC_MAGIC);
@@ -1448,9 +1421,7 @@ int random;
 **		EXEC IC list if it is not already there
 */
 
-static void exiclist_addupdate(ep, icno)
-struct scentab *ep;
-int icno;
+static void exiclist_addupdate(struct scentab *ep, int icno)
 {
 	struct ics {
 		int ic_start;
@@ -1544,9 +1515,7 @@ int icno;
 **	exiclist_set() - set the EXEC IC list in a scenario element
 */
 
-static void exiclist_set(ep, iclist)
-struct scentab *ep;
-char *iclist;
+static void exiclist_set(struct scentab *ep, char *iclist)
 {
 	if (iclist != ep->sc_exiclist) {
 		if (ep->sc_exiclist && ep->sc_exiclist != ep->sc_sciclist) {
@@ -1564,8 +1533,7 @@ char *iclist;
 **		from the scenario tree
 */
 
-static void remove_unneeded_tcs(ep)
-struct scentab *ep;
+static void remove_unneeded_tcs(struct scentab *ep)
 {
 	struct scentab *forw;
 
@@ -1595,9 +1563,7 @@ struct scentab *ep;
 **	set_scflags() - set the specified flags in the scenario tree
 */
 
-static void set_scflags(ep, flags)
-struct scentab *ep;
-int flags;
+static void set_scflags(struct scentab *ep, int flags)
 {
 	/*
 	** traverse the tree at this level, seting the specified flags
@@ -1620,9 +1586,7 @@ int flags;
 **	clear_scflags() - clear the specified flags in the scenario tree
 */
 
-static void clear_scflags(ep, flags)
-struct scentab *ep;
-int flags;
+static void clear_scflags(struct scentab *ep, int flags)
 {
 	/*
 	** traverse the tree at this level, clearing the specified flags
@@ -1648,8 +1612,7 @@ int flags;
 **	this function should only be called in RERUN mode
 */
 
-static void clear_exiclists(ep)
-struct scentab *ep;
+static void clear_exiclists(struct scentab *ep)
 {
 	/*
 	** traverse the tree at this level, clearing the EXEC IC lists
@@ -1675,8 +1638,7 @@ struct scentab *ep;
 **		the scenario tree
 */
 
-static void clear_itcount(ep)
-struct scentab *ep;
+static void clear_itcount(struct scentab *ep)
 {
 	/*
 	** traverse the tree at this level, clearing the loop directive
@@ -1794,5 +1756,3 @@ prjnlid(int id)
 		return(msg);
 	}
 }
-
-

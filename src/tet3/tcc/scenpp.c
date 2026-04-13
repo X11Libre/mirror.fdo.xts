@@ -93,9 +93,7 @@ static void printsctree PROTOLIST((struct scentab *, int));
 static void scpp_fatal PROTOLIST((int, char *, int, char *, char *));
 
 
-int main(argc, argv)
-int argc;
-char **argv;
+int main(int argc, char **argv)
 {
 	int c;
 	FILE *ifp;
@@ -295,9 +293,7 @@ static void badusage()
 	fatal(0, "usage:\n", msg);
 }
 
-static void printsctree(ep, indent)
-struct scentab *ep;
-int indent;
+static void printsctree(struct scentab *ep, int indent)
 {
 	for (; ep; ep = ep->sc_forw) {
 		ASSERT(ep->sc_magic == SC_MAGIC);
@@ -330,9 +326,7 @@ int indent;
 	}
 }
 
-static void printscdir(ep, indent)
-struct scentab *ep;
-int indent;
+static void printscdir(struct scentab *ep, int indent)
 {
 	int *argv = (int *) 0;
 	int argc = 0;
@@ -420,9 +414,7 @@ int indent;
 	lastlineno++;
 }
 
-static void printloc(thislineno, thisfname, indent)
-int thislineno, indent;
-char *thisfname;
+static void printloc(int thislineno, char *thisfname, int indent)
 {
 	int doit = 0;
 
@@ -444,8 +436,7 @@ char *thisfname;
 	doindent(indent);
 }
 
-static void doindent(indent)
-int indent;
+static void doindent(int indent)
 {
 	int space;
 
@@ -456,8 +447,7 @@ int indent;
 		putc(' ', ofp);
 }
 
-static char *printaddr(ep)
-struct scentab *ep;
+static char *printaddr(struct scentab *ep)
 {
 	static char buf[LNUMSZ + LXNUMSZ + 3];
 	char *p = buf;
@@ -483,18 +473,14 @@ struct scentab *ep;
 **	tcc_exit() - clean up and exit
 */
 
-TET_NORETURN void tcc_exit(status)
-int status;
+TET_NORETURN void tcc_exit(int status)
 {
 	exit(status);
 	/* NOTREACHED */
 }
 
-static void scpp_fatal(errnum, file, line, s1, s2)
-int errnum, line;
-char *file, *s1, *s2;
+static void scpp_fatal(int errnum, char *file, int line, char *s1, char *s2)
 {
 	(*tet_liberror)(errnum, file, line, s1, s2);
 	tcc_exit(1);
 }
-

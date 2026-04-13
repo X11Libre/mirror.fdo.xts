@@ -73,7 +73,7 @@ static void rescode_distribute PROTOLIST((void));
 **	initrescode() - set up the results code file
 */
 
-void initrescode()
+void initrescode(void)
 {
 	struct systab *sp;
 
@@ -105,7 +105,7 @@ void initrescode()
 **	there is no return on error
 */
 
-static void irc2()
+static void irc2(void)
 {
 	char fname[MAXPATH];
 	struct restab *rtp;
@@ -221,10 +221,7 @@ static void rescode_distribute()
 **	return 0 if successful or -1 on error
 */
 
-static int rdist2(sp, lines, nlines)
-struct systab *sp;
-char **lines;
-int nlines;
+static int rdist2(struct systab *sp, char **lines, int nlines)
 {
 	static char fmt[] = "can't open tmp result codes file %.*s on system";
 	char msg[sizeof fmt + MAXPATH];
@@ -274,7 +271,7 @@ int nlines;
 **	rescode_cleanup() - remove a temporary rescode file before exit
 */
 
-void rescode_cleanup()
+void rescode_cleanup(void)
 {
 #ifndef TET_LITE	/* -START-LITE-CUT- */
 	int sysid, sysmax;
@@ -293,4 +290,3 @@ void rescode_cleanup()
 #endif /* !TET_LITE */	/* -END-LITE-CUT- */
 
 }
-

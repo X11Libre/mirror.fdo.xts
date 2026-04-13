@@ -97,7 +97,7 @@ static void cts2 PROTOLIST((struct scentab *));
 **	(at present - always returns 0)
 */
 
-int proc2sclist()
+int proc2sclist(void)
 {
 	struct scentab *sctmp;
 	struct scentab *ep;
@@ -303,8 +303,7 @@ int proc2sclist()
 
 #endif /* NOTRACE */
 
-static int proc2scen(parent)
-struct scentab *parent;
+static int proc2scen(struct scentab *parent)
 {
 	struct scentab *sctmp;
 	struct scentab *ep;
@@ -404,8 +403,7 @@ struct scentab *parent;
 
 #endif /* NOTRACE */
 
-static int proc2scdir(ep, parent, sctp)
-struct scentab *ep, *parent, **sctp;
+static int proc2scdir(struct scentab *ep, struct scentab *parent, struct scentab **sctp)
 {
 	struct dirtab *dp;
 	struct scentab *q;
@@ -553,8 +551,7 @@ report_unmatched(int directive, int lineno, const char *fname)
 
 #endif /* NOTRACE */
 
-static void resolv_scenptr(ep, sctp)
-struct scentab *ep, **sctp;
+static void resolv_scenptr(struct scentab *ep, struct scentab **sctp)
 {
 
 #ifndef NOTRACE
@@ -593,9 +590,7 @@ struct scentab *ep, **sctp;
 **		which contains a referenced scenario name
 */
 
-static void rsc2(ep, sctp)
-struct scentab *ep;
-struct scentab **sctp;
+static void rsc2(struct scentab *ep, struct scentab **sctp)
 {
 	struct scentab *q;
 
@@ -684,8 +679,7 @@ find2scen(const char *scen_name)
 **	check_valid_scen_name() - check that a scenario name is valid
 */
 
-static void check_valid_scen_name(ep)
-struct scentab *ep;
+static void check_valid_scen_name(struct scentab *ep)
 {
 	const char *p;
 	int ok;
@@ -739,8 +733,7 @@ struct scentab *ep;
 
 #endif /* NOTRACE */
 
-static void check_tc_sys(ep)
-struct scentab *ep;
+static void check_tc_sys(struct scentab *ep)
 {
 
 #ifndef NOTRACE
@@ -793,8 +786,7 @@ struct scentab *ep;
 **		or SD_DISTRIBUTED directive is found
 */
 
-static void cts2(ep)
-struct scentab *ep;
+static void cts2(struct scentab *ep)
 {
 	int *ip1, *ip2;
 	int dups;
@@ -845,8 +837,7 @@ struct scentab *ep;
 
 #endif /* NOTRACE */
 
-static void etet_fix(ep)
-struct scentab *ep;
+static void etet_fix(struct scentab *ep)
 {
 #ifndef NOTRACE
 	static int level;
@@ -888,8 +879,7 @@ struct scentab *ep;
 **	etf2() - extend the etet_fix() processing for a parallel directive
 */
 
-static void etf2(ep)
-struct scentab *ep;
+static void etf2(struct scentab *ep)
 {
 	struct scentab *child;
 	int done;
@@ -962,8 +952,7 @@ struct scentab *ep;
 **	or 0 if it hasn't
 */
 
-static int etf3(ep1)
-struct scentab *ep1;
+static int etf3(struct scentab *ep1)
 {
 	struct scentab *parent = ep1->sc_parent;
 	struct scentab *forw, *back;
@@ -1073,8 +1062,7 @@ struct scentab *ep1;
 **	an implied SEQUENTIAL directive
 */
 
-static void etf4(ep1)
-struct scentab *ep1;
+static void etf4(struct scentab *ep1)
 {
 	struct scentab *ep2;
 #ifndef NOTRACE
@@ -1147,8 +1135,7 @@ struct scentab *ep1;
 **	a diagnostic is printed if the compatibility mode has not been set
 */
 
-static int etf2_compat(ep)
-struct scentab *ep;
+static int etf2_compat(struct scentab *ep)
 {
 	switch (tet_compat) {
 	case COMPAT_DTET:
@@ -1189,9 +1176,7 @@ struct scentab *ep;
 
 #endif /* NOTRACE */
 
-static void check_nesting(ep, sctp)
-struct scentab *ep;
-struct scentab **sctp;
+static void check_nesting(struct scentab *ep, struct scentab **sctp)
 {
 	struct scentab *q;
 
@@ -1236,9 +1221,7 @@ struct scentab **sctp;
 #undef TRACE_ENTER
 #undef TRACE_RETURN
 
-static void chn2(ep, sctp)
-struct scentab *ep;
-struct scentab **sctp;
+static void chn2(struct scentab *ep, struct scentab **sctp)
 {
 	struct scentab *q;
 	struct dirtab *dp;
@@ -1305,7 +1288,7 @@ struct scentab **sctp;
 **		after the scenario tree has been reduced to a single scenario
 */
 
-void check_empty_timed_loops()
+void check_empty_timed_loops(void)
 {
 	check_timed_loops(sctree->sc_child);
 	if (scenerrors)
@@ -1336,8 +1319,7 @@ void check_empty_timed_loops()
 
 #endif /* NOTRACE */
 
-static int check_timed_loops(ep)
-struct scentab *ep;
+static int check_timed_loops(struct scentab *ep)
 {
 	int n, count = 0;
 
@@ -1386,4 +1368,3 @@ struct scentab *ep;
 
 #undef TRACE_ENTER
 #undef TRACE_RETURN
-

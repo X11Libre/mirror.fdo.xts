@@ -86,7 +86,7 @@ static void tes2 PROTOLIST((int, void (*) PROTOLIST((int))));
 **	initsigtrap() - install initial signal traps
 */
 
-void initsigtrap()
+void initsigtrap(void)
 {
 	orig_sighup = install_handler(SIGHUP, initial_sigtrap);
 	orig_sigquit = install_handler(SIGQUIT, initial_sigtrap);
@@ -99,8 +99,7 @@ void initsigtrap()
 **		engine starts up
 */
 
-static void initial_sigtrap(sig)
-int sig;
+static void initial_sigtrap(int sig)
 {
 	static char text[] = "TCC shutdown on signal";
 
@@ -115,7 +114,7 @@ int sig;
 **	execsigtrap() - install signal traps for the execution engine
 */
 
-void execsigtrap()
+void execsigtrap(void)
 {
 	exec_block_signals();
 	install_handler(SIGHUP, engine_sigterm);
@@ -129,25 +128,21 @@ void execsigtrap()
 **		turns over
 */
 
-void exec_block_signals()
+void exec_block_signals(void)
 {
 	exec_sigprocmask(SIG_BLOCK);
 }
 
-void exec_unblock_signals()
+void exec_unblock_signals(void)
 {
 	exec_sigprocmask(SIG_UNBLOCK);
 }
-
-
-
 
 /*
 **	exec_sigprocmask() - block or unblock signals
 */
 
-static void exec_sigprocmask(how)
-int how;
+static void exec_sigprocmask(int how)
 {
 	sigset_t mask;
 
@@ -169,8 +164,7 @@ int how;
 **		the execution engine is running
 */
 
-static void engine_sigterm(sig)
-int sig;
+static void engine_sigterm(int sig)
 {
 	TRACE2(TET_MAX(tet_Ttcc, tet_Texec), 4, "engine_sigterm(): signal = %s",
 		tet_i2a(sig));
@@ -185,8 +179,7 @@ int sig;
 **		the execution engine is running
 */
 
-static void engine_abort(sig)
-int sig;
+static void engine_abort(int sig)
 {
 	struct proctab *prp;
 
@@ -232,8 +225,7 @@ int sig;
 #ifdef NOTRACE
 /* ARGSUSED */
 #endif
-static int engine_tcinterrupt(sig)
-int sig;
+static int engine_tcinterrupt(int sig)
 {
 	struct proctab *prp;
 	int count = 0;
@@ -262,8 +254,7 @@ int sig;
 **	always returns 0
 */
 
-static int eng1_tcinterrupt(prp)
-struct proctab *prp;
+static int eng1_tcinterrupt(struct proctab *prp)
 {
 	TRACE3(TET_MAX(tet_Ttcc, tet_Texec), 6,
 		"eng1_tcinterrupt(%s): toolstate = %s",
@@ -295,7 +286,7 @@ struct proctab *prp;
 **	tccd sends a SIGHUP to any left-over executed processes)
 */
 
-void engine_shutdown()
+void engine_shutdown(void)
 {
 	struct proctab *prp;
 	int count = 0;
@@ -347,8 +338,7 @@ void engine_shutdown()
 **	always returns 0
 */
 
-static int quick_killtc(prp)
-struct proctab *prp;
+static int quick_killtc(struct proctab *prp)
 {
 	TRACE3(TET_MAX(tet_Ttcc, tet_Texec), 6,
 		"quick_killtc(%s): toolstate = %s",
@@ -366,9 +356,10 @@ struct proctab *prp;
 **	install_handler() - install a signal handler
 */
 
-static void (*install_handler(sig, func))(int)
-int sig;
-void (*func) PROTOLIST((int));
+static void (*install_handler(
+    int sig,
+    void (*func) PROTOLIST((int))
+))(int)
 {
 	void (*rc) PROTOLIST((int));
 
@@ -401,7 +392,7 @@ void (*func) PROTOLIST((int));
 **	this function is called from the tcclib function tcf_exec()
 */
 
-void tcc_exec_signals()
+void tcc_exec_signals(void)
 {
 	tes2(SIGHUP, orig_sighup);
 	tes2(SIGQUIT, orig_sigquit);
@@ -413,9 +404,10 @@ void tcc_exec_signals()
 **	tes2() - extend the tcc_exec_signals() processing for a
 **		single signal
 */
-static void tes2(sig, func)
-int sig;
-void (*func) PROTOLIST((int));
+static void tes2(
+    int sig,
+    void (*func) PROTOLIST((int))
+)
 {
 	struct sigaction sa;
 
@@ -447,4 +439,3 @@ void (*func) PROTOLIST((int));
 }
 
 #  endif /* TET_LITE */	/* -LITE-CUT-LINE- */
-

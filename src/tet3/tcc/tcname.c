@@ -60,10 +60,7 @@ MODIFICATIONS:
 **	on return up to namelen bytes are copied into the name array
 */
 
-void tcsrcname(prp, name, namelen)
-struct proctab *prp;
-char name[];
-int namelen;
+void tcsrcname(struct proctab *prp, char name[], int namelen)
 {
 	char *tcname = prp->pr_scen->sc_tcname;
 	char *tsroot;
@@ -102,10 +99,7 @@ tcexecname(struct proctab *prp, const char *altexecdir,
 **	on return up to dirlen bytes are copied into the dir array
 */
 
-void tcsrcdir(prp, dir, dirlen)
-struct proctab *prp;
-char dir[];
-int dirlen;
+void tcsrcdir(struct proctab *prp, char dir[], int dirlen)
 {
 	char name[MAXPATH];
 
@@ -129,4 +123,3 @@ tcexecdir(struct proctab *prp, const char *altexecdir,
 	tcexecname(prp, altexecdir, name, (int) sizeof name);
 	tcc_dirname(name, dir, dirlen);
 }
-

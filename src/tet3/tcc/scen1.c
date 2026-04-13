@@ -220,7 +220,7 @@ proc1scfile(FILE *fp, const char *fname)
 **		-1 if processing of this file must be abandoned
 */
 
-static int find1scen()
+static int find1scen(void)
 {
 	char *line;
 	int n, skipstart = 0;
@@ -272,7 +272,7 @@ static int find1scen()
 **		-1 if processing of this file must be abandoned
 */
 
-static int proc1scen()
+static int proc1scen(void)
 {
 	char *line, *next;
 	char *p;
@@ -328,8 +328,7 @@ static int proc1scen()
 **	return 0 if successful or -1 if processing must be abandoned
 */
 
-int proc1cmdline(line)
-char *line;
+int proc1cmdline(char *line)
 {
 	static char cmdline[] = "<command-line>";
 	static int lineno;
@@ -1043,8 +1042,7 @@ includefile(char *nextfile, const char *currfile, int currline)
 **	return 1 if it is or 0 if it isn't
 */
 
-static int iszorpnum(s)
-char *s;
+static int iszorpnum(char *s)
 {
 	if (!*s)
 		return(0);
@@ -1065,9 +1063,7 @@ char *s;
 **		through *startp and *endp
 */
 
-static int isnumrange(s, startp, endp)
-char *s;
-int *startp, *endp;
+static int isnumrange(char *s, int *startp, int *endp)
 {
 	char *p;
 	int rc;
@@ -1093,7 +1089,7 @@ int *startp, *endp;
 **		input file stack element
 */
 
-static struct ifstack *ifsalloc()
+static struct ifstack *ifsalloc(void)
 {
 	struct ifstack *ifp;
 
@@ -1107,8 +1103,7 @@ static struct ifstack *ifsalloc()
 	return(ifp);
 }
 
-static void ifsfree(ifp)
-struct ifstack *ifp;
+static void ifsfree(struct ifstack *ifp)
 {
 	struct lcache *lcp;
 
@@ -1131,8 +1126,7 @@ struct ifstack *ifp;
 **	tet_listremove()
 */
 
-static void ifspush(ifp)
-struct ifstack *ifp;
+static void ifspush(struct ifstack *ifp)
 {
 	TRACE2(tet_Tscen, 10, "ifspush(): push active filename %s on stack",
 		ifp->if_fname);
@@ -1143,7 +1137,7 @@ struct ifstack *ifp;
 	ifstp = ifstack;
 }
 
-static struct ifstack *ifspop()
+static struct ifstack *ifspop(void)
 {
 	struct ifstack *ifp;
 
@@ -1175,7 +1169,7 @@ static struct ifstack *ifspop()
 **	return a pointer to the line, or (char *) 0 on EOF or error
 */
 
-static char *getline_tcc()
+static char *getline_tcc(void)
 {
 	static char buf[LBUFLEN];
 	struct lcache *lcp;
@@ -1273,8 +1267,7 @@ static char *getline_tcc()
 **	ungetline_tcc() - store a line for subsequent retrieval by getline_tcc()
 */
 
-static void ungetline_tcc(line)
-char *line;
+static void ungetline_tcc(char *line)
 {
 	struct lcache *lcp;
 
@@ -1294,8 +1287,7 @@ char *line;
 **	(at present, always returns 0)
 */
 
-static int preprocess(line)
-char *line;
+static int preprocess(char *line)
 {
 	/* list of keywords and their associated functions */
 	static struct ppfuncs {
@@ -1351,8 +1343,7 @@ char *line;
 **	always returns 0
 */
 
-static int ppinclude(line)
-char *line;
+static int ppinclude(char *line)
 {
 	char fname[TET_MAX(LBUFLEN, MAXPATH)];
 	struct ifstack *ifp;
@@ -1400,7 +1391,7 @@ char *line;
 **		line cache element
 */
 
-static struct lcache *lcalloc()
+static struct lcache *lcalloc(void)
 {
 	struct lcache *lcp;
 
@@ -1413,8 +1404,7 @@ static struct lcache *lcalloc()
 	return(lcp);
 }
 
-static void lcfree(lcp)
-struct lcache *lcp;
+static void lcfree(struct lcache *lcp)
 {
 	TRACE2(tet_Tbuf, 6, "free lcache element = %s", tet_i2x(lcp));
 
@@ -1436,8 +1426,7 @@ struct lcache *lcp;
 **	tet_listremove()
 */
 
-static void lcpush(lcp)
-struct lcache *lcp;
+static void lcpush(struct lcache *lcp)
 {
 	/*
 	** if all the lines read from the current file are already in
@@ -1465,7 +1454,7 @@ struct lcache *lcp;
 	ifstp->if_lcount--;
 }
 
-static struct lcache *lcpop()
+static struct lcache *lcpop(void)
 {
 	/*
 	** if there are no lines in the cache at the currently active level
@@ -1486,8 +1475,7 @@ static struct lcache *lcpop()
 **		belongs to the input file stack element at *ifp
 */
 
-static struct lcache *lcpop2(ifp)
-struct ifstack *ifp;
+static struct lcache *lcpop2(struct ifstack *ifp)
 {
 	struct lcache *lcp;
 
@@ -1517,8 +1505,7 @@ struct ifstack *ifp;
 #ifndef NOTRACE
 
 #define PLEN	30
-static char *firstpart(s)
-char *s;
+static char *firstpart(char *s)
 {
 	static char dots[] = " ...";
 	static char buf[PLEN + sizeof dots];
@@ -1530,5 +1517,3 @@ char *s;
 }
 
 #endif /* NOTRACE */
-
-

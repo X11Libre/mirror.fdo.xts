@@ -130,8 +130,7 @@ static int sd_start()
 **	return 0 if successful or -1 on error
 */
 
-static int xd_start(savedir)
-char *savedir;
+static int xd_start(char *savedir)
 {
 	static char *argv[] = {
 		"tetxresd",
@@ -159,9 +158,7 @@ char *savedir;
 **	(struct ptab *) 0 otherwise
 */
 
-static struct ptab *ti_stserver(ptype, argv)
-int ptype;
-char **argv;
+static struct ptab *ti_stserver(int ptype, char **argv)
 {
 	struct ptab *pp;
 
@@ -186,9 +183,7 @@ char **argv;
 **	return 0 if successful, -1 otherwise
 */
 
-static int ti_st2(pp, argv)
-struct ptab *pp;
-char **argv;
+static int ti_st2(struct ptab *pp, char **argv)
 {
 	int rc;
 	char **avp;
@@ -327,8 +322,7 @@ static int env2sys0()
 **	server logoff routines do not come here
 */
 
-void tet_ss_dead(pp)
-struct ptab *pp;
+void tet_ss_dead(struct ptab *pp)
 {
 	/* emit a diagnostic if this is unexpected */
 	if ((pp->pt_flags & PF_LOGGEDOFF) == 0)
@@ -341,8 +335,7 @@ struct ptab *pp;
 **	tet_ss_connect() - connect to remote process
 */
 
-void tet_ss_connect(pp)
-struct ptab *pp;
+void tet_ss_connect(struct ptab *pp)
 {
 	tet_ts_connect(pp);
 }
@@ -354,16 +347,14 @@ struct ptab *pp;
 **	tcc does not make use of server-specific data
 */
 
-int tet_ss_ptalloc(pp)
-struct ptab *pp;
+int tet_ss_ptalloc(struct ptab *pp)
 {
 	pp->pt_sdata = (char *) 0;
 	return(0);
 }
 
 /* ARGSUSED */
-void tet_ss_ptfree(pp)
-struct ptab *pp;
+void tet_ss_ptfree(struct ptab *pp)
 {
 	/* nothing */
 }
@@ -373,4 +364,3 @@ struct ptab *pp;
 int tet_dtcc_c_not_used;
 
 #endif /* !TET_LITE */	/* -LITE-CUT-LINE- */
-

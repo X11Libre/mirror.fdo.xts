@@ -119,9 +119,7 @@ int ts_needdist()
 **	return 0 if successful or -1 on error
 */
 
-int ts_stserver(pp, argv)
-struct ptab *pp;
-char **argv;
+int ts_stserver(struct ptab *pp, char **argv)
 {
 	int rc;
 	SOCKET sd;
@@ -144,10 +142,7 @@ char **argv;
 **	return 0 if successful or -1 on error
 */
 
-static int ts_ss2(pp, argv, sd)
-struct ptab *pp;
-char **argv;
-SOCKET sd;
+static int ts_ss2(struct ptab *pp, char **argv, SOCKET sd)
 {
 	struct tptab *tp = (struct tptab *) pp->pt_tdata;
 	int fd, pid, rc;
@@ -255,8 +250,7 @@ SOCKET sd;
 **	return 0 if successful or -1 on error
 */
 
-int tet_ss_tsconnect(pp)
-struct ptab *pp;
+int tet_ss_tsconnect(struct ptab *pp)
 {
 	/*
 	** work out where the process is on the network -
@@ -291,9 +285,7 @@ struct ptab *pp;
 **	return 0 if successful or -1 on error
 */
 
-int tet_ss_tsinfo(pp, ptype)
-struct ptab *pp;
-int ptype;
+int tet_ss_tsinfo(struct ptab *pp, int ptype)
 {
 	struct tptab *tp;
 	struct tsinfo *mp;
@@ -391,8 +383,7 @@ int ts_tsinfolen()
 **	ts_tsinfo2bs() - call tet_tsinfo2bs()
 */
 
-int ts_tsinfo2bs(from, to)
-char *from, *to;
+int ts_tsinfo2bs(char *from, char *to)
 {
 	return(tet_tsinfo2bs((struct tsinfo *) from, to));
 }
@@ -402,4 +393,3 @@ char *from, *to;
 int tet_tcc_in_c_not_used;
 
 #endif /* !TET_LITE */	/* -LITE-CUT-LINE- */
-

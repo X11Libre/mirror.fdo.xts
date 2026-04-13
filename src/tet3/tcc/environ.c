@@ -58,13 +58,10 @@ MODIFICATIONS:
 /* static function declarations */
 static void init1environ PROTOLIST((struct systab *));
 
-
-
 /*
 **	initenviron() - initialise the environment on each system
 */
-
-void initenviron()
+void initenviron(void)
 {
 	int sysid, sysmax;
 	struct systab *sp;
@@ -75,8 +72,7 @@ void initenviron()
 			init1environ(sp);
 }
 
-static void init1environ(sp)
-struct systab *sp;
+static void init1environ(struct systab *sp)
 {
 	/*
 	** distributed config variables that are to be passed as
@@ -143,9 +139,7 @@ struct systab *sp;
 **	environment of the current process and so must be in static storage
 */
 
-int tcc_putenv(sysid, str)
-int sysid;
-char *str;
+int tcc_putenv(int sysid, char *str)
 {
 	return(tcc_putenvv(sysid, &str, 1));
 }
@@ -160,10 +154,7 @@ char *str;
 **	environment of the current process and so must be in static storage
 */
 
-int tcc_putenvv(sysid, str, nstr)
-int sysid;
-char **str;
-int nstr;
+int tcc_putenvv(int sysid, char **str, int nstr)
 {
 	ASSERT_LITE(sysid == 0);
 
@@ -185,4 +176,3 @@ int nstr;
 
 	return(0);
 }
-

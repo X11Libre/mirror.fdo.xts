@@ -65,8 +65,7 @@ static char *ressubdir PROTOLIST((char *));
 **	cwd is tcc's initial working directory
 */
 
-void initresdir(iopt, cwd)
-char *iopt, *cwd;
+void initresdir(char *iopt, char *cwd)
 {
 	char resroot[MAXPATH], resdir[MAXPATH];
 	int n, rc;
@@ -123,8 +122,7 @@ const char *resdirname(void)
 **	ressubdir() - return the name of the results subdirectory to use
 */
 
-static char *ressubdir(resroot)
-char *resroot;
+static char *ressubdir(char *resroot)
 {
 	DIR *dirp;
 	struct dirent *dp;
@@ -167,7 +165,7 @@ char *resroot;
 **		directory on a remote system
 */
 
-char *resdirsuffix()
+char *resdirsuffix(void)
 {
 	static char suffix[4];
 	char *p;
@@ -184,4 +182,3 @@ char *resdirsuffix()
 
 	return(suffix);
 }
-

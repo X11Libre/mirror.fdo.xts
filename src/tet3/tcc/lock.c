@@ -68,10 +68,7 @@ MODIFICATIONS:
 **	treated as an error; in this case an empty string is returned
 */
 
-int tcc_lock(prp, shared, dir, lkname, lknamelen)
-struct proctab *prp;
-int shared, lknamelen;
-char *dir, lkname[];
+int tcc_lock(struct proctab *prp, int shared, char *dir, char lkname[], int lknamelen)
 {
 	static char fmt[] = "can't acquire %s lock";
 	char msg[sizeof fmt + 9];
@@ -135,10 +132,7 @@ char *dir, lkname[];
 **	return 0 if successful or -1 on error
 */
 
-int tcc_unlock(prp, shared, lkname)
-struct proctab *prp;
-int shared;
-char *lkname;
+int tcc_unlock(struct proctab *prp, int shared, char *lkname)
 {
 	static char fmt[] = "can't remove %s lock%s";
 	char msg[sizeof fmt + 20];
@@ -196,4 +190,3 @@ char *lkname;
 
 	return(rc);
 }
-

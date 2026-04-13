@@ -81,7 +81,7 @@ static void rtrc2 PROTOLIST((int, char *));
 **		on the local system if so required
 */
 
-void rtlcopy()
+void rtlcopy(void)
 {
 	static char fmt[] = "can't copy test suite %.*s to runtime directory %.*s on";
 	char msg[sizeof fmt + (MAXPATH * 2)];
@@ -130,9 +130,7 @@ void rtrcopy()
 **	rtrc2() - extend the rtrcopy() processing for a particular system
 */
 
-static void rtrc2(sysid, rtdir)
-int sysid;
-char *rtdir;
+static void rtrc2(int sysid, char *rtdir)
 {
 	static char fmt[] = "can't copy test suite %.*s to runtime directory %.*s on system";
 	char msg[sizeof fmt + (MAXPATH * 2)];
@@ -166,7 +164,7 @@ char *rtdir;
 **		on each system for use when TET_EXEC_IN_PLACE is false
 */
 
-void inittmpdir()
+void inittmpdir(void)
 {
 	int sysid, sysmax;
 	struct systab *sp;
@@ -180,8 +178,7 @@ void inittmpdir()
 **	inittd2() - extend the inittmpdir() processing for a particular system
 */
 
-static void inittd2(sp)
-struct systab *sp;
+static void inittd2(struct systab *sp)
 {
 	static char tmpdirname[] = "TET_TMP_DIR";
 	char buf[MAXPATH];
@@ -213,9 +210,7 @@ struct systab *sp;
 **	return the name of the default location
 */
 
-static void inittd3(sysid, tdir, tdirlen)
-int sysid, tdirlen;
-char tdir[];
+static void inittd3(int sysid, char tdir[], int tdirlen)
 {
 	static char fmt[] = "can't create directory %.*s on system";
 	char msg[sizeof fmt + MAXPATH];
@@ -254,9 +249,7 @@ char tdir[];
 **	indirectly through *tdp
 */
 
-int tcc_mktmpdir(prp, tmproot, tdp)
-struct proctab *prp;
-char *tmproot, **tdp;
+int tcc_mktmpdir(struct proctab *prp, char *tmproot, char **tdp)
 {
 
 	ASSERT_LITE(*prp->pr_sys == 0);
@@ -291,9 +284,7 @@ char *tmproot, **tdp;
 **	return 0 if successful or -1 on error
 */
 
-int tcc_mkalldirs(prp, dir)
-struct proctab *prp;
-char *dir;
+int tcc_mkalldirs(struct proctab *prp, char *dir)
 {
 	int rc;
 
@@ -324,9 +315,7 @@ char *dir;
 **	return 0 if successful or -1 on error
 */
 
-int tcc_rmtmpdir(prp, tmpdir)
-struct proctab *prp;
-char *tmpdir;
+int tcc_rmtmpdir(struct proctab *prp, char *tmpdir)
 {
 	struct systab *sp;
 	char *tetroot;
@@ -382,9 +371,7 @@ char *tmpdir;
 **	return 0 if successful or -1 on error
 */
 
-int tccopy(prp, from, to)
-struct proctab *prp;
-char *from, *to;
+int tccopy(struct proctab *prp, char *from, char *to)
 {
 	static char fmt[] = "can't copy test case directory %.*s to temporary directory";
 	char msg[sizeof fmt + MAXPATH];
@@ -437,8 +424,7 @@ void initsfdir()
 **	return 0 if successful or -1 on error
 */
 
-static int init1sfdir(sp)
-struct systab *sp;
+static int init1sfdir(struct systab *sp)
 {
 	static char fmt[] =
 		"can't create saved files directory %s%.*s on system";
@@ -489,10 +475,7 @@ struct systab *sp;
 **	return 0 if successful or -1 on error
 */
 
-int sfproc(prp, sfiles, nsfiles)
-struct proctab *prp;
-char **sfiles;
-int nsfiles;
+int sfproc(struct proctab *prp, char **sfiles, int nsfiles)
 {
 	static char fmt[] = "can't copy save files from %.*s on system %03d to";
 	char msg[sizeof fmt + MAXPATH + LNUMSZ];
@@ -578,4 +561,3 @@ int nsfiles;
 
 	return(rc);
 }
-

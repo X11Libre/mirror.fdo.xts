@@ -62,7 +62,7 @@ struct proctab *runq;
 **		tcc process table element
 */
 
-struct proctab *pralloc()
+struct proctab *pralloc(void)
 {
 	struct proctab *prp;
 
@@ -86,8 +86,7 @@ struct proctab *pralloc()
 	return(prp);
 }
 
-void prfree(prp)
-struct proctab *prp;
+void prfree(struct proctab *prp)
 {
 	TRACE2(tet_Tbuf, 6, "free proctab element = %s", tet_i2x(prp));
 
@@ -109,8 +108,7 @@ struct proctab *prp;
 **	prcfree() - free all of this proctab's children
 */
 
-void prcfree(prp)
-struct proctab *prp;
+void prcfree(struct proctab *prp)
 {
 	struct proctab *child, *lforw;
 
@@ -127,8 +125,7 @@ struct proctab *prp;
 **	runqadd() - add a proctab element to the end of the run queue
 */
 
-void runqadd(prp)
-struct proctab *prp;
+void runqadd(struct proctab *prp)
 {
 	struct proctab *q;
 
@@ -160,8 +157,7 @@ struct proctab *prp;
 **	runqrm() - remove a proctab element from the run queue
 */
 
-void runqrm(prp)
-struct proctab *prp;
+void runqrm(struct proctab *prp)
 {
 	TRACE3(tet_Texec, 10, "runqrm(): remove proctab %s from runq (%s)",
 		tet_i2x(prp), tet_i2x(runq));
@@ -197,8 +193,7 @@ struct proctab *prp;
 */
 
 const char *
-prpstate(state)
-int state;
+prpstate(int state)
 {
 	static char text[] = "proctab-state ";
 	static char msg[sizeof text + LNUMSZ];
@@ -226,8 +221,7 @@ int state;
 */
 
 const char *
-prtcstate(state)
-int state;
+prtcstate(int state)
 {
 	static char text[] = "testcase-state ";
 	static char msg[sizeof text + LNUMSZ];
@@ -269,8 +263,7 @@ int state;
 */
 
 const char *
-prpflags(fval)
-int fval;
+prpflags(int fval)
 {
 	static struct flags flags[] = {
 		{ PRF_ATTENTION,	"ATTENTION" },
@@ -292,8 +285,7 @@ int fval;
 */
 
 const char *
-prtoolstate(state)
-int state;
+prtoolstate(int state)
 {
 	static char text[] = "tool-state ";
 	static char msg[sizeof text + LNUMSZ];
@@ -316,4 +308,3 @@ int state;
 		return(msg);
 	}
 }
-

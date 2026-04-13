@@ -61,9 +61,7 @@ MODIFICATIONS:
 **	tcc_texec() - execute a test case on the specified system
 */
 
-long tcc_texec(prp, path, argv, tcdir, outfile)
-struct proctab *prp;
-char *path, **argv, *tcdir, *outfile;
+long tcc_texec(struct proctab *prp, char *path, char **argv, char *tcdir, char *outfile)
 {
 	static char fmt[] = "TET_ACTIVITY=%d";
 #ifdef TET_LITE	/* -LITE-CUT-LINE- */
@@ -169,9 +167,7 @@ char *path, **argv, *tcdir, *outfile;
 **	return 0 if successful or -1 on error
 */
 
-int sychdir(sp, dir)
-struct systab *sp;
-char *dir;
+int sychdir(struct systab *sp, char *dir)
 {
 	int already_there;
 
@@ -200,4 +196,3 @@ char *dir;
 	TRACE1(tet_Ttcc, 9, "sychdir(): chdir was successful");
 	return(0);
 }
-

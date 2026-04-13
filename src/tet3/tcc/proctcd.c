@@ -67,8 +67,7 @@ static void rm_snid PROTOLIST((struct proctab *));
 **	return 0 if successful or -1 on error
 */
 
-int get_snid_xrid(prp)
-struct proctab *prp;
+int get_snid_xrid(struct proctab *prp)
 {
 	char *fname;
 
@@ -122,8 +121,7 @@ struct proctab *prp;
 **	rm_snid_xrid() - remove a sync ID, close an XRES file
 */
 
-void rm_snid_xrid(prp)
-struct proctab *prp;
+void rm_snid_xrid(struct proctab *prp)
 {
 	/* remove the sync ID */
 	rm_snid(prp);
@@ -139,8 +137,7 @@ struct proctab *prp;
 **	rm_snid() - remove a sync ID
 */
 
-static void rm_snid(prp)
-struct proctab *prp;
+static void rm_snid(struct proctab *prp)
 {
 	if (prp->pr_snid > 0L && tet_sdsnrm(prp->pr_snid) < 0)
 		prperror(prp, -1, tet_sderrno,
@@ -157,8 +154,7 @@ struct proctab *prp;
 **	note that these child proctabs never go on the runq
 */
 
-void setup_child_proctabs(prp)
-struct proctab *prp;
+void setup_child_proctabs(struct proctab *prp)
 {
 	struct proctab *child;
 	int *ip;
@@ -190,9 +186,8 @@ struct proctab *prp;
 **	return 0 if successful or -1 if at least one function failed
 */
 
-int run_child_proctabs(prp, func)
-struct proctab *prp;
-int (*func) PROTOLIST((struct proctab *));
+int run_child_proctabs(struct proctab *prp,
+                       int (*func) PROTOLIST((struct proctab *)))
 {
 	struct proctab *child;
 	int rc = 0;
@@ -216,9 +211,7 @@ int (*func) PROTOLIST((struct proctab *));
 **		children whose toolstate is in the specified state
 */
 
-int child_proctabs_tstate(prp, state)
-struct proctab *prp;
-int state;
+int child_proctabs_tstate(struct proctab *prp, int state)
 {
 	struct proctab *child;
 	int count = 0;
@@ -236,8 +229,7 @@ int state;
 **	unlink_xres() - unlink the xres file if nexessary
 */
 
-void unlink_xres(prp)
-struct proctab *prp;
+void unlink_xres(struct proctab *prp)
 {
 	if (prp->pr_xfname) {
 		UNLINK(prp->pr_xfname);
@@ -255,8 +247,7 @@ struct proctab *prp;
 **	return 0 if successful or -1 on error
 */
 
-int configure_tccd(prp)
-struct proctab *prp;
+int configure_tccd(struct proctab *prp)
 {
 	int *ip;
 
@@ -274,9 +265,7 @@ struct proctab *prp;
 **	return 0 if successful or -1 on error
 */
 
-static int conf1tccd(prp, sysid, opmode)
-struct proctab *prp;
-int sysid, opmode;
+static int conf1tccd(struct proctab *prp, int sysid, int opmode)
 {
 	struct systab *sp;
 	int cfmode, tc_cfmode;
@@ -342,4 +331,3 @@ int sysid, opmode;
 int tet_proctcd_c_not_used;
 
 #endif /* !TET_LITE */	/* -LITE-CUT-LINE- */
-

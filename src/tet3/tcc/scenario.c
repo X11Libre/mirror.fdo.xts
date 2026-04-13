@@ -83,8 +83,7 @@ static void print_summary PROTOLIST((struct proctab *));
 **	proclopt() - store a -l command-line option for later processing
 */
 
-void proclopt(line)
-char *line;
+void proclopt(char *line)
 {
 	if (!line || !*line)
 		return;
@@ -178,7 +177,7 @@ procscen(const char *scenario, const char *sopt, const char *cwd)
 **	execscen() - execute (process) the scenario
 */
 
-int execscen()
+int execscen(void)
 {
 	struct proctab *prp, *q;
 	static int sys0 = 0;
@@ -260,8 +259,7 @@ int execscen()
 **	return 1 if it does or 0 if it doesn't
 */
 
-int is_resume_point(prp)
-struct proctab *prp;
+int is_resume_point(struct proctab *prp)
 {
 	TRACE5(tet_Texec, 8, "is_resume_point(): scen = %s, resume_scen = %s, currmode = %s, resume_mode = %s",
 		tet_i2x(prp->pr_scen), tet_i2x(resume_scen),

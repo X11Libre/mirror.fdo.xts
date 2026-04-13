@@ -104,8 +104,7 @@ static FILE *open_xresdfile PROTOLIST((struct proctab *));
 **	or at the level below (prp->pr_child true)
 */
 
-int jnlproc_api(prp)
-struct proctab *prp;
+int jnlproc_api(struct proctab *prp)
 {
 #ifndef TET_LITE	/* -START-LITE-CUT- */
 	FILE *fp;
@@ -157,8 +156,7 @@ struct proctab *prp;
 **	false PASS
 */
 
-static int jp_tetxres(prp)
-struct proctab *prp;
+static int jp_tetxres(struct proctab *prp)
 {
 	char *fname;
 	FILE *fp;
@@ -234,10 +232,7 @@ struct proctab *prp;
 **	this is the name of the tet_xres file on the remote system
 */
 
-static int jp_xres(prp, fp, fname)
-struct proctab *prp;
-FILE *fp;
-char *fname;
+static int jp_xres(struct proctab *prp, FILE *fp, char *fname)
 {
 	char line[LBUFLEN];
 	char buf[LBUFLEN];
@@ -281,11 +276,7 @@ char *fname;
 **	return 0 if the TP reported PASS, -1 otherwise
 */
 
-static int jp_reorder(prp, fp, fname, tpno, line, buf)
-struct proctab *prp;
-FILE *fp;
-char *fname, line[], buf[];
-int tpno;
+static int jp_reorder(struct proctab *prp, FILE *fp, char *fname, int tpno, char line[], char buf[])
 {
 	char *flds[3];
 	struct xrlist *lines1 = (struct xrlist *) 0;
@@ -414,8 +405,7 @@ int tpno;
 **	jp_cmp() - comparison routine for qsort()
 */
 
-static int jp_cmp(ep1, ep2)
-const void *ep1, *ep2;
+static int jp_cmp(const void *ep1, const void *ep2)
 {
 	return(((struct xrlist *) ep1)->xr_sequence -
 		((struct xrlist *) ep2)->xr_sequence);
@@ -428,8 +418,7 @@ const void *ep1, *ep2;
 **	from a system which uses CRLF as a line terminator
 */
 
-static void jp_trim(line)
-char *line;
+static void jp_trim(char *line)
 {
 	char *p;
 
@@ -449,9 +438,7 @@ char *line;
 **	return 0 if 3 fields were found, -1 otherwise
 */
 
-static int jp_split(prp, fname, line, fldp, buf)
-struct proctab *prp;
-char *fname, *line, **fldp, buf[];
+static int jp_split(struct proctab *prp, char *fname, char *line, char **fldp, char buf[])
 {
 
 	if (jnlproc_split(line, fldp, buf) < 0) {
@@ -474,8 +461,7 @@ char *fname, *line, **fldp, buf[];
 **	it is possible for there to be child proctabs below this level
 */
 
-int jnlproc_nonapi(prp)
-struct proctab *prp;
+int jnlproc_nonapi(struct proctab *prp)
 {
 	int rc;
 
@@ -503,8 +489,7 @@ struct proctab *prp;
 **	return 0 if the tool returned a zero exit code, -1 otherwise
 */
 
-static int jp1_nonapi(prp)
-struct proctab *prp;
+static int jp1_nonapi(struct proctab *prp)
 {
 	if (prp->pr_flags & PRF_AUTORESULT) {
 		jnl_tp_result(prp, 1, prp->pr_exitcode ? TET_FAIL : TET_PASS);
@@ -525,8 +510,7 @@ struct proctab *prp;
 **	or on error
 */
 
-static FILE *open_xresdfile(prp)
-struct proctab *prp;
+static FILE *open_xresdfile(struct proctab *prp)
 {
 	FILE *fp;
 	char buf[LBUFLEN];
@@ -571,8 +555,7 @@ struct proctab *prp;
 **	return 0 if 3 fields were found, -1 otherwise
 */
 
-int jnlproc_split(line, fldp, buf)
-char *line, **fldp, buf[];
+int jnlproc_split(char *line, char **fldp, char buf[])
 {
 	char *p1, *p2;
 	int nflds = 0, new = 1;
@@ -602,4 +585,3 @@ char *line, **fldp, buf[];
 
 	return(0);
 }
-

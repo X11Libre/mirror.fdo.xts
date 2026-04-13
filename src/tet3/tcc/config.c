@@ -256,8 +256,7 @@ static void reportdcfg PROTOLIST((void));
 **	cwd is tcc's initial working directory
 */
 
-void initcfg(fopt, gopt, xopt, cwd)
-char *fopt, *gopt, *xopt, *cwd;
+void initcfg(char *fopt, char *gopt, char *xopt, char *cwd)
 {
 	static char tet_version[] =
 #ifdef TET_LITE	/* -LITE-CUT-LINE- */
@@ -354,9 +353,7 @@ char *fopt, *gopt, *xopt, *cwd;
 **		from a configuration file
 */
 
-static void readmconf(fname, lp)
-char *fname;
-struct cflist *lp;
+static void readmconf(char *fname, struct cflist *lp)
 {
 	FILE *fp;
 	char buf[MAXPATH * 2];
@@ -450,8 +447,7 @@ proccfl2(const char *line, struct cflist *lp)
 **	configuration list
 */
 
-static void addvopts(lp)
-struct cflist *lp;
+static void addvopts(struct cflist *lp)
 {
 	char **cp;
 
@@ -470,8 +466,7 @@ struct cflist *lp;
 **	fix_tet_api_compliant() - provide a default value for TET_API_COMPLIANT
 */
 
-static void fix_tet_api_compliant(mode)
-int mode;
+static void fix_tet_api_compliant(int mode)
 {
 	static char name[] = "TET_API_COMPLIANT";
 	char line[sizeof name + 6];
@@ -494,8 +489,7 @@ int mode;
 **	fix_tet_pass_tc_name() - provide a default value for TET_PASS_TC_NAME
 */
 
-static void fix_tet_pass_tc_name(mode)
-int mode;
+static void fix_tet_pass_tc_name(int mode)
 {
 	static char name[] = "TET_PASS_TC_NAME";
 	char line[sizeof name + 6];
@@ -521,7 +515,7 @@ int mode;
 **	for each of the selected modes of operation
 */
 
-static void compat_fix()
+static void compat_fix(void)
 {
 	int compat;
 	int conflict;
@@ -571,8 +565,7 @@ static void compat_fix()
 **	defined, or 0 if TET_COMPAT has not been defined with a valid value
 */
 
-static int cfix2(mode)
-int mode;
+static int cfix2(int mode)
 {
 	static char compatname[] = "TET_COMPAT";
 	char *p;
@@ -598,7 +591,7 @@ int mode;
 **	distcfg() - process the distributed configuration
 */
 
-void distcfg()
+void distcfg(void)
 {
 	struct dvar *dvp;
 	int sysid, sysmax;
@@ -748,8 +741,7 @@ void distcfg()
 **	return 0 if successful or -1 on error
 */
 
-int procvopt(line)
-char *line;
+int procvopt(char *line)
 {
 	/* check the format of the config line */
 	if (!tet_equindex(line) || !tet_remvar(line, -1)) {
@@ -773,7 +765,7 @@ char *line;
 **		journal
 */
 
-void doconfig()
+void doconfig(void)
 {
 	struct systab *sp;
 	struct cflist *blp, *elp, *clp;
@@ -942,8 +934,7 @@ void doconfig()
 **		modes of operation
 */
 
-static void docfloc(sp)
-struct systab *sp;
+static void docfloc(struct systab *sp)
 {
 	TRACE1(tet_Ttcc, 2, "docfloc(): fix up all the local configurations");
 
@@ -961,9 +952,7 @@ struct systab *sp;
 **	docfl2() - extend the docfloc() processing for a particular mode
 */
 
-static void docfl2(sp, mode)
-struct systab *sp;
-int mode;
+static void docfl2(struct systab *sp, int mode)
 {
 	struct cflist *from, *to;
 	char **cp;
@@ -1024,8 +1013,7 @@ int mode;
 **		modes of operation
 */
 
-static void docfrem(sp)
-struct systab *sp;
+static void docfrem(struct systab *sp)
 {
 	struct cflist tmp;
 
@@ -1060,10 +1048,7 @@ struct systab *sp;
 **	docfr2() - extend the docfrem() processing for a particular mode
 */
 
-static void docfr2(sp, tp, mode)
-struct systab *sp;
-struct cflist *tp;
-int mode;
+static void docfr2(struct systab *sp, struct cflist *tp, int mode)
 {
 	char fname[MAXPATH];
 	char *texec, *tsroot;
@@ -1161,10 +1146,7 @@ int mode;
 **		either "True" or "False" in a particular configuration
 */
 
-static void checkbvar(lp, sysid, mode)
-struct cflist *lp;
-int sysid;
-int mode;
+static void checkbvar(struct cflist *lp, int sysid, int mode)
 {
 	/* list of boolean configuration variables */
 	static struct bvar {
@@ -1230,9 +1212,7 @@ int mode;
 **	reportcfg() - report a per-mode configuration to the journal
 */
 
-static void reportcfg(lp, sysid, mode)
-struct cflist *lp;
-int sysid, mode;
+static void reportcfg(struct cflist *lp, int sysid, int mode)
 {
 	char **cp;
 
@@ -1412,9 +1392,7 @@ docff2(const char *fname, struct cflist *lp, const char *type)
 **	sysid should be -1
 */
 
-static void config_variable_expand(lp, sysid, mode)
-struct cflist *lp;
-int sysid, mode;
+static void config_variable_expand(struct cflist *lp, int sysid, int mode)
 {
 	char **cp;
 
@@ -1476,10 +1454,7 @@ int sysid, mode;
 #endif
 
 
-static void cve2(cp, sysid, mode, stp)
-char **cp;
-int sysid, mode;
-struct cfstack *stp;
+static void cve2(char **cp, int sysid, int mode, struct cfstack *stp)
 {
 	char *p, *s;
 	int syntax_errors;
@@ -1559,10 +1534,7 @@ struct cfstack *stp;
 **	these copies can get modified below here
 */
 
-static void cve3(cp, name, value, sysid, mode, errp, stp)
-char **cp, *name, *value;
-int sysid, mode, *errp;
-struct cfstack *stp;
+static void cve3(char **cp, char *name, char *value, int sysid, int mode, int *errp, struct cfstack *stp)
 {
 	static char badsyntax[] = "bad variable substitution syntax";
 	char *p, *head, *tail, *fullvar;
@@ -1643,10 +1615,7 @@ struct cfstack *stp;
 **	or (char *) 0 on error
 */
 
-static char *cve3_getvalue(name, fullvar, sysid, mode, stp1)
-char *name, *fullvar;
-int sysid, mode;
-struct cfstack *stp1;
+static char *cve3_getvalue(char *name, char *fullvar, int sysid, int mode, struct cfstack *stp1)
 {
 	static char subloop[] = "variable substitution loop";
 	static char fmt[] = "can't find a value to substitute for ${%.40s}";
@@ -1843,10 +1812,7 @@ cve3_opmode(char *name, const char *var, int mmm, int sysid, int mode,
 **		pointed to by cp
 */
 
-static char *cp2value(cp, sysid, mode, stp)
-char **cp;
-int sysid, mode;
-struct cfstack *stp;
+static char *cp2value(char **cp, int sysid, int mode, struct cfstack *stp)
 {
 	char *p;
 
@@ -1906,7 +1872,7 @@ cve_error(const char *name, int mode, int sysid, const char *text)
 **		in variable assignments
 */
 
-static void config_variable_dollar()
+static void config_variable_dollar(void)
 {
 	if (tcc_modes & TCC_BUILD)
 		cvd2(CONF_BUILD);
@@ -1922,8 +1888,7 @@ static void config_variable_dollar()
 **		a particular mode of operation
 */
 
-static void cvd2(mode)
-int mode;
+static void cvd2(int mode)
 {
 	struct systab *sp;
 	int sysid, sysmax;
@@ -1958,9 +1923,7 @@ int mode;
 **		a particular configuration list
 */
 
-static void cvd3(lp, sysid, mode)
-struct cflist *lp;
-int sysid, mode;
+static void cvd3(struct cflist *lp, int sysid, int mode)
 {
 	char **cp;
 
@@ -1987,8 +1950,7 @@ int sysid, mode;
 **		for an individual configuration variable assignment
 */
 
-static void cvd4(s)
-char *s;
+static void cvd4(char *s)
 {
 	char *p1, *p2;
 
@@ -2359,8 +2321,7 @@ finddcfg(const char *name, int sysid)
 **	returns mode if mode is not a valid tcc mode of operation
 */
 
-int tcc2cfmode(mode)
-int mode;
+int tcc2cfmode(int mode)
 {
 	switch (mode) {
 	case TCC_BUILD:
@@ -2440,8 +2401,7 @@ cflag2bool(const char *name, const char *val)
 **	return 0 if successful or -1 on error
 */
 
-int tet_config_putenv(opmode)
-int opmode;
+int tet_config_putenv(int opmode)
 {
 	static int currmode = -1;
 	static char *var;
@@ -2484,7 +2444,7 @@ int opmode;
 **	confgiveup() - exit after finding configuration errors
 */
 
-static void confgiveup()
+static void confgiveup(void)
 {
 	fprintf(stderr,
 		"%s: giving up after %d configuration error%s\n",
@@ -2496,7 +2456,7 @@ static void confgiveup()
 **	config_cleanup() - remove temporary config files before exit
 */
 
-void config_cleanup()
+void config_cleanup(void)
 {
 
 #ifdef TET_LITE		/* -LITE-CUT-LINE- */
@@ -2532,8 +2492,7 @@ void config_cleanup()
 **	(see the calls to rtlcopy() and rtrcopy() in tcc.c)
 */
 
-char *get_runtime_tsroot(sysid)
-int sysid;
+char *get_runtime_tsroot(int sysid)
 {
 	char *retval, *rtdir, *tsroot;
 	static char rtsroot[MAXPATH];
@@ -2562,7 +2521,7 @@ int sysid;
 **	initdvar() - initialise elements of the dvar array
 */
 
-static void initdvar()
+static void initdvar(void)
 {
 	struct dvar *dvp = dvar;
 	static int been_here;
@@ -2593,7 +2552,7 @@ static void initdvar()
 **	initmdvar() - initialise elements of the mdvar array
 */
 
-static void initmdvar()
+static void initmdvar(void)
 {
 	struct dvar *dvp = mdvar;
 	static int been_here;
@@ -2607,4 +2566,3 @@ static void initmdvar()
 	for (dvp = mdvar; dvp < mdvar + Nmdvar; dvp++)
 		dvp->dv_len = strlen(dvp->dv_name);
 }
-

@@ -150,8 +150,7 @@ proc3sctree(const char *scenario)
 **		top of each of the needed scenarios
 */
 
-static void mark_needed_scenarios(ep)
-struct scentab *ep;
+static void mark_needed_scenarios(struct scentab *ep)
 {
 	/*
 	** traverse the tree at this level, descending referenced scenario
@@ -183,7 +182,7 @@ struct scentab *ep;
 **		from the scenario tree
 */
 
-static void remove_unneeded_scenarios()
+static void remove_unneeded_scenarios(void)
 {
 	struct scentab *ep;
 	int done;
@@ -225,8 +224,7 @@ static void remove_unneeded_scenarios()
 **	remove the tree at this level and below
 */
 
-static void rus2(ep)
-struct scentab *ep;
+static void rus2(struct scentab *ep)
 {
 	struct scentab *forw;
 
@@ -251,8 +249,7 @@ struct scentab *ep;
 **		themselves
 */ 
 
-static void proc3refscen(parent)
-struct scentab *parent;
+static void proc3refscen(struct scentab *parent)
 {
 	struct scentab *ep;
 	int done;
@@ -292,8 +289,7 @@ struct scentab *parent;
 **		of the referenced scenario
 */
 
-void copy_refscen(ep, parent)
-struct scentab *ep, *parent;
+void copy_refscen(struct scentab *ep, struct scentab *parent)
 {
 	struct scentab *scenptr, *forw;
 	struct scentab *back;
@@ -333,9 +329,7 @@ struct scentab *ep, *parent;
 **	the address of the last element copied in
 */
 
-static void copy_r2(from, parent, sctp)
-struct scentab *from;
-struct scentab *parent, **sctp;
+static void copy_r2(struct scentab *from, struct scentab *parent, struct scentab **sctp)
 {
 	struct scentab *ep;
 	struct scentab *sctmp;
@@ -366,8 +360,7 @@ struct scentab *parent, **sctp;
 **		selected by -y and -n options
 */
 
-void ynproc(flag)
-int flag;
+void ynproc(int flag)
 {
 	TRACE2(tet_Tscen, 1,
 		"ynproc(%s): prune scenario tree w.r.t -y/-n options",
@@ -380,9 +373,7 @@ int flag;
 **	ynp2() - extend the ynproc() processing
 */
 
-static void ynp2(ep, flag)
-struct scentab *ep;
-int flag;
+static void ynp2(struct scentab *ep, int flag)
 {
 	struct scentab *forw;
 
@@ -410,8 +401,7 @@ int flag;
 **	add_scenrefs() - add reference numbers to the scenario tree
 */
 
-static void add_scenrefs(ep)
-struct scentab *ep;
+static void add_scenrefs(struct scentab *ep)
 {
 	static long ref;
 
@@ -426,4 +416,3 @@ struct scentab *ep;
 		}
 	}
 }
-

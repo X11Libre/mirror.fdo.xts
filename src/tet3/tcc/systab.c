@@ -79,7 +79,7 @@ static void ist2 PROTOLIST((struct scentab *, int *, int));
 **		system mentioned in the scenario tree
 */
 
-void initsystab()
+void initsystab(void)
 {
 #ifdef TET_LITE	/* -LITE-CUT-LINE- */
 	struct systab *sp;
@@ -104,9 +104,7 @@ void initsystab()
 **		level in the scenario tree
 */
 
-static void ist2(ep, sys, nsys)
-struct scentab *ep;
-int *sys, nsys;
+static void ist2(struct scentab *ep, int *sys, int nsys)
 {
 	int *ip;
 	struct systab *sp;
@@ -154,7 +152,7 @@ int *sys, nsys;
 **		tcc system table element
 */
 
-static struct systab *syalloc()
+static struct systab *syalloc(void)
 {
 	struct systab *sp;
 
@@ -177,8 +175,7 @@ static struct systab *syalloc()
 }
 
 #if 0	/* this function not used anywhere */
-static void syfree(sp)
-struct systab *sp;
+static void syfree(struct systab *sp)
 {
 	TRACE2(tet_Tbuf, 6, "free systab element = %s", tet_i2x(sp));
 
@@ -194,8 +191,7 @@ struct systab *sp;
 **	syadd() - add a systab element to the tcc system table
 */
 
-static void syadd(sp)
-struct systab *sp;
+static void syadd(struct systab *sp)
 {
 	tet_listinsert((struct llist **) &systab, (struct llist *) sp);
 }
@@ -205,8 +201,7 @@ struct systab *sp;
 */
 
 #if 0	/* this function not used anywhere */
-static void syrm(sp)
-struct systab *sp;
+static void syrm(struct systab *sp)
 {
 	tet_listremove((struct llist **) &systab, (struct llist *) sp);
 }
@@ -219,8 +214,7 @@ struct systab *sp;
 **	return (struct systab *) 0 if not found
 */
 
-struct systab *syfind(sysid)
-int sysid;
+struct systab *syfind(int sysid)
 {
 	struct systab *sp;
 
@@ -237,7 +231,7 @@ int sysid;
 **	symax() - return the highest sysid in the systab
 */
 
-int symax()
+int symax(void)
 {
 	struct systab *sp;
 	int max = -1;
@@ -250,4 +244,3 @@ int symax()
 
 	return(max);
 }
-

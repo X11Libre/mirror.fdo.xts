@@ -196,8 +196,7 @@ static struct dirtab dirtab[] = {
 **	getdirbyname(), getdirbyvalue() - directive table lookup functions
 */
 
-struct dirtab *getdirbyname(name)
-char *name;
+struct dirtab *getdirbyname(char *name)
 {
 	struct dirtab *dp;
 
@@ -209,8 +208,7 @@ char *name;
 	return((struct dirtab *) 0);
 }
 
-struct dirtab *getdirbyvalue(directive)
-int directive;
+struct dirtab *getdirbyvalue(int directive)
 {
 	struct dirtab *dp;
 
@@ -221,4 +219,3 @@ int directive;
 	TRACE2(tet_Tscen, 6, "getdirbyvalue(%s) failed", tet_i2a(directive));
 	return((struct dirtab *) 0);
 }
-

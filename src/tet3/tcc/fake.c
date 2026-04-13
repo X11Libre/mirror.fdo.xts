@@ -72,8 +72,7 @@ int tet_ss_serverloop()
 **	process reaches this state, so tet_ss_process() should never be called
 **/
 
-void tet_ss_process(pp)
-struct ptab *pp;
+void tet_ss_process(struct ptab *pp)
 {
 	error(0, "internal error - tet_ss_process called!",
 		tet_r2a(&pp->pt_rid));
@@ -84,4 +83,3 @@ struct ptab *pp;
 int tet_fake_c_not_empty;
 
 #endif /* !TET_LITE */	/* -LITE-CUT-LINE- */
-

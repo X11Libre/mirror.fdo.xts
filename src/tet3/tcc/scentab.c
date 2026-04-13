@@ -77,7 +77,7 @@ static void scfreedata PROTOLIST((struct scentab *));
 **		scenario element
 */
 
-struct scentab *scalloc()
+struct scentab *scalloc(void)
 {
 	struct scentab *ep;
 
@@ -91,8 +91,7 @@ struct scentab *scalloc()
 	return(ep);
 }
 
-void scfree(ep)
-struct scentab *ep;
+void scfree(struct scentab *ep)
 {
 	TRACE3(TET_MAX(tet_Tscen, tet_Tbuf), 6,
 		"free scentab element ref %s = %s",
@@ -111,8 +110,7 @@ struct scentab *ep;
 **	scfreedata() - free storage pointed to by members of sc_data
 */
 
-static void scfreedata(ep)
-struct scentab *ep;
+static void scfreedata(struct scentab *ep)
 {
 	char **vp;
 
@@ -207,8 +205,7 @@ struct scentab *ep;
 **	the pointer at *sctp is updated to point to the newly stored element
 */
 
-void scstore(ep, parent, sctp)
-struct scentab *ep, *parent, **sctp;
+void scstore(struct scentab *ep, struct scentab *parent, struct scentab **sctp)
 {
 	TRACESCELEM(tet_Tscen, 4, ep, "scstore(): store an element");
 	TRACESCELEM(tet_Tscen, 6, parent, "... below the element at");
@@ -241,8 +238,7 @@ struct scentab *ep, *parent, **sctp;
 **	scpush(), scpop() - scenario stack manipulation functions
 */
 
-void scpush(ep, sp)
-struct scentab *ep, **sp;
+void scpush(struct scentab *ep, struct scentab **sp)
 {
 	ASSERT(ep->sc_magic == SC_MAGIC);
 
@@ -257,8 +253,7 @@ struct scentab *ep, **sp;
 	tet_listinsert((struct llist **) sp, (struct llist *) ep);
 }
 
-struct scentab *scpop(sp)
-struct scentab **sp;
+struct scentab *scpop(struct scentab **sp)
 {
 	struct scentab *ep;
 
@@ -281,8 +276,7 @@ struct scentab **sp;
 **	note that this function breaks the forward pointer chain
 */
 
-void scrm_lnode(ep)
-struct scentab *ep;
+void scrm_lnode(struct scentab *ep)
 {
 	ASSERT(ep->sc_parent != (struct scentab *) 0);
 	ASSERT(ep->sc_child == (struct scentab *) 0);
@@ -421,8 +415,7 @@ prsctype(int type)
 */
 
 const char *
-prscflags(fval)
-int fval;
+prscflags(int fval)
 {
 	static struct flags flags[] = {
 		{ SCF_IMPLIED, "IMPLIED" },
@@ -463,4 +456,3 @@ prscdir(int directive)
 		}
 	}
 }
-

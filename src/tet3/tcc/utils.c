@@ -83,9 +83,7 @@ rstrstore(const char *s)
 **	rbufchk() - reliable tet_bufchk() call
 */
 
-void rbufchk(bpp, lp, newlen)
-char **bpp;
-int *lp, newlen;
+void rbufchk(char **bpp, int *lp, int newlen)
 {
 	if (tet_bufchk(bpp, lp, newlen) < 0)
 		fatal(0, "can't continue", (char *) 0);
@@ -112,9 +110,7 @@ void rbuftrace(char **bpp, int *lp, int newlen, const char *file, int line)
 **	return the number of fields found
 */
 
-int split(s, argv, maxargs, delim)
-char *s, **argv;
-int maxargs, delim;
+int split(char *s, char **argv, int maxargs, int delim)
 {
 	int argc, new;
 
@@ -166,7 +162,7 @@ scenermsg(const char *s1, const char *s2, int lineno, const char *fname)
 **	scengiveup() - report scenario error total and exit
 */
 
-void scengiveup()
+void scengiveup(void)
 {
 	fprintf(stderr,
 		"%s: giving up after finding %d scenario error%s\n",
@@ -267,8 +263,7 @@ void fullpath(const char *dir, const char *file, char path[], int pathlen, int r
 */
 
 const char *
-prtccmode(fval)
-int fval;
+prtccmode(int fval)
 {
 	static struct flags flags[] = {
 		{ TCC_START,	"START" },
@@ -283,4 +278,3 @@ int fval;
 
 	return(tet_f2a(fval, flags, sizeof flags / sizeof flags[0]));
 }
-

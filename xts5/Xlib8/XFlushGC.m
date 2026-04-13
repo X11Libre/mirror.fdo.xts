@@ -81,9 +81,9 @@ int x_init,
 
 
 static void
-svcFlushGC(display, gc_id)
-Display              *display;
-GC                   gc_id;
+svcFlushGC(
+    Display              *display,
+    GC                   gc_id)
 {
 	extern int  errcnt;
 	extern int  errflg;

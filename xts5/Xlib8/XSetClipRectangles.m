@@ -111,8 +111,7 @@ int ordering = Unsorted;
 XRectangle	crect;
 
 int
-bad_orderA(order_arg)
-int	order_arg;
+bad_orderA(int order_arg)
 {
 XVisualInfo *vp;
 Window	win;
@@ -171,8 +170,7 @@ int		pass = 0, fail = 0;
 }
 
 int
-bad_orderB(order_arg)
-int	order_arg;
+bad_orderB(int order_arg)
 {
 XVisualInfo *vp;
 Window	win;
@@ -229,8 +227,7 @@ int		pass = 0, fail = 0;
 }
 
 int
-bad_orderC(order_arg)
-int	order_arg;
+bad_orderC(int order_arg)
 {
 XVisualInfo *vp;
 Window	win;

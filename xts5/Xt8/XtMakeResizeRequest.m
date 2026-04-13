@@ -76,9 +76,10 @@ Widget cooperative_widget5;
 XtWidgetGeometry intended5, geom5;
 
 /*destroy callback for test 5*/
-void XtCBP(w, client_data, call_data)
-Widget w;
-XtPointer client_data, call_data;
+void XtCBP(
+    Widget w,
+    XtPointer client_data,
+    XtPointer call_data)
 {
 	XtGeometryResult result;
 	Dimension width, height;
@@ -94,9 +95,13 @@ XtPointer client_data, call_data;
 	check_dec(XtGeometryNo, result, "XtGeometryYes");
 }
 
-void XtWMH_Proc(str1, str2, str3, str4, str5, car)
-String str1, str2, str3, str4, *str5;
-Cardinal *car;
+void XtWMH_Proc(
+    String str1,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
+    Cardinal *car)
 {
         avs_set_event(1,1);
         exit(1);

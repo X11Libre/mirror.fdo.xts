@@ -247,19 +247,19 @@ SquareCellClassRec squareCellClassRec = {
 	},
 };
 WidgetClass squareCellWidgetClass = (WidgetClass) & squareCellClassRec;
-static void Realize(w, valueMask, attributes)
-	Widget w;
-	Mask *valueMask;
-	XSetWindowAttributes *attributes;
+
+static void Realize(
+    Widget w,
+    Mask *valueMask,
+    XSetWindowAttributes *attributes)
 {
 	attributes->bit_gravity = NorthWestGravity;
 	*valueMask |= CWBitGravity;
 	XtCreateWindow( w, (unsigned)InputOutput, (Visual *)CopyFromParent,
 		*valueMask, attributes);
 } /* Realize */
-static void
-GetDrawGC(w)
-Widget w;
+
+static void GetDrawGC(Widget w)
 {
 	SquareCellWidget cw = (SquareCellWidget) w;
 	XGCValues values;
@@ -279,9 +279,8 @@ Widget w;
 	cw->squareCell.draw_gc = XCreateGC(XtDisplay((Widget)cw), 
 		cw->squareCell.big_picture, mask, &values);
 }
-static void
-GetUndrawGC(w)
-Widget w;
+
+static void GetUndrawGC(Widget w)
 {
 	SquareCellWidget cw = (SquareCellWidget) w;
 	XGCValues values;
@@ -295,9 +294,8 @@ Widget w;
 	cw->squareCell.undraw_gc = XCreateGC(XtDisplay((Widget)cw), 
 		cw->squareCell.big_picture, mask, &values);
 }
-static void
-GetCopyGC(w)
-Widget w;
+
+static void GetCopyGC(Widget w)
 {
 	SquareCellWidget cw = (SquareCellWidget) w;
 	XGCValues values;
@@ -306,11 +304,12 @@ Widget w;
 	values.background = cw->core.background_pixel;
 	cw->squareCell.copy_gc = XtGetGC((Widget)cw, mask, &values);
 }
-static void
-Initialize(treq, tnew, args, num_args)
-Widget treq, tnew;
-ArgList args;
-Cardinal *num_args;
+
+static void Initialize(
+    Widget treq,
+    Widget tnew,
+    ArgList args,
+    Cardinal *num_args)
 {
 	SquareCellWidget new = (SquareCellWidget) tnew;
 	new->squareCell.cur_x = 0;
@@ -368,11 +367,11 @@ Cardinal *num_args;
 	GetCopyGC((Widget)new);
 	DrawIntoBigPixmap((Widget)new);
 }
-static void
-Redisplay(w, event, region)
-Widget w;
-XEvent *event;
-Region region;
+
+static void Redisplay(
+    Widget w,
+    XEvent *event,
+    Region region)
 {
 	SquareCellWidget cw = (SquareCellWidget) w;
 	int x, y;
@@ -403,11 +402,13 @@ Region region;
 	cw->squareCell.cur_x, y + cw->squareCell.cur_y, 
 	width, height, x, y, 1);
 }
-static Boolean
-SetValues(current, request, new, args, num_args)
-Widget current, request, new;
-ArgList args;
-Cardinal *num_args;
+
+static Boolean SetValues(
+    Widget current,
+    Widget request,
+    Widget new,
+    ArgList args,
+    Cardinal *num_args)
 {
 	SquareCellWidget curcw = (SquareCellWidget) current;
 	SquareCellWidget newcw = (SquareCellWidget) new;
@@ -417,7 +418,7 @@ Cardinal *num_args;
 	*/
 	if (curcw->squareCell.foreground != newcw->squareCell.foreground) {
 	XtReleaseGC((Widget)curcw, curcw->squareCell.copy_gc);
-	GetCopyGC(newcw);
+	GetCopyGC((Widget)newcw);
 	do_redisplay = True;
 	}
 	if ((curcw->squareCell.cur_x != newcw->squareCell.cur_x) || 
@@ -442,9 +443,8 @@ Cardinal *num_args;
 	}
 	return do_redisplay;
 }
-static void
-Destroy(w)
-Widget w;
+
+static void Destroy(Widget w)
 {
 	SquareCellWidget cw = (SquareCellWidget) w;
 	if (cw->squareCell.big_picture)
@@ -461,32 +461,32 @@ Widget w;
 	if (!cw->squareCell.user_allocated)
 	XtFree(cw->squareCell.cell);
 }
-static void
-DrawCell(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+
+static void DrawCell(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	SquareCellWidget cw = (SquareCellWidget) w;
 	DrawPixmaps(cw->squareCell.draw_gc, DRAW, (Widget)cw, (XButtonEvent *)event);
 }
-static void
-UndrawCell(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+
+static void UndrawCell(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	SquareCellWidget cw = (SquareCellWidget) w;
 	DrawPixmaps(cw->squareCell.undraw_gc, UNDRAW, (Widget)cw, (XButtonEvent *)event);
 }
-static void
-ToggleCell(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+
+static void ToggleCell(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	SquareCellWidget cw = (SquareCellWidget) w;
 	static int oldx = -1, oldy = -1;
@@ -521,12 +521,12 @@ Cardinal *num_params;
 	DrawPixmaps(gc, mode, (Widget)cw, (XButtonEvent *)event);
 	} 
 }
-static void
-DrawPixmaps(gc, mode, w, event)
-GC gc;
-int mode;
-Widget w;
-XButtonEvent *event;
+
+static void DrawPixmaps(
+    GC gc,
+    int mode,
+    Widget w,
+    XButtonEvent *event)
 {
 	SquareCellWidget cw = (SquareCellWidget) w;
 	int newx = (cw->squareCell.cur_x + event->x) / 
@@ -555,9 +555,7 @@ XButtonEvent *event;
 	XtCallCallbacks((Widget)cw, XavsNtoggleCallback, &info);
 }
 
-static void
-CreateBigPixmap(w)
-Widget w;
+static void CreateBigPixmap(Widget w)
 {
 	SquareCellWidget cw = (SquareCellWidget) w;
 	/* always a 1 bit deep pixmap, regardless of screen depth */
@@ -567,9 +565,7 @@ Widget w;
 	 cw->squareCell.pixmap_height_in_pixels + 2, 1);
 }
 
-static void
-DrawIntoBigPixmap(w)
-Widget w;
+static void DrawIntoBigPixmap(Widget w)
 {
 	SquareCellWidget cw = (SquareCellWidget) w;
 	int n_horiz_segments, n_vert_segments;
@@ -605,20 +601,20 @@ Widget w;
 	}
 	}
 }
+
 /* A Public function, not static */
-char *
-SquareCellGetArray(w, width_in_cells, height_in_cells)
-Widget w;
-int *width_in_cells, *height_in_cells;
+char *SquareCellGetArray(
+    Widget w,
+    int *width_in_cells,
+    int *height_in_cells)
 {
 	SquareCellWidget cw = (SquareCellWidget) w;
 	*width_in_cells = cw->squareCell.pixmap_width_in_cells;
 	*height_in_cells = cw->squareCell.pixmap_height_in_cells;
 	return (cw->squareCell.cell);
 }
-static void
-Resize(w)
-Widget w;
+
+static void Resize(Widget w)
 {
 	SquareCellWidget cw = (SquareCellWidget) w;
 	avs_set_event(1,1);
@@ -645,10 +641,10 @@ Widget w;
 	 ChangeCellSize((Widget)cw, new_cell_size_in_pixels);
 	}
 }
-static void
-ChangeCellSize(w, new_cell_size)
-Widget w;
-int new_cell_size;
+
+static void ChangeCellSize(
+    Widget w,
+    int new_cell_size)
 {
 	SquareCellWidget cw = (SquareCellWidget) w;
 	int x, y;
@@ -678,11 +674,12 @@ int new_cell_size;
 	}
 	}
 }
-static void
-DoCell(w, x, y, gc)
-Widget w;
-int x, y;
-GC gc;
+
+static void DoCell(
+    Widget w,
+    int x,
+    int y,
+    GC gc)
 {
 	SquareCellWidget cw = (SquareCellWidget) w;
 	/* otherwise, draw or undraw */
@@ -692,9 +689,11 @@ GC gc;
 		(unsigned int)cw->squareCell.cell_size_in_pixels - 3,
 		(unsigned int)cw->squareCell.cell_size_in_pixels - 3);
 }
-static XtGeometryResult QueryGeometry(w, proposed, answer)
-Widget w;
-XtWidgetGeometry *proposed, *answer;
+
+static XtGeometryResult QueryGeometry(
+    Widget w,
+    XtWidgetGeometry *proposed,
+    XtWidgetGeometry *answer)
 {
 	SquareCellWidget cw = (SquareCellWidget) w;
 	/* set fields we care about */

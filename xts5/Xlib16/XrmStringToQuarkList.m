@@ -144,9 +144,7 @@ static const char *xstql_s3[]={
 	"jill"};
 static int xstql_ns3=NELEM(xstql_s3);
 
-static void
-xstqlclear(value)
-XrmQuark value;
+static void xstqlclear(XrmQuark value)
 {
 	int i;
 

@@ -125,10 +125,7 @@ xrm_create_database(const char *data)
 	return(XrmGetStringDatabase(data));
 }
 
-static void
-xrm_fill_value(value, data)
-XrmValue *value;
-char *data;
+static void xrm_fill_value(XrmValue *value, char *data)
 {
 	value->addr = (caddr_t)data;
 	value->size = (unsigned int)(strlen(data)+1);

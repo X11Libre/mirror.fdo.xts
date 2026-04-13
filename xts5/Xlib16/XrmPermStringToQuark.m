@@ -74,9 +74,7 @@ int x_init,
     h_init,
     w_init;
 
-static void
-svcrmPermStringToQuark(repr_name) 
-char	*repr_name;
+static void svcrmPermStringToQuark(char *repr_name)
 {
         extern int  errcnt;
         extern int  errflg;

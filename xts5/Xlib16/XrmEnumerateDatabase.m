@@ -85,15 +85,13 @@ typedef struct _SampleData {
     XrmValuePtr value;
 } SampleData;
 
-/*ARGSUSED*/
-static Bool 
-SearchFunc(db, bindings, quarks, type, value, data)
-XrmDatabase         *db;
-XrmBindingList      bindings;
-XrmQuarkList        quarks;
-XrmRepresentation   *type;
-XrmValuePtr         value;
-XPointer            data;
+static Bool SearchFunc(
+    XrmDatabase         *db,
+    XrmBindingList      bindings,
+    XrmQuarkList        quarks,
+    XrmRepresentation   *type,
+    XrmValuePtr         value,
+    XPointer            data)
 {
     SampleData *gd = (SampleData *)data;
 
@@ -107,15 +105,13 @@ XPointer            data;
     return True;
 }
 
-/*ARGSUSED*/
-static Bool 
-FalseFunc(db, bindings, quarks, type, value, data)
-XrmDatabase         *db;
-XrmBindingList      bindings;
-XrmQuarkList        quarks;
-XrmRepresentation   *type;
-XrmValuePtr         value;
-XPointer            data;
+static Bool FalseFunc(
+    XrmDatabase         *db,
+    XrmBindingList      bindings,
+    XrmQuarkList        quarks,
+    XrmRepresentation   *type,
+    XrmValuePtr         value,
+    XPointer            data)
 {
     return False;
 }

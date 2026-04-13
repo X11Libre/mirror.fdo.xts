@@ -172,9 +172,7 @@ static const char *xstbql_s5[]={
 	};
 static int xstbql_ns5=NELEM(xstbql_s5);
 
-static void
-xstbqlclear(value)
-XrmQuark value;
+static void xstbqlclear(XrmQuark value)
 {
 	int i;
 
@@ -188,10 +186,7 @@ XrmQuark value;
 }
 
 
-static void
-xstbqlname(value, ptr)
-XrmBinding value;
-char *ptr;
+static void xstbqlname(XrmBinding value, char *ptr)
 {
 	if(value==XrmBindTightly) {
 		strcpy(ptr, "XrmBindTightly");

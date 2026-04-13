@@ -220,10 +220,7 @@ static XrmOptionDescRec xpc_table[XPC_TESTS] = {
 /* Case sensitivity test */
 	{	"ll",	".tC",	XrmoptionNoArg,		"vC"	} };
 
-static int
-xpc_dotest(n, mode)
-int n;
-int mode;
+static int xpc_dotest(int n, int mode)
 {
 	int a;
 	int pass=0;

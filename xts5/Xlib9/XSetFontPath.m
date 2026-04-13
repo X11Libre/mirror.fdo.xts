@@ -115,8 +115,7 @@ int 	ndirs;
 static	char	**savepath;
 static	int 	savenum;
 >>SET startup localstartup
-static void
-localstartup()
+static void localstartup(void)
 {
 	startup();
 	if(Dsp) {
@@ -126,8 +125,7 @@ localstartup()
 	}
 }
 >>SET cleanup localcleanup
-static void
-localcleanup()
+static void localcleanup(void)
 {
 	if(Dsp) {
 		if (savepath && savenum)

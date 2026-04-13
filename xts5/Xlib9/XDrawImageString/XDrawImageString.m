@@ -116,8 +116,7 @@ static	Font	Xtfonts[XT_NFONTS];
 
 >>SET startup localstartup
 >>SET cleanup fontcleanup
-static void
-localstartup()
+static void localstartup(void)
 {
 	fontstartup();
 	if(Dsp) {

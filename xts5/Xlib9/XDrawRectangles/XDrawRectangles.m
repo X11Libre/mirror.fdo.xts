@@ -126,9 +126,7 @@ static	XRectangle	defrects[] = {
 #endif
 #define MAX(a,b) (((a)>(b)) ? (a) : (b))
 
-static void
-drawline(ax1, ay1, ax2, ay2)
-int 	ax1, ay1, ax2, ay2;
+static void drawline(int ax1, int ay1, int ax2, int ay2)
 {
 XRectangle	rect;
 int	fail = 0;
@@ -149,8 +147,7 @@ int	x2 = MAX(ax1,ax2), y2 = MAX(ay1,ay2);
 #undef MIN
 #undef MAX
 
-static void
-setfordash()
+static void setfordash(void)
 {
 static	XRectangle	rects[] = {
 	{20, 10, 48, 70},

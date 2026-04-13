@@ -118,9 +118,7 @@ XSegment	defsegs[] = {
 #define NSEGSJOIN 3	/*   + extra segment to test joins */
 #define NSEGSCROSS 4/*   + extra segment to test intersecting lines */
 
-static void
-drawline(ax1, ay1, ax2, ay2)
-int 	ax1, ay1, ax2, ay2;
+static void drawline(int ax1, int ay1, int ax2, int ay2)
 {
 XSegment segs[1];
 int	fail = 0;
@@ -132,8 +130,7 @@ int	fail = 0;
 	XCALL;
 }
 
-static void
-setfordash()
+static void setfordash(void)
 {
 static	XSegment segs[2];
 	segs[0].x1 = 20; segs[0].y1 = 20;

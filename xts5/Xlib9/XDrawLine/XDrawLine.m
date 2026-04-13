@@ -108,15 +108,13 @@ int 	y1 = 10;
 int 	x2 = 31;
 int 	y2 = 23;
 >>EXTERN
-static void
-setfordash()
+static void setfordash(void)
 {
 	x1 = 20; y1 = 20;
 	x2 = 70; y2 = 20;
 }
-static void
-drawline(ax1, ay1, ax2, ay2)
-int 	ax1, ay1, ax2, ay2;
+
+static void drawline(int ax1, int ay1, int ax2, int ay2)
 {
 int	 fail = 0;
 

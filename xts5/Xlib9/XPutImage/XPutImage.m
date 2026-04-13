@@ -124,11 +124,14 @@ static struct area area;
 /*
  * doxcall() -	set globals, remember dest and size, call xname
  */
-static void
-doxcall(win, sx, sy, dx, dy, w, h)
-Window win;
-int sx, sy, dx, dy;
-unsigned int w, h;
+static void doxcall(
+    Window win,
+    int sx,
+    int sy,
+    int dx,
+    int dy,
+    unsigned int w,
+    unsigned int h)
 {
 	d = win;
 	src_x = sx;

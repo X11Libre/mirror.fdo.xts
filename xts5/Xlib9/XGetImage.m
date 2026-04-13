@@ -112,12 +112,11 @@ int format = ZPixmap;
 /*
  * pre_xcall() - set globals
  */
-static void
-pre_xcall(win, ap, p, f)
-Drawable win;
-struct area *ap;
-long p;
-int f;
+static void pre_xcall(
+    Drawable win,
+    struct area *ap,
+    long p,
+    int f)
 {
 	d = win;
 	x = ap->x;

@@ -128,9 +128,7 @@ static XPoint	crosspts[] = {
 	{30, 28},
 };
 
-static void
-drawline(x1, y1, x2, y2)
-int 	x1, y1, x2, y2;
+static void drawline(int x1, int y1, int x2, int y2)
 {
 XPoint	pnts[2];
 int	fail = 0;
@@ -146,8 +144,7 @@ int	fail = 0;
 	XCALL;
 }
 
-void
-setfordash()
+void setfordash(void)
 {
 static XPoint pnts[] = {
 	{20, 20},

@@ -125,13 +125,12 @@ static XVisualInfo	*mivp;
 /*
  * pre_xcall() - set globals
  */
-static void
-pre_xcall(win, ap, p, f, dp)
-Drawable win;
-struct area *ap;
-long p;
-int f;
-struct area *dp;
+static void pre_xcall(
+    Drawable win,
+    struct area *ap,
+    long p,
+    int f,
+    struct area *dp)
 {
 	/* set function call arguments */
 	d = win;

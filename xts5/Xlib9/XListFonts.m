@@ -115,9 +115,7 @@ static	int 	Count;
 extern	struct	fontinfo	fontinfo[];
 extern	int 	nfontinfo;
 
-static void
-lowerstring(str)
-char	*str;
+static void lowerstring(char *str)
 {
 	for (; *str; str++) {
 		if (isupper(*str))

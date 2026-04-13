@@ -116,9 +116,7 @@ int 	angle2 = DEG(321);
  * This will draw a straight line for horizontal and vertical lines
  * for other lines, draw a hor line using the horizontal extent.
  */
-static void
-drawline(ax1, ay1, ax2, ay2)
-int	 ax1, ay1, ax2, ay2;
+static void drawline(int ax1, int ay1, int ax2, int ay2)
 {
 int 	negw = 0;
 int 	negh = 0;
@@ -174,8 +172,7 @@ int 	fail = 0;
 	XCALL;
 }
 
-static void
-setfordash()
+static void setfordash(void)
 {
 	x = 20; y = 20;
 	width = 49; height = 0;

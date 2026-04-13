@@ -67,15 +67,12 @@ Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
 /* procedure XtTMO_Proc */
-void XtTMO_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTMO_Proc(XtPointer client_data, XtIntervalId *id)
 {
         exit(0);
 }
 
-void analyse_events(widget)
-Widget widget;
+void analyse_events(Widget widget)
 {
 	XtAppContext app_context;
 	Display *display;
@@ -102,24 +99,29 @@ Boolean flag;
 
 Widget labelw_msg1;
 
-void XtCBP(w, client_data, call_data)
-Widget w;
-XtPointer client_data, call_data;
+void XtCBP(
+    Widget w,
+    XtPointer client_data,
+    XtPointer call_data)
 {
 	tet_infoline("TEST: Destroy labelw_msg1 widget within destroy callback");
 	XtDestroyWidget(labelw_msg1);
 	avs_set_event(2, avs_get_event(2)+1);
 }
-void XtCBP_ChildProc(w, client_data, call_data)
-Widget w;
-XtPointer client_data, call_data;
+
+void XtCBP_ChildProc(
+    Widget w,
+    XtPointer client_data,
+    XtPointer call_data)
 {
 	flag = True;
 	avs_set_event(1, 1);
 }
-void XtCBP_ParentProc(w, client_data, call_data)
-Widget w;
-XtPointer client_data, call_data;
+
+void XtCBP_ParentProc(
+    Widget w,
+    XtPointer client_data,
+    XtPointer call_data)
 {
 	/*
 	** XtCBP_ChildProc to be invoked before XtCBP_ParentProc

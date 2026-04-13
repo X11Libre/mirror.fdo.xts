@@ -76,13 +76,10 @@ Widget labelw, rowcolw, click_quit;
 
 char client_stuff[] = "These are the times that try men's souls";
 
-/*
-** Procedure XtLP_Proc
-*/
-String XtLP_Proc(display, language, client_data)
-Display *display;
-String language;
-XtPointer client_data;
+String XtLP_Proc(
+    Display *display,
+    String language,
+    XtPointer client_data)
 {
 	avs_set_event(1,avs_get_event(1)+1);
 	tet_infoline("TEST: Client data correctly passed to language procedure");
@@ -95,8 +92,7 @@ XtPointer client_data;
 #endif
 }
 
-void WarnH(msg)
-String msg;
+void WarnH(String msg)
 {
 	avs_set_event(2,1);
 }

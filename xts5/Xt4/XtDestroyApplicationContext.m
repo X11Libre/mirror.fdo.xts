@@ -65,11 +65,11 @@ Widget labelw, rowcolw, click_quit;
 /*
 ** Procedure XtEVT_Proc
 */
-void XtEVT_Proc(w, client_data, event, flag)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *flag;
+void XtEVT_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *flag)
 {
     if (event->type == ButtonPress) {
 	XtDestroyApplicationContext((XtAppContext)client_data);

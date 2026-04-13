@@ -67,21 +67,30 @@ Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 Display	*display_good;
 
-/*
-** XtEMH_Proc
-*/
-void XtEMH_Proc(str, str2, str3, str4, str5, car)
-String str, str2, str3, str4, *str5;
-Cardinal *car;
+void XtEMH_Proc(
+    String str,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
+    Cardinal *car) __attribute__((noreturn));
+
+void XtEMH_Proc(
+    String str,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
+    Cardinal *car)
 {
 	avs_set_event(2, 1);
 	exit(0);
 }
 
 /*timeout callback*/
-void XtTI_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTI_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
         exit(0);
 }
@@ -89,13 +98,12 @@ XtIntervalId *id;
 /*
 ** Registered procedure XtEVT_Proc to be invoked
 */
-void XtEVT_Proc(w, client_data, event, continue_to_dispatch)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+void XtEVT_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
-
     if (event->type == ButtonPress){
 	display_good= XtDisplay(topLevel);
 	tet_infoline("PREP: Close the display during a dispatch");

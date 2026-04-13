@@ -70,9 +70,7 @@ MODIFICATIONS:
 **	error occurs
 */
 
-int tcf_lockfile(fname, timeout)
-char *fname;
-int timeout;
+int tcf_lockfile(char *fname, int timeout)
 {
 	int fd, errsave, rc;
 	time_t start;
@@ -103,4 +101,3 @@ int timeout;
 	CLOSE(fd);
 	return(ER_OK);
 }
-

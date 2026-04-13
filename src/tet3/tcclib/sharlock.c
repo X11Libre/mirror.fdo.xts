@@ -80,10 +80,7 @@ MODIFICATIONS:
 **	error occurs
 */
 
-int tcf_sharelock(dir, pid, timeout, lnp)
-char *dir, **lnp;
-long pid;
-int timeout;
+int tcf_sharelock(char *dir, long pid, int timeout, char **lnp)
 {
 	time_t start;
 	int fd, rc, errsave;
@@ -157,4 +154,3 @@ int timeout;
 	*lnp = fname;
 	return(ER_OK);
 }
-

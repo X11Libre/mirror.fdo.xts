@@ -76,8 +76,7 @@ static int tcf_mktd2 PROTOLIST((char *));
 **	indirectly through *subdp
 */
 
-int tcf_mktmpdir(dir, subdp)
-char *dir, **subdp;
+int tcf_mktmpdir(char *dir, char **subdp)
 {
 	int needlen, rc;
 	char salt1, salt2;
@@ -125,8 +124,7 @@ char *dir, **subdp;
 **		-ve error code on error
 */
 
-static int tcf_mktd2(subdir)
-char *subdir;
+static int tcf_mktd2(char *subdir)
 {
 	int errsave, rc;
 

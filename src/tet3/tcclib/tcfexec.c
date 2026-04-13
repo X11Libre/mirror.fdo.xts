@@ -98,10 +98,7 @@ static void donasync PROTOLIST((long));
 **	through *pidp
 */
 
-int tcf_exec(path, argv, outfile, snid, flag, pidp)
-char *path, **argv, *outfile;
-long snid;
-int flag, *pidp;
+int tcf_exec(char *path, char **argv, char *outfile, long snid, int flag, int *pidp)
 {
 	int pid, rc;
 
@@ -212,8 +209,7 @@ int flag, *pidp;
 **	return 0 if successful or -1 on error
 */
 
-static int checkexec(file)
-char *file;
+static int checkexec(char *file)
 {
 	char *p1, *p2;
 	char *path;
@@ -268,8 +264,7 @@ char *file;
 /* ARGSUSED */
 #endif /* TET_LITE */	/* -LITE-CUT-LINE- */
 
-static void donasync(snid)
-long snid;
+static void donasync(long snid)
 {
 #ifndef TET_LITE	/* -START-LITE-CUT- */
 
@@ -286,7 +281,3 @@ long snid;
 
 #endif /* !TET_LITE */	/* -END-LITE-CUT- */
 }
-
-
-
-

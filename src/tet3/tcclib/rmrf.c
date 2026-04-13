@@ -72,8 +72,7 @@ MODIFICATIONS:
 **	return 0 if successful or -1 on error
 */
 
-int tcf_rmrf(path)
-char *path;
+int tcf_rmrf(char *path)
 {
 	char **files, **fip;
 	char file[MAXPATH + 1];
@@ -129,4 +128,3 @@ char *path;
 
 	return(rc);
 }
-

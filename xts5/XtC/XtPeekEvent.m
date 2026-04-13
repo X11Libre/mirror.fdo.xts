@@ -89,47 +89,41 @@ char *msg = "Hello World";
 int acount = 0;
 FILE *fid;
 
-void XtIOP_Proc(client_data, source, id)
-XtPointer client_data;
-int *source;
-XtInputId *id;
+void XtIOP_Proc(
+    XtPointer client_data,
+    int *source,
+    XtInputId *id)
 {
 	avs_set_event(2, 1);
 }
 
-/*
-** XtTMO1_Proc
-*/
-void XtTMO1_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTMO1_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
-/*
-** XtTMO2_Proc
-*/
-void XtTMO2_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+
+void XtTMO2_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	avs_set_event(1, 1);
 }
-/*
-** XtTMO3_Proc
-*/
-void XtTMO3_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+
+void XtTMO3_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	/*
 	** Send event KeyPress and wake up XtPeekEvent.
 	*/
 	send_event(topLevel, KeyPress, KeyPressMask, TRUE );
 }
-void XtTMO4_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+
+void XtTMO4_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 const char *data;
 

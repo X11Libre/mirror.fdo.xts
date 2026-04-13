@@ -64,21 +64,20 @@ Widget labelw, rowcolw, click_quit;
 
 char client_stuff[] = "Four score and seven years ago";
 
-void XtTMO_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTMO_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
         exit(0);
 }
 
-Boolean XtWKP1_Proc4(client_data)
-XtPointer client_data;
+Boolean XtWKP1_Proc4(XtPointer client_data)
 {
 	avs_set_event(3, avs_get_event(1));
 	exit(0);
 }
-Boolean XtWKP1_Proc3(client_data)
-XtPointer client_data;
+
+Boolean XtWKP1_Proc3(XtPointer client_data)
 {
 	avs_set_event(1,avs_get_event(1)+1);
 	if (avs_get_event(1) == 1) {
@@ -92,8 +91,8 @@ XtPointer client_data;
 
 	return(False);
 }
-Boolean XtWKP1_Proc(client_data)
-XtPointer client_data;
+
+Boolean XtWKP1_Proc(XtPointer client_data)
 {
 	avs_set_event(1,avs_get_event(1)+1);
 	if (strcmp(client_data, client_stuff) != 0) {
@@ -106,8 +105,8 @@ XtPointer client_data;
 	else
 		return(False);
 }
-Boolean XtWKP1_Proc6(client_data)
-XtPointer client_data;
+
+Boolean XtWKP1_Proc6(XtPointer client_data)
 {
 	avs_set_event(1,avs_get_event(1)+1);
 	tet_infoline("TEST: Client_data passed correctly to handler");
@@ -118,8 +117,8 @@ XtPointer client_data;
 	}
 	exit(0);
 }
-Boolean XtWKP1_Proc2(client_data)
-XtPointer client_data;
+
+Boolean XtWKP1_Proc2(XtPointer client_data)
 {
 	avs_set_event(1,avs_get_event(1)+1);
 	if (strcmp(client_data, client_stuff) != 0) {
@@ -132,16 +131,16 @@ XtPointer client_data;
 	else
 		return(False);
 }
-Boolean XtWKP2_Head(client_data)
-XtPointer client_data;
+
+Boolean XtWKP2_Head(XtPointer client_data)
 {
 	sprintf(ebuf, "ERROR: Unexpected invocation of XtWKP2_Head");
  	tet_infoline(ebuf);
 	tet_result(TET_FAIL); 
 	exit(0);
 }
-Boolean XtWKP2_Tail(client_data)
-XtPointer client_data;
+
+Boolean XtWKP2_Tail(XtPointer client_data)
 {
 		avs_set_event(1,1);
 		exit(0);

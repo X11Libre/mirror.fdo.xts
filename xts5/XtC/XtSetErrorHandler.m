@@ -67,8 +67,7 @@ int flag = 0;
 /*
 ** Installed error handler
 */
-void XtEMH_Proc(str)
-String str;
+void XtEMH_Proc(String str)
 {
 	flag = 1;
 	fprintf(stdout, "X Toolkit Error: %s", str);

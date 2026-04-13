@@ -65,11 +65,7 @@ Widget labelw, rowcolw, click_quit;
 int flag = 0;
 char msg[1024];
 
-/*
-** XtEMH_Proc
-*/
-void XtEMH_Proc(str)
-String str;
+void XtEMH_Proc(String str)
 {
 	fprintf(stdout, "X Toolkit Error: %s", str);
 	avs_set_event(1, 1);

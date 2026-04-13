@@ -68,9 +68,13 @@ Widget labelw, rowcolw, click_quit;
 /*
 ** Installed Warning handler
 */
-void XtWMH_Proc(name, type, class, defaultp, params, num_params)
-String name, type, class, defaultp, *params;
-Cardinal *num_params;
+void XtWMH_Proc(
+    String name,
+    String type,
+    String class,
+    String defaultp,
+    String *params,
+    Cardinal *num_params)
 {
 	tet_infoline("TEST: Warning handler parameters");
 	check_str("conversionError", name, "name");
@@ -81,11 +85,11 @@ Cardinal *num_params;
 	avs_set_event(1,1);
 }
 
-void XtCVT_StringToChar(args, num_args, from_val, to_val)
-XrmValue *args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
+void XtCVT_StringToChar(
+    XrmValue *args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val)
 {
 	char *str = (char *) (from_val->addr);
 	static unsigned char i;

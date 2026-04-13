@@ -76,30 +76,23 @@ char *msg = "Hello World";
 int acount = 0;
 FILE *fid;
 
-/*
-** XtTMO2_Proc
-*/
-void XtTMO2_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTMO2_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	send_event(topLevel, KeyPress, KeyPressMask, TRUE );
 }
 
-/*
-** XtTMO3_Proc()
-*/
-void XtTMO3_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTMO3_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	avs_set_event(1, 1);
 	exit(0);
 	
 }
 
-static void analyse_events(quit)
-Widget quit;
+static void analyse_events(Widget quit)
 {
 int i;
 	Display *display;
@@ -129,13 +122,11 @@ int i;
 	 XtDispatchEvent(&loop_event);
 	} /* end for */
 }
-/*
-** Procedure XtIOP_Proc
-*/
-void XtIOP_Proc(client_data, source, id)
-XtPointer client_data;
-int *source;
-XtInputId *id;
+
+void XtIOP_Proc(
+    XtPointer client_data,
+    int *source,
+    XtInputId *id)
 {
 	avs_set_event(2, 1);
 }

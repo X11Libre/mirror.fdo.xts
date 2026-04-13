@@ -62,19 +62,17 @@ XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
-static int
-GC_error_handler2(disp, error_event)
-Display *disp;
-XErrorEvent *error_event;
+static int GC_error_handler2(
+    Display *disp,
+    XErrorEvent *error_event)
 {
 	avs_set_event(2,1);
 	exit(0);
 }
 
-static int
-GC_error_handler(disp, error_event)
-Display *disp;
-XErrorEvent *error_event;
+static int GC_error_handler(
+    Display *disp,
+    XErrorEvent *error_event)
 {
 	int code = error_event->error_code;
 	if ( code != 13 ) {
@@ -88,8 +86,7 @@ XErrorEvent *error_event;
 /*
 ** actual gc values
 */
-void CheckValues(values_good)
-XGCValues *values_good;
+void CheckValues(XGCValues *values_good)
 {
 	check_dec((long) GXcopy,
 		(long) values_good->function,
@@ -143,9 +140,8 @@ XGCValues *values_good;
 		(long)values_good->dash_offset,
 	 "dash_offset");
 }
-XtGCMask ConstructGC(w, vals)
-Widget w;
-XGCValues *vals;
+
+XtGCMask ConstructGC(Widget w, XGCValues *vals)
 {
 	Display *display_good;
 	Window window_good;

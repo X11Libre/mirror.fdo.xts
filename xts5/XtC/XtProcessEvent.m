@@ -78,24 +78,19 @@ int acount = 0;
 FILE *fid;
 char *data = "data1";
 
-/*
-** Procedure XtIOP_Proc
-*/
-void XtIOP_Proc2(client_data, source, id)
-XtPointer client_data;
-int *source;
-XtInputId *id;
+void XtIOP_Proc2(
+    XtPointer client_data,
+    int *source,
+    XtInputId *id)
 {
 	avs_set_event(3,1);
 }
-/*
-** Procedure XtEVT_Proc
-*/
-void XtEVT_Proc(w, client_data, event, continue_to_dispatch)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+
+void XtEVT_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 	if (event->type == ButtonPress) {
 		avs_set_event(1,1);
@@ -107,11 +102,12 @@ Boolean *continue_to_dispatch;
 		tet_result(TET_FAIL);
 	}
 }
-void XtEVT_Proc2(w, client_data, event, continue_to_dispatch)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+
+void XtEVT_Proc2(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 	if (event->type == ButtonPress) {
 		avs_set_event(1,1);
@@ -131,11 +127,12 @@ Boolean *continue_to_dispatch;
 	tet_infoline("PREP: Register file as an input source");
 	input_ret = XtAddInput(fileno(fid), (XtPointer)XtInputReadMask, XtIOP_Proc2, (XtPointer)msg);
 }
-void XtEVT_Proc3(w, client_data, event, continue_to_dispatch)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+
+void XtEVT_Proc3(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 XKeyEvent *tevent;
 
@@ -157,31 +154,33 @@ XKeyEvent *tevent;
 		avs_set_event(4, 1); 
 }
 
-void XtIOP_Proc(client_data, source, id)
-XtPointer client_data;
-int *source;
-XtInputId *id;
+void XtIOP_Proc(
+    XtPointer client_data,
+    int *source,
+    XtInputId *id)
 {
 	avs_set_event(3,avs_get_event(3)+1);
 	exit(0);
 }
 
-void XtTMO2_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTMO2_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	avs_set_event(2,1);
 	exit(0);
 }
-void XtTMO1_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+
+void XtTMO1_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	exit(0);
 }
-void XtTMO_Proc5(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+
+void XtTMO_Proc5(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	tet_infoline("PREP: Send events");
 	send_event_time(labelw_msg, ButtonPress, ButtonPressMask, TRUE, 1);

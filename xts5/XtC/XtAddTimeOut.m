@@ -62,23 +62,25 @@ XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
-void XtTMO_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTMO_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	avs_set_event(1, 1);
 	exit(0);
 }
-void XtTMO_Proc3(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+
+void XtTMO_Proc3(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	avs_set_event(2, avs_get_event(2)+1);
 	exit(0);
 }
-void XtTMO_Proc2(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+
+void XtTMO_Proc2(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	avs_set_event(1, avs_get_event(1)+1);
 	XtAddTimeOut(AVSXTLOOPTIMEOUT+2, XtTMO_Proc3, topLevel);

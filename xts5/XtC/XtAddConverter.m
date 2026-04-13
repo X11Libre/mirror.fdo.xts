@@ -69,11 +69,11 @@ Widget labelw, rowcolw, click_quit;
 #ifndef XavsRChar
 #define XavsRChar "Char"
 #endif
-void XtCVT_Proc(args, num_args, from_val, to_val)
-XrmValue* args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
+void XtCVT_Proc(
+    XrmValue* args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val)
 {
 	/*
 	** Convert string to character 
@@ -85,11 +85,12 @@ XrmValue *to_val;
 	to_val->addr = (XtPointer) &i;
 	i = *str;
 }
-void XtCVT_Proc10(args, num_args, from_val, to_val)
-XrmValue* args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
+
+void XtCVT_Proc10(
+    XrmValue* args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val)
 {
 	/*
 	** Convert string to character 
@@ -115,18 +116,17 @@ int argdata[NUMARGS] = {
 	8008	
 };
 
-void xcap(w, size, value)
-Widget w;
-Cardinal *size;
-XrmValue *value;
+void xcap(
+    Widget w,
+    Cardinal *size,
+    XrmValue *value)
 {
 	avs_set_event(2, avs_get_event(2)+1);
 	value->addr = (XtPointer)&argdata[7];
 	value->size = sizeof(argdata[7]);
 }
 
-void init_args(checknum)
-int checknum;
+void init_args(int checknum)
 {
 	cargs[0].address_mode = XtImmediate;
 	cargs[0].address_id = (XtPointer)checknum;
@@ -168,11 +168,11 @@ int checknum;
 	cargs[7].size = sizeof(XtPointer);
 }
 
-void XtCVT_ProcA(args, num_args, from_val, to_val)
-XrmValuePtr args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
+void XtCVT_ProcA(
+    XrmValuePtr args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val)
 {
 int	checknum;
 

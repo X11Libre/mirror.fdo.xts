@@ -75,14 +75,11 @@ XtInputId input_ret;
 char *msg = "Hello World";
 FILE *fid;
 
-/*
-** XtEVT_Proc
-*/
-void XtEVT_Proc(w, client_data, event, continue_to_dispatch)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+void XtEVT_Proc(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 	if ( event->type == ButtonPress )
 		avs_set_event(1, 1); 
@@ -92,11 +89,12 @@ Boolean *continue_to_dispatch;
 		tet_result(TET_FAIL);
 	}
 }
-void XtEVT_Proc2(w, client_data, event, continue_to_dispatch)
-Widget w;
-XtPointer client_data;
-XEvent *event;
-Boolean *continue_to_dispatch;
+
+void XtEVT_Proc2(
+    Widget w,
+    XtPointer client_data,
+    XEvent *event,
+    Boolean *continue_to_dispatch)
 {
 XKeyEvent *tevent;
 
@@ -117,29 +115,28 @@ XKeyEvent *tevent;
 	if (event->type == KeyRelease )
 		avs_set_event(4, 1); 
 }
-/*
-** XtTMO_Proc
-*/
-void XtTMO_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+
+void XtTMO_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	avs_set_event(2, 1); 
 	exit(0);
 }
 
-void XtTMO_Proc2(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+void XtTMO_Proc2(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	tet_infoline("PREP: Send ButtonPress event");
 	send_event(labelw_msg, ButtonPress, ButtonPressMask, FALSE);
 	tet_infoline("PREP: Register timeout");
 	XtAddTimeOut(AVSXTLOOPTIMEOUT, XtTMO_Proc, topLevel);
 }
-void XtTMO_Proc5(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+
+void XtTMO_Proc5(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	tet_infoline("PREP: Send events");
 	send_event_time(labelw_msg, ButtonPress, ButtonPressMask, TRUE, 1);
@@ -149,13 +146,11 @@ XtIntervalId *id;
 	tet_infoline("PREP: Register timeout");
 	XtAddTimeOut(AVSXTLOOPTIMEOUT, XtTMO_Proc, topLevel);
 }
-/*
-** Procedure XtIOP_Proc
-*/
-void XtIOP_Proc(client_data, source, id)
-XtPointer client_data;
-int *source;
-XtInputId *id;
+
+void XtIOP_Proc(
+    XtPointer client_data,
+    int *source,
+    XtInputId *id)
 {
 	avs_set_event(3,avs_get_event(3)+1);
 	tet_infoline("TEST: InputID passed to callback matches return from XtAddInput");

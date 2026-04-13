@@ -65,19 +65,20 @@ XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
-void AvsWidAction(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+void AvsWidAction(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	avs_set_event(1,1);
 }
-void AvsWidAction2(w, event, params, num_params)
-Widget w;
-XEvent *event;
-String *params;
-Cardinal *num_params;
+
+void AvsWidAction2(
+    Widget w,
+    XEvent *event,
+    String *params,
+    Cardinal *num_params)
 {
 	avs_set_event(2,1);
 }
@@ -92,8 +93,8 @@ static XtActionsRec actions2[] = {
 static XtActionsRec actions3[] = {
 	{AVS_WID_ACTION, AvsWidAction2},
 };
-void setPosSize(w)
-Widget w;
+
+void setPosSize(Widget w)
 {
 	Display *display;
 	int x_origin, y_origin;	 /* x, y origin of widget */

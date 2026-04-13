@@ -67,18 +67,22 @@ Widget labelw, rowcolw, click_quit;
 
 #define XavsRUnknown	"UnknownResource"
 
-void XtWMH_Proc(str1, str2, str3, str4, str5, car)
-String str1, str2, str3, str4, *str5;
-Cardinal *car;
+void XtWMH_Proc(
+    String str1,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
+    Cardinal *car)
 {
 	avs_set_event(1,1);
 }
-	
-void XtCVT1_StringToChar(args, num_args, from_val, to_val)
-XrmValuePtr args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
+
+void XtCVT1_StringToChar(
+    XrmValuePtr args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val)
 {
 	char *str = (char *) (from_val->addr);
 	static unsigned char i;

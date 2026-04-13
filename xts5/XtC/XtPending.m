@@ -65,23 +65,19 @@ All Rights Reserved.
 XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
-/*
-** XtTMO1_Proc
-*/
-void XtTMO1_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+
+void XtTMO1_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	tet_infoline("PREP: Generate some events");
 	send_event(topLevel, KeyPress, KeyPressMask, TRUE );
 	send_event(topLevel, KeyPress, KeyPressMask, TRUE );
 }
-/*
-** XtTMO2_Proc
-*/
-void XtTMO2_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+
+void XtTMO2_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	/*
 	** Queue should be empty at this point

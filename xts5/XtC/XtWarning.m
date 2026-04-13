@@ -67,8 +67,7 @@ int flag = 0;
 /*
 ** Installed Warning handler
 */
-void XtWMH_Proc(str)
-String str;
+void XtWMH_Proc(String str)
 {
 	avs_set_event(1, avs_get_event(1)+1);
 	tet_infoline("TEST: String passed to handler");

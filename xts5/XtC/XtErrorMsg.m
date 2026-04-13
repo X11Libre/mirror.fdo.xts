@@ -68,14 +68,13 @@ char file_name[128];
 /*
 ** Installed error handler
 */
-void XtEMH_Proc(name_good, type_good,
-		class_good, defaultp, params, num_params)
-String name_good;
-String type_good;
-String class_good;
-String defaultp;
-String *params;
-Cardinal *num_params;
+void XtEMH_Proc(
+    String name_good,
+    String type_good,
+    String class_good,
+    String defaultp,
+    String *params,
+    Cardinal *num_params)
 {
 	fprintf(stdout, "%s %s %s %s", name_good, type_good, class_good, defaultp);
 	avs_set_event(1, avs_get_event(1)+1);

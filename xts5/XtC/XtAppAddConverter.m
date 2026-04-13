@@ -79,11 +79,11 @@ Widget labelw, rowcolw, click_quit;
 #ifndef XavsRChar
 #define XavsRChar "Char"
 #endif
-void XtCVT_Proc2(args, num_args, from_val, to_val)
-XrmValuePtr args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
+void XtCVT_Proc2(
+    XrmValuePtr args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val)
 {
 	char *str = (char *) (from_val->addr);
 	static unsigned char i;
@@ -97,11 +97,11 @@ XrmValue *to_val;
 	i = *str;
 }
 
-void XtCVT_Proc(args, num_args, from_val, to_val)
-XrmValuePtr args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
+void XtCVT_Proc(
+    XrmValuePtr args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val)
 {
 	char *str = (char *) (from_val->addr);
 	static unsigned char j;
@@ -115,11 +115,11 @@ XrmValue *to_val;
 	j = *str;
 }
 
-void XtCVT_Proc3(args, num_args, from_val, to_val)
-XrmValuePtr args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
+void XtCVT_Proc3(
+    XrmValuePtr args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val)
 {
 	avs_set_event(1, avs_get_event(1)+1);
 }
@@ -136,18 +136,17 @@ int argdata[NUMARGS] = {
 	8008	
 };
 
-void xcap(w, size, value)
-Widget w;
-Cardinal *size;
-XrmValue *value;
+void xcap(
+    Widget w,
+    Cardinal *size,
+    XrmValue *value)
 {
 	avs_set_event(2, avs_get_event(2)+1);
 	value->addr = (XtPointer)&argdata[7];
 	value->size = sizeof(argdata[7]);
 }
 
-void init_args(pchecknum)
-int *pchecknum;
+void init_args(int *pchecknum)
 {
 	cargs[0].address_mode = XtAddress;
 	cargs[0].address_id = (XtPointer)pchecknum;
@@ -189,11 +188,11 @@ int *pchecknum;
 	cargs[7].size = sizeof(XtPointer);
 }
 
-void XtCVT_ProcA(args, num_args, from_val, to_val)
-XrmValuePtr args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
+void XtCVT_ProcA(
+    XrmValuePtr args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val)
 {
 int	checknum;
 

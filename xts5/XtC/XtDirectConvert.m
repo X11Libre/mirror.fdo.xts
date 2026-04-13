@@ -65,11 +65,11 @@ Widget labelw, rowcolw, click_quit;
 #ifndef XavsRChar
 #define XavsRChar "Char"
 #endif
-void XtCVT_StringToChar(args, num_args, from_val, to_val)
-XrmValuePtr args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
+void XtCVT_StringToChar(
+    XrmValuePtr args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val)
 {
 	char *str = (char *) (from_val->addr);
 	static unsigned char i;
@@ -78,11 +78,12 @@ XrmValue *to_val;
 	to_val->addr = (XtPointer) &i;
 	i = *str;
 }
-void XtCVT_StringToChar2(args, num_args, from_val, to_val)
-XrmValuePtr args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
+
+void XtCVT_StringToChar2(
+    XrmValuePtr args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val)
 {
 	avs_set_event(1, 1);
 	to_val->size = 0;

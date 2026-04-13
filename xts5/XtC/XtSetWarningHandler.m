@@ -67,8 +67,7 @@ long flag = 0;
 /*
 ** Installed Warning handler
 */
-void XtWMH_Proc(str)
-String str;
+void XtWMH_Proc(String str)
 {
 	flag = 1;
 	fprintf(stdout, "X Toolkit Warning: %s", str);

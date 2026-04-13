@@ -73,24 +73,20 @@ XtInputId input_ret;
 char *msg = "Hello World";
 int acount = 0;
 FILE *fid;
-/*
-** Procedure XtTMO_Proc
-*/
-void XtTMO_Proc(client_data, id)
-XtPointer client_data;
-XtIntervalId *id;
+
+void XtTMO_Proc(
+    XtPointer client_data,
+    XtIntervalId *id)
 {
 	tet_infoline("ERROR: 5 seconds elapsed without input procedure being called");
 	tet_result(TET_FAIL);
 	exit(0);
 }
-/*
-** Procedure XtIOP_Proc
-*/
-void XtIOP_Proc(client_data, source, id)
-XtPointer client_data;
-int *source;
-XtInputId *id;
+
+void XtIOP_Proc(
+    XtPointer client_data,
+    int *source,
+    XtInputId *id)
 {
 	avs_set_event(1,avs_get_event(1)+1);
 	if (acount++ != 0)

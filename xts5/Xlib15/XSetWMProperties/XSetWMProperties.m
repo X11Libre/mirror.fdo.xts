@@ -892,8 +892,7 @@ In child:
 
 extern char **environ;
 
-static void
-t007exec()
+static void t007exec(void)
 {
 char	*argv[4];
 char	*envp;
@@ -942,8 +941,7 @@ In child:
 	tet_fork(t008exec, TET_NULLFP, 0, 0xFF);
 
 >>EXTERN
-static void
-t008exec()
+static void t008exec(void)
 {
 char	*argv[4];
 

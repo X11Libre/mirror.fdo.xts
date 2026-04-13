@@ -55,7 +55,7 @@ All Rights Reserved.
 >>#
 >>EXTERN
 int bits_per_char = 0;
-void get_bits_per_char()
+void get_bits_per_char(void)
 {
 	unsigned char testVar;
 	testVar = 1;

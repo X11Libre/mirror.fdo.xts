@@ -87,7 +87,7 @@ extern Widget labelw, rowcolw, click_quit;
 
 void XtEM_Proc2(String, String, String, String, String*, Cardinal*);
 
-void test3sub(){
+void test3sub(void){
 
 Widget labelw_msg;
 int status;

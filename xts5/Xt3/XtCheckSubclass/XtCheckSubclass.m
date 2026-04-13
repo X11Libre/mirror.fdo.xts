@@ -67,9 +67,13 @@ XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
-void XtEM_Proc(name, type, class, defaulttp, params, num_params)
-String name, type, class, defaulttp, *params;
-Cardinal *num_params;
+void XtEM_Proc(
+    String name,
+    String type,
+    String class,
+    String defaulttp,
+    String *params,
+    Cardinal *num_params)
 {
 String par[10];
 int i;
@@ -97,9 +101,13 @@ char buffer[1000];
 	}
 }
 
-void XtEM_Proc2(name, type, class, defaulttp, params, num_params)
-String name, type, class, defaulttp, *params;
-Cardinal *num_params;
+void XtEM_Proc2(
+    String name,
+    String type,
+    String class,
+    String defaulttp,
+    String *params,
+    Cardinal *num_params)
 {
 	avs_set_event(1,1);
 }

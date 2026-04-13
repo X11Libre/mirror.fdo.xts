@@ -88,10 +88,10 @@ void XtEM_Proc(String, String, String, String, String *, Cardinal*);
 
 void XtEM_Proc2(String, String, String, String, String*, Cardinal*);
 
-void test1sub();
-void test2sub();
+void test1sub(void);
+void test2sub(void);
 
-void test1sub(){
+void test1sub(void){
 
 Widget labelw_msg;
 int status;
@@ -116,7 +116,7 @@ pid_t pid2;
 	tet_result(TET_PASS);
 }
 
-void test2sub(){
+void test2sub(void){
 
 Widget labelw_msg;
 int status;

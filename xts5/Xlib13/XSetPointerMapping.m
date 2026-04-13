@@ -123,8 +123,7 @@ static	int 	numbuttons;
  * the test may later override this).
  */
 >>SET begin-function getnbutton
-static	void
-getnbutton()
+static void getnbutton(void)
 {
 	numbuttons = XGetPointerMapping(Dsp, Map, MAPSIZE);
 	nmap = numbuttons;
@@ -137,8 +136,7 @@ getnbutton()
  */
 static unsigned char	oldmap[MAPSIZE];
 >>SET startup savemap
-static void
-savemap()
+static void savemap(void)
 {
 	startup();
 	if(Dsp)
@@ -146,8 +144,7 @@ savemap()
 }
 
 >>SET cleanup restoremap
-static void
-restoremap()
+static void restoremap(void)
 {
 	if(Dsp)
 		XSetPointerMapping(Dsp, oldmap, numbuttons);

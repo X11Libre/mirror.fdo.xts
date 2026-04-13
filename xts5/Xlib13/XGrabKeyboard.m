@@ -477,8 +477,7 @@ If extensions available:
 /*
  * Returns True if the keyboard is frozen.
  */
-static int
-iskfrozen()
+static int iskfrozen(void)
 {
 XEvent	ev;
 int 	res;
@@ -669,8 +668,7 @@ Verify that pointer events are still received.
 /*
  * Returns True if the pointer is frozen.
  */
-static Bool
-ispfrozen()
+static Bool ispfrozen(void)
 {
 XEvent	ev;
 Window	win;

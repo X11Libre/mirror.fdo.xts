@@ -284,8 +284,7 @@ else
  * events in the queue the grabbing client should have flushed any junk
  * left by this function.
  */
-static int pgrabbed(win)
-Window win;
+static int pgrabbed(Window win)
 {
 	PointerPlace *p;
 	XEvent ev;

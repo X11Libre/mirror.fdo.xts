@@ -131,11 +131,10 @@ struct	coord {
  * is relative to the given window.  For a type POS_ABS the coordinates
  * are absolute.
  */
-static void
-getpos(w, co, type)
-Window	w;
-struct	coord	*co;
-int 	type;
+static void getpos(
+    Window w,
+    struct coord *co,
+    int type)
 {
 Window	root, child;
 unsigned int 	mask;

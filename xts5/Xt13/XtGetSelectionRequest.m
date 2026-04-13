@@ -71,7 +71,7 @@ Widget labelw, rowcolw, click_quit;
 /* local functions */
 static Boolean convert_proc1(Widget, Atom*, Atom*, Atom*, XtPointer*,
 	unsigned long*, int*);
-static void lose_proc1();
+static void lose_proc1(Widget w, Atom *selection);
 static void done_proc1(Widget, Atom*, Atom*);
 static void requestor_callback1(Widget, XtPointer, Atom*, Atom*, XtPointer,
 	unsigned long*, int*);
@@ -187,7 +187,7 @@ int *format;
 /* local functions */
 static Boolean convert_proc2(Widget, Atom*, Atom*, Atom*, XtPointer*,
 	unsigned long*, int*);
-static void lose_proc2();
+static void lose_proc2(Widget w, Atom *selection);
 static void done_proc2(Widget, Atom*, Atom*);
 static void requestor_callback2(Widget, XtPointer, Atom*, Atom*, XtPointer,
 	unsigned long*, int*);

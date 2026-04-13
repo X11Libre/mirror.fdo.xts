@@ -115,9 +115,7 @@ int 	keyboard_mode = GrabModeAsync;
  * as unwarppointer but don't free ptr as this done at tpcleanup time.
  */
 static void
-my_unwarppointer(display, ptr)
-Display *display;
-PointerPlace *ptr;
+my_unwarppointer(Display *display, PointerPlace *ptr)
 {
         XWarpPointer(display, None, ptr->oroot, 0, 0, 0, 0, ptr->ox, ptr->oy);
 }
@@ -125,8 +123,7 @@ PointerPlace *ptr;
 
 static int minkc = -1,maxkc = -1;
 
-static void set_kcs(dpy)
-	Display *dpy;
+static void set_kcs(Display *dpy)
 {
 	int kmin, kmax;
 
@@ -146,8 +143,7 @@ static void set_kcs(dpy)
 
 #define	NMODS	8	/* Number of modifiers */
 
-static int grab_key_code(dpy)
-	Display *dpy;
+static int grab_key_code(Display *dpy)
 {
 	XModifierKeymap	*curmap;
 	int i,key;
@@ -164,8 +160,7 @@ static int grab_key_code(dpy)
 	return minkc;
 }
 
-static int nongrab_key_code(dpy)
-	Display *dpy;
+static int nongrab_key_code(Display *dpy)
 {
 	set_kcs(dpy);
 	return (keycode == maxkc) ? minkc : maxkc;
@@ -179,8 +174,7 @@ static int nongrab_key_code(dpy)
  * (This activates the previously set up grab if the arg variables
  * have not been changed.)
  */
-static void
-activate_press()
+static void activate_press(void)
 {
 	XSetInputFocus(display, grab_window, RevertToPointerRoot, CurrentTime);
 	if (modifiers)
@@ -191,8 +185,7 @@ activate_press()
 /*
  * As above, but release (all) keys.
  */
-static void
-activate_release()
+static void activate_release(void)
 {
 	XSetInputFocus(display, grab_window, RevertToPointerRoot, CurrentTime);
 	keyrel(display, keycode);
@@ -207,9 +200,7 @@ activate_release()
  * non-grabbing clients. The grab client gets all keyboard events with
  * event window depending on owner_events and clients event mask.
  */
-static Bool
-kgrabbed_check(client2)
-Display	*client2;
+static Bool kgrabbed_check(Display *client2)
 {
 XEvent	ev;
 int	saved_keyc = keycode;
@@ -246,8 +237,7 @@ int	saved_keyc = keycode;
  * as for kgrabbed_check() but used where number of fd's consumed by
  * multiple calls doesn't outweigh convenience of avoiding extra arg.
  */
-static Bool
-kgrabbed(void)
+static Bool kgrabbed(void)
 {
 Display	*client2;
 

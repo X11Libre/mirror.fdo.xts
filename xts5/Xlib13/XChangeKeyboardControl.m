@@ -118,8 +118,7 @@ static XKeyboardControl Kcval;
  */
 static XKeyboardState	oldstate;
 
-static void
-savekey()
+static void savekey(void)
 {
 	startup();
 	if(Dsp)
@@ -127,8 +126,7 @@ savekey()
 }
 >>SET startup savekey
 
-static void
-restorekey()
+static void restorekey(void)
 {
 XKeyboardControl	ctr;
 int 	led;

@@ -110,8 +110,7 @@ static	XModifierKeymap	*origmap;
 static	int	Minkc, Maxkc;
 
 >>SET startup savemap
-static void
-savemap()
+static void savemap(void)
 {
 	startup();
 	if(Dsp) {
@@ -121,8 +120,7 @@ savemap()
 }
 
 >>SET cleanup cleanmap
-static void
-cleanmap()
+static void cleanmap(void)
 {
 	if(Dsp)
 		XSetModifierMapping(Dsp, origmap);

@@ -125,10 +125,7 @@ static	Window	grabwin;
 /*
  * Grab and freeze the pointer.
  */
-static void
-grabfreezepointer(disp, thetime)
-Display	*disp;
-Time	thetime;
+static void grabfreezepointer(Display *disp, Time thetime)
 {
 
 	grabwin = defwin(disp);
@@ -142,9 +139,7 @@ Time	thetime;
  * the reported new position as returned by warppointer.  If this is the
  * same as the old position then the pointer is frozen.
  */
-static	Bool
-ispfrozen(disp)
-Display	*disp;
+static Bool ispfrozen(Display *disp)
 {
 PointerPlace	*pp;
 
@@ -582,9 +577,7 @@ else
 /*
  * Returns True if the keyboard is frozen.
  */
-static Bool
-iskfrozen(display)
-Display	*display;
+static Bool iskfrozen(Display *display)
 {
 XEvent	ev;
 Window	win;
@@ -1115,7 +1108,7 @@ else
 /*
  * Set up for SyncBoth tests grab and freeze all devices
  */
-int bothset()
+int bothset(void)
 {
 
 #ifndef INPUTEXTENSION

@@ -115,8 +115,7 @@ static int 	othresh;
  * Save the original pointer values for restoring at the end of the test.
  */
 >>SET startup saveold
-static void
-saveold()
+static void saveold(void)
 {
 	startup();
 	if(Dsp)
@@ -124,8 +123,7 @@ saveold()
 }
 
 >>SET cleanup restorepoint
-static void
-restorepoint()
+static void restorepoint(void)
 {
 	if(Dsp)
 		XChangePointerControl(Dsp, True, True, oan, oad, othresh);

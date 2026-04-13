@@ -152,9 +152,7 @@ If extension available and at least one button:
 else
   report untested.
 >>EXTERN
-static int pgrabbed(display, win)
-Display *display;
-Window win;
+static int pgrabbed(Display *display, Window win)
 {
 	PointerPlace	*p;
 	XEvent		ev;

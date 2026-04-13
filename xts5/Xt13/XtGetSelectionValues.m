@@ -73,8 +73,6 @@ Widget labelw, rowcolw, click_quit;
 */
 static Boolean convert_proc(Widget, Atom*, Atom*, Atom*, XtPointer*,
 	unsigned long*, int*);
-static void lose_proc();
-static void done_proc();
 static void requestor_callback(Widget, XtPointer, Atom*, Atom*, XtPointer,
 	unsigned long*, int*);
 

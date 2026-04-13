@@ -118,8 +118,7 @@ int	win_x;
 int	win_y;
 unsigned int mask;
 
-static void
-set_variables()
+static void set_variables(void)
 {
 	root = (Window)0;
 	child= (Window)0;

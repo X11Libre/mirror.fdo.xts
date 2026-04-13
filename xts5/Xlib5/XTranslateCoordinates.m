@@ -114,7 +114,7 @@ static	int	dest_x;
 static	int	dest_y;
 static	Window	child;
 
-void transinit()
+void transinit(void)
 {
 	tpstartup();
 

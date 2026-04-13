@@ -119,21 +119,14 @@ static Atom xcp_list[] = {
 
 static int xcp_num_list = NELEM(xcp_list);
 
-static void
-xcp_add_property(prop, data)
-Atom prop;
-unsigned long data;
+static void xcp_add_property(Atom prop, unsigned long data)
 {
 	XChangeProperty(display, w, prop, XA_INTEGER, 32,
 		PropModeReplace, (unsigned char *)&data, 1);
 	XSync(display, True);
 }
 
-static int
-xcp_get_property(prop, length, ret)
-Atom prop;
-int length;
-unsigned char **ret;
+static int xcp_get_property(Atom prop, int length, unsigned char **ret)
 {
 Atom type;
 int format;

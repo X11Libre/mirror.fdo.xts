@@ -115,11 +115,11 @@ static Atom xrwp_list[5] = {
 	0, 0, 0, 0, (unsigned)-1 };
 
 static void
-xrwp_add_property(disp, win, prop, data)
-Display *disp;
-Window win;
-Atom prop;
-unsigned long data;
+xrwp_add_property(
+    Display *disp,
+    Window win,
+    Atom prop,
+    unsigned long data)
 {
         XChangeProperty(disp, win, prop, XA_INTEGER, 32,
                 PropModeReplace,(unsigned char *)&data, 1);

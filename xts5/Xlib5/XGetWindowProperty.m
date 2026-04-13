@@ -131,8 +131,7 @@ static unsigned long nitems;
 static unsigned long bytes_after;
 static unsigned char *prop;
 
-static void
-set_vars()
+static void set_vars(void)
 {
 	actual_type = 0;
 	actual_format = -1;
@@ -141,12 +140,11 @@ set_vars()
 	prop = NULL;
 }
 
-static int
-check_values( ex_actual_type, ex_actual_format, ex_nitems, ex_bytes_after )
-Atom ex_actual_type;
-int ex_actual_format;
-unsigned long ex_nitems;
-unsigned long ex_bytes_after;
+static int check_values(
+    Atom ex_actual_type,
+    int ex_actual_format,
+    unsigned long ex_nitems,
+    unsigned long ex_bytes_after)
 {
 	int fail;
 	int pass;

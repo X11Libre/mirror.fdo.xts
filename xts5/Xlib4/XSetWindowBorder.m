@@ -107,8 +107,7 @@ unsigned long	border_pixel;
 static Window	parent;
 static struct	area	ap;
 
-static void
-inittp()
+static void inittp(void)
 {
 	tpstartup();
 

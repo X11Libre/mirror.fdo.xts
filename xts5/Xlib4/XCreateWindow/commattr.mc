@@ -103,8 +103,7 @@ purpose.  It is provided "as is" without express or implied warranty.
 static Window	w;
 #endif
 
-static void
-setinonly()
+static void setinonly(void)
 {
 #if defined(T_XCreateWindow)
 	class = InputOnly;
@@ -122,12 +121,11 @@ setinonly()
 #define	XCWA_GRAVITY	2
 #define XCWA_VISDEPTH	3
 
-static Window
-makeinout(mio_parent, mio_visual, mio_depth, mio_mode)
-Window mio_parent;
-Visual *mio_visual;
-int	mio_depth;
-int	mio_mode;
+static Window makeinout(
+    Window mio_parent,
+    Visual *mio_visual,
+    int mio_depth,
+    int mio_mode)
 {
 	Display	*mio_display;
 	int	mio_x, mio_y;

@@ -116,8 +116,7 @@ unsigned int	height;
 #define	OW_WIDTH	23
 #define	OW_HEIGHT	9
 
-static	Window
-onewin()
+static Window onewin(void)
 {
 Window	base;
 struct	area	area;
@@ -281,12 +280,11 @@ int 	i;
 #define	PAR_GRAVITY	010
 
 
-static void
-calcxy(top, evtype, x, y)
-struct	buildtree	*top;
-int 	evtype;
-int 	*x;
-int 	*y;
+static void calcxy(
+    struct buildtree *top,
+    int evtype,
+    int *x,
+    int *y)
 {
 int 	dx = NEW_WIDTH-top->width;
 int 	dy = NEW_HEIGHT-top->height;
@@ -332,11 +330,10 @@ int 	dy = NEW_HEIGHT-top->height;
  * Routine that does the event checking for the gravity notify
  * test.
  */
-static Bool
-wingravevents(display, bt, evtype)
-Display	*display;
-struct	buildtree	*bt;
-int 	evtype;
+static Bool wingravevents(
+    Display *display,
+    struct buildtree *bt,
+    int 	evtype)
 {
 XEvent	ev;
 XConfigureEvent	confgood;

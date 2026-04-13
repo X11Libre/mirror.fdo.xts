@@ -110,8 +110,7 @@ unsigned long	background_pixel = W_FG;
 static Window	parent;
 static struct	area	ap;
 
-static void
-inittp()
+static void inittp(void)
 {
 	tpstartup();
 

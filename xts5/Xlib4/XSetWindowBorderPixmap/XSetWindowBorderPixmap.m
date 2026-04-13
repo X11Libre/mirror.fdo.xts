@@ -107,8 +107,7 @@ Pixmap	border_pixmap;
 static struct	area	ap;
 static Window	parent;
 
-static void
-inittp()
+static void inittp(void)
 {
 	tpstartup();
 
@@ -118,10 +117,7 @@ inittp()
 	ap.height= 20;
 }
 
-static void
-perform_map(display, w)
-Display	*display;
-Window	w;
+static void perform_map(Display *display, Window w)
 {
 	XEvent	event;
 /* Await visibilty */

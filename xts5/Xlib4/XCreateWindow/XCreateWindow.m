@@ -122,20 +122,19 @@ XSetWindowAttributes	*attributes = &Atts;
 
 static XSetWindowAttributes	Atts;
 
-static Window
-interceptXCW(display, parent, x, y, width, height, border_width, depth, class, visual, valuemask, attributes)
-Display	*display;
-Window	parent;
-int 	x;
-int 	y;
-unsigned int 	width;
-unsigned int 	height;
-unsigned int 	border_width;
-int 	depth;
-unsigned int 	class;
-Visual	*visual;
-unsigned long	valuemask;
-XSetWindowAttributes	*attributes;
+static Window interceptXCW(
+    Display *display,
+    Window parent,
+    int x,
+    int y,
+    unsigned int width,
+    unsigned int height,
+    unsigned int border_width,
+    int depth,
+    unsigned int class,
+    Visual *visual,
+    unsigned long valuemask,
+    XSetWindowAttributes *attributes)
 {
 Colormap	cm;
 Visual	*vis;
@@ -289,11 +288,10 @@ int 	n;
 
 >>EXTERN
 
-static int
-checkatts(setatts, getatts, vmask)
-XSetWindowAttributes	*setatts;
-XWindowAttributes	*getatts;
-unsigned long 	vmask;
+static int checkatts(
+    XSetWindowAttributes *setatts,
+    XWindowAttributes *getatts,
+    unsigned long vmask)
 {
 int 	pass = 0, fail = 0;
 

@@ -122,9 +122,7 @@ static XWindowChanges	winchng;
 #define	NEW_X	OW_X+5
 #define	NEW_Y	OW_Y+5
 
-
-static	Window
-onewin()
+static Window onewin(void)
 {
 Window	base;
 struct	area	area;

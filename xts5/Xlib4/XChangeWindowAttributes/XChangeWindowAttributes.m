@@ -186,11 +186,10 @@ int 	n;
 >>#   Perhaps it should be in a library (or in commattr.mc) 
 >>#					stuart
 
-static int
-checkatts(setatts, getatts, vmask)
-XSetWindowAttributes	*setatts;
-XWindowAttributes	*getatts;
-unsigned long 	vmask;
+static int checkatts(
+    XSetWindowAttributes *setatts,
+    XWindowAttributes *getatts,
+    unsigned long vmask)
 {
 int 	pass = 0, fail = 0;
 

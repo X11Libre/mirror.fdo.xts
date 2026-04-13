@@ -107,8 +107,7 @@ unsigned int width = 4;
 
 struct	area	area;
 
-void
-tpXSWBWstart()
+void tpXSWBWstart(void)
 {
 	tpstartup();
 

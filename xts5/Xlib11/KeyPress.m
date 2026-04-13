@@ -102,11 +102,10 @@ purpose.  It is provided "as is" without express or implied warranty.
 #define EVENT KeyPress
 #define EVENTMASK KeyPressMask
 
-static void
-presskey(Dpy, w, kc)
-Display		*Dpy;
-Window		w;
-int		kc;
+static void presskey(
+    Display *Dpy,
+    Window w,
+    int kc)
 {
 	/*
 	 * Note that we do not call XSetInputFocus() since 2 tests require
@@ -117,8 +116,7 @@ int		kc;
 
 static	int	keyc = 0;
 
-static int
-keycode()
+static int keycode(void)
 {
 int	tmp;
 

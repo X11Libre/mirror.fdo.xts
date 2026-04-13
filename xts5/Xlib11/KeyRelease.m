@@ -102,11 +102,10 @@ purpose.  It is provided "as is" without express or implied warranty.
 #define EVENT KeyRelease
 #define EVENTMASK KeyReleaseMask
 
-static void
-presskey(Dpy, w, kc)
-Display		*Dpy;
-Window		w;
-int		kc;
+static void presskey(
+    Display *Dpy,
+    Window w,
+    int kc)
 {
 	/*
 	 * Note that we do not call XSetInputFocus() since 2 tests require
@@ -119,8 +118,7 @@ int		kc;
 
 static	int	keyc = 0;
 
-static unsigned int
-keycode()
+static unsigned int keycode(void)
 {
 int	tmp;
 
@@ -132,9 +130,7 @@ int	tmp;
 	return(keyc);
 }    
 
-static unsigned int
-keystate(keyc)
-int keyc;
+static unsigned int keystate(int keyc)
 {
 XModifierKeymap *map;
 unsigned int state;

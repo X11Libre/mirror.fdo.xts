@@ -110,9 +110,11 @@ purpose.  It is provided "as is" without express or implied warranty.
 static	int	_detail_;
 static	XEvent	good;
 
-static	int
-plant(start, stop, current, previous)
-Winh	*start, *stop, *current, *previous;
+static int plant(
+    Winh *start,
+    Winh *stop,
+    Winh *current,
+    Winh *previous)
 {
 #ifdef	lint
 	winh_free(start);
@@ -125,9 +127,11 @@ Winh	*start, *stop, *current, *previous;
 
 static	Bool	increasing;	/* event sequence increases as we climb */
 
-static	int
-checksequence(start, stop, current, previous)
-Winh	*start, *stop, *current, *previous;
+static int checksequence(
+    Winh *start,
+    Winh *stop,
+    Winh *current,
+    Winh *previous)
 {
 	Winhe	*d;
 	int	current_sequence;
@@ -166,9 +170,11 @@ Winh	*start, *stop, *current, *previous;
 	return(status);
 }
 
-static	int
-checkdetail(start, stop, current, previous)
-Winh	*start, *stop, *current, *previous;
+static int checkdetail(
+    Winh *start,
+    Winh *stop,
+    Winh *current,
+    Winh *previous)
 {
 	Winhe	*d;
 

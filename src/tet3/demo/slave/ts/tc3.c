@@ -43,9 +43,10 @@ MODIFICATIONS:
 
 int sys0[] = { 0 };	/* system IDs to sync with */
 
-static void error(err, rptstr)
-int err;	/* tet_errno value, or zero if N/A */
-char *rptstr;	/* failure to report */
+static void error(
+    int err,	/* tet_errno value, or zero if N/A */
+    char *rptstr	/* failure to report */
+)
 {
 	const char *errstr, *colonstr = ": ";
 	char errbuf[20];
@@ -117,4 +118,3 @@ static void tp2()
 void (*tet_startup)() = NULL, (*tet_cleanup)() = NULL;
 
 struct tet_testlist tet_testlist[] = { {tp1,1}, {tp2,2}, {NULL,0} };
-

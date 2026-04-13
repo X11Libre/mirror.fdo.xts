@@ -50,9 +50,7 @@ MODIFICATIONS:
 **	syncd is never a client, so never connects to other processes
 */
 
-void tet_ss_connect(pp)
-struct ptab *pp;
+void tet_ss_connect(struct ptab *pp)
 {
 	error(0, "internal error - connect called", tet_r2a(&pp->pt_rid));
 }
-

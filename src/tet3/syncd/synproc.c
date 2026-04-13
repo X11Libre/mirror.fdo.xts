@@ -84,8 +84,7 @@ static void procmsdata PROTOLIST((struct stab *, struct ustab *,
 **	op_snget() - return a snid for use in auto sync events
 */
 
-void op_snget(pp)
-struct ptab *pp;
+void op_snget(struct ptab *pp)
 {
 	struct valmsg *rp;
 	struct stab *sp;
@@ -130,8 +129,7 @@ struct ptab *pp;
 **		VM_SSYSID(0) .. VM_SSYSID(OP_SNSYS_NSYS - 1) = system names
 */
 
-void op_snsys(pp)
-struct ptab *pp;
+void op_snsys(struct ptab *pp)
 {
 	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
 	struct stab *sp;
@@ -208,8 +206,7 @@ struct ptab *pp;
 **	op_snrm() - remove a snid (i.e., an auto-sync sequence)
 */
 
-void op_snrm(pp)
-struct ptab *pp;
+void op_snrm(struct ptab *pp)
 {
 	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
 	struct stab *sp;
@@ -269,8 +266,7 @@ struct ptab *pp;
 **	op_async() - process an automatic sync request
 */
 
-void op_async(pp)
-struct ptab *pp;
+void op_async(struct ptab *pp)
 {
 	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
 	struct stab *sp;
@@ -326,8 +322,7 @@ struct ptab *pp;
 **	op_usync() - process a user sync request
 */
 
-void op_usync(pp)
-struct ptab *pp;
+void op_usync(struct ptab *pp)
 {
 	struct valmsg *mp = (struct valmsg *) pp->ptm_data;
 	struct stab *sp;
@@ -453,10 +448,7 @@ struct ptab *pp;
 **		failure is in the message return code
 */
 
-static void op_s2(pp, sp, mp)
-struct ptab *pp;
-struct stab *sp;
-struct valmsg *mp;
+static void op_s2(struct ptab *pp, struct stab *sp, struct valmsg *mp)
 {
 	struct sptab *stp = (struct sptab *) pp->pt_sdata;
 	struct ustab *up, *myup;
@@ -527,10 +519,7 @@ struct valmsg *mp;
 **	procmsdata() - process sync message data from a sending system
 */
 
-static void procmsdata(sp, up, mp)
-struct stab *sp;
-struct ustab *up;
-struct valmsg *mp;
+static void procmsdata(struct stab *sp, struct ustab *up, struct valmsg *mp)
 {
 	/* see if another system has already claimed to send us message data;
 		if it has:
@@ -561,4 +550,3 @@ struct valmsg *mp;
 	sp->st_smsysid = up->us_sysid;
 	sp->st_smspno = up->us_spno;
 }
-

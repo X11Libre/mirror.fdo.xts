@@ -147,8 +147,7 @@ struct stab *stalloc()
 **	stfree() - free storage occupied by an stab element
 */
 
-void stfree(sp)
-struct stab *sp;
+void stfree(struct stab *sp)
 {
 	TRACE2(tet_Tbuf, 6, "free stab = %s", tet_i2x(sp));
 
@@ -174,9 +173,7 @@ struct stab *sp;
 **	return 0 if successful or -1 on error
 */
 
-int ustalloc(sp, nud)
-struct stab *sp;
-int nud;
+int ustalloc(struct stab *sp, int nud)
 {
 	int needlen;
 
@@ -198,8 +195,7 @@ int nud;
 **	stadd() - add an stab element to the sync table
 */
 
-void stadd(sp)
-struct stab *sp;
+void stadd(struct stab *sp)
 {
 	tet_listinsert((struct llist **) &stab, (struct llist *) sp);
 }
@@ -208,8 +204,7 @@ struct stab *sp;
 **	strm() - remove an stab element from the sync table
 */
 
-void strm(sp)
-struct stab *sp;
+void strm(struct stab *sp)
 {
 	tet_listremove((struct llist **) &stab, (struct llist *) sp);
 }
@@ -220,8 +215,7 @@ struct stab *sp;
 **	return (struct stab *) 0 if not found
 */
 
-struct stab *stafind(snid)
-long snid;
+struct stab *stafind(long snid)
 {
 	struct stab *sp;
 
@@ -238,10 +232,7 @@ long snid;
 **	return (struct stab *) 0 if not found
 */
 
-struct stab *stufind(xrid, udp, nud)
-long xrid;
-struct ustab *udp;
-int nud;
+struct stab *stufind(long xrid, struct ustab *udp, int nud)
 {
 	struct stab *sp;
 	struct ustab *up1, *up2;
@@ -270,8 +261,7 @@ int nud;
 **	stcheck() - see if a sync event has occurred yet
 */
 
-void stcheck(sp)
-struct stab *sp;
+void stcheck(struct stab *sp)
 {
 	struct ustab *up;
 	int count, vote;
@@ -343,8 +333,7 @@ void stloop()
 **	stservice() - service a single sync table entry that needs attention
 */
 
-static void stservice(sp)
-struct stab *sp;
+static void stservice(struct stab *sp)
 {
 	struct ustab *up;
 	long spno = SPMAX;
@@ -423,9 +412,7 @@ struct stab *sp;
 **		0 if the element should be removed
 */
 
-static int sts2(sp, spno)
-struct stab *sp;
-long spno;
+static int sts2(struct stab *sp, long spno)
 {
 	struct ustab *up;
 	int count;
@@ -464,9 +451,7 @@ long spno;
 **	stpok() - process a sync event that has completed successfully
 */
 
-static void stpok(sp, spno)
-struct stab *sp;
-long spno;
+static void stpok(struct stab *sp, long spno)
 {
 	struct ustab *up;
 
@@ -480,9 +465,7 @@ long spno;
 **	stperr() - process a sync event that has completed unsuccessfully
 */
 
-static void stperr(sp, spno)
-struct stab *sp;
-long spno;
+static void stperr(struct stab *sp, long spno)
 {
 	struct ustab *up;
 
@@ -521,9 +504,7 @@ long spno;
 **	syncmsg() - construct a sync reply message
 */
 
-static void syncmsg(sp, up)
-struct stab *sp;
-struct ustab *up;
+static void syncmsg(struct stab *sp, struct ustab *up)
 {
 	struct ptab *pp;
 	struct sptab *stp;
@@ -551,10 +532,7 @@ struct ustab *up;
 **	synmsg2() - extend the syncmsg() processing
 */
 
-static void synmsg2(sp, up, pp)
-struct stab *sp;
-struct ustab *up;
-struct ptab *pp;
+static void synmsg2(struct stab *sp, struct ustab *up, struct ptab *pp)
 {
 	struct valmsg *rp;
 	struct ustab *up2;
@@ -679,9 +657,7 @@ struct ptab *pp;
 **	stuend() - force end for all user syncs involving a particular sysid
 */
 
-void stuend(snid, sysid)
-long snid;
-int sysid;
+void stuend(long snid, int sysid)
 {
 	struct stab *sp;
 	struct ustab *up;
@@ -703,8 +679,7 @@ int sysid;
 **	stdead() - stab processing when a process logs off or dies
 */
 
-void stdead(pp)
-struct ptab *pp;
+void stdead(struct ptab *pp)
 {
 	struct stab *sp;
 	struct ustab *up;
@@ -730,10 +705,7 @@ struct ptab *pp;
 **	std2() - extend the stdead() processing
 */
 
-static void std2(pp, sp, up)
-struct ptab *pp;
-struct stab *sp;
-struct ustab *up;
+static void std2(struct ptab *pp, struct stab *sp, struct ustab *up)
 {
 	struct ptab *q;
 	extern struct ptab *tet_ptab;
@@ -772,8 +744,7 @@ struct ustab *up;
 
 #ifndef NOTRACE
 const char *
-stflags(fval)
-int fval;
+stflags(int fval)
 {
 	static struct flags flags[] = {
 		{ SF_ATTENTION, "ATTENTION" },
@@ -792,8 +763,7 @@ int fval;
 */
 
 const char *
-smflags(fval)
-int fval;
+smflags(int fval)
 {
 	static struct flags flags[] = {
 		{ SM_SNDMSG, "SNDMSG" },
@@ -805,4 +775,3 @@ int fval;
 	return(tet_f2a(fval, flags, sizeof flags / sizeof flags[0]));
 }
 #endif
-

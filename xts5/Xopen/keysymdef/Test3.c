@@ -91,13 +91,8 @@ SOFTWARE.
 
 extern char	*TestName;
 
-static int
-test(name, val, aval)
-char	*name;
-int	val;
-int	aval;
+static int test(char *name, int val, int aval)
 {
-
 	if(val != aval) {
 		report("KeySym \"%s\" is defined to have value 0x%x instead of 0x%x.", name, val, aval);
 		return(0);
@@ -105,11 +100,7 @@ int	aval;
 	return(1);
 }
 
-
-
-static void
-reporterr(s)
-char	*s;
+static void reporterr(char *s)
 {
 	report("Keysym \"%s\" is not defined.", s);
 }

@@ -91,10 +91,7 @@ SOFTWARE.
 
 extern char	*TestName;
 
-static int
-test(symbol, str)
-KeySym	symbol;
-char	*str;
+static int test(KeySym symbol, char *str)
 {
 KeySym	rsym;
 
@@ -112,9 +109,7 @@ KeySym	rsym;
 	return(1);
 }
 
-static void
-reporterr(s)
-char	*s;
+static void reporterr(char *s)
 {
 	report("Symbol \"%s\" is not defined.", s);
 }

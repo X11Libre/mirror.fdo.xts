@@ -96,10 +96,7 @@ static int		minkc;
 static int		maxkc;
 static int		keysyms_per_keycode;
 
-static int
-test(symbol, str)
-KeySym	symbol;
-char	*str;
+static int test(KeySym symbol, char *str)
 {
 KeyCode	kycd;
 int	mod;
@@ -128,9 +125,7 @@ int	mod;
 	return(0);
 }
 
-static void
-reporterr(s)
-char	*s;
+static void reporterr(char *s)
 {
 	report("Symbol XK_\"%s\" is not defined.", s);
 }

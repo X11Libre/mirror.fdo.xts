@@ -101,10 +101,7 @@ mkcolor(int flag)
 	return(flag ? &fore : &back);
 }
 
-static
-void
-test_font(symbol)
-int	symbol;
+static void test_font(int symbol)
 {
 Cursor	qstat;
 Window w;

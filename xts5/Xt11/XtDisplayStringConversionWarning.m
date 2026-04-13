@@ -65,13 +65,13 @@ Widget labelw, rowcolw, click_quit;
 #define XavsRChar "Char"
 #endif
 
-void XTWHMProc(name, type, class, defaultp, params, num_params)
-String name;
-String type;
-String class;
-String defaultp ;
-String *params ;
-Cardinal *num_params ;
+void XTWHMProc(
+    String name,
+    String type,
+    String class,
+    String defaultp,
+    String *params,
+    Cardinal *num_params)
 {
 String par[10];
 int i;
@@ -93,13 +93,14 @@ char buffer[1000];
 	}
 	check_str(ebuf, "Cannot convert string \"String\" to type Int", "Warning message");
 }
-void XTEHMProc(name, type, class, defaultp, params, num_params)
-String name;
-String type;
-String class;
-String defaultp ;
-String *params ;
-Cardinal *num_params ;
+
+void XTEHMProc(
+    String name,
+    String type,
+    String class,
+    String defaultp,
+    String *params,
+    Cardinal *num_params)
 {
 String par[10];
 int i;
@@ -122,14 +123,13 @@ char buffer[1000];
 	check_str(ebuf, "Cannot convert string \"Not a real type\" to type Int", "Warning message");
 }
 
-
-Boolean XtCVT_StringToChar(display, args, num_args, from_val, to_val, convertor_data)
-Display *display;
-XrmValue *args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
-XtPointer *convertor_data;
+Boolean XtCVT_StringToChar(
+    Display *display,
+    XrmValue *args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val,
+    XtPointer *convertor_data)
 {
 	char *str = (char *) (from_val->addr);
 	static unsigned char i;
@@ -142,13 +142,13 @@ XtPointer *convertor_data;
 	XtDisplayStringConversionWarning(display, "String", "Int");
 }
 
-Boolean XtCVT_StringToChar2(display, args, num_args, from_val, to_val, convertor_data)
-Display *display;
-XrmValue *args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
-XtPointer *convertor_data;
+Boolean XtCVT_StringToChar2(
+    Display *display,
+    XrmValue *args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val,
+    XtPointer *convertor_data)
 {
 	char *str = (char *) (from_val->addr);
 	static unsigned char i;
@@ -160,6 +160,7 @@ XtPointer *convertor_data;
 	*/
 	XtDisplayStringConversionWarning(display, "Not a real type", "Int");
 }
+
 >>SET tpstartup avs_alloc_sem
 >>SET tpcleanup avs_free_sem
 >>TITLE XtDisplayStringConversionWarning Xt11

@@ -73,7 +73,7 @@ unsigned char tochar;
 
 char buf[32];
 
-void init_args()
+void init_args(void)
 {
 	from.addr = (XtPointer) "Hello";
 	from.size = strlen(from.addr)+1;
@@ -84,13 +84,13 @@ void init_args()
 #ifndef XavsRChar
 #define XavsRChar "Char"
 #endif
-Boolean XtCVT_Proc(display, args, num_args, from_val, to_val, converter_data)
-Display *display;
-XrmValuePtr args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
-XtPointer *converter_data;
+Boolean XtCVT_Proc(
+    Display *display,
+    XrmValuePtr args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val,
+    XtPointer *converter_data)
 {
 	/*
 	** Conveter to convert String to Char
@@ -103,15 +103,17 @@ XtPointer *converter_data;
 	i = *str;
 	return True;
 }
-void XtDES_Proc(app_ctext, to_val, converter_data, args, num_args )
-XtAppContext	app_ctext;
-XrmValue *to_val;
-XtPointer converter_data;
-XrmValue *args;
-Cardinal *num_args;
+
+void XtDES_Proc(
+    XtAppContext app_ctext,
+    XrmValue *to_val,
+    XtPointer converter_data,
+    XrmValue *args,
+    Cardinal *num_args)
 {
 	avs_set_event(2,avs_get_event(2)+1);
 }
+
 >>SET tpstartup avs_alloc_sem
 >>SET tpcleanup avs_free_sem
 >>TITLE XtAppReleaseCacheRefs Xt11

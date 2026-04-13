@@ -67,13 +67,13 @@ unsigned char tchar[2] = {0,0};
 #ifndef XavsRChar
 #define XavsRChar "Char"
 #endif
-Boolean XtCVT_StringToChar(display, args, num_args, from_val, to_val, converter_data)
-Display *display;
-XrmValuePtr args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
-XtPointer *converter_data;
+Boolean XtCVT_StringToChar(
+    Display *display,
+    XrmValuePtr args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val,
+    XtPointer *converter_data)
 {
 	char *str = (char *) (from_val->addr);
 	static unsigned char i;
@@ -83,17 +83,19 @@ XtPointer *converter_data;
 	avs_set_event(1, avs_get_event(1)+1);
 	return True;
 }
-Boolean XtCVT2_StringToChar(display, args, num_args, from_val, to_val, converter_data)
-Display *display;
-XrmValuePtr args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
-XtPointer *converter_data;
+
+Boolean XtCVT2_StringToChar(
+    Display *display,
+    XrmValuePtr args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val,
+    XtPointer *converter_data)
 {
 	avs_set_event(1, avs_get_event(1)+1);
 	return False;
 }
+
 >>SET tpstartup avs_alloc_sem
 >>SET tpcleanup avs_free_sem
 >>TITLE XtConvertAndStore Xt11

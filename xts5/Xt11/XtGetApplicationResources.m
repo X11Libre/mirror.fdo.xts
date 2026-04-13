@@ -106,13 +106,13 @@ static XtResource resources2[] = {
 char whereitsat[64];
 char *huh;
 
-Boolean XtCVT_Proc(display, args, num_args, from_val, to_val, converter_data)
-Display *display;
-XrmValuePtr args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
-XtPointer *converter_data;
+Boolean XtCVT_Proc(
+    Display *display,
+    XrmValuePtr args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val,
+    XtPointer *converter_data)
 {
 	sprintf(whereitsat, "%d", *(int *)from_val->addr);
 	*(String*)to_val->addr = whereitsat;
@@ -120,6 +120,7 @@ XtPointer *converter_data;
 	avs_set_event(2, avs_get_event(2)+1);
 	return True;
 }
+
 >>SET tpstartup avs_alloc_sem
 >>SET tpcleanup avs_free_sem
 >>TITLE XtGetApplicationResources Xt11

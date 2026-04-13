@@ -73,13 +73,13 @@ Widget labelw, rowcolw, click_quit;
 #define XavsRChar "Char"
 #endif
 
-Boolean XtCVT_Proc(display, args, num_args, from_val, to_val, converter_data)
-Display *display;
-XrmValuePtr args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
-XtPointer *converter_data;
+Boolean XtCVT_Proc(
+    Display *display,
+    XrmValuePtr args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val,
+    XtPointer *converter_data)
 {
 	char *str = (char *) (from_val->addr);
 	static unsigned char i;
@@ -92,22 +92,24 @@ XtPointer *converter_data;
 	i = *str;
 	return True;
 }
-void XtDES_Proc(app_ctext, to_val, converter_data, args, num_args )
-XtAppContext app_ctext;
-XrmValue *to_val;
-XtPointer converter_data;
-XrmValuePtr args;
-Cardinal *num_args;
+
+void XtDES_Proc(
+    XtAppContext app_ctext,
+    XrmValue *to_val,
+    XtPointer converter_data,
+    XrmValuePtr args,
+    Cardinal *num_args)
 {
 	avs_set_event(2,1);
 }
-Boolean XtCVT_2StringToInt(display, args, num_args, from_val, to_val, converter_data)
-Display *display;
-XrmValuePtr args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
-XtPointer *converter_data;
+
+Boolean XtCVT_2StringToInt(
+    Display *display,
+    XrmValuePtr args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val,
+    XtPointer *converter_data)
 {
 	char *str = (char *) (from_val->addr);
 	static unsigned int i;
@@ -119,13 +121,14 @@ XtPointer *converter_data;
 	i = *str;
 	return True;
 }
-Boolean XtCVT_2StringToChar(display, args, num_args, from_val, to_val, converter_data)
-Display *display;
-XrmValuePtr args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
-XtPointer *converter_data;
+
+Boolean XtCVT_2StringToChar(
+    Display *display,
+    XrmValuePtr args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val,
+    XtPointer *converter_data)
 {
 	char *str = (char *) (from_val->addr);
 	static unsigned char i;
@@ -135,23 +138,25 @@ XtPointer *converter_data;
 	i = *str;
 	return True;
 }
-void XtDES2_FreeInt(app_ctext, to_val, converter_data, args, num_args )
-XtAppContext app_ctext;
-XrmValue *to_val;
-XtPointer converter_data;
-XrmValuePtr args;
-Cardinal *num_args;
+
+void XtDES2_FreeInt(
+    XtAppContext app_ctext,
+    XrmValue *to_val,
+    XtPointer converter_data,
+    XrmValuePtr args,
+    Cardinal *num_args)
 {
 	sprintf(ebuf, "ERROR: Invoked destructor XtDES2_FreeInt");
 	tet_infoline(ebuf);
 	tet_result(TET_FAIL);
 }
-void XtDES2_FreeChar(app_ctext, to_val, converter_data, args, num_args )
-XtAppContext app_ctext;
-XrmValue *to_val;
-XtPointer converter_data;
-XrmValuePtr args;
-Cardinal *num_args;
+
+void XtDES2_FreeChar(
+    XtAppContext app_ctext,
+    XrmValue *to_val,
+    XtPointer converter_data,
+    XrmValuePtr args,
+    Cardinal *num_args)
 {
 	avs_set_event(2, 1);
 }
@@ -169,18 +174,17 @@ int argdata[NUMARGS] = {
 	8008	
 };
 
-void xcap(w, size, value)
-Widget w;
-Cardinal *size;
-XrmValue *value;
+void xcap(
+    Widget w,
+    Cardinal *size,
+    XrmValue *value)
 {
 	avs_set_event(2, avs_get_event(2)+1);
 	value->addr = (XtPointer)&argdata[7];
 	value->size = sizeof(argdata[7]);
 }
 
-void init_args(checknum)
-int checknum;
+void init_args(int checknum)
 {
 	cargs[0].address_mode = XtImmediate;
 	cargs[0].address_id = (XtPointer)checknum;
@@ -222,15 +226,15 @@ int checknum;
 	cargs[7].size = sizeof(XtPointer);
 }
 
-Boolean XtCVT_ProcA(display, args, num_args, from_val, to_val, converter_data)
-Display *display;
-XrmValuePtr args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
-XtPointer *converter_data;
+Boolean XtCVT_ProcA(
+    Display *display,
+    XrmValuePtr args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val,
+    XtPointer *converter_data)
 {
-int	checknum;
+	int checknum;
 
 	char *str = (char *) (from_val->addr);
 	static unsigned char i;

@@ -66,13 +66,13 @@ Widget labelw, rowcolw, click_quit;
 #define XavsRChar "Char"
 #endif
 
-Boolean XtCVT_StringToChar(display, args, num_args, from_val, to_val, converter_data)
-Display *display;
-XrmValuePtr args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
-XtPointer *converter_data;
+Boolean XtCVT_StringToChar(
+    Display *display,
+    XrmValuePtr args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val,
+    XtPointer *converter_data)
 {
 	char *str = (char *) (from_val->addr);
 	static unsigned char i;
@@ -82,12 +82,12 @@ XtPointer *converter_data;
 	return(True);
 }
 
-void XtDES_Proc(app_ctext, to_val, converter_data, args, num_args )
-XtAppContext app_ctext;
-XrmValue *to_val;
-XtPointer converter_data;
-XrmValuePtr args;
-Cardinal *num_args;
+void XtDES_Proc(
+    XtAppContext app_ctext,
+    XrmValue *to_val,
+    XtPointer converter_data,
+    XrmValuePtr args,
+    Cardinal *num_args)
 {
 	avs_set_event(1,avs_get_event(1)+1);
 }

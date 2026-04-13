@@ -90,17 +90,22 @@ static XtResource resources[] = {
 	},
 };
 
-void XtWMHl_Proc(str1)
-String str1;
+void XtWMHl_Proc(String str1)
 {
 	avs_set_event(1,1);
 }
-void XtWMH_Proc(str1, str2, str3, str4, str5, car)
-String str1, str2, str3, str4, *str5;
-Cardinal *car;
+
+void XtWMH_Proc(
+    String str1,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
+    Cardinal *car)
 {
 	avs_set_event(1,1);
 }
+
 >>SET tpstartup avs_alloc_sem
 >>SET tpcleanup avs_free_sem
 >>TITLE XtVaGetSubvalues Xt11

@@ -73,7 +73,8 @@ XtCacheRef cache_ref_return;
 int invoked = 0;
 Boolean status;
 char fromdata[128];
-void init_args()
+
+void init_args(void)
 {
 pid_t	thepid;
 
@@ -92,13 +93,13 @@ pid_t	thepid;
 #ifndef XavsRChar
 #define XavsRChar "Char"
 #endif
-Boolean XtCVT1_StringToChar(display, args, num_args, from_val, to_val, converter_data)
-Display *display;
-XrmValue *args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
-XtPointer *converter_data;
+Boolean XtCVT1_StringToChar(
+    Display *display,
+    XrmValue *args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val,
+    XtPointer *converter_data)
 {
 	char *str = (char *) (from_val->addr);
 	static unsigned char i;
@@ -108,132 +109,142 @@ XtPointer *converter_data;
 	avs_set_event(1, avs_get_event(1)+1);
 	return True;
 }
+
 #define XavsRUnknown "UnknownRes"
-Boolean XtCVT2_StringToChar(display, args, num_args, from_val, to_val, converter_data)
-Display *display;
-XrmValuePtr args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
-XtPointer *converter_data;
+Boolean XtCVT2_StringToChar(
+    Display *display,
+    XrmValuePtr args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val,
+    XtPointer *converter_data)
 {
 	avs_set_event(1, avs_get_event(1)+1);
 	/* Force false value as if conversion failed */
 	return (False);
 }
-Boolean XtCVT3_StringToChar(display, args, num_args, from_val, to_val, converter_data)
-Display *display;
-XrmValue *args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
-XtPointer *converter_data;
-{
 
-	return (XtCVT1_StringToChar(display, args, num_args, from_val, to_val, converter_data));
-}
-Boolean XtCVT4_StringToChar(display, args, num_args, from_val, to_val, converter_data)
-Display *display;
-XrmValue *args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
-XtPointer *converter_data;
+Boolean XtCVT3_StringToChar(
+    Display *display,
+    XrmValue *args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val,
+    XtPointer *converter_data)
 {
 	return (XtCVT1_StringToChar(display, args, num_args, from_val, to_val, converter_data));
 }
-Boolean XtCVT1a_StringToChar(display, args, num_args, from_val, to_val, converter_data)
-Display *display;
-XrmValue *args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
-XtPointer *converter_data;
+
+Boolean XtCVT4_StringToChar(
+    Display *display,
+    XrmValue *args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val,
+    XtPointer *converter_data)
 {
 	return (XtCVT1_StringToChar(display, args, num_args, from_val, to_val, converter_data));
 }
-Boolean XtCVT2a_StringToChar(display, args, num_args, from_val, to_val, converter_data)
-Display *display;
-XrmValuePtr args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
-XtPointer *converter_data;
+
+Boolean XtCVT1a_StringToChar(
+    Display *display,
+    XrmValue *args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val,
+    XtPointer *converter_data)
+{
+	return (XtCVT1_StringToChar(display, args, num_args, from_val, to_val, converter_data));
+}
+
+Boolean XtCVT2a_StringToChar(
+    Display *display,
+    XrmValuePtr args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val,
+    XtPointer *converter_data)
 {
 	return (XtCVT2_StringToChar(display, args, num_args, from_val, to_val, converter_data));
 }
-Boolean XtCVT3a_StringToChar(display, args, num_args, from_val, to_val, converter_data)
-Display *display;
-XrmValue *args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
-XtPointer *converter_data;
-{
 
-	return (XtCVT1_StringToChar(display, args, num_args, from_val, to_val, converter_data));
-}
-Boolean XtCVT4a_StringToChar(display, args, num_args, from_val, to_val, converter_data)
-Display *display;
-XrmValue *args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
-XtPointer *converter_data;
+Boolean XtCVT3a_StringToChar(
+    Display *display,
+    XrmValue *args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val,
+    XtPointer *converter_data)
 {
 	return (XtCVT1_StringToChar(display, args, num_args, from_val, to_val, converter_data));
 }
-Boolean XtCVT1b_StringToChar(display, args, num_args, from_val, to_val, converter_data)
-Display *display;
-XrmValue *args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
-XtPointer *converter_data;
+
+Boolean XtCVT4a_StringToChar(
+    Display *display,
+    XrmValue *args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val,
+    XtPointer *converter_data)
 {
 	return (XtCVT1_StringToChar(display, args, num_args, from_val, to_val, converter_data));
 }
-Boolean XtCVT2b_StringToChar(display, args, num_args, from_val, to_val, converter_data)
-Display *display;
-XrmValuePtr args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
-XtPointer *converter_data;
+
+Boolean XtCVT1b_StringToChar(
+    Display *display,
+    XrmValue *args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val,
+    XtPointer *converter_data)
+{
+	return (XtCVT1_StringToChar(display, args, num_args, from_val, to_val, converter_data));
+}
+
+Boolean XtCVT2b_StringToChar(
+    Display *display,
+    XrmValuePtr args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val,
+    XtPointer *converter_data)
 {
 	return (XtCVT2_StringToChar(display, args, num_args, from_val, to_val, converter_data));
 }
-Boolean XtCVT3b_StringToChar(display, args, num_args, from_val, to_val, converter_data)
-Display *display;
-XrmValue *args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
-XtPointer *converter_data;
-{
 
-	return (XtCVT1_StringToChar(display, args, num_args, from_val, to_val, converter_data));
-}
-Boolean XtCVT4b_StringToChar(display, args, num_args, from_val, to_val, converter_data)
-Display *display;
-XrmValue *args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
-XtPointer *converter_data;
+Boolean XtCVT3b_StringToChar(
+    Display *display,
+    XrmValue *args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val,
+    XtPointer *converter_data)
 {
 	return (XtCVT1_StringToChar(display, args, num_args, from_val, to_val, converter_data));
 }
-Boolean XtCVT1c_StringToChar(display, args, num_args, from_val, to_val, converter_data)
-Display *display;
-XrmValue *args;
-Cardinal *num_args;
-XrmValue *from_val;
-XrmValue *to_val;
-XtPointer *converter_data;
+
+Boolean XtCVT4b_StringToChar(
+    Display *display,
+    XrmValue *args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val,
+    XtPointer *converter_data)
 {
 	return (XtCVT1_StringToChar(display, args, num_args, from_val, to_val, converter_data));
 }
+
+Boolean XtCVT1c_StringToChar(
+    Display *display,
+    XrmValue *args,
+    Cardinal *num_args,
+    XrmValue *from_val,
+    XrmValue *to_val,
+    XtPointer *converter_data)
+{
+	return (XtCVT1_StringToChar(display, args, num_args, from_val, to_val, converter_data));
+}
+
 >>SET tpstartup avs_alloc_sem
 >>SET tpcleanup avs_free_sem
 >>TITLE XtCallConverter Xt11

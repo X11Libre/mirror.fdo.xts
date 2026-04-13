@@ -65,16 +65,17 @@ XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
-static void XtWMH_Proc(name_good, type_good, class_good, defaultp, params, num_params)
-String name_good;
-String type_good;
-String class_good;
-String defaultp;
-String *params;
-Cardinal *num_params;
+static void XtWMH_Proc(
+    String name_good,
+    String type_good,
+    String class_good,
+    String defaultp,
+    String *params,
+    Cardinal *num_params)
 {
 	avs_set_event(1,1);
 }
+
 >>SET tpstartup avs_alloc_sem
 >>SET tpcleanup avs_free_sem
 >>TITLE XtCvtStringToFont Xt11

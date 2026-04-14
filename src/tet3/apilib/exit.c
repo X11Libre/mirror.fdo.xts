@@ -108,7 +108,7 @@ TET_IMPORT TET_NORETURN void tet_exit(int status)
 **	tet_logoff() - log off all servers and close their connections
 */
 
-TET_IMPORT void tet_logoff()
+TET_IMPORT void tet_logoff(void)
 {
 #ifndef TET_LITE /* -START-LITE-CUT- */
 	struct ptab *pp;

@@ -135,10 +135,7 @@ static int xcf2 PROTOLIST((int, char **, int));
 static int xconfig PROTOLIST((int));
 
 
-int tet_remexec(sysname, file, argv)
-int sysname;
-char *file;
-char **argv;
+int tet_remexec(int sysname, char *file, char *argv)
 {
 	struct rtab *rp;
 	char **ap;
@@ -226,9 +223,7 @@ char **argv;
 **	on error
 */
 
-static long tet_re2(sysid, file, argv)
-int sysid;
-char *file, **argv;
+static long tet_re2(int sysid, char *file, char **argv)
 {
 	long pid;
 	int sysnames[2];
@@ -291,8 +286,7 @@ char *file, **argv;
 **	return 0 if successful or -1 on error
 */
 
-static int do_tclogon(sysid)
-int sysid;
+static int do_tclogon(int sysid)
 {
 	static int been_here = 0;
 	static long configured[NEEDELEM(NUMSYS)];
@@ -381,10 +375,7 @@ static int getconf()
 **	return 0 if successful or -1 on error
 */
 
-static int getcf2(cfname, confp, lconfp, nconfp)
-char *cfname;
-char ***confp;
-int *lconfp, *nconfp;
+static int getcf2(char *cfname, char ***confp, int *lconfp, int *nconfp)
 {
 	int fid, rc;
 	static char fmt[] = "tet_xdfopen(\"%.*s\") failed, rc =";
@@ -413,10 +404,7 @@ int *lconfp, *nconfp;
 **	return 0 if successful or -1 on error
 */
 
-static int getcf3(fid, confp, lconfp, nconfp)
-int fid;
-char ***confp;
-int *lconfp, *nconfp;
+static int getcf3(int fid, char ***confp, int *lconfp, int *nconfp)
 {
 	char **p1, **p2;
 	int n;
@@ -460,8 +448,7 @@ int *lconfp, *nconfp;
 **	return 0 if successful or -1 on error
 */
 
-static int xconfig(sysid)
-int sysid;
+static int xconfig(int sysid)
 {
 	char **sconf = (char **) 0;
 	int lsconf = 0, nsconf = 0;
@@ -689,9 +676,7 @@ int sysid;
 **	return 0 if successful or -1 on error
 */
 
-static int xcf2(sysid, sconf, nsconf)
-int sysid, nsconf;
-char **sconf;
+static int xcf2(int sysid, int sconf, char **nsconf)
 {
 	char **rconf = (char **) 0;
 	int lrconf = 0, nrconf = 0;
@@ -756,4 +741,3 @@ char **sconf;
 int tet_remexec_not_supported;
 
 #endif /* -LITE-CUT-LINE- */
-

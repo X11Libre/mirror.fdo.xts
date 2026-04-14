@@ -60,7 +60,7 @@ MODIFICATIONS:
 #include "globals.h"
 #include "tet_api.h"
 
-TET_IMPORT int tet_remgetsys()
+TET_IMPORT int tet_remgetsys(void)
 {
 #ifndef TET_LITE /* -START-LITE-CUT- */
 	return(tet_mysysid);

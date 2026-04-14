@@ -122,8 +122,7 @@ extern void tet_mtx_unlock();
 
 /* ARGSUSED */
 static void
-sig_term(sig)
-int sig;
+sig_term(int sig)
 {
 	/* clean up on receipt of SIGTERM, but arrange for wait
 	   status still to show termination by SIGTERM */
@@ -142,10 +141,7 @@ int sig;
 
 
 
-TET_IMPORT pid_t tet_spawn(file, argv, envp)
-char *file;
-char *argv[];
-char *envp[];
+TET_IMPORT pid_t tet_spawn(char *file, char *argv[], char *envp[])
 {
 	pid_t pid;
 
@@ -203,10 +199,7 @@ char *envp[];
 **	return pid of spawned process if successful or -1 on error
 */
 
-static pid_t tet_sp2(file, argv, envp)
-char *file;
-char *argv[];
-char *envp[];
+static pid_t tet_sp2(char *file, char *argv[], char *envp[])
 {
 	int pfd[2];
 	pid_t pid;
@@ -238,11 +231,7 @@ char *envp[];
 **	return pid of spawned process if successful or -1 on error
 */
 
-static pid_t tet_sp3(file, argv, envp, pfd)
-char *file;
-char *argv[];
-char *envp[];
-int pfd[];
+static pid_t tet_sp3(char *file, char *argv[], char *envp[], int pfd[])
 {
 	pid_t pid;
 	int err, i, rc;
@@ -405,9 +394,7 @@ int pfd[];
 
 
 
-TET_IMPORT int tet_wait(pid, statp)
-pid_t pid;
-int *statp;
+TET_IMPORT int tet_wait(pid_t pid, int *statp)
 {
 	pid_t rtpid;
 	int err;
@@ -473,9 +460,7 @@ int *statp;
 	return (rtpid == -1 ? -1 : 0);
 }
 
-TET_IMPORT int tet_kill(pid, sig)
-pid_t pid;
-int sig;
+TET_IMPORT int tet_kill(pid_t pid, int sig)
 {
 	int rtval;
 
@@ -511,4 +496,3 @@ int sig;
 
 	return rtval;
 }
-

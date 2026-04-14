@@ -100,8 +100,7 @@ struct rtab *rp;
 **	tet_rtadd() - add an element to the remote execution table
 */
 
-void tet_rtadd(rp)
-struct rtab *rp;
+void tet_rtadd(struct rtab *rp)
 {
 	tet_listinsert((struct llist **) &rtab, (struct llist *) rp);
 }
@@ -110,8 +109,7 @@ struct rtab *rp;
 **	tet_rtrm() - remove an element from the remote execution list
 */
 
-void tet_rtrm(rp)
-struct rtab *rp;
+void tet_rtrm(struct rtab *rp)
 {
 	tet_listremove((struct llist **) &rtab, (struct llist *) rp);
 }
@@ -123,8 +121,7 @@ struct rtab *rp;
 **	return (struct rtab *) 0 if not found
 */
 
-struct rtab *tet_rtfind(remoteid)
-int remoteid;
+struct rtab *tet_rtfind(int remoteid)
 {
 	struct rtab *rp;
 
@@ -152,4 +149,3 @@ int remoteid;
 int tet_rtab_not_needed;
 
 #endif /* -LITE-CUT-LINE- */
-

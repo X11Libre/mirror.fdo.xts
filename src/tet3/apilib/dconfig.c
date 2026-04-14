@@ -129,7 +129,7 @@ TET_IMPORT char *tet_getvar(const char *name)
 	return ((char *) NULL);
 }
 
-TET_IMPORT void tet_config()
+TET_IMPORT void tet_config(void)
 {
 	FILE *fp;
 	const char *file;

@@ -236,16 +236,14 @@ TET_IMPORT pid_t *tet_thr_child()
 
 /* ARGSUSED */
 static void
-alrm(sig)
-int sig;
+alrm(int sig)
 {
 	alrm_flag++;
 }
 
 /* ARGSUSED */
 static void
-sig_term(sig)
-int sig;
+sig_term(int sig)
 {
 	/* clean up on receipt of SIGTERM, but arrange for wait
 	   status still to show termination by SIGTERM */
@@ -263,14 +261,10 @@ int sig;
 }
 
 #  ifdef FORK1
-TET_IMPORT int tet_fork1(childproc, parentproc, waittime, exitvals)
+TET_IMPORT int tet_fork1(void (*childproc)(), void(*parentproc)(), int waittime, int exitvals)
 #  else
-TET_IMPORT int tet_fork(childproc, parentproc, waittime, exitvals)
+TET_IMPORT int tet_fork(void (*childproc)(), void(*parentproc)(), int waittime, int exitvals)
 #  endif
-void (*childproc) ();
-void (*parentproc) ();
-int	waittime;
-int	exitvals;
 {
 	int	rtval, err, status, i;
 	pid_t	savchild;
@@ -574,9 +568,7 @@ int	exitvals;
 #  ifndef FORK1
 
 int
-tet_killw(child, timeout)
-pid_t child;
-unsigned int timeout;
+tet_killw(pid_t child, unsigned int timeout)
 {
 	/* kill child and wait for it (with timeout) */
 
@@ -668,5 +660,3 @@ tet_signame(int sig)
 }
 
 #  endif /* FORK1 */
-
-

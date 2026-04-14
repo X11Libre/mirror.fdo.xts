@@ -117,10 +117,7 @@ static int tet_ms2 PROTOLIST((long, int *, int, int, int, struct tet_synmsg *,
 	int));
 
 
-TET_IMPORT int tet_remsync(syncptno, syncnames, nsyncname, waittime, vote, msgp)
-long syncptno;
-int *syncnames, nsyncname, waittime, vote;
-struct tet_synmsg *msgp;
+TET_IMPORT int tet_remsync(long syncptno, int *syncnames, int nsyncname, int waittime, int vote, struct tet_synmsg *msgp)
 {
 	if (!syncnames || nsyncname <= 0 ||
 	    (vote != TET_SV_YES && vote != TET_SV_NO))
@@ -133,9 +130,7 @@ struct tet_synmsg *msgp;
 		msgp, REPORT_NO);
 }
 
-TET_IMPORT int tet_sync(syncptno, syncnames, waittime)
-long syncptno;
-int *syncnames, waittime;
+TET_IMPORT int tet_sync(long syncptno, int *syncnames, int waittime)
 {
 	int nsyncname, defaultsync = 0;
 
@@ -153,10 +148,7 @@ int *syncnames, waittime;
 		(struct tet_synmsg *) 0, REPORT_YES);
 }
 
-TET_IMPORT int tet_msync(syncptno, syncnames, waittime, msgp)
-long syncptno;
-int *syncnames, waittime;
-struct tet_synmsg *msgp;
+TET_IMPORT int tet_msync(long syncptno, int *syncnames, int waittime, struct tet_synmsg *msgp)
 {
 	int nsyncname, defaultsync = 0;
 
@@ -174,10 +166,7 @@ struct tet_synmsg *msgp;
 		msgp, REPORT_YES);
 }
 
-static int tet_ms2(syncptno, syncnames, nsys, waittime, vote, msgp, report_errs)
-long syncptno;
-int *syncnames, nsys, waittime, vote, report_errs;
-struct tet_synmsg *msgp;
+static int tet_ms2(long syncptno, int *syncnames, int nsys, int waittime, int vote, struct tet_synmsg *msgp, int report_errs)
 {
 	struct synreq *sp;
 	int *ip;
@@ -328,10 +317,7 @@ struct tet_synmsg *msgp;
 	return(-1);
 }
 
-TET_IMPORT void tet_syncreport(syncptno, statp, nsys)
-long syncptno;
-struct tet_syncstat *statp;
-int nsys;
+TET_IMPORT void tet_syncreport(long syncptno, struct tet_syncstat *statp, int nsys)
 {
 	struct tet_syncstat *tsp;
 	char *p;
@@ -417,4 +403,3 @@ TET_IMPORT void (*tet_syncerr)() = tet_syncreport;
 int tet_XSync_not_supported;
 
 #endif /* -LITE-CUT-LINE- */
-

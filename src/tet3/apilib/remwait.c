@@ -70,8 +70,7 @@ MODIFICATIONS:
 #include "dtetlib.h"
 #include "sigsafe.h"
 
-int tet_remwait(remoteid, waittime, statloc)
-int remoteid, waittime, *statloc;
+int tet_remwait(int remoteid, int waittime, int *statloc)
 {
 	struct rtab *rp;
 	int rc;

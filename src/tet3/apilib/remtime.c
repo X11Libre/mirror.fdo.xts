@@ -66,9 +66,7 @@ MODIFICATIONS:
 #include "sysent.h"
 #include "servlib.h"
 
-TET_IMPORT int tet_remtime(sysid, tp)
-int sysid;
-time_t *tp;
+TET_IMPORT int tet_remtime(int sysid, time_t *tp)
 {
 	long retval;
 
@@ -123,4 +121,3 @@ time_t *tp;
 int tet_remtime_not_supported;
 
 #endif /* -LITE-CUT-LINE- */
-

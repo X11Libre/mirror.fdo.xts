@@ -65,9 +65,7 @@ MODIFICATIONS:
 #include "sysent.h"
 #include "tet_api.h"
 
-TET_IMPORT int tet_getsysbyid(sysid, sysp)
-int sysid;
-struct tet_sysent *sysp;
+TET_IMPORT int tet_getsysbyid(int sysid, struct tet_sysent *sysp)
 {
 	struct sysent *entp;
 

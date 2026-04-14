@@ -266,9 +266,7 @@ TET_IMPORT long *tet_thr_sequence()
 #endif /* TET_THREADS */
 
 static int
-output(lineptrs, nlines)
-char **lineptrs;
-int nlines;
+output(char **lineptrs, int nlines)
 {
 	/* For TETware-Lite all execution results file output comes
 	   through here.  For non-Lite only infolines and TCM errors. */
@@ -714,8 +712,7 @@ tet_printf(const char *format, ...)
 **	tet_result() - send a test purpose result to XRESD or tmpfile
 */
 
-TET_IMPORT void tet_result(result)
-int result;
+TET_IMPORT void tet_result(int result)
 {
 #ifdef TET_LITE
 	const char *resname;
@@ -800,7 +797,7 @@ int result;
 	API_UNLOCK;
 }
 
-TET_IMPORT void tet_setcontext()
+TET_IMPORT void tet_setcontext(void)
 {
 	/* Set current context to process ID and */
 	/* (non-thread API only) reset block & sequence */
@@ -835,7 +832,7 @@ TET_IMPORT void tet_setcontext()
 	API_UNLOCK;
 }
 
-TET_IMPORT void tet_setblock()
+TET_IMPORT void tet_setblock(void)
 {
 	/* Increment current block & reset sequence number within block */
 
@@ -1095,7 +1092,7 @@ tet_routput(const char **lines, int nlines)
 	** and restored afterwards because a call to tet_error() might be
 	** reporting on a previous XRESD operation
 	*/
-	if (output(lines, nlines) < 0) {
+	if (output((char**)lines, nlines) < 0) {
 		/* no longer OK to write to the standard channel */
 		tet_combined_ok = 0;
 		tet_error(ERRNUM, ERRMSG);

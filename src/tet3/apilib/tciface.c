@@ -115,7 +115,7 @@ MODIFICATIONS:
 **		IC number defined in this test case
 */
 
-int tet_getmaxic()
+int tet_getmaxic(void)
 {
 	struct tet_testlist *tp;
 	int icmax;
@@ -128,7 +128,7 @@ int tet_getmaxic()
 	return(icmax);
 }
 
-int tet_getminic()
+int tet_getminic(void)
 {
 	struct tet_testlist *tp;
 	int icmin;
@@ -146,8 +146,7 @@ int tet_getminic()
 **		in this test case, 0 otherwise
 */
 
-int tet_isdefic(icnum)
-int icnum;
+int tet_isdefic(int icnum)
 {
 	struct tet_testlist *tp;
 
@@ -165,8 +164,7 @@ int icnum;
 **	return 0 if the specified IC is not defined in this test case
 */
 
-int tet_gettpcount(icnum)
-int icnum;
+int tet_gettpcount(int icnum)
 {
 	struct tet_testlist *tp;
 	int tpcount;
@@ -186,8 +184,7 @@ int icnum;
 **	return 0 if the specified TP has not been defined in this test case
 */
 
-int tet_gettestnum(icnum, tpnum)
-int icnum, tpnum;
+int tet_gettestnum(int icnum, int tpnum)
 {
 	struct tet_testlist *tp;
 	int testnum;
@@ -208,8 +205,7 @@ int icnum, tpnum;
 **	Always returns 0.
 */
 
-int tet_invoketp(icnum, tpnum)
-int icnum, tpnum;
+int tet_invoketp(int icnum, int tpnum)
 {
 	struct tet_testlist *tp;
 
@@ -221,4 +217,3 @@ int icnum, tpnum;
 
 	return(0);
 }
-

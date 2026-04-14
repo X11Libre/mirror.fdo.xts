@@ -85,8 +85,7 @@ MODIFICATIONS:
 
 #ifndef TET_LITE /* -START-LITE-CUT- */
 
-TET_IMPORT int tet_remgetlist(sysnames)
-int **sysnames;
+TET_IMPORT int tet_remgetlist(int **sysnames)
 {
 	int n, nsys, *ip1, *ip2;
 	static int *snames;
@@ -133,8 +132,7 @@ int **sysnames;
 
 #else /* -END-LITE-CUT- */
 
-TET_IMPORT int tet_remgetlist(sysnames)
-int **sysnames;
+TET_IMPORT int tet_remgetlist(int **sysnames)
 {
 	static int snames[1] = { 0 };
 
@@ -145,4 +143,3 @@ int **sysnames;
 }
 
 #endif /* -LITE-CUT-LINE- */
-

@@ -64,8 +64,7 @@ MODIFICATIONS:
 #include "valmsg.h"
 #include "servlib.h"
 
-int tet_remkill(remoteid)
-int remoteid;
+int tet_remkill(int remoteid)
 {
 	struct rtab *rp;
 

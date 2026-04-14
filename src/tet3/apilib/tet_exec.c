@@ -163,8 +163,7 @@ static struct envlist {
 **	tet_exec_cleanup().
 */
 
-int tet_exec_prep(file, argv, envp, nargvp, nenvpp)
-char *file, *argv[], *envp[], ***nargvp, ***nenvpp;
+int tet_exec_prep(char *file, char *argv[], char *envp[], char ***nargvp, char ***nenvpp)
 {
 	char *cp;
 	char **ep;
@@ -330,8 +329,7 @@ char *file, *argv[], *envp[], ***nargvp, ***nenvpp;
 **	tet_exec_cleanup() - free memory allocated by tet_exec_prep()
 */
 
-void tet_exec_cleanup(envp, newargv, newenvp)
-char **envp, **newargv, **newenvp;
+void tet_exec_cleanup(char **envp, char **newargv, char **newenvp)
 {
 	int n;
 
@@ -422,5 +420,3 @@ tet_exec(const char *file, char *argv[], char *envp[])
 		errno = errsave;
 	return(rc);
 }
-
-

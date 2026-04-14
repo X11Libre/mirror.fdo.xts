@@ -145,8 +145,7 @@ tet_reason(int testnum)
 **	return (struct delreason *) 0 if no such element can be found
 */
 
-static struct delreason *drfind(testnum)
-int testnum;
+static struct delreason *drfind(int testnum)
 {
 	struct delreason *drp;
 
@@ -163,7 +162,7 @@ int testnum;
 **		thereto
 */
 
-static struct delreason *dralloc()
+static struct delreason *dralloc(void)
 {
 	struct delreason *drp;
 
@@ -184,8 +183,7 @@ static struct delreason *dralloc()
 **	drfree() - mark a delreason element as free
 */
 
-static void drfree(drp)
-struct delreason *drp;
+static void drfree(struct delreason *drp)
 {
 	drp->dr_reason = (char *) 0;
 	drp->dr_testnum = -1;

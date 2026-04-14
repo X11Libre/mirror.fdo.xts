@@ -182,8 +182,7 @@ static int	ttadd();
 
 static
   void *
-start_wrapper(vwrap_arg)
-void *vwrap_arg;
+start_wrapper(void *vwrap_arg)
 {
 	/* wrapper for user-specified thread start routine */
 
@@ -215,23 +214,11 @@ void *vwrap_arg;
 
 #  ifndef TET_POSIX_THREADS
 int
-tet_thr_create(stack_base, stack_size, start_routine, arg, flags,
-		new_thread, waittime)
-void *stack_base;
-size_t stack_size;
-void *(*start_routine)();
-void *arg;
-long flags;
-thread_t *new_thread;
-int waittime;
+tet_thr_create(void *stack_base, size_t stack_size, void *(*start_routine)(), void *arg, long flags,
+		thread_t *new_thread, int waittime)
 #  else /* TET_POSIX_THREADS */
 int
-tet_pthread_create(new_thread, attr, start_routine, arg, waittime)
-pthread_t *new_thread;
-pthread_attr_t *attr;
-void *(*start_routine)();
-void *arg;
-int waittime;
+tet_pthread_create(pthread_t new_thread, thread_attr_t attr, void *(*start_routine)(), void *arg, int waittime)
 #  endif /* TET_POSIX_THREADS */
 {
 	tet_thread_t tid;
@@ -326,14 +313,10 @@ int waittime;
 
 #  ifndef TET_POSIX_THREADS
 int
-tet_thr_join(thread, value_ptr)
-thread_t thread;
-void **value_ptr;
+tet_thr_join(thread_t thread, void **value_ptr)
 #  else /* TET_POSIX_THREADS */
 int
-tet_pthread_join(thread, value_ptr)
-pthread_t thread;
-void **value_ptr;
+tet_pthread_join(pthread_t thread, void **value_ptr)
 #  endif /* TET_POSIX_THREADS */
 {
 	struct thrtab *ttp = 0;
@@ -393,8 +376,7 @@ void **value_ptr;
 
 #  ifdef TET_POSIX_THREADS
 int
-tet_pthread_detach(thread)
-pthread_t thread;
+tet_pthread_detach(pthread_t thread)
 {
 	struct thrtab *ttp = 0;
 	int err;
@@ -434,8 +416,7 @@ pthread_t thread;
 
 
 static void
-do_oldabort(sig)
-int sig;
+do_oldabort(int sig)
 {
 	/* wrong thread received SIGABRT signal - try to do what it
 	   would have done */
@@ -455,8 +436,7 @@ int sig;
 }
 
 static void
-make_thr_exit(sig)
-int sig;
+make_thr_exit(int sig)
 {
 	/* signal handler used to force the target thread to exit when
 	   it is sent a SIGABRT with TET_THR_KILL() */
@@ -473,8 +453,7 @@ int sig;
 	TET_THR_EXIT((void *)0);
 }
 
-TET_IMPORT void tet_cln_threads(signum)
-int signum;
+TET_IMPORT void tet_cln_threads(int signum)
 {
 	/* clean up any left-over threads */
 
@@ -555,8 +534,7 @@ int signum;
 }
 
 static void *
-cln_thr2(arg)
-void *arg;
+cln_thr2(void *arg)
 {
 	/* force the specified thread to exit, after timeout of waittime
 	   (this function is executed in a new thread) */
@@ -661,8 +639,7 @@ tet_thrtab_reset()
 }
 
 static int
-ttadd(newttp)
-struct thrtab *newttp;
+ttadd(struct thrtab *newttp)
 {
 	/* add or update a thread in the thread table */
 	/* return 1 if entry added, 0 if existing entry updated */

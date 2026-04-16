@@ -227,9 +227,14 @@ void XtCB1_Proc(
 	avs_set_event(1,avs_get_event(1)+1);
 }
 
-/*
-** Installed Warning handler
-*/
+void XtEVT3_handler(
+    String str1,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
+    Cardinal *car) _X_NORETURN;
+
 void XtEVT3_handler(
     String str1,
     String str2,
@@ -241,6 +246,14 @@ void XtEVT3_handler(
 	avs_set_event(1,avs_get_event(1)+1);
 	exit(0);
 }
+
+void XtEVT4_handler(
+    String str1,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
+    Cardinal *car) _X_NORETURN;
 
 void XtEVT4_handler(
     String str1,

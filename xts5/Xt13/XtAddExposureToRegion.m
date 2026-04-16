@@ -135,10 +135,15 @@ void XtEVT2_Proc(
 	}
 }
 
-/*
-** Installed Warning handler
-*/
-void XtEMH2_Proc(
+static void XtEMH2_Proc(
+    String str,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
+    Cardinal *car) _X_NORETURN;
+
+static void XtEMH2_Proc(
     String str,
     String str2,
     String str3,
@@ -149,9 +154,15 @@ void XtEMH2_Proc(
 	avs_set_event(3,1);
 	exit(0);
 }
-/*
-** Installed Error handler
-*/
+
+void XtEMH_Proc(
+    String str,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
+    Cardinal *car) _X_NORETURN;
+
 void XtEMH_Proc(
     String str,
     String str2,

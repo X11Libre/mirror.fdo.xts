@@ -71,6 +71,14 @@ static void XtEMH_Proc(
     String class_good,
     String defaultp,
     String *params,
+    Cardinal *num_params) _X_NORETURN;
+
+static void XtEMH_Proc(
+    String name_good,
+    String type_good,
+    String class_good,
+    String defaultp,
+    String *params,
     Cardinal *num_params)
 {
 	tet_infoline("TEST: Arguments passed to message handler correctly");

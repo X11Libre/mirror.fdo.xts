@@ -248,6 +248,8 @@ void XtTI2_Proc(
 	exit(0);
 }
 
+void XtEM_Proc(String,String,String,String,String *,Cardinal *) _X_NORETURN;
+
 void XtEM_Proc(
     String str1,
     String str2,
@@ -258,6 +260,14 @@ void XtEM_Proc(
 {
 	avs_set_event(2,1);
 }
+
+void XtWM_Proc(
+    String str1,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
+    Cardinal *car) _X_NORETURN;
 
 void XtWM_Proc(
     String str1,
@@ -443,8 +453,8 @@ pid_t pid2;
 	FORK(pid2);
 	avs_xt_hier("Tcalbkpdn1", "XtCallbackPopdown");
 	tet_infoline("PREP: Install error message handler");
-	XtAppSetErrorMsgHandler(app_ctext, &XtEM_Proc);
-	XtAppSetWarningMsgHandler(app_ctext, &XtWM_Proc);
+	XtAppSetErrorMsgHandler(app_ctext, XtEM_Proc);
+	XtAppSetWarningMsgHandler(app_ctext, XtWM_Proc);
 	tet_infoline("PREP: Create labelw_good widget");
 	labelw_good = (Widget) CreateLabelWidget("ApTest", boxw1);
 	tet_infoline("PREP: Create a popup shell");

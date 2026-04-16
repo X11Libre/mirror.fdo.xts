@@ -62,7 +62,16 @@ XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
-void XtEMH_Proc(
+static void XtEMH_Proc(
+    String str,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
+    Cardinal *car)
+    _X_NORETURN;
+
+static void XtEMH_Proc(
     String str,
     String str2,
     String str3,
@@ -120,7 +129,7 @@ pid_t pid2;
 		tet_result(TET_FAIL);
 	}
 	tet_infoline("PREP: Re-Register error handler");
-	previous_handler = XtAppSetErrorMsgHandler(app_ctext, (XtErrorMsgHandler _X_NORETURN)previous_handler);
+	previous_handler = XtAppSetErrorMsgHandler(app_ctext, previous_handler);
 	tet_infoline("TEST: Pointer to previous handler returned");
 	if (previous_handler != XtEMH_Proc) {
 		sprintf(ebuf, "ERROR: Pointer to previous handler not returned correctly");

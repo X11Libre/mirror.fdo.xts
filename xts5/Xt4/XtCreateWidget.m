@@ -67,9 +67,14 @@ XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
-/*
-** XtEMH_Proc
-*/
+void XtEMH_Proc(
+    String str1,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
+    Cardinal *car) _X_NORETURN;
+
 void XtEMH_Proc(
     String str1,
     String str2,

@@ -59,9 +59,8 @@ All Rights Reserved.
 #include <X11/CoreP.h>
 char msg[1024];
 
-/*
-** XtEMH_Proc
-*/
+static void XtEMH_Proc(String str) _X_NORETURN;
+
 static void XtEMH_Proc(String str)
 {
 	avs_set_event(1, 1);

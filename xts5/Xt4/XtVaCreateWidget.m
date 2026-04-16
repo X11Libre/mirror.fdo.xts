@@ -78,9 +78,14 @@ void XtWMH_Proc(
 	avs_set_event(1,1);
 }
 
-/*
-** XtEMH_Proc
-*/
+void XtEMH_Proc(
+    String str1,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
+    Cardinal *car) _X_NORETURN;
+
 void XtEMH_Proc(
     String str1,
     String str2,

@@ -88,7 +88,7 @@ shall register
 as the high-level warning handler for the application context
 .A app_context.
 >>CODE
-XtErrorMsgHandler previous_handler;
+XtErrorMsgHandler _X_NORETURN previous_handler;
 pid_t pid2;
 int status;
 
@@ -110,7 +110,7 @@ shall return a pointer to the previously installed high-level
 warning handler for the application context
 .A app_context.
 >>CODE
-XtErrorMsgHandler previous_handler;
+XtErrorMsgHandler _X_NORETURN previous_handler;
 pid_t pid2;
 
 	FORK(pid2);

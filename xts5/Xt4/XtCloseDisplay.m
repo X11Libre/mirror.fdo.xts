@@ -73,7 +73,7 @@ void XtEMH_Proc(
     String str3,
     String str4,
     String *str5,
-    Cardinal *car) __attribute__((noreturn));
+    Cardinal *car) _X_NORETURN;
 
 void XtEMH_Proc(
     String str,

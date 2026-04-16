@@ -101,6 +101,14 @@ void XtWMH_Proc(
     String str3,
     String str4,
     String *str5,
+    Cardinal *car) _X_NORETURN;
+
+void XtWMH_Proc(
+    String str1,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
     Cardinal *car)
 {
         avs_set_event(1,1);

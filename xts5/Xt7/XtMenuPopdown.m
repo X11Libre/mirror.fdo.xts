@@ -321,7 +321,15 @@ void XtCB5_Proc(
 	}
 }
 
-void XtWM_Proc(
+static void XtWM_Proc(
+    String name,
+    String type,
+    String class,
+    String defaulttp,
+    String *params,
+    Cardinal *num_params) _X_NORETURN;
+
+static void XtWM_Proc(
     String name,
     String type,
     String class,
@@ -331,7 +339,15 @@ void XtWM_Proc(
 {
 }
 
-void XtEM_Proc(
+static void XtEM_Proc(
+    String name,
+    String type,
+    String class,
+    String defaulttp,
+    String *params,
+    Cardinal *num_params) _X_NORETURN;
+
+static void XtEM_Proc(
     String name,
     String type,
     String class,
@@ -653,8 +669,8 @@ static char trans_good[] = "#replace	\n\
 	avs_set_event(1,0);
 	avs_xt_hier("Tmpopdown4", "XtMenuPopdown");
 	tet_infoline("PREP: Install error message handler");
-	XtAppSetErrorMsgHandler(app_ctext, &XtEM_Proc);
-	XtAppSetWarningMsgHandler(app_ctext, &XtWM_Proc);
+	XtAppSetErrorMsgHandler(app_ctext, XtEM_Proc);
+	XtAppSetWarningMsgHandler(app_ctext, XtWM_Proc);
 	display = XtDisplay(topLevel);
 	tet_infoline("PREP: Create a popup shell");
 	test_w = (Widget) XtCreateWidget("test", compositeWidgetClass, boxw1, (ArgList)NULL, 0);

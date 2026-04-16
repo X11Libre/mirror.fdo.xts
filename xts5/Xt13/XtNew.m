@@ -77,6 +77,14 @@ void XtEM_Proc(
     String str3,
     String str4,
     String *str5,
+    Cardinal *car) _X_NORETURN;
+
+void XtEM_Proc(
+    String str,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
     Cardinal *car)
 {
 	XtFree(array);
@@ -133,7 +141,7 @@ pid_t pid2;
 	topLevel = (Widget) avs_xt_init("Tnew2", NULL, 0);
 	tet_infoline("PREP: Set up the XtToolkitError handler");
 	app_ctext = XtWidgetToApplicationContext(topLevel);
-	XtAppSetErrorMsgHandler(app_ctext, &XtEM_Proc);
+	XtAppSetErrorMsgHandler(app_ctext, XtEM_Proc);
 	tet_infoline("PREP: Malloc available memory");
 	num = mem_limit();
 	array = (char *) XtCalloc(num, 4);

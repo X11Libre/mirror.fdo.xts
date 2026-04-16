@@ -68,7 +68,15 @@ XtAppContext app_ctext;
 Widget topLevel, panedw, boxw1, boxw2;
 Widget labelw, rowcolw, click_quit;
 
-void XtEMH2_Proc(
+static void XtEMH2_Proc(
+    String str1,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
+    Cardinal *car) _X_NORETURN;
+
+static void XtEMH2_Proc(
     String str1,
     String str2,
     String str3,
@@ -78,10 +86,16 @@ void XtEMH2_Proc(
 {
 	avs_set_event(2,1);
 }
-/*
-** Installed Error handler
-*/
-void XtEMH_Proc(
+
+static void XtEMH_Proc(
+    String str1,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
+    Cardinal *car) _X_NORETURN;
+
+static void XtEMH_Proc(
     String str1,
     String str2,
     String str3,

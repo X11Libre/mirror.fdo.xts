@@ -180,9 +180,14 @@ void XtTMO4_Proc(
 	exit(0);
 }
 
-/*
-** Warning handler
-*/
+void XtWMH_Proc(
+    String str1,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
+    Cardinal *car) _X_NORETURN;
+
 void XtWMH_Proc(
     String str1,
     String str2,
@@ -194,9 +199,14 @@ void XtWMH_Proc(
 	avs_set_event(2,1);
 }
 
-/*
-** Error handler
-*/
+void XtEMH_Proc(
+    String str1,
+    String str2,
+    String str3,
+    String str4,
+    String *str5,
+    Cardinal *car) _X_NORETURN;
+
 void XtEMH_Proc(
     String str1,
     String str2,
